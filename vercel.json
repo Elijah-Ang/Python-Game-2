@@ -1,0 +1,34 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "api/app/main.py",
+            "use": "@vercel/python"
+        },
+        {
+            "src": "frontend/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/lessons/(.*)",
+            "dest": "/api/app/main.py"
+        },
+        {
+            "src": "/chapters",
+            "dest": "/api/app/main.py"
+        },
+        {
+            "src": "/verify",
+            "dest": "/api/app/main.py"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/frontend/$1"
+        }
+    ]
+}
