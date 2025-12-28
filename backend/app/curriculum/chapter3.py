@@ -1,5 +1,5 @@
 # Chapter 3: Logic & Control Flow
-# Each exercise has specific data and exact expected output
+# Enhanced with detailed definitions, explanations, and "why it matters"
 
 CHAPTER_3 = {
     "id": 3,
@@ -12,14 +12,46 @@ CHAPTER_3 = {
             "id": 22,
             "title": "If Statements",
             "order": 1,
-            "content": """# 🎯 If Statements
+            "content": """# 🎯 If Statements: Making Decisions
 
-Execute code only if a condition is True:
+## What is an If Statement?
+
+An `if` statement lets your code make decisions. It runs code ONLY when a condition is True.
+
+## Real-World Analogy
+
+Think of a bouncer at a club:
+- **IF** you're 21 or older → you can enter
+- Otherwise → you're turned away
+
+In Python:
+```python
+age = 25
+if age >= 21:
+    print("Welcome!")
+```
+
+## The Basic Syntax
+
+```python
+if condition:
+    # This code runs if condition is True
+    # Notice the indentation!
+```
+
+**Important**: The colon `:` and indentation are required!
+
+## How Python Evaluates Conditions
+
+Python checks if the condition is `True` or `False`:
 
 ```python
 age = 20
-if age >= 18:
-    print("Adult")
+if age >= 18:  # 20 >= 18 is True
+    print("You're an adult!")  # This runs!
+
+if age >= 21:  # 20 >= 21 is False
+    print("You can drink!")  # This does NOT run
 ```
 
 ---
@@ -38,15 +70,59 @@ Given `score = 85`:
             "id": 23,
             "title": "If-Else",
             "order": 2,
-            "content": """# ⚖️ If-Else
+            "content": """# ⚖️ If-Else: Two Paths
 
-Do one thing or another:
+## Adding an Alternative
+
+What if you want to do something when the condition is False? Use `else`:
 
 ```python
 if condition:
-    # if True
+    # Runs if True
 else:
-    # if False
+    # Runs if False
+```
+
+## Example
+
+```python
+age = 15
+if age >= 18:
+    print("You can vote!")
+else:
+    print("Too young to vote")
+# Output: Too young to vote
+```
+
+## Only ONE Path Runs
+
+With if-else, exactly ONE block runs - never both, never neither:
+
+```python
+temperature = 75
+if temperature > 80:
+    print("Hot!")
+else:
+    print("Nice weather!")
+# Output: Nice weather! (only this one runs)
+```
+
+## Common Mistake
+
+Don't use two separate `if` statements when you want if-else:
+
+```python
+# WRONG - both might run!
+if x > 0:
+    print("Positive")
+if x <= 0:
+    print("Non-positive")
+
+# RIGHT - only one runs
+if x > 0:
+    print("Positive")
+else:
+    print("Non-positive")
 ```
 
 ---
@@ -66,17 +142,60 @@ Given `temperature = 35`:
             "id": 24,
             "title": "If-Elif-Else",
             "order": 3,
-            "content": """# 📊 Multiple Conditions
+            "content": """# 📊 Multiple Conditions with Elif
 
-Use `elif` for multiple checks:
+## When You Have More Than Two Options
+
+`elif` (short for "else if") lets you check multiple conditions:
 
 ```python
+if condition1:
+    # First choice
+elif condition2:
+    # Second choice
+elif condition3:
+    # Third choice
+else:
+    # Default (if nothing else matches)
+```
+
+## Example: Letter Grades
+
+```python
+score = 85
+
 if score >= 90:
     grade = "A"
 elif score >= 80:
     grade = "B"
-else:
+elif score >= 70:
     grade = "C"
+elif score >= 60:
+    grade = "D"
+else:
+    grade = "F"
+
+print(grade)  # B
+```
+
+## Order Matters!
+
+Python checks conditions from top to bottom and stops at the first True:
+
+```python
+score = 95
+
+# WRONG order - 95 >= 60 is True, so prints D!
+if score >= 60: print("D")
+elif score >= 70: print("C")
+elif score >= 80: print("B")
+elif score >= 90: print("A")
+
+# CORRECT order - checks highest first
+if score >= 90: print("A")
+elif score >= 80: print("B")
+elif score >= 70: print("C")
+elif score >= 60: print("D")
 ```
 
 ---
@@ -100,22 +219,49 @@ Given `score = 75`:
             "order": 4,
             "content": """# ⚖️ Comparison Operators
 
-| Operator | Meaning |
-| --- | --- |
-| `==` | Equal |
-| `!=` | Not equal |
-| `>` | Greater than |
-| `<` | Less than |
-| `>=` | Greater or equal |
-| `<=` | Less or equal |
+## Comparing Values
+
+Comparison operators compare two values and return `True` or `False`:
+
+| Operator | Meaning | Example | Result |
+| --- | --- | --- | --- |
+| `==` | Equal to | `5 == 5` | `True` |
+| `!=` | Not equal to | `5 != 3` | `True` |
+| `>` | Greater than | `5 > 3` | `True` |
+| `<` | Less than | `5 < 3` | `False` |
+| `>=` | Greater or equal | `5 >= 5` | `True` |
+| `<=` | Less or equal | `5 <= 3` | `False` |
+
+## Common Mistake: = vs ==
+
+```python
+# = is ASSIGNMENT (storing a value)
+x = 5
+
+# == is COMPARISON (checking equality)
+if x == 5:
+    print("x is five!")
+```
+
+## Comparing Strings
+
+You can compare strings too:
+
+```python
+name = "Alice"
+if name == "Alice":
+    print("Hello, Alice!")
+
+# Alphabetical comparison
+"apple" < "banana"  # True (a comes before b)
+```
 
 ---
 
 ## 🎯 Your Task
 
 Given `a = 10` and `b = 10`:
-Print whether they are equal.
-Print: `Equal: True`
+Check if they are equal and print: `Equal: True`
 """,
             "starter_code": "a = 10\nb = 10\n\n# Check if equal\nresult = a == b\nprint(f\"Equal: {result}\")",
             "solution_code": "a = 10\nb = 10\n\n# Check if equal\nresult = a == b\nprint(f\"Equal: {result}\")",
@@ -128,11 +274,47 @@ Print: `Equal: True`
             "order": 5,
             "content": """# 🔗 Logical AND
 
-`and` - Both must be True:
+## Combining Conditions
+
+`and` requires BOTH conditions to be True:
 
 ```python
-if age >= 18 and has_license:
-    print("Can drive")
+if condition1 and condition2:
+    # Runs only if BOTH are True
+```
+
+## Real-World Example
+
+To enter a bar, you need to be 21+ AND have ID:
+
+```python
+age = 25
+has_id = True
+
+if age >= 21 and has_id:
+    print("Welcome!")
+else:
+    print("Sorry, can't enter")
+```
+
+## Truth Table for AND
+
+| A | B | A and B |
+| --- | --- | --- |
+| True | True | **True** |
+| True | False | False |
+| False | True | False |
+| False | False | False |
+
+Only True if BOTH are True!
+
+## Multiple ANDs
+
+You can chain multiple conditions:
+
+```python
+if age >= 18 and has_license and not is_suspended:
+    print("You can drive!")
 ```
 
 ---
@@ -156,10 +338,46 @@ If age >= 18 AND has_ticket, print `"Can enter"`
             "order": 6,
             "content": """# 🔀 Logical OR
 
-`or` - At least one must be True:
+## Either Condition
+
+`or` requires AT LEAST ONE condition to be True:
 
 ```python
-if is_weekend or is_holiday:
+if condition1 or condition2:
+    # Runs if EITHER (or both) is True
+```
+
+## Real-World Example
+
+Free shipping if order is $50+ OR member is premium:
+
+```python
+order_total = 35
+is_premium = True
+
+if order_total >= 50 or is_premium:
+    print("Free shipping!")
+else:
+    print("Shipping: $5")
+```
+
+## Truth Table for OR
+
+| A | B | A or B |
+| --- | --- | --- |
+| True | True | True |
+| True | False | True |
+| False | True | True |
+| False | False | **False** |
+
+Only False if BOTH are False!
+
+## Combining AND and OR
+
+Use parentheses for clarity:
+
+```python
+if (is_weekend or is_holiday) and not is_working:
     print("Day off!")
 ```
 
@@ -184,11 +402,47 @@ If is_member OR has_coupon, print `"Discount applied"`
             "order": 7,
             "content": """# ❌ Logical NOT
 
-`not` - Reverses the condition:
+## Reversing Conditions
+
+`not` flips True to False and False to True:
 
 ```python
-if not is_banned:
-    print("Access granted")
+is_raining = False
+if not is_raining:
+    print("No umbrella needed!")
+```
+
+## Truth Table for NOT
+
+| A | not A |
+| --- | --- |
+| True | False |
+| False | True |
+
+## When to Use NOT
+
+```python
+# Instead of checking for False
+if logged_in == False:  # Works but awkward
+    print("Please log in")
+
+# Use NOT (more Pythonic!)
+if not logged_in:
+    print("Please log in")
+```
+
+## NOT with Collections
+
+```python
+# Check if list is empty
+items = []
+if not items:  # Empty list is "falsy"
+    print("Cart is empty!")
+
+# Check if string is empty
+name = ""
+if not name:
+    print("Name is required!")
 ```
 
 ---
@@ -209,12 +463,49 @@ If NOT blocked, print `"Welcome!"`
             "order": 8,
             "content": """# 🪆 Nested If Statements
 
-If statements inside if statements:
+## If Inside If
+
+You can put if statements inside other if statements:
 
 ```python
 if has_account:
     if is_verified:
         print("Full access")
+    else:
+        print("Please verify your email")
+else:
+    print("Please create an account")
+```
+
+## When to Nest
+
+Useful when second check only makes sense if first is True:
+
+```python
+if user_input:  # First check: did they enter anything?
+    if user_input.isdigit():  # Only check this if there's input
+        print("Valid number!")
+    else:
+        print("Not a number")
+else:
+    print("No input provided")
+```
+
+## Avoid Deep Nesting
+
+Too many levels becomes hard to read:
+
+```python
+# BAD - too nested!
+if a:
+    if b:
+        if c:
+            if d:
+                do_something()
+
+# BETTER - use AND
+if a and b and c and d:
+    do_something()
 ```
 
 ---
@@ -240,10 +531,42 @@ If logged_in, check if is_admin:
             "order": 9,
             "content": """# ⚡ One-Line Conditionals
 
-Ternary operator: `value_if_true if condition else value_if_false`
+## The Ternary Operator
+
+Python has a shorthand for simple if-else:
 
 ```python
+value_if_true if condition else value_if_false
+```
+
+## Example
+
+```python
+age = 20
 status = "Adult" if age >= 18 else "Minor"
+print(status)  # Adult
+```
+
+This is equivalent to:
+```python
+if age >= 18:
+    status = "Adult"
+else:
+    status = "Minor"
+```
+
+## When to Use
+
+✅ Good for simple, short conditions:
+```python
+result = "Pass" if score >= 70 else "Fail"
+message = f"Welcome, {name}!" if name else "Welcome, Guest!"
+```
+
+❌ Avoid for complex logic:
+```python
+# Too complex for ternary - use regular if-else
+grade = "A" if score >= 90 else "B" if score >= 80 else "C" if score >= 70 else "F"
 ```
 
 ---

@@ -39,6 +39,12 @@ def verify_code(
             "suggestions": ["Read the instructions on the left", "Write code to solve the task"]
         }
     
+    # Special handling for graph/visualization exercises
+    if is_graph_exercise(expected_output):
+        graph_result = validate_graph_code(user_code, actual_output)
+        if graph_result:
+            return graph_result
+    
     # No expected output defined - just check if code ran successfully
     if not expected_output or expected_output == "Run your code to see the output!":
         if actual_output and not is_error_output(actual_output):
@@ -88,10 +94,108 @@ def verify_code(
         }
 
 
+def is_graph_exercise(expected_output: str) -> bool:
+    """Check if this is a graph/visualization exercise."""
+    if not expected_output:
+        return False
+    graph_indicators = [
+        "[Graph:",
+        "graph",
+        "plot",
+        "chart",
+        "histogram",
+        "scatter",
+        "visualization"
+    ]
+    return any(indicator.lower() in expected_output.lower() for indicator in graph_indicators)
+
+
+def validate_graph_code(user_code: str, actual_output: str) -> dict:
+    """
+    Validate that graph code actually creates a proper visualization.
+    Returns None if valid (continue normal flow), or error dict if invalid.
+    """
+    import re
+    
+    code_lower = user_code.lower()
+    
+    # Must import matplotlib
+    has_matplotlib_import = "import matplotlib" in code_lower or "from matplotlib" in code_lower
+    if not has_matplotlib_import:
+        return {
+            "correct": False,
+            "feedback": "You need to import matplotlib to create graphs.",
+            "suggestions": ["Add: import matplotlib.pyplot as plt"]
+        }
+    
+    # Define all valid plotting function patterns (including ax1, ax2, axes[0], etc.)
+    plotting_patterns = [
+        r'plt\.(plot|bar|scatter|hist|pie|barh|subplot)\s*\(',
+        r'ax\d*\.(plot|bar|scatter|hist|pie|barh)\s*\(',  # ax, ax1, ax2, etc.
+        r'axes?\[\d+\]\.(plot|bar|scatter|hist|pie|barh)\s*\(',  # ax[0], axes[0], etc.
+        r'axes?\[\d+,\s*\d+\]\.(plot|bar|scatter|hist|pie|barh)\s*\(',  # axes[0, 1]
+    ]
+    
+    # Check if ANY plotting function is called with actual data
+    plot_calls_with_data = []
+    for pattern in plotting_patterns:
+        matches = re.findall(pattern + r'[^)]+', user_code)
+        plot_calls_with_data.extend(matches)
+    
+    # Also check for simple calls like plt.plot([1,2,3])
+    simple_patterns = [
+        r'plt\.(plot|bar|scatter|hist|pie|barh)\s*\([^\)]+\)',
+        r'ax\d*\.(plot|bar|scatter|hist|pie|barh)\s*\([^\)]+\)',
+    ]
+    
+    has_plot_with_data = False
+    for pattern in simple_patterns:
+        if re.search(pattern, user_code):
+            has_plot_with_data = True
+            break
+    
+    if not has_plot_with_data:
+        # Check if they just created subplots without plotting
+        if "subplots" in user_code.lower():
+            return {
+                "correct": False,
+                "feedback": "You created subplots, but didn't plot any data on them!",
+                "suggestions": [
+                    "Use ax1.plot([1, 2, 3]) or ax1.bar(['A', 'B'], [5, 8]) to add data",
+                    "Each subplot needs its own plot call with data"
+                ]
+            }
+        return {
+            "correct": False,
+            "feedback": "You need to create a plot with actual data.",
+            "suggestions": [
+                "Use plt.plot(), plt.bar(), plt.scatter(), or other plotting functions",
+                "Make sure to pass data to your plotting function"
+            ]
+        }
+    
+    # Check for plt.show() - required to display the graph
+    has_show = "plt.show()" in user_code or ".show()" in user_code
+    if not has_show:
+        return {
+            "correct": False,
+            "feedback": "Don't forget to display your graph!",
+            "suggestions": ["Add plt.show() at the end to display your plot"]
+        }
+    
+    # All checks passed - graph code is valid
+    return None
+
+
 def is_error_output(output: str) -> bool:
     """Check if output contains Python errors."""
+    if not output:
+        return False
+    
     error_indicators = [
         "Error:",
+        "Error\n",
+        "❌",
         "Traceback",
         "SyntaxError",
         "NameError",
@@ -101,7 +205,13 @@ def is_error_output(output: str) -> bool:
         "KeyError",
         "AttributeError",
         "IndentationError",
-        "ZeroDivisionError"
+        "ZeroDivisionError",
+        "PythonError",
+        "ModuleNotFoundError",
+        "ImportError",
+        "RuntimeError",
+        "StopIteration",
+        "RecursionError"
     ]
     return any(indicator in output for indicator in error_indicators)
 

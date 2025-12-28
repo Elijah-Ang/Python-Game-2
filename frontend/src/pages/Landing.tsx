@@ -18,13 +18,13 @@ export const Landing: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-color)] via-transparent to-transparent"></div>
 
                 <div className="relative z-10 text-center px-4">
-                    <p className="text-lg mb-2 tracking-widest text-white/80 uppercase">
+                    <p className="text-2xl md:text-3xl mb-2 tracking-widest text-white font-bold uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                         Start Your
                     </p>
                     <h1 className="text-6xl md:text-8xl font-bold mb-6 pixel-font text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 via-orange-400 to-orange-600 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                         Data Science<br />Adventure
                     </h1>
-                    <p className="text-lg text-white/90 mb-8 max-w-xl mx-auto">
+                    <p className="text-xl md:text-2xl text-white font-semibold mb-8 max-w-2xl mx-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                         The most fun and beginner-friendly way to learn to code for Data Science.
                     </p>
                     <Link

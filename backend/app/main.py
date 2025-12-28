@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Optional
 from .curriculum import get_all_chapters, get_all_lessons, get_lesson_by_id
-from .ai_verifier import verify_code_with_ai
+from .ai_verifier import verify_code
 
 app = FastAPI(title="Data Science Adventure - Python Learning")
 

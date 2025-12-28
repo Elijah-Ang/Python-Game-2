@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Editor from '@monaco-editor/react';
 import { Play, Send, ChevronRight, FileCode, RotateCcw, Eye, EyeOff, Lightbulb, X, CheckCircle, AlertCircle } from 'lucide-react';
@@ -40,6 +40,9 @@ export const Lesson: React.FC = () => {
     const [showSolution, setShowSolution] = useState(false);
     const [verifyResult, setVerifyResult] = useState<VerifyResult | null>(null);
     const [showExpectedOutput, setShowExpectedOutput] = useState(false);
+    const [editorHeightPercent, setEditorHeightPercent] = useState(65);
+    const [isDragging, setIsDragging] = useState(false);
+    const rightPanelRef = useRef<HTMLDivElement>(null);
 
     // Load Lesson Data
     useEffect(() => {
@@ -219,7 +222,13 @@ except:
 
     const goToNext = () => {
         const nextId = Number(id) + 1;
-        navigate(`/lesson/${nextId}`);
+        // Navigate through all lessons including bosses (112, 113)
+        if (nextId <= 113) {
+            navigate(`/lesson/${nextId}`);
+        } else {
+            // Go back to course page after completing Final Boss
+            navigate('/course/python-basics');
+        }
     };
 
     const goToPrev = () => {
@@ -381,7 +390,7 @@ except:
                 </div>
 
                 {/* Right Panel: Code Editor + Terminal */}
-                <div className="w-1/2 flex flex-col">
+                <div ref={rightPanelRef} className="w-1/2 flex flex-col">
                     {/* Editor Header */}
                     <div className="h-10 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-2 justify-between">
                         <div className="flex items-center">
@@ -393,7 +402,7 @@ except:
                     </div>
 
                     {/* Code Editor */}
-                    <div className="flex-1 min-h-0">
+                    <div style={{ height: `${editorHeightPercent}%` }} className="min-h-0">
                         <Editor
                             height="100%"
                             defaultLanguage="python"
@@ -443,8 +452,41 @@ except:
                         </div>
                     </div>
 
+                    {/* Resizable Divider */}
+                    <div
+                        className={`h-2 bg-[var(--border-color)] cursor-row-resize hover:bg-[var(--accent-secondary)] transition-colors flex items-center justify-center ${isDragging ? 'bg-[var(--accent-secondary)]' : ''}`}
+                        onMouseDown={(e) => {
+                            e.preventDefault();
+                            setIsDragging(true);
+                            const startY = e.clientY;
+                            const startPercent = editorHeightPercent;
+                            const panel = rightPanelRef.current;
+                            if (!panel) return;
+
+                            const handleMouseMove = (moveEvent: MouseEvent) => {
+                                const panelRect = panel.getBoundingClientRect();
+                                const panelHeight = panelRect.height - 56 - 48; // Subtract header and toolbar heights
+                                const deltaY = moveEvent.clientY - startY;
+                                const deltaPercent = (deltaY / panelHeight) * 100;
+                                const newPercent = Math.min(85, Math.max(30, startPercent + deltaPercent));
+                                setEditorHeightPercent(newPercent);
+                            };
+
+                            const handleMouseUp = () => {
+                                setIsDragging(false);
+                                document.removeEventListener('mousemove', handleMouseMove);
+                                document.removeEventListener('mouseup', handleMouseUp);
+                            };
+
+                            document.addEventListener('mousemove', handleMouseMove);
+                            document.addEventListener('mouseup', handleMouseUp);
+                        }}
+                    >
+                        <div className="w-8 h-1 bg-[var(--text-secondary)] rounded opacity-50"></div>
+                    </div>
+
                     {/* Terminal / Output */}
-                    <div className="h-48 bg-[#0a0a0c] flex flex-col">
+                    <div style={{ height: `${100 - editorHeightPercent - 10}%` }} className="bg-[#0a0a0c] flex flex-col min-h-0">
                         <div className="px-4 py-2 text-xs text-[var(--text-secondary)] border-b border-[var(--border-color)] flex items-center justify-between">
                             <span>Output</span>
                             {graphOutput && <span className="text-[var(--accent-success)]">📊 Graph rendered</span>}
