@@ -45,7 +45,7 @@ export const Lesson: React.FC = () => {
 
     // Load Lesson Data
     useEffect(() => {
-        fetch(`/lessons/${id}`)
+        fetch(`/api/lessons/${id}`)
             .then(res => res.json())
             .then(data => {
                 setLesson(data);
@@ -174,7 +174,7 @@ except:
         setIsVerifying(true);
 
         try {
-            const response = await fetch('/verify', {
+            const response = await fetch('/api/verify', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

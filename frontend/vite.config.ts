@@ -11,28 +11,7 @@ export default defineConfig({
         target: 'http://127.0.0.1:8000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-      '/courses': {
-        target: 'http://127.0.0.1:8000',
-        changeOrigin: true,
-      },
-      '/lessons': {
-        target: 'http://127.0.0.1:8000',
-        changeOrigin: true,
-      },
-      '/submit': {
-        target: 'http://127.0.0.1:8000',
-        changeOrigin: true,
-      },
-      '/profile': {
-        target: 'http://127.0.0.1:8000',
-        changeOrigin: true,
-      },
-      '/verify': {
-        target: 'http://127.0.0.1:8000',
-        changeOrigin: true,
       }
     }
   }
 })
-
