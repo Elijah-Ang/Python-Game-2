@@ -1,10 +1,27 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
 from .curriculum import get_all_chapters, get_all_lessons, get_lesson_by_id
 from .ai_verifier import verify_code
 
 app = FastAPI(title="Data Science Adventure - Python Learning")
+
+# Add CORS for Vercel
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Vercel serverless handler
+try:
+    from mangum import Mangum
+    handler = Mangum(app)
+except ImportError:
+    handler = None
 
 # Request/Response models
 class VerifyRequest(BaseModel):

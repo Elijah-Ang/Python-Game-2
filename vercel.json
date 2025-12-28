@@ -15,15 +15,27 @@
     ],
     "routes": [
         {
+            "src": "/courses/(.*)",
+            "dest": "/api/app/main.py"
+        },
+        {
+            "src": "/courses",
+            "dest": "/api/app/main.py"
+        },
+        {
             "src": "/lessons/(.*)",
             "dest": "/api/app/main.py"
         },
         {
-            "src": "/chapters",
+            "src": "/lessons",
             "dest": "/api/app/main.py"
         },
         {
             "src": "/verify",
+            "dest": "/api/app/main.py"
+        },
+        {
+            "src": "/health",
             "dest": "/api/app/main.py"
         },
         {
