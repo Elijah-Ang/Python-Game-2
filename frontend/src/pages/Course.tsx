@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ChevronDown, ChevronUp, Trophy, BookOpen } from 'lucide-react';
+import { ChevronDown, ChevronUp, Trophy } from 'lucide-react';
 
 interface LessonItem {
     id: number;
@@ -73,8 +73,8 @@ export const Course: React.FC = () => {
                             >
                                 <div className="flex items-center gap-4">
                                     <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xl ${chapter.is_boss
-                                            ? 'bg-red-500/20 border-2 border-red-500'
-                                            : 'bg-[var(--border-color)]'
+                                        ? 'bg-red-500/20 border-2 border-red-500'
+                                        : 'bg-[var(--border-color)]'
                                         }`}>
                                         {chapter.icon || (chapter.is_boss ? <Trophy className="w-5 h-5" /> : '📘')}
                                     </div>

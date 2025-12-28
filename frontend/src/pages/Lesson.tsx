@@ -39,7 +39,6 @@ export const Lesson: React.FC = () => {
     const [pyodide, setPyodide] = useState<any>(null);
     const [showSolution, setShowSolution] = useState(false);
     const [verifyResult, setVerifyResult] = useState<VerifyResult | null>(null);
-    const [showExpectedOutput, setShowExpectedOutput] = useState(false);
     const [editorHeightPercent, setEditorHeightPercent] = useState(65);
     const [isDragging, setIsDragging] = useState(false);
     const rightPanelRef = useRef<HTMLDivElement>(null);
@@ -194,7 +193,7 @@ except:
             }
         } catch (err) {
             // Fallback verification
-            const hasOutput = output && !output.includes('Error');
+            const hasOutput = Boolean(output && !output.includes('Error'));
             setVerifyResult({
                 correct: hasOutput,
                 feedback: hasOutput
