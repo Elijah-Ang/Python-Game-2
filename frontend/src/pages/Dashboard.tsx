@@ -16,7 +16,7 @@ export const Dashboard: React.FC = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('/api/courses')
+        fetch('/data/courses.json')
             .then(res => res.json())
             .then(data => {
                 setCourses(data);

@@ -4,6 +4,7 @@ import Editor from '@monaco-editor/react';
 import { Play, Send, ChevronRight, FileCode, RotateCcw, Eye, EyeOff, Lightbulb, X, CheckCircle, AlertCircle } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import confetti from 'canvas-confetti';
+import { verifyCode } from '../utils/verifier';
 
 interface LessonData {
     id: number;
@@ -43,18 +44,20 @@ export const Lesson: React.FC = () => {
     const [isDragging, setIsDragging] = useState(false);
     const rightPanelRef = useRef<HTMLDivElement>(null);
 
-    // Load Lesson Data
+    // Load Lesson Data from static JSON
     useEffect(() => {
-        fetch(`/api/lessons/${id}`)
+        fetch('/data/lessons.json')
             .then(res => res.json())
             .then(data => {
-                setLesson(data);
-                // Start with minimal starter code, not the solution
-                setCode("# Write your code here\n\n");
-                setShowSolution(false);
-                setVerifyResult(null);
-                setOutput("");
-                setGraphOutput(null);
+                const lessonData = data[id as string];
+                if (lessonData) {
+                    setLesson(lessonData);
+                    setCode("# Write your code here\n\n");
+                    setShowSolution(false);
+                    setVerifyResult(null);
+                    setOutput("");
+                    setGraphOutput(null);
+                }
             })
             .catch(err => console.error(err));
     }, [id]);
@@ -173,38 +176,20 @@ except:
         const executionOutput = await runCode();
         setIsVerifying(true);
 
-        try {
-            const response = await fetch('/api/verify', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    lesson_id: Number(id),
-                    user_code: code,
-                    actual_output: executionOutput  // Use the returned value, not React state!
-                })
-            });
+        // Use local verification - no API needed!
+        const result = verifyCode(
+            lesson?.expected_output || '',
+            executionOutput,
+            code
+        );
 
-            const result = await response.json();
+        setVerifyResult(result);
 
-            setVerifyResult(result);
-
-            if (result.correct) {
-                triggerConfetti();
-            }
-        } catch (err) {
-            // Fallback verification
-            const hasOutput = Boolean(output && !output.includes('Error'));
-            setVerifyResult({
-                correct: hasOutput,
-                feedback: hasOutput
-                    ? "Great job! Your code ran successfully! 🎉"
-                    : "Your code has an error. Check the terminal output.",
-                suggestions: hasOutput ? [] : ["Review the error message"]
-            });
-            if (hasOutput) triggerConfetti();
-        } finally {
-            setIsVerifying(false);
+        if (result.correct) {
+            triggerConfetti();
         }
+
+        setIsVerifying(false);
     };
 
     const toggleSolution = () => {

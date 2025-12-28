@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "slug": "python-basics",
+    "title": "Python for Data Science",
+    "description": "Learn Python from fundamentals to Machine Learning",
+    "difficulty": "beginner",
+    "chapters_count": 14,
+    "lessons_count": 113
+  }
+]

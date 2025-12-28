@@ -1,0 +1,683 @@
+{
+  "id": 1,
+  "title": "Python for Data Science",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Variables, Types & Memory",
+      "icon": "\ud83c\udfe0",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 1,
+          "title": "What is a Variable?",
+          "order": 1
+        },
+        {
+          "id": 2,
+          "title": "Naming Variables",
+          "order": 2
+        },
+        {
+          "id": 3,
+          "title": "Reassigning Variables",
+          "order": 3
+        },
+        {
+          "id": 4,
+          "title": "Multiple Variables",
+          "order": 4
+        },
+        {
+          "id": 5,
+          "title": "What are Strings?",
+          "order": 5
+        },
+        {
+          "id": 6,
+          "title": "String Concatenation",
+          "order": 6
+        },
+        {
+          "id": 7,
+          "title": "F-Strings (Formatted Strings)",
+          "order": 7
+        },
+        {
+          "id": 8,
+          "title": "String Methods",
+          "order": 8
+        },
+        {
+          "id": 9,
+          "title": "Numbers: Integers and Floats",
+          "order": 9
+        },
+        {
+          "id": 10,
+          "title": "Math Operations",
+          "order": 10
+        },
+        {
+          "id": 11,
+          "title": "Compound Assignment",
+          "order": 11
+        },
+        {
+          "id": 12,
+          "title": "Booleans and Type Conversion",
+          "order": 12
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Loops (Iteration)",
+      "icon": "\ud83d\udd01",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 13,
+          "title": "For Loop Basics",
+          "order": 1
+        },
+        {
+          "id": 14,
+          "title": "Looping Through Strings",
+          "order": 2
+        },
+        {
+          "id": 15,
+          "title": "Accumulating Values",
+          "order": 3
+        },
+        {
+          "id": 16,
+          "title": "Using range()",
+          "order": 4
+        },
+        {
+          "id": 17,
+          "title": "range() with Start and End",
+          "order": 5
+        },
+        {
+          "id": 18,
+          "title": "range() with Step",
+          "order": 6
+        },
+        {
+          "id": 19,
+          "title": "While Loop Basics",
+          "order": 7
+        },
+        {
+          "id": 20,
+          "title": "Loop Control: break",
+          "order": 8
+        },
+        {
+          "id": 21,
+          "title": "Loop Control: continue",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Logic & Control Flow",
+      "icon": "\ud83d\udd00",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 22,
+          "title": "If Statements",
+          "order": 1
+        },
+        {
+          "id": 23,
+          "title": "If-Else",
+          "order": 2
+        },
+        {
+          "id": 24,
+          "title": "If-Elif-Else",
+          "order": 3
+        },
+        {
+          "id": 25,
+          "title": "Comparison Operators",
+          "order": 4
+        },
+        {
+          "id": 26,
+          "title": "Logical AND",
+          "order": 5
+        },
+        {
+          "id": 27,
+          "title": "Logical OR",
+          "order": 6
+        },
+        {
+          "id": 28,
+          "title": "Logical NOT",
+          "order": 7
+        },
+        {
+          "id": 29,
+          "title": "Nested Conditionals",
+          "order": 8
+        },
+        {
+          "id": 30,
+          "title": "Ternary Operator",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Functions",
+      "icon": "\u2699\ufe0f",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 31,
+          "title": "Defining Functions",
+          "order": 1
+        },
+        {
+          "id": 32,
+          "title": "Function Parameters",
+          "order": 2
+        },
+        {
+          "id": 33,
+          "title": "Return Values",
+          "order": 3
+        },
+        {
+          "id": 34,
+          "title": "Multiple Parameters",
+          "order": 4
+        },
+        {
+          "id": 35,
+          "title": "Default Parameters",
+          "order": 5
+        },
+        {
+          "id": 36,
+          "title": "Keyword Arguments",
+          "order": 6
+        },
+        {
+          "id": 37,
+          "title": "Lambda Functions",
+          "order": 7
+        },
+        {
+          "id": 38,
+          "title": "Docstrings",
+          "order": 8
+        },
+        {
+          "id": 39,
+          "title": "Variable Scope",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "title": "Sand Sphinx Boss",
+      "icon": "\ud83d\udc0d",
+      "is_boss": true,
+      "lessons": [
+        {
+          "id": 40,
+          "title": "\ud83d\udc0d Sand Sphinx Challenge",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Data Structures",
+      "icon": "\ud83d\udce6",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 41,
+          "title": "Lists Basics",
+          "order": 1
+        },
+        {
+          "id": 42,
+          "title": "List Methods",
+          "order": 2
+        },
+        {
+          "id": 43,
+          "title": "List Slicing",
+          "order": 3
+        },
+        {
+          "id": 44,
+          "title": "Dictionaries",
+          "order": 4
+        },
+        {
+          "id": 45,
+          "title": "Dictionary Methods",
+          "order": 5
+        },
+        {
+          "id": 46,
+          "title": "Tuples",
+          "order": 6
+        },
+        {
+          "id": 47,
+          "title": "Sets",
+          "order": 7
+        },
+        {
+          "id": 48,
+          "title": "List Comprehension",
+          "order": 8
+        },
+        {
+          "id": 49,
+          "title": "Nested Data Structures",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "File Handling",
+      "icon": "\ud83d\udcc1",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 50,
+          "title": "Reading Files",
+          "order": 1
+        },
+        {
+          "id": 51,
+          "title": "Reading Lines",
+          "order": 2
+        },
+        {
+          "id": 52,
+          "title": "CSV Data",
+          "order": 3
+        },
+        {
+          "id": 53,
+          "title": "JSON Basics",
+          "order": 4
+        },
+        {
+          "id": 54,
+          "title": "String Processing",
+          "order": 5
+        },
+        {
+          "id": 55,
+          "title": "Data Parsing",
+          "order": 6
+        },
+        {
+          "id": 56,
+          "title": "Counting Words",
+          "order": 7
+        },
+        {
+          "id": 57,
+          "title": "Search in Text",
+          "order": 8
+        },
+        {
+          "id": 58,
+          "title": "Replace Text",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Modules & Packages",
+      "icon": "\ud83d\udce6",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 59,
+          "title": "Importing Modules",
+          "order": 1
+        },
+        {
+          "id": 60,
+          "title": "From Import",
+          "order": 2
+        },
+        {
+          "id": 61,
+          "title": "Random Module",
+          "order": 3
+        },
+        {
+          "id": 62,
+          "title": "Datetime Module",
+          "order": 4
+        },
+        {
+          "id": 63,
+          "title": "Collections Module",
+          "order": 5
+        },
+        {
+          "id": 64,
+          "title": "Aliases",
+          "order": 6
+        },
+        {
+          "id": 65,
+          "title": "OS Path",
+          "order": 7
+        },
+        {
+          "id": 66,
+          "title": "Itertools",
+          "order": 8
+        },
+        {
+          "id": 67,
+          "title": "Functools",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Pandas & Data Wrangling",
+      "icon": "\ud83d\udc3c",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 68,
+          "title": "Creating DataFrames",
+          "order": 1
+        },
+        {
+          "id": 69,
+          "title": "Selecting Columns",
+          "order": 2
+        },
+        {
+          "id": 70,
+          "title": "Filtering Rows",
+          "order": 3
+        },
+        {
+          "id": 71,
+          "title": "Basic Statistics",
+          "order": 4
+        },
+        {
+          "id": 72,
+          "title": "Adding Columns",
+          "order": 5
+        },
+        {
+          "id": 73,
+          "title": "GroupBy",
+          "order": 6
+        },
+        {
+          "id": 74,
+          "title": "Sorting",
+          "order": 7
+        },
+        {
+          "id": 75,
+          "title": "Handling Missing Data",
+          "order": 8
+        },
+        {
+          "id": 76,
+          "title": "Value Counts",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Data Visualization",
+      "icon": "\ud83d\udcca",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 77,
+          "title": "Line Plot",
+          "order": 1
+        },
+        {
+          "id": 78,
+          "title": "Bar Chart",
+          "order": 2
+        },
+        {
+          "id": 79,
+          "title": "Scatter Plot",
+          "order": 3
+        },
+        {
+          "id": 80,
+          "title": "Histogram",
+          "order": 4
+        },
+        {
+          "id": 81,
+          "title": "Pie Chart",
+          "order": 5
+        },
+        {
+          "id": 82,
+          "title": "Adding Labels",
+          "order": 6
+        },
+        {
+          "id": 83,
+          "title": "Multiple Lines",
+          "order": 7
+        },
+        {
+          "id": 84,
+          "title": "Colors and Styles",
+          "order": 8
+        },
+        {
+          "id": 85,
+          "title": "Subplots",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Algorithms",
+      "icon": "\ud83e\uddee",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 86,
+          "title": "Linear Search",
+          "order": 1
+        },
+        {
+          "id": 87,
+          "title": "Binary Search",
+          "order": 2
+        },
+        {
+          "id": 88,
+          "title": "Bubble Sort",
+          "order": 3
+        },
+        {
+          "id": 89,
+          "title": "Find Maximum",
+          "order": 4
+        },
+        {
+          "id": 90,
+          "title": "Count Occurrences",
+          "order": 5
+        },
+        {
+          "id": 91,
+          "title": "Reverse Array",
+          "order": 6
+        },
+        {
+          "id": 92,
+          "title": "Remove Duplicates",
+          "order": 7
+        },
+        {
+          "id": 93,
+          "title": "Two Sum",
+          "order": 8
+        },
+        {
+          "id": 94,
+          "title": "Fibonacci",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Statistics",
+      "icon": "\ud83d\udcc9",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 95,
+          "title": "Mean (Average)",
+          "order": 1
+        },
+        {
+          "id": 96,
+          "title": "Median",
+          "order": 2
+        },
+        {
+          "id": 97,
+          "title": "Mode",
+          "order": 3
+        },
+        {
+          "id": 98,
+          "title": "Range",
+          "order": 4
+        },
+        {
+          "id": 99,
+          "title": "Variance",
+          "order": 5
+        },
+        {
+          "id": 100,
+          "title": "Standard Deviation",
+          "order": 6
+        },
+        {
+          "id": 101,
+          "title": "Percentiles",
+          "order": 7
+        },
+        {
+          "id": 102,
+          "title": "Correlation",
+          "order": 8
+        },
+        {
+          "id": 103,
+          "title": "Z-Score",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Machine Learning Intro",
+      "icon": "\ud83e\udd16",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 104,
+          "title": "Train/Test Split",
+          "order": 1
+        },
+        {
+          "id": 105,
+          "title": "Linear Regression",
+          "order": 2
+        },
+        {
+          "id": 106,
+          "title": "Model Accuracy",
+          "order": 3
+        },
+        {
+          "id": 107,
+          "title": "K-Nearest Neighbors",
+          "order": 4
+        },
+        {
+          "id": 108,
+          "title": "Decision Tree",
+          "order": 5
+        },
+        {
+          "id": 109,
+          "title": "Feature Scaling",
+          "order": 6
+        },
+        {
+          "id": 110,
+          "title": "Cross Validation",
+          "order": 7
+        },
+        {
+          "id": 111,
+          "title": "Confusion Matrix",
+          "order": 8
+        },
+        {
+          "id": 112,
+          "title": "Complete ML Pipeline",
+          "order": 9
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "title": "Final Boss: Data Scientist",
+      "icon": "\ud83d\udc80",
+      "is_boss": true,
+      "lessons": [
+        {
+          "id": 113,
+          "title": "\ud83d\udc80 FINAL BOSS: Full Stack Data Scientist",
+          "order": 1
+        }
+      ]
+    }
+  ]
+}

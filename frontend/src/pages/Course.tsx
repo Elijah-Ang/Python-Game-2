@@ -28,7 +28,7 @@ export const Course: React.FC = () => {
     const [expandedChapter, setExpandedChapter] = useState<number | null>(1);
 
     useEffect(() => {
-        fetch(`/api/courses/${slug}`)
+        fetch(`/data/course-${slug}.json`)
             .then(res => res.json())
             .then(data => setCourse(data))
             .catch(err => console.error(err));
