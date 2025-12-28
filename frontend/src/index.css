@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  /* Retro Palette */
+  --bg-color: #0d0e15;
+  /* Deep smooth black/blue */
+  --bg-panel: #161823;
+  /* Slightly lighter panel bg */
+  --text-primary: #e0e6ed;
+  /* Crisp white-blue */
+  --text-secondary: #94a3b8;
+
+  --accent-primary: #f0abfc;
+  /* Neon Pink/Purple (Retro vibe) */
+  --accent-secondary: #6366f1;
+  /* Indigo */
+  --accent-success: #4ade80;
+  /* Green (Success) */
+  --accent-warning: #facc15;
+  /* Yellow */
+  --accent-error: #f87171;
+  /* Red */
+
+  --border-color: #334155;
+
+  --font-pixel: 'VT323', 'Courier New', Courier, monospace;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+/* Utilities */
+.pixel-font {
+  font-family: var(--font-pixel);
+}
+
+.btn-retro {
+  background: var(--accent-secondary);
+  color: white;
+  border: 2px solid transparent;
+  padding: 8px 16px;
+  font-family: var(--font-pixel);
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.5);
+  transition: transform 0.1s;
+}
+
+.btn-retro:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}

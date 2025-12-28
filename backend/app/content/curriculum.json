@@ -1,0 +1,231 @@
+[
+    {
+        "slug": "python-basics",
+        "title": "Python Basics",
+        "description": "Master the foundations of Python programming.",
+        "difficulty": "Beginner",
+        "chapters": [
+            {
+                "title": "🏜️ Variables, Types & Memory",
+                "order": 1,
+                "is_boss": false,
+                "lessons": [
+                    {
+                        "title": "Variables",
+                        "content": "Variables are containers for storing data values.\n\n### Assignment\n```python\nname = value\n```\n\n### Rules\n- Must start with a letter or underscore\n- Case sensitive (`age` vs `Age`)\n- No spaces or special characters\n\n### Example\n```python\nhero_name = \"Py\"\nprint(hero_name)\n```\n\n**Why it matters**: Everything in programming is storing and moving data. This is the foundation of all code.",
+                        "starter_code": "# Create a variable called 'hero_name'\n# Assign it your name as a string\nhero_name = \"\"\nprint(hero_name)",
+                        "solution_code": "hero_name = \"Adventurer\"\nprint(hero_name)",
+                        "order": 1,
+                        "xp": 10
+                    },
+                    {
+                        "title": "Overwriting Values",
+                        "content": "Variables can be changed by assigning a new value.\n\n```python\nx = 5\nprint(x)  # 5\nx = 10\nprint(x)  # 10\n```\n\nThe old value is replaced. Python remembers only the most recent assignment.",
+                        "starter_code": "# Change the value of 'level' from 1 to 2\nlevel = 1\nprint(level)\n# Overwrite it below\n",
+                        "solution_code": "level = 1\nprint(level)\nlevel = 2\nprint(level)",
+                        "order": 2,
+                        "xp": 10
+                    }
+                ]
+            },
+            {
+                "title": "Strings",
+                "order": 2,
+                "is_boss": false,
+                "lessons": [
+                    {
+                        "title": "String Basics",
+                        "content": "Strings are text surrounded by quotes.\n\n```python\n\"Hello World\"\n'Also valid'\n```\n\n### F-Strings (Formatted Strings)\n```python\nname = \"Py\"\nprint(f\"Welcome, {name}!\")\n```\n\n### Common Methods\n- `.upper()` - UPPERCASE\n- `.lower()` - lowercase\n- `.strip()` - Remove whitespace",
+                        "starter_code": "# Use an f-string to print \"Hello, [your name]!\"\nname = \"Adventurer\"\nprint(f\"\")",
+                        "solution_code": "name = \"Adventurer\"\nprint(f\"Hello, {name}!\")",
+                        "order": 1,
+                        "xp": 10
+                    },
+                    {
+                        "title": "String Concatenation",
+                        "content": "Join strings together using `+`.\n\n```python\nfirst = \"Hello\"\nsecond = \"World\"\nresult = first + \" \" + second\nprint(result)  # Hello World\n```",
+                        "starter_code": "# Combine these strings\npart1 = \"Code\"\npart2 = \"Adventure\"\n# Print \"Code Adventure\"\n",
+                        "solution_code": "part1 = \"Code\"\npart2 = \"Adventure\"\nprint(part1 + \" \" + part2)",
+                        "order": 2,
+                        "xp": 10
+                    }
+                ]
+            },
+            {
+                "title": "Numbers & Math",
+                "order": 3,
+                "is_boss": false,
+                "lessons": [
+                    {
+                        "title": "Integers and Floats",
+                        "content": "**Integers**: Whole numbers (`5`, `-3`, `0`)\n**Floats**: Decimal numbers (`3.14`, `-0.5`)\n\n```python\nx = 10      # int\ny = 3.14    # float\n```\n\n### Type Conversion\n```python\nint(3.9)    # 3\nfloat(5)    # 5.0\n```",
+                        "starter_code": "# Calculate the area of a circle (pi * r^2)\nimport math\nradius = 5\narea = \nprint(area)",
+                        "solution_code": "import math\nradius = 5\narea = math.pi * radius ** 2\nprint(area)",
+                        "order": 1,
+                        "xp": 10
+                    },
+                    {
+                        "title": "Arithmetic Operators",
+                        "content": "| Operator | Meaning |\n|----------|--------|\n| `+` | Add |\n| `-` | Subtract |\n| `*` | Multiply |\n| `/` | Divide |\n| `//` | Floor Divide |\n| `%` | Modulo |\n| `**` | Power |",
+                        "starter_code": "# Calculate 2 to the power of 8\nresult = \nprint(result)",
+                        "solution_code": "result = 2 ** 8\nprint(result)",
+                        "order": 2,
+                        "xp": 10
+                    }
+                ]
+            },
+            {
+                "title": "Booleans",
+                "order": 4,
+                "is_boss": false,
+                "lessons": [
+                    {
+                        "title": "True and False",
+                        "content": "Booleans represent truth values: `True` or `False`.\n\n```python\nis_active = True\nis_empty = False\n```\n\n### Comparison Operators\n```python\n5 > 3   # True\n5 == 5  # True\n5 != 3  # True\n```",
+                        "starter_code": "# Check if 10 is greater than 5\nresult = \nprint(result)",
+                        "solution_code": "result = 10 > 5\nprint(result)",
+                        "order": 1,
+                        "xp": 10
+                    }
+                ]
+            },
+            {
+                "title": "🐍 Sand Sphinx Boss",
+                "order": 5,
+                "is_boss": true,
+                "lessons": [
+                    {
+                        "title": "Riddle of the Sphinx",
+                        "content": "**BOSS CHALLENGE**\n\nCombine everything you've learned:\n- Variables\n- Strings + methods\n- Math\n- Formatting\n\nCreate a program that calculates the perimeter of a rectangle and prints it in a formatted message.",
+                        "starter_code": "# Calculate perimeter: 2 * (width + height)\nwidth = 10\nheight = 5\nperimeter = \nprint(f\"The perimeter is: {}\")",
+                        "solution_code": "width = 10\nheight = 5\nperimeter = 2 * (width + height)\nprint(f\"The perimeter is: {perimeter}\")",
+                        "order": 1,
+                        "xp": 50
+                    }
+                ]
+            },
+            {
+                "title": "🌲 For Loops",
+                "order": 6,
+                "is_boss": false,
+                "lessons": [
+                    {
+                        "title": "Iteration Basics",
+                        "content": "Loops let you repeat code.\n\n```python\nfor i in range(5):\n    print(i)  # 0, 1, 2, 3, 4\n```\n\n### Looping Over Lists\n```python\nitems = [\"sword\", \"shield\", \"potion\"]\nfor item in items:\n    print(item)\n```",
+                        "starter_code": "# Print numbers 1 to 5\nfor i in range(1, 6):\n    print(i)",
+                        "solution_code": "for i in range(1, 6):\n    print(i)",
+                        "order": 1,
+                        "xp": 15
+                    },
+                    {
+                        "title": "Range Function",
+                        "content": "`range(start, stop, step)`\n\n```python\nrange(5)        # 0, 1, 2, 3, 4\nrange(1, 6)     # 1, 2, 3, 4, 5\nrange(0, 10, 2) # 0, 2, 4, 6, 8\n```",
+                        "starter_code": "# Print even numbers from 0 to 10\nfor i in range(0, 11, 2):\n    print(i)",
+                        "solution_code": "for i in range(0, 11, 2):\n    print(i)",
+                        "order": 2,
+                        "xp": 15
+                    }
+                ]
+            },
+            {
+                "title": "While Loops",
+                "order": 7,
+                "is_boss": false,
+                "lessons": [
+                    {
+                        "title": "Condition-Controlled Loops",
+                        "content": "While loops run as long as a condition is `True`.\n\n```python\ncount = 0\nwhile count < 5:\n    print(count)\n    count += 1\n```\n\n**Warning**: Avoid infinite loops!",
+                        "starter_code": "# Count down from 5 to 1\ncount = 5\nwhile count > 0:\n    print(count)\n    count -= 1\nprint(\"Blast off!\")",
+                        "solution_code": "count = 5\nwhile count > 0:\n    print(count)\n    count -= 1\nprint(\"Blast off!\")",
+                        "order": 1,
+                        "xp": 15
+                    }
+                ]
+            },
+            {
+                "title": "🌊 Logic & Control Flow",
+                "order": 8,
+                "is_boss": false,
+                "lessons": [
+                    {
+                        "title": "If / Elif / Else",
+                        "content": "Make decisions in your code.\n\n```python\nhealth = 50\n\nif health > 75:\n    print(\"Healthy\")\nelif health > 25:\n    print(\"Injured\")\nelse:\n    print(\"Critical\")\n```",
+                        "starter_code": "# Check if a number is positive, negative, or zero\nnumber = -5\nif number > 0:\n    print(\"Positive\")\nelif number < 0:\n    print(\"Negative\")\nelse:\n    print(\"Zero\")",
+                        "solution_code": "number = -5\nif number > 0:\n    print(\"Positive\")\nelif number < 0:\n    print(\"Negative\")\nelse:\n    print(\"Zero\")",
+                        "order": 1,
+                        "xp": 15
+                    },
+                    {
+                        "title": "Logical Operators",
+                        "content": "Combine conditions.\n\n- `and` - Both must be True\n- `or` - At least one must be True\n- `not` - Inverts the value\n\n```python\nage = 25\nhas_id = True\nif age >= 18 and has_id:\n    print(\"Entry allowed\")\n```",
+                        "starter_code": "# Check if someone can vote (age >= 18 AND is_citizen)\nage = 20\nis_citizen = True\nif age >= 18 and is_citizen:\n    print(\"Can vote!\")",
+                        "solution_code": "age = 20\nis_citizen = True\nif age >= 18 and is_citizen:\n    print(\"Can vote!\")",
+                        "order": 2,
+                        "xp": 15
+                    }
+                ]
+            },
+            {
+                "title": "🏘️ Functions",
+                "order": 9,
+                "is_boss": false,
+                "lessons": [
+                    {
+                        "title": "Defining Functions",
+                        "content": "Functions are reusable blocks of code.\n\n```python\ndef greet():\n    print(\"Hello!\")\n\ngreet()  # Call the function\n```",
+                        "starter_code": "# Create a function called 'battle_cry' that prints 'For glory!'\ndef battle_cry():\n    print(\"For glory!\")\n\nbattle_cry()",
+                        "solution_code": "def battle_cry():\n    print(\"For glory!\")\n\nbattle_cry()",
+                        "order": 1,
+                        "xp": 15
+                    },
+                    {
+                        "title": "Parameters & Return",
+                        "content": "Pass data in, get data out.\n\n```python\ndef add(a, b):\n    return a + b\n\nresult = add(5, 3)\nprint(result)  # 8\n```",
+                        "starter_code": "# Create a function that calculates damage\ndef calculate_damage(base, multiplier):\n    return base * multiplier\n\ndamage = calculate_damage(10, 1.5)\nprint(damage)",
+                        "solution_code": "def calculate_damage(base, multiplier):\n    return base * multiplier\n\ndamage = calculate_damage(10, 1.5)\nprint(damage)",
+                        "order": 2,
+                        "xp": 15
+                    }
+                ]
+            },
+            {
+                "title": "🏔️ Data Structures",
+                "order": 10,
+                "is_boss": false,
+                "lessons": [
+                    {
+                        "title": "Lists",
+                        "content": "Ordered, mutable collections.\n\n```python\ninventory = [\"sword\", \"shield\", \"potion\"]\ninventory.append(\"bow\")\nprint(inventory[0])  # sword\n```",
+                        "starter_code": "# Create a list of 3 items and print the second one\nitems = [\"health_potion\", \"mana_potion\", \"elixir\"]\nprint(items[1])",
+                        "solution_code": "items = [\"health_potion\", \"mana_potion\", \"elixir\"]\nprint(items[1])",
+                        "order": 1,
+                        "xp": 15
+                    },
+                    {
+                        "title": "Dictionaries",
+                        "content": "Key-value pairs.\n\n```python\nplayer = {\n    \"name\": \"Hero\",\n    \"level\": 10,\n    \"health\": 100\n}\nprint(player[\"name\"])  # Hero\n```",
+                        "starter_code": "# Create a player dictionary and print their level\nplayer = {\n    \"name\": \"Adventurer\",\n    \"level\": 5,\n    \"xp\": 250\n}\nprint(player[\"level\"])",
+                        "solution_code": "player = {\n    \"name\": \"Adventurer\",\n    \"level\": 5,\n    \"xp\": 250\n}\nprint(player[\"level\"])",
+                        "order": 2,
+                        "xp": 15
+                    }
+                ]
+            },
+            {
+                "title": "💀 Final Boss - Data Warrior",
+                "order": 11,
+                "is_boss": true,
+                "lessons": [
+                    {
+                        "title": "The Ultimate Challenge",
+                        "content": "**FINAL BOSS**\n\nCombine everything:\n- Functions\n- Loops\n- Data Structures\n- Logic\n\nCreate a function that takes a list of numbers and returns their sum.",
+                        "starter_code": "# Complete the function\ndef sum_list(numbers):\n    total = 0\n    for num in numbers:\n        total += num\n    return total\n\nresult = sum_list([1, 2, 3, 4, 5])\nprint(result)",
+                        "solution_code": "def sum_list(numbers):\n    total = 0\n    for num in numbers:\n        total += num\n    return total\n\nresult = sum_list([1, 2, 3, 4, 5])\nprint(result)",
+                        "order": 1,
+                        "xp": 100
+                    }
+                ]
+            }
+        ]
+    }
+]
