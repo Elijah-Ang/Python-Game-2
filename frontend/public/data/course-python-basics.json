@@ -413,24 +413,74 @@
           "order": 1
         },
         {
+          "id": 125,
+          "title": "Creating Special Arrays",
+          "order": 2
+        },
+        {
+          "id": 126,
+          "title": "Array Shapes and Dimensions",
+          "order": 3
+        },
+        {
           "id": 115,
           "title": "Vectorized Operations",
-          "order": 2
+          "order": 4
+        },
+        {
+          "id": 127,
+          "title": "Array Arithmetic",
+          "order": 5
+        },
+        {
+          "id": 128,
+          "title": "Universal Functions (ufuncs)",
+          "order": 6
         },
         {
           "id": 116,
           "title": "Boolean Indexing",
-          "order": 3
+          "order": 7
+        },
+        {
+          "id": 129,
+          "title": "Multiple Conditions",
+          "order": 8
+        },
+        {
+          "id": 130,
+          "title": "np.where() Conditional Selection",
+          "order": 9
         },
         {
           "id": 117,
           "title": "Broadcasting",
-          "order": 4
+          "order": 10
+        },
+        {
+          "id": 131,
+          "title": "Normalizing Data",
+          "order": 11
+        },
+        {
+          "id": 132,
+          "title": "Standardizing Data (Z-Score)",
+          "order": 12
         },
         {
           "id": 118,
           "title": "NumPy Statistics",
-          "order": 5
+          "order": 13
+        },
+        {
+          "id": 133,
+          "title": "Percentiles and Quartiles",
+          "order": 14
+        },
+        {
+          "id": 134,
+          "title": "Variance and Standard Deviation",
+          "order": 15
         }
       ]
     },
@@ -499,24 +549,74 @@
           "order": 1
         },
         {
+          "id": 135,
+          "title": "Counting Missing Values",
+          "order": 2
+        },
+        {
+          "id": 136,
+          "title": "Dropping Columns with Missing Data",
+          "order": 3
+        },
+        {
           "id": 120,
           "title": "Filling Missing Values",
-          "order": 2
+          "order": 4
+        },
+        {
+          "id": 137,
+          "title": "Filling with Mode (Most Common)",
+          "order": 5
+        },
+        {
+          "id": 138,
+          "title": "Filling with Median",
+          "order": 6
         },
         {
           "id": 121,
           "title": "Removing Duplicates",
-          "order": 3
+          "order": 7
+        },
+        {
+          "id": 139,
+          "title": "Finding Duplicate Rows",
+          "order": 8
+        },
+        {
+          "id": 140,
+          "title": "Duplicates in Specific Columns",
+          "order": 9
         },
         {
           "id": 122,
           "title": "String Cleanup",
-          "order": 4
+          "order": 10
+        },
+        {
+          "id": 141,
+          "title": "String Replace and Contains",
+          "order": 11
+        },
+        {
+          "id": 142,
+          "title": "Splitting Strings",
+          "order": 12
         },
         {
           "id": 123,
           "title": "Type Conversion",
-          "order": 5
+          "order": 13
+        },
+        {
+          "id": 143,
+          "title": "Converting Dates",
+          "order": 14
+        },
+        {
+          "id": 144,
+          "title": "Handling Conversion Errors",
+          "order": 15
         }
       ]
     },

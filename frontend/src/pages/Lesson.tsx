@@ -207,8 +207,8 @@ except:
 
     const goToNext = () => {
         const nextId = Number(id) + 1;
-        // Navigate through all lessons including new chapters (up to 124)
-        if (nextId <= 124) {
+        // Navigate through all lessons including new chapters (up to 144)
+        if (nextId <= 144) {
             navigate(`/lesson/${nextId}`);
         } else {
             // Go back to course page after completing Final Boss
