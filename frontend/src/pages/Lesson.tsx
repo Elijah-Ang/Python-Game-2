@@ -197,7 +197,8 @@ except:
     };
 
     const resetCode = () => {
-        setCode("# Write your code here\n\n");
+        // Reset to the lesson's starter code, not generic text
+        setCode(lesson?.starter_code || "# Write your code here\n\n");
         setShowSolution(false);
         setVerifyResult(null);
         setOutput("");
@@ -206,8 +207,8 @@ except:
 
     const goToNext = () => {
         const nextId = Number(id) + 1;
-        // Navigate through all lessons including bosses (112, 113)
-        if (nextId <= 113) {
+        // Navigate through all lessons including new chapters (up to 124)
+        if (nextId <= 124) {
             navigate(`/lesson/${nextId}`);
         } else {
             // Go back to course page after completing Final Boss

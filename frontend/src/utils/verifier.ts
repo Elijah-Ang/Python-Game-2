@@ -5,6 +5,7 @@ interface VerifyResult {
     correct: boolean;
     feedback: string;
     suggestions: string[];
+    expectedVsActual?: { expected: string; actual: string };
 }
 
 // Check if output contains errors
@@ -63,7 +64,7 @@ function getErrorSuggestions(errorType: string): string[] {
 // Check if this is a graph exercise
 function isGraphExercise(expectedOutput: string): boolean {
     if (!expectedOutput) return false;
-    const graphIndicators = ["[Graph:", "graph", "plot", "chart", "histogram", "scatter", "visualization"];
+    const graphIndicators = ["[Graph:", "graph", "plot", "chart", "histogram", "scatter", "visualization", "subplot"];
     return graphIndicators.some(indicator => expectedOutput.toLowerCase().includes(indicator.toLowerCase()));
 }
 
@@ -84,6 +85,7 @@ function validateGraphCode(userCode: string): VerifyResult | null {
     const plotPatterns = [
         /plt\.(plot|bar|scatter|hist|pie|barh)\s*\([^)]+\)/,
         /ax\d*\.(plot|bar|scatter|hist|pie|barh)\s*\([^)]+\)/,
+        /axes\[\d+\]\.(plot|bar|scatter|hist|pie|barh)\s*\([^)]+\)/,
     ];
 
     const hasPlotWithData = plotPatterns.some(pattern => pattern.test(userCode));
@@ -115,27 +117,38 @@ function validateGraphCode(userCode: string): VerifyResult | null {
     return null; // Valid graph code
 }
 
-// Normalize output for comparison
+// Normalize output for comparison - STRICTER version
 function normalizeOutput(output: string): string {
     return output
         .replace("✓ Code executed successfully (no output)", "")
-        .replace(/\s+/g, " ")
-        .trim()
-        .toLowerCase();
+        .trim();
 }
 
-// Compare outputs
-function compareOutputs(expected: string, actual: string): { match: boolean; percent: number } {
+// Compare outputs - STRICTER matching
+function compareOutputs(expected: string, actual: string): { match: boolean; percent: number; exactMatch: boolean } {
     const expectedNorm = normalizeOutput(expected);
     const actualNorm = normalizeOutput(actual);
 
-    if (expectedNorm === actualNorm) return { match: true, percent: 100 };
-    if (expectedNorm && actualNorm.includes(expectedNorm)) return { match: true, percent: 95 };
+    // Exact match check (case-sensitive)
+    if (expectedNorm === actualNorm) {
+        return { match: true, percent: 100, exactMatch: true };
+    }
 
-    const expectedParts = new Set(expectedNorm.split(" "));
-    const actualParts = new Set(actualNorm.split(" "));
+    // Case-insensitive exact match
+    if (expectedNorm.toLowerCase() === actualNorm.toLowerCase()) {
+        return { match: true, percent: 99, exactMatch: false };
+    }
 
-    if (expectedParts.size === 0) return { match: false, percent: 0 };
+    // Check if expected is contained in actual (with some tolerance)
+    if (expectedNorm && actualNorm.includes(expectedNorm)) {
+        return { match: true, percent: 95, exactMatch: false };
+    }
+
+    // Word-based comparison for partial matching
+    const expectedParts = new Set(expectedNorm.toLowerCase().split(/\s+/));
+    const actualParts = new Set(actualNorm.toLowerCase().split(/\s+/));
+
+    if (expectedParts.size === 0) return { match: false, percent: 0, exactMatch: false };
 
     let matchCount = 0;
     expectedParts.forEach(part => {
@@ -143,7 +156,31 @@ function compareOutputs(expected: string, actual: string): { match: boolean; per
     });
 
     const percent = (matchCount / expectedParts.size) * 100;
-    return { match: percent >= 90, percent };
+    // STRICTER: Only accept if >= 90% match (was 70%)
+    return { match: percent >= 90, percent, exactMatch: false };
+}
+
+// Generate detailed comparison feedback
+function generateComparisonFeedback(expected: string, actual: string): string[] {
+    const suggestions: string[] = [];
+
+    // Check for common issues
+    if (expected.includes("*") && actual.includes("+")) {
+        suggestions.push("Hint: The exercise asks for multiplication (*), not addition (+)");
+    }
+    if (expected.includes("/") && actual.includes("-")) {
+        suggestions.push("Hint: The exercise asks for division (/), not subtraction (-)");
+    }
+    if (expected.toLowerCase() !== expected && actual.toLowerCase() === actual) {
+        suggestions.push("Hint: Check your capitalization");
+    }
+    if (expected.includes('"') || expected.includes("'")) {
+        if (!actual.includes(expected.split(/["']/)[1])) {
+            suggestions.push("Hint: Check your string output matches exactly");
+        }
+    }
+
+    return suggestions;
 }
 
 // Main verification function
@@ -200,32 +237,52 @@ export function verifyCode(
         };
     }
 
-    // Compare outputs
-    const { match, percent } = compareOutputs(expectedOutput, actualOutput);
+    // Compare outputs with STRICTER matching
+    const { match, percent, exactMatch } = compareOutputs(expectedOutput, actualOutput);
 
-    if (match) {
+    if (exactMatch) {
         return {
             correct: true,
-            feedback: "Perfect! Your output matches the expected result! 🎉",
+            feedback: "Perfect! Your output matches exactly! 🎉",
+            suggestions: []
+        };
+    } else if (match) {
+        return {
+            correct: true,
+            feedback: "Great job! Your output is correct! 🎉",
             suggestions: []
         };
     } else if (percent >= 70) {
+        // Still not good enough - give specific feedback
+        const detailedSuggestions = generateComparisonFeedback(expectedOutput, actualOutput);
         return {
-            correct: true,
-            feedback: "Great job! Your output is close enough! 🎉",
-            suggestions: []
+            correct: false,
+            feedback: "Almost there! Your output is close but not quite right.",
+            suggestions: detailedSuggestions.length > 0
+                ? detailedSuggestions
+                : ["Compare your output carefully with the expected output"],
+            expectedVsActual: { expected: expectedOutput, actual: actualOutput }
         };
     } else if (percent >= 40) {
         return {
             correct: false,
-            feedback: "Almost there! Your output is partially correct.",
-            suggestions: ["Check the expected output and compare with yours"]
+            feedback: "Your output is partially correct but needs work.",
+            suggestions: [
+                "Compare each line with the expected output",
+                ...generateComparisonFeedback(expectedOutput, actualOutput)
+            ],
+            expectedVsActual: { expected: expectedOutput, actual: actualOutput }
         };
     } else {
         return {
             correct: false,
             feedback: "Your output doesn't match the expected result.",
-            suggestions: ["Compare your output with the expected output"]
+            suggestions: [
+                "Read the instructions carefully",
+                "Make sure you're using the correct values and operations",
+                ...generateComparisonFeedback(expectedOutput, actualOutput)
+            ],
+            expectedVsActual: { expected: expectedOutput, actual: actualOutput }
         };
     }
 }

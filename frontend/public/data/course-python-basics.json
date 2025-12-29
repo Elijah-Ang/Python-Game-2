@@ -402,6 +402,39 @@
       ]
     },
     {
+      "id": 95,
+      "title": "NumPy Fundamentals",
+      "icon": "\ud83d\udd22",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 114,
+          "title": "NumPy Introduction",
+          "order": 1
+        },
+        {
+          "id": 115,
+          "title": "Vectorized Operations",
+          "order": 2
+        },
+        {
+          "id": 116,
+          "title": "Boolean Indexing",
+          "order": 3
+        },
+        {
+          "id": 117,
+          "title": "Broadcasting",
+          "order": 4
+        },
+        {
+          "id": 118,
+          "title": "NumPy Statistics",
+          "order": 5
+        }
+      ]
+    },
+    {
       "id": 10,
       "title": "Pandas & Data Wrangling",
       "icon": "\ud83d\udc3c",
@@ -455,6 +488,39 @@
       ]
     },
     {
+      "id": 96,
+      "title": "Data Cleaning",
+      "icon": "\ud83e\uddf9",
+      "is_boss": false,
+      "lessons": [
+        {
+          "id": 119,
+          "title": "Handling Missing Data",
+          "order": 1
+        },
+        {
+          "id": 120,
+          "title": "Filling Missing Values",
+          "order": 2
+        },
+        {
+          "id": 121,
+          "title": "Removing Duplicates",
+          "order": 3
+        },
+        {
+          "id": 122,
+          "title": "String Cleanup",
+          "order": 4
+        },
+        {
+          "id": 123,
+          "title": "Type Conversion",
+          "order": 5
+        }
+      ]
+    },
+    {
       "id": 11,
       "title": "Data Visualization",
       "icon": "\ud83d\udcca",
@@ -504,6 +570,19 @@
           "id": 85,
           "title": "Subplots",
           "order": 9
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "title": "EDA Mini-Boss",
+      "icon": "\ud83d\udd0d",
+      "is_boss": true,
+      "lessons": [
+        {
+          "id": 124,
+          "title": "\ud83d\udd0d EDA Capstone",
+          "order": 1
         }
       ]
     },
