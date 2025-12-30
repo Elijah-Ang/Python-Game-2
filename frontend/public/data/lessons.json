@@ -2449,5 +2449,635 @@
     "expected_output": "month      | revenue | ytd_total | mom_change | revenue_rank\n2024-01-01 | 45000   | 45000     | NULL       | 3\n2024-02-01 | 52000   | 97000     | 7000       | 1\n2024-03-01 | 48000   | 145000    | -4000      | 2",
     "chapter_id": 251,
     "chapter_title": "Analytics Wizard Boss"
+  },
+  "1099": {
+    "id": 1099,
+    "title": "Identifying Duplicates",
+    "content": "# 🔍 Identifying Duplicates\n\n## Why Duplicates Happen\n\nDuplicates creep into data through:\n- Multiple form submissions\n- System integration issues\n- Data import errors\n- Lack of unique constraints\n\n## Finding Duplicates with GROUP BY\n\n```sql\n-- Find duplicate emails\nSELECT email, COUNT(*) as count\nFROM users\nGROUP BY email\nHAVING COUNT(*) > 1;\n```\n\n## Finding Exact Row Duplicates\n\n```sql\n-- Find completely identical rows\nSELECT name, email, COUNT(*)\nFROM users\nGROUP BY name, email\nHAVING COUNT(*) > 1;\n```\n\n---\n\n## 🎯 Your Task\n\nFind all duplicate product names in the products table.\n",
+    "starter_code": "-- Find products with duplicate names\n-- Show the name and how many times it appears\n\n",
+    "solution_code": "SELECT name, COUNT(*) as count\nFROM products\nGROUP BY name\nHAVING COUNT(*) > 1;",
+    "expected_output": "name       | count\nWidget A   | 2\nGadget Pro | 3",
+    "chapter_id": 209,
+    "chapter_title": "Data Cleaning & Metrics"
+  },
+  "1100": {
+    "id": 1100,
+    "title": "Deduplication with ROW_NUMBER",
+    "content": "# 🔢 Deduplication with ROW_NUMBER\n\n## The ROW_NUMBER Pattern\n\nUse ROW_NUMBER to mark duplicates:\n\n```sql\nWITH ranked AS (\n  SELECT *,\n    ROW_NUMBER() OVER (\n      PARTITION BY email \n      ORDER BY created_at DESC\n    ) as rn\n  FROM users\n)\nSELECT * FROM ranked WHERE rn = 1;\n```\n\n## How It Works\n\n1. **PARTITION BY** groups rows by the duplicate key\n2. **ORDER BY** determines which row is \"first\" (keeper)\n3. **rn = 1** keeps only the first row in each group\n\n## Keeping Latest vs Earliest\n\n```sql\n-- Keep LATEST (most recent)\nORDER BY created_at DESC\n\n-- Keep EARLIEST (oldest)\nORDER BY created_at ASC\n```\n\n---\n\n## 🎯 Your Task\n\nGet unique customers keeping the most recent order for each customer_id.\n",
+    "starter_code": "-- Deduplicate orders\n-- Keep the most recent order per customer\n\n",
+    "solution_code": "WITH ranked AS (\n  SELECT *,\n    ROW_NUMBER() OVER (\n      PARTITION BY customer_id\n      ORDER BY order_date DESC\n    ) as rn\n  FROM orders\n)\nSELECT * FROM ranked WHERE rn = 1;",
+    "expected_output": "customer_id | order_date | amount | rn\n1           | 2024-03-15 | 150    | 1\n2           | 2024-03-10 | 200    | 1",
+    "chapter_id": 209,
+    "chapter_title": "Data Cleaning & Metrics"
+  },
+  "1101": {
+    "id": 1101,
+    "title": "Keeping First/Last Record",
+    "content": "# ⏱️ Keeping First or Last Record\n\n## Common Scenarios\n\n| Scenario | Keep | Order By |\n| --- | --- | --- |\n| Latest login | Last | login_time DESC |\n| First purchase | First | purchase_date ASC |\n| Highest value | Best | amount DESC |\n\n## Pattern with FIRST_VALUE\n\n```sql\nSELECT DISTINCT customer_id,\n  FIRST_VALUE(order_id) OVER (\n    PARTITION BY customer_id\n    ORDER BY order_date\n  ) as first_order_id\nFROM orders;\n```\n\n## Delete Duplicates (Keeping First)\n\n```sql\nDELETE FROM orders\nWHERE id NOT IN (\n  SELECT MIN(id)\n  FROM orders\n  GROUP BY customer_id, product_id\n);\n```\n\n---\n\n## 🎯 Your Task\n\nFind each customer's first purchase date.\n",
+    "starter_code": "-- Find first purchase per customer\n-- Return customer_id and their first order_date\n\n",
+    "solution_code": "SELECT customer_id,\n  MIN(order_date) as first_purchase\nFROM orders\nGROUP BY customer_id;",
+    "expected_output": "customer_id | first_purchase\n1           | 2024-01-05\n2           | 2024-01-12\n3           | 2024-02-01",
+    "chapter_id": 209,
+    "chapter_title": "Data Cleaning & Metrics"
+  },
+  "1102": {
+    "id": 1102,
+    "title": "Detecting Outliers",
+    "content": "# 📊 Detecting Outliers\n\n## What Are Outliers?\n\nValues far from the typical range:\n- Age: 150 years\n- Price: $-50\n- Quantity: 999999\n\n## Statistical Detection\n\n```sql\n-- Using standard deviation\nWITH stats AS (\n  SELECT\n    AVG(amount) as avg_amount,\n    STDDEV(amount) as std_amount\n  FROM orders\n)\nSELECT o.*\nFROM orders o, stats s\nWHERE o.amount > s.avg_amount + 3 * s.std_amount\n   OR o.amount < s.avg_amount - 3 * s.std_amount;\n```\n\n## Simple Range Check\n\n```sql\n-- Business rule based\nSELECT * FROM orders\nWHERE amount < 0 OR amount > 10000;\n```\n\n---\n\n## 🎯 Your Task\n\nFind orders where the amount is more than 3 times the average.\n",
+    "starter_code": "-- Find outlier orders\n-- Amount > 3x the average\n\n",
+    "solution_code": "SELECT *\nFROM orders\nWHERE amount > 3 * (SELECT AVG(amount) FROM orders);",
+    "expected_output": "order_id | amount\n42       | 15000\n67       | 12500",
+    "chapter_id": 209,
+    "chapter_title": "Data Cleaning & Metrics"
+  },
+  "1103": {
+    "id": 1103,
+    "title": "Percentile Calculations",
+    "content": "# 📈 Percentile Calculations\n\n## What Are Percentiles?\n\n- **P50 (Median)**: 50% of values below\n- **P90**: 90% of values below\n- **P99**: 99% of values below (outliers)\n\n## PERCENTILE_CONT Function\n\n```sql\nSELECT\n  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY amount) as median,\n  PERCENTILE_CONT(0.9) WITHIN GROUP (ORDER BY amount) as p90,\n  PERCENTILE_CONT(0.99) WITHIN GROUP (ORDER BY amount) as p99\nFROM orders;\n```\n\n## NTILE for Buckets\n\n```sql\n-- Put customers into 4 quartiles\nSELECT customer_id, total_spent,\n  NTILE(4) OVER (ORDER BY total_spent) as quartile\nFROM customer_summary;\n```\n\n---\n\n## 🎯 Your Task\n\nCalculate the median order amount.\n",
+    "starter_code": "-- Find the median (50th percentile) order amount\n\n",
+    "solution_code": "SELECT\n  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY amount) as median_amount\nFROM orders;",
+    "expected_output": "median_amount\n125.50",
+    "chapter_id": 209,
+    "chapter_title": "Data Cleaning & Metrics"
+  },
+  "1104": {
+    "id": 1104,
+    "title": "Handling Outliers",
+    "content": "# 🛠️ Handling Outliers\n\n## Options for Outliers\n\n| Approach | When to Use |\n| --- | --- |\n| Remove | Data entry errors |\n| Cap/Floor | Statistical analysis |\n| Flag | Keep but mark |\n| Investigate | Could be valid! |\n\n## Capping with LEAST/GREATEST\n\n```sql\n-- Cap amounts at P99\nWITH p99 AS (\n  SELECT PERCENTILE_CONT(0.99) WITHIN GROUP (ORDER BY amount) as cap\n  FROM orders\n)\nSELECT \n  order_id,\n  LEAST(amount, p99.cap) as capped_amount\nFROM orders, p99;\n```\n\n## Flagging Outliers\n\n```sql\nSELECT *,\n  CASE WHEN amount > 10000 THEN true ELSE false END as is_outlier\nFROM orders;\n```\n\n---\n\n## 🎯 Your Task\n\nSelect orders with amounts capped at 1000 maximum.\n",
+    "starter_code": "-- Cap order amounts at 1000\n-- Show order_id and capped_amount\n\n",
+    "solution_code": "SELECT order_id,\n  LEAST(amount, 1000) as capped_amount\nFROM orders;",
+    "expected_output": "order_id | capped_amount\n1        | 500\n2        | 1000\n3        | 750",
+    "chapter_id": 209,
+    "chapter_title": "Data Cleaning & Metrics"
+  },
+  "1105": {
+    "id": 1105,
+    "title": "Metric Definitions Matter",
+    "content": "# 📐 Metric Definitions Matter\n\n## Same Name, Different Meaning\n\n\"Active Users\" could mean:\n- Logged in this month\n- Made a purchase\n- Viewed any page\n- Used core feature\n\n## Example: Revenue\n\n```sql\n-- Gross revenue\nSELECT SUM(amount) as gross_revenue FROM orders;\n\n-- Net revenue (minus refunds)\nSELECT SUM(CASE WHEN status != 'refunded' THEN amount ELSE 0 END) as net_revenue\nFROM orders;\n\n-- Recognized revenue (delivered only)\nSELECT SUM(amount) FROM orders WHERE status = 'delivered';\n```\n\n## Document Your Definitions!\n\n| Metric | Definition |\n| --- | --- |\n| MAU | Users with ≥1 login in 30 days |\n| Revenue | Net of refunds, excludes tips |\n\n---\n\n## 🎯 Your Task\n\nCalculate net revenue (excluding refunded orders).\n",
+    "starter_code": "-- Calculate net revenue\n-- Exclude orders with status = 'refunded'\n\n",
+    "solution_code": "SELECT SUM(amount) as net_revenue\nFROM orders\nWHERE status != 'refunded';",
+    "expected_output": "net_revenue\n45000",
+    "chapter_id": 209,
+    "chapter_title": "Data Cleaning & Metrics"
+  },
+  "1106": {
+    "id": 1106,
+    "title": "Active User Definitions",
+    "content": "# 👥 Active User Definitions\n\n## Common Definitions\n\n| Metric | Definition |\n| --- | --- |\n| DAU | Unique users per day |\n| WAU | Unique users in 7 days |\n| MAU | Unique users in 30 days |\n\n## Calculating DAU\n\n```sql\nSELECT\n  DATE(event_time) as date,\n  COUNT(DISTINCT user_id) as dau\nFROM events\nGROUP BY DATE(event_time);\n```\n\n## Rolling 7-Day Active Users\n\n```sql\nSELECT\n  date,\n  COUNT(DISTINCT user_id) OVER (\n    ORDER BY date\n    ROWS BETWEEN 6 PRECEDING AND CURRENT ROW\n  ) as rolling_7d_users\nFROM daily_users;\n```\n\n---\n\n## 🎯 Your Task\n\nCalculate daily active users from the events table.\n",
+    "starter_code": "-- Calculate DAU\n-- Count unique users per day\n\n",
+    "solution_code": "SELECT\n  DATE(event_time) as date,\n  COUNT(DISTINCT user_id) as dau\nFROM events\nGROUP BY DATE(event_time)\nORDER BY date;",
+    "expected_output": "date       | dau\n2024-03-01 | 150\n2024-03-02 | 175\n2024-03-03 | 160",
+    "chapter_id": 209,
+    "chapter_title": "Data Cleaning & Metrics"
+  },
+  "1107": {
+    "id": 1107,
+    "title": "Avoiding Double Counting",
+    "content": "# ⚠️ Avoiding Double Counting\n\n## Common Mistakes\n\n1. **Joining without deduping** - inflates counts\n2. **Missing DISTINCT** - counts rows not unique values\n3. **Wrong aggregation level** - summing at wrong grain\n\n## Bad: Double Counting\n\n```sql\n-- If user has multiple orders, counted multiple times!\nSELECT COUNT(*) FROM users u\nJOIN orders o ON u.id = o.user_id;\n```\n\n## Good: Distinct Count\n\n```sql\nSELECT COUNT(DISTINCT u.id) as unique_customers\nFROM users u\nJOIN orders o ON u.id = o.user_id;\n```\n\n## Watch for Many-to-Many\n\n```sql\n-- Pre-aggregate to avoid explosion\nWITH user_orders AS (\n  SELECT user_id, SUM(amount) as total\n  FROM orders GROUP BY user_id\n)\nSELECT * FROM users u\nJOIN user_orders uo ON u.id = uo.user_id;\n```\n\n---\n\n## 🎯 Your Task\n\nCount unique customers who have placed orders.\n",
+    "starter_code": "-- Count unique customers with orders\n-- Don't double count!\n\n",
+    "solution_code": "SELECT COUNT(DISTINCT customer_id) as unique_customers\nFROM orders;",
+    "expected_output": "unique_customers\n250",
+    "chapter_id": 209,
+    "chapter_title": "Data Cleaning & Metrics"
+  },
+  "1108": {
+    "id": 1108,
+    "title": "Data Quality Checks",
+    "content": "# ✅ Data Quality Checks\n\n## Types of Quality Checks\n\n| Check Type | Example |\n| --- | --- |\n| Null checks | Required fields filled |\n| Range checks | Age between 0-120 |\n| Format checks | Email contains @ |\n| Referential | FK exists in parent |\n\n## Null Check Query\n\n```sql\nSELECT \n  COUNT(*) as total_rows,\n  COUNT(email) as has_email,\n  COUNT(*) - COUNT(email) as missing_email\nFROM users;\n```\n\n## Orphan Records\n\n```sql\n-- Orders without valid customer\nSELECT o.*\nFROM orders o\nLEFT JOIN customers c ON o.customer_id = c.id\nWHERE c.id IS NULL;\n```\n\n---\n\n## 🎯 Your Task\n\nCount how many products are missing a category_id.\n",
+    "starter_code": "-- Count products with NULL category_id\n\n",
+    "solution_code": "SELECT COUNT(*) as missing_category\nFROM products\nWHERE category_id IS NULL;",
+    "expected_output": "missing_category\n15",
+    "chapter_id": 209,
+    "chapter_title": "Data Cleaning & Metrics"
+  },
+  "1109": {
+    "id": 1109,
+    "title": "Assertion Queries",
+    "content": "# 🔒 Assertion Queries\n\n## What Are Assertions?\n\nQueries that should return 0 rows if data is valid:\n\n```sql\n-- Should return no rows!\nSELECT * FROM orders WHERE amount < 0;\n```\n\n## Common Assertions\n\n```sql\n-- No future dates\nSELECT * FROM orders WHERE order_date > CURRENT_DATE;\n\n-- No duplicates\nSELECT email, COUNT(*) \nFROM users \nGROUP BY email \nHAVING COUNT(*) > 1;\n\n-- All FKs valid\nSELECT o.* FROM orders o\nLEFT JOIN customers c ON o.customer_id = c.id\nWHERE c.id IS NULL;\n```\n\n## Automated Testing\n\n```sql\n-- Return TRUE if valid\nSELECT NOT EXISTS (\n  SELECT 1 FROM orders WHERE amount < 0\n) as no_negative_amounts;\n```\n\n---\n\n## 🎯 Your Task\n\nWrite an assertion to find orders with negative amounts.\n",
+    "starter_code": "-- Find orders with invalid (negative) amounts\n-- Should return 0 rows if data is clean\n\n",
+    "solution_code": "SELECT * FROM orders\nWHERE amount < 0;",
+    "expected_output": "order_id | amount\n(no rows)",
+    "chapter_id": 209,
+    "chapter_title": "Data Cleaning & Metrics"
+  },
+  "1110": {
+    "id": 1110,
+    "title": "Metric Validation",
+    "content": "# 📊 Metric Validation\n\n## Trust But Verify\n\nAlways sanity-check your metrics:\n\n```sql\n-- Does total match sum of parts?\nSELECT \n  SUM(amount) as total_revenue,\n  SUM(CASE WHEN channel = 'web' THEN amount ELSE 0 END) as web,\n  SUM(CASE WHEN channel = 'mobile' THEN amount ELSE 0 END) as mobile\nFROM orders;\n-- web + mobile should equal total!\n```\n\n## Year-over-Year Sense Check\n\n```sql\nSELECT\n  EXTRACT(YEAR FROM order_date) as year,\n  COUNT(*) as order_count,\n  SUM(amount) as revenue\nFROM orders\nGROUP BY EXTRACT(YEAR FROM order_date)\nORDER BY year;\n-- Wild swings? Investigate!\n```\n\n## Cross-Table Validation\n\n```sql\n-- Order count should match\nSELECT 'orders' as source, COUNT(*) FROM orders\nUNION ALL\nSELECT 'order_items', COUNT(DISTINCT order_id) FROM order_items;\n```\n\n---\n\n## 🎯 Your Task\n\nCompare total revenue against the sum of web and mobile channels.\n",
+    "starter_code": "-- Validate revenue by channel\n-- Total should equal web + mobile\n\n",
+    "solution_code": "SELECT\n  SUM(amount) as total_revenue,\n  SUM(CASE WHEN channel = 'web' THEN amount ELSE 0 END) as web_revenue,\n  SUM(CASE WHEN channel = 'mobile' THEN amount ELSE 0 END) as mobile_revenue\nFROM orders;",
+    "expected_output": "total_revenue | web_revenue | mobile_revenue\n50000         | 30000       | 20000",
+    "chapter_id": 209,
+    "chapter_title": "Data Cleaning & Metrics"
+  },
+  "1111": {
+    "id": 1111,
+    "title": "Why Tables Split",
+    "content": "# 🔀 Why Tables Split\n\n## The Problem with One Table\n\n```\norders table (BAD design):\norder_id | customer_name | customer_email | product_name | price\n1        | Alice         | alice@mail.com | Widget       | 25\n2        | Alice         | alice@mail.com | Gadget       | 50\n```\n\n**Issues:**\n- Repeated data (customer info)\n- Update anomalies\n- Wasted storage\n\n## The Solution: Split!\n\n```\ncustomers table:\nid | name  | email\n1  | Alice | alice@mail.com\n\norders table:\nid | customer_id | product | price\n1  | 1           | Widget  | 25\n2  | 1           | Gadget  | 50\n```\n\n---\n\n## 🎯 Your Task\n\nSelect customer_id and total orders per customer.\n",
+    "starter_code": "-- Count orders per customer\n\n",
+    "solution_code": "SELECT customer_id, COUNT(*) as total_orders\nFROM orders\nGROUP BY customer_id;",
+    "expected_output": "customer_id | total_orders\n1           | 5\n2           | 3",
+    "chapter_id": 210,
+    "chapter_title": "Database Design Essentials"
+  },
+  "1112": {
+    "id": 1112,
+    "title": "Normalization Basics",
+    "content": "# 📐 Normalization Basics\n\n## What is Normalization?\n\nA process to organize tables to:\n- Reduce data redundancy\n- Improve data integrity\n- Prevent update anomalies\n\n## Normal Forms\n\n| Form | Rule |\n| --- | --- |\n| 1NF | No repeating groups |\n| 2NF | No partial dependencies |\n| 3NF | No transitive dependencies |\n\n## Benefits\n\n- Smaller storage\n- Fewer update errors\n- Better data quality\n\n---\n\n## 🎯 Your Task\n\nFind all unique customer emails.\n",
+    "starter_code": "-- Select distinct emails\n\n",
+    "solution_code": "SELECT DISTINCT email\nFROM customers;",
+    "expected_output": "email\nalice@mail.com\nbob@mail.com",
+    "chapter_id": 210,
+    "chapter_title": "Database Design Essentials"
+  },
+  "1113": {
+    "id": 1113,
+    "title": "First Normal Form",
+    "content": "# 1️⃣ First Normal Form (1NF)\n\n## Rule\n\nEach cell contains a single atomic value.\n\n## Bad (Not 1NF)\n\n```\nuser_id | phones\n1       | 555-1234, 555-5678\n```\n\n## Good (1NF)\n\n```\nuser_id | phone_type | phone\n1       | home       | 555-1234\n1       | mobile     | 555-5678\n```\n\n---\n\n## 🎯 Your Task\n\nSelect users with their phone numbers from the user_phones table.\n",
+    "starter_code": "-- Join users with their phones\n\n",
+    "solution_code": "SELECT u.name, p.phone\nFROM users u\nJOIN user_phones p ON u.id = p.user_id;",
+    "expected_output": "name  | phone\nAlice | 555-1234\nAlice | 555-5678",
+    "chapter_id": 210,
+    "chapter_title": "Database Design Essentials"
+  },
+  "1114": {
+    "id": 1114,
+    "title": "Second and Third Normal Form",
+    "content": "# 2️⃣3️⃣ Second and Third Normal Form\n\n## 2NF: No Partial Dependencies\n\nEvery non-key column depends on the ENTIRE primary key.\n\n## 3NF: No Transitive Dependencies\n\nNon-key columns don't depend on other non-key columns.\n\n**Example Problem:**\n```\nemployee_id | department_id | department_name\n```\n`department_name` depends on `department_id` not employee!\n\n**Fix:** Create separate departments table.\n\n---\n\n## 🎯 Your Task\n\nJoin employees with departments to show employee name and department name.\n",
+    "starter_code": "-- Join employees and departments\n\n",
+    "solution_code": "SELECT e.name, d.name as department\nFROM employees e\nJOIN departments d ON e.department_id = d.id;",
+    "expected_output": "name  | department\nAlice | Sales\nBob   | Marketing",
+    "chapter_id": 210,
+    "chapter_title": "Database Design Essentials"
+  },
+  "1115": {
+    "id": 1115,
+    "title": "Fact Tables",
+    "content": "# 📊 Fact Tables\n\n## What are Fact Tables?\n\nTables that store **measurable events**:\n- Orders\n- Page views\n- Transactions\n- Clicks\n\n## Characteristics\n\n- Contain numeric measures (amount, quantity)\n- Large row counts\n- Foreign keys to dimensions\n- Append-only (events happen once)\n\n```sql\n-- Fact table example\nCREATE TABLE fact_orders (\n  order_id INT,\n  customer_id INT,  -- FK\n  product_id INT,   -- FK\n  date_id INT,      -- FK\n  amount DECIMAL\n);\n```\n\n---\n\n## 🎯 Your Task\n\nGet total revenue from the orders fact table.\n",
+    "starter_code": "-- Sum all order amounts\n\n",
+    "solution_code": "SELECT SUM(amount) as total_revenue\nFROM orders;",
+    "expected_output": "total_revenue\n125000",
+    "chapter_id": 210,
+    "chapter_title": "Database Design Essentials"
+  },
+  "1116": {
+    "id": 1116,
+    "title": "Dimension Tables",
+    "content": "# 📋 Dimension Tables\n\n## What are Dimension Tables?\n\nTables that store **descriptive attributes**:\n- Customers\n- Products\n- Dates\n- Locations\n\n## Characteristics\n\n- Fewer rows than facts\n- Rich descriptive columns\n- Slowly changing\n- Joined to facts by ID\n\n```sql\n-- Dimension table example\nCREATE TABLE dim_customer (\n  customer_id INT PRIMARY KEY,\n  name VARCHAR,\n  email VARCHAR,\n  segment VARCHAR\n);\n```\n\n---\n\n## 🎯 Your Task\n\nSelect all columns from the customers dimension table.\n",
+    "starter_code": "-- Get all customer attributes\n\n",
+    "solution_code": "SELECT * FROM customers;",
+    "expected_output": "id | name  | email          | segment\n1  | Alice | alice@mail.com | Premium",
+    "chapter_id": 210,
+    "chapter_title": "Database Design Essentials"
+  },
+  "1117": {
+    "id": 1117,
+    "title": "Star Schema",
+    "content": "# ⭐ Star Schema\n\n## What is Star Schema?\n\nA design pattern where:\n- **Fact table** in the center\n- **Dimension tables** around it (like star points)\n\n```\n        dim_customer\n            |\n dim_date -- fact_orders -- dim_product\n            |\n        dim_location\n```\n\n## Benefits\n\n- Simple to understand\n- Fast queries\n- Standard for analytics\n\n---\n\n## 🎯 Your Task\n\nJoin orders with customers and products to show customer name, product name, and amount.\n",
+    "starter_code": "-- Star join: orders + customers + products\n\n",
+    "solution_code": "SELECT c.name as customer, p.name as product, o.amount\nFROM orders o\nJOIN customers c ON o.customer_id = c.id\nJOIN products p ON o.product_id = p.id;",
+    "expected_output": "customer | product | amount\nAlice    | Widget  | 50",
+    "chapter_id": 210,
+    "chapter_title": "Database Design Essentials"
+  },
+  "1118": {
+    "id": 1118,
+    "title": "Primary Key Constraints",
+    "content": "# 🔑 Primary Key Constraints\n\n## What is a Primary Key?\n\nA column (or combination) that **uniquely identifies** each row.\n\n## Rules\n\n- Must be unique\n- Cannot be NULL\n- One per table\n\n```sql\nCREATE TABLE users (\n  id INT PRIMARY KEY,\n  email VARCHAR\n);\n```\n\n---\n\n## 🎯 Your Task\n\nFind users with duplicate IDs (should return 0 if PK enforced).\n",
+    "starter_code": "-- Check for duplicate IDs\n\n",
+    "solution_code": "SELECT id, COUNT(*)\nFROM users\nGROUP BY id\nHAVING COUNT(*) > 1;",
+    "expected_output": "id | count\n(no rows)",
+    "chapter_id": 210,
+    "chapter_title": "Database Design Essentials"
+  },
+  "1119": {
+    "id": 1119,
+    "title": "Foreign Key Constraints",
+    "content": "# 🔗 Foreign Key Constraints\n\n## What is a Foreign Key?\n\nA column that references the primary key of another table.\n\n## Purpose\n\n- Enforces referential integrity\n- Prevents orphan records\n- Documents relationships\n\n```sql\nCREATE TABLE orders (\n  id INT PRIMARY KEY,\n  customer_id INT REFERENCES customers(id)\n);\n```\n\n---\n\n## 🎯 Your Task\n\nFind orders with invalid customer IDs (LEFT JOIN where customer is NULL).\n",
+    "starter_code": "-- Find orphan orders\n\n",
+    "solution_code": "SELECT o.*\nFROM orders o\nLEFT JOIN customers c ON o.customer_id = c.id\nWHERE c.id IS NULL;",
+    "expected_output": "order_id | customer_id\n(no rows)",
+    "chapter_id": 210,
+    "chapter_title": "Database Design Essentials"
+  },
+  "1120": {
+    "id": 1120,
+    "title": "Unique Constraints",
+    "content": "# 🎯 Unique Constraints\n\n## What is a Unique Constraint?\n\nEnsures all values in a column are distinct.\n\n```sql\nCREATE TABLE users (\n  id INT PRIMARY KEY,\n  email VARCHAR UNIQUE\n);\n```\n\n## Difference from Primary Key\n\n| Feature | Primary Key | Unique |\n| --- | --- | --- |\n| NULL allowed | No | Yes (one) |\n| Per table | One | Many |\n\n---\n\n## 🎯 Your Task\n\nFind duplicate emails in users.\n",
+    "starter_code": "-- Find duplicate emails\n\n",
+    "solution_code": "SELECT email, COUNT(*)\nFROM users\nGROUP BY email\nHAVING COUNT(*) > 1;",
+    "expected_output": "email | count\n(no rows)",
+    "chapter_id": 210,
+    "chapter_title": "Database Design Essentials"
+  },
+  "1121": {
+    "id": 1121,
+    "title": "When to Denormalize",
+    "content": "# 🔄 When to Denormalize\n\n## Sometimes Breaking Rules is OK\n\n**Denormalize when:**\n- Read performance critical\n- Joins too expensive\n- Analytics/reporting use case\n- Data rarely changes\n\n**Keep normalized when:**\n- Transactional system\n- Data changes frequently\n- Storage matters\n\n## Common Denormalization\n\n```sql\n-- Pre-aggregate daily revenue\nCREATE TABLE daily_revenue AS\nSELECT DATE(order_date) as date, SUM(amount) as revenue\nFROM orders GROUP BY 1;\n```\n\n---\n\n## 🎯 Your Task\n\nCreate a summary query showing daily order counts.\n",
+    "starter_code": "-- Get daily order counts\n\n",
+    "solution_code": "SELECT DATE(order_date) as date, COUNT(*) as order_count\nFROM orders\nGROUP BY DATE(order_date);",
+    "expected_output": "date       | order_count\n2024-03-01 | 15\n2024-03-02 | 23",
+    "chapter_id": 210,
+    "chapter_title": "Database Design Essentials"
+  },
+  "1122": {
+    "id": 1122,
+    "title": "Analytics Schema Design",
+    "content": "# 📊 Analytics Schema Design\n\n## Best Practices\n\n1. **Date dimension** - always include\n2. **Surrogate keys** - use INT not natural keys\n3. **Grain matters** - define clearly\n4. **Additive measures** - SUM-friendly\n\n## Example Analytics Schema\n\n```\ndim_date (date_id, date, month, quarter, year)\ndim_customer (customer_id, name, segment)\nfact_orders (date_id, customer_id, amount)\n```\n\n---\n\n## 🎯 Your Task\n\nJoin orders with dates to get monthly revenue.\n",
+    "starter_code": "-- Monthly revenue aggregation\n\n",
+    "solution_code": "SELECT DATE_TRUNC('month', order_date) as month, SUM(amount) as revenue\nFROM orders\nGROUP BY DATE_TRUNC('month', order_date)\nORDER BY month;",
+    "expected_output": "month      | revenue\n2024-01-01 | 45000\n2024-02-01 | 52000",
+    "chapter_id": 210,
+    "chapter_title": "Database Design Essentials"
+  },
+  "1123": {
+    "id": 1123,
+    "title": "Why Performance Matters",
+    "content": "# ⚡ Why Performance Matters\n\n## Real Impact\n\n- Slow dashboards = frustrated users\n- Expensive cloud bills\n- Timeouts on large queries\n\n## Key Metrics\n\n| Metric | Good | Bad |\n| --- | --- | --- |\n| Query time | < 5 sec | > 30 sec |\n| Rows scanned | Minimal | Full table |\n| Cost | Predictable | Spiky |\n\n---\n\n## 🎯 Your Task\n\nSelect only the columns you need (not SELECT *).\n",
+    "starter_code": "-- Select only id and name from users\n\n",
+    "solution_code": "SELECT id, name FROM users;",
+    "expected_output": "id | name\n1  | Alice\n2  | Bob",
+    "chapter_id": 211,
+    "chapter_title": "Performance & Query Plans"
+  },
+  "1124": {
+    "id": 1124,
+    "title": "Introduction to Indexes",
+    "content": "# 📇 Introduction to Indexes\n\n## What is an Index?\n\nA data structure that speeds up lookups, like a book index.\n\n## Without Index\n\nDatabase scans every row (table scan).\n\n## With Index\n\nDatabase jumps directly to matching rows.\n\n```sql\nCREATE INDEX idx_email ON users(email);\n```\n\n---\n\n## 🎯 Your Task\n\nFind user by email (uses index if exists).\n",
+    "starter_code": "-- Find user by email\n\n",
+    "solution_code": "SELECT * FROM users WHERE email = 'alice@mail.com';",
+    "expected_output": "id | name  | email\n1  | Alice | alice@mail.com",
+    "chapter_id": 211,
+    "chapter_title": "Performance & Query Plans"
+  },
+  "1125": {
+    "id": 1125,
+    "title": "How Indexes Work",
+    "content": "# 🌳 How Indexes Work\n\n## B-Tree Structure\n\nMost indexes use B-trees:\n- Sorted data\n- O(log n) lookups\n- Good for equals and ranges\n\n## Index Lookup\n\n1. Search index tree\n2. Find row pointers\n3. Fetch actual rows\n\n---\n\n## 🎯 Your Task\n\nFind orders in a date range (benefits from index on order_date).\n",
+    "starter_code": "-- Find orders in March 2024\n\n",
+    "solution_code": "SELECT * FROM orders\nWHERE order_date BETWEEN '2024-03-01' AND '2024-03-31';",
+    "expected_output": "order_id | order_date | amount\n10       | 2024-03-15 | 100",
+    "chapter_id": 211,
+    "chapter_title": "Performance & Query Plans"
+  },
+  "1126": {
+    "id": 1126,
+    "title": "Index Trade-offs",
+    "content": "# ⚖️ Index Trade-offs\n\n## Benefits\n\n- Faster reads\n- Quick lookups\n\n## Costs\n\n- Slower writes (index updates)\n- Storage space\n- Maintenance overhead\n\n## When to Index\n\n| Index | Don't Index |\n| --- | --- |\n| Frequently filtered | Rarely queried |\n| High cardinality | Low cardinality |\n| JOIN keys | Write-heavy tables |\n\n---\n\n## 🎯 Your Task\n\nFilter by high-cardinality column (customer_id is good for indexing).\n",
+    "starter_code": "-- Find orders for customer 5\n\n",
+    "solution_code": "SELECT * FROM orders WHERE customer_id = 5;",
+    "expected_output": "order_id | customer_id | amount\n12       | 5           | 200",
+    "chapter_id": 211,
+    "chapter_title": "Performance & Query Plans"
+  },
+  "1127": {
+    "id": 1127,
+    "title": "Reading EXPLAIN Output",
+    "content": "# 📖 Reading EXPLAIN Output\n\n## EXPLAIN Basics\n\n```sql\nEXPLAIN SELECT * FROM orders WHERE customer_id = 5;\n```\n\n## What to Look For\n\n| Term | Meaning |\n| --- | --- |\n| Seq Scan | Full table scan (slow) |\n| Index Scan | Uses index (fast) |\n| Rows | Estimated rows |\n| Cost | Query cost estimate |\n\n---\n\n## 🎯 Your Task\n\nWrite a query that would use an index on customer_id.\n",
+    "starter_code": "-- Query that benefits from customer_id index\n\n",
+    "solution_code": "SELECT * FROM orders WHERE customer_id = 1;",
+    "expected_output": "order_id | customer_id | amount\n1        | 1           | 50",
+    "chapter_id": 211,
+    "chapter_title": "Performance & Query Plans"
+  },
+  "1128": {
+    "id": 1128,
+    "title": "Sequential vs Index Scan",
+    "content": "# 🔍 Sequential vs Index Scan\n\n## Sequential Scan\n\n- Reads every row\n- Good for: small tables, no WHERE\n\n## Index Scan\n\n- Uses index to find rows\n- Good for: selective WHERE clauses\n\n## Rule of Thumb\n\nIf <5-10% of rows match, use index.\n\n---\n\n## 🎯 Your Task\n\nWrite a selective query (finds few rows).\n",
+    "starter_code": "-- Find the single order with id = 1\n\n",
+    "solution_code": "SELECT * FROM orders WHERE id = 1;",
+    "expected_output": "id | amount\n1  | 50",
+    "chapter_id": 211,
+    "chapter_title": "Performance & Query Plans"
+  },
+  "1129": {
+    "id": 1129,
+    "title": "Filter Early Principle",
+    "content": "# 🎯 Filter Early Principle\n\n## Key Insight\n\nThe sooner you filter, the less data to process.\n\n## Bad: Filter Late\n\n```sql\n-- Joins all rows first!\nSELECT * FROM orders o\nJOIN customers c ON o.customer_id = c.id\nWHERE o.order_date > '2024-01-01';\n```\n\n## Good: Filter in Subquery\n\n```sql\nWITH recent_orders AS (\n  SELECT * FROM orders WHERE order_date > '2024-01-01'\n)\nSELECT * FROM recent_orders o\nJOIN customers c ON o.customer_id = c.id;\n```\n\n---\n\n## 🎯 Your Task\n\nFilter orders first, then join.\n",
+    "starter_code": "-- Filter orders before joining\n\n",
+    "solution_code": "SELECT c.name, o.amount\nFROM orders o\nJOIN customers c ON o.customer_id = c.id\nWHERE o.amount > 100;",
+    "expected_output": "name  | amount\nAlice | 150",
+    "chapter_id": 211,
+    "chapter_title": "Performance & Query Plans"
+  },
+  "1130": {
+    "id": 1130,
+    "title": "Reducing Rows Before Joins",
+    "content": "# 🔻 Reducing Rows Before Joins\n\n## Pre-aggregate Pattern\n\n```sql\nWITH customer_totals AS (\n  SELECT customer_id, SUM(amount) as total\n  FROM orders\n  GROUP BY customer_id\n)\nSELECT c.name, ct.total\nFROM customers c\nJOIN customer_totals ct ON c.id = ct.customer_id;\n```\n\n## Benefits\n\n- Fewer rows in join\n- Less memory\n- Faster execution\n\n---\n\n## 🎯 Your Task\n\nPre-aggregate orders then join to customers.\n",
+    "starter_code": "-- Aggregate first, join second\n\n",
+    "solution_code": "WITH order_totals AS (\n  SELECT customer_id, SUM(amount) as total\n  FROM orders\n  GROUP BY customer_id\n)\nSELECT c.name, ot.total\nFROM customers c\nJOIN order_totals ot ON c.id = ot.customer_id;",
+    "expected_output": "name  | total\nAlice | 500\nBob   | 300",
+    "chapter_id": 211,
+    "chapter_title": "Performance & Query Plans"
+  },
+  "1131": {
+    "id": 1131,
+    "title": "Avoiding SELECT *",
+    "content": "# 🚫 Avoiding SELECT *\n\n## Why Avoid?\n\n- Fetches unneeded columns\n- More network transfer\n- Can't use covering indexes\n\n## Better Practice\n\n```sql\n-- Bad\nSELECT * FROM users;\n\n-- Good\nSELECT id, name, email FROM users;\n```\n\n---\n\n## 🎯 Your Task\n\nSelect only name and email from customers.\n",
+    "starter_code": "-- Select specific columns only\n\n",
+    "solution_code": "SELECT name, email FROM customers;",
+    "expected_output": "name  | email\nAlice | alice@mail.com",
+    "chapter_id": 211,
+    "chapter_title": "Performance & Query Plans"
+  },
+  "1132": {
+    "id": 1132,
+    "title": "INSERT Basics",
+    "content": "# ➕ INSERT Basics\n\n## Inserting a Row\n\n```sql\nINSERT INTO users (name, email)\nVALUES ('Alice', 'alice@mail.com');\n```\n\n## Key Points\n\n- Specify columns explicitly\n- Values must match column order\n- Returns inserted rows (in Postgres)\n\n---\n\n## 🎯 Your Task\n\nInsert a new product named 'Widget'.\n",
+    "starter_code": "-- Insert a product\n\n",
+    "solution_code": "INSERT INTO products (name, price)\nVALUES ('Widget', 25.00);",
+    "expected_output": "INSERT 0 1",
+    "chapter_id": 212,
+    "chapter_title": "Mutations & Transactions"
+  },
+  "1133": {
+    "id": 1133,
+    "title": "INSERT Multiple Rows",
+    "content": "# ➕➕ INSERT Multiple Rows\n\n## Bulk Insert\n\n```sql\nINSERT INTO products (name, price) VALUES\n  ('Widget', 25),\n  ('Gadget', 50),\n  ('Gizmo', 75);\n```\n\n## Benefits\n\n- Single transaction\n- Faster than multiple INSERTs\n- Less overhead\n\n---\n\n## 🎯 Your Task\n\nInsert 3 new users.\n",
+    "starter_code": "-- Insert multiple users\n\n",
+    "solution_code": "INSERT INTO users (name, email) VALUES\n  ('Alice', 'alice@mail.com'),\n  ('Bob', 'bob@mail.com'),\n  ('Charlie', 'charlie@mail.com');",
+    "expected_output": "INSERT 0 3",
+    "chapter_id": 212,
+    "chapter_title": "Mutations & Transactions"
+  },
+  "1134": {
+    "id": 1134,
+    "title": "INSERT from SELECT",
+    "content": "# 📋 INSERT from SELECT\n\n## Copy Data Pattern\n\n```sql\nINSERT INTO archive_orders\nSELECT * FROM orders\nWHERE order_date < '2023-01-01';\n```\n\n## Use Cases\n\n- Archiving old data\n- Creating summary tables\n- Copying between tables\n\n---\n\n## 🎯 Your Task\n\nInsert high-value orders (>1000) into vip_orders.\n",
+    "starter_code": "-- Copy high-value orders\n\n",
+    "solution_code": "INSERT INTO vip_orders\nSELECT * FROM orders WHERE amount > 1000;",
+    "expected_output": "INSERT 0 5",
+    "chapter_id": 212,
+    "chapter_title": "Mutations & Transactions"
+  },
+  "1135": {
+    "id": 1135,
+    "title": "UPDATE Basics",
+    "content": "# ✏️ UPDATE Basics\n\n## Updating Rows\n\n```sql\nUPDATE users\nSET email = 'new@mail.com'\nWHERE id = 1;\n```\n\n## ⚠️ ALWAYS use WHERE!\n\nWithout WHERE, updates ALL rows!\n\n---\n\n## 🎯 Your Task\n\nUpdate product price for 'Widget' to 30.\n",
+    "starter_code": "-- Update product price\n\n",
+    "solution_code": "UPDATE products\nSET price = 30\nWHERE name = 'Widget';",
+    "expected_output": "UPDATE 1",
+    "chapter_id": 212,
+    "chapter_title": "Mutations & Transactions"
+  },
+  "1136": {
+    "id": 1136,
+    "title": "UPDATE with Conditions",
+    "content": "# ✏️ UPDATE with Conditions\n\n## Multiple Conditions\n\n```sql\nUPDATE orders\nSET status = 'shipped'\nWHERE status = 'paid' AND order_date < '2024-03-01';\n```\n\n## Update Multiple Columns\n\n```sql\nUPDATE users\nSET name = 'Alice Smith', updated_at = NOW()\nWHERE id = 1;\n```\n\n---\n\n## 🎯 Your Task\n\nSet all pending orders to 'processing'.\n",
+    "starter_code": "-- Update pending order status\n\n",
+    "solution_code": "UPDATE orders\nSET status = 'processing'\nWHERE status = 'pending';",
+    "expected_output": "UPDATE 10",
+    "chapter_id": 212,
+    "chapter_title": "Mutations & Transactions"
+  },
+  "1137": {
+    "id": 1137,
+    "title": "DELETE Basics",
+    "content": "# 🗑️ DELETE Basics\n\n## Deleting Rows\n\n```sql\nDELETE FROM users WHERE id = 1;\n```\n\n## ⚠️ ALWAYS use WHERE!\n\n```sql\nDELETE FROM users;  -- Deletes EVERYTHING!\n```\n\n---\n\n## 🎯 Your Task\n\nDelete cancelled orders.\n",
+    "starter_code": "-- Delete cancelled orders\n\n",
+    "solution_code": "DELETE FROM orders WHERE status = 'cancelled';",
+    "expected_output": "DELETE 5",
+    "chapter_id": 212,
+    "chapter_title": "Mutations & Transactions"
+  },
+  "1138": {
+    "id": 1138,
+    "title": "DELETE with Conditions",
+    "content": "# 🗑️ DELETE with Conditions\n\n## Safe Delete Pattern\n\n```sql\n-- Preview first\nSELECT * FROM orders WHERE order_date < '2020-01-01';\n\n-- Then delete\nDELETE FROM orders WHERE order_date < '2020-01-01';\n```\n\n## Using Subquery\n\n```sql\nDELETE FROM order_items\nWHERE order_id IN (\n  SELECT id FROM orders WHERE status = 'cancelled'\n);\n```\n\n---\n\n## 🎯 Your Task\n\nDelete old orders (before 2023).\n",
+    "starter_code": "-- Delete orders before 2023\n\n",
+    "solution_code": "DELETE FROM orders WHERE order_date < '2023-01-01';",
+    "expected_output": "DELETE 100",
+    "chapter_id": 212,
+    "chapter_title": "Mutations & Transactions"
+  },
+  "1139": {
+    "id": 1139,
+    "title": "Transaction Basics",
+    "content": "# 🔄 Transaction Basics\n\n## What is a Transaction?\n\nA group of operations that succeed or fail together.\n\n## ACID Properties\n\n| Property | Meaning |\n| --- | --- |\n| Atomicity | All or nothing |\n| Consistency | Valid state |\n| Isolation | No interference |\n| Durability | Persisted |\n\n---\n\n## 🎯 Your Task\n\nSelect orders to understand what you'll modify.\n",
+    "starter_code": "-- Preview data before transaction\n\n",
+    "solution_code": "SELECT * FROM orders WHERE status = 'pending';",
+    "expected_output": "order_id | status\n1        | pending",
+    "chapter_id": 212,
+    "chapter_title": "Mutations & Transactions"
+  },
+  "1140": {
+    "id": 1140,
+    "title": "BEGIN, COMMIT, ROLLBACK",
+    "content": "# 🔒 BEGIN, COMMIT, ROLLBACK\n\n## Transaction Flow\n\n```sql\nBEGIN;\n  UPDATE accounts SET balance = balance - 100 WHERE id = 1;\n  UPDATE accounts SET balance = balance + 100 WHERE id = 2;\nCOMMIT;  -- Save changes\n```\n\n## Rollback on Error\n\n```sql\nBEGIN;\n  -- If something goes wrong...\nROLLBACK;  -- Undo everything\n```\n\n---\n\n## 🎯 Your Task\n\nSelect account balances.\n",
+    "starter_code": "-- Check account balances\n\n",
+    "solution_code": "SELECT id, balance FROM accounts;",
+    "expected_output": "id | balance\n1  | 1000\n2  | 500",
+    "chapter_id": 212,
+    "chapter_title": "Mutations & Transactions"
+  },
+  "1141": {
+    "id": 1141,
+    "title": "Savepoints",
+    "content": "# 📌 Savepoints\n\n## Partial Rollback\n\n```sql\nBEGIN;\n  INSERT INTO orders VALUES (1, 100);\n  SAVEPOINT after_order;\n  INSERT INTO payments VALUES (1, 100);  -- Error!\n  ROLLBACK TO after_order;  -- Keep order, undo payment\nCOMMIT;\n```\n\n---\n\n## 🎯 Your Task\n\nCount orders (understanding state before changes).\n",
+    "starter_code": "-- Count existing orders\n\n",
+    "solution_code": "SELECT COUNT(*) as order_count FROM orders;",
+    "expected_output": "order_count\n150",
+    "chapter_id": 212,
+    "chapter_title": "Mutations & Transactions"
+  },
+  "1142": {
+    "id": 1142,
+    "title": "Isolation Levels Intro",
+    "content": "# 🔐 Isolation Levels Intro\n\n## Levels\n\n| Level | Dirty Read | Lost Update |\n| --- | --- | --- |\n| Read Uncommitted | Yes | Yes |\n| Read Committed | No | Yes |\n| Repeatable Read | No | No |\n| Serializable | No | No |\n\n## Default\n\nMost databases: Read Committed\n\n---\n\n## 🎯 Your Task\n\nShow current session settings.\n",
+    "starter_code": "-- Simple query to test\n\n",
+    "solution_code": "SELECT 1 as test;",
+    "expected_output": "test\n1",
+    "chapter_id": 212,
+    "chapter_title": "Mutations & Transactions"
+  },
+  "1143": {
+    "id": 1143,
+    "title": "Safe Update Patterns",
+    "content": "# 🛡️ Safe Update Patterns\n\n## Best Practices\n\n1. **Preview first**: SELECT before UPDATE/DELETE\n2. **Use transactions**: BEGIN...COMMIT\n3. **Limit rows**: Add LIMIT to test\n4. **Backup**: Create a copy before bulk changes\n\n```sql\n-- Safe pattern\nBEGIN;\nSELECT * FROM products WHERE price < 10;  -- Preview\nUPDATE products SET price = price * 1.1 WHERE price < 10;\n-- Verify, then COMMIT or ROLLBACK\n```\n\n---\n\n## 🎯 Your Task\n\nPreview products that will be updated.\n",
+    "starter_code": "-- Preview products with price < 10\n\n",
+    "solution_code": "SELECT * FROM products WHERE price < 10;",
+    "expected_output": "id | name   | price\n1  | Widget | 5",
+    "chapter_id": 212,
+    "chapter_title": "Mutations & Transactions"
+  },
+  "1144": {
+    "id": 1144,
+    "title": "Views Introduction",
+    "content": "# 👁️ Views Introduction\n\n## What is a View?\n\nA saved query that acts like a virtual table.\n\n```sql\nCREATE VIEW active_users AS\nSELECT * FROM users WHERE status = 'active';\n```\n\n## Benefits\n\n- Simplify complex queries\n- Security (hide columns)\n- Abstraction layer\n\n---\n\n## 🎯 Your Task\n\nQuery from a conceptual 'active_orders' view.\n",
+    "starter_code": "-- Query active orders\n\n",
+    "solution_code": "SELECT * FROM orders WHERE status = 'active';",
+    "expected_output": "order_id | status\n1        | active",
+    "chapter_id": 213,
+    "chapter_title": "Analytics Engineering"
+  },
+  "1145": {
+    "id": 1145,
+    "title": "Creating Views",
+    "content": "# 🔨 Creating Views\n\n## Syntax\n\n```sql\nCREATE VIEW view_name AS\nSELECT columns FROM table WHERE condition;\n```\n\n## Example\n\n```sql\nCREATE VIEW monthly_revenue AS\nSELECT DATE_TRUNC('month', order_date) as month, SUM(amount) as revenue\nFROM orders GROUP BY 1;\n```\n\n---\n\n## 🎯 Your Task\n\nWrite the SELECT for a daily_orders view.\n",
+    "starter_code": "-- Query for daily orders view\n\n",
+    "solution_code": "SELECT DATE(order_date) as date, COUNT(*) as orders\nFROM orders\nGROUP BY DATE(order_date);",
+    "expected_output": "date       | orders\n2024-03-01 | 15",
+    "chapter_id": 213,
+    "chapter_title": "Analytics Engineering"
+  },
+  "1146": {
+    "id": 1146,
+    "title": "Views vs Tables",
+    "content": "# ⚖️ Views vs Tables\n\n## Differences\n\n| Feature | Table | View |\n| --- | --- | --- |\n| Stores data | Yes | No |\n| Updates | Direct | Through base |\n| Performance | Fast | Computed |\n\n## When to Use Views\n\n- Simplify complex joins\n- Restrict access\n- Reusable queries\n\n---\n\n## 🎯 Your Task\n\nWrite a query that would make a good view.\n",
+    "starter_code": "-- Customer summary suitable for a view\n\n",
+    "solution_code": "SELECT c.name, COUNT(o.id) as order_count, SUM(o.amount) as total\nFROM customers c\nLEFT JOIN orders o ON c.id = o.customer_id\nGROUP BY c.id, c.name;",
+    "expected_output": "name  | order_count | total\nAlice | 5           | 500",
+    "chapter_id": 213,
+    "chapter_title": "Analytics Engineering"
+  },
+  "1147": {
+    "id": 1147,
+    "title": "Materialized Views",
+    "content": "# 💾 Materialized Views\n\n## What's Different?\n\nMaterialized views store computed results.\n\n```sql\nCREATE MATERIALIZED VIEW mv_daily_revenue AS\nSELECT date, SUM(amount) FROM orders GROUP BY date;\n\n-- Refresh when needed\nREFRESH MATERIALIZED VIEW mv_daily_revenue;\n```\n\n## Trade-offs\n\n| Regular View | Materialized View |\n| --- | --- |\n| Always current | Needs refresh |\n| Computed each query | Cached results |\n| Slower | Faster reads |\n\n---\n\n## 🎯 Your Task\n\nWrite a summary that would benefit from caching.\n",
+    "starter_code": "-- Heavy aggregation for MV\n\n",
+    "solution_code": "SELECT DATE(order_date) as date, SUM(amount) as revenue\nFROM orders\nGROUP BY DATE(order_date);",
+    "expected_output": "date       | revenue\n2024-03-01 | 5000",
+    "chapter_id": 213,
+    "chapter_title": "Analytics Engineering"
+  },
+  "1148": {
+    "id": 1148,
+    "title": "Naming Conventions",
+    "content": "# 📝 Naming Conventions\n\n## Best Practices\n\n| Type | Convention | Example |\n| --- | --- | --- |\n| Tables | snake_case | order_items |\n| Columns | snake_case | created_at |\n| Views | prefix_* | v_daily_revenue |\n| Staging | stg_* | stg_orders |\n\n## Consistency is Key\n\nPick a convention and stick with it!\n\n---\n\n## 🎯 Your Task\n\nQuery with clear column aliases.\n",
+    "starter_code": "-- Use clear aliases\n\n",
+    "solution_code": "SELECT\n  order_id,\n  order_date AS date,\n  amount AS order_amount\nFROM orders;",
+    "expected_output": "order_id | date       | order_amount\n1        | 2024-03-01 | 100",
+    "chapter_id": 213,
+    "chapter_title": "Analytics Engineering"
+  },
+  "1149": {
+    "id": 1149,
+    "title": "SQL Style Guide",
+    "content": "# 📋 SQL Style Guide\n\n## Formatting\n\n```sql\n-- Good\nSELECT\n  customer_id,\n  SUM(amount) AS total\nFROM orders\nWHERE status = 'complete'\nGROUP BY customer_id;\n```\n\n## Rules\n\n- Keywords uppercase\n- One clause per line\n- Indent consistently\n- Meaningful aliases\n\n---\n\n## 🎯 Your Task\n\nWrite a well-formatted query.\n",
+    "starter_code": "-- Write clean, formatted SQL\n\n",
+    "solution_code": "SELECT\n  c.name AS customer_name,\n  COUNT(o.id) AS order_count\nFROM customers c\nJOIN orders o ON c.id = o.customer_id\nGROUP BY c.id, c.name\nORDER BY order_count DESC;",
+    "expected_output": "customer_name | order_count\nAlice         | 5",
+    "chapter_id": 213,
+    "chapter_title": "Analytics Engineering"
+  },
+  "1150": {
+    "id": 1150,
+    "title": "Staging Models",
+    "content": "# 🎭 Staging Models\n\n## Purpose\n\nClean raw data from sources.\n\n```sql\n-- stg_orders\nSELECT\n  id AS order_id,\n  LOWER(email) AS customer_email,\n  created_at AS order_date\nFROM raw.orders;\n```\n\n## Transformations\n\n- Rename columns\n- Cast types\n- Basic cleaning\n\n---\n\n## 🎯 Your Task\n\nCreate a staging query with clean column names.\n",
+    "starter_code": "-- Staging transformation\n\n",
+    "solution_code": "SELECT\n  id AS order_id,\n  customer_id,\n  amount AS order_amount,\n  created_at AS order_date\nFROM orders;",
+    "expected_output": "order_id | customer_id | order_amount | order_date\n1        | 1           | 100          | 2024-03-01",
+    "chapter_id": 213,
+    "chapter_title": "Analytics Engineering"
+  },
+  "1151": {
+    "id": 1151,
+    "title": "Intermediate Models",
+    "content": "# 🔧 Intermediate Models\n\n## Purpose\n\nJoin and transform staged data.\n\n```sql\n-- int_orders_with_customers\nSELECT\n  o.order_id,\n  c.customer_name,\n  o.order_amount\nFROM stg_orders o\nJOIN stg_customers c ON o.customer_id = c.customer_id;\n```\n\n---\n\n## 🎯 Your Task\n\nJoin orders with customer info.\n",
+    "starter_code": "-- Intermediate model join\n\n",
+    "solution_code": "SELECT\n  o.id AS order_id,\n  c.name AS customer_name,\n  o.amount\nFROM orders o\nJOIN customers c ON o.customer_id = c.id;",
+    "expected_output": "order_id | customer_name | amount\n1        | Alice         | 100",
+    "chapter_id": 213,
+    "chapter_title": "Analytics Engineering"
+  },
+  "1152": {
+    "id": 1152,
+    "title": "Marts Layer",
+    "content": "# 🏪 Marts Layer\n\n## Purpose\n\nBusiness-ready aggregates for dashboards.\n\n```sql\n-- mart_customer_summary\nSELECT\n  customer_id,\n  customer_name,\n  COUNT(order_id) AS total_orders,\n  SUM(order_amount) AS lifetime_value\nFROM int_orders_with_customers\nGROUP BY customer_id, customer_name;\n```\n\n---\n\n## 🎯 Your Task\n\nCreate a customer summary mart.\n",
+    "starter_code": "-- Customer mart aggregation\n\n",
+    "solution_code": "SELECT\n  c.id AS customer_id,\n  c.name,\n  COUNT(o.id) AS orders,\n  SUM(o.amount) AS revenue\nFROM customers c\nLEFT JOIN orders o ON c.id = o.customer_id\nGROUP BY c.id, c.name;",
+    "expected_output": "customer_id | name  | orders | revenue\n1           | Alice | 5      | 500",
+    "chapter_id": 213,
+    "chapter_title": "Analytics Engineering"
+  },
+  "1153": {
+    "id": 1153,
+    "title": "Cloud vs Traditional DB",
+    "content": "# ☁️ Cloud vs Traditional DB\n\n## Key Differences\n\n| Feature | Traditional | Cloud |\n| --- | --- | --- |\n| Scaling | Manual | Auto |\n| Pricing | Fixed | Usage-based |\n| Storage | Limited | Unlimited |\n\n## Popular Cloud Warehouses\n\n- Snowflake\n- BigQuery\n- Redshift\n- Databricks\n\n---\n\n## 🎯 Your Task\n\nWrite a basic aggregation query.\n",
+    "starter_code": "-- Cloud-compatible aggregation\n\n",
+    "solution_code": "SELECT COUNT(*) as row_count FROM orders;",
+    "expected_output": "row_count\n1000",
+    "chapter_id": 214,
+    "chapter_title": "Cloud Warehouse Features"
+  },
+  "1154": {
+    "id": 1154,
+    "title": "QUALIFY Clause",
+    "content": "# 🎯 QUALIFY Clause\n\n## What is QUALIFY?\n\nFilter window function results (like HAVING for GROUP BY).\n\n```sql\n-- Only show first row per customer\nSELECT *\nFROM orders\nQUALIFY ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date) = 1;\n```\n\n## Without QUALIFY (subquery needed)\n\n```sql\nSELECT * FROM (\n  SELECT *, ROW_NUMBER() OVER (...) as rn FROM orders\n) WHERE rn = 1;\n```\n\n---\n\n## 🎯 Your Task\n\nGet the latest order per customer using a CTE.\n",
+    "starter_code": "-- Latest order per customer\n\n",
+    "solution_code": "WITH ranked AS (\n  SELECT *, ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date DESC) as rn\n  FROM orders\n)\nSELECT * FROM ranked WHERE rn = 1;",
+    "expected_output": "customer_id | order_date | rn\n1           | 2024-03-15 | 1",
+    "chapter_id": 214,
+    "chapter_title": "Cloud Warehouse Features"
+  },
+  "1155": {
+    "id": 1155,
+    "title": "QUALIFY with ROW_NUMBER",
+    "content": "# 🔢 QUALIFY with ROW_NUMBER\n\n## Dedup Pattern (Cloud SQL)\n\n```sql\nSELECT *\nFROM events\nQUALIFY ROW_NUMBER() OVER (\n  PARTITION BY user_id, event_type\n  ORDER BY event_time DESC\n) = 1;\n```\n\n## Benefits\n\n- Cleaner than subquery\n- One-liner dedup\n- Cloud native\n\n---\n\n## 🎯 Your Task\n\nGet first order per customer (standard SQL).\n",
+    "starter_code": "-- First order per customer\n\n",
+    "solution_code": "SELECT customer_id, MIN(order_date) as first_order\nFROM orders\nGROUP BY customer_id;",
+    "expected_output": "customer_id | first_order\n1           | 2024-01-01",
+    "chapter_id": 214,
+    "chapter_title": "Cloud Warehouse Features"
+  },
+  "1156": {
+    "id": 1156,
+    "title": "Table Partitioning",
+    "content": "# 📂 Table Partitioning\n\n## What is Partitioning?\n\nSplit tables by a column (usually date).\n\n```sql\n-- BigQuery example\nCREATE TABLE orders\nPARTITION BY DATE(order_date);\n```\n\n## Benefits\n\n- Query only relevant partitions\n- Faster WHERE on partition key\n- Cost savings\n\n---\n\n## 🎯 Your Task\n\nQuery with date filter (benefits from partitioning).\n",
+    "starter_code": "-- Filter by date range\n\n",
+    "solution_code": "SELECT * FROM orders\nWHERE order_date >= '2024-03-01' AND order_date < '2024-04-01';",
+    "expected_output": "order_id | order_date\n1        | 2024-03-15",
+    "chapter_id": 214,
+    "chapter_title": "Cloud Warehouse Features"
+  },
+  "1157": {
+    "id": 1157,
+    "title": "Clustering Keys",
+    "content": "# 🗂️ Clustering Keys\n\n## What is Clustering?\n\nOrganize data within partitions by columns.\n\n```sql\n-- Snowflake example\nALTER TABLE orders CLUSTER BY (customer_id);\n```\n\n## Benefits\n\n- Faster filters on cluster keys\n- Reduces data scanning\n- Complements partitioning\n\n---\n\n## 🎯 Your Task\n\nQuery filtering on customer_id (cluster key candidate).\n",
+    "starter_code": "-- Query by customer\n\n",
+    "solution_code": "SELECT * FROM orders WHERE customer_id = 1;",
+    "expected_output": "order_id | customer_id\n1        | 1",
+    "chapter_id": 214,
+    "chapter_title": "Cloud Warehouse Features"
+  },
+  "1158": {
+    "id": 1158,
+    "title": "Cost-Based Thinking",
+    "content": "# 💰 Cost-Based Thinking\n\n## Cloud Costs\n\n- **Storage**: Pay for data stored\n- **Compute**: Pay for queries (bytes scanned)\n\n## Reduce Costs\n\n1. Select only needed columns\n2. Filter early\n3. Use partitions\n4. Avoid SELECT *\n\n---\n\n## 🎯 Your Task\n\nWrite a cost-efficient query.\n",
+    "starter_code": "-- Efficient query\n\n",
+    "solution_code": "SELECT order_id, amount\nFROM orders\nWHERE order_date = '2024-03-01';",
+    "expected_output": "order_id | amount\n1        | 100",
+    "chapter_id": 214,
+    "chapter_title": "Cloud Warehouse Features"
+  },
+  "1159": {
+    "id": 1159,
+    "title": "Scanning Fewer Columns",
+    "content": "# 📊 Scanning Fewer Columns\n\n## Column Selection Matters\n\n```sql\n-- Bad: Scans all columns\nSELECT * FROM orders;\n\n-- Good: Scans only 2 columns\nSELECT order_id, amount FROM orders;\n```\n\n## Columnar Storage\n\nCloud warehouses store data by column - query only what you need!\n\n---\n\n## 🎯 Your Task\n\nSelect minimal columns for your query.\n",
+    "starter_code": "-- Select only 2 columns\n\n",
+    "solution_code": "SELECT customer_id, SUM(amount) as total\nFROM orders\nGROUP BY customer_id;",
+    "expected_output": "customer_id | total\n1           | 500",
+    "chapter_id": 214,
+    "chapter_title": "Cloud Warehouse Features"
+  },
+  "1160": {
+    "id": 1160,
+    "title": "Scanning Fewer Rows",
+    "content": "# 🔻 Scanning Fewer Rows\n\n## Row Reduction Strategies\n\n1. **WHERE clause**: Filter early\n2. **LIMIT**: Sample data\n3. **Partitions**: Scan only relevant dates\n\n```sql\n-- Scans only March data if partitioned\nSELECT * FROM orders\nWHERE order_date BETWEEN '2024-03-01' AND '2024-03-31';\n```\n\n---\n\n## 🎯 Your Task\n\nQuery with both column and row reduction.\n",
+    "starter_code": "-- Efficient: few columns + filter\n\n",
+    "solution_code": "SELECT order_id, amount\nFROM orders\nWHERE customer_id = 1\nLIMIT 10;",
+    "expected_output": "order_id | amount\n1        | 50",
+    "chapter_id": 214,
+    "chapter_title": "Cloud Warehouse Features"
+  },
+  "1161": {
+    "id": 1161,
+    "title": "Query Optimization Tips",
+    "content": "# 🚀 Query Optimization Tips\n\n## Top Tips\n\n1. **Avoid SELECT *** - Pick columns\n2. **Filter early** - WHERE before JOIN\n3. **Use LIMIT** - During development\n4. **Pre-aggregate** - Reduce before JOIN\n5. **Partition pruning** - Filter on partition key\n\n## Anti-Patterns\n\n- `SELECT *`\n- Functions on indexed columns\n- DISTINCT when not needed\n- Joining full tables then filtering\n\n---\n\n## 🎯 Your Task\n\nWrite an optimized query following best practices.\n",
+    "starter_code": "-- Optimized query\n\n",
+    "solution_code": "SELECT\n  c.name,\n  SUM(o.amount) as total_revenue\nFROM customers c\nJOIN orders o ON c.id = o.customer_id\nWHERE o.order_date >= '2024-01-01'\nGROUP BY c.id, c.name\nORDER BY total_revenue DESC\nLIMIT 10;",
+    "expected_output": "name  | total_revenue\nAlice | 5000\nBob   | 3000",
+    "chapter_id": 214,
+    "chapter_title": "Cloud Warehouse Features"
   }
 }

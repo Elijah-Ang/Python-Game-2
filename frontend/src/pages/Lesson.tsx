@@ -3,8 +3,9 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import Editor from '@monaco-editor/react';
 import { Play, Send, ChevronRight, FileCode, RotateCcw, Eye, EyeOff, Lightbulb, X, CheckCircle, AlertCircle } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import confetti from 'canvas-confetti';
-import { verifyCode } from '../utils/verifier';
+import { verifyCode, verifySql } from '../utils/verifier';
 
 interface LessonData {
     id: number;
@@ -174,16 +175,35 @@ except:
         return resultOutput;
     };
 
+    // For SQL lessons, we can't run in browser - just verify against expected output
+    const runSqlCode = (): string => {
+        const msg = "\u2139\ufe0f SQL queries are verified by comparing your query structure to the expected solution.\n\nClick 'Submit' to check your answer!";
+        setOutput(msg);
+        return msg;
+    };
+
     const submitAnswer = async () => {
-        const executionOutput = await runCode();
+        const currentId = Number(id) || 1;
+        const isSql = currentId >= 1001;
+
         setIsVerifying(true);
 
-        // Use local verification - no API needed!
-        const result = verifyCode(
-            lesson?.expected_output || '',
-            executionOutput,
-            code
-        );
+        let result;
+        if (isSql) {
+            // For SQL, compare user code against solution code
+            result = verifySql(
+                lesson?.solution_code || '',
+                code
+            );
+        } else {
+            // For Python, run code and compare output
+            const executionOutput = await runCode();
+            result = verifyCode(
+                lesson?.expected_output || '',
+                executionOutput,
+                code
+            );
+        }
 
         setVerifyResult(result);
 
@@ -300,6 +320,7 @@ except:
                         {/* Lesson Content */}
                         <div className="prose prose-invert prose-sm max-w-none lesson-content">
                             <ReactMarkdown
+                                remarkPlugins={[remarkGfm]}
                                 components={{
                                     h1: ({ children }) => <h1 className="text-xl font-bold mt-6 mb-3 text-[var(--accent-primary)]">{children}</h1>,
                                     h2: ({ children }) => <h2 className="text-lg font-bold mt-5 mb-2">{children}</h2>,
@@ -437,14 +458,17 @@ except:
 
                         </div>
                         <div className="flex items-center gap-2">
-                            <button
-                                onClick={runCode}
-                                disabled={isRunning}
-                                className="px-4 py-1.5 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] flex items-center gap-2 text-sm"
-                            >
-                                <Play className="w-4 h-4" />
-                                Run
-                            </button>
+                            {/* Only show Run button for Python lessons */}
+                            {!isSqlLesson && (
+                                <button
+                                    onClick={runCode}
+                                    disabled={isRunning}
+                                    className="px-4 py-1.5 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] flex items-center gap-2 text-sm"
+                                >
+                                    <Play className="w-4 h-4" />
+                                    Run
+                                </button>
+                            )}
                             <button
                                 onClick={submitAnswer}
                                 disabled={isRunning || isVerifying}
@@ -504,7 +528,7 @@ except:
                             ) : output ? (
                                 <pre className={`whitespace-pre-wrap ${output.includes('Error') ? 'text-[var(--accent-error)]' : 'text-[var(--accent-success)]'}`}>{output}</pre>
                             ) : (
-                                <span className="text-[var(--text-secondary)] opacity-50">▌ Click Run to execute your code</span>
+                                <span className="text-[var(--text-secondary)] opacity-50">▌ {isSqlLesson ? 'Click Submit to verify your query' : 'Click Run to execute your code'}</span>
                             )}
                         </div>
                     </div>

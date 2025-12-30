@@ -8,6 +8,181 @@ interface VerifyResult {
     expectedVsActual?: { expected: string; actual: string };
 }
 
+// ============ SQL VERIFICATION ============
+
+// Normalize SQL query for comparison
+function normalizeSql(sql: string): string {
+    return sql
+        // Remove comments
+        .replace(/--.*$/gm, '')
+        .replace(/\/\*[\s\S]*?\*\//g, '')
+        // Normalize whitespace
+        .replace(/\s+/g, ' ')
+        .trim()
+        // Remove trailing semicolons
+        .replace(/;+$/, '')
+        // Lowercase for comparison (SQL keywords are case-insensitive)
+        .toLowerCase()
+        // Normalize quotes
+        .replace(/"/g, "'");
+}
+
+// Extract SQL keywords and structure
+function extractSqlStructure(sql: string): {
+    hasSelect: boolean;
+    columns: string[];
+    hasFrom: boolean;
+    tables: string[];
+    hasWhere: boolean;
+    hasJoin: boolean;
+    hasGroupBy: boolean;
+    hasOrderBy: boolean;
+} {
+    const normalized = normalizeSql(sql);
+
+    return {
+        hasSelect: /\bselect\b/i.test(sql),
+        columns: extractBetween(normalized, 'select', 'from').split(',').map(c => c.trim()).filter(Boolean),
+        hasFrom: /\bfrom\b/i.test(sql),
+        tables: extractAfter(normalized, 'from').split(/\bjoin\b|\bwhere\b|\bgroup by\b|\border by\b|\blimit\b/)[0]?.split(',').map(t => t.trim()).filter(Boolean) || [],
+        hasWhere: /\bwhere\b/i.test(sql),
+        hasJoin: /\bjoin\b/i.test(sql),
+        hasGroupBy: /\bgroup\s+by\b/i.test(sql),
+        hasOrderBy: /\border\s+by\b/i.test(sql),
+    };
+}
+
+function extractBetween(str: string, start: string, end: string): string {
+    const startIdx = str.indexOf(start);
+    const endIdx = str.indexOf(end);
+    if (startIdx === -1 || endIdx === -1) return '';
+    return str.slice(startIdx + start.length, endIdx).trim();
+}
+
+function extractAfter(str: string, keyword: string): string {
+    const idx = str.indexOf(keyword);
+    if (idx === -1) return '';
+    return str.slice(idx + keyword.length).trim();
+}
+
+// Main SQL verification function
+export function verifySql(
+    solutionCode: string,
+    userCode: string
+): VerifyResult {
+    // Basic checks
+    if (!userCode || userCode.trim().length < 5 || userCode.trim() === '-- Write your SQL here') {
+        return {
+            correct: false,
+            feedback: "Please write your SQL query!",
+            suggestions: ["Read the instructions and write your query in the editor"]
+        };
+    }
+
+    const normalizedUser = normalizeSql(userCode);
+    const normalizedSolution = normalizeSql(solutionCode);
+
+    // Exact match (normalized)
+    if (normalizedUser === normalizedSolution) {
+        return {
+            correct: true,
+            feedback: "Perfect! Your SQL query is correct! 🎉",
+            suggestions: []
+        };
+    }
+
+    // Check SQL structure
+    const userStructure = extractSqlStructure(userCode);
+    const solutionStructure = extractSqlStructure(solutionCode);
+
+    // Missing SELECT
+    if (solutionStructure.hasSelect && !userStructure.hasSelect) {
+        return {
+            correct: false,
+            feedback: "Your query needs a SELECT statement.",
+            suggestions: ["Start with: SELECT column_names", "Use SELECT * to select all columns"]
+        };
+    }
+
+    // Missing FROM
+    if (solutionStructure.hasFrom && !userStructure.hasFrom) {
+        return {
+            correct: false,
+            feedback: "Your query needs a FROM clause.",
+            suggestions: ["Add: FROM table_name", "Specify which table to query"]
+        };
+    }
+
+    // Check if columns match (for SELECT queries)
+    if (solutionStructure.hasSelect && userStructure.hasSelect) {
+        const solutionCols = new Set(solutionStructure.columns);
+        const userCols = new Set(userStructure.columns);
+
+        // Check for SELECT *
+        if (solutionCols.has('*') && !userCols.has('*')) {
+            if (!arraysMatch(Array.from(solutionCols), Array.from(userCols))) {
+                return {
+                    correct: false,
+                    feedback: "Check your column selection.",
+                    suggestions: ["The expected query uses SELECT *"]
+                };
+            }
+        }
+    }
+
+    // Check table names
+    if (solutionStructure.tables.length > 0 && userStructure.tables.length > 0) {
+        const solutionTable = solutionStructure.tables[0];
+        const userTable = userStructure.tables[0];
+        if (solutionTable !== userTable) {
+            return {
+                correct: false,
+                feedback: "Check your table name.",
+                suggestions: [`The query should use the '${solutionTable}' table`]
+            };
+        }
+    }
+
+    // Missing WHERE when needed
+    if (solutionStructure.hasWhere && !userStructure.hasWhere) {
+        return {
+            correct: false,
+            feedback: "Your query needs a WHERE clause to filter results.",
+            suggestions: ["Add: WHERE condition", "Example: WHERE salary > 50000"]
+        };
+    }
+
+    // Check for common SQL syntax issues
+    if (!userCode.toLowerCase().includes('select') && !userCode.toLowerCase().includes('insert') &&
+        !userCode.toLowerCase().includes('update') && !userCode.toLowerCase().includes('delete')) {
+        return {
+            correct: false,
+            feedback: "That doesn't look like a valid SQL query.",
+            suggestions: ["SQL queries usually start with SELECT, INSERT, UPDATE, or DELETE"]
+        };
+    }
+
+    // Close but not exact - provide helpful feedback
+    return {
+        correct: false,
+        feedback: "Your query is close but doesn't match the expected solution.",
+        suggestions: [
+            "Check your syntax carefully",
+            "Compare with the expected query structure"
+        ],
+        expectedVsActual: { expected: solutionCode, actual: userCode }
+    };
+}
+
+function arraysMatch(a: string[], b: string[]): boolean {
+    if (a.length !== b.length) return false;
+    const setA = new Set(a);
+    return b.every(item => setA.has(item));
+}
+
+// ============ PYTHON VERIFICATION ============
+
+
 // Check if output contains errors
 function isErrorOutput(output: string): boolean {
     if (!output) return false;

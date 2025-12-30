@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, BarChart3, Brain } from 'lucide-react';
+import { BookOpen, BarChart3, Brain, Database } from 'lucide-react';
 
 export const Landing: React.FC = () => {
     return (
@@ -50,34 +50,44 @@ export const Landing: React.FC = () => {
                     Learn Python and Data Science concepts step by step with interactive exercises and clear explanations.
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="panel text-center p-8">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(99,102,241,0.2)] flex items-center justify-center">
-                            <BookOpen className="w-8 h-8 text-[var(--accent-secondary)]" />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="panel text-center p-6">
+                        <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-[rgba(99,102,241,0.2)] flex items-center justify-center">
+                            <BookOpen className="w-7 h-7 text-[var(--accent-secondary)]" />
                         </div>
-                        <h3 className="font-bold text-xl mb-2">Python Fundamentals</h3>
+                        <h3 className="font-bold text-lg mb-2">Python Fundamentals</h3>
                         <p className="text-[var(--text-secondary)] text-sm">
-                            Master variables, loops, functions, and data structures from scratch.
+                            Master variables, loops, functions, and data structures.
                         </p>
                     </div>
 
-                    <div className="panel text-center p-8">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(250,204,21,0.2)] flex items-center justify-center">
-                            <BarChart3 className="w-8 h-8 text-[var(--accent-warning)]" />
+                    <div className="panel text-center p-6">
+                        <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-[rgba(59,130,246,0.2)] flex items-center justify-center">
+                            <Database className="w-7 h-7 text-blue-400" />
                         </div>
-                        <h3 className="font-bold text-xl mb-2">Data Analysis</h3>
+                        <h3 className="font-bold text-lg mb-2">SQL Fundamentals</h3>
                         <p className="text-[var(--text-secondary)] text-sm">
-                            Learn Pandas, statistics, and visualization to explore real data.
+                            Query databases, join tables, and analyze data with SQL.
                         </p>
                     </div>
 
-                    <div className="panel text-center p-8">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(74,222,128,0.2)] flex items-center justify-center">
-                            <Brain className="w-8 h-8 text-[var(--accent-success)]" />
+                    <div className="panel text-center p-6">
+                        <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-[rgba(250,204,21,0.2)] flex items-center justify-center">
+                            <BarChart3 className="w-7 h-7 text-[var(--accent-warning)]" />
                         </div>
-                        <h3 className="font-bold text-xl mb-2">Machine Learning</h3>
+                        <h3 className="font-bold text-lg mb-2">Data Analysis</h3>
                         <p className="text-[var(--text-secondary)] text-sm">
-                            Build predictive models with scikit-learn and understand how AI works.
+                            Learn Pandas, statistics, and visualization.
+                        </p>
+                    </div>
+
+                    <div className="panel text-center p-6">
+                        <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-[rgba(74,222,128,0.2)] flex items-center justify-center">
+                            <Brain className="w-7 h-7 text-[var(--accent-success)]" />
+                        </div>
+                        <h3 className="font-bold text-lg mb-2">Machine Learning</h3>
+                        <p className="text-[var(--text-secondary)] text-sm">
+                            Build predictive models with scikit-learn.
                         </p>
                     </div>
                 </div>
