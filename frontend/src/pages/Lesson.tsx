@@ -52,7 +52,9 @@ export const Lesson: React.FC = () => {
                 const lessonData = data[id as string];
                 if (lessonData) {
                     setLesson(lessonData);
-                    setCode("# Write your code here\n\n");
+                    // SQL lessons have IDs >= 1001
+                    const isSql = Number(id) >= 1001;
+                    setCode(isSql ? "-- Write your SQL here\n\n" : "# Write your code here\n\n");
                     setShowSolution(false);
                     setVerifyResult(null);
                     setOutput("");
@@ -206,13 +208,24 @@ except:
     };
 
     const goToNext = () => {
-        const nextId = Number(id) + 1;
-        // Navigate through all lessons including new chapters (up to 144)
-        if (nextId <= 144) {
-            navigate(`/lesson/${nextId}`);
+        const currentId = Number(id);
+        const isSql = currentId >= 1001;
+        const nextId = currentId + 1;
+
+        if (isSql) {
+            // SQL lessons: 1001-1098 currently implemented
+            if (nextId <= 1098) {
+                navigate(`/lesson/${nextId}`);
+            } else {
+                navigate('/course/sql-fundamentals');
+            }
         } else {
-            // Go back to course page after completing Final Boss
-            navigate('/course/python-basics');
+            // Python lessons: 1-144
+            if (nextId <= 144) {
+                navigate(`/lesson/${nextId}`);
+            } else {
+                navigate('/course/python-basics');
+            }
         }
     };
 
@@ -232,7 +245,13 @@ except:
     }
 
     const currentExercise = Number(id) || 1;
-    const totalExercises = 113;
+    const isSqlLesson = currentExercise >= 1001;
+    const totalExercises = isSqlLesson ? 98 : 113;
+    const displayExercise = isSqlLesson ? currentExercise - 1000 : currentExercise;
+    const courseSlug = isSqlLesson ? 'sql-fundamentals' : 'python-basics';
+    const courseName = isSqlLesson ? 'SQL' : 'Python';
+    const editorLanguage = isSqlLesson ? 'sql' : 'python';
+    const scriptFilename = isSqlLesson ? 'query.sql' : 'script.py';
 
     return (
         <div className="h-screen flex flex-col bg-[var(--bg-color)] overflow-hidden">
@@ -246,7 +265,7 @@ except:
                 <span className="text-[var(--border-color)]">|</span>
 
                 <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium">Python / {lesson.title}</span>
+                    <span className="text-sm font-medium">{courseName} / {lesson.title}</span>
                 </div>
 
                 {/* Progress Bar */}
@@ -254,17 +273,17 @@ except:
                     <div className="h-2 bg-[var(--border-color)] rounded-full overflow-hidden">
                         <div
                             className="h-full bg-[var(--accent-secondary)] transition-all"
-                            style={{ width: `${(currentExercise / totalExercises) * 100}%` }}
+                            style={{ width: `${(displayExercise / totalExercises) * 100}%` }}
                         ></div>
                     </div>
                 </div>
                 <span className="text-xs text-[var(--text-secondary)]">
-                    {Math.round((currentExercise / totalExercises) * 100)}%
+                    {Math.round((displayExercise / totalExercises) * 100)}%
                 </span>
 
                 {/* Right side */}
                 <div className="ml-auto flex items-center gap-4 text-xs text-[var(--text-secondary)]">
-                    <Link to="/course/python-basics" className="hover:text-white">← Back to course</Link>
+                    <Link to={`/course/${courseSlug}`} className="hover:text-white">← Back to course</Link>
                 </div>
             </div>
 
@@ -275,7 +294,7 @@ except:
                     <div className="flex-1 overflow-y-auto p-6">
                         {/* Exercise Number */}
                         <h1 className="text-2xl font-bold mb-4 pixel-font">
-                            {String(currentExercise).padStart(2, '0')}. {lesson.title}
+                            {String(displayExercise).padStart(2, '0')}. {lesson.title}
                         </h1>
 
                         {/* Lesson Content */}
@@ -351,7 +370,7 @@ except:
                                 <div>
                                     <div className="text-sm font-medium">{lesson.title}</div>
                                     <div className="text-xs text-[var(--text-secondary)]">
-                                        Exercise {currentExercise} / {totalExercises}
+                                        Exercise {displayExercise} / {totalExercises}
                                     </div>
                                 </div>
                             </div>
@@ -381,7 +400,7 @@ except:
                         <div className="flex items-center">
                             <div className="px-3 py-1.5 bg-[var(--bg-color)] border-t-2 border-t-[var(--accent-warning)] text-sm flex items-center gap-2">
                                 <FileCode className="w-4 h-4 text-[var(--accent-warning)]" />
-                                <span>script.py</span>
+                                <span>{scriptFilename}</span>
                             </div>
                         </div>
                     </div>
@@ -390,7 +409,7 @@ except:
                     <div style={{ height: `${editorHeightPercent}%` }} className="min-h-0">
                         <Editor
                             height="100%"
-                            defaultLanguage="python"
+                            language={editorLanguage}
                             theme="vs-dark"
                             value={code}
                             onChange={(val) => setCode(val || "")}
