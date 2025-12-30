@@ -28,7 +28,7 @@ export const Landing: React.FC = () => {
                         The most fun and beginner-friendly way to learn to code for Data Science.
                     </p>
                     <Link
-                        to="/course/python-basics"
+                        to="/catalog"
                         className="inline-block bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105 shadow-lg"
                     >
                         Get started
@@ -87,7 +87,7 @@ export const Landing: React.FC = () => {
             <section className="py-16 text-center">
                 <h3 className="text-2xl font-bold mb-4">Ready to begin your journey?</h3>
                 <Link
-                    to="/course/python-basics"
+                    to="/catalog"
                     className="btn-retro text-lg py-3 px-6"
                 >
                     Start Learning 🚀

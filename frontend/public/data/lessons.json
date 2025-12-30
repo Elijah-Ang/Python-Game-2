@@ -1469,5 +1469,985 @@
     "solution_code": "import pandas as pd\n\ndf = pd.DataFrame({\n    'quantity': ['10', '20', 'unknown', '30']\n})\n\n# Convert to numeric with error handling\ndf['quantity'] = pd.to_numeric(df['quantity'], errors='coerce')\nprint(df['quantity'])",
     "expected_output": "0    10.0\n1    20.0\n2     NaN\n3    30.0\nName: quantity, dtype: float64",
     "order": 15
+  },
+  "1001": {
+    "id": 1001,
+    "title": "What is a Database?",
+    "content": "# 🗃️ What is a Database?\n\n## Definition\n\nA **database** is an organized collection of data stored electronically. Think of it as a digital filing cabinet where information is stored in a structured way so you can easily find, update, and manage it.\n\n## Why Do We Need Databases?\n\n| Without Database | With Database |\n| --- | --- |\n| Data in scattered files | Data in one organized place |\n| Hard to find information | Fast searching |\n| Duplicate data everywhere | Single source of truth |\n| Multiple people can't edit | Concurrent access |\n\n## Real-World Examples\n\n- **E-commerce**: Products, orders, customers\n- **Social Media**: Users, posts, likes, comments\n- **Banking**: Accounts, transactions, balances\n- **Healthcare**: Patients, appointments, records\n\n## Types of Databases\n\n| Type | Description | Example |\n| --- | --- | --- |\n| **Relational (SQL)** | Data in tables with relationships | PostgreSQL, MySQL |\n| **NoSQL** | Flexible structure | MongoDB, Redis |\n| **Data Warehouse** | Optimized for analytics | Snowflake, BigQuery |\n\nIn this course, we focus on **SQL databases** - the most common type for business data.\n\n---\n\n## 🎯 Your Task\n\nWrite a SELECT statement that returns the text 'Hello, SQL!'.\n",
+    "starter_code": "-- Your first SQL query!\n-- SELECT is used to retrieve data\n\nSELECT 'Hello, SQL!';",
+    "solution_code": "SELECT 'Hello, SQL!';",
+    "expected_output": "Hello, SQL!",
+    "chapter_id": 200,
+    "chapter_title": "Setup & Mental Model"
+  },
+  "1002": {
+    "id": 1002,
+    "title": "Tables, Rows, and Columns",
+    "content": "# 📊 Tables, Rows, and Columns\n\n## The Building Blocks\n\nSQL databases organize data into **tables**:\n\n```\n┌─────────────────────────────────────────┐\n│              employees                   │\n├──────┬────────────┬─────────┬───────────┤\n│ id   │ name       │ role    │ salary    │  ← Column names\n├──────┼────────────┼─────────┼───────────┤\n│ 1    │ Alice      │ Analyst │ 75000     │  ← Row 1\n│ 2    │ Bob        │ Manager │ 90000     │  ← Row 2\n│ 3    │ Charlie    │ Analyst │ 72000     │  ← Row 3\n└──────┴────────────┴─────────┴───────────┘\n```\n\n## Key Terminology\n\n| Term | Also Called | Definition |\n| --- | --- | --- |\n| **Table** | Relation | A collection of related data |\n| **Row** | Record, Tuple | One complete entry |\n| **Column** | Field, Attribute | A specific piece of data |\n\n## Important Rules\n\n1. Each column has a **data type** (text, number, date)\n2. Each row should be **unique** (identified by a key)\n3. Column names should be **descriptive**\n4. Tables should represent **one concept** (employees, orders, products)\n\n---\n\n## 🎯 Your Task\n\nSelect all columns from the employees table using SELECT *.\n",
+    "starter_code": "-- The employees table has: id, name, department, salary\n-- Use SELECT * to get all columns\n\n",
+    "solution_code": "SELECT * FROM employees;",
+    "expected_output": "id | name    | department | salary\n1  | Alice   | Sales      | 75000\n2  | Bob     | Marketing  | 90000\n3  | Charlie | Sales      | 72000",
+    "chapter_id": 200,
+    "chapter_title": "Setup & Mental Model"
+  },
+  "1003": {
+    "id": 1003,
+    "title": "Primary Keys",
+    "content": "# 🔑 Primary Keys\n\n## What is a Primary Key?\n\nA **primary key** is a column (or combination of columns) that uniquely identifies each row in a table. No two rows can have the same primary key value.\n\n## Why Are Primary Keys Essential?\n\n```\n┌──────┬────────────┬─────────────┐\n│ id   │ name       │ email       │\n├──────┼────────────┼─────────────┤\n│ 1    │ Alice      │ a@mail.com  │  ← id=1 is unique!\n│ 2    │ Alice      │ b@mail.com  │  ← Same name, different id\n│ 3    │ Bob        │ c@mail.com  │\n└──────┴────────────┴─────────────┘\n  ↑\n  Primary Key (PK)\n```\n\n## Primary Key Rules\n\n1. **Unique**: No duplicate values allowed\n2. **Not NULL**: Must always have a value\n3. **Immutable**: Should rarely change\n4. **Simple**: Often an auto-incrementing integer\n\n## Common Primary Key Patterns\n\n| Pattern | Example | Use Case |\n| --- | --- | --- |\n| Auto-increment | 1, 2, 3, 4... | Most common |\n| UUID | 'a1b2c3d4-...' | Distributed systems |\n| Natural key | 'USA', 'CAN' | Country codes |\n\n---\n\n## 🎯 Your Task\n\nSelect the id and name columns from customers table.\n",
+    "starter_code": "-- customers table has: id (primary key), name, email, city\n-- Select just id and name\n\n",
+    "solution_code": "SELECT id, name FROM customers;",
+    "expected_output": "id | name\n1  | Alice\n2  | Bob\n3  | Charlie",
+    "chapter_id": 200,
+    "chapter_title": "Setup & Mental Model"
+  },
+  "1004": {
+    "id": 1004,
+    "title": "Foreign Keys & Relationships",
+    "content": "# 🔗 Foreign Keys & Relationships\n\n## Connecting Tables Together\n\nA **foreign key** is a column that references the primary key of another table. This creates a **relationship** between tables.\n\n```\n┌─ customers ────────┐       ┌─ orders ───────────────────┐\n│ id │ name          │       │ id │ customer_id │ amount  │\n├────┼───────────────┤       ├────┼─────────────┼─────────┤\n│ 1  │ Alice         │◄──────│ 1  │ 1           │ 99.99   │\n│ 2  │ Bob           │◄──────│ 2  │ 1           │ 149.99  │\n└────┴───────────────┘  │    │ 3  │ 2           │ 49.99   │\n  PK                    │    └────┴─────────────┴─────────┘\n                        │              FK\n                        └── References customers.id\n```\n\n## Why Use Foreign Keys?\n\n1. **Avoid duplication**: Store customer info once, reference it many times\n2. **Data integrity**: Can't create an order for a non-existent customer\n3. **Enable JOINs**: Combine data from multiple tables\n\n## Relationship Types\n\n| Type | Example |\n| --- | --- |\n| **One-to-Many** | One customer has many orders |\n| **One-to-One** | One user has one profile |\n| **Many-to-Many** | Students enrolled in courses |\n\n---\n\n## 🎯 Your Task\n\nSelect order_id and customer_id from the orders table.\n",
+    "starter_code": "-- orders table has: order_id, customer_id (FK), product, amount\n-- Select order_id and customer_id\n\n",
+    "solution_code": "SELECT order_id, customer_id FROM orders;",
+    "expected_output": "order_id | customer_id\n1        | 101\n2        | 101\n3        | 102",
+    "chapter_id": 200,
+    "chapter_title": "Setup & Mental Model"
+  },
+  "1005": {
+    "id": 1005,
+    "title": "SQL is Declarative",
+    "content": "# 💡 SQL is Declarative\n\n## Declarative vs Imperative\n\n| Imperative (How) | Declarative (What) |\n| --- | --- |\n| Step-by-step instructions | Describe desired result |\n| Python, Java, JavaScript | SQL, HTML, CSS |\n| You control the loop | Database figures it out |\n\n## Example Comparison\n\n**Imperative (Python):**\n```python\nresults = []\nfor row in table:\n    if row['salary'] > 50000:\n        results.append(row['name'])\n```\n\n**Declarative (SQL):**\n```sql\nSELECT name FROM employees WHERE salary > 50000;\n```\n\nIn SQL, you say WHAT you want, and the database engine figures out HOW to get it!\n\n## Why This Matters\n\n1. **Simpler code**: Less boilerplate\n2. **Optimized execution**: Database chooses the best approach\n3. **Portable**: Same query works across databases\n4. **Focus on logic**: Not on implementation details\n\n---\n\n## 🎯 Your Task\n\nWrite a declarative SQL query to get names where salary > 60000.\n",
+    "starter_code": "-- Get employee names with salary above 60000\n-- Remember: SQL is declarative - say WHAT you want!\n\n",
+    "solution_code": "SELECT name FROM employees WHERE salary > 60000;",
+    "expected_output": "name\nAlice\nBob",
+    "chapter_id": 200,
+    "chapter_title": "Setup & Mental Model"
+  },
+  "1006": {
+    "id": 1006,
+    "title": "Result Sets",
+    "content": "# 📋 Result Sets\n\n## What is a Result Set?\n\nWhen you run a SELECT query, the database returns a **result set** - a temporary table containing your requested data.\n\n```sql\nSELECT name, salary FROM employees WHERE department = 'Sales';\n```\n\nReturns:\n```\n┌─────────┬────────┐\n│ name    │ salary │  ← Result Set\n├─────────┼────────┤\n│ Alice   │ 75000  │\n│ Charlie │ 72000  │\n└─────────┴────────┘\n```\n\n## Result Set Properties\n\n- **Temporary**: Only exists while query runs\n- **Read-only**: You can't directly edit it\n- **Ordered**: Can be sorted with ORDER BY\n- **Subset**: Can be limited with LIMIT\n\n## Empty Result Sets\n\nIf no rows match your criteria:\n```sql\nSELECT * FROM employees WHERE salary > 1000000;\n-- Returns 0 rows (an empty result set)\n```\n\nThis is NOT an error - it's a valid result meaning \"no matches found.\"\n\n---\n\n## 🎯 Your Task\n\nSelect name and department from employees.\n",
+    "starter_code": "-- Get name and department columns\n\n",
+    "solution_code": "SELECT name, department FROM employees;",
+    "expected_output": "name    | department\nAlice   | Sales\nBob     | Marketing\nCharlie | Sales",
+    "chapter_id": 200,
+    "chapter_title": "Setup & Mental Model"
+  },
+  "1007": {
+    "id": 1007,
+    "title": "NULL Basics",
+    "content": "# ❓ NULL Basics\n\n## What is NULL?\n\n**NULL** represents missing or unknown data. It is NOT:\n- Zero (0)\n- An empty string ('')\n- The word 'null'\n\nIt literally means \"we don't know this value.\"\n\n## Examples of NULL\n\n```\n┌────┬─────────┬───────────┐\n│ id │ name    │ phone     │\n├────┼─────────┼───────────┤\n│ 1  │ Alice   │ 555-1234  │\n│ 2  │ Bob     │ NULL      │  ← Bob hasn't provided a phone\n│ 3  │ Charlie │ 555-5678  │\n└────┴─────────┴───────────┘\n```\n\n## NULL Behavior\n\n- `NULL = NULL` is **not TRUE** (it's NULL!)\n- Any math with NULL gives NULL: `5 + NULL = NULL`\n- Use `IS NULL` to check for NULL values\n\n## Why NULL Matters for Data Science\n\n- Missing data is common in real datasets\n- Ignoring NULL can lead to wrong calculations\n- Different aggregations handle NULL differently\n\n---\n\n## 🎯 Your Task\n\nSelect all columns from products where price IS NULL.\n",
+    "starter_code": "-- Find products with missing prices\n-- Use IS NULL (not = NULL)\n\n",
+    "solution_code": "SELECT * FROM products WHERE price IS NULL;",
+    "expected_output": "id | name       | price\n3  | Widget C   | NULL",
+    "chapter_id": 200,
+    "chapter_title": "Setup & Mental Model"
+  },
+  "1008": {
+    "id": 1008,
+    "title": "Schema Organization",
+    "content": "# 🏛️ Schema Organization\n\n## What is a Schema?\n\nA **schema** is a logical container that groups related tables together. Think of it like folders organizing files.\n\n```\nDatabase: company_db\n├── public (schema)\n│   ├── employees\n│   └── departments\n├── sales (schema)\n│   ├── orders\n│   └── customers\n└── analytics (schema)\n    ├── daily_metrics\n    └── user_events\n```\n\n## Referencing Tables with Schemas\n\n```sql\n-- Without schema (uses default)\nSELECT * FROM employees;\n\n-- With schema prefix\nSELECT * FROM public.employees;\nSELECT * FROM sales.orders;\n```\n\n## Common Schema Patterns\n\n| Schema | Purpose |\n| --- | --- |\n| **public** | Default tables |\n| **raw** | Unprocessed source data |\n| **staging** | Cleaned intermediate data |\n| **analytics** | Final reporting tables |\n\n---\n\n## 🎯 Your Task\n\nSelect all from the sales.orders table using schema prefix.\n",
+    "starter_code": "-- Select from sales schema, orders table\n\n",
+    "solution_code": "SELECT * FROM sales.orders;",
+    "expected_output": "order_id | customer_id | total\n1        | 101         | 99.99\n2        | 102         | 149.99",
+    "chapter_id": 200,
+    "chapter_title": "Setup & Mental Model"
+  },
+  "1009": {
+    "id": 1009,
+    "title": "Query Execution Order",
+    "content": "# 🔄 Query Execution Order\n\n## SQL Doesn't Run Top-to-Bottom!\n\nThe order you WRITE a query differs from how it EXECUTES:\n\n**Writing Order:**\n```sql\nSELECT name, SUM(amount)    -- 1st written\nFROM orders                  -- 2nd written\nWHERE status = 'completed'   -- 3rd written\nGROUP BY name                -- 4th written\nHAVING SUM(amount) > 100     -- 5th written\nORDER BY SUM(amount) DESC    -- 6th written\nLIMIT 10;                    -- 7th written\n```\n\n**Execution Order:**\n1. **FROM** - Which table?\n2. **WHERE** - Filter rows\n3. **GROUP BY** - Group rows\n4. **HAVING** - Filter groups\n5. **SELECT** - Choose columns\n6. **ORDER BY** - Sort results\n7. **LIMIT** - Limit rows\n\n## Why This Matters\n\n- You can't use a SELECT alias in WHERE\n- HAVING filters AFTER grouping\n- ORDER BY runs almost last\n\n---\n\n## 🎯 Your Task\n\nWrite a query with FROM, WHERE, and SELECT in correct syntax order.\n",
+    "starter_code": "-- Get name from employees where department = 'Sales'\n-- Remember: SELECT comes first in syntax\n\n",
+    "solution_code": "SELECT name FROM employees WHERE department = 'Sales';",
+    "expected_output": "name\nAlice\nCharlie",
+    "chapter_id": 200,
+    "chapter_title": "Setup & Mental Model"
+  },
+  "1010": {
+    "id": 1010,
+    "title": "Your First SELECT",
+    "content": "# 📋 Your First SELECT\n\n## The SELECT Statement\n\nSELECT is the most fundamental SQL command. It retrieves data from a table.\n\n```sql\nSELECT column_name FROM table_name;\n```\n\n## Breaking It Down\n\n| Part | Purpose |\n| --- | --- |\n| `SELECT` | Keyword to start retrieving data |\n| `column_name` | Which column(s) you want |\n| `FROM` | Keyword indicating the source |\n| `table_name` | Which table to query |\n\n## Simple Examples\n\n```sql\n-- Get one column\nSELECT name FROM employees;\n\n-- Get multiple columns\nSELECT name, salary FROM employees;\n\n-- Get all columns\nSELECT * FROM employees;\n```\n\n## Semicolon\n\nSQL statements end with a semicolon (`;`). This tells the database the command is complete.\n\n---\n\n## 🎯 Your Task\n\nSelect only the 'email' column from the users table.\n",
+    "starter_code": "-- Select the email column from users\n\n",
+    "solution_code": "SELECT email FROM users;",
+    "expected_output": "email\nalice@example.com\nbob@example.com\ncharlie@example.com",
+    "chapter_id": 201,
+    "chapter_title": "SELECT Basics"
+  },
+  "1011": {
+    "id": 1011,
+    "title": "Selecting Multiple Columns",
+    "content": "# 📊 Selecting Multiple Columns\n\n## Comma-Separated Columns\n\nTo select more than one column, separate them with commas:\n\n```sql\nSELECT column1, column2, column3 FROM table_name;\n```\n\n## Example\n\n```sql\nSELECT name, email, city FROM customers;\n```\n\nReturns:\n```\nname    | email           | city\nAlice   | a@mail.com      | NYC\nBob     | b@mail.com      | LA\n```\n\n## Column Order\n\nColumns appear in the result in the order you list them:\n\n```sql\nSELECT city, name FROM customers;  -- city first!\n```\n\n## Tips\n\n- List columns in logical order\n- Only select columns you need (better performance)\n- Group related columns together\n\n---\n\n## 🎯 Your Task\n\nSelect name, department, and salary from employees (in that order).\n",
+    "starter_code": "-- Select name, department, and salary\n\n",
+    "solution_code": "SELECT name, department, salary FROM employees;",
+    "expected_output": "name    | department | salary\nAlice   | Sales      | 75000\nBob     | Marketing  | 90000\nCharlie | Sales      | 72000",
+    "chapter_id": 201,
+    "chapter_title": "SELECT Basics"
+  },
+  "1012": {
+    "id": 1012,
+    "title": "SELECT All Columns",
+    "content": "# ⭐ SELECT All Columns\n\n## The Asterisk (*)\n\nUse `*` to select ALL columns from a table:\n\n```sql\nSELECT * FROM employees;\n```\n\n## When to Use *\n\n✅ **Good for:**\n- Quick exploration of data\n- Ad-hoc queries\n- When you genuinely need all columns\n\n❌ **Avoid for:**\n- Production code (breaks if columns change)\n- Large tables (fetches unnecessary data)\n- Joins (can cause column name conflicts)\n\n## Best Practice\n\n```sql\n-- Instead of this in production:\nSELECT * FROM orders;\n\n-- Be explicit:\nSELECT order_id, customer_id, amount, status FROM orders;\n```\n\nExplicit column lists are self-documenting and more maintainable.\n\n---\n\n## 🎯 Your Task\n\nSelect all columns from the products table.\n",
+    "starter_code": "-- Select all columns from products\n\n",
+    "solution_code": "SELECT * FROM products;",
+    "expected_output": "id | name     | price | category\n1  | Widget A | 29.99 | Tools\n2  | Widget B | 49.99 | Tools\n3  | Gadget C | 99.99 | Electronics",
+    "chapter_id": 201,
+    "chapter_title": "SELECT Basics"
+  },
+  "1013": {
+    "id": 1013,
+    "title": "Column Aliases with AS",
+    "content": "# 🏷️ Column Aliases with AS\n\n## Renaming Columns in Output\n\nUse `AS` to give columns friendlier names in your result:\n\n```sql\nSELECT employee_name AS name FROM employees;\n```\n\n## Why Use Aliases?\n\n1. **Readability**: `first_name` → `First Name`\n2. **Calculations**: Name computed values\n3. **Joins**: Distinguish duplicate column names\n\n## Examples\n\n```sql\n-- Simple rename\nSELECT email AS contact_email FROM users;\n\n-- With calculations\nSELECT price, price * 0.9 AS discounted_price FROM products;\n\n-- Spaces in alias (use quotes)\nSELECT name AS \"Employee Name\" FROM employees;\n```\n\n## AS is Optional\n\n```sql\n-- These are equivalent:\nSELECT name AS employee_name FROM employees;\nSELECT name employee_name FROM employees;\n```\n\nBut using `AS` is clearer!\n\n---\n\n## 🎯 Your Task\n\nSelect name as 'employee_name' and salary as 'annual_salary'.\n",
+    "starter_code": "-- Select with aliases\n\n",
+    "solution_code": "SELECT name AS employee_name, salary AS annual_salary FROM employees;",
+    "expected_output": "employee_name | annual_salary\nAlice         | 75000\nBob           | 90000\nCharlie       | 72000",
+    "chapter_id": 201,
+    "chapter_title": "SELECT Basics"
+  },
+  "1014": {
+    "id": 1014,
+    "title": "Table Aliases",
+    "content": "# 📝 Table Aliases\n\n## Shortening Table Names\n\nIn complex queries, give tables short aliases:\n\n```sql\nSELECT e.name, e.salary\nFROM employees AS e;\n```\n\n## Why Table Aliases?\n\n1. **Less typing**: `employees` → `e`\n2. **Required for self-joins**: Same table used twice\n3. **Clarity in JOINs**: `e.name` vs `o.name`\n\n## Common Conventions\n\n```sql\n-- First letter(s) of table name\nSELECT c.name, o.amount\nFROM customers AS c\nJOIN orders AS o ON c.id = o.customer_id;\n```\n\n| Table | Common Alias |\n| --- | --- |\n| employees | e, emp |\n| customers | c, cust |\n| orders | o, ord |\n| products | p, prod |\n\n---\n\n## 🎯 Your Task\n\nSelect name and department from employees using alias 'e'.\n",
+    "starter_code": "-- Use table alias 'e' for employees\n\n",
+    "solution_code": "SELECT e.name, e.department FROM employees AS e;",
+    "expected_output": "name    | department\nAlice   | Sales\nBob     | Marketing\nCharlie | Sales",
+    "chapter_id": 201,
+    "chapter_title": "SELECT Basics"
+  },
+  "1015": {
+    "id": 1015,
+    "title": "LIMIT Clause",
+    "content": "# 🔢 LIMIT Clause\n\n## Restricting Result Size\n\nLIMIT returns only the first N rows:\n\n```sql\nSELECT * FROM products LIMIT 5;\n```\n\n## Why Use LIMIT?\n\n1. **Previewing data**: See first few rows\n2. **Performance**: Don't fetch millions of rows\n3. **Top N queries**: Combined with ORDER BY\n\n## Examples\n\n```sql\n-- First 10 rows\nSELECT * FROM orders LIMIT 10;\n\n-- Top 5 highest salaries\nSELECT name, salary\nFROM employees\nORDER BY salary DESC\nLIMIT 5;\n\n-- With OFFSET (skip rows)\nSELECT * FROM products LIMIT 10 OFFSET 20;  -- Skip 20, get next 10\n```\n\n## Database Differences\n\n| Database | Syntax |\n| --- | --- |\n| PostgreSQL, MySQL | LIMIT 10 |\n| SQL Server | TOP 10 |\n| Oracle | FETCH FIRST 10 ROWS ONLY |\n\n---\n\n## 🎯 Your Task\n\nSelect all columns from orders, but only the first 3 rows.\n",
+    "starter_code": "-- Get first 3 orders\n\n",
+    "solution_code": "SELECT * FROM orders LIMIT 3;",
+    "expected_output": "order_id | customer_id | amount\n1        | 101         | 99.99\n2        | 101         | 149.99\n3        | 102         | 49.99",
+    "chapter_id": 201,
+    "chapter_title": "SELECT Basics"
+  },
+  "1016": {
+    "id": 1016,
+    "title": "WHERE Basics",
+    "content": "# 🔍 WHERE Basics\n\n## Filtering Rows\n\nWHERE filters which rows are returned:\n\n```sql\nSELECT * FROM employees WHERE department = 'Sales';\n```\n\n## Basic Syntax\n\n```sql\nSELECT columns\nFROM table\nWHERE condition;\n```\n\n## Common Conditions\n\n```sql\n-- Equals\nWHERE status = 'active'\n\n-- Not equals\nWHERE status != 'cancelled'\nWHERE status <> 'cancelled'  -- Alternative syntax\n\n-- Numbers\nWHERE price > 100\nWHERE quantity <= 50\n```\n\n## Text Values Need Quotes\n\n```sql\n-- Correct: strings in single quotes\nWHERE name = 'Alice'\n\n-- Wrong: unquoted\nWHERE name = Alice  -- Error!\n```\n\n---\n\n## 🎯 Your Task\n\nSelect name and salary from employees where salary > 70000.\n",
+    "starter_code": "-- Filter employees with salary > 70000\n\n",
+    "solution_code": "SELECT name, salary FROM employees WHERE salary > 70000;",
+    "expected_output": "name  | salary\nAlice | 75000\nBob   | 90000",
+    "chapter_id": 201,
+    "chapter_title": "SELECT Basics"
+  },
+  "1017": {
+    "id": 1017,
+    "title": "Comparison Operators",
+    "content": "# ⚖️ Comparison Operators\n\n## All Comparison Operators\n\n| Operator | Meaning | Example |\n| --- | --- | --- |\n| `=` | Equal | `price = 100` |\n| `<>` or `!=` | Not equal | `status <> 'done'` |\n| `<` | Less than | `age < 18` |\n| `>` | Greater than | `score > 90` |\n| `<=` | Less than or equal | `qty <= 10` |\n| `>=` | Greater than or equal | `rating >= 4` |\n\n## Multiple Conditions\n\nCombine with AND / OR:\n\n```sql\n-- Both must be true\nWHERE salary > 50000 AND department = 'Sales'\n\n-- Either can be true\nWHERE department = 'Sales' OR department = 'Marketing'\n\n-- Use parentheses for complex logic\nWHERE (age > 21 OR has_permission = true) AND status = 'active'\n```\n\n## NOT Operator\n\n```sql\nWHERE NOT status = 'cancelled'\nWHERE NOT (price > 100 AND qty < 5)\n```\n\n---\n\n## 🎯 Your Task\n\nFind employees in Sales department with salary >= 75000.\n",
+    "starter_code": "-- Use AND to combine two conditions\n\n",
+    "solution_code": "SELECT * FROM employees WHERE department = 'Sales' AND salary >= 75000;",
+    "expected_output": "id | name  | department | salary\n1  | Alice | Sales      | 75000",
+    "chapter_id": 201,
+    "chapter_title": "SELECT Basics"
+  },
+  "1018": {
+    "id": 1018,
+    "title": "IN Operator",
+    "content": "# 📋 IN Operator\n\n## Check Against a List\n\nIN checks if a value matches ANY value in a list:\n\n```sql\nSELECT * FROM employees\nWHERE department IN ('Sales', 'Marketing', 'Engineering');\n```\n\n## IN vs Multiple ORs\n\n```sql\n-- These are equivalent:\nWHERE department IN ('Sales', 'Marketing')\n\nWHERE department = 'Sales' OR department = 'Marketing'\n```\n\nIN is cleaner when checking many values!\n\n## NOT IN\n\nExclude values with NOT IN:\n\n```sql\nSELECT * FROM orders\nWHERE status NOT IN ('cancelled', 'refunded');\n```\n\n## ⚠️ NULL Warning\n\n```sql\n-- If any value is NULL, NOT IN behaves unexpectedly!\nWHERE id NOT IN (1, 2, NULL)  -- Returns no rows!\n```\n\nBe careful with NULL in NOT IN lists.\n\n---\n\n## 🎯 Your Task\n\nSelect products where category is in ('Electronics', 'Tools').\n",
+    "starter_code": "-- Use IN to match multiple categories\n\n",
+    "solution_code": "SELECT * FROM products WHERE category IN ('Electronics', 'Tools');",
+    "expected_output": "id | name     | price | category\n1  | Widget A | 29.99 | Tools\n2  | Widget B | 49.99 | Tools\n3  | Gadget C | 99.99 | Electronics",
+    "chapter_id": 201,
+    "chapter_title": "SELECT Basics"
+  },
+  "1019": {
+    "id": 1019,
+    "title": "BETWEEN Operator",
+    "content": "# 📏 BETWEEN Operator\n\n## Range Checking\n\nBETWEEN checks if a value falls within a range (inclusive):\n\n```sql\nSELECT * FROM products\nWHERE price BETWEEN 10 AND 50;\n```\n\nThis includes 10 AND 50!\n\n## Equivalent to\n\n```sql\n-- These are the same:\nWHERE price BETWEEN 10 AND 50\nWHERE price >= 10 AND price <= 50\n```\n\n## Works with Dates Too\n\n```sql\nSELECT * FROM orders\nWHERE order_date BETWEEN '2024-01-01' AND '2024-12-31';\n```\n\n## NOT BETWEEN\n\n```sql\n-- Outside the range\nWHERE price NOT BETWEEN 10 AND 50\n```\n\n---\n\n## 🎯 Your Task\n\nSelect employees with salary between 70000 and 80000.\n",
+    "starter_code": "-- Find salaries in range 70000-80000\n\n",
+    "solution_code": "SELECT * FROM employees WHERE salary BETWEEN 70000 AND 80000;",
+    "expected_output": "id | name    | department | salary\n1  | Alice   | Sales      | 75000\n3  | Charlie | Sales      | 72000",
+    "chapter_id": 201,
+    "chapter_title": "SELECT Basics"
+  },
+  "1020": {
+    "id": 1020,
+    "title": "LIKE Pattern Matching",
+    "content": "# 🔎 LIKE Pattern Matching\n\n## Wildcards for Text Search\n\nLIKE searches for patterns using wildcards:\n\n| Wildcard | Meaning | Example |\n| --- | --- | --- |\n| `%` | Any characters (0 or more) | `'%son'` matches 'Johnson' |\n| `_` | Exactly one character | `'_at'` matches 'Cat', 'Bat' |\n\n## Common Patterns\n\n```sql\n-- Starts with 'A'\nWHERE name LIKE 'A%'\n\n-- Ends with 'son'\nWHERE name LIKE '%son'\n\n-- Contains 'data'\nWHERE description LIKE '%data%'\n\n-- Second letter is 'a'\nWHERE name LIKE '_a%'\n```\n\n## Case Sensitivity\n\n```sql\n-- PostgreSQL: ILIKE for case-insensitive\nWHERE name ILIKE '%alice%'  -- Matches 'Alice', 'ALICE', 'alice'\n\n-- MySQL: LIKE is case-insensitive by default\n```\n\n---\n\n## 🎯 Your Task\n\nFind employees whose name starts with 'A'.\n",
+    "starter_code": "-- Select names starting with 'A'\n\n",
+    "solution_code": "SELECT * FROM employees WHERE name LIKE 'A%';",
+    "expected_output": "id | name  | department | salary\n1  | Alice | Sales      | 75000",
+    "chapter_id": 201,
+    "chapter_title": "SELECT Basics"
+  },
+  "1021": {
+    "id": 1021,
+    "title": "ORDER BY Sorting",
+    "content": "# 🔄 ORDER BY Sorting\n\n## Sorting Results\n\nORDER BY arranges rows in a specific order:\n\n```sql\nSELECT * FROM employees ORDER BY salary;\n```\n\n## ASC and DESC\n\n| Direction | Meaning | Default? |\n| --- | --- | --- |\n| `ASC` | Ascending (A→Z, 1→9) | Yes |\n| `DESC` | Descending (Z→A, 9→1) | No |\n\n```sql\n-- Highest salary first\nSELECT * FROM employees ORDER BY salary DESC;\n\n-- Alphabetically\nSELECT * FROM employees ORDER BY name ASC;\n```\n\n## Multiple Columns\n\n```sql\n-- Sort by department, then by salary within each dept\nSELECT * FROM employees\nORDER BY department ASC, salary DESC;\n```\n\n## NULL Sorting\n\nNULLs typically sort to the end (depends on database).\n\n```sql\n-- Control NULL position\nORDER BY column NULLS FIRST\nORDER BY column NULLS LAST\n```\n\n---\n\n## 🎯 Your Task\n\nSelect all employees ordered by salary descending.\n",
+    "starter_code": "-- Order by salary from highest to lowest\n\n",
+    "solution_code": "SELECT * FROM employees ORDER BY salary DESC;",
+    "expected_output": "id | name    | department | salary\n2  | Bob     | Marketing  | 90000\n1  | Alice   | Sales      | 75000\n3  | Charlie | Sales      | 72000",
+    "chapter_id": 201,
+    "chapter_title": "SELECT Basics"
+  },
+  "1022": {
+    "id": 1022,
+    "title": "Integer Types",
+    "content": "# 🔢 Integer Types\n\n## Whole Number Storage\n\nSQL provides several integer types for storing whole numbers:\n\n| Type | Storage | Range |\n| --- | --- | --- |\n| `SMALLINT` | 2 bytes | -32,768 to 32,767 |\n| `INTEGER` / `INT` | 4 bytes | -2.1 billion to 2.1 billion |\n| `BIGINT` | 8 bytes | Huge numbers |\n\n## Choosing the Right Type\n\n```sql\n-- Age: SMALLINT is plenty\nage SMALLINT\n\n-- User IDs: INTEGER for most apps\nuser_id INTEGER\n\n-- Large sequences: BIGINT for billions\npage_views BIGINT\n```\n\n## Auto-Incrementing IDs\n\n```sql\n-- PostgreSQL\nid SERIAL PRIMARY KEY  -- Auto-incrementing 1, 2, 3...\nid BIGSERIAL PRIMARY KEY  -- For large tables\n\n-- MySQL\nid INT AUTO_INCREMENT PRIMARY KEY\n```\n\n---\n\n## 🎯 Your Task\n\nSelect id and quantity from the inventory table where quantity > 100.\n",
+    "starter_code": "-- inventory has: id (INT), product_name, quantity (INT)\n\n",
+    "solution_code": "SELECT id, quantity FROM inventory WHERE quantity > 100;",
+    "expected_output": "id | quantity\n1  | 150\n3  | 200",
+    "chapter_id": 202,
+    "chapter_title": "Data Types, NULLs & Calculations"
+  },
+  "1023": {
+    "id": 1023,
+    "title": "Numeric and Decimal Types",
+    "content": "# 💰 Numeric and Decimal Types\n\n## Precise Decimal Numbers\n\nFor money and precise calculations, use exact numeric types:\n\n```sql\n-- NUMERIC(precision, scale)\n-- precision = total digits\n-- scale = digits after decimal\n\nprice NUMERIC(10, 2)  -- 12345678.99\ntax_rate NUMERIC(5, 4)  -- 0.0825\n```\n\n## Floating Point vs Numeric\n\n| Type | Use Case | Precision |\n| --- | --- | --- |\n| `NUMERIC` / `DECIMAL` | Money, exact values | Exact |\n| `REAL` / `FLOAT` | Scientific data | Approximate |\n\n## ⚠️ Why This Matters\n\n```sql\n-- Floating point can have rounding errors!\n0.1 + 0.2 = 0.30000000000000004  -- Float\n0.1 + 0.2 = 0.30  -- NUMERIC\n```\n\n**Always use NUMERIC for money!**\n\n---\n\n## 🎯 Your Task\n\nSelect product_name and price from products where price > 50.00.\n",
+    "starter_code": "-- products has: id, product_name, price (NUMERIC)\n\n",
+    "solution_code": "SELECT product_name, price FROM products WHERE price > 50.00;",
+    "expected_output": "product_name | price\nWidget Pro   | 99.99\nGadget Plus  | 149.50",
+    "chapter_id": 202,
+    "chapter_title": "Data Types, NULLs & Calculations"
+  },
+  "1024": {
+    "id": 1024,
+    "title": "Text Types",
+    "content": "# 📝 Text Types\n\n## Storing Text Data\n\n| Type | Description | Example |\n| --- | --- | --- |\n| `CHAR(n)` | Fixed length, padded | Country codes |\n| `VARCHAR(n)` | Variable length, max n | Names, emails |\n| `TEXT` | Unlimited length | Descriptions, content |\n\n## When to Use Each\n\n```sql\n-- Fixed length codes\ncountry_code CHAR(2)  -- 'US', 'UK'\n\n-- Variable text with limit\nname VARCHAR(100)\nemail VARCHAR(255)\n\n-- Long content\nbio TEXT\narticle_body TEXT\n```\n\n## String Comparison\n\n```sql\n-- Case-sensitive by default in PostgreSQL\nWHERE name = 'Alice'  -- Won't match 'alice'\n\n-- Use LOWER() for case-insensitive\nWHERE LOWER(name) = 'alice'\n```\n\n---\n\n## 🎯 Your Task\n\nSelect name and email from users where email ends with '@gmail.com'.\n",
+    "starter_code": "-- Find Gmail users\n\n",
+    "solution_code": "SELECT name, email FROM users WHERE email LIKE '%@gmail.com';",
+    "expected_output": "name  | email\nAlice | alice@gmail.com\nBob   | bob@gmail.com",
+    "chapter_id": 202,
+    "chapter_title": "Data Types, NULLs & Calculations"
+  },
+  "1025": {
+    "id": 1025,
+    "title": "Date and Timestamp Types",
+    "content": "# 📅 Date and Timestamp Types\n\n## Time-Related Types\n\n| Type | Stores | Example |\n| --- | --- | --- |\n| `DATE` | Date only | '2024-01-15' |\n| `TIME` | Time only | '14:30:00' |\n| `TIMESTAMP` | Date + time | '2024-01-15 14:30:00' |\n| `TIMESTAMPTZ` | With timezone | (PostgreSQL) |\n\n## Creating Date Values\n\n```sql\n-- String literals\nWHERE order_date = '2024-01-15'\nWHERE created_at > '2024-01-01 00:00:00'\n\n-- Current date/time\nSELECT CURRENT_DATE;  -- Today\nSELECT CURRENT_TIMESTAMP;  -- Now\nSELECT NOW();  -- PostgreSQL\n```\n\n## Date Formatting\n\n```sql\n-- Format for display (PostgreSQL)\nSELECT TO_CHAR(order_date, 'Month DD, YYYY');\n-- Output: January 15, 2024\n```\n\n---\n\n## 🎯 Your Task\n\nSelect order_id and order_date from orders where order_date > '2024-01-01'.\n",
+    "starter_code": "-- Find orders after January 1, 2024\n\n",
+    "solution_code": "SELECT order_id, order_date FROM orders WHERE order_date > '2024-01-01';",
+    "expected_output": "order_id | order_date\n5        | 2024-01-15\n6        | 2024-02-01\n7        | 2024-03-10",
+    "chapter_id": 202,
+    "chapter_title": "Data Types, NULLs & Calculations"
+  },
+  "1026": {
+    "id": 1026,
+    "title": "Boolean Type",
+    "content": "# ✅ Boolean Type\n\n## True or False Values\n\nBOOLEAN stores true/false values:\n\n```sql\nis_active BOOLEAN\nis_verified BOOLEAN\nhas_paid BOOLEAN\n```\n\n## Boolean Literals\n\n```sql\n-- These all work:\nWHERE is_active = TRUE\nWHERE is_active = true\nWHERE is_active = 't'\nWHERE is_active = 1\n\n-- Shorthand (preferred)\nWHERE is_active  -- Same as = TRUE\nWHERE NOT is_active  -- Same as = FALSE\n```\n\n## Common Patterns\n\n```sql\n-- Find active premium users\nSELECT * FROM users\nWHERE is_active AND is_premium;\n\n-- Find unverified users\nSELECT * FROM users\nWHERE NOT is_verified;\n```\n\n---\n\n## 🎯 Your Task\n\nSelect name from users where is_active is true.\n",
+    "starter_code": "-- Find active users\n\n",
+    "solution_code": "SELECT name FROM users WHERE is_active;",
+    "expected_output": "name\nAlice\nCharlie",
+    "chapter_id": 202,
+    "chapter_title": "Data Types, NULLs & Calculations"
+  },
+  "1027": {
+    "id": 1027,
+    "title": "Understanding NULL",
+    "content": "# ❓ Understanding NULL\n\n## NULL is Not a Value\n\nNULL means \"unknown\" or \"missing.\" It's NOT the same as:\n- Empty string ('')\n- Zero (0)\n- The word 'null'\n\n## The NULL Trap\n\n```sql\n-- This returns NO rows, even if phone IS null!\nSELECT * FROM users WHERE phone = NULL;  -- WRONG!\n\n-- This is correct:\nSELECT * FROM users WHERE phone IS NULL;  -- RIGHT!\n```\n\n## Why = NULL Doesn't Work\n\nNULL represents \"unknown\". Is unknown equal to unknown? We don't know! So the result is... NULL (neither true nor false).\n\n## NULL in Expressions\n\n```sql\n-- Any operation with NULL returns NULL\n5 + NULL = NULL\n'Hello' || NULL = NULL\nNULL = NULL  -- NULL (not TRUE!)\nNULL <> NULL  -- NULL (not TRUE!)\n```\n\n---\n\n## 🎯 Your Task\n\nSelect name from employees where manager_id IS NULL (no manager).\n",
+    "starter_code": "-- Find employees with no manager\n\n",
+    "solution_code": "SELECT name FROM employees WHERE manager_id IS NULL;",
+    "expected_output": "name\nSarah",
+    "chapter_id": 202,
+    "chapter_title": "Data Types, NULLs & Calculations"
+  },
+  "1028": {
+    "id": 1028,
+    "title": "IS NULL and IS NOT NULL",
+    "content": "# 🔍 IS NULL and IS NOT NULL\n\n## Checking for NULL Values\n\n```sql\n-- Find rows WITH missing data\nSELECT * FROM customers WHERE phone IS NULL;\n\n-- Find rows WITHOUT missing data\nSELECT * FROM customers WHERE phone IS NOT NULL;\n```\n\n## Common Use Cases\n\n```sql\n-- Data quality: Find incomplete profiles\nSELECT * FROM users\nWHERE email IS NULL OR phone IS NULL;\n\n-- Only process complete records\nSELECT * FROM orders\nWHERE shipped_date IS NOT NULL;\n\n-- Count missing values\nSELECT COUNT(*) - COUNT(phone) AS missing_phones\nFROM customers;\n```\n\n## Combining Conditions\n\n```sql\n-- Active users with verified emails\nSELECT * FROM users\nWHERE is_active = true\nAND email IS NOT NULL\nAND verified_at IS NOT NULL;\n```\n\n---\n\n## 🎯 Your Task\n\nSelect product_name from products where description IS NOT NULL.\n",
+    "starter_code": "-- Find products that have descriptions\n\n",
+    "solution_code": "SELECT product_name FROM products WHERE description IS NOT NULL;",
+    "expected_output": "product_name\nWidget A\nGadget Pro",
+    "chapter_id": 202,
+    "chapter_title": "Data Types, NULLs & Calculations"
+  },
+  "1029": {
+    "id": 1029,
+    "title": "Three-Valued Logic",
+    "content": "# 🧠 Three-Valued Logic\n\n## TRUE, FALSE, and NULL\n\nSQL uses **three-valued logic** because of NULL:\n\n| Expression | Result |\n| --- | --- |\n| `TRUE AND TRUE` | TRUE |\n| `TRUE AND FALSE` | FALSE |\n| `TRUE AND NULL` | NULL |\n| `FALSE AND NULL` | FALSE |\n| `TRUE OR NULL` | TRUE |\n| `FALSE OR NULL` | NULL |\n\n## Practical Impact\n\n```sql\n-- If age might be NULL:\nWHERE age > 21  -- NULL ages are NOT included\nWHERE NOT (age > 21)  -- NULL ages still NOT included!\n\n-- To include NULLs explicitly:\nWHERE age > 21 OR age IS NULL\n```\n\n## NOT and NULL\n\n```sql\nNOT TRUE = FALSE\nNOT FALSE = TRUE\nNOT NULL = NULL  -- Still unknown!\n```\n\n---\n\n## 🎯 Your Task\n\nSelect name from users where age > 18 OR age IS NULL.\n",
+    "starter_code": "-- Find adults or users with unknown age\n\n",
+    "solution_code": "SELECT name FROM users WHERE age > 18 OR age IS NULL;",
+    "expected_output": "name\nAlice\nBob\nDiana",
+    "chapter_id": 202,
+    "chapter_title": "Data Types, NULLs & Calculations"
+  },
+  "1030": {
+    "id": 1030,
+    "title": "COALESCE Function",
+    "content": "# 🔄 COALESCE Function\n\n## Replace NULL with a Default\n\nCOALESCE returns the first non-NULL value:\n\n```sql\nSELECT COALESCE(phone, 'No phone') FROM customers;\n```\n\n## How It Works\n\n```sql\nCOALESCE(value1, value2, value3, ...)\n\n-- Returns first non-NULL:\nCOALESCE(NULL, NULL, 'default')  -- 'default'\nCOALESCE('hello', 'default')      -- 'hello'\nCOALESCE(NULL, 0)                 -- 0\n```\n\n## Common Use Cases\n\n```sql\n-- Display friendly message\nSELECT name, COALESCE(bio, 'No bio provided') AS bio\nFROM users;\n\n-- Default values in calculations\nSELECT price * COALESCE(quantity, 1) AS total\nFROM cart_items;\n\n-- Fallback chain\nSELECT COALESCE(nickname, first_name, email) AS display_name\nFROM users;\n```\n\n---\n\n## 🎯 Your Task\n\nSelect name and COALESCE(phone, 'N/A') as phone from contacts.\n",
+    "starter_code": "-- Show 'N/A' for missing phone numbers\n\n",
+    "solution_code": "SELECT name, COALESCE(phone, 'N/A') AS phone FROM contacts;",
+    "expected_output": "name    | phone\nAlice   | 555-1234\nBob     | N/A\nCharlie | 555-5678",
+    "chapter_id": 202,
+    "chapter_title": "Data Types, NULLs & Calculations"
+  },
+  "1031": {
+    "id": 1031,
+    "title": "NULLIF Function",
+    "content": "# ⚡ NULLIF Function\n\n## Turn a Value into NULL\n\nNULLIF returns NULL if two values are equal:\n\n```sql\nNULLIF(value1, value2)\n\n-- Returns NULL if equal, otherwise returns value1\nNULLIF(5, 5)     -- NULL\nNULLIF(5, 0)     -- 5\nNULLIF('', '')   -- NULL\n```\n\n## Why Is This Useful?\n\n**Avoiding division by zero:**\n\n```sql\n-- This crashes if quantity = 0:\nSELECT price / quantity AS unit_price FROM items;\n\n-- This is safe:\nSELECT price / NULLIF(quantity, 0) AS unit_price FROM items;\n-- Returns NULL instead of error when quantity = 0\n```\n\n## Treating Empty Strings as NULL\n\n```sql\n-- Some data has '' instead of NULL\nSELECT name, NULLIF(phone, '') AS phone FROM users;\n-- Now empty strings become NULL\n```\n\n---\n\n## 🎯 Your Task\n\nSelect total / NULLIF(count, 0) AS average from stats.\n",
+    "starter_code": "-- Calculate average, avoid divide by zero\n\n",
+    "solution_code": "SELECT total / NULLIF(count, 0) AS average FROM stats;",
+    "expected_output": "average\n25.5\nNULL\n30.0",
+    "chapter_id": 202,
+    "chapter_title": "Data Types, NULLs & Calculations"
+  },
+  "1032": {
+    "id": 1032,
+    "title": "CAST and Type Conversion",
+    "content": "# 🔄 CAST and Type Conversion\n\n## Converting Between Types\n\nUse CAST to convert data types:\n\n```sql\n-- CAST syntax\nCAST(expression AS target_type)\n\n-- PostgreSQL shorthand\nexpression::target_type\n```\n\n## Common Conversions\n\n```sql\n-- String to integer\nCAST('123' AS INTEGER)  -- 123\n'123'::INTEGER          -- PostgreSQL\n\n-- Number to string\nCAST(123 AS VARCHAR)    -- '123'\n\n-- String to date\nCAST('2024-01-15' AS DATE)\n\n-- Decimal precision\nCAST(price AS NUMERIC(10,2))\n```\n\n## When Conversion Fails\n\n```sql\n-- This will error:\nCAST('hello' AS INTEGER)  -- Error!\n\n-- Handle with TRY_CAST (SQL Server) or careful validation\n```\n\n---\n\n## 🎯 Your Task\n\nSelect product_id, CAST(price AS INTEGER) as price_rounded from products.\n",
+    "starter_code": "-- Convert price to integer (truncates decimals)\n\n",
+    "solution_code": "SELECT product_id, CAST(price AS INTEGER) AS price_rounded FROM products;",
+    "expected_output": "product_id | price_rounded\n1          | 29\n2          | 49\n3          | 99",
+    "chapter_id": 202,
+    "chapter_title": "Data Types, NULLs & Calculations"
+  },
+  "1033": {
+    "id": 1033,
+    "title": "Safe Division with NULLIF",
+    "content": "# 🛡️ Safe Division with NULLIF\n\n## The Division by Zero Problem\n\nDivision by zero causes errors in SQL:\n\n```sql\nSELECT 100 / 0;  -- ERROR: division by zero\n```\n\n## The NULLIF Solution\n\nCombine division with NULLIF:\n\n```sql\nSELECT revenue / NULLIF(users, 0) AS revenue_per_user\nFROM metrics;\n```\n\nIf `users = 0`, NULLIF returns NULL, and `revenue / NULL = NULL`.\n\n## Complete Pattern\n\n```sql\n-- Calculate percentage safely\nSELECT \n  category,\n  sales,\n  ROUND(\n    100.0 * sales / NULLIF(total_sales, 0), \n    2\n  ) AS pct_of_total\nFROM sales_data;\n```\n\n## With COALESCE for Default\n\n```sql\n-- Return 0 instead of NULL\nSELECT \n  COALESCE(revenue / NULLIF(users, 0), 0) AS arpu\nFROM metrics;\n```\n\n---\n\n## 🎯 Your Task\n\nSelect category and sales / NULLIF(orders, 0) as avg_order from sales.\n",
+    "starter_code": "-- Calculate average order value safely\n\n",
+    "solution_code": "SELECT category, sales / NULLIF(orders, 0) AS avg_order FROM sales;",
+    "expected_output": "category  | avg_order\nBooks     | 25.50\nGames     | NULL\nToys      | 15.00",
+    "chapter_id": 202,
+    "chapter_title": "Data Types, NULLs & Calculations"
+  },
+  "1034": {
+    "id": 1034,
+    "title": "COUNT Function",
+    "content": "# 📊 COUNT Function\n\n## Counting Rows\n\nCOUNT tells you how many rows match your criteria:\n\n```sql\n-- Count all rows\nSELECT COUNT(*) FROM orders;\n\n-- Count non-NULL values in a column\nSELECT COUNT(email) FROM users;\n```\n\n## COUNT(*) vs COUNT(column)\n\n| Syntax | Counts |\n| --- | --- |\n| `COUNT(*)` | All rows, including NULLs |\n| `COUNT(column)` | Non-NULL values only |\n\n```sql\n-- If 3 users, 1 has NULL phone:\nSELECT COUNT(*) FROM users;       -- 3\nSELECT COUNT(phone) FROM users;   -- 2\n```\n\n## With WHERE\n\n```sql\nSELECT COUNT(*) FROM orders\nWHERE status = 'completed';\n```\n\n---\n\n## 🎯 Your Task\n\nCount all rows in the customers table.\n",
+    "starter_code": "-- Count all customers\n\n",
+    "solution_code": "SELECT COUNT(*) FROM customers;",
+    "expected_output": "count\n25",
+    "chapter_id": 203,
+    "chapter_title": "Aggregations & Grouping"
+  },
+  "1035": {
+    "id": 1035,
+    "title": "COUNT DISTINCT",
+    "content": "# 🔢 COUNT DISTINCT\n\n## Counting Unique Values\n\nCOUNT DISTINCT counts unique (non-duplicate) values:\n\n```sql\nSELECT COUNT(DISTINCT category) FROM products;\n```\n\n## Why Use DISTINCT?\n\n```sql\n-- Orders table with repeated customer_ids:\nSELECT COUNT(customer_id) FROM orders;          -- 100 (all orders)\nSELECT COUNT(DISTINCT customer_id) FROM orders; -- 45 (unique customers)\n```\n\n## Common Use Cases\n\n```sql\n-- How many unique products sold?\nSELECT COUNT(DISTINCT product_id) FROM order_items;\n\n-- How many countries do customers come from?\nSELECT COUNT(DISTINCT country) FROM customers;\n\n-- Daily active users\nSELECT date, COUNT(DISTINCT user_id) as dau\nFROM events\nGROUP BY date;\n```\n\n---\n\n## 🎯 Your Task\n\nCount the number of distinct categories in the products table.\n",
+    "starter_code": "-- Count unique categories\n\n",
+    "solution_code": "SELECT COUNT(DISTINCT category) FROM products;",
+    "expected_output": "count\n5",
+    "chapter_id": 203,
+    "chapter_title": "Aggregations & Grouping"
+  },
+  "1036": {
+    "id": 1036,
+    "title": "SUM Function",
+    "content": "# ➕ SUM Function\n\n## Adding Up Values\n\nSUM calculates the total of numeric values:\n\n```sql\nSELECT SUM(amount) FROM orders;\nSELECT SUM(quantity) FROM inventory;\n```\n\n## SUM Ignores NULL\n\n```sql\n-- Values: 100, 200, NULL, 300\nSELECT SUM(amount) FROM orders;  -- 600 (NULL ignored)\n```\n\n## With WHERE\n\n```sql\n-- Total revenue from completed orders\nSELECT SUM(amount) FROM orders\nWHERE status = 'completed';\n\n-- Total sales this year\nSELECT SUM(sales) FROM revenue\nWHERE year = 2024;\n```\n\n## Common Patterns\n\n```sql\n-- Sales by category\nSELECT category, SUM(sales) as total_sales\nFROM products\nGROUP BY category;\n```\n\n---\n\n## 🎯 Your Task\n\nCalculate the total amount from all orders.\n",
+    "starter_code": "-- Sum all order amounts\n\n",
+    "solution_code": "SELECT SUM(amount) FROM orders;",
+    "expected_output": "sum\n15750.00",
+    "chapter_id": 203,
+    "chapter_title": "Aggregations & Grouping"
+  },
+  "1037": {
+    "id": 1037,
+    "title": "AVG Function",
+    "content": "# 📈 AVG Function\n\n## Calculating Averages\n\nAVG returns the arithmetic mean:\n\n```sql\nSELECT AVG(salary) FROM employees;\nSELECT AVG(price) FROM products;\n```\n\n## AVG Ignores NULL\n\n```sql\n-- Values: 100, 200, NULL\nSELECT AVG(amount) FROM sales;  -- 150 (only 2 values counted)\n```\n\n⚠️ This might not be what you want! To treat NULL as 0:\n\n```sql\nSELECT AVG(COALESCE(amount, 0)) FROM sales;  -- 100\n```\n\n## Rounding Results\n\n```sql\nSELECT ROUND(AVG(salary), 2) AS avg_salary\nFROM employees;\n```\n\n## Weighted Average\n\n```sql\nSELECT SUM(price * quantity) / SUM(quantity) AS weighted_avg\nFROM orders;\n```\n\n---\n\n## 🎯 Your Task\n\nCalculate the average price from the products table.\n",
+    "starter_code": "-- Get average product price\n\n",
+    "solution_code": "SELECT AVG(price) FROM products;",
+    "expected_output": "avg\n45.99",
+    "chapter_id": 203,
+    "chapter_title": "Aggregations & Grouping"
+  },
+  "1038": {
+    "id": 1038,
+    "title": "MIN and MAX",
+    "content": "# ⬆️ MIN and MAX\n\n## Finding Extremes\n\nMIN and MAX find the smallest and largest values:\n\n```sql\nSELECT MIN(price), MAX(price) FROM products;\nSELECT MIN(order_date), MAX(order_date) FROM orders;\n```\n\n## Works with Different Types\n\n| Type | MIN | MAX |\n| --- | --- | --- |\n| Numbers | Smallest | Largest |\n| Dates | Earliest | Latest |\n| Text | First alphabetically | Last alphabetically |\n\n## Common Patterns\n\n```sql\n-- Price range\nSELECT \n  MIN(price) as cheapest,\n  MAX(price) as most_expensive\nFROM products;\n\n-- Date range\nSELECT \n  MIN(created_at) as first_user,\n  MAX(created_at) as newest_user\nFROM users;\n```\n\n---\n\n## 🎯 Your Task\n\nFind the minimum and maximum salary from employees.\n",
+    "starter_code": "-- Get salary range\n\n",
+    "solution_code": "SELECT MIN(salary), MAX(salary) FROM employees;",
+    "expected_output": "min   | max\n45000 | 150000",
+    "chapter_id": 203,
+    "chapter_title": "Aggregations & Grouping"
+  },
+  "1039": {
+    "id": 1039,
+    "title": "GROUP BY Basics",
+    "content": "# 📊 GROUP BY Basics\n\n## Grouping Data\n\nGROUP BY divides rows into groups and applies aggregates to each:\n\n```sql\nSELECT department, COUNT(*)\nFROM employees\nGROUP BY department;\n```\n\nOutput:\n```\ndepartment | count\nSales      | 15\nMarketing  | 10\nEngineering| 25\n```\n\n## How GROUP BY Works\n\n1. Rows are grouped by the GROUP BY column(s)\n2. Aggregate functions (COUNT, SUM, etc.) run on each group\n3. One row per group is returned\n\n## Rules\n\nEvery non-aggregated column in SELECT must be in GROUP BY:\n\n```sql\n-- ✅ Correct\nSELECT department, COUNT(*) FROM employees\nGROUP BY department;\n\n-- ❌ Error: name not in GROUP BY\nSELECT department, name, COUNT(*) FROM employees\nGROUP BY department;\n```\n\n---\n\n## 🎯 Your Task\n\nCount orders per status.\n",
+    "starter_code": "-- Group orders by status\n\n",
+    "solution_code": "SELECT status, COUNT(*) FROM orders GROUP BY status;",
+    "expected_output": "status    | count\ncompleted | 45\npending   | 12\ncancelled | 3",
+    "chapter_id": 203,
+    "chapter_title": "Aggregations & Grouping"
+  },
+  "1040": {
+    "id": 1040,
+    "title": "GROUP BY Multiple Columns",
+    "content": "# 📈 GROUP BY Multiple Columns\n\n## Grouping by Several Fields\n\nGroup by multiple columns for finer granularity:\n\n```sql\nSELECT year, month, SUM(sales)\nFROM revenue\nGROUP BY year, month;\n```\n\n## How It Works\n\nEach unique combination of values becomes a group:\n\n```sql\nSELECT department, job_title, AVG(salary)\nFROM employees\nGROUP BY department, job_title;\n```\n\nOutput:\n```\ndepartment | job_title | avg\nSales      | Manager   | 85000\nSales      | Rep       | 55000\nEngineering| Senior    | 120000\nEngineering| Junior    | 75000\n```\n\n## Order Matters (for readability)\n\n```sql\n-- Usually go from broad to specific\nGROUP BY country, state, city\nGROUP BY year, quarter, month\n```\n\n---\n\n## 🎯 Your Task\n\nGet total sales grouped by category and year.\n",
+    "starter_code": "-- Sales by category and year\n\n",
+    "solution_code": "SELECT category, year, SUM(sales) FROM products GROUP BY category, year;",
+    "expected_output": "category | year | sum\nBooks    | 2023 | 5000\nBooks    | 2024 | 7500\nGames    | 2023 | 3200",
+    "chapter_id": 203,
+    "chapter_title": "Aggregations & Grouping"
+  },
+  "1041": {
+    "id": 1041,
+    "title": "HAVING Clause",
+    "content": "# 🔍 HAVING Clause\n\n## Filtering Groups\n\nHAVING filters groups AFTER aggregation:\n\n```sql\nSELECT department, COUNT(*)\nFROM employees\nGROUP BY department\nHAVING COUNT(*) > 10;\n```\n\n## Why Not WHERE?\n\nWHERE filters rows BEFORE grouping. HAVING filters AFTER:\n\n```sql\n-- WHERE: filter individual rows first\nSELECT department, COUNT(*)\nFROM employees\nWHERE salary > 50000  -- Filter rows\nGROUP BY department\nHAVING COUNT(*) > 5;  -- Then filter groups\n```\n\n## Execution Order\n\n1. FROM - get table\n2. WHERE - filter rows\n3. GROUP BY - create groups\n4. HAVING - filter groups\n5. SELECT - return results\n\n---\n\n## 🎯 Your Task\n\nFind categories with more than 5 products.\n",
+    "starter_code": "-- Categories with count > 5\n\n",
+    "solution_code": "SELECT category, COUNT(*) FROM products GROUP BY category HAVING COUNT(*) > 5;",
+    "expected_output": "category    | count\nElectronics | 12\nClothing    | 8",
+    "chapter_id": 203,
+    "chapter_title": "Aggregations & Grouping"
+  },
+  "1042": {
+    "id": 1042,
+    "title": "WHERE vs HAVING",
+    "content": "# ⚖️ WHERE vs HAVING\n\n## Key Difference\n\n| Clause | Filters | When |\n| --- | --- | --- |\n| WHERE | Individual rows | Before grouping |\n| HAVING | Groups | After grouping |\n\n## Example\n\n```sql\n-- Find departments where active employees average > $60k\nSELECT department, AVG(salary)\nFROM employees\nWHERE is_active = true     -- Filter rows first\nGROUP BY department\nHAVING AVG(salary) > 60000; -- Then filter groups\n```\n\n## Performance Tip\n\nFilter with WHERE whenever possible - it reduces data before grouping:\n\n```sql\n-- ✅ More efficient: filter early\nWHERE status = 'active'\nGROUP BY category\n\n-- ❌ Less efficient: group all, filter late\nGROUP BY category\nHAVING status = 'active'  -- This doesn't even work!\n```\n\n---\n\n## 🎯 Your Task\n\nFind customers with total orders > 1000, only counting completed orders.\n",
+    "starter_code": "-- Filter completed orders first, then group\n\n",
+    "solution_code": "SELECT customer_id, SUM(amount) FROM orders WHERE status = 'completed' GROUP BY customer_id HAVING SUM(amount) > 1000;",
+    "expected_output": "customer_id | sum\n101         | 2500\n103         | 1200",
+    "chapter_id": 203,
+    "chapter_title": "Aggregations & Grouping"
+  },
+  "1043": {
+    "id": 1043,
+    "title": "Why We Need Joins",
+    "content": "# 🔗 Why We Need Joins\n\n## Data Lives in Multiple Tables\n\nReal databases split data across tables to avoid duplication:\n\n```\n┌─ orders ─────────┐     ┌─ customers ─────┐\n│ id │ customer_id │     │ id │ name       │\n├────┼─────────────┤     ├────┼────────────┤\n│ 1  │ 101         │     │101 │ Alice      │\n│ 2  │ 102         │     │102 │ Bob        │\n└────┴─────────────┘     └────┴────────────┘\n```\n\nTo see order with customer name, we need to JOIN!\n\n## What Joins Do\n\nJoins combine rows from two tables based on a related column:\n\n```sql\nSELECT orders.id, customers.name\nFROM orders\nJOIN customers ON orders.customer_id = customers.id;\n```\n\nResult:\n```\nid | name\n1  | Alice\n2  | Bob\n```\n\n---\n\n## 🎯 Your Task\n\nSelect order_id and customer name by joining orders and customers tables.\n",
+    "starter_code": "-- Join orders with customers\n\n",
+    "solution_code": "SELECT orders.order_id, customers.name FROM orders JOIN customers ON orders.customer_id = customers.id;",
+    "expected_output": "order_id | name\n1        | Alice\n2        | Alice\n3        | Bob",
+    "chapter_id": 204,
+    "chapter_title": "Joins Like a Pro"
+  },
+  "1044": {
+    "id": 1044,
+    "title": "INNER JOIN Basics",
+    "content": "# 🔗 INNER JOIN Basics\n\n## The Default Join\n\nINNER JOIN returns only matching rows from both tables:\n\n```sql\nSELECT *\nFROM orders\nINNER JOIN customers ON orders.customer_id = customers.id;\n```\n\n## How INNER JOIN Works\n\n```\norders:     customers:       Result:\nid|cust_id  id|name          order_id|cust_id|name\n1 | 101     101|Alice   →    1      |101    |Alice\n2 | 102     102|Bob          2      |102    |Bob\n3 | 999     103|Charlie      (order 3 excluded - no match!)\n```\n\nOrder 3 has no matching customer (999), so it's excluded.\n\n## Using Aliases\n\n```sql\nSELECT o.id, c.name\nFROM orders AS o\nINNER JOIN customers AS c ON o.customer_id = c.id;\n```\n\n---\n\n## 🎯 Your Task\n\nJoin products and categories to show product_name with category_name.\n",
+    "starter_code": "-- Inner join products with categories\n\n",
+    "solution_code": "SELECT p.product_name, c.category_name FROM products p INNER JOIN categories c ON p.category_id = c.id;",
+    "expected_output": "product_name | category_name\nWidget A     | Electronics\nWidget B     | Electronics\nGadget C     | Tools",
+    "chapter_id": 204,
+    "chapter_title": "Joins Like a Pro"
+  },
+  "1045": {
+    "id": 1045,
+    "title": "INNER JOIN Multiple Tables",
+    "content": "# 🔗 INNER JOIN Multiple Tables\n\n## Chaining Joins\n\nJoin more than two tables by chaining:\n\n```sql\nSELECT o.id, c.name, p.product_name\nFROM orders o\nJOIN customers c ON o.customer_id = c.id\nJOIN products p ON o.product_id = p.id;\n```\n\n## Execution Order\n\nJoins execute left to right:\n1. orders JOIN customers → creates temporary result\n2. temporary result JOIN products → final result\n\n## Practical Example\n\n```sql\n-- Order details with customer and product info\nSELECT \n  o.order_date,\n  c.name AS customer,\n  p.name AS product,\n  oi.quantity,\n  oi.price\nFROM orders o\nJOIN customers c ON o.customer_id = c.id\nJOIN order_items oi ON o.id = oi.order_id\nJOIN products p ON oi.product_id = p.id;\n```\n\n---\n\n## 🎯 Your Task\n\nJoin orders, customers, and products to get order_id, customer name, and product name.\n",
+    "starter_code": "-- Three-table join\n\n",
+    "solution_code": "SELECT o.order_id, c.name, p.product_name FROM orders o JOIN customers c ON o.customer_id = c.id JOIN products p ON o.product_id = p.id;",
+    "expected_output": "order_id | name  | product_name\n1        | Alice | Widget A\n2        | Bob   | Gadget B",
+    "chapter_id": 204,
+    "chapter_title": "Joins Like a Pro"
+  },
+  "1046": {
+    "id": 1046,
+    "title": "LEFT JOIN Basics",
+    "content": "# ⬅️ LEFT JOIN Basics\n\n## Keep All Left Rows\n\nLEFT JOIN returns all rows from the left table, even if no match:\n\n```sql\nSELECT c.name, o.id AS order_id\nFROM customers c\nLEFT JOIN orders o ON c.id = o.customer_id;\n```\n\n## How LEFT JOIN Works\n\n```\ncustomers:   orders:          Result:\nid|name      id|cust_id       name   |order_id\n1 |Alice     1 | 1       →    Alice  | 1\n2 |Bob       2 | 1            Alice  | 2\n3 |Charlie                    Bob    | NULL\n                              Charlie| NULL\n```\n\nBob and Charlie have no orders, but they're still included with NULL.\n\n## Use Cases\n\n- Find customers who haven't ordered\n- Include all products, even unsold ones\n- Show all employees, even without assignments\n\n---\n\n## 🎯 Your Task\n\nLeft join customers with orders to show all customers (even those without orders).\n",
+    "starter_code": "-- Show all customers with their orders (or NULL)\n\n",
+    "solution_code": "SELECT c.name, o.order_id FROM customers c LEFT JOIN orders o ON c.id = o.customer_id;",
+    "expected_output": "name    | order_id\nAlice   | 1\nAlice   | 2\nBob     | 3\nCharlie | NULL",
+    "chapter_id": 204,
+    "chapter_title": "Joins Like a Pro"
+  },
+  "1047": {
+    "id": 1047,
+    "title": "LEFT JOIN for Missing Data",
+    "content": "# 🔍 LEFT JOIN for Missing Data\n\n## Finding Rows Without Matches\n\nCombine LEFT JOIN with IS NULL to find missing relationships:\n\n```sql\n-- Customers who have never ordered\nSELECT c.name\nFROM customers c\nLEFT JOIN orders o ON c.id = o.customer_id\nWHERE o.id IS NULL;\n```\n\n## How It Works\n\n1. LEFT JOIN includes all customers\n2. Those without orders have NULL in order columns\n3. WHERE filters for only those NULLs\n\n## Common Patterns\n\n```sql\n-- Products never sold\nSELECT p.*\nFROM products p\nLEFT JOIN order_items oi ON p.id = oi.product_id\nWHERE oi.id IS NULL;\n\n-- Employees without managers\nSELECT e.name\nFROM employees e\nLEFT JOIN employees m ON e.manager_id = m.id\nWHERE m.id IS NULL;\n```\n\n---\n\n## 🎯 Your Task\n\nFind customers who have no orders using LEFT JOIN.\n",
+    "starter_code": "-- Find customers without any orders\n\n",
+    "solution_code": "SELECT c.name FROM customers c LEFT JOIN orders o ON c.id = o.customer_id WHERE o.order_id IS NULL;",
+    "expected_output": "name\nCharlie\nDiana",
+    "chapter_id": 204,
+    "chapter_title": "Joins Like a Pro"
+  },
+  "1048": {
+    "id": 1048,
+    "title": "RIGHT JOIN",
+    "content": "# ➡️ RIGHT JOIN\n\n## Keep All Right Rows\n\nRIGHT JOIN is the opposite of LEFT JOIN - keeps all rows from the RIGHT table:\n\n```sql\nSELECT o.id, c.name\nFROM orders o\nRIGHT JOIN customers c ON o.customer_id = c.id;\n```\n\n## LEFT JOIN vs RIGHT JOIN\n\nThey're equivalent if you swap table order:\n\n```sql\n-- These produce the same results:\nFROM customers c LEFT JOIN orders o\nFROM orders o RIGHT JOIN customers c\n```\n\n## Best Practice\n\nMost developers prefer LEFT JOIN for consistency:\n\n```sql\n-- ✅ Always LEFT JOIN (preferred)\nFROM main_table LEFT JOIN secondary_table\n\n-- ❌ Mixing LEFT and RIGHT is confusing\n```\n\n---\n\n## 🎯 Your Task\n\nUse RIGHT JOIN to get all departments with their employees.\n",
+    "starter_code": "-- Right join employees with departments\n\n",
+    "solution_code": "SELECT e.name, d.department_name FROM employees e RIGHT JOIN departments d ON e.department_id = d.id;",
+    "expected_output": "name  | department_name\nAlice | Sales\nBob   | Sales\nNULL  | Research",
+    "chapter_id": 204,
+    "chapter_title": "Joins Like a Pro"
+  },
+  "1049": {
+    "id": 1049,
+    "title": "FULL OUTER JOIN",
+    "content": "# ↔️ FULL OUTER JOIN\n\n## Keep Everything\n\nFULL OUTER JOIN keeps all rows from BOTH tables:\n\n```sql\nSELECT c.name, o.id\nFROM customers c\nFULL OUTER JOIN orders o ON c.id = o.customer_id;\n```\n\n## Result\n\n```\ncustomers:   orders:          Result:\nid|name      id|cust_id       name   |order_id\n1 |Alice     1 | 1       →    Alice  | 1\n2 |Bob       2 | 999          Bob    | NULL\n                              NULL   | 2 (orphan order)\n```\n\n## Use Cases\n\n- Data reconciliation between systems\n- Finding mismatches in both directions\n- Complete data comparison\n\n## Not Supported Everywhere\n\nMySQL doesn't have FULL OUTER JOIN - simulate with UNION.\n\n---\n\n## 🎯 Your Task\n\nFull outer join customers and orders to see all customers and all orders.\n",
+    "starter_code": "-- Full outer join\n\n",
+    "solution_code": "SELECT c.name, o.order_id FROM customers c FULL OUTER JOIN orders o ON c.id = o.customer_id;",
+    "expected_output": "name    | order_id\nAlice   | 1\nBob     | 2\nNULL    | 3\nCharlie | NULL",
+    "chapter_id": 204,
+    "chapter_title": "Joins Like a Pro"
+  },
+  "1050": {
+    "id": 1050,
+    "title": "CROSS JOIN",
+    "content": "# ✖️ CROSS JOIN\n\n## Cartesian Product\n\nCROSS JOIN produces every combination of rows:\n\n```sql\nSELECT * FROM colors CROSS JOIN sizes;\n```\n\n## Result\n\n```\ncolors:    sizes:         Result:\ncolor      size           color|size\nRed        S         →    Red  | S\nBlue       M              Red  | M\n           L              Blue | S\n                          Blue | M\n                          ... (6 rows total)\n```\n\n## Use Cases\n\n```sql\n-- Generate all date/product combinations for reports\nSELECT d.date, p.product_id\nFROM dates d\nCROSS JOIN products p;\n\n-- Create a multiplication table\nSELECT a.num, b.num, a.num * b.num AS product\nFROM numbers a CROSS JOIN numbers b;\n```\n\n## ⚠️ Warning: Row Explosion!\n\n100 rows × 100 rows = 10,000 result rows!\n\n---\n\n## 🎯 Your Task\n\nCross join colors and sizes tables to get all combinations.\n",
+    "starter_code": "-- All color/size combinations\n\n",
+    "solution_code": "SELECT colors.color, sizes.size FROM colors CROSS JOIN sizes;",
+    "expected_output": "color | size\nRed   | S\nRed   | M\nBlue  | S\nBlue  | M",
+    "chapter_id": 204,
+    "chapter_title": "Joins Like a Pro"
+  },
+  "1051": {
+    "id": 1051,
+    "title": "Join Cardinality",
+    "content": "# 📊 Join Cardinality\n\n## Understanding Relationships\n\n**Cardinality** describes how many rows match between tables:\n\n| Type | Description | Example |\n| --- | --- | --- |\n| 1:1 | One matches one | User → Profile |\n| 1:N | One matches many | Customer → Orders |\n| N:N | Many match many | Students ↔ Courses |\n\n## Why This Matters\n\nCardinality affects your result row count!\n\n```sql\n-- 1:N join may increase rows:\n-- 1 customer with 3 orders = 3 result rows\nSELECT c.name, o.id\nFROM customers c\nJOIN orders o ON c.id = o.customer_id;\n```\n\n## Checking Cardinality\n\n```sql\n-- Find if 1:N relationship exists\nSELECT customer_id, COUNT(*)\nFROM orders\nGROUP BY customer_id\nHAVING COUNT(*) > 1;\n```\n\n---\n\n## 🎯 Your Task\n\nFind customers with more than 2 orders.\n",
+    "starter_code": "-- Customers with multiple orders\n\n",
+    "solution_code": "SELECT customer_id, COUNT(*) as order_count FROM orders GROUP BY customer_id HAVING COUNT(*) > 2;",
+    "expected_output": "customer_id | order_count\n101         | 5\n103         | 3",
+    "chapter_id": 204,
+    "chapter_title": "Joins Like a Pro"
+  },
+  "1052": {
+    "id": 1052,
+    "title": "Duplicate Rows in Joins",
+    "content": "# ⚠️ Duplicate Rows in Joins\n\n## The Fanout Problem\n\nJoins can multiply your rows unexpectedly:\n\n```sql\n-- If customer 1 has 3 orders:\n-- Customer row appears 3 times in result!\nSELECT c.*, o.*\nFROM customers c\nJOIN orders o ON c.id = o.customer_id;\n```\n\n## Aggregation Errors\n\nThis breaks aggregations:\n\n```sql\n-- WRONG: Customer revenue counted 3 times!\nSELECT SUM(c.lifetime_value)\nFROM customers c\nJOIN orders o ON c.id = o.customer_id;\n\n-- RIGHT: Aggregate before joining\nWITH order_totals AS (\n  SELECT customer_id, SUM(amount) AS total\n  FROM orders GROUP BY customer_id\n)\nSELECT c.name, ot.total\nFROM customers c\nJOIN order_totals ot ON c.id = ot.customer_id;\n```\n\n---\n\n## 🎯 Your Task\n\nJoin customers with orders and count distinct order IDs per customer.\n",
+    "starter_code": "-- Count orders per customer using join\n\n",
+    "solution_code": "SELECT c.name, COUNT(DISTINCT o.order_id) as orders FROM customers c JOIN orders o ON c.id = o.customer_id GROUP BY c.name;",
+    "expected_output": "name  | orders\nAlice | 3\nBob   | 2",
+    "chapter_id": 204,
+    "chapter_title": "Joins Like a Pro"
+  },
+  "1053": {
+    "id": 1053,
+    "title": "Self Joins",
+    "content": "# 🔄 Self Joins\n\n## Joining a Table to Itself\n\nSelf joins compare rows within the same table:\n\n```sql\nSELECT e.name AS employee, m.name AS manager\nFROM employees e\nJOIN employees m ON e.manager_id = m.id;\n```\n\n## Use Cases\n\n**Hierarchies (employee → manager):**\n```sql\nSELECT e.name, m.name AS reports_to\nFROM employees e\nLEFT JOIN employees m ON e.manager_id = m.id;\n```\n\n**Comparing rows:**\n```sql\n-- Find products with same price\nSELECT a.name, b.name, a.price\nFROM products a\nJOIN products b ON a.price = b.price AND a.id < b.id;\n```\n\n## Aliases are Required\n\nMust use different aliases for the same table:\n\n```sql\nFROM employees e  -- First reference\nJOIN employees m  -- Second reference\n```\n\n---\n\n## 🎯 Your Task\n\nSelf join employees to show each employee with their manager's name.\n",
+    "starter_code": "-- Employee and their manager\n\n",
+    "solution_code": "SELECT e.name AS employee, m.name AS manager FROM employees e LEFT JOIN employees m ON e.manager_id = m.id;",
+    "expected_output": "employee | manager\nAlice    | NULL\nBob      | Alice\nCharlie  | Alice",
+    "chapter_id": 204,
+    "chapter_title": "Joins Like a Pro"
+  },
+  "1054": {
+    "id": 1054,
+    "title": "Join Best Practices",
+    "content": "# ✅ Join Best Practices\n\n## 1. Use Explicit JOIN Syntax\n\n```sql\n-- ✅ Explicit (clear and modern)\nSELECT * FROM orders o\nJOIN customers c ON o.customer_id = c.id;\n\n-- ❌ Implicit (old style, harder to read)\nSELECT * FROM orders o, customers c\nWHERE o.customer_id = c.id;\n```\n\n## 2. Always Qualify Column Names\n\n```sql\n-- ✅ Clear which table each column comes from\nSELECT o.id, c.name, o.amount\n\n-- ❌ Ambiguous when both tables have 'id'\nSELECT id, name, amount\n```\n\n## 3. Use Consistent Alias Conventions\n\n```sql\nFROM customers c      -- First letter\nJOIN orders o\nJOIN order_items oi   -- Two letters for longer names\n```\n\n## 4. Filter Early\n\n```sql\n-- ✅ Filter before join (faster)\nFROM orders o\nJOIN customers c ON o.customer_id = c.id\nWHERE o.status = 'completed'\n```\n\n---\n\n## 🎯 Your Task\n\nWrite a clean join query for orders and customers using proper aliases and explicit syntax.\n",
+    "starter_code": "-- Clean, readable join\n\n",
+    "solution_code": "SELECT o.order_id, o.amount, c.name AS customer_name FROM orders o INNER JOIN customers c ON o.customer_id = c.id WHERE o.status = 'completed';",
+    "expected_output": "order_id | amount | customer_name\n1        | 99.99  | Alice\n3        | 149.99 | Bob",
+    "chapter_id": 204,
+    "chapter_title": "Joins Like a Pro"
+  },
+  "1055": {
+    "id": 1055,
+    "title": "🏛️ Query Architect Challenge",
+    "content": "# 🏛️ BOSS BATTLE: The Query Architect\n\nThe Query Architect tests your mastery of SQL fundamentals. Prove your skills to advance!\n\n## The Challenge\n\nCombine everything from Chapters 0-4:\n- SELECT with filtering and sorting\n- Aggregations and GROUP BY\n- JOIN operations\n- NULL handling\n\n## Your Mission\n\nWrite a query that shows:\n1. Customer name\n2. Number of orders they've placed\n3. Total amount spent\n4. Average order value\n\nOnly include customers who have spent more than $200 total.\nSort by total spent descending.\n\n---\n\n## 🎯 Complete the Challenge\n\nJoin customers and orders, group by customer, filter totals > 200, order by total descending.\n",
+    "starter_code": "-- The Query Architect Challenge\n-- Show customer name, order count, total spent, and average\n-- Only customers with total > 200\n-- Sort by total descending\n\n",
+    "solution_code": "SELECT \n  c.name,\n  COUNT(o.order_id) AS order_count,\n  SUM(o.amount) AS total_spent,\n  ROUND(AVG(o.amount), 2) AS avg_order\nFROM customers c\nJOIN orders o ON c.id = o.customer_id\nGROUP BY c.name\nHAVING SUM(o.amount) > 200\nORDER BY total_spent DESC;",
+    "expected_output": "name  | order_count | total_spent | avg_order\nBob   | 5           | 750.00      | 150.00\nAlice | 3           | 450.00      | 150.00",
+    "chapter_id": 250,
+    "chapter_title": "Query Architect Boss"
+  },
+  "1056": {
+    "id": 1056,
+    "title": "Subquery in WHERE",
+    "content": "# 🎯 Subquery in WHERE\n\n## What is a Subquery?\n\nA **subquery** is a query inside another query. The inner query runs first, then its result is used by the outer query.\n\n```sql\nSELECT * FROM employees\nWHERE salary > (SELECT AVG(salary) FROM employees);\n```\n\n## How It Works\n\n1. Inner query runs: `SELECT AVG(salary)` → 75000\n2. Outer query becomes: `WHERE salary > 75000`\n3. Returns employees above average salary\n\n## Subqueries Return Different Things\n\n| Type | Returns | Use With |\n| --- | --- | --- |\n| Scalar | Single value | =, >, <, etc. |\n| List | Multiple values | IN, NOT IN |\n| Table | Rows & columns | FROM, JOIN |\n\n---\n\n## 🎯 Your Task\n\nFind products priced above the average price.\n",
+    "starter_code": "-- Products above average price\n\n",
+    "solution_code": "SELECT * FROM products WHERE price > (SELECT AVG(price) FROM products);",
+    "expected_output": "id | name     | price\n2  | Widget B | 99.99\n4  | Premium  | 149.99",
+    "chapter_id": 205,
+    "chapter_title": "Subqueries & Set Operations"
+  },
+  "1057": {
+    "id": 1057,
+    "title": "IN with Subquery",
+    "content": "# 📋 IN with Subquery\n\n## Matching Against a List of Values\n\nUse IN with a subquery to check if a value exists in another table's results:\n\n```sql\nSELECT * FROM customers\nWHERE id IN (SELECT customer_id FROM orders);\n```\n\nThis finds customers who have placed at least one order.\n\n## How It Works\n\n1. Subquery returns list: (101, 102, 105)\n2. Outer query becomes: `WHERE id IN (101, 102, 105)`\n\n## NOT IN\n\n```sql\n-- Customers who have NEVER ordered\nSELECT * FROM customers\nWHERE id NOT IN (SELECT customer_id FROM orders);\n```\n\n⚠️ Warning: NOT IN with NULLs can return no rows!\n\n---\n\n## 🎯 Your Task\n\nFind customers who have placed orders using IN with a subquery.\n",
+    "starter_code": "-- Customers with orders\n\n",
+    "solution_code": "SELECT * FROM customers WHERE id IN (SELECT customer_id FROM orders);",
+    "expected_output": "id  | name  | email\n101 | Alice | a@mail.com\n102 | Bob   | b@mail.com",
+    "chapter_id": 205,
+    "chapter_title": "Subqueries & Set Operations"
+  },
+  "1058": {
+    "id": 1058,
+    "title": "EXISTS Operator",
+    "content": "# ✅ EXISTS Operator\n\n## Checking for Row Existence\n\nEXISTS returns TRUE if the subquery returns any rows:\n\n```sql\nSELECT * FROM customers c\nWHERE EXISTS (\n  SELECT 1 FROM orders o\n  WHERE o.customer_id = c.id\n);\n```\n\n## EXISTS vs IN\n\n| Feature | EXISTS | IN |\n| --- | --- | --- |\n| Returns | TRUE/FALSE | Matches value |\n| With NULLs | Handles well | Problematic |\n| Performance | Often faster | Depends |\n| Correlated | Usually yes | No |\n\n## The Pattern\n\n```sql\n-- EXISTS typically uses correlation\nSELECT * FROM table1 t1\nWHERE EXISTS (\n  SELECT 1 FROM table2 t2\n  WHERE t2.foreign_key = t1.id  -- Correlated!\n);\n```\n\n---\n\n## 🎯 Your Task\n\nFind departments that have at least one employee using EXISTS.\n",
+    "starter_code": "-- Departments with employees\n\n",
+    "solution_code": "SELECT * FROM departments d WHERE EXISTS (SELECT 1 FROM employees e WHERE e.department_id = d.id);",
+    "expected_output": "id | name\n1  | Sales\n2  | Engineering",
+    "chapter_id": 205,
+    "chapter_title": "Subqueries & Set Operations"
+  },
+  "1059": {
+    "id": 1059,
+    "title": "NOT EXISTS",
+    "content": "# ❌ NOT EXISTS\n\n## Finding Missing Relationships\n\nNOT EXISTS returns TRUE when the subquery returns NO rows:\n\n```sql\n-- Customers without orders\nSELECT * FROM customers c\nWHERE NOT EXISTS (\n  SELECT 1 FROM orders o\n  WHERE o.customer_id = c.id\n);\n```\n\n## NOT EXISTS vs LEFT JOIN + NULL\n\nBoth achieve the same result:\n\n```sql\n-- NOT EXISTS version\nSELECT * FROM customers c\nWHERE NOT EXISTS (SELECT 1 FROM orders WHERE customer_id = c.id);\n\n-- LEFT JOIN version\nSELECT c.* FROM customers c\nLEFT JOIN orders o ON c.id = o.customer_id\nWHERE o.id IS NULL;\n```\n\n## NOT EXISTS is NULL-safe\n\nUnlike NOT IN, NOT EXISTS handles NULLs correctly!\n\n---\n\n## 🎯 Your Task\n\nFind products that have never been ordered using NOT EXISTS.\n",
+    "starter_code": "-- Products never ordered\n\n",
+    "solution_code": "SELECT * FROM products p WHERE NOT EXISTS (SELECT 1 FROM order_items oi WHERE oi.product_id = p.id);",
+    "expected_output": "id | name     | price\n5  | Widget E | 29.99",
+    "chapter_id": 205,
+    "chapter_title": "Subqueries & Set Operations"
+  },
+  "1060": {
+    "id": 1060,
+    "title": "Scalar Subqueries",
+    "content": "# 🔢 Scalar Subqueries\n\n## Returning a Single Value\n\nA **scalar subquery** returns exactly one value (one row, one column):\n\n```sql\nSELECT \n  name,\n  salary,\n  salary - (SELECT AVG(salary) FROM employees) AS diff_from_avg\nFROM employees;\n```\n\n## Where to Use Scalar Subqueries\n\n```sql\n-- In SELECT\nSELECT name, (SELECT MAX(salary) FROM employees) AS max_salary\n\n-- In WHERE\nWHERE price = (SELECT MAX(price) FROM products)\n\n-- In calculations\nSELECT salary / (SELECT AVG(salary) FROM employees) AS salary_ratio\n```\n\n## ⚠️ Error If Not Scalar\n\nIf subquery returns multiple rows, you get an error!\n\n```sql\n-- ERROR: subquery returned more than one row\nWHERE id = (SELECT id FROM users WHERE active = true)\n```\n\n---\n\n## 🎯 Your Task\n\nShow each product with its price and the max price across all products.\n",
+    "starter_code": "-- Product with max price comparison\n\n",
+    "solution_code": "SELECT name, price, (SELECT MAX(price) FROM products) AS max_price FROM products;",
+    "expected_output": "name     | price | max_price\nWidget A | 29.99 | 149.99\nWidget B | 99.99 | 149.99\nPremium  | 149.99| 149.99",
+    "chapter_id": 205,
+    "chapter_title": "Subqueries & Set Operations"
+  },
+  "1061": {
+    "id": 1061,
+    "title": "Correlated Subqueries",
+    "content": "# 🔗 Correlated Subqueries\n\n## Subqueries That Reference the Outer Query\n\nA **correlated subquery** uses values from the outer query:\n\n```sql\n-- Employees earning above their department's average\nSELECT * FROM employees e\nWHERE salary > (\n  SELECT AVG(salary) FROM employees\n  WHERE department_id = e.department_id  -- References outer e!\n);\n```\n\n## How It Works\n\nFor EACH outer row:\n1. Run subquery using that row's values\n2. Evaluate WHERE condition\n3. Include or exclude the row\n\n## Performance Consideration\n\nCorrelated subqueries run once per outer row - can be slow on large tables!\n\n```sql\n-- Consider rewriting with JOINs or Window functions\n-- for better performance\n```\n\n---\n\n## 🎯 Your Task\n\nFind employees earning more than their department's average salary.\n",
+    "starter_code": "-- Above department average\n\n",
+    "solution_code": "SELECT * FROM employees e WHERE salary > (SELECT AVG(salary) FROM employees WHERE department_id = e.department_id);",
+    "expected_output": "id | name  | department_id | salary\n1  | Alice | 1             | 90000\n4  | Diana | 2             | 85000",
+    "chapter_id": 205,
+    "chapter_title": "Subqueries & Set Operations"
+  },
+  "1062": {
+    "id": 1062,
+    "title": "UNION Operator",
+    "content": "# 🔀 UNION Operator\n\n## Combining Result Sets\n\nUNION combines rows from multiple queries into one result:\n\n```sql\nSELECT name FROM employees\nUNION\nSELECT name FROM contractors;\n```\n\n## UNION Rules\n\n1. Same number of columns\n2. Compatible data types\n3. Column names come from first query\n4. **Duplicates are removed** (by default)\n\n## Example\n\n```sql\n-- All people (employees + contractors)\nSELECT name, 'Employee' AS type FROM employees\nUNION\nSELECT name, 'Contractor' AS type FROM contractors;\n```\n\n---\n\n## 🎯 Your Task\n\nCombine names from customers and suppliers tables.\n",
+    "starter_code": "-- All names from both tables\n\n",
+    "solution_code": "SELECT name FROM customers UNION SELECT name FROM suppliers;",
+    "expected_output": "name\nAlice\nBob\nAcme Corp\nGlobal Inc",
+    "chapter_id": 205,
+    "chapter_title": "Subqueries & Set Operations"
+  },
+  "1063": {
+    "id": 1063,
+    "title": "UNION ALL",
+    "content": "# 📋 UNION ALL\n\n## Keep All Rows (Including Duplicates)\n\nUNION ALL combines results WITHOUT removing duplicates:\n\n```sql\nSELECT name FROM employees\nUNION ALL\nSELECT name FROM contractors;\n```\n\n## UNION vs UNION ALL\n\n| Operation | Duplicates | Performance |\n| --- | --- | --- |\n| UNION | Removed | Slower (sorts) |\n| UNION ALL | Kept | Faster |\n\n## When to Use Each\n\n```sql\n-- UNION: When you need unique values\n-- Customer names across regions (no duplicates)\n\n-- UNION ALL: When duplicates are okay/needed\n-- All transactions from multiple sources (keep all)\n```\n\n## Performance Tip\n\nUse UNION ALL unless you specifically need duplicates removed.\n\n---\n\n## 🎯 Your Task\n\nCombine all orders from 2023 and 2024 using UNION ALL.\n",
+    "starter_code": "-- All orders from both years\n\n",
+    "solution_code": "SELECT * FROM orders WHERE EXTRACT(YEAR FROM order_date) = 2023 UNION ALL SELECT * FROM orders WHERE EXTRACT(YEAR FROM order_date) = 2024;",
+    "expected_output": "order_id | amount | order_date\n1        | 100.00 | 2023-03-15\n2        | 150.00 | 2023-06-20\n3        | 200.00 | 2024-01-10",
+    "chapter_id": 205,
+    "chapter_title": "Subqueries & Set Operations"
+  },
+  "1064": {
+    "id": 1064,
+    "title": "INTERSECT and EXCEPT",
+    "content": "# ⚡ INTERSECT and EXCEPT\n\n## Set Theory in SQL\n\n**INTERSECT**: Rows in BOTH queries\n```sql\nSELECT name FROM customers\nINTERSECT\nSELECT name FROM premium_members;\n-- Names that are in BOTH tables\n```\n\n**EXCEPT**: Rows in first but NOT in second\n```sql\nSELECT name FROM customers\nEXCEPT\nSELECT name FROM churned_customers;\n-- Active customers (not churned)\n```\n\n## Visual Representation\n\n```\nINTERSECT:    EXCEPT:\n  ┌───┐        ┌───┐\n┌─┼───┼─┐    ┌─│XXX│─┐\n│ │███│ │    │ │   │ │\n└─┼───┼─┘    └─│   │─┘\n  └───┘        └───┘\n  Both         Only left\n```\n\n## Note: MySQL Compatibility\n\nMySQL doesn't support INTERSECT/EXCEPT directly - use JOIN or NOT IN instead.\n\n---\n\n## 🎯 Your Task\n\nFind customer IDs that exist in both orders_2023 and orders_2024.\n",
+    "starter_code": "-- Customers who ordered both years\n\n",
+    "solution_code": "SELECT customer_id FROM orders_2023 INTERSECT SELECT customer_id FROM orders_2024;",
+    "expected_output": "customer_id\n101\n103",
+    "chapter_id": 205,
+    "chapter_title": "Subqueries & Set Operations"
+  },
+  "1065": {
+    "id": 1065,
+    "title": "Introduction to CTEs",
+    "content": "# 📦 Introduction to CTEs\n\n## What is a CTE?\n\nA **Common Table Expression (CTE)** is a named temporary result set:\n\n```sql\nWITH high_value_orders AS (\n  SELECT * FROM orders WHERE amount > 100\n)\nSELECT * FROM high_value_orders;\n```\n\n## Why Use CTEs?\n\n1. **Readability**: Break complex queries into named steps\n2. **Reusability**: Reference the same result multiple times\n3. **Maintenance**: Easier to debug and modify\n\n## CTE vs Subquery\n\n```sql\n-- Subquery (inline, harder to read)\nSELECT * FROM (SELECT * FROM orders WHERE amount > 100) AS ho;\n\n-- CTE (named, clearer)\nWITH high_value_orders AS (...)\nSELECT * FROM high_value_orders;\n```\n\n---\n\n## 🎯 Your Task\n\nCreate a CTE called 'recent_orders' for orders in 2024, then select from it.\n",
+    "starter_code": "-- CTE for 2024 orders\n\n",
+    "solution_code": "WITH recent_orders AS (\n  SELECT * FROM orders WHERE order_date >= '2024-01-01'\n)\nSELECT * FROM recent_orders;",
+    "expected_output": "order_id | customer_id | amount | order_date\n5        | 101         | 150.00 | 2024-01-15\n6        | 102         | 200.00 | 2024-02-20",
+    "chapter_id": 206,
+    "chapter_title": "CTEs (WITH Clause)"
+  },
+  "1066": {
+    "id": 1066,
+    "title": "Basic CTE Syntax",
+    "content": "# 📝 Basic CTE Syntax\n\n## The WITH Clause\n\n```sql\nWITH cte_name AS (\n  -- Your query here\n  SELECT column1, column2\n  FROM table_name\n  WHERE condition\n)\n-- Main query that uses the CTE\nSELECT * FROM cte_name;\n```\n\n## Key Points\n\n1. CTE starts with `WITH`\n2. CTE name comes before `AS`\n3. Query goes inside parentheses\n4. Main query comes AFTER the CTE\n\n## CTE Scope\n\nA CTE only exists for the immediately following statement:\n\n```sql\nWITH my_cte AS (SELECT 1 AS n)\nSELECT * FROM my_cte;  -- Works!\n\nSELECT * FROM my_cte;  -- Error! CTE no longer exists\n```\n\n---\n\n## 🎯 Your Task\n\nCreate a CTE 'active_users' for users where is_active = true.\n",
+    "starter_code": "-- CTE for active users\n\n",
+    "solution_code": "WITH active_users AS (\n  SELECT * FROM users WHERE is_active = true\n)\nSELECT name, email FROM active_users;",
+    "expected_output": "name  | email\nAlice | alice@mail.com\nBob   | bob@mail.com",
+    "chapter_id": 206,
+    "chapter_title": "CTEs (WITH Clause)"
+  },
+  "1067": {
+    "id": 1067,
+    "title": "CTEs vs Subqueries",
+    "content": "# ⚖️ CTEs vs Subqueries\n\n## Comparison\n\n| Feature | CTE | Subquery |\n| --- | --- | --- |\n| Readability | ✅ Named, clear | ❌ Inline, nested |\n| Reusability | ✅ Use multiple times | ❌ Repeat code |\n| Recursion | ✅ Supported | ❌ Not supported |\n| Scope | Statement only | Immediate context |\n\n## When to Use CTEs\n\n```sql\n-- Complex multi-step transformations\n-- When you reference result multiple times\n-- For recursive queries\n-- When readability matters\n```\n\n## When Subqueries Are Fine\n\n```sql\n-- Simple one-off filters\n-- Scalar values: (SELECT MAX(...))\n-- EXISTS checks\n```\n\n---\n\n## 🎯 Your Task\n\nRewrite using a CTE: SELECT * FROM (SELECT * FROM products WHERE price > 50) AS expensive;\n",
+    "starter_code": "-- Convert subquery to CTE\n\n",
+    "solution_code": "WITH expensive AS (\n  SELECT * FROM products WHERE price > 50\n)\nSELECT * FROM expensive;",
+    "expected_output": "id | name     | price\n2  | Widget B | 99.99\n3  | Premium  | 149.99",
+    "chapter_id": 206,
+    "chapter_title": "CTEs (WITH Clause)"
+  },
+  "1068": {
+    "id": 1068,
+    "title": "Multiple CTEs",
+    "content": "# 📊 Multiple CTEs\n\n## Defining Multiple CTEs\n\nSeparate multiple CTEs with commas:\n\n```sql\nWITH \n  cte1 AS (\n    SELECT * FROM table1\n  ),\n  cte2 AS (\n    SELECT * FROM table2\n  )\nSELECT * FROM cte1\nJOIN cte2 ON cte1.id = cte2.id;\n```\n\n## Real Example\n\n```sql\nWITH \n  order_totals AS (\n    SELECT customer_id, SUM(amount) AS total\n    FROM orders GROUP BY customer_id\n  ),\n  high_spenders AS (\n    SELECT * FROM order_totals WHERE total > 1000\n  )\nSELECT c.name, h.total\nFROM customers c\nJOIN high_spenders h ON c.id = h.customer_id;\n```\n\n---\n\n## 🎯 Your Task\n\nCreate two CTEs: 'sales_dept' and 'high_salary', then join them.\n",
+    "starter_code": "-- Two CTEs\n\n",
+    "solution_code": "WITH \n  sales_dept AS (\n    SELECT * FROM employees WHERE department = 'Sales'\n  ),\n  high_salary AS (\n    SELECT * FROM sales_dept WHERE salary > 60000\n  )\nSELECT name, salary FROM high_salary;",
+    "expected_output": "name  | salary\nAlice | 75000\nBob   | 80000",
+    "chapter_id": 206,
+    "chapter_title": "CTEs (WITH Clause)"
+  },
+  "1069": {
+    "id": 1069,
+    "title": "Chained CTEs",
+    "content": "# 🔗 Chained CTEs\n\n## CTEs Referencing Other CTEs\n\nLater CTEs can reference earlier ones:\n\n```sql\nWITH \n  step1 AS (\n    SELECT * FROM orders\n  ),\n  step2 AS (\n    SELECT customer_id, SUM(amount) AS total\n    FROM step1  -- References step1!\n    GROUP BY customer_id\n  ),\n  step3 AS (\n    SELECT * FROM step2 WHERE total > 100  -- References step2!\n  )\nSELECT * FROM step3;\n```\n\n## Building Pipelines\n\n```sql\nWITH \n  raw_data AS (...),\n  cleaned AS (SELECT ... FROM raw_data),\n  aggregated AS (SELECT ... FROM cleaned),\n  final AS (SELECT ... FROM aggregated)\nSELECT * FROM final;\n```\n\nThis creates a clear data transformation pipeline!\n\n---\n\n## 🎯 Your Task\n\nCreate chained CTEs: first filter orders > 100, then sum by customer.\n",
+    "starter_code": "-- Chain CTEs\n\n",
+    "solution_code": "WITH \n  big_orders AS (\n    SELECT * FROM orders WHERE amount > 100\n  ),\n  customer_totals AS (\n    SELECT customer_id, SUM(amount) AS total FROM big_orders GROUP BY customer_id\n  )\nSELECT * FROM customer_totals;",
+    "expected_output": "customer_id | total\n101         | 500.00\n102         | 350.00",
+    "chapter_id": 206,
+    "chapter_title": "CTEs (WITH Clause)"
+  },
+  "1070": {
+    "id": 1070,
+    "title": "CTEs for Readability",
+    "content": "# 📖 CTEs for Readability\n\n## Before: Hard to Read\n\n```sql\nSELECT c.name, ot.total\nFROM customers c\nJOIN (\n  SELECT customer_id, SUM(amount) AS total\n  FROM (\n    SELECT * FROM orders WHERE status = 'completed'\n  ) completed_orders\n  GROUP BY customer_id\n) ot ON c.id = ot.customer_id\nWHERE ot.total > 1000;\n```\n\n## After: Clear and Readable\n\n```sql\nWITH \n  completed_orders AS (\n    SELECT * FROM orders WHERE status = 'completed'\n  ),\n  order_totals AS (\n    SELECT customer_id, SUM(amount) AS total\n    FROM completed_orders\n    GROUP BY customer_id\n  ),\n  high_value_customers AS (\n    SELECT * FROM order_totals WHERE total > 1000\n  )\nSELECT c.name, h.total\nFROM customers c\nJOIN high_value_customers h ON c.id = h.customer_id;\n```\n\n---\n\n## 🎯 Your Task\n\nRefactor into CTEs: filter active products, then get category counts.\n",
+    "starter_code": "-- Make readable with CTEs\n\n",
+    "solution_code": "WITH \n  active_products AS (\n    SELECT * FROM products WHERE is_active = true\n  ),\n  category_counts AS (\n    SELECT category, COUNT(*) AS count FROM active_products GROUP BY category\n  )\nSELECT * FROM category_counts ORDER BY count DESC;",
+    "expected_output": "category    | count\nElectronics | 15\nClothing    | 10\nBooks       | 5",
+    "chapter_id": 206,
+    "chapter_title": "CTEs (WITH Clause)"
+  },
+  "1071": {
+    "id": 1071,
+    "title": "Reusing CTEs",
+    "content": "# 🔄 Reusing CTEs\n\n## Reference a CTE Multiple Times\n\nUnlike subqueries, CTEs can be referenced multiple times:\n\n```sql\nWITH monthly_sales AS (\n  SELECT EXTRACT(MONTH FROM order_date) AS month, SUM(amount) AS total\n  FROM orders\n  GROUP BY 1\n)\nSELECT \n  m1.month,\n  m1.total,\n  m1.total - LAG(m1.total) OVER (ORDER BY m1.month) AS change\nFROM monthly_sales m1;\n```\n\n## Comparison Example\n\n```sql\nWITH stats AS (\n  SELECT AVG(salary) AS avg_sal, MAX(salary) AS max_sal FROM employees\n)\nSELECT \n  e.name,\n  e.salary,\n  s.avg_sal,\n  e.salary - s.avg_sal AS diff\nFROM employees e, stats s;\n```\n\n---\n\n## 🎯 Your Task\n\nCreate a stats CTE and use it to compare each employee's salary to the average.\n",
+    "starter_code": "-- Compare to average using CTE\n\n",
+    "solution_code": "WITH stats AS (\n  SELECT AVG(salary) AS avg_salary FROM employees\n)\nSELECT e.name, e.salary, s.avg_salary, e.salary - s.avg_salary AS diff\nFROM employees e, stats s;",
+    "expected_output": "name    | salary | avg_salary | diff\nAlice   | 75000  | 70000      | 5000\nBob     | 65000  | 70000      | -5000",
+    "chapter_id": 206,
+    "chapter_title": "CTEs (WITH Clause)"
+  },
+  "1072": {
+    "id": 1072,
+    "title": "Recursive CTEs Intro",
+    "content": "# 🔁 Recursive CTEs Intro\n\n## Self-Referencing Queries\n\nRecursive CTEs can reference themselves - great for hierarchies:\n\n```sql\nWITH RECURSIVE org_chart AS (\n  -- Base case: top-level (no manager)\n  SELECT id, name, manager_id, 1 AS level\n  FROM employees\n  WHERE manager_id IS NULL\n  \n  UNION ALL\n  \n  -- Recursive case: employees with managers\n  SELECT e.id, e.name, e.manager_id, o.level + 1\n  FROM employees e\n  JOIN org_chart o ON e.manager_id = o.id\n)\nSELECT * FROM org_chart;\n```\n\n## Use Cases\n\n- Organizational hierarchies\n- Bill of materials (parts containing parts)\n- File system paths\n- Graph traversal\n\n---\n\n## 🎯 Your Task\n\nSelect all from the employees table with a simple non-recursive CTE (intro only).\n",
+    "starter_code": "-- Simple CTE as recursive intro\n\n",
+    "solution_code": "WITH emp_list AS (\n  SELECT id, name, manager_id FROM employees\n)\nSELECT * FROM emp_list;",
+    "expected_output": "id | name    | manager_id\n1  | Sarah   | NULL\n2  | Alice   | 1\n3  | Bob     | 1",
+    "chapter_id": 206,
+    "chapter_title": "CTEs (WITH Clause)"
+  },
+  "1073": {
+    "id": 1073,
+    "title": "CTE Best Practices",
+    "content": "# ✅ CTE Best Practices\n\n## 1. Use Descriptive Names\n\n```sql\n-- ✅ Clear names\nWITH active_subscriptions AS ...\n\n-- ❌ Vague names\nWITH temp AS ...\nWITH data AS ...\n```\n\n## 2. One Logical Step Per CTE\n\n```sql\n-- ✅ Focused CTEs\nWITH filtered AS (... WHERE ...),\n     aggregated AS (... GROUP BY ...),\n     ranked AS (... ROW_NUMBER() ...)\n```\n\n## 3. Order CTEs by Dependency\n\n```sql\n-- ✅ Dependencies flow downward\nWITH \n  raw AS (...),\n  clean AS (SELECT FROM raw),\n  final AS (SELECT FROM clean)\n```\n\n## 4. Don't Overuse CTEs\n\nSimple queries don't need CTEs - add complexity only when it adds clarity.\n\n---\n\n## 🎯 Your Task\n\nWrite well-named CTEs: filter orders > 50, then get customer totals.\n",
+    "starter_code": "-- Clear, well-named CTEs\n\n",
+    "solution_code": "WITH \n  significant_orders AS (\n    SELECT * FROM orders WHERE amount > 50\n  ),\n  customer_revenue AS (\n    SELECT customer_id, SUM(amount) AS total\n    FROM significant_orders\n    GROUP BY customer_id\n  )\nSELECT * FROM customer_revenue ORDER BY total DESC;",
+    "expected_output": "customer_id | total\n101         | 450.00\n102         | 300.00",
+    "chapter_id": 206,
+    "chapter_title": "CTEs (WITH Clause)"
+  },
+  "1074": {
+    "id": 1074,
+    "title": "What are Window Functions?",
+    "content": "# 🪟 What are Window Functions?\n\n## Aggregate Without Grouping\n\nWindow functions let you calculate across related rows WITHOUT collapsing them:\n\n```sql\nSELECT \n  name,\n  department,\n  salary,\n  AVG(salary) OVER (PARTITION BY department) AS dept_avg\nFROM employees;\n```\n\n## Output\n\n```\nname    | department | salary | dept_avg\nAlice   | Sales      | 60000  | 65000\nBob     | Sales      | 70000  | 65000\nCharlie | Eng        | 80000  | 85000\nDiana   | Eng        | 90000  | 85000\n```\n\nNotice: All rows are kept, but each shows its department's average!\n\n## Window vs Regular Aggregates\n\n| Regular Aggregate | Window Function |\n| --- | --- |\n| Collapses rows | Keeps all rows |\n| Uses GROUP BY | Uses OVER |\n| One row per group | Original row count |\n\n---\n\n## 🎯 Your Task\n\nShow each employee with the overall average salary using window function.\n",
+    "starter_code": "-- Overall average alongside each row\n\n",
+    "solution_code": "SELECT name, salary, AVG(salary) OVER () AS overall_avg FROM employees;",
+    "expected_output": "name    | salary | overall_avg\nAlice   | 60000  | 75000\nBob     | 70000  | 75000\nCharlie | 80000  | 75000",
+    "chapter_id": 207,
+    "chapter_title": "Window Functions"
+  },
+  "1075": {
+    "id": 1075,
+    "title": "OVER Clause Basics",
+    "content": "# 📊 OVER Clause Basics\n\n## The OVER Clause Syntax\n\nEvery window function uses OVER to define its window:\n\n```sql\nfunction_name() OVER (window_specification)\n```\n\n## Window Specification Options\n\n```sql\nOVER ()                          -- Entire table\nOVER (PARTITION BY column)        -- Groups\nOVER (ORDER BY column)            -- Ordered\nOVER (PARTITION BY x ORDER BY y)  -- Both\n```\n\n## Examples\n\n```sql\n-- Total across all rows\nSUM(amount) OVER ()\n\n-- Total within each category\nSUM(amount) OVER (PARTITION BY category)\n\n-- Running total by date\nSUM(amount) OVER (ORDER BY order_date)\n```\n\n---\n\n## 🎯 Your Task\n\nCalculate the total of all orders using SUM() OVER ().\n",
+    "starter_code": "-- Total using window function\n\n",
+    "solution_code": "SELECT order_id, amount, SUM(amount) OVER () AS total FROM orders;",
+    "expected_output": "order_id | amount | total\n1        | 100    | 450\n2        | 150    | 450\n3        | 200    | 450",
+    "chapter_id": 207,
+    "chapter_title": "Window Functions"
+  },
+  "1076": {
+    "id": 1076,
+    "title": "PARTITION BY",
+    "content": "# 📦 PARTITION BY\n\n## Grouping Without Collapsing\n\nPARTITION BY splits data into groups for the window function:\n\n```sql\nSELECT \n  name,\n  department,\n  salary,\n  SUM(salary) OVER (PARTITION BY department) AS dept_total\nFROM employees;\n```\n\n## Comparison\n\n```sql\n-- GROUP BY: One row per department\nSELECT department, SUM(salary)\nFROM employees\nGROUP BY department;\n\n-- PARTITION BY: All rows, with department total added\nSELECT *, SUM(salary) OVER (PARTITION BY department)\nFROM employees;\n```\n\n## Multiple Partitions\n\n```sql\n-- Category AND year groups\nSUM(amount) OVER (PARTITION BY category, year)\n```\n\n---\n\n## 🎯 Your Task\n\nShow each order with its customer's total order amount.\n",
+    "starter_code": "-- Customer totals with PARTITION BY\n\n",
+    "solution_code": "SELECT order_id, customer_id, amount, SUM(amount) OVER (PARTITION BY customer_id) AS customer_total FROM orders;",
+    "expected_output": "order_id | customer_id | amount | customer_total\n1        | 101         | 100    | 250\n2        | 101         | 150    | 250\n3        | 102         | 200    | 200",
+    "chapter_id": 207,
+    "chapter_title": "Window Functions"
+  },
+  "1077": {
+    "id": 1077,
+    "title": "ORDER BY in Windows",
+    "content": "# 🔄 ORDER BY in Windows\n\n## Running Calculations\n\nORDER BY in OVER creates running (cumulative) calculations:\n\n```sql\nSELECT \n  order_date,\n  amount,\n  SUM(amount) OVER (ORDER BY order_date) AS running_total\nFROM orders;\n```\n\n## Result\n\n```\norder_date | amount | running_total\n2024-01-01 | 100    | 100\n2024-01-02 | 150    | 250\n2024-01-03 | 80     | 330\n```\n\n## Frame Behavior\n\nWith ORDER BY, the default frame is \"unbounded preceding to current row\":\n\n```sql\n-- These are equivalent:\nSUM(amt) OVER (ORDER BY date)\nSUM(amt) OVER (ORDER BY date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)\n```\n\n---\n\n## 🎯 Your Task\n\nCalculate running total of sales by date.\n",
+    "starter_code": "-- Running total by date\n\n",
+    "solution_code": "SELECT order_date, amount, SUM(amount) OVER (ORDER BY order_date) AS running_total FROM orders;",
+    "expected_output": "order_date | amount | running_total\n2024-01-01 | 100    | 100\n2024-01-02 | 150    | 250\n2024-01-03 | 200    | 450",
+    "chapter_id": 207,
+    "chapter_title": "Window Functions"
+  },
+  "1078": {
+    "id": 1078,
+    "title": "ROW_NUMBER",
+    "content": "# 🔢 ROW_NUMBER\n\n## Assigning Unique Row Numbers\n\nROW_NUMBER assigns a sequential number to each row:\n\n```sql\nSELECT \n  name,\n  salary,\n  ROW_NUMBER() OVER (ORDER BY salary DESC) AS rank\nFROM employees;\n```\n\n## Result\n\n```\nname    | salary | rank\nDiana   | 90000  | 1\nCharlie | 80000  | 2\nBob     | 70000  | 3\nAlice   | 60000  | 4\n```\n\n## With PARTITION BY\n\nNumbers reset for each partition:\n\n```sql\nROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC)\n-- Ranks within each department\n```\n\n## Common Use: Top N Per Group\n\n```sql\nWITH ranked AS (\n  SELECT *, ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary DESC) AS rn\n  FROM employees\n)\nSELECT * FROM ranked WHERE rn = 1;  -- Top earner per dept\n```\n\n---\n\n## 🎯 Your Task\n\nNumber employees by salary descending.\n",
+    "starter_code": "-- Row numbers by salary\n\n",
+    "solution_code": "SELECT name, salary, ROW_NUMBER() OVER (ORDER BY salary DESC) AS row_num FROM employees;",
+    "expected_output": "name  | salary | row_num\nBob   | 90000  | 1\nAlice | 75000  | 2\nTom   | 60000  | 3",
+    "chapter_id": 207,
+    "chapter_title": "Window Functions"
+  },
+  "1079": {
+    "id": 1079,
+    "title": "RANK and DENSE_RANK",
+    "content": "# 🏆 RANK and DENSE_RANK\n\n## Handling Ties\n\n| Function | Ties | Gap After Tie? |\n| --- | --- | --- |\n| ROW_NUMBER | Arbitrary | N/A |\n| RANK | Same rank | Yes |\n| DENSE_RANK | Same rank | No |\n\n## Example\n\n```sql\nSELECT name, score,\n  ROW_NUMBER() OVER (ORDER BY score DESC) AS row_num,\n  RANK() OVER (ORDER BY score DESC) AS rank,\n  DENSE_RANK() OVER (ORDER BY score DESC) AS dense_rank\nFROM students;\n```\n\n## Result\n\n```\nname  | score | row_num | rank | dense_rank\nAlice | 95    | 1       | 1    | 1\nBob   | 95    | 2       | 1    | 1  (tie!)\nTom   | 90    | 3       | 3    | 2  (rank skips, dense doesn't)\nJane  | 85    | 4       | 4    | 3\n```\n\n---\n\n## 🎯 Your Task\n\nRank products by price using DENSE_RANK.\n",
+    "starter_code": "-- Dense rank by price\n\n",
+    "solution_code": "SELECT name, price, DENSE_RANK() OVER (ORDER BY price DESC) AS price_rank FROM products;",
+    "expected_output": "name     | price  | price_rank\nPremium  | 149.99 | 1\nWidget B | 99.99  | 2\nWidget A | 99.99  | 2\nBasic    | 29.99  | 3",
+    "chapter_id": 207,
+    "chapter_title": "Window Functions"
+  },
+  "1080": {
+    "id": 1080,
+    "title": "Running Totals with SUM",
+    "content": "# ➕ Running Totals with SUM\n\n## Cumulative Sum\n\nSUM with ORDER BY creates a running total:\n\n```sql\nSELECT \n  date,\n  revenue,\n  SUM(revenue) OVER (ORDER BY date) AS cumulative_revenue\nFROM daily_sales;\n```\n\n## Result\n\n```\ndate       | revenue | cumulative_revenue\n2024-01-01 | 1000    | 1000\n2024-01-02 | 1500    | 2500\n2024-01-03 | 800     | 3300\n2024-01-04 | 1200    | 4500\n```\n\n## Running Totals Per Group\n\n```sql\n-- Running total within each month\nSUM(revenue) OVER (\n  PARTITION BY EXTRACT(MONTH FROM date)\n  ORDER BY date\n)\n```\n\n---\n\n## 🎯 Your Task\n\nCalculate cumulative sales amount by order date.\n",
+    "starter_code": "-- Cumulative sales\n\n",
+    "solution_code": "SELECT order_date, amount, SUM(amount) OVER (ORDER BY order_date) AS cumulative_amount FROM orders;",
+    "expected_output": "order_date | amount | cumulative_amount\n2024-01-01 | 100.00 | 100.00\n2024-01-02 | 150.00 | 250.00\n2024-01-03 | 200.00 | 450.00",
+    "chapter_id": 207,
+    "chapter_title": "Window Functions"
+  },
+  "1081": {
+    "id": 1081,
+    "title": "Moving Averages",
+    "content": "# 📈 Moving Averages\n\n## Rolling Window Calculations\n\nSpecify a frame to calculate over recent rows:\n\n```sql\n-- 3-day moving average\nSELECT \n  date,\n  sales,\n  AVG(sales) OVER (\n    ORDER BY date\n    ROWS BETWEEN 2 PRECEDING AND CURRENT ROW\n  ) AS moving_avg_3day\nFROM daily_sales;\n```\n\n## Frame Specifications\n\n```sql\nROWS BETWEEN 2 PRECEDING AND CURRENT ROW  -- Last 3 rows\nROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING  -- 3 rows centered\nROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW  -- All previous\n```\n\n## Use Cases\n\n- Smoothing noisy data\n- Trend analysis\n- Anomaly detection\n\n---\n\n## 🎯 Your Task\n\nCalculate 3-day moving average of daily revenue.\n",
+    "starter_code": "-- 3-day moving average\n\n",
+    "solution_code": "SELECT date, revenue, AVG(revenue) OVER (ORDER BY date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS moving_avg FROM daily_sales;",
+    "expected_output": "date       | revenue | moving_avg\n2024-01-01 | 1000    | 1000.00\n2024-01-02 | 1500    | 1250.00\n2024-01-03 | 800     | 1100.00",
+    "chapter_id": 207,
+    "chapter_title": "Window Functions"
+  },
+  "1082": {
+    "id": 1082,
+    "title": "LAG Function",
+    "content": "# ⬅️ LAG Function\n\n## Access Previous Row Values\n\nLAG gets a value from a previous row:\n\n```sql\nSELECT \n  order_date,\n  revenue,\n  LAG(revenue) OVER (ORDER BY order_date) AS prev_day_revenue\nFROM daily_revenue;\n```\n\n## Result\n\n```\norder_date | revenue | prev_day_revenue\n2024-01-01 | 1000    | NULL  (no previous)\n2024-01-02 | 1500    | 1000\n2024-01-03 | 1200    | 1500\n```\n\n## LAG with Offset and Default\n\n```sql\n-- 2 rows back, default to 0\nLAG(revenue, 2, 0) OVER (ORDER BY date)\n```\n\n## Calculate Change\n\n```sql\nSELECT \n  date,\n  revenue,\n  revenue - LAG(revenue) OVER (ORDER BY date) AS daily_change\nFROM revenue;\n```\n\n---\n\n## 🎯 Your Task\n\nShow each order's amount and the previous order's amount.\n",
+    "starter_code": "-- Previous order amount\n\n",
+    "solution_code": "SELECT order_id, amount, LAG(amount) OVER (ORDER BY order_id) AS prev_amount FROM orders;",
+    "expected_output": "order_id | amount | prev_amount\n1        | 100    | NULL\n2        | 150    | 100\n3        | 200    | 150",
+    "chapter_id": 207,
+    "chapter_title": "Window Functions"
+  },
+  "1083": {
+    "id": 1083,
+    "title": "LEAD Function",
+    "content": "# ➡️ LEAD Function\n\n## Access Next Row Values\n\nLEAD gets a value from a following row:\n\n```sql\nSELECT \n  order_date,\n  revenue,\n  LEAD(revenue) OVER (ORDER BY order_date) AS next_day_revenue\nFROM daily_revenue;\n```\n\n## Result\n\n```\norder_date | revenue | next_day_revenue\n2024-01-01 | 1000    | 1500\n2024-01-02 | 1500    | 1200\n2024-01-03 | 1200    | NULL  (no next)\n```\n\n## Use Cases\n\n- Look-ahead calculations\n- Time until next event\n- Forecasting comparisons\n\n```sql\n-- Days until next order\nSELECT \n  order_date,\n  LEAD(order_date) OVER (ORDER BY order_date) - order_date AS days_to_next\nFROM orders;\n```\n\n---\n\n## 🎯 Your Task\n\nShow each employee's salary and the next higher salary.\n",
+    "starter_code": "-- Next salary in ranking\n\n",
+    "solution_code": "SELECT name, salary, LEAD(salary) OVER (ORDER BY salary) AS next_salary FROM employees;",
+    "expected_output": "name    | salary | next_salary\nTom     | 60000  | 75000\nAlice   | 75000  | 90000\nBob     | 90000  | NULL",
+    "chapter_id": 207,
+    "chapter_title": "Window Functions"
+  },
+  "1084": {
+    "id": 1084,
+    "title": "FIRST_VALUE and LAST_VALUE",
+    "content": "# 🥇 FIRST_VALUE and LAST_VALUE\n\n## Get Boundary Values\n\n```sql\nSELECT \n  name,\n  salary,\n  FIRST_VALUE(name) OVER (ORDER BY salary DESC) AS highest_paid,\n  LAST_VALUE(name) OVER (\n    ORDER BY salary DESC\n    ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING\n  ) AS lowest_paid\nFROM employees;\n```\n\n## LAST_VALUE Frame Gotcha\n\n⚠️ LAST_VALUE needs explicit frame - default frame stops at current row!\n\n```sql\n-- Wrong: Gives current row, not actual last\nLAST_VALUE(x) OVER (ORDER BY y)\n\n-- Right: Explicit frame to include all rows\nLAST_VALUE(x) OVER (\n  ORDER BY y\n  ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING\n)\n```\n\n---\n\n## 🎯 Your Task\n\nShow each product with the highest priced product name.\n",
+    "starter_code": "-- Highest priced product on each row\n\n",
+    "solution_code": "SELECT name, price, FIRST_VALUE(name) OVER (ORDER BY price DESC) AS most_expensive FROM products;",
+    "expected_output": "name     | price  | most_expensive\nPremium  | 149.99 | Premium\nWidget B | 99.99  | Premium\nBasic    | 29.99  | Premium",
+    "chapter_id": 207,
+    "chapter_title": "Window Functions"
+  },
+  "1085": {
+    "id": 1085,
+    "title": "NTILE for Bucketing",
+    "content": "# 📊 NTILE for Bucketing\n\n## Divide Into Equal Groups\n\nNTILE splits rows into n approximately equal buckets:\n\n```sql\nSELECT \n  name,\n  salary,\n  NTILE(4) OVER (ORDER BY salary DESC) AS salary_quartile\nFROM employees;\n```\n\n## Result\n\n```\nname    | salary | salary_quartile\nDiana   | 100000 | 1  (top 25%)\nCharlie | 85000  | 1\nBob     | 70000  | 2\nAlice   | 65000  | 2\nTom     | 60000  | 3\nJane    | 55000  | 3\nKen     | 50000  | 4  (bottom 25%)\nLisa    | 45000  | 4\n```\n\n## Use Cases\n\n- Quartiles, percentiles, deciles\n- Customer segmentation (top 20% customers)\n- Performance ratings (A/B/C/D grades)\n\n---\n\n## 🎯 Your Task\n\nDivide products into 3 price tiers.\n",
+    "starter_code": "-- 3 price tiers\n\n",
+    "solution_code": "SELECT name, price, NTILE(3) OVER (ORDER BY price DESC) AS price_tier FROM products;",
+    "expected_output": "name     | price  | price_tier\nPremium  | 149.99 | 1\nWidget B | 99.99  | 1\nWidget A | 49.99  | 2\nBasic    | 29.99  | 3",
+    "chapter_id": 207,
+    "chapter_title": "Window Functions"
+  },
+  "1086": {
+    "id": 1086,
+    "title": "Date Truncation",
+    "content": "# 📅 Date Truncation\n\n## Rounding Dates to Periods\n\nTruncate timestamps to specific time periods:\n\n```sql\nSELECT DATE_TRUNC('month', order_date) AS month\nFROM orders;\n```\n\n## Common Truncation Levels\n\n| Level | Example Result |\n| --- | --- |\n| 'day' | 2024-01-15 00:00:00 |\n| 'week' | 2024-01-15 (Monday) |\n| 'month' | 2024-01-01 |\n| 'quarter' | 2024-01-01 |\n| 'year' | 2024-01-01 |\n\n## Use for Grouping\n\n```sql\nSELECT DATE_TRUNC('month', order_date) AS month,\n       SUM(amount) AS monthly_sales\nFROM orders\nGROUP BY 1\nORDER BY 1;\n```\n\n---\n\n## 🎯 Your Task\n\nTruncate order_date to month and count orders per month.\n",
+    "starter_code": "-- Monthly order counts\n\n",
+    "solution_code": "SELECT DATE_TRUNC('month', order_date) AS month, COUNT(*) FROM orders GROUP BY 1 ORDER BY 1;",
+    "expected_output": "month      | count\n2024-01-01 | 15\n2024-02-01 | 22\n2024-03-01 | 18",
+    "chapter_id": 208,
+    "chapter_title": "Time-Series SQL"
+  },
+  "1087": {
+    "id": 1087,
+    "title": "DATE_TRUNC Function",
+    "content": "# 🗓️ DATE_TRUNC Function\n\n## Syntax\n\n```sql\nDATE_TRUNC(precision, timestamp)\n```\n\n## Precision Options\n\n```sql\nDATE_TRUNC('hour', ts)    -- 2024-01-15 14:00:00\nDATE_TRUNC('day', ts)     -- 2024-01-15 00:00:00\nDATE_TRUNC('week', ts)    -- Start of week\nDATE_TRUNC('month', ts)   -- First of month\nDATE_TRUNC('year', ts)    -- Jan 1\n```\n\n## Real Example\n\n```sql\n-- Weekly revenue report\nSELECT \n  DATE_TRUNC('week', created_at) AS week,\n  SUM(revenue) AS weekly_revenue\nFROM sales\nGROUP BY 1\nORDER BY 1;\n```\n\n---\n\n## 🎯 Your Task\n\nGet weekly sales totals using DATE_TRUNC.\n",
+    "starter_code": "-- Weekly sales\n\n",
+    "solution_code": "SELECT DATE_TRUNC('week', sale_date) AS week, SUM(amount) AS total FROM sales GROUP BY 1 ORDER BY 1;",
+    "expected_output": "week       | total\n2024-01-01 | 5000\n2024-01-08 | 7500",
+    "chapter_id": 208,
+    "chapter_title": "Time-Series SQL"
+  },
+  "1088": {
+    "id": 1088,
+    "title": "Grouping by Time Periods",
+    "content": "# 📊 Grouping by Time Periods\n\n## Common Patterns\n\n```sql\n-- Daily\nGROUP BY DATE_TRUNC('day', created_at)\n\n-- Weekly\nGROUP BY DATE_TRUNC('week', created_at)\n\n-- Monthly\nGROUP BY DATE_TRUNC('month', created_at)\n```\n\n## Multiple Time Granularities\n\n```sql\nSELECT \n  DATE_TRUNC('month', order_date) AS month,\n  COUNT(*) AS orders,\n  SUM(amount) AS revenue,\n  AVG(amount) AS avg_order\nFROM orders\nGROUP BY 1\nORDER BY 1;\n```\n\n## Hour of Day Analysis\n\n```sql\nSELECT \n  EXTRACT(HOUR FROM created_at) AS hour,\n  COUNT(*) AS activity\nFROM events\nGROUP BY 1\nORDER BY 1;\n```\n\n---\n\n## 🎯 Your Task\n\nGroup orders by quarter and sum amounts.\n",
+    "starter_code": "-- Quarterly revenue\n\n",
+    "solution_code": "SELECT DATE_TRUNC('quarter', order_date) AS quarter, SUM(amount) AS total FROM orders GROUP BY 1 ORDER BY 1;",
+    "expected_output": "quarter    | total\n2024-01-01 | 45000\n2024-04-01 | 52000",
+    "chapter_id": 208,
+    "chapter_title": "Time-Series SQL"
+  },
+  "1089": {
+    "id": 1089,
+    "title": "Date Arithmetic",
+    "content": "# ➕ Date Arithmetic\n\n## Adding/Subtracting Time\n\n```sql\n-- Add days\norder_date + INTERVAL '7 days'\n\n-- Subtract months\nNOW() - INTERVAL '3 months'\n\n-- Add hours\ncreated_at + INTERVAL '24 hours'\n```\n\n## Date Differences\n\n```sql\n-- Days between dates\norder_date - created_at  -- Returns interval\n\n-- Age function\nAGE(NOW(), birth_date)  -- Returns interval like '25 years 3 months'\n```\n\n## Common Patterns\n\n```sql\n-- Last 30 days\nWHERE created_at >= NOW() - INTERVAL '30 days'\n\n-- Same day last year\nDATE_TRUNC('day', NOW() - INTERVAL '1 year')\n```\n\n---\n\n## 🎯 Your Task\n\nFind orders from the last 7 days.\n",
+    "starter_code": "-- Recent orders\n\n",
+    "solution_code": "SELECT * FROM orders WHERE order_date >= CURRENT_DATE - INTERVAL '7 days';",
+    "expected_output": "order_id | customer_id | amount | order_date\n45       | 101         | 150.00 | 2024-01-14\n46       | 102         | 200.00 | 2024-01-15",
+    "chapter_id": 208,
+    "chapter_title": "Time-Series SQL"
+  },
+  "1090": {
+    "id": 1090,
+    "title": "EXTRACT Function",
+    "content": "# 🔍 EXTRACT Function\n\n## Pulling Parts from Dates\n\n```sql\nEXTRACT(part FROM timestamp)\n```\n\n## Available Parts\n\n| Part | Example |\n| --- | --- |\n| YEAR | 2024 |\n| MONTH | 1-12 |\n| DAY | 1-31 |\n| HOUR | 0-23 |\n| DOW | 0-6 (day of week) |\n| DOY | 1-366 (day of year) |\n\n## Examples\n\n```sql\nSELECT \n  EXTRACT(YEAR FROM order_date) AS year,\n  EXTRACT(MONTH FROM order_date) AS month,\n  COUNT(*) AS orders\nFROM orders\nGROUP BY 1, 2;\n```\n\n---\n\n## 🎯 Your Task\n\nExtract year and month from order_date and count orders.\n",
+    "starter_code": "-- Year/month breakdown\n\n",
+    "solution_code": "SELECT EXTRACT(YEAR FROM order_date) AS year, EXTRACT(MONTH FROM order_date) AS month, COUNT(*) FROM orders GROUP BY 1, 2;",
+    "expected_output": "year | month | count\n2024 | 1     | 35\n2024 | 2     | 28",
+    "chapter_id": 208,
+    "chapter_title": "Time-Series SQL"
+  },
+  "1091": {
+    "id": 1091,
+    "title": "Cohort Analysis Basics",
+    "content": "# 👥 Cohort Analysis Basics\n\n## What is a Cohort?\n\nA **cohort** is a group of users who share a common characteristic (usually signup date).\n\n```sql\n-- Assign users to monthly cohorts\nSELECT \n  user_id,\n  DATE_TRUNC('month', signup_date) AS cohort\nFROM users;\n```\n\n## Cohort Size\n\n```sql\nSELECT \n  DATE_TRUNC('month', signup_date) AS cohort,\n  COUNT(*) AS cohort_size\nFROM users\nGROUP BY 1\nORDER BY 1;\n```\n\n## Why Cohort Analysis?\n\n- Track how behavior changes over time\n- Compare different signup periods\n- Measure retention and LTV\n\n---\n\n## 🎯 Your Task\n\nAssign users to monthly cohorts and count cohort sizes.\n",
+    "starter_code": "-- Monthly cohorts\n\n",
+    "solution_code": "SELECT DATE_TRUNC('month', signup_date) AS cohort, COUNT(*) AS size FROM users GROUP BY 1 ORDER BY 1;",
+    "expected_output": "cohort     | size\n2024-01-01 | 150\n2024-02-01 | 180\n2024-03-01 | 165",
+    "chapter_id": 208,
+    "chapter_title": "Time-Series SQL"
+  },
+  "1092": {
+    "id": 1092,
+    "title": "Retention Tables",
+    "content": "# 📈 Retention Tables\n\n## Tracking User Retention\n\n```sql\nWITH user_cohorts AS (\n  SELECT user_id, DATE_TRUNC('month', signup_date) AS cohort\n  FROM users\n),\nuser_activity AS (\n  SELECT user_id, DATE_TRUNC('month', activity_date) AS activity_month\n  FROM events\n)\nSELECT \n  c.cohort,\n  a.activity_month,\n  COUNT(DISTINCT a.user_id) AS active_users\nFROM user_cohorts c\nJOIN user_activity a ON c.user_id = a.user_id\nGROUP BY 1, 2;\n```\n\n## Retention Rate\n\n```sql\n-- Month 0 = signup month, Month 1 = next month, etc.\nactive_users / cohort_size AS retention_rate\n```\n\n---\n\n## 🎯 Your Task\n\nCount active users per cohort and month.\n",
+    "starter_code": "-- Retention by cohort\n\n",
+    "solution_code": "SELECT DATE_TRUNC('month', u.signup_date) AS cohort, DATE_TRUNC('month', e.event_date) AS month, COUNT(DISTINCT u.user_id) AS active FROM users u JOIN events e ON u.user_id = e.user_id GROUP BY 1, 2;",
+    "expected_output": "cohort     | month      | active\n2024-01-01 | 2024-01-01 | 150\n2024-01-01 | 2024-02-01 | 90",
+    "chapter_id": 208,
+    "chapter_title": "Time-Series SQL"
+  },
+  "1093": {
+    "id": 1093,
+    "title": "Session Analysis",
+    "content": "# ⏱️ Session Analysis\n\n## Defining Sessions\n\nGroup events into sessions with time gaps:\n\n```sql\nWITH lagged AS (\n  SELECT \n    user_id,\n    event_time,\n    LAG(event_time) OVER (PARTITION BY user_id ORDER BY event_time) AS prev_event\n  FROM events\n)\nSELECT \n  *,\n  CASE \n    WHEN event_time - prev_event > INTERVAL '30 minutes' THEN 1\n    ELSE 0\n  END AS new_session\nFROM lagged;\n```\n\n## Session Metrics\n\n- Session count per user\n- Average session duration\n- Events per session\n\n---\n\n## 🎯 Your Task\n\nCalculate time since previous event per user.\n",
+    "starter_code": "-- Time gaps between events\n\n",
+    "solution_code": "SELECT user_id, event_time, event_time - LAG(event_time) OVER (PARTITION BY user_id ORDER BY event_time) AS time_since_prev FROM events;",
+    "expected_output": "user_id | event_time          | time_since_prev\n1       | 2024-01-15 10:00:00 | NULL\n1       | 2024-01-15 10:05:00 | 00:05:00",
+    "chapter_id": 208,
+    "chapter_title": "Time-Series SQL"
+  },
+  "1094": {
+    "id": 1094,
+    "title": "Conversion Funnels",
+    "content": "# 🔄 Conversion Funnels\n\n## Tracking User Journeys\n\n```sql\nSELECT \n  COUNT(DISTINCT CASE WHEN event = 'view' THEN user_id END) AS views,\n  COUNT(DISTINCT CASE WHEN event = 'add_cart' THEN user_id END) AS add_cart,\n  COUNT(DISTINCT CASE WHEN event = 'purchase' THEN user_id END) AS purchase\nFROM events;\n```\n\n## Conversion Rates\n\n```sql\nWITH funnel AS (\n  SELECT \n    COUNT(DISTINCT CASE WHEN step = 1 THEN user_id END) AS step1,\n    COUNT(DISTINCT CASE WHEN step = 2 THEN user_id END) AS step2,\n    COUNT(DISTINCT CASE WHEN step = 3 THEN user_id END) AS step3\n  FROM events\n)\nSELECT \n  step1,\n  step2,\n  step3,\n  ROUND(100.0 * step2 / step1, 1) AS conv_1_to_2,\n  ROUND(100.0 * step3 / step2, 1) AS conv_2_to_3\nFROM funnel;\n```\n\n---\n\n## 🎯 Your Task\n\nCount users at each funnel stage.\n",
+    "starter_code": "-- Funnel stages\n\n",
+    "solution_code": "SELECT COUNT(DISTINCT CASE WHEN event_type = 'view' THEN user_id END) AS views, COUNT(DISTINCT CASE WHEN event_type = 'click' THEN user_id END) AS clicks, COUNT(DISTINCT CASE WHEN event_type = 'purchase' THEN user_id END) AS purchases FROM events;",
+    "expected_output": "views | clicks | purchases\n1000  | 350    | 75",
+    "chapter_id": 208,
+    "chapter_title": "Time-Series SQL"
+  },
+  "1095": {
+    "id": 1095,
+    "title": "Gap Analysis",
+    "content": "# 🕳️ Gap Analysis\n\n## Finding Missing Dates\n\n```sql\n-- Create date series\nWITH date_series AS (\n  SELECT generate_series(\n    '2024-01-01'::date,\n    '2024-01-31'::date,\n    '1 day'::interval\n  )::date AS date\n)\nSELECT d.date, COALESCE(s.sales, 0) AS sales\nFROM date_series d\nLEFT JOIN sales s ON d.date = s.sale_date;\n```\n\n## Use Cases\n\n- Find days with no sales\n- Identify gaps in time series\n- Ensure complete date coverage\n\n---\n\n## 🎯 Your Task\n\nFind dates with sales by joining with a date series.\n",
+    "starter_code": "-- Dates with sales\n\n",
+    "solution_code": "SELECT sale_date, COUNT(*) AS num_sales FROM sales GROUP BY sale_date ORDER BY sale_date;",
+    "expected_output": "sale_date  | num_sales\n2024-01-01 | 5\n2024-01-02 | 8\n2024-01-04 | 3",
+    "chapter_id": 208,
+    "chapter_title": "Time-Series SQL"
+  },
+  "1096": {
+    "id": 1096,
+    "title": "Calendar Tables",
+    "content": "# 📆 Calendar Tables\n\n## Pre-built Date Dimension\n\nA calendar table contains one row per date with useful attributes:\n\n```sql\nCREATE TABLE calendar AS\nSELECT \n  d::date AS date,\n  EXTRACT(YEAR FROM d) AS year,\n  EXTRACT(MONTH FROM d) AS month,\n  EXTRACT(DOW FROM d) AS day_of_week,\n  d = DATE_TRUNC('month', d) AS is_month_start\nFROM generate_series('2020-01-01', '2030-12-31', '1 day') d;\n```\n\n## Joining to Calendar\n\n```sql\nSELECT c.year, c.month, SUM(o.amount)\nFROM calendar c\nLEFT JOIN orders o ON c.date = o.order_date\nGROUP BY 1, 2;\n```\n\n---\n\n## 🎯 Your Task\n\nJoin orders to a date dimension table.\n",
+    "starter_code": "-- Join with calendar\n\n",
+    "solution_code": "SELECT c.year, c.month, COALESCE(SUM(o.amount), 0) AS total FROM calendar c LEFT JOIN orders o ON c.date = o.order_date GROUP BY 1, 2 ORDER BY 1, 2;",
+    "expected_output": "year | month | total\n2024 | 1     | 45000\n2024 | 2     | 52000",
+    "chapter_id": 208,
+    "chapter_title": "Time-Series SQL"
+  },
+  "1097": {
+    "id": 1097,
+    "title": "Year-over-Year Comparisons",
+    "content": "# 📊 Year-over-Year Comparisons\n\n## Comparing to Same Period Last Year\n\n```sql\nWITH monthly_sales AS (\n  SELECT \n    DATE_TRUNC('month', order_date) AS month,\n    SUM(amount) AS revenue\n  FROM orders\n  GROUP BY 1\n)\nSELECT \n  month,\n  revenue,\n  LAG(revenue, 12) OVER (ORDER BY month) AS revenue_ly,\n  revenue - LAG(revenue, 12) OVER (ORDER BY month) AS yoy_change\nFROM monthly_sales;\n```\n\n## YoY Growth Rate\n\n```sql\n100.0 * (revenue - revenue_ly) / revenue_ly AS yoy_growth_pct\n```\n\n---\n\n## 🎯 Your Task\n\nCalculate monthly revenue with previous month comparison.\n",
+    "starter_code": "-- Month over month\n\n",
+    "solution_code": "SELECT DATE_TRUNC('month', order_date) AS month, SUM(amount) AS revenue, LAG(SUM(amount)) OVER (ORDER BY DATE_TRUNC('month', order_date)) AS prev_month FROM orders GROUP BY 1 ORDER BY 1;",
+    "expected_output": "month      | revenue | prev_month\n2024-01-01 | 45000   | NULL\n2024-02-01 | 52000   | 45000\n2024-03-01 | 48000   | 52000",
+    "chapter_id": 208,
+    "chapter_title": "Time-Series SQL"
+  },
+  "1098": {
+    "id": 1098,
+    "title": "🧙 Analytics Wizard Challenge",
+    "content": "# 🧙 BOSS BATTLE: The Analytics Wizard\n\nProve your mastery of advanced SQL analytics!\n\n## The Challenge\n\nCombine skills from Chapters 5-8:\n- CTEs for organization\n- Window functions for rankings\n- Time-series analysis\n- Complex aggregations\n\n## Your Mission\n\nWrite a query that:\n1. Shows monthly revenue\n2. Calculates running total YTD\n3. Compares to previous month (MoM change)\n4. Ranks months by revenue\n\n---\n\n## 🎯 Complete the Challenge\n\nUse CTEs and window functions to create a comprehensive monthly revenue report.\n",
+    "starter_code": "-- The Analytics Wizard Challenge\n-- Monthly revenue with:\n-- - Running total (YTD)\n-- - MoM change\n-- - Rank by revenue\n\n",
+    "solution_code": "WITH monthly AS (\n  SELECT \n    DATE_TRUNC('month', order_date) AS month,\n    SUM(amount) AS revenue\n  FROM orders\n  GROUP BY 1\n)\nSELECT \n  month,\n  revenue,\n  SUM(revenue) OVER (ORDER BY month) AS ytd_total,\n  revenue - LAG(revenue) OVER (ORDER BY month) AS mom_change,\n  RANK() OVER (ORDER BY revenue DESC) AS revenue_rank\nFROM monthly\nORDER BY month;",
+    "expected_output": "month      | revenue | ytd_total | mom_change | revenue_rank\n2024-01-01 | 45000   | 45000     | NULL       | 3\n2024-02-01 | 52000   | 97000     | 7000       | 1\n2024-03-01 | 48000   | 145000    | -4000      | 2",
+    "chapter_id": 251,
+    "chapter_title": "Analytics Wizard Boss"
   }
 }

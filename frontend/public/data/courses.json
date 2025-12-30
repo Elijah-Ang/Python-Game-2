@@ -7,5 +7,14 @@
     "difficulty": "beginner",
     "chapters_count": 14,
     "lessons_count": 113
+  },
+  {
+    "id": 2,
+    "slug": "sql-fundamentals",
+    "title": "SQL for Data Science",
+    "description": "Master SQL from basics to analytics engineering",
+    "difficulty": "beginner",
+    "chapters_count": 15,
+    "lessons_count": 156
   }
 ]

@@ -15,7 +15,7 @@ export const Layout: React.FC = () => {
                 </Link>
 
                 <nav className="flex items-center gap-6 text-sm font-medium">
-                    <Link to="/course/python-basics" className="hover:text-[var(--accent-secondary)] flex items-center gap-1 transition-colors">
+                    <Link to="/catalog" className="hover:text-[var(--accent-secondary)] flex items-center gap-1 transition-colors">
                         <BookOpen className="w-4 h-4" /> Courses
                     </Link>
                 </nav>
