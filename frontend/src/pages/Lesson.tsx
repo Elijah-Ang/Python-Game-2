@@ -266,7 +266,7 @@ except:
 
     const currentExercise = Number(id) || 1;
     const isSqlLesson = currentExercise >= 1001;
-    const totalExercises = isSqlLesson ? 98 : 113;
+    const totalExercises = isSqlLesson ? 161 : 113;
     const displayExercise = isSqlLesson ? currentExercise - 1000 : currentExercise;
     const courseSlug = isSqlLesson ? 'sql-fundamentals' : 'python-basics';
     const courseName = isSqlLesson ? 'SQL' : 'Python';
