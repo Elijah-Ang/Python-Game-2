@@ -175,13 +175,6 @@ except:
         return resultOutput;
     };
 
-    // For SQL lessons, we can't run in browser - just verify against expected output
-    const runSqlCode = (): string => {
-        const msg = "\u2139\ufe0f SQL queries are verified by comparing your query structure to the expected solution.\n\nClick 'Submit' to check your answer!";
-        setOutput(msg);
-        return msg;
-    };
-
     const submitAnswer = async () => {
         const currentId = Number(id) || 1;
         const isSql = currentId >= 1001;
