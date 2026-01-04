@@ -341,7 +341,10 @@ except:
                                     strong: ({ children }) => <strong className="text-[var(--accent-warning)] font-bold">{children}</strong>,
                                     a: ({ href, children }) => <a href={href} className="text-[var(--accent-secondary)] underline hover:opacity-80">{children}</a>,
                                     table: ({ children }) => <table className="w-full border-collapse my-3 text-sm">{children}</table>,
-                                    th: ({ children }) => <th className="border border-[var(--border-color)] px-2 py-1 bg-[var(--bg-panel)]">{children}</th>,
+                                    thead: ({ children }) => <thead>{children}</thead>,
+                                    tbody: ({ children }) => <tbody>{children}</tbody>,
+                                    tr: ({ children }) => <tr>{children}</tr>,
+                                    th: ({ children }) => <th className="border border-[var(--border-color)] px-2 py-1 bg-[var(--bg-panel)] text-left">{children}</th>,
                                     td: ({ children }) => <td className="border border-[var(--border-color)] px-2 py-1">{children}</td>,
                                 }}
                             >

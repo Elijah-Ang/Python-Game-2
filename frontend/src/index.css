@@ -99,3 +99,37 @@ body {
   border-radius: var(--radius-md);
   padding: var(--spacing-md);
 }
+
+/* Table styles for lesson content */
+.lesson-content table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+}
+
+.lesson-content thead {
+  display: table-header-group;
+}
+
+.lesson-content tbody {
+  display: table-row-group;
+}
+
+.lesson-content tr {
+  display: table-row;
+}
+
+.lesson-content th,
+.lesson-content td {
+  display: table-cell;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.lesson-content th {
+  background-color: var(--bg-panel);
+  font-weight: 600;
+}
