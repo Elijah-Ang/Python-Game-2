@@ -43,14 +43,18 @@ export const Lesson: React.FC = () => {
     const [verifyResult, setVerifyResult] = useState<VerifyResult | null>(null);
     const [editorHeightPercent, setEditorHeightPercent] = useState(65);
     const [isDragging, setIsDragging] = useState(false);
+    const [lessonOrder, setLessonOrder] = useState<number | null>(null);
     const rightPanelRef = useRef<HTMLDivElement>(null);
 
     // Load Lesson Data from static JSON
     useEffect(() => {
-        fetch('/data/lessons.json')
-            .then(res => res.json())
-            .then(data => {
-                const lessonData = data[id as string];
+        const loadLessonData = async () => {
+            try {
+                // Fetch lesson content
+                const lessonsRes = await fetch('/data/lessons.json');
+                const lessonsData = await lessonsRes.json();
+                const lessonData = lessonsData[id as string];
+
                 if (lessonData) {
                     setLesson(lessonData);
                     // SQL lessons have IDs >= 1001
@@ -60,9 +64,32 @@ export const Lesson: React.FC = () => {
                     setVerifyResult(null);
                     setOutput("");
                     setGraphOutput(null);
+
+                    // Fetch course data to get the lesson order
+                    const courseFile = isSql ? '/data/course-sql-fundamentals.json' : '/data/course-python-basics.json';
+                    const courseRes = await fetch(courseFile);
+                    const courseData = await courseRes.json();
+
+                    // Find the lesson order in the course structure
+                    let order: number | null = null;
+                    let cumulativeOrder = 0;
+                    for (const chapter of courseData.chapters) {
+                        for (const lesson of chapter.lessons) {
+                            if (lesson.id === Number(id)) {
+                                order = cumulativeOrder + lesson.order;
+                                break;
+                            }
+                        }
+                        if (order !== null) break;
+                        cumulativeOrder += chapter.lessons.length;
+                    }
+                    setLessonOrder(order);
                 }
-            })
-            .catch(err => console.error(err));
+            } catch (err) {
+                console.error(err);
+            }
+        };
+        loadLessonData();
     }, [id]);
 
     // Load Pyodide with matplotlib support
@@ -260,7 +287,7 @@ except:
     const currentExercise = Number(id) || 1;
     const isSqlLesson = currentExercise >= 1001;
     const totalExercises = isSqlLesson ? 161 : 113;
-    const displayExercise = isSqlLesson ? currentExercise - 1000 : currentExercise;
+    const displayExercise = lessonOrder !== null ? lessonOrder : (isSqlLesson ? currentExercise - 1000 : currentExercise);
     const courseSlug = isSqlLesson ? 'sql-fundamentals' : 'python-basics';
     const courseName = isSqlLesson ? 'SQL' : 'Python';
     const editorLanguage = isSqlLesson ? 'sql' : 'python';
