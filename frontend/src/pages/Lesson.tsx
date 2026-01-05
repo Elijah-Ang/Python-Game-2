@@ -44,6 +44,7 @@ export const Lesson: React.FC = () => {
     const [editorHeightPercent, setEditorHeightPercent] = useState(65);
     const [isDragging, setIsDragging] = useState(false);
     const [lessonOrder, setLessonOrder] = useState<number | null>(null);
+    const [orderedLessonIds, setOrderedLessonIds] = useState<number[]>([]);
     const rightPanelRef = useRef<HTMLDivElement>(null);
 
     // Load Lesson Data from static JSON
@@ -70,20 +71,25 @@ export const Lesson: React.FC = () => {
                     const courseRes = await fetch(courseFile);
                     const courseData = await courseRes.json();
 
-                    // Find the lesson order in the course structure
-                    let order: number | null = null;
-                    let cumulativeOrder = 0;
+                    // Build ordered list of lesson IDs from course structure
+                    const orderedIds: number[] = [];
+                    let currentOrder = 0;
+                    let foundOrder: number | null = null;
+
                     for (const chapter of courseData.chapters) {
-                        for (const lesson of chapter.lessons) {
+                        // Sort lessons by their order field within each chapter
+                        const sortedLessons = [...chapter.lessons].sort((a: any, b: any) => a.order - b.order);
+                        for (const lesson of sortedLessons) {
+                            orderedIds.push(lesson.id);
+                            currentOrder++;
                             if (lesson.id === Number(id)) {
-                                order = cumulativeOrder + lesson.order;
-                                break;
+                                foundOrder = currentOrder;
                             }
                         }
-                        if (order !== null) break;
-                        cumulativeOrder += chapter.lessons.length;
                     }
-                    setLessonOrder(order);
+
+                    setOrderedLessonIds(orderedIds);
+                    setLessonOrder(foundOrder);
                 }
             } catch (err) {
                 console.error(err);
@@ -250,29 +256,40 @@ except:
     const goToNext = () => {
         const currentId = Number(id);
         const isSql = currentId >= 1001;
-        const nextId = currentId + 1;
 
-        if (isSql) {
-            // SQL lessons: 1001-1098 currently implemented
-            if (nextId <= 1098) {
-                navigate(`/lesson/${nextId}`);
+        if (orderedLessonIds.length > 0) {
+            const currentIndex = orderedLessonIds.indexOf(currentId);
+            if (currentIndex !== -1 && currentIndex < orderedLessonIds.length - 1) {
+                navigate(`/lesson/${orderedLessonIds[currentIndex + 1]}`);
             } else {
-                navigate('/course/sql-fundamentals');
+                // End of course
+                navigate(isSql ? '/course/sql-fundamentals' : '/course/python-basics');
             }
         } else {
-            // Python lessons: 1-144
-            if (nextId <= 144) {
-                navigate(`/lesson/${nextId}`);
-            } else {
-                navigate('/course/python-basics');
-            }
+            // Fallback to old behavior if orderedLessonIds not loaded
+            const nextId = currentId + 1;
+            navigate(`/lesson/${nextId}`);
         }
     };
 
     const goToPrev = () => {
-        const prevId = Number(id) - 1;
-        if (prevId > 0) {
-            navigate(`/lesson/${prevId}`);
+        const currentId = Number(id);
+        const isSql = currentId >= 1001;
+
+        if (orderedLessonIds.length > 0) {
+            const currentIndex = orderedLessonIds.indexOf(currentId);
+            if (currentIndex > 0) {
+                navigate(`/lesson/${orderedLessonIds[currentIndex - 1]}`);
+            } else {
+                // Beginning of course
+                navigate(isSql ? '/course/sql-fundamentals' : '/course/python-basics');
+            }
+        } else {
+            // Fallback to old behavior
+            const prevId = currentId - 1;
+            if (prevId > 0) {
+                navigate(`/lesson/${prevId}`);
+            }
         }
     };
 
