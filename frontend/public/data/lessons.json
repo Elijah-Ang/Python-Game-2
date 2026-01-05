@@ -44,7 +44,7 @@
     "title": "What are Strings?",
     "content": "# \ud83d\udcdd What is a String?\n\n## Definition\n\nA **string** is a sequence of characters (letters, numbers, symbols, spaces) surrounded by quotes. It's how we represent text in programming.\n\n```python\nmessage = \"Hello, World!\"\nname = 'Alice'  # Single or double quotes both work\n```\n\n## Why Do We Need Strings?\n\nNearly every program works with text:\n- User names, emails, addresses\n- Messages and notifications\n- File paths and URLs\n- Any data that isn't purely numeric\n\n## Types of Quotes\n\nPython accepts three types:\n\n```python\n# Single quotes\ngreeting = 'Hello'\n\n# Double quotes (same as single)\ngreeting = \"Hello\"\n\n# Triple quotes (for multi-line text)\npoem = \"\"\"Roses are red,\nViolets are blue,\nPython is awesome,\nAnd so are you!\"\"\"\n```\n\n## When to Use Which?\n\n```python\n# Use double quotes if string contains single quote\nsentence = \"It's a beautiful day\"\n\n# Use single quotes if string contains double quote\nhtml = '<div class=\"container\">'\n```\n\n---\n\n## \ud83c\udfaf Your Task\n\nCreate these strings:\n- `greeting` = `\"Hello\"`\n- `name` = `\"Python\"`\n\nPrint: `Hello, Python!`\n",
     "starter_code": "# Create greeting\ngreeting = \"Hello\"\n\n# Create name\nname = \"Python\"\n\n# Print greeting, name!\n",
-    "solution_code": "# Create greeting\ngreeting = \"Hello\"\n\n# Create name\nname = \"Python\"\n\n# Print greeting, name!\nprint(f\"{greeting}, {name}!\")",
+    "solution_code": "# Create greeting\ngreeting = \"Hello\"\n\n# Create name\nname = \"Python\"\n\n# Print greeting, name!\nprint(greeting + \", \" + name + \"!\")",
     "expected_output": "Hello, Python!",
     "chapter_id": 1,
     "chapter_title": "Variables, Types & Memory"

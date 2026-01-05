@@ -24,23 +24,23 @@
           "order": 3
         },
         {
-          "id": 4,
-          "title": "Multiple Variables",
-          "order": 4
-        },
-        {
           "id": 5,
           "title": "What are Strings?",
-          "order": 5
+          "order": 4
         },
         {
           "id": 6,
           "title": "String Concatenation",
-          "order": 6
+          "order": 5
         },
         {
           "id": 7,
           "title": "F-Strings (Formatted Strings)",
+          "order": 6
+        },
+        {
+          "id": 4,
+          "title": "Multiple Variables",
           "order": 7
         },
         {
