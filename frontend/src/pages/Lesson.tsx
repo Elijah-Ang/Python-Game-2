@@ -77,8 +77,20 @@ export const Lesson: React.FC = () => {
                     let foundOrder: number | null = null;
 
                     for (const chapter of courseData.chapters) {
-                        // Sort lessons by their order field within each chapter
-                        const sortedLessons = [...chapter.lessons].sort((a: any, b: any) => a.order - b.order);
+                        // Handle both concepts structure and flat lessons structure
+                        let chapterLessons: any[] = [];
+                        if (chapter.concepts) {
+                            // New structure: extract lessons from concepts
+                            for (const concept of chapter.concepts) {
+                                chapterLessons = chapterLessons.concat(concept.lessons);
+                            }
+                        } else if (chapter.lessons) {
+                            // Old structure: direct lessons array
+                            chapterLessons = chapter.lessons;
+                        }
+
+                        // Sort lessons by their order field
+                        const sortedLessons = [...chapterLessons].sort((a: any, b: any) => a.order - b.order);
                         for (const lesson of sortedLessons) {
                             orderedIds.push(lesson.id);
                             currentOrder++;
