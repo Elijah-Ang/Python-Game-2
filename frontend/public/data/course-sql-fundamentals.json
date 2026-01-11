@@ -2044,5 +2044,25 @@
         }
       ]
     }
+    {
+      "id": 13,
+      "title": "Final Boss",
+      "icon": "🏆",
+      "is_boss": true,
+      "concepts": [
+        {
+          "name": "The Ultimate Challenge",
+          "icon": "🔥",
+          "lessons": [
+            {
+              "id": 1267,
+              "title": "The Data Warehouse Migration",
+              "order": 1,
+              "difficulty": 5
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
