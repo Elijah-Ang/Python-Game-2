@@ -35,6 +35,7 @@ export const Lesson: React.FC = () => {
     const [lesson, setLesson] = useState<LessonData | null>(null);
     const [code, setCode] = useState("");
     const [output, setOutput] = useState("");
+    const [error, setError] = useState<string | null>(null);
     const [graphOutput, setGraphOutput] = useState<string | null>(null);
     const [isRunning, setIsRunning] = useState(false);
     const [isVerifying, setIsVerifying] = useState(false);
@@ -116,8 +117,9 @@ export const Lesson: React.FC = () => {
                     setOrderedLessonIds(orderedIds);
                     setLessonOrder(foundOrder);
                 }
-            } catch (err) {
+            } catch (err: any) {
                 console.error(err);
+                setError(err.message || "Failed to load lesson. Please try refreshing.");
             }
         };
         loadLessonData();
@@ -323,6 +325,23 @@ except:
             }
         }
     };
+
+    if (error) {
+        return (
+            <div className="h-screen bg-[var(--bg-color)] flex flex-col items-center justify-center p-4">
+                <div className="text-[var(--accent-error)] mb-4 text-xl">⚠️ Error Loading Lesson</div>
+                <div className="text-[var(--text-secondary)] mb-4 bg-[var(--bg-panel)] p-4 rounded font-mono text-sm border border-[var(--border-color)]">
+                    {error}
+                </div>
+                <button
+                    onClick={() => window.location.reload()}
+                    className="px-4 py-2 bg-[var(--accent-primary)] text-white rounded hover:opacity-90 transition-colors"
+                >
+                    Retry Connection
+                </button>
+            </div>
+        );
+    }
 
     if (!lesson) {
         return (
