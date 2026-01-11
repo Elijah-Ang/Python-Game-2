@@ -4792,164 +4792,445 @@
     "solution_code": "import numpy as np\n\ny_true = np.array([200, 300, 400, 500])\ny_pred = np.array([210, 280, 420, 480])\n\nmae = np.mean(np.abs(y_true - y_pred))\nrmse = np.sqrt(np.mean((y_true - y_pred) ** 2))\nprint(f\"MAE: ${mae:.2f}K, RMSE: ${rmse:.2f}K\")",
     "expected_output": "Regression Metrics:\n  MAE: $18.00K\n  RMSE: $20.00K\n  R² Score: 0.992"
   },
-  "2000": {
-    "id": 2000,
-    "title": "Why R?",
-    "chapter_title": "Welcome to R",
-    "content": "# 👋 Welcome to R!\n\n## Data Science vs. Programming\n\nYou are about to learn **R**, a language built specifically for data science. Unlike other languages designed for software engineering or app development, R was designed by statisticians.\n\n## The Tidyverse\n\nThroughout this course, we will focus on the **tidyverse**, a collection of R packages designed for data science. All tidyverse packages share an underlying design philosophy, grammar, and data structures.\n\n## The \"Whole Game\"\n\nData science isn't just one thing. It's a process:\n\n1.  **Import**: Get data into R.\n2.  **Tidy**: Make it consistent.\n3.  **Transform**: Filter and summarize.\n4.  **Visualize**: See the patterns.\n5.  **Model**: Explain the patterns.\n6.  **Communicate**: Tell the story.\n\nWe will start with **Visualization** (Chapter 1) because it gives you immediate, beautiful results. But first, let's learn how to talk to R.\n\n---\n\n## 🎯 Your Task\n\nThis is the R Console. You type code, and R gives you an answer.\n\nType `1 + 1` in the editor and hit Run.",
-    "starter_code": "# Type 1 + 1 below\n",
-    "solution_code": "1 + 1",
-    "expected_output": "2",
-    "chapter_id": 0
-  },
-  "2001": {
-    "id": 2001,
-    "title": "The ggplot2 Canvas",
-    "chapter_title": "Data Visualization",
-    "content": "# 📊 The ggplot2 Canvas\n\n## Data Visualization\n\n\"R for Data Science\" starts with visualization because it's the most rewarding part of the workflow. We will use the **ggplot2** package.\n\n## The Formula\n\nAll plots start with the same function:\n\n```r\nggplot(data = <DATA>)\n```\n\nThis creates an empty coordinate system. It's a blank canvas waiting for your data.\n\n## The Dataset\n\nWe will use `mpg` (data on cars). It comes built-in.\n\n```r\nggplot(data = mpg)\n```\n\nIf you run this, you see nothing but a background. That's good! It means the canvas is ready.\n\n---\n\n## 🎯 Your Task\n\nInitialize a ggplot using the `mpg` dataset. Don't add any points yet.",
-    "starter_code": "# Create an empty ggplot with mpg data\n",
-    "solution_code": "ggplot(data = mpg)",
-    "expected_output": "[Graph: Empty Canvas]",
-    "chapter_id": 1
-  },
-  "2002": {
-    "id": 2002,
-    "title": "First Points",
-    "chapter_title": "Data Visualization",
-    "content": "# 📍 First Points\n\n## Adding Layers\n\nA canvas is boring. Let's add points to it. We do this by adding a **geom layer** using the `+` sign.\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy))\n```\n\n## Anatomy of the Code\n\n1.  **`geom_point()`**: Adds a layer of points (scatterplot).\n2.  **`mapping = aes(...)`**: Defines the \"aesthetic mappings\".\n3.  **`x = displ`**: Maps engine size (`displ`) to the x-axis.\n4.  **`y = hwy`**: Maps fuel efficiency (`hwy`) to the y-axis.\n\nThis tells us: \"Cars with big engines use more fuel.\"\n\n---\n\n## 🎯 Your Task\n\nCreate a scatterplot of `hwy` (highway miles) vs `cyl` (cylinders).\n\n1.  Start with `ggplot(data = mpg)`\n2.  Add `+ geom_point(...)`\n3.  Map `x = cyl` and `y = hwy`\n",
-    "starter_code": "# Create a scatterplot of hwy vs cyl\n",
-    "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = cyl, y = hwy))",
-    "expected_output": "[Graph: Scatterplot of cyl vs hwy]",
-    "chapter_id": 1
-  },
-  "2003": {
-    "id": 2003,
-    "title": "Aesthetic Mappings",
-    "chapter_title": "Data Visualization",
-    "content": "# 🎨 Aesthetic Mappings\n\n## Color, Size, and Shape\n\nYou can convey more information by mapping variables to other visual properties (aesthetics).\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy, color = class))\n```\n\nThis maps the car's `class` (suv, compact, etc.) to the point's **color**.\n\n## Other Aesthetics\n\n- `size`: Good for numbers (e.g., `size = cyl`).\n- `alpha`: Transparency (good for overlapping points).\n- `shape`: Good for categories.\n\n## Rules\n\n- Aesthetics go **inside** `aes()`.\n- Fixed colors (like \"blue\") go **outside** `aes()`.\n\n---\n\n## 🎯 Your Task\n\nCreate a plot where:\n1.  `x = displ`, `y = hwy`\n2.  **color** is mapped to `class`\n3.  **size** is mapped to `cyl`\n",
-    "starter_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy, ...))\n",
-    "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy, color = class, size = cyl))",
-    "expected_output": "[Graph: Scatterplot with color and size]",
-    "chapter_id": 1
-  },
-  "2004": {
-    "id": 2004,
-    "title": "Common Geoms",
-    "chapter_title": "Data Visualization",
-    "content": "# 📐 Common Geoms\n\n## Switching Geoms\n\nTo change the type of plot, change the geom function:\n\n- `geom_point()`: Scatterplot\n- `geom_smooth()`: Smoothed trend line\n- `geom_bar()`: Bar chart\n\n```r\nggplot(data = mpg) + \n  geom_smooth(mapping = aes(x = displ, y = hwy))\n```\n\n## Multiple Layers\n\nYou can stack them!\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) +\n  geom_smooth(mapping = aes(x = displ, y = hwy))\n```\n\n---\n\n## 🎯 Your Task\n\nCreate a graph with two layers:\n1.  Points (`geom_point`) for `displ` vs `hwy`\n2.  A smooth line (`geom_smooth`) for the same variables\n",
-    "starter_code": "# Add points and a smooth line\n",
-    "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) +\n  geom_smooth(mapping = aes(x = displ, y = hwy))",
-    "expected_output": "[Graph: Points + Smooth Line]",
-    "chapter_id": 1
-  },
-  "2005": {
-    "id": 2005,
-    "title": "Facets & Subplots",
-    "chapter_title": "Data Visualization",
-    "content": "# 🪟 Facets\n\n## Splitting Your Plot\n\nAnother way to add a categorical variable is to split your plot into **facets** (subplots).\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) + \n  facet_wrap(~ class, nrow = 2)\n```\n\n- `~ class`: The tilde means \"by class\".\n- `nrow = 2`: Arranges plots in 2 rows.\n\nThis is incredibly useful for comparing the same pattern across different groups.\n\n---\n\n## 🎯 Your Task\n\n1.  Create a scatterplot of `displ` vs `hwy`.\n2.  Facet it by `manufacturer`.\n",
-    "starter_code": "# Facet by manufacturer\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) + \n  \n",
-    "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) + \n  facet_wrap(~ manufacturer)",
-    "expected_output": "[Graph: Faceted Plot]",
-    "chapter_id": 1
-  },
-  "2006": {
-    "id": 2006,
-    "title": "Running Code",
-    "chapter_title": "Welcome to R",
-    "content": "# 🏃 Running Code\n\n## The R Console\n\nWhen you use R, you are having a conversation. You send R a command, and it replies with a result.\n\n```r\n10 + 5\n# [1] 15\n```\n\n## Basic Arithmetic\n\nR is a powerful calculator. You can use standard operators:\n\n- `+` (Add)\n- `-` (Subtract)\n- `*` (Multiply)\n- `/` (Divide)\n- `^` (Exponent/Power)\n\n## Comments\n\nAnything following a `#` is a comment. R ignores it. Comments are for *you*, the human, to explain your code.\n\n```r\n# This calculates seconds in an hour\n60 * 60\n```\n\n---\n\n## 🎯 Your Task\n\nCalculate the number of seconds in a day (`60 * 60 * 24`).\n",
-    "starter_code": "# Calculate 60 * 60 * 24\n",
-    "solution_code": "60 * 60 * 24",
-    "expected_output": "86400",
-    "chapter_id": 0
-  },
-  "2007": {
-    "id": 2007,
-    "title": "Objects & Assignment",
-    "chapter_title": "Welcome to R",
-    "content": "# 📦 Objects & Assignment\n\n## Saving Values\n\nCalculating `1 + 1` is fine, but to do real work, you need to save values. In R, we create **objects** using the assignment operator `<-`.\n\n```r\nx <- 3 * 4\n```\n\nRead this as **\"x gets value 12\"**.\n\n## Why Not `=`?\n\nYou *can* use `=`, but `<-` is the standard in the R community. It points the value into the name. Keyboard shortcut: `Alt + -`.\n\n## Naming Things\n\nObject names must start with a letter. We recommend **snake_case** (lowercase words separated by underscores):\n\n- `my_variable` (Good)\n- `MyVariable` (Bad)\n- `my.variable` (Older R style)\n\n---\n\n## 🎯 Your Task\n\n1.  Create an object named `my_age` and assign it your age (e.g., `25`).\n2.  Create `months` and assign it `my_age * 12`.\n3.  Print `months`.\n",
-    "starter_code": "# Create my_age\n\n# Calculate months\n\n# Print months\n",
-    "solution_code": "my_age <- 25\nmonths <- my_age * 12\nmonths",
-    "expected_output": "300",
-    "chapter_id": 0
-  },
-  "2008": {
-    "id": 2008,
-    "title": "Calling Functions",
-    "chapter_title": "Welcome to R",
-    "content": "# 📞 Calling Functions\n\n## R is Functional\n\nAlmost everything in R is done by calling **functions**.\n\n```r\nfunction_name(arg1 = value1, arg2 = value2, ...)\n```\n\n## Examples\n\n```r\nseq(1, 10)\n# [1]  1  2  3  4  5  6  7  8  9 10\n\nsum(1, 5, 10)\n# [1] 16\n```\n\n## Getting Help\n\nForgot what a function does? Type `?` before the name in your console (e.g., `?sum`). This opens the documentation.\n\n---\n\n## 🎯 Your Task\n\nUse the `seq()` function to create a sequence of numbers from **0 to 100**, stepping by **10** (`by = 10`).\n",
-    "starter_code": "# Use seq(from = ..., to = ..., by = ...)\n",
-    "solution_code": "seq(0, 100, 10)",
-    "expected_output": "0 10 20 30 40 50 60 70 80 90 100",
-    "chapter_id": 0
-  },
-  "2010": {
-    "id": 2010,
-    "title": "Coding Style",
-    "chapter_title": "Workflow: Basics",
-    "content": "# 🧹 Coding Style\n\n## Whitespace\n\nCode is for humans. Whitespace makes it readable.\n\n**Bad:**\n```r\nx<-1+2\nmean(x,na.rm=TRUE)\n```\n\n**Good:**\n```r\nx <- 1 + 2\nmean(x, na.rm = TRUE)\n```\n\n- Put spaces around mathematical operators (`+`, `-`, `<-`).\n- Put a space after a comma, never before.\n\n## Newlines\n\nKeep lines short. If a function call counts too many arguments, break it up:\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy))\n```\n\n---\n\n## 🎯 Your Task\n\nFix this messy code:\n\n`total<-100+50`\n\nRewrite it with proper spacing.\n",
-    "starter_code": "# Fix spacing\ntotal<-100+50\ntotal\n",
-    "solution_code": "total <- 100 + 50\ntotal",
-    "expected_output": "150",
-    "chapter_id": 2
-  },
-  "2011": {
-    "id": 2011,
-    "title": "What's in a Name?",
-    "chapter_title": "Workflow: Basics",
-    "content": "# 🔎 What's in a Name?\n\n## Typo Hunting\n\nR is strictly case-sensitive. `Value` and `value` are different.\n\n```r\nr_rocks <- 2^3\n```\n\nRun this:\n```r\nr_rock\n# Error: object 'r_rock' not found\n```\n\nDid you notice the missing `s`?\n\n## Common Errors\n\n- **Typos**: `fliter` instead of `filter`.\n- **Case**: `Mean` instead of `mean`.\n- **Parentheses**: `((` matching `))`.\n\n---\n\n## 🎯 Your Task\n\nFix the typo below to print the variable.\n",
-    "starter_code": "my_variable <- 10\n\n# Fix this line:\nprint(my_varaible)\n",
-    "solution_code": "my_variable <- 10\nprint(my_variable)",
-    "expected_output": "10",
-    "chapter_id": 2
-  },
-  "2012": {
-    "id": 2012,
-    "title": "Filter Rows (filter)",
-    "chapter_title": "Data Transformation",
-    "content": "# 🌪️ Filter Rows\n\n## The dplyr Package\n\n`dplyr` provides a grammar for data manipulation. The format is always:\n`verb(data, ...)`.\n\n## filter()\n\nUse `filter()` to select rows based on values.\n\n```r\n# Select cars with model year 1999\nfilter(mpg, year == 1999)\n\n# Select Audis with high highway mileage\nfilter(mpg, manufacturer == \"audi\", hwy > 25)\n```\n\n## Comparison Operators\n\n- `==` (Equal), `!=` (Not equal)\n- `>`, `>=`, `<`, `<`\n- `&` (AND), `|` (OR), `!` (NOT)\n\n---\n\n## 🎯 Your Task\n\nUse `filter()` to find all cars in `mpg` that have `cyl` equal to 8.\n",
-    "starter_code": "# Filter for 8 cylinders\nfilter(mpg, ...)\n",
-    "solution_code": "filter(mpg, cyl == 8)",
-    "expected_output": "[Data Frame: 8 cylinder cars]",
-    "chapter_id": 3
-  },
-  "2013": {
-    "id": 2013,
-    "title": "Sort Rows (arrange)",
-    "chapter_title": "Data Transformation",
-    "content": "# 📶 Sort Rows\n\n## arrange()\n\nUse `arrange()` to change the order of rows.\n\n```r\n# Sort by year (ascending)\narrange(mpg, year)\n\n# Sort by cylinders (descending)\narrange(mpg, desc(cyl))\n```\n\n## Multiple Columns\n\nYou can break ties by adding more columns:\n\n```r\narrange(mpg, class, desc(hwy))\n```\n\n---\n\n## 🎯 Your Task\n\nSort `mpg` by `hwy` in **descending** order.\n",
-    "starter_code": "# Sort by hwy desc\narrange(mpg, ...)\n",
-    "solution_code": "arrange(mpg, desc(hwy))",
-    "expected_output": "[Data Frame: Sorted by hwy]",
-    "chapter_id": 3
-  },
-  "2014": {
-    "id": 2014,
-    "title": "Select Columns (select)",
-    "chapter_title": "Data Transformation",
-    "content": "# ✂️ Select Columns\n\n## select()\n\nDatasets often have hundreds of variables. Use `select()` to keep only what you need.\n\n```r\n# Select specific columns\nselect(mpg, manufacturer, model, year)\n\n# Select a range\nselect(mpg, year:hwy)\n\n# Remove columns (-)\nselect(mpg, -year, -model)\n```\n\n---\n\n## 🎯 Your Task\n\nSelect only `manufacturer`, `model`, and `class` from `mpg`.\n",
-    "starter_code": "# Select 3 columns\nselect(mpg, ...)\n",
-    "solution_code": "select(mpg, manufacturer, model, class)",
-    "expected_output": "[Data Frame: 3 columns]",
-    "chapter_id": 3
-  },
-  "2015": {
-    "id": 2015,
-    "title": "Add Columns (mutate)",
-    "chapter_title": "Data Transformation",
-    "content": "# 🧪 Add Columns\n\n## mutate()\n\nUse `mutate()` to create new variables based on existing ones.\n\n```r\nmutate(mpg, \n  mileage_ratio = hwy / cty,\n  metric_displ = displ * 1000\n)\n```\n\nThis adds new columns to the end of the dataset.\n\n---\n\n## 🎯 Your Task\n\nCreate a new variable `hwy_metric` which converts `hwy` (miles per gallon) to kilometers per liter.\n\nFormula: `hwy * 0.425`\n",
-    "starter_code": "# Add hwy_metric\nmutate(mpg, hwy_metric = ...)\n",
-    "solution_code": "mutate(mpg, hwy_metric = hwy * 0.425)",
-    "expected_output": "[Data Frame: Added hwy_metric]",
-    "chapter_id": 3
-  },
-  "2016": {
-    "id": 2016,
-    "title": "The Pipe |>",
-    "chapter_title": "Data Transformation",
-    "content": "# 🔧 The Pipe |>\n\n## Combining Operations\n\nImagine you want to `filter` then `select`. You could nest functions:\n\n```r\nselect(filter(mpg, class == \"suv\"), manufacturer, model)\n```\n\nThis is hard to read (inside-out). Instead, use the **pipe** `|>`:\n\n```r\nmpg |> \n  filter(class == \"suv\") |> \n  select(manufacturer, model)\n```\n\nRead `|>` as **\"and then\"**.\n\n---\n\n## 🎯 Your Task\n\nRewrite this code using the pipe:\n`arrange(filter(mpg, city > 20), desc(hwy))`\n",
-    "starter_code": "mpg |> \n  # Filter for city > 20\n  # Arrange by desc(hwy)\n",
-    "solution_code": "mpg |> \n  filter(city > 20) |> \n  arrange(desc(hwy))",
-    "expected_output": "[Data Frame: Filtered and Arranged]",
-    "chapter_id": 3
-  }
+},
+"2001": {
+  "id": 2001,
+  "title": "The Grammar of Graphics",
+  "chapter_title": "Ch 1: Data Visualization",
+  "content": "# 📊 The Grammar of Graphics\n\n## Introduction\n\nR's **ggplot2** package implements the \"Grammar of Graphics\", a coherent system for building graphs.\n\n## The Template\n\n```r\nggplot(data = <DATA>) + \n  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))\n```\n\n## First Steps\n\nWe'll use the `mpg` dataset.\n\n```r\nggplot(data = mpg)\n```\n\n---\n\n## 🎯 Your Task\n\nCreate an empty ggplot canvas using the `mpg` dataset.",
+  "starter_code": "# Create an empty ggplot\n",
+  "solution_code": "ggplot(data = mpg)",
+  "expected_output": "[Graph: Empty Canvas]",
+  "chapter_id": 1
+},
+"2002": {
+  "id": 2002,
+  "title": "Aesthetic Mappings",
+  "chapter_title": "Ch 1: Data Visualization",
+  "content": "# 🎨 Aesthetic Mappings\n\n## Mapping Data to Visuals\n\nAn aesthetic is a visual property of the objects in your plot (x, y, color, size, shape).\n\n## Adding a Layer\n\nTo see data, we add a geom. `geom_point` adds points.\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy, color = class))\n```\n\n---\n\n## 🎯 Your Task\n\nCreate a scatterplot of `hwy` vs `cyl` where the `color` is mapped to `class`.\n",
+  "starter_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(...))\n",
+  "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = cyl, y = hwy, color = class))",
+  "expected_output": "[Graph: Scatterplot]",
+  "chapter_id": 1
+},
+"2003": {
+  "id": 2003,
+  "title": "Geometric Objects",
+  "chapter_title": "Ch 1: Data Visualization",
+  "content": "# 📐 Geometric Objects\n\n## Geoms\n\nA **geom** is the geometrical object that a plot uses to represent data.\n\n- `geom_point()`: Scatterplot\n- `geom_smooth()`: Smoothed line\n- `geom_bar()`: Bar chart\n\n## Combining Geoms\n\nYou can use multiple geoms in the same plot!\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) +\n  geom_smooth(mapping = aes(x = displ, y = hwy))\n```\n\n---\n\n## 🎯 Your Task\n\nAdd a `geom_smooth()` layer to the scatterplot of `displ` vs `hwy`.\n",
+  "starter_code": "# Add points and smooth line\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) + \n  \n",
+  "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) +\n  geom_smooth(mapping = aes(x = displ, y = hwy))",
+  "expected_output": "[Graph: Points + Line]",
+  "chapter_id": 1
+},
+"2004": {
+  "id": 2004,
+  "title": "Facets",
+  "chapter_title": "Ch 1: Data Visualization",
+  "content": "# 🪟 Facets\n\n## Subplots\n\nOne way to add additional categorical variables is to split your plot into **facets**.\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) + \n  facet_wrap(~ class, nrow = 2)\n```\n\n---\n\n## 🎯 Your Task\n\nFacet the plot of `displ` vs `hwy` by `drv` (drive train).\n",
+  "starter_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) + \n  facet_wrap(..., nrow = 2)\n",
+  "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) + \n  facet_wrap(~ drv, nrow = 2)",
+  "expected_output": "[Graph: Faceted Plot]",
+  "chapter_id": 1
+},
+"2010": {
+  "id": 2010,
+  "title": "Coding Basics",
+  "chapter_title": "Ch 2: Workflow: Basics",
+  "content": "# 🛠️ Coding Basics\n\n## The R Console\n\nBasic math works like a calculator.\n\n```r\n1 / 200 * 30\n# [1] 0.15\n```\n\n## Assignment\n\nCreate new objects with `<-`.\n\n```r\nx <- 3 * 4\n```\n\n---\n\n## 🎯 Your Task\n\n1.  Assign `10` to `my_variable`.\n2.  Print `my_variable`.\n",
+  "starter_code": "# Use <-\n",
+  "solution_code": "my_variable <- 10\nmy_variable",
+  "expected_output": "10",
+  "chapter_id": 2
+},
+"2011": {
+  "id": 2011,
+  "title": "Whatever's in a Name",
+  "chapter_title": "Ch 2: Workflow: Basics",
+  "content": "# 🏷️ Whatever's in a Name\n\n## Naming Rules\n\n- Start with a letter.\n- Only use letters, numbers, `_`, and `.`.\n- Use **snake_case** (e.g., `i_use_snake_case`).\n\n---\n\n## 🎯 Your Task\n\nFix the typo below.\n",
+  "starter_code": "this_is_a_really_long_name <- 2.5\nr_rocks <- 2^3\n\n# Fix this:\nthis_is_a_really_long_name + r_rock\n",
+  "solution_code": "this_is_a_really_long_name <- 2.5\nr_rocks <- 2^3\nthis_is_a_really_long_name + r_rocks",
+  "expected_output": "10.5",
+  "chapter_id": 2
+},
+"2012": {
+  "id": 2012,
+  "title": "Calling Functions",
+  "chapter_title": "Ch 2: Workflow: Basics",
+  "content": "# 📞 Calling Functions\n\n## Syntax\n\n```r\nfunction_name(arg1 = val1, arg2 = val2)\n```\n\n## RStudio Autocomplete\n\nIf you type `se`, and hit TAB, RStudio shows you completions like `seq()`.\n\n---\n\n## 🎯 Your Task\n\nUse `seq()` to generate numbers from 1 to 10.\n",
+  "starter_code": "# seq(from = ..., to = ...)\n",
+  "solution_code": "seq(1, 10)",
+  "expected_output": "1 2 3 4 5 6 7 8 9 10",
+  "chapter_id": 2
+},
+"2020": {
+  "id": 2020,
+  "title": "Filter Rows",
+  "chapter_title": "Ch 3: Data Transformation",
+  "content": "# 🌪️ Filter Rows with dplyr\n\n## filter()\n\nSelect rows that satisfy your conditions.\n\n```r\nfilter(mpg, cyl == 8)\n```\n\n---\n\n## 🎯 Your Task\n\nFilter `mpg` for cars with `model` equal to \"a4\".\n",
+  "starter_code": "filter(mpg, ...)\n",
+  "solution_code": "filter(mpg, model == \"a4\")",
+  "expected_output": "[Data Frame: Audi A4s]",
+  "chapter_id": 3
+},
+"2021": {
+  "id": 2021,
+  "title": "Arrange Rows",
+  "chapter_title": "Ch 3: Data Transformation",
+  "content": "# 📶 Arrange Rows\n\n## arrange()\n\nReorder the rows.\n\n```r\narrange(mpg, year)\narrange(mpg, desc(cyl))\n```\n\n---\n\n## 🎯 Your Task\n\nArrange `mpg` by `hwy` in descending order.\n",
+  "starter_code": "arrange(mpg, ...)\n",
+  "solution_code": "arrange(mpg, desc(hwy))",
+  "expected_output": "[Data Frame: Sorted by High HWY]",
+  "chapter_id": 3
+},
+"2022": {
+  "id": 2022,
+  "title": "Select Columns",
+  "chapter_title": "Ch 3: Data Transformation",
+  "content": "# ✂️ Select Columns\n\n## select()\n\nZoom in on a useful subset of variables.\n\n```r\nselect(mpg, year, model, class)\n```\n\n## Helper Functions\n\n- `starts_with(\"abc\")`\n\n---\n\n## 🎯 Your Task\n\nSelect all columns that start with \"c\" (`cyl`, `city`, `class`).\n",
+  "starter_code": "select(mpg, starts_with(\"...\"))\n",
+  "solution_code": "select(mpg, starts_with(\"c\"))",
+  "expected_output": "[Data Frame: c* columns]",
+  "chapter_id": 3
+},
+"2023": {
+  "id": 2023,
+  "title": "Add Columns (Mutate)",
+  "chapter_title": "Ch 3: Data Transformation",
+  "content": "# 🧬 Add Columns with Mutate\n\n## mutate()\n\nCreate new columns that are functions of existing columns.\n\n```r\nmutate(mpg, gain = hwy - cty)\n```\n\n---\n\n## 🎯 Your Task\n\nCreate a new column `hwy_km` (hwy * 1.6).\n",
+  "starter_code": "mutate(mpg, hwy_km = ...)\n",
+  "solution_code": "mutate(mpg, hwy_km = hwy * 1.6)",
+  "expected_output": "[Data Frame: with hwy_km]",
+  "chapter_id": 3
+},
+"2024": {
+  "id": 2024,
+  "title": "Groups & Summaries",
+  "chapter_title": "Ch 3: Data Transformation",
+  "content": "# 📊 Groups & Summaries\n\n## summarize()\n\nCollapses a data frame to a single row.\n\n```r\nsummarize(mpg, mean_hwy = mean(hwy))\n```\n\n## group_by()\n\nThe real power comes when you pair it with `group_by()`.\n\n```r\nby_class <- group_by(mpg, class)\nsummarize(by_class, mean_hwy = mean(hwy))\n```\n\n---\n\n## 🎯 Your Task\n\n1.  Group `mpg` by `manufacturer`.\n2.  Calculate the average highway mileage (`mean_hwy`).\n",
+  "starter_code": "by_mfr <- group_by(mpg, ...)\nsummarize(by_mfr, mean_hwy = ...)\n",
+  "solution_code": "by_mfr <- group_by(mpg, manufacturer)\nsummarize(by_mfr, mean_hwy = mean(hwy))",
+  "expected_output": "[Data Frame: 15 rows]",
+  "chapter_id": 3
+},
+"2030": {
+  "id": 2030,
+  "title": "Names & Spaces",
+  "chapter_title": "Ch 4: Workflow: Code Style",
+  "content": "# 💅 Names & Spaces\n\n## Names\n\nUse **snake_case** for variable names (e.g., `day_one`).\n\n## Spaces\n\nPut spaces around all operators (`=`, `+`, `-`, `<-`).\n\n---\n\n## 🎯 Your Task\n\nFix the spacing:\n`mean(x,na.rm=TRUE)`\n",
+  "starter_code": "# Fix the spacing\nmean(x,na.rm=TRUE)\n",
+  "solution_code": "mean(x, na.rm = TRUE)",
+  "expected_output": "[Function Call]",
+  "chapter_id": 4
+},
+"2031": {
+  "id": 2031,
+  "title": "Pipes",
+  "chapter_title": "Ch 4: Workflow: Code Style",
+  "content": "# 🔧 Pipes\n\n## The Pipe |>\n\nThe pipe takes the output of the function on the left and passes it as the first argument to the function on the right.\n\n---\n\n## 🎯 Your Task\n\nRewrite `head(mpg)` using the pipe.\n",
+  "starter_code": "# Use |>\n",
+  "solution_code": "mpg |> head()",
+  "expected_output": "[Data Frame: First 6 rows]",
+  "chapter_id": 4
+},
+"2040": {
+  "id": 2040,
+  "title": "Tidy Data",
+  "chapter_title": "Ch 5: Data Tidying",
+  "content": "# 🧹 Tidy Data\n\n## The Rules\n\n1.  Variables = Columns.\n2.  Observations = Rows.\n\n---\n\n## 🎯 Your Task\n\nInspect `table1` (a tidy dataset).\n",
+  "starter_code": "table1",
+  "solution_code": "table1",
+  "expected_output": "[Data Frame: Tidy Table]",
+  "chapter_id": 5
+},
+"2041": {
+  "id": 2041,
+  "title": "Lengthening Data",
+  "chapter_title": "Ch 5: Data Tidying",
+  "content": "# 📏 Lengthening Data\n\n## pivot_longer()\n\nUse `pivot_longer()` when column names are data.\n\n---\n\n## 🎯 Your Task\n\nPivot `table4a` longer. Map cols `1999` and `2000` to \"year\", values to \"cases\".\n",
+  "starter_code": "table4a |> \n  pivot_longer(cols = c(`1999`, `2000`), ...)\n",
+  "solution_code": "table4a |> \n  pivot_longer(cols = c(`1999`, `2000`), names_to = \"year\", values_to = \"cases\")",
+  "expected_output": "[Data Frame: Long format]",
+  "chapter_id": 5
+},
+"2042": {
+  "id": 2042,
+  "title": "Widening Data",
+  "chapter_title": "Ch 5: Data Tidying",
+  "content": "# ↔️ Widening Data\n\n## pivot_wider()\n\nUse `pivot_wider` when an observation is scattered across rows.\n\n---\n\n## 🎯 Your Task\n\nUse `pivot_wider` on `table2`. Names from `type`, values from `count`.\n",
+  "starter_code": "table2 |> \n  pivot_wider(...)\n",
+  "solution_code": "table2 |> \n  pivot_wider(names_from = type, values_from = count)",
+  "expected_output": "[Data Frame: Wide format]",
+  "chapter_id": 5
+},
+"2050": {
+  "id": 2050,
+  "title": "Scripts vs Console",
+  "chapter_title": "Ch 6: Workflow: Scripts",
+  "content": "# 📜 Scripts\n\nAlways write your code in the Script Editor and save as `.R`.\n\n---\n\n## 🎯 Your Task\n\nRun this script.\n",
+  "starter_code": "x <- 5\ny <- 10\nx * y",
+  "solution_code": "x <- 5\ny <- 10\nx * y",
+  "expected_output": "50",
+  "chapter_id": 6
+},
+"2051": {
+  "id": 2051,
+  "title": "Projects",
+  "chapter_title": "Ch 6: Workflow: Scripts",
+  "content": "# 📁 Projects\n\nUse RStudio Projects (.Rproj) to manage working directories.\n\n---\n\n## 🎯 Your Task\n\nCheck `getwd()`.\n",
+  "starter_code": "getwd()",
+  "solution_code": "getwd()",
+  "expected_output": "/cloud/project",
+  "chapter_id": 6
+},
+"2060": {
+  "id": 2060,
+  "title": "Reading Data",
+  "chapter_title": "Ch 7: Data Import",
+  "content": "# 📥 Reading Data\n\n## read_csv()\n\nReads comma-separated values.\n\n---\n\n## 🎯 Your Task\n\nRead the inline CSV.\n",
+  "starter_code": "csv <- \"x,y\\n1,2\"\n# read_csv(csv)\n",
+  "solution_code": "csv <- \"x,y\\n1,2\"\nread_csv(csv)",
+  "expected_output": "[Data Frame: 2 rows]",
+  "chapter_id": 7
+},
+"2061": {
+  "id": 2061,
+  "title": "Parsing Vectors",
+  "chapter_title": "Ch 7: Data Import",
+  "content": "# 🧬 Parsing Vectors\n\n## parse_integer()\n\nParses strings to integers.\n\n---\n\n## 🎯 Your Task\n\nParse \"2023-01-01\" using `parse_date()`.\n",
+  "starter_code": "# Parse date\n",
+  "solution_code": "parse_date(\"2023-01-01\")",
+  "expected_output": "2023-01-01",
+  "chapter_id": 7
+},
+"2070": {
+  "id": 2070,
+  "title": "Google is Your Friend",
+  "chapter_title": "Ch 8: Workflow: Getting Help",
+  "content": "# 🆘 Getting Help\n\nGoogle error messages. Use Stack Overflow.\n\n---\n\n## 🎯 Your Task\n\nType the error `Error: object 'x' not found`.\n",
+  "starter_code": "# Simulate error\n",
+  "solution_code": "\"Error: object 'x' not found\"",
+  "expected_output": "\"Error: object 'x' not found\"",
+  "chapter_id": 8
+},
+"2071": {
+  "id": 2071,
+  "title": "Making Reprexes",
+  "chapter_title": "Ch 8: Workflow: Getting Help",
+  "content": "# ♻️ Reprexes\n\nInclude packages, data, and code.\n\n---\n\n## 🎯 Your Task\n\nCalculate mean of 1:5.\n",
+  "starter_code": "mean(1:5)",
+  "solution_code": "mean(1:5)",
+  "expected_output": "3",
+  "chapter_id": 8
+},
+"2100": {
+  "id": 2100,
+  "title": "Layers (Ch 9)",
+  "chapter_title": "Ch 9: Layers",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 9
+},
+"2110": {
+  "id": 2110,
+  "title": "EDA (Ch 10)",
+  "chapter_title": "Ch 10: EDA",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 10
+},
+"2120": {
+  "id": 2120,
+  "title": "Communication (Ch 11)",
+  "chapter_title": "Ch 11: Communication",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 11
+},
+"2200": {
+  "id": 2200,
+  "title": "Logical Vectors (Ch 12)",
+  "chapter_title": "Ch 12: Logical Vectors",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 12
+},
+"2210": {
+  "id": 2210,
+  "title": "Numbers (Ch 13)",
+  "chapter_title": "Ch 13: Numbers",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 13
+},
+"2220": {
+  "id": 2220,
+  "title": "Strings (Ch 14)",
+  "chapter_title": "Ch 14: Strings",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 14
+},
+"2230": {
+  "id": 2230,
+  "title": "Regular Expressions (Ch 15)",
+  "chapter_title": "Ch 15: Regex",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 15
+},
+"2240": {
+  "id": 2240,
+  "title": "Factors (Ch 16)",
+  "chapter_title": "Ch 16: Factors",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 16
+},
+"2250": {
+  "id": 2250,
+  "title": "Dates and Times (Ch 17)",
+  "chapter_title": "Ch 17: Dates",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 17
+},
+"2260": {
+  "id": 2260,
+  "title": "Missing Values (Ch 18)",
+  "chapter_title": "Ch 18: Missing Values",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 18
+},
+"2270": {
+  "id": 2270,
+  "title": "Joins (Ch 19)",
+  "chapter_title": "Ch 19: Joins",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 19
+},
+"2300": {
+  "id": 2300,
+  "title": "Spreadsheets (Ch 20)",
+  "chapter_title": "Ch 20: Spreadsheets",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 20
+},
+"2310": {
+  "id": 2310,
+  "title": "Databases (Ch 21)",
+  "chapter_title": "Ch 21: Databases",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 21
+},
+"2320": {
+  "id": 2320,
+  "title": "Arrow (Ch 22)",
+  "chapter_title": "Ch 22: Arrow",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 22
+},
+"2330": {
+  "id": 2330,
+  "title": "Hierarchical Data (Ch 23)",
+  "chapter_title": "Ch 23: Hierarchy",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 23
+},
+"2340": {
+  "id": 2340,
+  "title": "Web Scraping (Ch 24)",
+  "chapter_title": "Ch 24: Scraping",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 24
+},
+"2400": {
+  "id": 2400,
+  "title": "Functions (Ch 25)",
+  "chapter_title": "Ch 25: Functions",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 25
+},
+"2410": {
+  "id": 2410,
+  "title": "Iteration (Ch 26)",
+  "chapter_title": "Ch 26: Iteration",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 26
+},
+"2420": {
+  "id": 2420,
+  "title": "Base R (Ch 27)",
+  "chapter_title": "Ch 27: Base R",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 27
+},
+"2500": {
+  "id": 2500,
+  "title": "Quarto (Ch 28)",
+  "chapter_title": "Ch 28: Quarto",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 28
+},
+"2510": {
+  "id": 2510,
+  "title": "Quarto Formats (Ch 29)",
+  "chapter_title": "Ch 29: Quarto Formats",
+  "content": "# 🚧 Coming Soon",
+  "starter_code": "# Coming Soon",
+  "solution_code": "# Coming Soon",
+  "expected_output": "",
+  "chapter_id": 29
+}
 }

@@ -1,0 +1,110 @@
+"2030": {
+    "id": 2030,
+    "title": "Names & Spaces",
+    "chapter_title": "Ch 4: Workflow: Code Style",
+    "content": "# 💅 Names & Spaces\n\n## The Tidyverse Style Guide\n\nGood coding style is like using correct punctuation. It makes code easier to read.\n\n## Names\n\nUse **snake_case** for variable names.\n\n- Good: `day_one`\n- Bad: `DayOne`, `dayone`\n\n## Spaces\n\nPut spaces around all operators (`=`, `+`, `-`, `<-`, etc.).\n\n- Good: `x <- 1 + 2`\n- Bad: `x<-1+2`\n\n---\n\n## 🎯 Your Task\n\nFix the spacing in this line:\n\n`mean(x,na.rm=TRUE)`\n",
+    "starter_code": "# Fix the spacing\nmean(x,na.rm=TRUE)\n",
+    "solution_code": "mean(x, na.rm = TRUE)",
+    "expected_output": "[Function Call]",
+    "chapter_id": 4
+},
+"2031": {
+    "id": 2031,
+    "title": "Pipes",
+    "chapter_title": "Ch 4: Workflow: Code Style",
+    "content": "# 🔧 Pipes\n\n## The Pipe |>\n\nThe pipe takes the output of the function on the left and passes it as the first argument to the function on the right.\n\n```r\nmpg |> \n  filter(cyl == 8) |> \n  summarize(mean_hwy = mean(hwy))\n```\n\n## Spacing\n\n`|>` should always have a space before it and should usually be followed by a new line.\n\n---\n\n## 🎯 Your Task\n\nRewrite `head(mpg)` using the pipe.\n",
+    "starter_code": "# Use |>\n",
+    "solution_code": "mpg |> head()",
+    "expected_output": "[Data Frame: First 6 rows]",
+    "chapter_id": 4
+},
+"2040": {
+    "id": 2040,
+    "title": "Tidy Data",
+    "chapter_title": "Ch 5: Data Tidying",
+    "content": "# 🧹 Tidy Data\n\n## The Rules\n\n1.  Each variable must have its own column.\n2.  Each observation must have its own row.\n3.  Each value must have its own cell.\n\n## Why?\n\nTidy data works seamlessly with the tidyverse (ggplot2, dplyr).\n\nIf you have a dataset where column names are values (e.g., `1999`, `2000` for years), it is **untidy**.\n\n---\n\n## 🎯 Your Task\n\nJust confirm you understand by running the code to inspect `table1` (a built-in tidy dataset).\n",
+    "starter_code": "# Inspect table1\ntable1\n",
+    "solution_code": "table1",
+    "expected_output": "[Data Frame: Tidy Table]",
+    "chapter_id": 5
+},
+"2041": {
+    "id": 2041,
+    "title": "Lengthening Data",
+    "chapter_title": "Ch 5: Data Tidying",
+    "content": "# 📏 Lengthening Data\n\n## pivot_longer()\n\nWhen column names are actually values of a variable (e.g., `1999` and `2000` are both \"years\"), use `pivot_longer()`.\n\n```r\ntable4a |> \n  pivot_longer(\n    cols = c(`1999`, `2000`), \n    names_to = \"year\", \n    values_to = \"cases\"\n  )\n```\n\n## Note on Backticks\n\nSince `1999` is a number, we must surround it with backticks ``` `1999` ``` if it's a column name.\n\n---\n\n## 🎯 Your Task\n\nPivot `table4a` longer. Map columns `1999` and `2000` to \"year\", and their values to \"cases\".\n",
+    "starter_code": "table4a |> \n  pivot_longer(cols = c(`1999`, `2000`), ...)\n",
+    "solution_code": "table4a |> \n  pivot_longer(cols = c(`1999`, `2000`), names_to = \"year\", values_to = \"cases\")",
+    "expected_output": "[Data Frame: Long format]",
+    "chapter_id": 5
+},
+"2042": {
+    "id": 2042,
+    "title": "Widening Data",
+    "chapter_title": "Ch 5: Data Tidying",
+    "content": "# ↔️ Widening Data\n\n## pivot_wider()\n\nThe opposite of lengthening. Use it when an observation is scattered across multiple rows.\n\n```r\ntable2 |> \n  pivot_wider(\n    names_from = type, \n    values_from = count\n  )\n```\n\nThis takes the `type` column (containing \"cases\" and \"population\") and makes them into two new columns.\n\n---\n\n## 🎯 Your Task\n\nUse `pivot_wider` on `table2`. Take names from `type` and values from `count`.\n",
+    "starter_code": "table2 |> \n  pivot_wider(...)\n",
+    "solution_code": "table2 |> \n  pivot_wider(names_from = type, values_from = count)",
+    "expected_output": "[Data Frame: Wide format]",
+    "chapter_id": 5
+},
+"2050": {
+    "id": 2050,
+    "title": "Scripts vs Console",
+    "chapter_title": "Ch 6: Workflow: Scripts",
+    "content": "# 📜 Scripts vs Console\n\n## The Console is Ephemeral\n\nCode you type in the console is lost when you close RStudio. \n\n## The Script Editor\n\nAlways write your code in the Script Editor (top left). Save functions as `.R` files.\n\n## Running Scripts\n\n- **Cmd/Ctrl + Enter**: Run the current line.\n- **Cmd/Ctrl + Shift + S**: Run the entire script.\n\n---\n\n## 🎯 Your Task\n\n(Simulated) Run this script to compute a value.\n",
+    "starter_code": "# This simulates running a script\nx <- 5\ny <- 10\nx * y\n",
+    "solution_code": "x <- 5\ny <- 10\nx * y",
+    "expected_output": "50",
+    "chapter_id": 6
+},
+"2051": {
+    "id": 2051,
+    "title": "Projects",
+    "chapter_title": "Ch 6: Workflow: Scripts",
+    "content": "# 📁 Projects\n\n## RStudio Projects\n\nA project is a folder on your computer that holds all the files relevant to a particular piece of work.\n\n## Working Directory\n\nUsing a Project (`.Rproj`) sets your **working directory** to that folder automatically. This means you don't need to use `setwd()`.\n\n---\n\n## 🎯 Your Task\n\nCheck your current working directory using `getwd()`.\n",
+    "starter_code": "# Check working directory\n",
+    "solution_code": "getwd()",
+    "expected_output": "/cloud/project",
+    "chapter_id": 6
+},
+"2060": {
+    "id": 2060,
+    "title": "Reading Data",
+    "chapter_title": "Ch 7: Data Import",
+    "content": "# 📥 Reading Data\n\n## read_csv()\n\nThe workhorse of data import is `read_csv()`. It reads comma-separated values.\n\n```r\nstudents <- read_csv(\"students.csv\")\n```\n\n## Inline CSV\n\nYou can also read a string directly (great for testing).\n\n```r\nread_csv(\"\nname,age\nAlice,20\nBob,25\n\")\n```\n\n---\n\n## 🎯 Your Task\n\nRead the provided inline CSV string.\n",
+    "starter_code": "csv_data <- \"\na,b,c\n1,2,3\n4,5,6\n\"\n# Read it\n",
+    "solution_code": "csv_data <- \"\na,b,c\n1,2,3\n4,5,6\n\"\nread_csv(csv_data)",
+    "expected_output": "[Data Frame: 2 rows, 3 cols]",
+    "chapter_id": 7
+},
+"2061": {
+    "id": 2061,
+    "title": "Parsing Vectors",
+    "chapter_title": "Ch 7: Data Import",
+    "content": "# 🧬 Parsing Vectors\n\n## readr parsers\n\n`read_csv` uses parser functions to guess the type of each column.\n\n- `parse_integer()`\n- `parse_double()`\n- `parse_date()`\n\n```r\nparse_integer(c(\"1\", \"2\", \"3\"))\n```\n\n## Problems\n\nIf parsing fails, you get warnings.\n\n```r\nparse_integer(c(\"1\", \"2.5\", \"X\"))\n# Warning: 2 parsing failures\n```\n\n---\n\n## 🎯 Your Task\n\nParse the string \"2023-01-01\" into a date using `parse_date()`.\n",
+    "starter_code": "# Parse date\n",
+    "solution_code": "parse_date(\"2023-01-01\")",
+    "expected_output": "2023-01-01",
+    "chapter_id": 7
+},
+"2070": {
+    "id": 2070,
+    "title": "Google is Your Friend",
+    "chapter_title": "Ch 8: Workflow: Getting Help",
+    "content": "# 🆘 Google is Your Friend\n\n## How to Search\n\nWhen you get an error, copy and paste it into Google. \n\nAdd \"R\" or \"tidyverse\" to your query.\n\n**Example:** \"R ggplot2 geom_point size not changing\"\n\n## Stack Overflow\n\nLook for answers on Stack Overflow. Check the number of upvotes.\n\n---\n\n## 🎯 Your Task\n\nType the error message `Error: object 'x' not found` into the editor (as a string) to simulate copying it.\n",
+    "starter_code": "# Simulate error\n",
+    "solution_code": "\"Error: object 'x' not found\"",
+    "expected_output": "\"Error: object 'x' not found\"",
+    "chapter_id": 8
+},
+"2071": {
+    "id": 2071,
+    "title": "Making Reprexes",
+    "chapter_title": "Ch 8: Workflow: Getting Help",
+    "content": "# ♻️ Making Reprexes\n\n## Reprex = Reproducible Example\n\nIf you ask for help, you must provide code that others can run.\n\n1.  **Packages**: Load them at the top.\n2.  **Data**: Use built-in datasets like `mpg` or create small ones.\n3.  **Code**: Include the code that causes the error.\n\n## The `reprex` package\n\nRunning `reprex()` on your clipboard formats your code nicely for GitHub/StackOverflow.\n\n```r\nlibrary(tidyverse)\nmean(1:10)\n```\n\n---\n\n## 🎯 Your Task\n\nWrite a minimal example that calculates the mean of numbers 1 to 5.\n",
+    "starter_code": "# Minimal example\n",
+    "solution_code": "mean(1:5)",
+    "expected_output": "3",
+    "chapter_id": 8
+}

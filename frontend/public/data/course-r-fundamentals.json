@@ -4,88 +4,194 @@
     "slug": "r-fundamentals",
     "chapters": [
         {
-            "id": 0,
-            "title": "Welcome to R",
-            "icon": "👋",
-            "is_boss": false,
-            "concepts": [
-                {
-                    "name": "The Basics",
-                    "icon": "🏁",
-                    "lessons": [
-                        {
-                            "id": 2000,
-                            "title": "Why R?",
-                            "order": 1,
-                            "difficulty": 1
-                        },
-                        {
-                            "id": 2006,
-                            "title": "Running Code",
-                            "order": 2,
-                            "difficulty": 1
-                        },
-                        {
-                            "id": 2007,
-                            "title": "Objects & Assignment",
-                            "order": 3,
-                            "difficulty": 1
-                        },
-                        {
-                            "id": 2008,
-                            "title": "Calling Functions",
-                            "order": 4,
-                            "difficulty": 1
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "id": 1,
-            "title": "Data Visualization",
-            "icon": "📊",
+            "title": "Part 1: Whole Game",
+            "icon": "🕹️",
             "is_boss": false,
             "concepts": [
                 {
-                    "name": "First Steps",
-                    "icon": "🎨",
+                    "name": "Ch 1: Data Visualization",
+                    "icon": "📊",
                     "lessons": [
                         {
                             "id": 2001,
-                            "title": "The ggplot2 Canvas",
+                            "title": "The Grammar of Graphics",
                             "order": 1,
                             "difficulty": 1
                         },
                         {
                             "id": 2002,
-                            "title": "First Points",
+                            "title": "Aesthetic Mappings",
                             "order": 2,
                             "difficulty": 1
                         },
                         {
                             "id": 2003,
-                            "title": "Aesthetic Mappings",
+                            "title": "Geometric Objects",
                             "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 2004,
+                            "title": "Facets",
+                            "order": 4,
                             "difficulty": 2
                         }
                     ]
                 },
                 {
-                    "name": "Customizing Plots",
-                    "icon": "🖼️",
+                    "name": "Ch 2: Workflow: Basics",
+                    "icon": "🛠️",
                     "lessons": [
                         {
-                            "id": 2004,
-                            "title": "Common Geoms",
+                            "id": 2010,
+                            "title": "Coding Basics",
+                            "order": 1,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 2011,
+                            "title": "Whatever's in a Name",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 2012,
+                            "title": "Calling Functions",
+                            "order": 3,
+                            "difficulty": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 3: Data Transformation",
+                    "icon": "🔄",
+                    "lessons": [
+                        {
+                            "id": 2020,
+                            "title": "Filter Rows",
+                            "order": 1,
+                            "difficulty": 2
+                        },
+                        {
+                            "id": 2021,
+                            "title": "Arrange Rows",
+                            "order": 2,
+                            "difficulty": 2
+                        },
+                        {
+                            "id": 2022,
+                            "title": "Select Columns",
+                            "order": 3,
+                            "difficulty": 2
+                        },
+                        {
+                            "id": 2023,
+                            "title": "Add Columns (Mutate)",
                             "order": 4,
                             "difficulty": 2
                         },
                         {
-                            "id": 2005,
-                            "title": "Facets & Subplots",
+                            "id": 2024,
+                            "title": "Groups & Summaries",
                             "order": 5,
                             "difficulty": 3
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 4: Workflow: Code Style",
+                    "icon": "💅",
+                    "lessons": [
+                        {
+                            "id": 2030,
+                            "title": "Names & Spaces",
+                            "order": 1,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 2031,
+                            "title": "Pipes",
+                            "order": 2,
+                            "difficulty": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 5: Data Tidying",
+                    "icon": "🧹",
+                    "lessons": [
+                        {
+                            "id": 2040,
+                            "title": "Tidy Data",
+                            "order": 1,
+                            "difficulty": 2
+                        },
+                        {
+                            "id": 2041,
+                            "title": "Lengthening Data",
+                            "order": 2,
+                            "difficulty": 3
+                        },
+                        {
+                            "id": 2042,
+                            "title": "Widening Data",
+                            "order": 3,
+                            "difficulty": 3
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 6: Workflow: Scripts",
+                    "icon": "📜",
+                    "lessons": [
+                        {
+                            "id": 2050,
+                            "title": "Scripts vs Console",
+                            "order": 1,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 2051,
+                            "title": "Projects",
+                            "order": 2,
+                            "difficulty": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 7: Data Import",
+                    "icon": "📥",
+                    "lessons": [
+                        {
+                            "id": 2060,
+                            "title": "Reading Data",
+                            "order": 1,
+                            "difficulty": 2
+                        },
+                        {
+                            "id": 2061,
+                            "title": "Parsing Vectors",
+                            "order": 2,
+                            "difficulty": 2
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 8: Workflow: Getting Help",
+                    "icon": "🆘",
+                    "lessons": [
+                        {
+                            "id": 2070,
+                            "title": "Google is Your Friend",
+                            "order": 1,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 2071,
+                            "title": "Making Reprexes",
+                            "order": 2,
+                            "difficulty": 1
                         }
                     ]
                 }
@@ -93,25 +199,31 @@
         },
         {
             "id": 2,
-            "title": "Workflow: Basics",
-            "icon": "🛠️",
+            "title": "Part 2: Visualize",
+            "icon": "🎨",
             "is_boss": false,
             "concepts": [
                 {
-                    "name": "Good Habits",
-                    "icon": "🧹",
+                    "name": "Advanced Visualization",
+                    "icon": "🖌️",
                     "lessons": [
                         {
-                            "id": 2010,
-                            "title": "Coding Style",
+                            "id": 2100,
+                            "title": "Layers (Ch 9)",
                             "order": 1,
-                            "difficulty": 1
+                            "difficulty": 3
                         },
                         {
-                            "id": 2011,
-                            "title": "What's in a Name?",
+                            "id": 2110,
+                            "title": "EDA (Ch 10)",
                             "order": 2,
-                            "difficulty": 1
+                            "difficulty": 3
+                        },
+                        {
+                            "id": 2120,
+                            "title": "Communication (Ch 11)",
+                            "order": 3,
+                            "difficulty": 2
                         }
                     ]
                 }
@@ -119,55 +231,163 @@
         },
         {
             "id": 3,
-            "title": "Data Transformation",
-            "icon": "🔄",
+            "title": "Part 3: Transform",
+            "icon": "🏗️",
             "is_boss": false,
             "concepts": [
                 {
-                    "name": "Manipulating Rows",
-                    "icon": "📑",
+                    "name": "Data Types",
+                    "icon": "🧱",
                     "lessons": [
                         {
-                            "id": 2012,
-                            "title": "Filter Rows (filter)",
+                            "id": 2200,
+                            "title": "Logical Vectors (Ch 12)",
                             "order": 1,
                             "difficulty": 2
                         },
                         {
-                            "id": 2013,
-                            "title": "Sort Rows (arrange)",
+                            "id": 2210,
+                            "title": "Numbers (Ch 13)",
                             "order": 2,
-                            "difficulty": 2
-                        }
-                    ]
-                },
-                {
-                    "name": "Manipulating Columns",
-                    "icon": "🧊",
-                    "lessons": [
-                        {
-                            "id": 2014,
-                            "title": "Select Columns (select)",
-                            "order": 3,
                             "difficulty": 2
                         },
                         {
-                            "id": 2015,
-                            "title": "Add Columns (mutate)",
+                            "id": 2220,
+                            "title": "Strings (Ch 14)",
+                            "order": 3,
+                            "difficulty": 3
+                        },
+                        {
+                            "id": 2230,
+                            "title": "Regular Expressions (Ch 15)",
                             "order": 4,
+                            "difficulty": 4
+                        },
+                        {
+                            "id": 2240,
+                            "title": "Factors (Ch 16)",
+                            "order": 5,
+                            "difficulty": 2
+                        },
+                        {
+                            "id": 2250,
+                            "title": "Dates and Times (Ch 17)",
+                            "order": 6,
+                            "difficulty": 3
+                        },
+                        {
+                            "id": 2260,
+                            "title": "Missing Values (Ch 18)",
+                            "order": 7,
+                            "difficulty": 2
+                        },
+                        {
+                            "id": 2270,
+                            "title": "Joins (Ch 19)",
+                            "order": 8,
                             "difficulty": 3
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Part 4: Import",
+            "icon": "🚢",
+            "is_boss": false,
+            "concepts": [
                 {
-                    "name": "The Pipe",
-                    "icon": "🔧",
+                    "name": "Data Sources",
+                    "icon": "🗄️",
                     "lessons": [
                         {
-                            "id": 2016,
-                            "title": "The Pipe |>",
+                            "id": 2300,
+                            "title": "Spreadsheets (Ch 20)",
+                            "order": 1,
+                            "difficulty": 2
+                        },
+                        {
+                            "id": 2310,
+                            "title": "Databases (Ch 21)",
+                            "order": 2,
+                            "difficulty": 3
+                        },
+                        {
+                            "id": 2320,
+                            "title": "Arrow (Ch 22)",
+                            "order": 3,
+                            "difficulty": 3
+                        },
+                        {
+                            "id": 2330,
+                            "title": "Hierarchical Data (Ch 23)",
+                            "order": 4,
+                            "difficulty": 3
+                        },
+                        {
+                            "id": 2340,
+                            "title": "Web Scraping (Ch 24)",
                             "order": 5,
                             "difficulty": 3
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Part 5: Program",
+            "icon": "💻",
+            "is_boss": false,
+            "concepts": [
+                {
+                    "name": "Programming",
+                    "icon": "⚙️",
+                    "lessons": [
+                        {
+                            "id": 2400,
+                            "title": "Functions (Ch 25)",
+                            "order": 1,
+                            "difficulty": 3
+                        },
+                        {
+                            "id": 2410,
+                            "title": "Iteration (Ch 26)",
+                            "order": 2,
+                            "difficulty": 3
+                        },
+                        {
+                            "id": 2420,
+                            "title": "Base R (Ch 27)",
+                            "order": 3,
+                            "difficulty": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "title": "Part 6: Communicate",
+            "icon": "📢",
+            "is_boss": false,
+            "concepts": [
+                {
+                    "name": "Quarto",
+                    "icon": "📝",
+                    "lessons": [
+                        {
+                            "id": 2500,
+                            "title": "Quarto (Ch 28)",
+                            "order": 1,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 2510,
+                            "title": "Quarto Formats (Ch 29)",
+                            "order": 2,
+                            "difficulty": 1
                         }
                     ]
                 }

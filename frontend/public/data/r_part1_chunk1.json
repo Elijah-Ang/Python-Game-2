@@ -1,0 +1,120 @@
+"2001": {
+    "id": 2001,
+    "title": "The Grammar of Graphics",
+    "chapter_title": "Ch 1: Data Visualization",
+    "content": "# 📊 The Grammar of Graphics\n\n## Introduction\n\nR's **ggplot2** package implements the \"Grammar of Graphics\", a coherent system for describing and building graphs. You provide the data, tell ggplot how to map variables to aesthetics, and what graphical primitives to use.\n\n## The Template\n\n```r\nggplot(data = <DATA>) + \n  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))\n```\n\n## First Steps\n\nWe'll use the `mpg` dataset. A simple plot is just a canvas.\n\n```r\nggplot(data = mpg)\n```\n\n---\n\n## 🎯 Your Task\n\nCreate an empty ggplot canvas using the `mpg` dataset.",
+    "starter_code": "# Create an empty ggplot\n",
+    "solution_code": "ggplot(data = mpg)",
+    "expected_output": "[Graph: Empty Canvas]",
+    "chapter_id": 1
+},
+"2002": {
+    "id": 2002,
+    "title": "Aesthetic Mappings",
+    "chapter_title": "Ch 1: Data Visualization",
+    "content": "# 🎨 Aesthetic Mappings\n\n## Mapping Data to Visuals\n\nAn aesthetic is a visual property of the objects in your plot. Aesthetics include things like the **x** and **y** positions, **color**, **size**, and **shape**.\n\n## Adding a Layer\n\nTo see data, we add a geom. `geom_point` adds points.\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy, color = class))\n```\n\nThis maps:\n- `x` -> `displ` (engine size)\n- `y` -> `hwy` (mpg)\n- `color` -> `class` (car type)\n\n---\n\n## 🎯 Your Task\n\nCreate a scatterplot of `hwy` vs `cyl` where the `color` is mapped to `class`.\n",
+    "starter_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(...))\n",
+    "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = cyl, y = hwy, color = class))",
+    "expected_output": "[Graph: Scatterplot]",
+    "chapter_id": 1
+},
+"2003": {
+    "id": 2003,
+    "title": "Geometric Objects",
+    "chapter_title": "Ch 1: Data Visualization",
+    "content": "# 📐 Geometric Objects\n\n## Geoms\n\nA **geom** is the geometrical object that a plot uses to represent data. \n\n- `geom_point()`: Scatterplot\n- `geom_smooth()`: Smoothed line\n- `geom_bar()`: Bar chart\n\n## Combining Geoms\n\nYou can use multiple geoms in the same plot!\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) +\n  geom_smooth(mapping = aes(x = displ, y = hwy))\n```\n\n---\n\n## 🎯 Your Task\n\nAdd a `geom_smooth()` layer to the scatterplot of `displ` vs `hwy`.\n",
+    "starter_code": "# Add points and smooth line\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) + \n  \n",
+    "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) +\n  geom_smooth(mapping = aes(x = displ, y = hwy))",
+    "expected_output": "[Graph: Points + Line]",
+    "chapter_id": 1
+},
+"2004": {
+    "id": 2004,
+    "title": "Facets",
+    "chapter_title": "Ch 1: Data Visualization",
+    "content": "# 🪟 Facets\n\n## Subplots\n\nOne way to add additional categorical variables is to split your plot into **facets**.\n\n## facet_wrap()\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) + \n  facet_wrap(~ class, nrow = 2)\n```\n\nThe `~` variable defines what to split by.\n\n---\n\n## 🎯 Your Task\n\nFacet the plot of `displ` vs `hwy` by `drv` (drive train).\n",
+    "starter_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) + \n  facet_wrap(..., nrow = 2)\n",
+    "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) + \n  facet_wrap(~ drv, nrow = 2)",
+    "expected_output": "[Graph: Faceted Plot]",
+    "chapter_id": 1
+},
+"2010": {
+    "id": 2010,
+    "title": "Coding Basics",
+    "chapter_title": "Ch 2: Workflow: Basics",
+    "content": "# 🛠️ Coding Basics\n\n## The R Console\n\nBasic math works like a calculator.\n\n```r\n1 / 200 * 30\n# [1] 0.15\n```\n\n## Assignment\n\nCreate new objects with `<-`.\n\n```r\nx <- 3 * 4\n```\n\nAvoid using `=` for assignment in R. It confuses R users.\n\n---\n\n## 🎯 Your Task\n\n1.  Assign `10` to `my_variable`.\n2.  Print `my_variable`.\n",
+    "starter_code": "# Use <-\n",
+    "solution_code": "my_variable <- 10\nmy_variable",
+    "expected_output": "10",
+    "chapter_id": 2
+},
+"2011": {
+    "id": 2011,
+    "title": "Whatever's in a Name",
+    "chapter_title": "Ch 2: Workflow: Basics",
+    "content": "# 🏷️ Whatever's in a Name\n\n## Naming Rules\n\n- Start with a letter.\n- Only use letters, numbers, `_`, and `.`.\n- Use **snake_case** (e.g., `i_use_snake_case`).\n\n## Typos matter\n\n`r_rocks` and `R_rocks` are different.\n\n---\n\n## 🎯 Your Task\n\nFix the typo below.\n",
+    "starter_code": "this_is_a_really_long_name <- 2.5\nr_rocks <- 2^3\n\n# Fix this:\nthis_is_a_really_long_name + r_rock\n",
+    "solution_code": "this_is_a_really_long_name <- 2.5\nr_rocks <- 2^3\nthis_is_a_really_long_name + r_rocks",
+    "expected_output": "10.5",
+    "chapter_id": 2
+},
+"2012": {
+    "id": 2012,
+    "title": "Calling Functions",
+    "chapter_title": "Ch 2: Workflow: Basics",
+    "content": "# 📞 Calling Functions\n\n## Syntax\n\n```r\nfunction_name(arg1 = val1, arg2 = val2)\n```\n\n## RStudio Autocomplete\n\nIf you type `se`, and hit TAB, RStudio shows you completions like `seq()`.\n\n---\n\n## 🎯 Your Task\n\nUse `seq()` to generate numbers from 1 to 10.\n",
+    "starter_code": "# seq(from = ..., to = ...)\n",
+    "solution_code": "seq(1, 10)",
+    "expected_output": "1 2 3 4 5 6 7 8 9 10",
+    "chapter_id": 2
+},
+"2020": {
+    "id": 2020,
+    "title": "Filter Rows",
+    "chapter_title": "Ch 3: Data Transformation",
+    "content": "# 🌪️ Filter Rows with dplyr\n\n## Prerequisite\n\nWe need the **dplyr** package (part of tidyverse).\n\n## filter()\n\nSelect rows that satisfy your conditions.\n\n```r\nfilter(mpg, cyl == 8)\nfilter(mpg, hwy > 30)\n```\n\nConditions: `==`, `!=`, `>`, `<`, `>=`, `<=`, `&`, `|`.\n\n---\n\n## 🎯 Your Task\n\nFilter `mpg` for cars with `model` equal to \"a4\".\n",
+    "starter_code": "filter(mpg, ...)\n",
+    "solution_code": "filter(mpg, model == \"a4\")",
+    "expected_output": "[Data Frame: Audi A4s]",
+    "chapter_id": 3
+},
+"2021": {
+    "id": 2021,
+    "title": "Arrange Rows",
+    "chapter_title": "Ch 3: Data Transformation",
+    "content": "# 📶 Arrange Rows\n\n## arrange()\n\nReorder the rows.\n\n```r\narrange(mpg, year)\narrange(mpg, desc(cyl))\n```\n\nMissing values are always sorted at the end.\n\n---\n\n## 🎯 Your Task\n\nArrange `mpg` by `hwy` in descending order.\n",
+    "starter_code": "arrange(mpg, ...)\n",
+    "solution_code": "arrange(mpg, desc(hwy))",
+    "expected_output": "[Data Frame: Sorted by High HWY]",
+    "chapter_id": 3
+},
+"2022": {
+    "id": 2022,
+    "title": "Select Columns",
+    "chapter_title": "Ch 3: Data Transformation",
+    "content": "# ✂️ Select Columns\n\n## select()\n\nZoom in on a useful subset of variables.\n\n```r\nselect(mpg, year, model, class)\nselect(mpg, year:class)\nselect(mpg, -year)\n```\n\n## Helper Functions\n\n- `starts_with(\"abc\")`\n- `ends_with(\"xyz\")`\n- `contains(\"ijk\")`\n\n---\n\n## 🎯 Your Task\n\nSelect all columns that start with \"c\" (`cyl`, `city`, `class`).\n",
+    "starter_code": "select(mpg, starts_with(\"...\"))\n",
+    "solution_code": "select(mpg, starts_with(\"c\"))",
+    "expected_output": "[Data Frame: c* columns]",
+    "chapter_id": 3
+},
+"2023": {
+    "id": 2023,
+    "title": "Add Columns (Mutate)",
+    "chapter_title": "Ch 3: Data Transformation",
+    "content": "# 🧬 Add Columns with Mutate\n\n## mutate()\n\nCreate new columns that are functions of existing columns.\n\n```r\nmutate(mpg, \n  gain = hwy - cty,\n  speed = help / 60\n)\n```\n\n---\n\n## 🎯 Your Task\n\nCreate a new column `hwy_km` (hwy * 1.6).\n",
+    "starter_code": "mutate(mpg, hwy_km = ...)\n",
+    "solution_code": "mutate(mpg, hwy_km = hwy * 1.6)",
+    "expected_output": "[Data Frame: with hwy_km]",
+    "chapter_id": 3
+},
+"2024": {
+    "id": 2024,
+    "title": "Groups & Summaries",
+    "chapter_title": "Ch 3: Data Transformation",
+    "content": "# 📊 Groups & Summaries\n\n## summarize()\n\nCollapses a data frame to a single row.\n\n```r\nsummarize(mpg, mean_hwy = mean(hwy))\n```\n\n## group_by()\n\nThe real power comes when you pair it with `group_by()`.\n\n```r\nby_class <- group_by(mpg, class)\nsummarize(by_class, mean_hwy = mean(hwy))\n```\n\n---\n\n## 🎯 Your Task\n\n1.  Group `mpg` by `manufacturer`.\n2.  Calculate the average highway mileage (`mean_hwy`).\n",
+    "starter_code": "by_mfr <- group_by(mpg, ...)\nsummarize(by_mfr, mean_hwy = ...)\n",
+    "solution_code": "by_mfr <- group_by(mpg, manufacturer)\nsummarize(by_mfr, mean_hwy = mean(hwy))",
+    "expected_output": "[Data Frame: 15 rows]",
+    "chapter_id": 3
+}
