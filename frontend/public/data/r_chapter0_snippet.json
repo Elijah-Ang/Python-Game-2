@@ -1,0 +1,40 @@
+"2000": {
+    "id": 2000,
+    "title": "Why R?",
+    "chapter_title": "Welcome to R",
+    "content": "# 👋 Welcome to R!\n\n## Data Science vs. Programming\n\nYou are about to learn **R**, a language built specifically for data science. Unlike other languages designed for software engineering or app development, R was designed by statisticians to help you understand data.\n\n## The Tidyverse\n\nThroughout this course, we will focus on the **tidyverse**, a collection of R packages designed for data science. All tidyverse packages share an underlying design philosophy, grammar, and data structures.\n\n## The \"Whole Game\"\n\nData science isn't just one thing. It's a process:\n\n1.  **Import**: Get data into R.\n2.  **Tidy**: Make it consistent.\n3.  **Transform**: Filter and summarize.\n4.  **Visualize**: See the patterns.\n5.  **Model**: Explain the patterns.\n6.  **Communicate**: Tell the story.\n\nWe will start with **Visualization** (Chapter 1) because it gives you immediate, beautiful results. But first, let's learn how to talk to R.\n\n---\n\n## 🎯 Your Task\n\nThis is the R Console. You type code, and R gives you an answer.\n\nType `1 + 1` in the editor and hit Run.",
+    "starter_code": "# Type 1 + 1 below\n",
+    "solution_code": "1 + 1",
+    "expected_output": "2",
+    "chapter_id": 0
+},
+"2006": {
+    "id": 2006,
+    "title": "Running Code",
+    "chapter_title": "Welcome to R",
+    "content": "# 🏃 Running Code\n\n## The R Console\n\nWhen you use R, you are having a conversation. You send R a command, and it replies with a result.\n\n```r\n10 + 5\n# [1] 15\n```\n\n## Basic Arithmetic\n\nR is a powerful calculator. You can use standard operators:\n\n- `+` (Add)\n- `-` (Subtract)\n- `*` (Multiply)\n- `/` (Divide)\n- `^` (Exponent/Power)\n\n## Comments\n\nAnything following a `#` is a comment. R ignores it. Comments are for *you*, the human, to explain your code.\n\n```r\n# This calculates seconds in an hour\n60 * 60\n```\n\n---\n\n## 🎯 Your Task\n\nCalculate the number of seconds in a day (`60 * 60 * 24`).\n",
+    "starter_code": "# Calculate 60 * 60 * 24\n",
+    "solution_code": "60 * 60 * 24",
+    "expected_output": "86400",
+    "chapter_id": 0
+},
+"2007": {
+    "id": 2007,
+    "title": "Objects & Assignment",
+    "chapter_title": "Welcome to R",
+    "content": "# 📦 Objects & Assignment\n\n## Saving Values\n\nCalculating `1 + 1` is fine, but to do real work, you need to save values. In R, we create **objects** using the assignment operator `<-`.\n\n```r\nx <- 3 * 4\n```\n\nRead this as **\"x gets value 12\"**.\n\n## Why Not `=`?\n\nYou *can* use `=`, but `<-` is the standard in the R community. It points the value into the name. Keyboard shortcut: `Alt + -`.\n\n## Naming Things\n\nObject names must start with a letter. We recommend **snake_case** (lowercase words separated by underscores):\n\n- `my_variable` (Good)\n- `MyVariable` (Bad)\n- `my.variable` (Older R style)\n\n---\n\n## 🎯 Your Task\n\n1.  Create an object named `my_age` and assign it your age (e.g., `25`).\n2.  Create `months` and assign it `my_age * 12`.\n3.  Print `months`.\n",
+    "starter_code": "# Create my_age\n\n# Calculate months\n\n# Print months\n",
+    "solution_code": "my_age <- 25\nmonths <- my_age * 12\nmonths",
+    "expected_output": "300",
+    "chapter_id": 0
+},
+"2008": {
+    "id": 2008,
+    "title": "Calling Functions",
+    "chapter_title": "Welcome to R",
+    "content": "# 📞 Calling Functions\n\n## R is Functional\n\nAlmost everything in R is done by calling **functions**.\n\n```r\nfunction_name(argument1 = value1, argument2 = value2, ...)\n```\n\n## Examples\n\n```r\nseq(1, 10)\n# [1]  1  2  3  4  5  6  7  8  9 10\n\nsum(1, 5, 10)\n# [1] 16\n```\n\n## Getting Help\n\nForgot what a function does? Type `?` before the name in your console (e.g., `?sum`). This opens the documentation.\n\n---\n\n## 🎯 Your Task\n\nUse the `seq()` function to create a sequence of numbers from **0 to 100**, stepping by **10** (`by = 10`).\n",
+    "starter_code": "# Use seq(from = ..., to = ..., by = ...)\n",
+    "solution_code": "seq(0, 100, 10)",
+    "expected_output": "0 10 20 30 40 50 60 70 80 90 100",
+    "chapter_id": 0
+}

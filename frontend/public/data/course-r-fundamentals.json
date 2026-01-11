@@ -4,30 +4,68 @@
     "slug": "r-fundamentals",
     "chapters": [
         {
+            "id": 0,
+            "title": "Welcome to R",
+            "icon": "👋",
+            "is_boss": false,
+            "concepts": [
+                {
+                    "name": "The Basics",
+                    "icon": "🏁",
+                    "lessons": [
+                        {
+                            "id": 2000,
+                            "title": "Why R?",
+                            "order": 1,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 2006,
+                            "title": "Running Code",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 2007,
+                            "title": "Objects & Assignment",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 2008,
+                            "title": "Calling Functions",
+                            "order": 4,
+                            "difficulty": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "id": 1,
             "title": "Data Visualization",
             "icon": "📊",
             "is_boss": false,
             "concepts": [
                 {
-                    "name": "Introduction to ggplot2",
+                    "name": "First Steps",
                     "icon": "🎨",
                     "lessons": [
                         {
                             "id": 2001,
-                            "title": "The ggplot2 Template",
+                            "title": "The ggplot2 Canvas",
                             "order": 1,
                             "difficulty": 1
                         },
                         {
                             "id": 2002,
-                            "title": "Aesthetic Mappings",
+                            "title": "First Points",
                             "order": 2,
-                            "difficulty": 2
+                            "difficulty": 1
                         },
                         {
                             "id": 2003,
-                            "title": "Common Geoms",
+                            "title": "Aesthetic Mappings",
                             "order": 3,
                             "difficulty": 2
                         }
@@ -39,15 +77,15 @@
                     "lessons": [
                         {
                             "id": 2004,
-                            "title": "Facets and Subplots",
+                            "title": "Common Geoms",
                             "order": 4,
-                            "difficulty": 3
+                            "difficulty": 2
                         },
                         {
                             "id": 2005,
-                            "title": "Labels and Themes",
+                            "title": "Facets & Subplots",
                             "order": 5,
-                            "difficulty": 2
+                            "difficulty": 3
                         }
                     ]
                 }
@@ -60,18 +98,18 @@
             "is_boss": false,
             "concepts": [
                 {
-                    "name": "Coding Basics",
-                    "icon": "⌨️",
+                    "name": "Good Habits",
+                    "icon": "🧹",
                     "lessons": [
                         {
-                            "id": 2006,
-                            "title": "Variables and Assignment",
+                            "id": 2010,
+                            "title": "Coding Style",
                             "order": 1,
                             "difficulty": 1
                         },
                         {
-                            "id": 2007,
-                            "title": "Calling Functions",
+                            "id": 2011,
+                            "title": "What's in a Name?",
                             "order": 2,
                             "difficulty": 1
                         }
@@ -86,26 +124,38 @@
             "is_boss": false,
             "concepts": [
                 {
-                    "name": "Rows and Columns",
+                    "name": "Manipulating Rows",
                     "icon": "📑",
                     "lessons": [
                         {
-                            "id": 2008,
+                            "id": 2012,
                             "title": "Filter Rows (filter)",
                             "order": 1,
                             "difficulty": 2
                         },
                         {
-                            "id": 2009,
+                            "id": 2013,
                             "title": "Sort Rows (arrange)",
                             "order": 2,
                             "difficulty": 2
-                        },
+                        }
+                    ]
+                },
+                {
+                    "name": "Manipulating Columns",
+                    "icon": "🧊",
+                    "lessons": [
                         {
-                            "id": 2010,
+                            "id": 2014,
                             "title": "Select Columns (select)",
                             "order": 3,
                             "difficulty": 2
+                        },
+                        {
+                            "id": 2015,
+                            "title": "Add Columns (mutate)",
+                            "order": 4,
+                            "difficulty": 3
                         }
                     ]
                 },
@@ -114,14 +164,8 @@
                     "icon": "🔧",
                     "lessons": [
                         {
-                            "id": 2011,
-                            "title": "The Pipe Data Flow",
-                            "order": 4,
-                            "difficulty": 3
-                        },
-                        {
-                            "id": 2012,
-                            "title": "Grouping and Summarizing",
+                            "id": 2016,
+                            "title": "The Pipe |>",
                             "order": 5,
                             "difficulty": 3
                         }

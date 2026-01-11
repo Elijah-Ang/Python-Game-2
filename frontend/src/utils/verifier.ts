@@ -481,7 +481,7 @@ export function verifyR(
     solutionCode: string,
     userCode: string
 ): VerifyResult {
-    if (!userCode || userCode.trim().length < 5 || userCode.includes("# Write your code here")) {
+    if (!userCode || userCode.trim().length === 0 || userCode.includes("# Write your code here")) {
         return {
             correct: false,
             feedback: "Please write your R code!",
