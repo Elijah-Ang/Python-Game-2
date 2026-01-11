@@ -80,7 +80,15 @@ export const Course: React.FC = () => {
                         Master Python from fundamentals to Machine Learning. {totalLessons} exercises across {course.chapters.length} chapters.
                     </p>
                 </div>
-                <div className="absolute bottom-4 right-8 text-6xl opacity-80">🐍</div>
+                <div className="absolute bottom-4 right-8 opacity-90">
+                    <img
+                        src={`${import.meta.env.BASE_URL}assets/icons/${slug === 'sql-fundamentals' ? 'sql.png' :
+                                slug === 'r-fundamentals' ? 'r.png' : 'python.png'
+                            }`}
+                        alt="Course Icon"
+                        className="w-32 h-32 object-contain pixel-art drop-shadow-2xl"
+                    />
+                </div>
             </div>
 
             <div className="max-w-4xl mx-auto px-8 py-8">

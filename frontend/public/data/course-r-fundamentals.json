@@ -204,25 +204,61 @@
             "is_boss": false,
             "concepts": [
                 {
-                    "name": "Advanced Visualization",
-                    "icon": "🖌️",
+                    "name": "Ch 9: Layers",
+                    "icon": "🍰",
                     "lessons": [
                         {
                             "id": 2100,
-                            "title": "Layers (Ch 9)",
+                            "title": "Geoms & Stats",
                             "order": 1,
                             "difficulty": 3
                         },
                         {
-                            "id": 2110,
-                            "title": "EDA (Ch 10)",
+                            "id": 2101,
+                            "title": "Position Adjustments",
                             "order": 2,
                             "difficulty": 3
                         },
                         {
-                            "id": 2120,
-                            "title": "Communication (Ch 11)",
+                            "id": 2102,
+                            "title": "Coordinate Systems",
                             "order": 3,
+                            "difficulty": 3
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 10: EDA",
+                    "icon": "🕵️",
+                    "lessons": [
+                        {
+                            "id": 2110,
+                            "title": "Variation",
+                            "order": 1,
+                            "difficulty": 2
+                        },
+                        {
+                            "id": 2111,
+                            "title": "Covariation",
+                            "order": 2,
+                            "difficulty": 3
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 11: Communication",
+                    "icon": "📢",
+                    "lessons": [
+                        {
+                            "id": 2120,
+                            "title": "Labels & Annotations",
+                            "order": 1,
+                            "difficulty": 2
+                        },
+                        {
+                            "id": 2121,
+                            "title": "Themes & Scales",
+                            "order": 2,
                             "difficulty": 2
                         }
                     ]

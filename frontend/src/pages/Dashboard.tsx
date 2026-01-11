@@ -45,7 +45,13 @@ export const Dashboard: React.FC = () => {
                         <div className="h-40 bg-[var(--bg-color)] mb-4 rounded border border-[var(--border-color)] flex items-center justify-center overflow-hidden relative">
                             {/* Pattern / Image placeholder */}
                             <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--gradient-stops))] from-gray-700 via-gray-900 to-black"></div>
-                            <span className="text-4xl">{course.slug === 'sql-fundamentals' ? '🗃️' : '🐍'}</span>
+                            <img
+                                src={`${import.meta.env.BASE_URL}assets/icons/${course.slug === 'sql-fundamentals' ? 'sql.png' :
+                                        course.slug === 'r-fundamentals' ? 'r.png' : 'python.png'
+                                    }`}
+                                alt={course.title}
+                                className="w-16 h-16 object-contain pixel-art drop-shadow-md"
+                            />
                         </div>
 
                         <div className="flex justify-between items-start mb-2">
