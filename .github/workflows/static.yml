@@ -1,4 +1,4 @@
-name: Build and Deploy to GitHub Pages
+name: Deploy React App to GitHub Pages
 
 on:
   push:
@@ -21,25 +21,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
+          node-version: '20'
 
-      - name: Install Pygbag
+      - name: Install Dependencies
         run: |
-          pip install pygbag
+          cd frontend
+          npm ci
 
-      - name: Build with Pygbag
+      - name: Build
         run: |
-          # Build the game directory
-          # Pygbag builds into 'build/web' by default
-          python -m pygbag --build $GITHUB_WORKSPACE/game
+          cd frontend
+          npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: game/build/web
+          path: frontend/dist
 
   deploy:
     environment:
