@@ -52,7 +52,7 @@ export const Lesson: React.FC = () => {
         const loadLessonData = async () => {
             try {
                 // Fetch lesson content
-                const lessonsRes = await fetch(`${import.meta.env.BASE_URL}data/lessons.json`);
+                const lessonsRes = await fetch(`${import.meta.env.BASE_URL}data/lessons.json?t=${Date.now()}`);
                 const lessonsData = await lessonsRes.json();
                 const lessonData = lessonsData[id as string];
 
@@ -81,7 +81,7 @@ export const Lesson: React.FC = () => {
                     let courseFile = `${import.meta.env.BASE_URL}data/course-python-basics.json`;
                     if (isSql) courseFile = `${import.meta.env.BASE_URL}data/course-sql-fundamentals.json`;
                     if (isR) courseFile = `${import.meta.env.BASE_URL}data/course-r-fundamentals.json`;
-                    const courseRes = await fetch(courseFile);
+                    const courseRes = await fetch(`${courseFile}?t=${Date.now()}`);
                     const courseData = await courseRes.json();
 
                     // Build ordered list of lesson IDs from course structure

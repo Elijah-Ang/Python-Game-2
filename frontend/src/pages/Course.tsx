@@ -36,7 +36,7 @@ export const Course: React.FC = () => {
     const [expandedChapter, setExpandedChapter] = useState<number | null>(1);
 
     useEffect(() => {
-        fetch(`${import.meta.env.BASE_URL}data/course-${slug}.json`)
+        fetch(`${import.meta.env.BASE_URL}data/course-${slug}.json?t=${Date.now()}`)
             .then(res => res.json())
             .then(data => setCourse(data))
             .catch(err => console.error(err));
