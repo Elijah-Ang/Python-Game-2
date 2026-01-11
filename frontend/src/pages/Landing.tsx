@@ -9,7 +9,7 @@ export const Landing: React.FC = () => {
             <section
                 className="relative h-[70vh] flex items-center justify-center overflow-hidden"
                 style={{
-                    backgroundImage: 'url(/hero_background.png)',
+                    backgroundImage: `url(${import.meta.env.BASE_URL}hero_background.png)`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center bottom'
                 }}
