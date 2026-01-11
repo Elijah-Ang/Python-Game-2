@@ -272,55 +272,109 @@
             "is_boss": false,
             "concepts": [
                 {
-                    "name": "Data Types",
-                    "icon": "🧱",
+                    "name": "Ch 12: Logical Vectors",
+                    "icon": "🧠",
                     "lessons": [
                         {
                             "id": 2200,
-                            "title": "Logical Vectors (Ch 12)",
+                            "title": "Boolean Logic",
                             "order": 1,
                             "difficulty": 2
                         },
                         {
-                            "id": 2210,
-                            "title": "Numbers (Ch 13)",
+                            "id": 2201,
+                            "title": "Conditional Logic",
                             "order": 2,
+                            "difficulty": 3
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 13: Numbers",
+                    "icon": "🔢",
+                    "lessons": [
+                        {
+                            "id": 2210,
+                            "title": "Counts & Ranks",
+                            "order": 1,
                             "difficulty": 2
-                        },
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 14: Strings",
+                    "icon": "🧵",
+                    "lessons": [
                         {
                             "id": 2220,
-                            "title": "Strings (Ch 14)",
-                            "order": 3,
+                            "title": "String Manipulation",
+                            "order": 1,
                             "difficulty": 3
-                        },
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 15: Regex",
+                    "icon": "🧩",
+                    "lessons": [
                         {
                             "id": 2230,
-                            "title": "Regular Expressions (Ch 15)",
-                            "order": 4,
+                            "title": "Pattern Matching",
+                            "order": 1,
                             "difficulty": 4
-                        },
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 16: Factors",
+                    "icon": "📊",
+                    "lessons": [
                         {
                             "id": 2240,
-                            "title": "Factors (Ch 16)",
-                            "order": 5,
+                            "title": "Categorical Data",
+                            "order": 1,
                             "difficulty": 2
-                        },
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 17: Dates and Times",
+                    "icon": "📅",
+                    "lessons": [
                         {
                             "id": 2250,
-                            "title": "Dates and Times (Ch 17)",
-                            "order": 6,
+                            "title": "Parsing & Math",
+                            "order": 1,
+                            "difficulty": 3
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 18: Missing Values",
+                    "icon": "🚫",
+                    "lessons": [
+                        {
+                            "id": 2260,
+                            "title": "Explicit vs Implicit",
+                            "order": 1,
+                            "difficulty": 2
+                        }
+                    ]
+                },
+                {
+                    "name": "Ch 19: Joins",
+                    "icon": "🔗",
+                    "lessons": [
+                        {
+                            "id": 2270,
+                            "title": "Mutating Joins",
+                            "order": 1,
                             "difficulty": 3
                         },
                         {
-                            "id": 2260,
-                            "title": "Missing Values (Ch 18)",
-                            "order": 7,
-                            "difficulty": 2
-                        },
-                        {
-                            "id": 2270,
-                            "title": "Joins (Ch 19)",
-                            "order": 8,
+                            "id": 2271,
+                            "title": "Filtering Joins",
+                            "order": 2,
                             "difficulty": 3
                         }
                     ]
