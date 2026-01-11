@@ -15,27 +15,39 @@
                     "lessons": [
                         {
                             "id": 2001,
-                            "title": "The Grammar of Graphics",
+                            "title": "First Steps",
                             "order": 1,
                             "difficulty": 1
                         },
                         {
                             "id": 2002,
-                            "title": "Aesthetic Mappings",
+                            "title": "Aesthetics & Layers",
                             "order": 2,
-                            "difficulty": 1
+                            "difficulty": 2
                         },
                         {
                             "id": 2003,
-                            "title": "Geometric Objects",
+                            "title": "Distributions",
                             "order": 3,
-                            "difficulty": 1
+                            "difficulty": 2
                         },
                         {
                             "id": 2004,
-                            "title": "Facets",
+                            "title": "Relationships",
                             "order": 4,
+                            "difficulty": 3
+                        },
+                        {
+                            "id": 2005,
+                            "title": "Facets",
+                            "order": 5,
                             "difficulty": 2
+                        },
+                        {
+                            "id": 2006,
+                            "title": "Saving & Common Issues",
+                            "order": 6,
+                            "difficulty": 1
                         }
                     ]
                 },
