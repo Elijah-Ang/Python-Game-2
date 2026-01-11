@@ -46,8 +46,8 @@ export const Dashboard: React.FC = () => {
                             {/* Pattern / Image placeholder */}
                             <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--gradient-stops))] from-gray-700 via-gray-900 to-black"></div>
                             <img
-                                src={`${import.meta.env.BASE_URL}assets/icons/${course.slug === 'sql-fundamentals' ? 'sql.png' :
-                                        course.slug === 'r-fundamentals' ? 'r.png' : 'python.png'
+                                src={`${import.meta.env.BASE_URL}assets/icons/${course.slug === 'sql-fundamentals' ? 'sql_v2.png' :
+                                        course.slug === 'r-fundamentals' ? 'r_v2.png' : 'python_v2.png'
                                     }`}
                                 alt={course.title}
                                 className="w-16 h-16 object-contain pixel-art drop-shadow-md"

@@ -66,7 +66,11 @@ export const Course: React.FC = () => {
             <div
                 className="h-64 relative overflow-hidden"
                 style={{
-                    backgroundImage: 'linear-gradient(135deg, #1a4d2e 0%, #2d5a3d 50%, #1e3a29 100%)'
+                    backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url(${import.meta.env.BASE_URL}assets/headers/${slug === 'sql-fundamentals' ? 'sql_landscape.png' :
+                            slug === 'r-fundamentals' ? 'r_landscape.png' : 'python_landscape.png'
+                        })`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
                 }}
             >
                 <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[var(--bg-color)] to-transparent">
@@ -82,8 +86,8 @@ export const Course: React.FC = () => {
                 </div>
                 <div className="absolute bottom-4 right-8 opacity-90">
                     <img
-                        src={`${import.meta.env.BASE_URL}assets/icons/${slug === 'sql-fundamentals' ? 'sql.png' :
-                                slug === 'r-fundamentals' ? 'r.png' : 'python.png'
+                        src={`${import.meta.env.BASE_URL}assets/icons/${slug === 'sql-fundamentals' ? 'sql_v2.png' :
+                                slug === 'r-fundamentals' ? 'r_v2.png' : 'python_v2.png'
                             }`}
                         alt="Course Icon"
                         className="w-32 h-32 object-contain pixel-art drop-shadow-2xl"

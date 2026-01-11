@@ -23,7 +23,7 @@
     "title": "R for Data Science",
     "description": "Visualize and transform data with ggplot2 and dplyr",
     "difficulty": "intermediate",
-    "chapters_count": 3,
-    "lessons_count": 12
+    "chapters_count": 29,
+    "lessons_count": 42
   }
 ]
