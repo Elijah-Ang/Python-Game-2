@@ -3988,7 +3988,7 @@
     "starter_code": "WITH cleaned_data AS (\n    SELECT TRIM(username) as user, LOWER(email) as email\n    FROM users\n)\nSELECT * FROM cleaned_data WHERE email LIKE '%.com';",
     "solution_code": "WITH cleaned_data AS (SELECT TRIM(username) as user, LOWER(email) as email FROM users) SELECT * FROM cleaned_data WHERE email LIKE '%.com';",
     "expected_output": "user1|u1@x.com"
-  }
+  },
   "1191": {
     "title": "Self-Referential",
     "chapter_title": "Joins",
@@ -4206,7 +4206,7 @@
     "starter_code": "SELECT \n    date,\n    price,\n    LAG(price, 1) OVER (ORDER BY date) as prev_price,\n    price - LAG(price, 1) OVER (ORDER BY date) as change\nFROM stock_prices\nORDER BY date;",
     "solution_code": "SELECT LAG(col) OVER(ORDER BY col) FROM t;",
     "expected_output": "date|price|prev_price|change\n2024-01-01|100|null|null\n2024-01-02|105|100|5"
-  }
+  },
   "1218": {
     "title": "Period Grouping",
     "chapter_title": "Time-Series",
@@ -4598,7 +4598,7 @@
     "starter_code": "-- 1. Find long running queries (> 1 hour)\nSELECT \n    query_id,\n    user_name,\n    execution_time_seconds,\n    query_text\nFROM query_history\nWHERE state = 'RUNNING'\n  AND execution_time_seconds > 3600;\n\n-- 2. Kill it!\nSELECT SYSTEM$ABORT_QUERY('query_id_from_above');",
     "solution_code": "SELECT SYSTEM$ABORT_QUERY('12345');",
     "expected_output": "Query 12345 aborted."
-  }
+  },
   "218": {
     "title": "Imputation Strategy",
     "chapter_title": "Data Cleaning",
