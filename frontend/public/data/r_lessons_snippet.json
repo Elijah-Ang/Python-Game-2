@@ -1,0 +1,70 @@
+"2001": {
+    "id": 2001,
+    "title": "The ggplot2 Template",
+    "chapter_title": "Data Visualization",
+    "content": "# 📊 The ggplot2 Template\n\n## Introduction\n\nR has a powerful system for making graphs called **ggplot2**. It works by building a plot layer by layer.\n\n## The Template\n\nEvery ggplot2 graph follows this basic pattern:\n\n```r\nggplot(data = <DATA>) + \n  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))\n```\n\n1.  **ggplot(data = ...)**: Creates a coordinate system.\n2.  **geom_point(...)**: Adds a layer of points (for a scatterplot).\n3.  **mapping = aes(...)**: Tells R which variables map to the x and y axes.\n\n## Example\n\nUsing the `mpg` dataset (cars data):\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy))\n```\n\n- `displ`: Engine displacement (size).\n- `hwy`: Highway miles per gallon.\n\n---\n\n## 🎯 Your Task\n\nCreate a scatterplot of `hwy` vs `cyl` (cylinders) using the `mpg` dataset.\n\n1.  Start with `ggplot(data = mpg)`\n2.  Add a `geom_point` layer.\n3.  Map `x = cyl` and `y = hwy`.\n",
+    "starter_code": "# Create a scatterplot of hwy vs cyl\n# Use: ggplot(data = mpg) + geom_point(mapping = aes(x = ..., y = ...))\n",
+    "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = cyl, y = hwy))",
+    "expected_output": "[Graph: Scatterplot of cyl vs hwy]",
+    "chapter_id": 1
+},
+"2002": {
+    "id": 2002,
+    "title": "Aesthetic Mappings",
+    "chapter_title": "Data Visualization",
+    "content": "# 🎨 Aesthetic Mappings\n\n## Adding Color and Size\n\nYou can map other variables to visual properties like `color`, `size`, `alpha` (transparency), or `shape`.\n\n## Example: Coloring by Class\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy, color = class))\n```\n\nThis automatically assigns a unique color to each car `class` and adds a legend.\n\n## Fixed Aesthetics\n\nIf you want to set a manual color for *all* points (not based on data), put it **outside** the `aes()` function:\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy), color = \"blue\")\n```\n\n---\n\n## 🎯 Your Task\n\nCreate a scatterplot of `displ` vs `hwy`:\n1.  Map `color` to `class`.\n2.  Map `size` to `cyl`.\n",
+    "starter_code": "# Map color to class and size to cyl\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy, ...))\n",
+    "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy, color = class, size = cyl))",
+    "expected_output": "[Graph: Scatterplot with color and size]",
+    "chapter_id": 1
+},
+"2003": {
+    "id": 2003,
+    "title": "Common Geoms",
+    "chapter_title": "Data Visualization",
+    "content": "# 📐 Common Geoms\n\n## More than Points\n\nggplot2 supports many \"geoms\" (geometric objects):\n\n- `geom_point()`: Scatterplot\n- `geom_smooth()`: Smooth trends line\n- `geom_bar()`: Bar chart\n- `geom_histogram()`: Histogram\n\n## Using geom_smooth\n\nTo see the trend in our data:\n\n```r\nggplot(data = mpg) + \n  geom_smooth(mapping = aes(x = displ, y = hwy))\n```\n\n## Combining Geoms\n\nYou can add multiple layers!\n\n```r\nggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) +\n  geom_smooth(mapping = aes(x = displ, y = hwy))\n```\n\n---\n\n## 🎯 Your Task\n\nCreate a graph with two layers showing `displ` vs `hwy`:\n1.  A scatterplot (`geom_point`)\n2.  A smooth line (`geom_smooth`)\n",
+    "starter_code": "# Add both points and a smooth line\nggplot(data = mpg) + \n  \n",
+    "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy)) +\n  geom_smooth(mapping = aes(x = displ, y = hwy))",
+    "expected_output": "[Graph: Points + Smooth Line]",
+    "chapter_id": 1
+},
+"2006": {
+    "id": 2006,
+    "title": "Variables and Assignment",
+    "chapter_title": "Workflow: Basics",
+    "content": "# 📦 Variables and Assignment\n\n## Creating Objects\n\nIn R, you create new objects with the assignment operator `<-`.\n\n```r\nx <- 3 * 4\n```\n\nWhile `=` works too, R users strictly prefer `<-`. Keyboard shortcut: `Alt + -` (Windows) or `Option + -` (Mac).\n\n## Object Names\n\n- Must start with a letter.\n- Can contain letters, numbers, `_`, and `.`.\n- **Snake_case** is recommended (e.g., `my_variable`).\n\n## Printing\n\nType the name to inspect it:\n\n```r\nx\n# [1] 12\n```\n\n---\n\n## 🎯 Your Task\n\n1.  Create a variable named `my_number` and assign it `42`.\n2.  Multiply it by 2 and save it to `result`.\n3.  Print `result`.\n",
+    "starter_code": "# Create variables using <-\n",
+    "solution_code": "my_number <- 42\nresult <- my_number * 2\nresult",
+    "expected_output": "84",
+    "chapter_id": 2
+},
+"2007": {
+    "id": 2007,
+    "title": "Calling Functions",
+    "chapter_title": "Workflow: Basics",
+    "content": "# 📞 Calling Functions\n\n## Syntax\n\nR has a huge collection of built-in functions:\n\n```r\nfunction_name(arg1 = val1, arg2 = val2, ...)\n```\n\n## Examples\n\n```r\nseq(1, 10)\n# [1]  1  2  3  4  5  6  7  8  9 10\n\nmean(c(1, 5, 10))\n# [1] 5.333333\n```\n\n## Getting Help\n\nForgot what a function does? Type `?function_name` in the console (e.g., `?seq`).\n\n---\n\n## 🎯 Your Task\n\nUse the `seq()` function to create a sequence of numbers from **5 to 20**.\n",
+    "starter_code": "# Use seq() to create a sequence\n",
+    "solution_code": "seq(5, 20)",
+    "expected_output": "5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20",
+    "chapter_id": 2
+},
+"2008": {
+    "id": 2008,
+    "title": "Filter Rows (filter)",
+    "chapter_title": "Data Transformation",
+    "content": "# 🌪️ Filter Rows\n\n## The dplyr Package\n\n`dplyr` provides a grammar for data manipulation. The format is always:\n`verb(data, ...)`.\n\n## filter()\n\nUse `filter()` to select rows based on values.\n\n```r\n# Select cars with model year 1999\nfilter(mpg, year == 1999)\n\n# Select Audis with high highway mileage\nfilter(mpg, manufacturer == \"audi\", hwy > 25)\n```\n\n## Comparison Operators\n\n- `==` (Equal), `!=` (Not equal)\n- `>`, `>=`, `<`, `<`\n- `&` (AND), `|` (OR), `!` (NOT)\n\n---\n\n## 🎯 Your Task\n\nUse `filter()` to find all cars in `mpg` that have `cyl` equal to 8.\n",
+    "starter_code": "# Filter for 8 cylinders\nfilter(mpg, ...)\n",
+    "solution_code": "filter(mpg, cyl == 8)",
+    "expected_output": "[Data Frame: 8 cylinder cars]",
+    "chapter_id": 3
+},
+"2011": {
+    "id": 2011,
+    "title": "The Pipe Data Flow",
+    "chapter_title": "Data Transformation",
+    "content": "# 🔧 The Pipe |>\n\n## Combining Operations\n\nImagine you want to `filter` then `select`. You could nest functions:\n\n```r\nselect(filter(mpg, class == \"suv\"), manufacturer, model)\n```\n\nThis is hard to read (inside-out). Instead, use the **pipe** `|>`:\n\n```r\nmpg |> \n  filter(class == \"suv\") |> \n  select(manufacturer, model)\n```\n\nRead `|>` as **\"and then\"**.\n\n*(Note: Older R code uses `%>%`, but `|>` is the new native pipe!)*\n\n---\n\n## 🎯 Your Task\n\nRewrite this code using the pipe:\n`arrange(filter(mpg, city > 20), desc(hwy))`\n",
+    "starter_code": "mpg |> \n  # Filter for city > 20\n  # Arrange by desc(hwy)\n",
+    "solution_code": "mpg |> \n  filter(city > 20) |> \n  arrange(desc(hwy))",
+    "expected_output": "[Data Frame: Filtered and Arranged]",
+    "chapter_id": 3
+}

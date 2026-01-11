@@ -1,0 +1,133 @@
+{
+    "id": 3,
+    "title": "R for Data Science",
+    "slug": "r-fundamentals",
+    "chapters": [
+        {
+            "id": 1,
+            "title": "Data Visualization",
+            "icon": "📊",
+            "is_boss": false,
+            "concepts": [
+                {
+                    "name": "Introduction to ggplot2",
+                    "icon": "🎨",
+                    "lessons": [
+                        {
+                            "id": 2001,
+                            "title": "The ggplot2 Template",
+                            "order": 1,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 2002,
+                            "title": "Aesthetic Mappings",
+                            "order": 2,
+                            "difficulty": 2
+                        },
+                        {
+                            "id": 2003,
+                            "title": "Common Geoms",
+                            "order": 3,
+                            "difficulty": 2
+                        }
+                    ]
+                },
+                {
+                    "name": "Customizing Plots",
+                    "icon": "🖼️",
+                    "lessons": [
+                        {
+                            "id": 2004,
+                            "title": "Facets and Subplots",
+                            "order": 4,
+                            "difficulty": 3
+                        },
+                        {
+                            "id": 2005,
+                            "title": "Labels and Themes",
+                            "order": 5,
+                            "difficulty": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Workflow: Basics",
+            "icon": "🛠️",
+            "is_boss": false,
+            "concepts": [
+                {
+                    "name": "Coding Basics",
+                    "icon": "⌨️",
+                    "lessons": [
+                        {
+                            "id": 2006,
+                            "title": "Variables and Assignment",
+                            "order": 1,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 2007,
+                            "title": "Calling Functions",
+                            "order": 2,
+                            "difficulty": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Data Transformation",
+            "icon": "🔄",
+            "is_boss": false,
+            "concepts": [
+                {
+                    "name": "Rows and Columns",
+                    "icon": "📑",
+                    "lessons": [
+                        {
+                            "id": 2008,
+                            "title": "Filter Rows (filter)",
+                            "order": 1,
+                            "difficulty": 2
+                        },
+                        {
+                            "id": 2009,
+                            "title": "Sort Rows (arrange)",
+                            "order": 2,
+                            "difficulty": 2
+                        },
+                        {
+                            "id": 2010,
+                            "title": "Select Columns (select)",
+                            "order": 3,
+                            "difficulty": 2
+                        }
+                    ]
+                },
+                {
+                    "name": "The Pipe",
+                    "icon": "🔧",
+                    "lessons": [
+                        {
+                            "id": 2011,
+                            "title": "The Pipe Data Flow",
+                            "order": 4,
+                            "difficulty": 3
+                        },
+                        {
+                            "id": 2012,
+                            "title": "Grouping and Summarizing",
+                            "order": 5,
+                            "difficulty": 3
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

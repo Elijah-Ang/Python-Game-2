@@ -16,5 +16,14 @@
     "difficulty": "beginner",
     "chapters_count": 15,
     "lessons_count": 156
+  },
+  {
+    "id": 3,
+    "slug": "r-fundamentals",
+    "title": "R for Data Science",
+    "description": "Visualize and transform data with ggplot2 and dplyr",
+    "difficulty": "intermediate",
+    "chapters_count": 3,
+    "lessons_count": 12
   }
 ]

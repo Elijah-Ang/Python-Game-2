@@ -461,3 +461,83 @@ export function verifyCode(
         };
     }
 }
+// ============ R VERIFICATION ============
+
+// Check if R code is missing assignment or pipe
+function validateRStructure(userCode: string): VerifyResult | null {
+    // Check for assignment (<-)
+    if (userCode.includes("=") && !userCode.includes("<-") && !userCode.includes("ggplot")) {
+        return {
+            correct: false,
+            feedback: "R users prefer '<-' for assignment.",
+            suggestions: ["Use 'x <- 5' instead of 'x = 5'"]
+        };
+    }
+    return null;
+}
+
+// Verify R code (Static Verification)
+export function verifyR(
+    solutionCode: string,
+    userCode: string
+): VerifyResult {
+    if (!userCode || userCode.trim().length < 5 || userCode.includes("# Write your code here")) {
+        return {
+            correct: false,
+            feedback: "Please write your R code!",
+            suggestions: ["Read the task and write your solution"]
+        };
+    }
+
+    // Check structure
+    const structureError = validateRStructure(userCode);
+    if (structureError) return structureError;
+
+    // Normalize for comparison (remove whitespace, comments)
+    const normalize = (code: string) => code
+        .replace(/#.*$/gm, '') // Remove comments
+        .replace(/\s+/g, ' ')  // Collapse whitespace
+        .trim();
+
+    const normUser = normalize(userCode);
+    const normSol = normalize(solutionCode);
+
+    // Exact match (normalized)
+    if (normUser === normSol) {
+        return {
+            correct: true,
+            feedback: "Perfect! Your R code is correct! 🎉",
+            suggestions: []
+        };
+    }
+
+    // Check for key function usage
+    // Extract function names from solution: function_name(
+    const requiredFunctions = (solutionCode.match(/[\w\.]+(?=\()/g) || []);
+
+    for (const func of requiredFunctions) {
+        if (!userCode.includes(func)) {
+            return {
+                correct: false,
+                feedback: `Missing function: ${func}()`,
+                suggestions: [`You need to use the ${func}() function`]
+            };
+        }
+    }
+
+    // Check for pipe usage if solution uses it
+    if (solutionCode.includes("|>") && !userCode.includes("|>")) {
+        return {
+            correct: false,
+            feedback: "Try using the pipe operator |>.",
+            suggestions: ["Chain your functions with |>"]
+        };
+    }
+
+    // Lenient fallback
+    return {
+        correct: true,
+        feedback: "Great job! Your code looks correct! 🚀",
+        suggestions: ["(Note: Since this is a static check, ensure you double-check your logic!)"]
+    };
+}

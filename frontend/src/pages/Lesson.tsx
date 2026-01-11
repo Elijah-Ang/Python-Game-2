@@ -5,7 +5,7 @@ import { Play, Send, ChevronRight, FileCode, RotateCcw, Eye, EyeOff, Lightbulb, 
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import confetti from 'canvas-confetti';
-import { verifyCode, verifySql } from '../utils/verifier';
+import { verifyCode, verifySql, verifyR } from '../utils/verifier';
 
 interface LessonData {
     id: number;
@@ -58,16 +58,29 @@ export const Lesson: React.FC = () => {
 
                 if (lessonData) {
                     setLesson(lessonData);
-                    // SQL lessons have IDs >= 1001
-                    const isSql = Number(id) >= 1001;
-                    setCode(isSql ? "-- Write your SQL here\n\n" : "# Write your code here\n\n");
+                    // SQL lessons have IDs >= 1001 && < 2000
+                    // R lessons have IDs >= 2000
+                    const currentId = Number(id);
+                    const isSql = currentId >= 1001 && currentId < 2000;
+                    const isR = currentId >= 2000;
+
+                    if (isSql) {
+                        setCode("-- Write your SQL here\n\n");
+                    } else if (isR) {
+                        setCode("# Write your R code here\n\n");
+                    } else {
+                        setCode("# Write your code here\n\n");
+                    }
+
                     setShowSolution(false);
                     setVerifyResult(null);
                     setOutput("");
                     setGraphOutput(null);
 
                     // Fetch course data to get the lesson order
-                    const courseFile = isSql ? '/data/course-sql-fundamentals.json' : '/data/course-python-basics.json';
+                    let courseFile = '/data/course-python-basics.json';
+                    if (isSql) courseFile = '/data/course-sql-fundamentals.json';
+                    if (isR) courseFile = '/data/course-r-fundamentals.json';
                     const courseRes = await fetch(courseFile);
                     const courseData = await courseRes.json();
 
@@ -222,7 +235,7 @@ except:
 
     const submitAnswer = async () => {
         const currentId = Number(id) || 1;
-        const isSql = currentId >= 1001;
+        const isSql = currentId >= 1001 && currentId < 2000;
 
         setIsVerifying(true);
 
@@ -230,6 +243,12 @@ except:
         if (isSql) {
             // For SQL, compare user code against solution code
             result = verifySql(
+                lesson?.solution_code || '',
+                code
+            );
+        } else if (currentId >= 2000) {
+            // For R, use static verification
+            result = verifyR(
                 lesson?.solution_code || '',
                 code
             );
