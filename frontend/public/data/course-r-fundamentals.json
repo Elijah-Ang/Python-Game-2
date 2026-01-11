@@ -15,39 +15,39 @@
                     "lessons": [
                         {
                             "id": 2001,
-                            "title": "First Steps",
+                            "title": "Meet the Penguins",
                             "order": 1,
                             "difficulty": 1
                         },
                         {
                             "id": 2002,
-                            "title": "Aesthetics & Layers",
+                            "title": "The Empty Canvas",
                             "order": 2,
-                            "difficulty": 2
+                            "difficulty": 1
                         },
                         {
                             "id": 2003,
-                            "title": "Distributions",
+                            "title": "Mapping Data to Axes",
                             "order": 3,
-                            "difficulty": 2
+                            "difficulty": 1
                         },
                         {
                             "id": 2004,
-                            "title": "Relationships",
+                            "title": "Adding Dots",
                             "order": 4,
-                            "difficulty": 3
+                            "difficulty": 1
                         },
                         {
                             "id": 2005,
-                            "title": "Facets",
+                            "title": "Coloring by Species",
                             "order": 5,
                             "difficulty": 2
                         },
                         {
                             "id": 2006,
-                            "title": "Saving & Common Issues",
+                            "title": "Adding a Trend Line",
                             "order": 6,
-                            "difficulty": 1
+                            "difficulty": 2
                         }
                     ]
                 },
