@@ -466,7 +466,7 @@ export function verifyCode(
 // Check if R code is missing assignment or pipe
 function validateRStructure(userCode: string): VerifyResult | null {
     // Check for assignment (<-)
-    if (userCode.includes("=") && !userCode.includes("<-") && !userCode.includes("ggplot")) {
+    if (userCode.includes("=") && !userCode.includes("<-") && !userCode.includes("ggplot") && !userCode.includes("|>")) {
         return {
             correct: false,
             feedback: "R users prefer '<-' for assignment.",
