@@ -288,7 +288,9 @@ except:
 
     const goToNext = () => {
         const currentId = Number(id);
-        const isSql = currentId >= 1001;
+        const isSql = currentId >= 1001 && currentId < 2000;
+        const isR = currentId >= 2000;
+        const slug = isR ? 'r-fundamentals' : (isSql ? 'sql-fundamentals' : 'python-basics');
 
         if (orderedLessonIds.length > 0) {
             const currentIndex = orderedLessonIds.indexOf(currentId);
@@ -296,10 +298,10 @@ except:
                 navigate(`/lesson/${orderedLessonIds[currentIndex + 1]}`);
             } else {
                 // End of course
-                navigate(isSql ? '/course/sql-fundamentals' : '/course/python-basics');
+                navigate(`/course/${slug}`);
             }
         } else {
-            // Fallback to old behavior if orderedLessonIds not loaded
+            // Fallback
             const nextId = currentId + 1;
             navigate(`/lesson/${nextId}`);
         }
@@ -307,7 +309,9 @@ except:
 
     const goToPrev = () => {
         const currentId = Number(id);
-        const isSql = currentId >= 1001;
+        const isSql = currentId >= 1001 && currentId < 2000;
+        const isR = currentId >= 2000;
+        const slug = isR ? 'r-fundamentals' : (isSql ? 'sql-fundamentals' : 'python-basics');
 
         if (orderedLessonIds.length > 0) {
             const currentIndex = orderedLessonIds.indexOf(currentId);
@@ -315,10 +319,10 @@ except:
                 navigate(`/lesson/${orderedLessonIds[currentIndex - 1]}`);
             } else {
                 // Beginning of course
-                navigate(isSql ? '/course/sql-fundamentals' : '/course/python-basics');
+                navigate(`/course/${slug}`);
             }
         } else {
-            // Fallback to old behavior
+            // Fallback
             const prevId = currentId - 1;
             if (prevId > 0) {
                 navigate(`/lesson/${prevId}`);
@@ -352,13 +356,23 @@ except:
     }
 
     const currentExercise = Number(id) || 1;
-    const isSqlLesson = currentExercise >= 1001;
-    const totalExercises = isSqlLesson ? 161 : 113;
-    const displayExercise = lessonOrder !== null ? lessonOrder : (isSqlLesson ? currentExercise - 1000 : currentExercise);
-    const courseSlug = isSqlLesson ? 'sql-fundamentals' : 'python-basics';
-    const courseName = isSqlLesson ? 'SQL' : 'Python';
-    const editorLanguage = isSqlLesson ? 'sql' : 'python';
-    const scriptFilename = isSqlLesson ? 'query.sql' : 'script.py';
+    const isSqlLesson = currentExercise >= 1001 && currentExercise < 2000;
+    const isRLesson = currentExercise >= 2000;
+    const totalExercises = isRLesson ? 200 : (isSqlLesson ? 161 : 113); // TODO: Update R total
+
+    // Determine display order
+    let displayExercise = currentExercise;
+    if (lessonOrder !== null) {
+        displayExercise = lessonOrder;
+    } else {
+        if (isRLesson) displayExercise = currentExercise - 2000;
+        else if (isSqlLesson) displayExercise = currentExercise - 1000;
+    }
+
+    const courseSlug = isRLesson ? 'r-fundamentals' : (isSqlLesson ? 'sql-fundamentals' : 'python-basics');
+    const courseName = isRLesson ? 'R' : (isSqlLesson ? 'SQL' : 'Python');
+    const editorLanguage = isRLesson ? 'r' : (isSqlLesson ? 'sql' : 'python');
+    const scriptFilename = isRLesson ? 'script.R' : (isSqlLesson ? 'query.sql' : 'script.py');
 
     return (
         <div className="h-screen flex flex-col bg-[var(--bg-color)] overflow-hidden">
@@ -548,10 +562,10 @@ except:
 
                         </div>
                         <div className="flex items-center gap-2">
-                            {/* Only show Run button for Python lessons */}
+                            {/* Allow Run for Python and R (even if R uses simulation/verification for now) */}
                             {!isSqlLesson && (
                                 <button
-                                    onClick={runCode}
+                                    onClick={isRLesson ? submitAnswer : runCode} // For now, R "Run" just submits/verifies since we don't have WebR yet
                                     disabled={isRunning}
                                     className="px-4 py-1.5 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] flex items-center gap-2 text-sm"
                                 >
