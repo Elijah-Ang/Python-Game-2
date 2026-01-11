@@ -103,9 +103,9 @@ export const Lesson: React.FC = () => {
                             chapterLessons = chapter.lessons;
                         }
 
-                        // Sort lessons by their order field
-                        const sortedLessons = [...chapterLessons].sort((a: any, b: any) => a.order - b.order);
-                        for (const lesson of sortedLessons) {
+                        // Note: R course uses local order per concept, Python uses global order.
+                        // Don't sort here - use natural JSON order which already respects structure.
+                        for (const lesson of chapterLessons) {
                             orderedIds.push(lesson.id);
                             currentOrder++;
                             if (lesson.id === Number(id)) {
