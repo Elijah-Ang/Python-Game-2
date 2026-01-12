@@ -6,12 +6,12 @@
         {
             "id": 1,
             "title": "Part 1: Whole Game",
-            "icon": "🕹️",
+            "icon": "\ud83d\udd79\ufe0f",
             "is_boss": false,
             "concepts": [
                 {
                     "name": "Ch 1: Data Visualization",
-                    "icon": "📊",
+                    "icon": "\ud83d\udcca",
                     "lessons": [
                         {
                             "id": 2001,
@@ -33,7 +33,7 @@
                         },
                         {
                             "id": 2004,
-                            "title": "Adding Dots",
+                            "title": "Adding Dots with geom_point()",
                             "order": 4,
                             "difficulty": 1
                         },
@@ -53,7 +53,7 @@
                 },
                 {
                     "name": "Ch 2: Workflow: Basics",
-                    "icon": "🛠️",
+                    "icon": "\ud83d\udee0\ufe0f",
                     "lessons": [
                         {
                             "id": 2010,
@@ -77,7 +77,7 @@
                 },
                 {
                     "name": "Ch 3: Data Transformation",
-                    "icon": "🔄",
+                    "icon": "\ud83d\udd04",
                     "lessons": [
                         {
                             "id": 2020,
@@ -113,7 +113,7 @@
                 },
                 {
                     "name": "Ch 4: Workflow: Code Style",
-                    "icon": "💅",
+                    "icon": "\ud83d\udc85",
                     "lessons": [
                         {
                             "id": 2030,
@@ -131,7 +131,7 @@
                 },
                 {
                     "name": "Ch 5: Data Tidying",
-                    "icon": "🧹",
+                    "icon": "\ud83e\uddf9",
                     "lessons": [
                         {
                             "id": 2040,
@@ -155,7 +155,7 @@
                 },
                 {
                     "name": "Ch 6: Workflow: Scripts",
-                    "icon": "📜",
+                    "icon": "\ud83d\udcdc",
                     "lessons": [
                         {
                             "id": 2050,
@@ -173,7 +173,7 @@
                 },
                 {
                     "name": "Ch 7: Data Import",
-                    "icon": "📥",
+                    "icon": "\ud83d\udce5",
                     "lessons": [
                         {
                             "id": 2060,
@@ -191,7 +191,7 @@
                 },
                 {
                     "name": "Ch 8: Workflow: Getting Help",
-                    "icon": "🆘",
+                    "icon": "\ud83c\udd98",
                     "lessons": [
                         {
                             "id": 2070,
@@ -212,12 +212,12 @@
         {
             "id": 2,
             "title": "Part 2: Visualize",
-            "icon": "🎨",
+            "icon": "\ud83c\udfa8",
             "is_boss": false,
             "concepts": [
                 {
                     "name": "Ch 9: Layers",
-                    "icon": "🍰",
+                    "icon": "\ud83c\udf70",
                     "lessons": [
                         {
                             "id": 2100,
@@ -241,7 +241,7 @@
                 },
                 {
                     "name": "Ch 10: EDA",
-                    "icon": "🕵️",
+                    "icon": "\ud83d\udd75\ufe0f",
                     "lessons": [
                         {
                             "id": 2110,
@@ -259,7 +259,7 @@
                 },
                 {
                     "name": "Ch 11: Communication",
-                    "icon": "📢",
+                    "icon": "\ud83d\udce2",
                     "lessons": [
                         {
                             "id": 2120,
@@ -280,12 +280,12 @@
         {
             "id": 3,
             "title": "Part 3: Transform",
-            "icon": "🏗️",
+            "icon": "\ud83c\udfd7\ufe0f",
             "is_boss": false,
             "concepts": [
                 {
                     "name": "Ch 12: Logical Vectors",
-                    "icon": "🧠",
+                    "icon": "\ud83e\udde0",
                     "lessons": [
                         {
                             "id": 2200,
@@ -303,7 +303,7 @@
                 },
                 {
                     "name": "Ch 13: Numbers",
-                    "icon": "🔢",
+                    "icon": "\ud83d\udd22",
                     "lessons": [
                         {
                             "id": 2210,
@@ -315,7 +315,7 @@
                 },
                 {
                     "name": "Ch 14: Strings",
-                    "icon": "🧵",
+                    "icon": "\ud83e\uddf5",
                     "lessons": [
                         {
                             "id": 2220,
@@ -327,7 +327,7 @@
                 },
                 {
                     "name": "Ch 15: Regex",
-                    "icon": "🧩",
+                    "icon": "\ud83e\udde9",
                     "lessons": [
                         {
                             "id": 2230,
@@ -339,7 +339,7 @@
                 },
                 {
                     "name": "Ch 16: Factors",
-                    "icon": "📊",
+                    "icon": "\ud83d\udcca",
                     "lessons": [
                         {
                             "id": 2240,
@@ -351,7 +351,7 @@
                 },
                 {
                     "name": "Ch 17: Dates and Times",
-                    "icon": "📅",
+                    "icon": "\ud83d\udcc5",
                     "lessons": [
                         {
                             "id": 2250,
@@ -363,7 +363,7 @@
                 },
                 {
                     "name": "Ch 18: Missing Values",
-                    "icon": "🚫",
+                    "icon": "\ud83d\udeab",
                     "lessons": [
                         {
                             "id": 2260,
@@ -375,7 +375,7 @@
                 },
                 {
                     "name": "Ch 19: Joins",
-                    "icon": "🔗",
+                    "icon": "\ud83d\udd17",
                     "lessons": [
                         {
                             "id": 2270,
@@ -396,12 +396,12 @@
         {
             "id": 4,
             "title": "Part 4: Import",
-            "icon": "🚢",
+            "icon": "\ud83d\udea2",
             "is_boss": false,
             "concepts": [
                 {
                     "name": "Data Sources",
-                    "icon": "🗄️",
+                    "icon": "\ud83d\uddc4\ufe0f",
                     "lessons": [
                         {
                             "id": 2300,
@@ -440,12 +440,12 @@
         {
             "id": 5,
             "title": "Part 5: Program",
-            "icon": "💻",
+            "icon": "\ud83d\udcbb",
             "is_boss": false,
             "concepts": [
                 {
                     "name": "Programming",
-                    "icon": "⚙️",
+                    "icon": "\u2699\ufe0f",
                     "lessons": [
                         {
                             "id": 2400,
@@ -472,12 +472,12 @@
         {
             "id": 6,
             "title": "Part 6: Communicate",
-            "icon": "📢",
+            "icon": "\ud83d\udce2",
             "is_boss": false,
             "concepts": [
                 {
                     "name": "Quarto",
-                    "icon": "📝",
+                    "icon": "\ud83d\udcdd",
                     "lessons": [
                         {
                             "id": 2500,
