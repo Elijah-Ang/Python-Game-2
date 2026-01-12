@@ -5069,12 +5069,12 @@
   },
   "2260": {
     "id": 2260,
-    "title": "Explicit vs Implicit",
+    "title": "Missing Values",
     "chapter_title": "Ch 18: Missing Values",
-    "content": "# 🚫 Missing Values\n\n## Explicit NAs\n\n`NA` represents missing data. Operations on `NA` usually return `NA` (`1 + NA` is `NA`).\n\n## Detecting NAs\n\nUse `is.na(x)`.\n\n```r\nfilter(df, is.na(x))\n```\n\n## Replacing NAs\n\n`tidyr::replace_na()` replaces NAs with a specific value.\n\n---\n\n## 🎯 Your Task\n\nWe have a tibble `df <- tibble(x = c(1, 2, NA))`. \nFilter it to keep only rows where `x` is NOT missing.\n",
-    "starter_code": "df <- tibble(x = c(1, 2, NA))\nfilter(df, ...)\n",
-    "solution_code": "df <- tibble(x = c(1, 2, NA))\nfilter(df, !is.na(x))",
-    "expected_output": "[Data Frame: 1, 2]",
+    "content": "# 🚫 Missing Values\n\n## Two Types of Missing\n\n### Explicit Missing\nYou see `NA` in your data.\n\n### Implicit Missing\nThe entire row is absent from your data!\n\n---\n\n## Handling Explicit NAs\n\n### Detect with `is.na()`\n```r\nx <- c(1, NA, 3)\nis.na(x)  # FALSE TRUE FALSE\n```\n\n### Replace with `coalesce()`\n```r\nx <- c(1, NA, 3)\ncoalesce(x, 0)  # 1, 0, 3\n```\n\n### Fill forward with `fill()`\n```r\ndf %>% fill(column_name)  # LOCF\n```\n\n### Convert value to NA with `na_if()`\n```r\nx <- c(1, 99, 3)  # 99 means missing\nna_if(x, 99)      # 1, NA, 3\n```\n\n---\n\n## Making Implicit Explicit\n\n### `complete()` fills missing combinations\n\n```r\nstocks <- tibble(\n  year = c(2020, 2020, 2021),\n  qtr = c(1, 2, 2),\n  price = c(1.5, 0.9, 1.2)\n)\n\n# Q1 2021 is implicitly missing!\nstocks %>% complete(year, qtr)\n```\n\n---\n\n## 🎯 Your Task\n\nGiven this vector with a missing value, replace the `NA` with `0`:\n\n```r\nx <- c(5, NA, 10, NA, 15)\n```\n\n1. Use `coalesce()` to replace NAs with 0\n\n> **Hint**: `coalesce(vector, replacement_value)`\n",
+    "starter_code": "# Replace NAs with 0\nx <- c(5, NA, 10, NA, 15)\n\ncoalesce(x, ...)\n",
+    "solution_code": "x <- c(5, NA, 10, NA, 15)\ncoalesce(x, 0)",
+    "expected_output": "[Vector: 5, 0, 10, 0, 15]",
     "chapter_id": 18
   },
   "2270": {
