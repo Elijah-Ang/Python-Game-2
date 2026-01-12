@@ -7,7 +7,7 @@ interface Course {
     slug: string;
     title: string;
     description: string;
-    difficulty: string;
+    difficulty?: string;
     chapters_count: number;
 }
 
@@ -54,9 +54,6 @@ export const Dashboard: React.FC = () => {
 
                         <div className="flex justify-between items-start mb-2">
                             <h3 className="text-xl font-bold">{course.title}</h3>
-                            <span className="text-xs px-2 py-1 rounded bg-[rgba(99,102,241,0.2)] text-[var(--accent-secondary)] border border-[rgba(99,102,241,0.3)]">
-                                {course.difficulty}
-                            </span>
                         </div>
 
                         <p className="text-sm text-[var(--text-secondary)] mb-4 h-10 overflow-hidden text-ellipsis">

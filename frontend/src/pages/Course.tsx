@@ -74,14 +74,13 @@ export const Course: React.FC = () => {
                 }}
             >
                 <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[var(--bg-color)] to-transparent">
-                    <span className="inline-block px-3 py-1 bg-[var(--accent-secondary)] text-white text-xs font-bold rounded mb-2">
-                        BEGINNER → ADVANCED
-                    </span>
                     <h1 className="text-5xl font-bold pixel-font text-white drop-shadow-lg">
                         {course.title}
                     </h1>
                     <p className="text-white/80 mt-2 max-w-xl">
-                        Master Python from fundamentals to Machine Learning. {totalLessons} exercises across {course.chapters.length} chapters.
+                        {course.slug === 'python-basics' ? 'Master Python from fundamentals to Machine Learning.' :
+                            course.slug === 'sql-fundamentals' ? 'Master SQL from basics to analytics engineering.' :
+                                'Visualize and transform data with ggplot2 and dplyr.'} {totalLessons} exercises across {course.chapters.length} chapters.
                     </p>
                 </div>
 
@@ -160,14 +159,6 @@ export const Course: React.FC = () => {
                                                                                 {previousLessonsCount + idx + 1}.
                                                                             </span>
                                                                             <span className="font-medium group-hover:text-[var(--accent-secondary)]">{lesson.title}</span>
-                                                                            {lesson.difficulty && (
-                                                                                <span className={`text-xs px-2 py-0.5 rounded ${lesson.difficulty <= 2 ? 'bg-green-500/20 text-green-400' :
-                                                                                    lesson.difficulty <= 3 ? 'bg-yellow-500/20 text-yellow-400' :
-                                                                                        'bg-orange-500/20 text-orange-400'
-                                                                                    }`}>
-                                                                                    {lesson.difficulty <= 2 ? 'Easy' : lesson.difficulty <= 3 ? 'Medium' : 'Hard'}
-                                                                                </span>
-                                                                            )}
                                                                         </div>
 
                                                                         <span className="px-4 py-1 bg-[var(--accent-secondary)] text-white text-sm font-medium rounded opacity-0 group-hover:opacity-100 transition-opacity">

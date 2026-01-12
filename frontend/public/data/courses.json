@@ -4,7 +4,6 @@
     "slug": "python-basics",
     "title": "Python for Data Science",
     "description": "Learn Python from fundamentals to Machine Learning",
-    "difficulty": "beginner",
     "chapters_count": 14,
     "lessons_count": 113
   },
@@ -13,7 +12,6 @@
     "slug": "sql-fundamentals",
     "title": "SQL for Data Science",
     "description": "Master SQL from basics to analytics engineering",
-    "difficulty": "beginner",
     "chapters_count": 15,
     "lessons_count": 156
   },
@@ -22,7 +20,6 @@
     "slug": "r-fundamentals",
     "title": "R for Data Science",
     "description": "Visualize and transform data with ggplot2 and dplyr",
-    "difficulty": "intermediate",
     "chapters_count": 29,
     "lessons_count": 42
   }

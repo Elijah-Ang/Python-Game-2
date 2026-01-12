@@ -5,114 +5,99 @@
     {
       "id": 200,
       "title": "Setup & Mental Model",
-      "icon": "🧠",
+      "icon": "\ud83e\udde0",
       "is_boss": false,
       "concepts": [
         {
           "name": "Database Basics",
-          "icon": "🗄️",
+          "icon": "\ud83d\uddc4\ufe0f",
           "lessons": [
             {
               "id": 1001,
               "title": "What is a Database?",
-              "order": 1,
-              "difficulty": 2
+              "order": 1
             },
             {
               "id": 1002,
               "title": "Tables, Rows, and Columns",
-              "order": 2,
-              "difficulty": 3
+              "order": 2
             },
             {
               "id": 1003,
               "title": "Primary Keys",
-              "order": 3,
-              "difficulty": 4
+              "order": 3
             },
             {
               "id": 1162,
               "title": "Table Structure Quiz",
-              "order": 4,
-              "difficulty": 3
+              "order": 4
             },
             {
               "id": 1163,
               "title": "Data Relationships",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "Relationships",
-          "icon": "🔗",
+          "icon": "\ud83d\udd17",
           "lessons": [
             {
               "id": 1004,
               "title": "Foreign Keys & Relationships",
-              "order": 4,
-              "difficulty": 2
+              "order": 4
             },
             {
               "id": 1005,
               "title": "SQL is Declarative",
-              "order": 5,
-              "difficulty": 3
+              "order": 5
             },
             {
               "id": 1006,
               "title": "Result Sets",
-              "order": 6,
-              "difficulty": 4
+              "order": 6
             },
             {
               "id": 1164,
               "title": "FK Navigation",
-              "order": 7,
-              "difficulty": 3
+              "order": 7
             },
             {
               "id": 1165,
               "title": "Cardinality Check",
-              "order": 8,
-              "difficulty": 4
+              "order": 8
             }
           ]
         },
         {
           "name": "Advanced Concepts",
-          "icon": "🧠",
+          "icon": "\ud83e\udde0",
           "lessons": [
             {
               "id": 1007,
               "title": "NULL Basics",
-              "order": 7,
-              "difficulty": 2
+              "order": 7
             },
             {
               "id": 1008,
               "title": "Schema Organization",
-              "order": 8,
-              "difficulty": 3
+              "order": 8
             },
             {
               "id": 1009,
               "title": "Query Execution Order",
-              "order": 9,
-              "difficulty": 4
+              "order": 9
             },
             {
               "id": 1166,
               "title": "NULL Logic Puzzle",
-              "order": 10,
-              "difficulty": 3
+              "order": 10
             },
             {
               "id": 1167,
               "title": "Execution Order",
-              "order": 11,
-              "difficulty": 4
+              "order": 11
             }
           ]
         }
@@ -121,150 +106,130 @@
     {
       "id": 201,
       "title": "SELECT Basics",
-      "icon": "📋",
+      "icon": "\ud83d\udccb",
       "is_boss": false,
       "concepts": [
         {
           "name": "SELECT Fundamentals",
-          "icon": "📋",
+          "icon": "\ud83d\udccb",
           "lessons": [
             {
               "id": 1010,
               "title": "Your First SELECT",
-              "order": 1,
-              "difficulty": 2
+              "order": 1
             },
             {
               "id": 1011,
               "title": "Selecting Multiple Columns",
-              "order": 2,
-              "difficulty": 3
+              "order": 2
             },
             {
               "id": 1012,
               "title": "SELECT All Columns",
-              "order": 3,
-              "difficulty": 4
+              "order": 3
             },
             {
               "id": 1168,
               "title": "Column Expressions",
-              "order": 4,
-              "difficulty": 3
+              "order": 4
             },
             {
               "id": 1169,
               "title": "Distinct Values",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "Aliases & Limiting",
-          "icon": "🏷️",
+          "icon": "\ud83c\udff7\ufe0f",
           "lessons": [
             {
               "id": 1013,
               "title": "Column Aliases with AS",
-              "order": 4,
-              "difficulty": 2
+              "order": 4
             },
             {
               "id": 1014,
               "title": "Table Aliases",
-              "order": 5,
-              "difficulty": 3
+              "order": 5
             },
             {
               "id": 1015,
               "title": "LIMIT Clause",
-              "order": 6,
-              "difficulty": 4
+              "order": 6
             },
             {
               "id": 1170,
               "title": "Complex Aliases",
-              "order": 7,
-              "difficulty": 3
+              "order": 7
             },
             {
               "id": 1171,
               "title": "Pagination",
-              "order": 8,
-              "difficulty": 4
+              "order": 8
             }
           ]
         },
         {
           "name": "WHERE Clause",
-          "icon": "🔍",
+          "icon": "\ud83d\udd0d",
           "lessons": [
             {
               "id": 1016,
               "title": "WHERE Basics",
-              "order": 7,
-              "difficulty": 2
+              "order": 7
             },
             {
               "id": 1017,
               "title": "Comparison Operators",
-              "order": 8,
-              "difficulty": 3
+              "order": 8
             },
             {
               "id": 1018,
               "title": "IN Operator",
-              "order": 9,
-              "difficulty": 4
+              "order": 9
             },
             {
               "id": 1172,
               "title": "Multiple Conditions",
-              "order": 10,
-              "difficulty": 3
+              "order": 10
             },
             {
               "id": 1173,
               "title": "Negation Patterns",
-              "order": 11,
-              "difficulty": 4
+              "order": 11
             }
           ]
         },
         {
           "name": "Pattern & Range",
-          "icon": "📏",
+          "icon": "\ud83d\udccf",
           "lessons": [
             {
               "id": 1019,
               "title": "BETWEEN Operator",
-              "order": 10,
-              "difficulty": 2
+              "order": 10
             },
             {
               "id": 1020,
               "title": "LIKE Pattern Matching",
-              "order": 11,
-              "difficulty": 3
+              "order": 11
             },
             {
               "id": 1021,
               "title": "ORDER BY Sorting",
-              "order": 12,
-              "difficulty": 4
+              "order": 12
             },
             {
               "id": 1174,
               "title": "Wildcard Mastery",
-              "order": 13,
-              "difficulty": 3
+              "order": 13
             },
             {
               "id": 1175,
               "title": "Range Combinations",
-              "order": 14,
-              "difficulty": 4
+              "order": 14
             }
           ]
         }
@@ -273,150 +238,130 @@
     {
       "id": 202,
       "title": "Data Types, NULLs & Calculations",
-      "icon": "🔢",
+      "icon": "\ud83d\udd22",
       "is_boss": false,
       "concepts": [
         {
           "name": "Numeric Types",
-          "icon": "��",
+          "icon": "\ufffd\ufffd",
           "lessons": [
             {
               "id": 1022,
               "title": "Integer Types",
-              "order": 1,
-              "difficulty": 2
+              "order": 1
             },
             {
               "id": 1023,
               "title": "Numeric and Decimal Types",
-              "order": 2,
-              "difficulty": 3
+              "order": 2
             },
             {
               "id": 1176,
               "title": "Precision Math",
-              "order": 3,
-              "difficulty": 3
+              "order": 3
             },
             {
               "id": 1177,
               "title": "Rounding Methods",
-              "order": 4,
-              "difficulty": 4
+              "order": 4
             },
             {
               "id": 1178,
               "title": "Integer Division",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "Text & Date Types",
-          "icon": "📝",
+          "icon": "\ud83d\udcdd",
           "lessons": [
             {
               "id": 1024,
               "title": "Text Types",
-              "order": 3,
-              "difficulty": 2
+              "order": 3
             },
             {
               "id": 1025,
               "title": "Date and Timestamp Types",
-              "order": 4,
-              "difficulty": 3
+              "order": 4
             },
             {
               "id": 1026,
               "title": "Boolean Type",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             },
             {
               "id": 1179,
               "title": "String Functions",
-              "order": 6,
-              "difficulty": 3
+              "order": 6
             },
             {
               "id": 1180,
               "title": "Date Formatting",
-              "order": 7,
-              "difficulty": 4
+              "order": 7
             }
           ]
         },
         {
           "name": "NULL Handling",
-          "icon": "❓",
+          "icon": "\u2753",
           "lessons": [
             {
               "id": 1027,
               "title": "Understanding NULL",
-              "order": 6,
-              "difficulty": 2
+              "order": 6
             },
             {
               "id": 1028,
               "title": "IS NULL and IS NOT NULL",
-              "order": 7,
-              "difficulty": 2
+              "order": 7
             },
             {
               "id": 1029,
               "title": "Three-Valued Logic",
-              "order": 8,
-              "difficulty": 3
+              "order": 8
             },
             {
               "id": 1030,
               "title": "COALESCE Function",
-              "order": 9,
-              "difficulty": 4
+              "order": 9
             },
             {
               "id": 1181,
               "title": "NULL Coalescing Chain",
-              "order": 10,
-              "difficulty": 4
+              "order": 10
             }
           ]
         },
         {
           "name": "Type Conversion",
-          "icon": "🔄",
+          "icon": "\ud83d\udd04",
           "lessons": [
             {
               "id": 1031,
               "title": "NULLIF Function",
-              "order": 10,
-              "difficulty": 2
+              "order": 10
             },
             {
               "id": 1032,
               "title": "CAST and Type Conversion",
-              "order": 11,
-              "difficulty": 3
+              "order": 11
             },
             {
               "id": 1033,
               "title": "Safe Division with NULLIF",
-              "order": 12,
-              "difficulty": 4
+              "order": 12
             },
             {
               "id": 1182,
               "title": "Type Casting",
-              "order": 13,
-              "difficulty": 3
+              "order": 13
             },
             {
               "id": 1183,
               "title": "Safe Conversions",
-              "order": 14,
-              "difficulty": 4
+              "order": 14
             }
           ]
         }
@@ -425,114 +370,99 @@
     {
       "id": 203,
       "title": "Aggregations & Grouping",
-      "icon": "📊",
+      "icon": "\ud83d\udcca",
       "is_boss": false,
       "concepts": [
         {
           "name": "Basic Aggregates",
-          "icon": "📊",
+          "icon": "\ud83d\udcca",
           "lessons": [
             {
               "id": 1034,
               "title": "COUNT Function",
-              "order": 1,
-              "difficulty": 2
+              "order": 1
             },
             {
               "id": 1035,
               "title": "COUNT DISTINCT",
-              "order": 2,
-              "difficulty": 3
+              "order": 2
             },
             {
               "id": 1036,
               "title": "SUM Function",
-              "order": 3,
-              "difficulty": 4
+              "order": 3
             },
             {
               "id": 1184,
               "title": "Conditional COUNT",
-              "order": 4,
-              "difficulty": 3
+              "order": 4
             },
             {
               "id": 1185,
               "title": "NULL-aware SUM",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "Statistical Functions",
-          "icon": "📈",
+          "icon": "\ud83d\udcc8",
           "lessons": [
             {
               "id": 1037,
               "title": "AVG Function",
-              "order": 4,
-              "difficulty": 2
+              "order": 4
             },
             {
               "id": 1038,
               "title": "MIN and MAX",
-              "order": 5,
-              "difficulty": 3
+              "order": 5
             },
             {
               "id": 1186,
               "title": "Range Calculation",
-              "order": 6,
-              "difficulty": 3
+              "order": 6
             },
             {
               "id": 1187,
               "title": "Percentage Share",
-              "order": 7,
-              "difficulty": 4
+              "order": 7
             },
             {
               "id": 1188,
               "title": "Running Average",
-              "order": 8,
-              "difficulty": 4
+              "order": 8
             }
           ]
         },
         {
           "name": "GROUP BY",
-          "icon": "📋",
+          "icon": "\ud83d\udccb",
           "lessons": [
             {
               "id": 1039,
               "title": "GROUP BY Basics",
-              "order": 6,
-              "difficulty": 2
+              "order": 6
             },
             {
               "id": 1040,
               "title": "GROUP BY Multiple Columns",
-              "order": 7,
-              "difficulty": 2
+              "order": 7
             },
             {
               "id": 1041,
               "title": "HAVING Clause",
-              "order": 8,
-              "difficulty": 3
+              "order": 8
             },
             {
               "id": 1042,
               "title": "WHERE vs HAVING",
-              "order": 9,
-              "difficulty": 4
+              "order": 9
             },
             {
               "id": 1189,
               "title": "Multi-level Grouping",
-              "order": 10,
-              "difficulty": 4
+              "order": 10
             }
           ]
         }
@@ -541,114 +471,99 @@
     {
       "id": 204,
       "title": "Joins Like a Pro",
-      "icon": "🔗",
+      "icon": "\ud83d\udd17",
       "is_boss": false,
       "concepts": [
         {
           "name": "Inner Joins",
-          "icon": "🔗",
+          "icon": "\ud83d\udd17",
           "lessons": [
             {
               "id": 1043,
               "title": "Why We Need Joins",
-              "order": 1,
-              "difficulty": 2
+              "order": 1
             },
             {
               "id": 1044,
               "title": "INNER JOIN Basics",
-              "order": 2,
-              "difficulty": 3
+              "order": 2
             },
             {
               "id": 1045,
               "title": "INNER JOIN Multiple Tables",
-              "order": 3,
-              "difficulty": 4
+              "order": 3
             },
             {
               "id": 1190,
               "title": "Three-Table Join",
-              "order": 4,
-              "difficulty": 3
+              "order": 4
             },
             {
               "id": 1191,
               "title": "Self-Referential",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "Outer Joins",
-          "icon": "↔️",
+          "icon": "\u2194\ufe0f",
           "lessons": [
             {
               "id": 1046,
               "title": "LEFT JOIN Basics",
-              "order": 4,
-              "difficulty": 2
+              "order": 4
             },
             {
               "id": 1047,
               "title": "LEFT JOIN for Missing Data",
-              "order": 5,
-              "difficulty": 2
+              "order": 5
             },
             {
               "id": 1048,
               "title": "RIGHT JOIN",
-              "order": 6,
-              "difficulty": 3
+              "order": 6
             },
             {
               "id": 1049,
               "title": "FULL OUTER JOIN",
-              "order": 7,
-              "difficulty": 4
+              "order": 7
             },
             {
               "id": 1192,
               "title": "Anti-Join Pattern",
-              "order": 8,
-              "difficulty": 4
+              "order": 8
             }
           ]
         },
         {
           "name": "Special Joins",
-          "icon": "⭐",
+          "icon": "\u2b50",
           "lessons": [
             {
               "id": 1050,
               "title": "CROSS JOIN",
-              "order": 8,
-              "difficulty": 2
+              "order": 8
             },
             {
               "id": 1051,
               "title": "Join Cardinality",
-              "order": 9,
-              "difficulty": 2
+              "order": 9
             },
             {
               "id": 1052,
               "title": "Duplicate Rows in Joins",
-              "order": 10,
-              "difficulty": 3
+              "order": 10
             },
             {
               "id": 1053,
               "title": "Self Joins",
-              "order": 11,
-              "difficulty": 3
+              "order": 11
             },
             {
               "id": 1054,
               "title": "Join Best Practices",
-              "order": 12,
-              "difficulty": 4
+              "order": 12
             }
           ]
         }
@@ -657,12 +572,12 @@
     {
       "id": 250,
       "title": "Query Architect Boss",
-      "icon": "🏛️",
+      "icon": "\ud83c\udfdb\ufe0f",
       "is_boss": true,
       "lessons": [
         {
           "id": 1055,
-          "title": "🏛️ Query Architect Challenge",
+          "title": "\ud83c\udfdb\ufe0f Query Architect Challenge",
           "order": 1
         }
       ]
@@ -670,150 +585,130 @@
     {
       "id": 205,
       "title": "Subqueries & Set Operations",
-      "icon": "🎯",
+      "icon": "\ud83c\udfaf",
       "is_boss": false,
       "concepts": [
         {
           "name": "WHERE Subqueries",
-          "icon": "🎯",
+          "icon": "\ud83c\udfaf",
           "lessons": [
             {
               "id": 1056,
               "title": "Subquery in WHERE",
-              "order": 1,
-              "difficulty": 2
+              "order": 1
             },
             {
               "id": 1057,
               "title": "IN with Subquery",
-              "order": 2,
-              "difficulty": 3
+              "order": 2
             },
             {
               "id": 1193,
               "title": "Correlated WHERE",
-              "order": 3,
-              "difficulty": 3
+              "order": 3
             },
             {
               "id": 1194,
               "title": "Multi-value IN",
-              "order": 4,
-              "difficulty": 4
+              "order": 4
             },
             {
               "id": 1195,
               "title": "Scalar Comparison",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "EXISTS Operator",
-          "icon": "✓",
+          "icon": "\u2713",
           "lessons": [
             {
               "id": 1058,
               "title": "EXISTS Operator",
-              "order": 3,
-              "difficulty": 2
+              "order": 3
             },
             {
               "id": 1059,
               "title": "NOT EXISTS",
-              "order": 4,
-              "difficulty": 3
+              "order": 4
             },
             {
               "id": 1196,
               "title": "Double EXISTS",
-              "order": 5,
-              "difficulty": 3
+              "order": 5
             },
             {
               "id": 1197,
               "title": "NOT EXISTS Pattern",
-              "order": 6,
-              "difficulty": 4
+              "order": 6
             },
             {
               "id": 1198,
               "title": "Correlated EXISTS",
-              "order": 7,
-              "difficulty": 4
+              "order": 7
             }
           ]
         },
         {
           "name": "Advanced Subqueries",
-          "icon": "🚀",
+          "icon": "\ud83d\ude80",
           "lessons": [
             {
               "id": 1060,
               "title": "Scalar Subqueries",
-              "order": 5,
-              "difficulty": 2
+              "order": 5
             },
             {
               "id": 1061,
               "title": "Correlated Subqueries",
-              "order": 6,
-              "difficulty": 3
+              "order": 6
             },
             {
               "id": 1199,
               "title": "Inline Views",
-              "order": 7,
-              "difficulty": 3
+              "order": 7
             },
             {
               "id": 1200,
               "title": "SELECT Subqueries",
-              "order": 8,
-              "difficulty": 4
+              "order": 8
             },
             {
               "id": 1201,
               "title": "Recursive Logic",
-              "order": 9,
-              "difficulty": 4
+              "order": 9
             }
           ]
         },
         {
           "name": "Set Operations",
-          "icon": "⋃",
+          "icon": "\u22c3",
           "lessons": [
             {
               "id": 1062,
               "title": "UNION Operator",
-              "order": 7,
-              "difficulty": 2
+              "order": 7
             },
             {
               "id": 1063,
               "title": "UNION ALL",
-              "order": 8,
-              "difficulty": 3
+              "order": 8
             },
             {
               "id": 1064,
               "title": "INTERSECT and EXCEPT",
-              "order": 9,
-              "difficulty": 4
+              "order": 9
             },
             {
               "id": 1202,
               "title": "Union Dedup",
-              "order": 10,
-              "difficulty": 3
+              "order": 10
             },
             {
               "id": 1203,
               "title": "Intersection Find",
-              "order": 11,
-              "difficulty": 4
+              "order": 11
             }
           ]
         }
@@ -822,114 +717,99 @@
     {
       "id": 206,
       "title": "CTEs (WITH Clause)",
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "is_boss": false,
       "concepts": [
         {
           "name": "CTE Basics",
-          "icon": "📦",
+          "icon": "\ud83d\udce6",
           "lessons": [
             {
               "id": 1065,
               "title": "Introduction to CTEs",
-              "order": 1,
-              "difficulty": 2
+              "order": 1
             },
             {
               "id": 1066,
               "title": "Basic CTE Syntax",
-              "order": 2,
-              "difficulty": 3
+              "order": 2
             },
             {
               "id": 1067,
               "title": "CTEs vs Subqueries",
-              "order": 3,
-              "difficulty": 4
+              "order": 3
             },
             {
               "id": 1204,
               "title": "Query Decomposition",
-              "order": 4,
-              "difficulty": 3
+              "order": 4
             },
             {
               "id": 1205,
               "title": "Readable CTEs",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "Multiple CTEs",
-          "icon": "📚",
+          "icon": "\ud83d\udcda",
           "lessons": [
             {
               "id": 1068,
               "title": "Multiple CTEs",
-              "order": 4,
-              "difficulty": 2
+              "order": 4
             },
             {
               "id": 1069,
               "title": "Chained CTEs",
-              "order": 5,
-              "difficulty": 3
+              "order": 5
             },
             {
               "id": 1206,
               "title": "CTE Pipeline",
-              "order": 6,
-              "difficulty": 3
+              "order": 6
             },
             {
               "id": 1207,
               "title": "Parallel CTEs",
-              "order": 7,
-              "difficulty": 4
+              "order": 7
             },
             {
               "id": 1208,
               "title": "CTE Reuse",
-              "order": 8,
-              "difficulty": 4
+              "order": 8
             }
           ]
         },
         {
           "name": "CTE Best Practices",
-          "icon": "✨",
+          "icon": "\u2728",
           "lessons": [
             {
               "id": 1070,
               "title": "CTEs for Readability",
-              "order": 6,
-              "difficulty": 2
+              "order": 6
             },
             {
               "id": 1071,
               "title": "Reusing CTEs",
-              "order": 7,
-              "difficulty": 2
+              "order": 7
             },
             {
               "id": 1072,
               "title": "Recursive CTEs Intro",
-              "order": 8,
-              "difficulty": 3
+              "order": 8
             },
             {
               "id": 1073,
               "title": "CTE Best Practices",
-              "order": 9,
-              "difficulty": 4
+              "order": 9
             },
             {
               "id": 1209,
               "title": "Debug with CTEs",
-              "order": 10,
-              "difficulty": 4
+              "order": 10
             }
           ]
         }
@@ -938,150 +818,130 @@
     {
       "id": 207,
       "title": "Window Functions",
-      "icon": "🪟",
+      "icon": "\ud83e\ude9f",
       "is_boss": false,
       "concepts": [
         {
           "name": "Window Basics",
-          "icon": "🪟",
+          "icon": "\ud83e\ude9f",
           "lessons": [
             {
               "id": 1074,
               "title": "What are Window Functions?",
-              "order": 1,
-              "difficulty": 2
+              "order": 1
             },
             {
               "id": 1075,
               "title": "OVER Clause Basics",
-              "order": 2,
-              "difficulty": 2
+              "order": 2
             },
             {
               "id": 1076,
               "title": "PARTITION BY",
-              "order": 3,
-              "difficulty": 3
+              "order": 3
             },
             {
               "id": 1077,
               "title": "ORDER BY in Windows",
-              "order": 4,
-              "difficulty": 4
+              "order": 4
             },
             {
               "id": 1210,
               "title": "Window vs GROUP BY",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "Ranking Functions",
-          "icon": "🏆",
+          "icon": "\ud83c\udfc6",
           "lessons": [
             {
               "id": 1078,
               "title": "ROW_NUMBER",
-              "order": 5,
-              "difficulty": 2
+              "order": 5
             },
             {
               "id": 1079,
               "title": "RANK and DENSE_RANK",
-              "order": 6,
-              "difficulty": 3
+              "order": 6
             },
             {
               "id": 1211,
               "title": "Top N per Group",
-              "order": 7,
-              "difficulty": 3
+              "order": 7
             },
             {
               "id": 1212,
               "title": "Percentile Rank",
-              "order": 8,
-              "difficulty": 4
+              "order": 8
             },
             {
               "id": 1213,
               "title": "Dense vs Regular",
-              "order": 9,
-              "difficulty": 4
+              "order": 9
             }
           ]
         },
         {
           "name": "Running Calculations",
-          "icon": "📊",
+          "icon": "\ud83d\udcca",
           "lessons": [
             {
               "id": 1080,
               "title": "Running Totals with SUM",
-              "order": 7,
-              "difficulty": 2
+              "order": 7
             },
             {
               "id": 1081,
               "title": "Moving Averages",
-              "order": 8,
-              "difficulty": 3
+              "order": 8
             },
             {
               "id": 1214,
               "title": "Cumulative Sum",
-              "order": 9,
-              "difficulty": 3
+              "order": 9
             },
             {
               "id": 1215,
               "title": "Rolling Window",
-              "order": 10,
-              "difficulty": 4
+              "order": 10
             },
             {
               "id": 1216,
               "title": "YTD Calculations",
-              "order": 11,
-              "difficulty": 4
+              "order": 11
             }
           ]
         },
         {
           "name": "Navigation Functions",
-          "icon": "🧭",
+          "icon": "\ud83e\udded",
           "lessons": [
             {
               "id": 1082,
               "title": "LAG Function",
-              "order": 9,
-              "difficulty": 2
+              "order": 9
             },
             {
               "id": 1083,
               "title": "LEAD Function",
-              "order": 10,
-              "difficulty": 2
+              "order": 10
             },
             {
               "id": 1084,
               "title": "FIRST_VALUE and LAST_VALUE",
-              "order": 11,
-              "difficulty": 3
+              "order": 11
             },
             {
               "id": 1085,
               "title": "NTILE for Bucketing",
-              "order": 12,
-              "difficulty": 4
+              "order": 12
             },
             {
               "id": 1217,
               "title": "Period Comparison",
-              "order": 13,
-              "difficulty": 4
+              "order": 13
             }
           ]
         }
@@ -1090,150 +950,130 @@
     {
       "id": 208,
       "title": "Time-Series SQL",
-      "icon": "📅",
+      "icon": "\ud83d\udcc5",
       "is_boss": false,
       "concepts": [
         {
           "name": "Date Functions",
-          "icon": "📅",
+          "icon": "\ud83d\udcc5",
           "lessons": [
             {
               "id": 1086,
               "title": "Date Truncation",
-              "order": 1,
-              "difficulty": 2
+              "order": 1
             },
             {
               "id": 1087,
               "title": "DATE_TRUNC Function",
-              "order": 2,
-              "difficulty": 3
+              "order": 2
             },
             {
               "id": 1088,
               "title": "Grouping by Time Periods",
-              "order": 3,
-              "difficulty": 4
+              "order": 3
             },
             {
               "id": 1218,
               "title": "Period Grouping",
-              "order": 4,
-              "difficulty": 3
+              "order": 4
             },
             {
               "id": 1219,
               "title": "Date Range",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "Date Arithmetic",
-          "icon": "➕",
+          "icon": "\u2795",
           "lessons": [
             {
               "id": 1089,
               "title": "Date Arithmetic",
-              "order": 4,
-              "difficulty": 2
+              "order": 4
             },
             {
               "id": 1090,
               "title": "EXTRACT Function",
-              "order": 5,
-              "difficulty": 3
+              "order": 5
             },
             {
               "id": 1220,
               "title": "Age Calculation",
-              "order": 6,
-              "difficulty": 3
+              "order": 6
             },
             {
               "id": 1221,
               "title": "Business Days",
-              "order": 7,
-              "difficulty": 4
+              "order": 7
             },
             {
               "id": 1222,
               "title": "Date Intervals",
-              "order": 8,
-              "difficulty": 4
+              "order": 8
             }
           ]
         },
         {
           "name": "User Analytics",
-          "icon": "👥",
+          "icon": "\ud83d\udc65",
           "lessons": [
             {
               "id": 1091,
               "title": "Cohort Analysis Basics",
-              "order": 6,
-              "difficulty": 2
+              "order": 6
             },
             {
               "id": 1092,
               "title": "Retention Tables",
-              "order": 7,
-              "difficulty": 3
+              "order": 7
             },
             {
               "id": 1093,
               "title": "Session Analysis",
-              "order": 8,
-              "difficulty": 4
+              "order": 8
             },
             {
               "id": 1223,
               "title": "First-Time Users",
-              "order": 9,
-              "difficulty": 3
+              "order": 9
             },
             {
               "id": 1224,
               "title": "Return Visitors",
-              "order": 10,
-              "difficulty": 4
+              "order": 10
             }
           ]
         },
         {
           "name": "Advanced Analytics",
-          "icon": "📈",
+          "icon": "\ud83d\udcc8",
           "lessons": [
             {
               "id": 1094,
               "title": "Conversion Funnels",
-              "order": 9,
-              "difficulty": 2
+              "order": 9
             },
             {
               "id": 1095,
               "title": "Gap Analysis",
-              "order": 10,
-              "difficulty": 2
+              "order": 10
             },
             {
               "id": 1096,
               "title": "Calendar Tables",
-              "order": 11,
-              "difficulty": 3
+              "order": 11
             },
             {
               "id": 1097,
               "title": "Year-over-Year Comparisons",
-              "order": 12,
-              "difficulty": 4
+              "order": 12
             },
             {
               "id": 1225,
               "title": "Funnel Metrics",
-              "order": 13,
-              "difficulty": 4
+              "order": 13
             }
           ]
         }
@@ -1242,12 +1082,12 @@
     {
       "id": 251,
       "title": "Analytics Wizard Boss",
-      "icon": "🧙",
+      "icon": "\ud83e\uddd9",
       "is_boss": true,
       "lessons": [
         {
           "id": 1098,
-          "title": "🧙 Analytics Wizard Challenge",
+          "title": "\ud83e\uddd9 Analytics Wizard Challenge",
           "order": 1
         }
       ]
@@ -1255,150 +1095,130 @@
     {
       "id": 209,
       "title": "Data Cleaning & Metrics",
-      "icon": "🧹",
+      "icon": "\ud83e\uddf9",
       "is_boss": false,
       "concepts": [
         {
           "name": "Duplicates",
-          "icon": "👯",
+          "icon": "\ud83d\udc6f",
           "lessons": [
             {
               "id": 1099,
               "title": "Identifying Duplicates",
-              "order": 1,
-              "difficulty": 2
+              "order": 1
             },
             {
               "id": 1100,
               "title": "Deduplication with ROW_NUMBER",
-              "order": 2,
-              "difficulty": 3
+              "order": 2
             },
             {
               "id": 1101,
               "title": "Keeping First/Last Record",
-              "order": 3,
-              "difficulty": 4
+              "order": 3
             },
             {
               "id": 1226,
               "title": "Fuzzy Duplicates",
-              "order": 4,
-              "difficulty": 3
+              "order": 4
             },
             {
               "id": 1227,
               "title": "Keep Latest",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "Outliers",
-          "icon": "��",
+          "icon": "\ufffd\ufffd",
           "lessons": [
             {
               "id": 1102,
               "title": "Detecting Outliers",
-              "order": 4,
-              "difficulty": 2
+              "order": 4
             },
             {
               "id": 1103,
               "title": "Percentile Calculations",
-              "order": 5,
-              "difficulty": 3
+              "order": 5
             },
             {
               "id": 1104,
               "title": "Handling Outliers",
-              "order": 6,
-              "difficulty": 4
+              "order": 6
             },
             {
               "id": 1228,
               "title": "IQR Method",
-              "order": 7,
-              "difficulty": 3
+              "order": 7
             },
             {
               "id": 1229,
               "title": "Z-Score Filter",
-              "order": 8,
-              "difficulty": 4
+              "order": 8
             }
           ]
         },
         {
           "name": "Metrics",
-          "icon": "📏",
+          "icon": "\ud83d\udccf",
           "lessons": [
             {
               "id": 1105,
               "title": "Metric Definitions Matter",
-              "order": 7,
-              "difficulty": 2
+              "order": 7
             },
             {
               "id": 1106,
               "title": "Active User Definitions",
-              "order": 8,
-              "difficulty": 3
+              "order": 8
             },
             {
               "id": 1107,
               "title": "Avoiding Double Counting",
-              "order": 9,
-              "difficulty": 4
+              "order": 9
             },
             {
               "id": 1230,
               "title": "DAU/MAU Ratio",
-              "order": 10,
-              "difficulty": 3
+              "order": 10
             },
             {
               "id": 1231,
               "title": "Cohort Retention",
-              "order": 11,
-              "difficulty": 4
+              "order": 11
             }
           ]
         },
         {
           "name": "Data Quality",
-          "icon": "✅",
+          "icon": "\u2705",
           "lessons": [
             {
               "id": 1108,
               "title": "Data Quality Checks",
-              "order": 10,
-              "difficulty": 2
+              "order": 10
             },
             {
               "id": 1109,
               "title": "Assertion Queries",
-              "order": 11,
-              "difficulty": 3
+              "order": 11
             },
             {
               "id": 1110,
               "title": "Metric Validation",
-              "order": 12,
-              "difficulty": 4
+              "order": 12
             },
             {
               "id": 1232,
               "title": "Completeness Check",
-              "order": 13,
-              "difficulty": 3
+              "order": 13
             },
             {
               "id": 1233,
               "title": "Consistency Check",
-              "order": 14,
-              "difficulty": 4
+              "order": 14
             }
           ]
         }
@@ -1407,150 +1227,130 @@
     {
       "id": 210,
       "title": "Database Design Essentials",
-      "icon": "🏗️",
+      "icon": "\ud83c\udfd7\ufe0f",
       "is_boss": false,
       "concepts": [
         {
           "name": "Normalization",
-          "icon": "📐",
+          "icon": "\ud83d\udcd0",
           "lessons": [
             {
               "id": 1111,
               "title": "Why Tables Split",
-              "order": 1,
-              "difficulty": 2
+              "order": 1
             },
             {
               "id": 1112,
               "title": "Normalization Basics",
-              "order": 2,
-              "difficulty": 2
+              "order": 2
             },
             {
               "id": 1113,
               "title": "First Normal Form",
-              "order": 3,
-              "difficulty": 3
+              "order": 3
             },
             {
               "id": 1114,
               "title": "Second and Third Normal Form",
-              "order": 4,
-              "difficulty": 4
+              "order": 4
             },
             {
               "id": 1234,
               "title": "Dependency Analysis",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "Data Modeling",
-          "icon": "🏗️",
+          "icon": "\ud83c\udfd7\ufe0f",
           "lessons": [
             {
               "id": 1115,
               "title": "Fact Tables",
-              "order": 5,
-              "difficulty": 2
+              "order": 5
             },
             {
               "id": 1116,
               "title": "Dimension Tables",
-              "order": 6,
-              "difficulty": 3
+              "order": 6
             },
             {
               "id": 1117,
               "title": "Star Schema",
-              "order": 7,
-              "difficulty": 4
+              "order": 7
             },
             {
               "id": 1235,
               "title": "Dimension Building",
-              "order": 8,
-              "difficulty": 3
+              "order": 8
             },
             {
               "id": 1236,
               "title": "Fact Table Design",
-              "order": 9,
-              "difficulty": 4
+              "order": 9
             }
           ]
         },
         {
           "name": "Constraints",
-          "icon": "🔒",
+          "icon": "\ud83d\udd12",
           "lessons": [
             {
               "id": 1118,
               "title": "Primary Key Constraints",
-              "order": 8,
-              "difficulty": 2
+              "order": 8
             },
             {
               "id": 1119,
               "title": "Foreign Key Constraints",
-              "order": 9,
-              "difficulty": 3
+              "order": 9
             },
             {
               "id": 1120,
               "title": "Unique Constraints",
-              "order": 10,
-              "difficulty": 4
+              "order": 10
             },
             {
               "id": 1237,
               "title": "Constraint Testing",
-              "order": 11,
-              "difficulty": 3
+              "order": 11
             },
             {
               "id": 1238,
               "title": "Cascade Behavior",
-              "order": 12,
-              "difficulty": 4
+              "order": 12
             }
           ]
         },
         {
           "name": "Design Patterns",
-          "icon": "⚡",
+          "icon": "\u26a1",
           "lessons": [
             {
               "id": 1121,
               "title": "When to Denormalize",
-              "order": 11,
-              "difficulty": 2
+              "order": 11
             },
             {
               "id": 1122,
               "title": "Analytics Schema Design",
-              "order": 12,
-              "difficulty": 3
+              "order": 12
             },
             {
               "id": 1239,
               "title": "Denormalize Trade-offs",
-              "order": 13,
-              "difficulty": 3
+              "order": 13
             },
             {
               "id": 1240,
               "title": "SCD Implementation",
-              "order": 14,
-              "difficulty": 4
+              "order": 14
             },
             {
               "id": 1241,
               "title": "Audit Columns",
-              "order": 15,
-              "difficulty": 4
+              "order": 15
             }
           ]
         }
@@ -1559,114 +1359,99 @@
     {
       "id": 211,
       "title": "Performance & Query Plans",
-      "icon": "⚡",
+      "icon": "\u26a1",
       "is_boss": false,
       "concepts": [
         {
           "name": "Indexes",
-          "icon": "📇",
+          "icon": "\ud83d\udcc7",
           "lessons": [
             {
               "id": 1123,
               "title": "Why Performance Matters",
-              "order": 1,
-              "difficulty": 2
+              "order": 1
             },
             {
               "id": 1124,
               "title": "Introduction to Indexes",
-              "order": 2,
-              "difficulty": 2
+              "order": 2
             },
             {
               "id": 1125,
               "title": "How Indexes Work",
-              "order": 3,
-              "difficulty": 3
+              "order": 3
             },
             {
               "id": 1126,
               "title": "Index Trade-offs",
-              "order": 4,
-              "difficulty": 4
+              "order": 4
             },
             {
               "id": 1242,
               "title": "Index Selection",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "Query Plans",
-          "icon": "📋",
+          "icon": "\ud83d\udccb",
           "lessons": [
             {
               "id": 1127,
               "title": "Reading EXPLAIN Output",
-              "order": 5,
-              "difficulty": 2
+              "order": 5
             },
             {
               "id": 1128,
               "title": "Sequential vs Index Scan",
-              "order": 6,
-              "difficulty": 3
+              "order": 6
             },
             {
               "id": 1243,
               "title": "Cost Analysis",
-              "order": 7,
-              "difficulty": 3
+              "order": 7
             },
             {
               "id": 1244,
               "title": "Join Order",
-              "order": 8,
-              "difficulty": 4
+              "order": 8
             },
             {
               "id": 1245,
               "title": "Scan Types",
-              "order": 9,
-              "difficulty": 4
+              "order": 9
             }
           ]
         },
         {
           "name": "Optimization",
-          "icon": "⚡",
+          "icon": "\u26a1",
           "lessons": [
             {
               "id": 1129,
               "title": "Filter Early Principle",
-              "order": 7,
-              "difficulty": 2
+              "order": 7
             },
             {
               "id": 1130,
               "title": "Reducing Rows Before Joins",
-              "order": 8,
-              "difficulty": 3
+              "order": 8
             },
             {
               "id": 1131,
               "title": "Avoiding SELECT *",
-              "order": 9,
-              "difficulty": 4
+              "order": 9
             },
             {
               "id": 1246,
               "title": "Query Rewrite",
-              "order": 10,
-              "difficulty": 3
+              "order": 10
             },
             {
               "id": 1247,
               "title": "Sargable Queries",
-              "order": 11,
-              "difficulty": 4
+              "order": 11
             }
           ]
         }
@@ -1675,138 +1460,119 @@
     {
       "id": 212,
       "title": "Mutations & Transactions",
-      "icon": "✏️",
+      "icon": "\u270f\ufe0f",
       "is_boss": false,
       "concepts": [
         {
           "name": "INSERT",
-          "icon": "➕",
+          "icon": "\u2795",
           "lessons": [
             {
               "id": 1132,
               "title": "INSERT Basics",
-              "order": 1,
-              "difficulty": 2
+              "order": 1
             },
             {
               "id": 1133,
               "title": "INSERT Multiple Rows",
-              "order": 2,
-              "difficulty": 3
+              "order": 2
             },
             {
               "id": 1134,
               "title": "INSERT from SELECT",
-              "order": 3,
-              "difficulty": 4
+              "order": 3
             },
             {
               "id": 1248,
               "title": "Upsert Pattern",
-              "order": 4,
-              "difficulty": 3
+              "order": 4
             },
             {
               "id": 1249,
               "title": "Default Values",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "UPDATE",
-          "icon": "✏️",
+          "icon": "\u270f\ufe0f",
           "lessons": [
             {
               "id": 1135,
               "title": "UPDATE Basics",
-              "order": 4,
-              "difficulty": 2
+              "order": 4
             },
             {
               "id": 1136,
               "title": "UPDATE with Conditions",
-              "order": 5,
-              "difficulty": 3
+              "order": 5
             },
             {
               "id": 1137,
               "title": "DELETE Basics",
-              "order": 6,
-              "difficulty": 4
+              "order": 6
             },
             {
               "id": 1250,
               "title": "Conditional Update",
-              "order": 7,
-              "difficulty": 3
+              "order": 7
             },
             {
               "id": 1251,
               "title": "Batch Update",
-              "order": 8,
-              "difficulty": 4
+              "order": 8
             }
           ]
         },
         {
           "name": "DELETE & Transactions",
-          "icon": "🗑️",
+          "icon": "\ud83d\uddd1\ufe0f",
           "lessons": [
             {
               "id": 1138,
               "title": "DELETE with Conditions",
-              "order": 7,
-              "difficulty": 2
+              "order": 7
             },
             {
               "id": 1139,
               "title": "Transaction Basics",
-              "order": 8,
-              "difficulty": 2
+              "order": 8
             },
             {
               "id": 1140,
               "title": "BEGIN, COMMIT, ROLLBACK",
-              "order": 9,
-              "difficulty": 2
+              "order": 9
             },
             {
               "id": 1141,
               "title": "Savepoints",
-              "order": 10,
-              "difficulty": 3
+              "order": 10
             },
             {
               "id": 1142,
               "title": "Isolation Levels Intro",
-              "order": 11,
-              "difficulty": 3
+              "order": 11
             },
             {
               "id": 1143,
               "title": "Safe Update Patterns",
-              "order": 12,
-              "difficulty": 3
+              "order": 12
             },
             {
               "id": 1144,
               "title": "Views Introduction",
-              "order": 13,
-              "difficulty": 4
+              "order": 13
             },
             {
               "id": 1145,
               "title": "Creating Views",
-              "order": 14,
-              "difficulty": 4
+              "order": 14
             },
             {
               "id": 1146,
               "title": "Views vs Tables",
-              "order": 15,
-              "difficulty": 4
+              "order": 15
             }
           ]
         }
@@ -1815,114 +1581,99 @@
     {
       "id": 213,
       "title": "Analytics Engineering",
-      "icon": "⚙️",
+      "icon": "\u2699\ufe0f",
       "is_boss": false,
       "concepts": [
         {
           "name": "Views & Abstractions",
-          "icon": "👁️",
+          "icon": "\ud83d\udc41\ufe0f",
           "lessons": [
             {
               "id": 1252,
               "title": "Regular Views Intro",
-              "order": 1,
-              "difficulty": 1
+              "order": 1
             },
             {
               "id": 1147,
               "title": "Materialized Views",
-              "order": 2,
-              "difficulty": 2
+              "order": 2
             },
             {
               "id": 1253,
               "title": "When to Use Each View Type",
-              "order": 3,
-              "difficulty": 2
+              "order": 3
             },
             {
               "id": 1254,
               "title": "Refreshing Materialized Views",
-              "order": 4,
-              "difficulty": 3
+              "order": 4
             },
             {
               "id": 1255,
               "title": "View Performance Challenge",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "dbt Data Modeling",
-          "icon": "🏗️",
+          "icon": "\ud83c\udfd7\ufe0f",
           "lessons": [
             {
               "id": 1150,
               "title": "Staging Models",
-              "order": 6,
-              "difficulty": 1
+              "order": 6
             },
             {
               "id": 1151,
               "title": "Intermediate Models",
-              "order": 7,
-              "difficulty": 2
+              "order": 7
             },
             {
               "id": 1152,
               "title": "Marts Layer",
-              "order": 8,
-              "difficulty": 2
+              "order": 8
             },
             {
               "id": 1256,
               "title": "Model Dependencies",
-              "order": 9,
-              "difficulty": 3
+              "order": 9
             },
             {
               "id": 1257,
               "title": "Build Analytics Pipeline",
-              "order": 10,
-              "difficulty": 4
+              "order": 10
             }
           ]
         },
         {
           "name": "Style & Conventions",
-          "icon": "📐",
+          "icon": "\ud83d\udcd0",
           "lessons": [
             {
               "id": 1148,
               "title": "Naming Conventions",
-              "order": 11,
-              "difficulty": 1
+              "order": 11
             },
             {
               "id": 1149,
               "title": "SQL Style Guide",
-              "order": 12,
-              "difficulty": 2
+              "order": 12
             },
             {
               "id": 1258,
               "title": "Documenting Your Models",
-              "order": 13,
-              "difficulty": 2
+              "order": 13
             },
             {
               "id": 1259,
               "title": "Testing Data Quality",
-              "order": 14,
-              "difficulty": 3
+              "order": 14
             },
             {
               "id": 1260,
               "title": "Code Review Challenge",
-              "order": 15,
-              "difficulty": 4
+              "order": 15
             }
           ]
         }
@@ -1931,114 +1682,99 @@
     {
       "id": 214,
       "title": "Cloud Warehouse Features",
-      "icon": "☁️",
+      "icon": "\u2601\ufe0f",
       "is_boss": false,
       "concepts": [
         {
           "name": "Cloud Fundamentals",
-          "icon": "🌐",
+          "icon": "\ud83c\udf10",
           "lessons": [
             {
               "id": 1153,
               "title": "Cloud vs Traditional DB",
-              "order": 1,
-              "difficulty": 1
+              "order": 1
             },
             {
               "id": 1261,
               "title": "Compute vs Storage Separation",
-              "order": 2,
-              "difficulty": 2
+              "order": 2
             },
             {
               "id": 1262,
               "title": "Auto-Scaling & Elasticity",
-              "order": 3,
-              "difficulty": 2
+              "order": 3
             },
             {
               "id": 1263,
               "title": "Cloud Warehouse Comparison",
-              "order": 4,
-              "difficulty": 3
+              "order": 4
             },
             {
               "id": 1264,
               "title": "Choose the Right Warehouse",
-              "order": 5,
-              "difficulty": 4
+              "order": 5
             }
           ]
         },
         {
           "name": "Partitioning & Clustering",
-          "icon": "📊",
+          "icon": "\ud83d\udcca",
           "lessons": [
             {
               "id": 1156,
               "title": "Table Partitioning",
-              "order": 6,
-              "difficulty": 1
+              "order": 6
             },
             {
               "id": 1157,
               "title": "Clustering Keys",
-              "order": 7,
-              "difficulty": 2
+              "order": 7
             },
             {
               "id": 1154,
               "title": "QUALIFY Clause",
-              "order": 8,
-              "difficulty": 2
+              "order": 8
             },
             {
               "id": 1155,
               "title": "QUALIFY with ROW_NUMBER",
-              "order": 9,
-              "difficulty": 3
+              "order": 9
             },
             {
               "id": 1265,
               "title": "Partition Design Challenge",
-              "order": 10,
-              "difficulty": 4
+              "order": 10
             }
           ]
         },
         {
           "name": "Cost Optimization",
-          "icon": "💰",
+          "icon": "\ud83d\udcb0",
           "lessons": [
             {
               "id": 1158,
               "title": "Cost-Based Thinking",
-              "order": 11,
-              "difficulty": 1
+              "order": 11
             },
             {
               "id": 1159,
               "title": "Scanning Fewer Columns",
-              "order": 12,
-              "difficulty": 2
+              "order": 12
             },
             {
               "id": 1160,
               "title": "Scanning Fewer Rows",
-              "order": 13,
-              "difficulty": 2
+              "order": 13
             },
             {
               "id": 1161,
               "title": "Query Optimization Tips",
-              "order": 14,
-              "difficulty": 3
+              "order": 14
             },
             {
               "id": 1266,
               "title": "Cost Reduction Challenge",
-              "order": 15,
-              "difficulty": 4
+              "order": 15
             }
           ]
         }
@@ -2047,18 +1783,17 @@
     {
       "id": 13,
       "title": "Final Boss",
-      "icon": "🏆",
+      "icon": "\ud83c\udfc6",
       "is_boss": true,
       "concepts": [
         {
           "name": "The Ultimate Challenge",
-          "icon": "🔥",
+          "icon": "\ud83d\udd25",
           "lessons": [
             {
               "id": 1267,
               "title": "The Data Warehouse Migration",
-              "order": 1,
-              "difficulty": 5
+              "order": 1
             }
           ]
         }
