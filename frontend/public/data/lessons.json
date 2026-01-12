@@ -5039,12 +5039,12 @@
   },
   "2230": {
     "id": 2230,
-    "title": "Pattern Matching",
+    "title": "Regex Basics",
     "chapter_title": "Ch 15: Regex",
-    "content": "# 🧩 Pattern Matching\n\n## Regular Expressions\n\nRegex is a language for describing strings.\n- `^`: Start of string.\n- `$`: End of string.\n- `.`: Any character.\n- `[0-9]`: Any digit.\n\n```r\n# Find models starting with 'a'\nstr_detect(mpg$model, \"^a\")\n```\n\n---\n\n## 🎯 Your Task\n\nFilter `mpg` for models that end with a digit (`[0-9]$`).\n",
-    "starter_code": "filter(mpg, str_detect(model, \"...\"))\n",
-    "solution_code": "filter(mpg, str_detect(model, \"[0-9]$\"))",
-    "expected_output": "[Data Frame: Models ending in number]",
+    "content": "# 🧩 Regular Expressions\n\n## What is Regex?\n\nA concise language for describing **patterns** in strings.\n\n```r\nstr_view(fruit, \"berry\")  # Find all with \"berry\"\n```\n\n---\n\n## Metacharacters\n\n| Symbol | Meaning |\n|--------|---------|\n| `.` | Any single character |\n| `^` | Start of string |\n| `$` | End of string |\n| `\\b` | Word boundary |\n\n---\n\n## Quantifiers\n\n| Symbol | Meaning |\n|--------|---------|\n| `?` | 0 or 1 times (optional) |\n| `+` | 1 or more times |\n| `*` | 0 or more times |\n\n```r\nstr_view(c(\"a\", \"ab\", \"abb\"), \"ab+\")  # matches \"ab\", \"abb\"\n```\n\n---\n\n## Character Classes\n\n- `[aeiou]` - Match any vowel\n- `[0-9]` - Match any digit\n- `[^aeiou]` - Match anything EXCEPT vowels\n\n```r\nstr_view(words, \"[aeiou]x[aeiou]\")  # vowel-x-vowel\n```\n\n---\n\n## Key Functions\n\n- `str_detect(x, pattern)` - Returns TRUE/FALSE\n- `str_count(x, pattern)` - Count matches\n- `str_replace(x, pattern, replacement)` - Replace matches\n\n---\n\n## 🎯 Your Task\n\nUse `str_detect()` to find all words from `stringr::words` that **start with \"y\"**:\n\n1. Use the anchor `^` for start of string\n2. Pattern should be `\"^y\"`\n\n> **Hint**: `str_detect(words, \"^y\")` returns logical vector\n",
+    "starter_code": "# Find words starting with \"y\"\nlibrary(stringr)\n\nwords[str_detect(words, \"...\")]\n",
+    "solution_code": "words[str_detect(words, \"^y\")]",
+    "expected_output": "[Character vector: words starting with y]",
     "chapter_id": 15
   },
   "2240": {

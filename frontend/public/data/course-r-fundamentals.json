@@ -331,7 +331,7 @@
                     "lessons": [
                         {
                             "id": 2230,
-                            "title": "Pattern Matching",
+                            "title": "Regex Basics",
                             "order": 1,
                             "difficulty": 4
                         }
