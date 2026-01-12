@@ -414,7 +414,8 @@ except:
                 <div className="w-1/2 flex flex-col border-r border-[var(--border-color)]">
                     <div className="flex-1 overflow-y-auto p-6">
                         {/* Exercise Number */}
-                        <h1 className="text-2xl font-bold mb-4 pixel-font">
+                        <h1 className={`text-2xl font-bold mb-4 pixel-font ${lesson.id > 9999 ? 'pl-8 border-l-4 border-[var(--accent-secondary)]' : ''}`}>
+                            {lesson.id > 9999 && <span className="text-sm font-normal text-[var(--accent-secondary)] block mb-1">REINFORCER</span>}
                             {String(displayExercise).padStart(2, '0')}. {lesson.title}
                         </h1>
 

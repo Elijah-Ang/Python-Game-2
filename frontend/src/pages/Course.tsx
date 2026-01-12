@@ -152,7 +152,8 @@ export const Course: React.FC = () => {
                                                                     <Link
                                                                         key={lesson.id}
                                                                         to={`/lesson/${lesson.id}`}
-                                                                        className="flex items-center justify-between p-3 rounded hover:bg-[rgba(255,255,255,0.05)] transition-colors group"
+                                                                        className={`flex items-center justify-between p-3 rounded hover:bg-[rgba(255,255,255,0.05)] transition-colors group ${lesson.id > 9999 ? 'ml-12 border-l-2 border-[var(--border-color)] bg-[rgba(255,255,255,0.02)]' : ''
+                                                                            }`}
                                                                     >
                                                                         <div className="flex items-center gap-3">
                                                                             <span className="text-xs text-[var(--text-secondary)] w-8">
@@ -186,7 +187,8 @@ export const Course: React.FC = () => {
                                                     <Link
                                                         key={lesson.id}
                                                         to={`/lesson/${lesson.id}`}
-                                                        className="flex items-center justify-between p-3 rounded hover:bg-[rgba(255,255,255,0.05)] transition-colors group"
+                                                        className={`flex items-center justify-between p-3 rounded hover:bg-[rgba(255,255,255,0.05)] transition-colors group ${lesson.id > 9999 ? 'ml-12 border-l-2 border-[var(--border-color)] bg-[rgba(255,255,255,0.02)]' : ''
+                                                            }`}
                                                     >
                                                         <div className="flex items-center gap-3">
                                                             <span className="text-xs text-[var(--text-secondary)] w-16">
