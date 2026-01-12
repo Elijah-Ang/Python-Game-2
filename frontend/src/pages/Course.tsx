@@ -68,7 +68,7 @@ export const Course: React.FC = () => {
                 style={{
                     backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url(${import.meta.env.BASE_URL}assets/headers/${slug === 'sql-fundamentals' ? 'sql_landscape.png' :
                         slug === 'r-fundamentals' ? 'r_landscape.png' : 'python_landscape.png'
-                        })`,
+                        }?v=3)`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                 }}
