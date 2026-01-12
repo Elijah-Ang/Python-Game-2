@@ -142,13 +142,12 @@
   "15": {
     "id": 15,
     "title": "Accumulating Values",
-    "chapter_title": "Loops",
+    "chapter_title": "Loops (Iteration)",
     "content": "# ➕ Accumulating Values in Loops\n\n## The Accumulator Pattern\n\nOne of the most common loop patterns: start with a value, then update it each iteration.\n\n```python\n# Start with an initial value\ntotal = 0\n\n# Loop and accumulate (sum 0 to 4)\nfor num in range(5):\n    total += num\n\nprint(total)  # 10\n```\n\n## How It Works Step by Step\n\n| Iteration | `num` | `total` before | Action | `total` after |\n| --- | --- | --- | --- | --- |\n| 1 | 0 | 0 | 0 + 0 | 0 |\n| 2 | 1 | 0 | 0 + 1 | 1 |\n| 3 | 2 | 1 | 1 + 2 | 3 |\n| 4 | 3 | 3 | 3 + 3 | 6 |\n| 5 | 4 | 6 | 6 + 4 | 10 |\n\n## Other Accumulator Examples\n\n```python\n# Product (Factorial of 5)\nproduct = 1\nfor num in range(1, 6):\n    product *= num\nprint(product)  # 120 (1*2*3*4*5)\n\n# String building\nsentence = \"\"\nfor char in \"Hello\":\n    sentence += char + \"-\"\nprint(sentence)  # \"H-e-l-l-o-\"\n```\n\n---\n\n## 🎯 Your Task\n\nCalculate the sum of numbers from 10 to 40 (inclusive), stepping by 10 (10, 20, 30, 40).",
     "starter_code": "total = 0\n\n# Loop through 10, 20, 30, 40\n# HINT: range(start, stop, step)\n\n\n# Print the sum\n",
     "solution_code": "total = 0\nfor num in range(10, 41, 10):\n    total += num\nprint(total)",
     "expected_output": "100",
-    "chapter_id": 2,
-    "chapter_title": "Loops (Iteration)"
+    "chapter_id": 2
   },
   "16": {
     "id": 16,
@@ -3766,11 +3765,9 @@
   "1177": {
     "id": 1177,
     "title": "Rounding Methods",
-    "content": "# 📚 Rounding Methods: Master SQL Techniques\n\n## Why This Matters\n\nUnderstanding this concept is essential for effective data analysis and database management. This skill is used daily by data professionals.\n\n## Core Concept\n\nThis technique allows you to handle complex data scenarios efficiently:\n- Improve query performance\n- Write cleaner, more maintainable code\n- Solve real-world data problems\n\n## Basic Pattern\n\n```sql\n-- Example query demonstrating this concept\nSELECT \n    column1,\n    column2,\n    aggregate_function(column3) as result\nFROM table_name\nWHERE condition\nGROUP BY column1, column2;\n```\n\n## Key Syntax Elements\n\n| Element | Purpose |\n|---------|---------|\n| SELECT | Choose columns |\n| FROM | Specify table |\n| WHERE | Filter rows |\n| GROUP BY | Aggregate by |\n| ORDER BY | Sort results |\n\n## Real-World Example\n\n```sql\nSELECT \n    department,\n    COUNT(*) as employee_count,\n    AVG(salary) as avg_salary\nFROM employees\nWHERE status = 'active'\nGROUP BY department\nHAVING COUNT(*) > 5\nORDER BY avg_salary DESC;\n```\n\n## Common Pitfalls\n\n1. Forgetting GROUP BY with aggregates\n2. Using WHERE instead of HAVING for aggregate filters\n3. Not handling NULL values\n\n---\n\n## 🎯 Your Task\n\nApply this technique to solve a real data analysis problem.",
-    "starter_code": "SELECT 123.456 as original,\n       ROUND(123.456, 2) as rounded,\n       FLOOR(123.456) as floored,\n       CEILING(123.456) as ceiled;",
-    "chapter_title": "Data Types, NULLs & Calculations",
     "content": "# 🔵 Rounding Methods: ROUND, CEIL, FLOOR\n\n## Choosing Your Direction\n\nSometimes you need to control *how* a number is rounded.\n\n## The Three Main Functions\n\n**1. ROUND(value, decimals)**\nStandard rounding (0-4 down, 5-9 up).\n```sql\nROUND(10.5)  -> 11\nROUND(10.4)  -> 10\nROUND(10.555, 2) -> 10.56\n```\n\n**2. CEIL(value) / CEILING(value)**\nAlways rounds **UP** to nearest integer.\n```sql\nCEIL(10.1) -> 11\nCEIL(-10.1) -> -10\n```\n\n**3. FLOOR(value)**\nAlways rounds **DOWN** to nearest integer.\n```sql\nFLOOR(10.9) -> 10\nFLOOR(-10.1) -> -11\n```\n\n## Real-World Use Cases\n\n- **Pricing**: `CEIL` to ensure coverage (e.g. \"3.1 hours\" billed as 4).\n- **Pagination**: `CEIL(total_items / items_per_page)` = total pages.\n- **Discounts**: `FLOOR` to keep prices clean logic.\n\n---\n\n## 🎯 Your Task\n\nCalculate shipping boxes needed. Each box holds 10 items. Even 1 extra item needs a full box!",
     "starter_code": "SELECT \n    order_id,\n    items_ordered,\n    -- Calculate boxes needed (capacity 10)\n    items_ordered / 10.0 as raw_ratio,\n    -- Use the right function here:\n    items_ordered as boxes_needed\nFROM orders;",
+    "chapter_title": "Data Types, NULLs & Calculations",
     "solution_code": "SELECT order_id, CEIL(items_ordered / 10.0) as boxes_needed FROM orders;",
     "expected_output": "1001|25|3\n1002|10|1"
   },
@@ -3877,118 +3874,6 @@
     "starter_code": "SELECT \n    u.username,\n    s.session_start,\n    p.page_url\nFROM users u\nJOIN sessions s ON u.id = s.user_id\n-- Add the third join to 'pageviews'\nJOIN pageviews p ON s.id = p.session_id\nORDER BY u.username;",
     "solution_code": "SELECT u.username, s.session_start, p.page_url FROM users u JOIN sessions s ON u.id = s.user_id JOIN pageviews p ON s.id = p.session_id;",
     "expected_output": "alice|2023-01-01|/home\nbob|2023-01-02|/pricing"
-  },
-  "1191": {
-    "title": "Self-Referential",
-    "chapter_title": "Joins",
-    "content": "# 🪞 Self-Referential Joins: Hierarchies\n\n## The Problem\n\nAn `employees` table has a `manager_id` column. The manager is *also* an employee in the *same* table.\nHow do we get the manager's name?\n\n## The Solution: Alias the Table\n\nTreat the table as two separate copies:\n\n```sql\nSELECT \n    e.name as employee,\n    m.name as manager\nFROM employees e       -- Copy 1: acts as Employee\nLEFT JOIN employees m  -- Copy 2: acts as Manager\n  ON e.manager_id = m.id;\n```\n\n## Why LEFT JOIN?\n\nThe CEO has no manager (`NULL`). An INNER JOIN would hide the CEO!\n\n---\n\n## 🎯 Your Task\n\nList all categories and their parent category names.",
-    "starter_code": "SELECT \n    c.name as category,\n    p.name as parent_category\nFROM categories c\n-- Join categories to itself (p)\nLEFT JOIN categories p ON c.parent_id = p.id;",
-    "solution_code": "SELECT c.name, p.name FROM categories c LEFT JOIN categories p ON c.parent_id = p.id;",
-    "expected_output": "Laptops|Electronics\nElectronics|NULL"
-  },
-  "1192": {
-    "title": "Anti-Join Pattern",
-    "chapter_title": "Joins",
-    "content": "# 🚫 Anti-Joins: Finding Non-Matches\n\n## The Goal\n\nFind rows in Table A that do **NOT** have a match in Table B.\n- Customers who *never* ordered.\n- Products that *haven't* sold.\n\n## The Pattern: LEFT JOIN + IS NULL\n\n```sql\nSELECT c.name\nFROM customers c\nLEFT JOIN orders o ON c.id = o.customer_id\nWHERE o.id IS NULL;\n```\n\n## How It Works\n\n1. `LEFT JOIN` keeps ALL customers.\n2. If no order exists, `o.id` is `NULL`.\n3. `WHERE ... IS NULL` keeps *only* those rows.\n\n## Alternative: NOT EXISTS\n\n```sql\nSELECT name \nFROM customers c\nWHERE NOT EXISTS (\n    SELECT 1 FROM orders WHERE customer_id = c.id\n);\n```\n\n---\n\n## 🎯 Your Task\n\nFind users who have signed up but NOT completed their profile.",
-    "starter_code": "SELECT \n    u.username\nFROM users u\nLEFT JOIN profiles p ON u.id = p.user_id\n-- Filter for missing profiles\nWHERE p.id IS NULL;",
-    "solution_code": "SELECT u.username FROM users u LEFT JOIN profiles p ON u.id = p.user_id WHERE p.id IS NULL;",
-    "expected_output": "new_user_123\nghost_user"
-  },
-  "1193": {
-    "title": "Correlated WHERE",
-    "chapter_title": "Subqueries & Set Operations",
-    "content": "# 🔗 Correlated Subqueries: The Inner Loop\n\n## What Makes it Correlated?\n\nA standard subquery runs *once* total.\nA **correlated** subquery runs *once for every row* of the outer query.\n\n```sql\nSELECT product_name, price\nFROM products p\nWHERE price > (\n    -- Calculates avg for THIS product's category\n    SELECT AVG(price) \n    FROM products \n    WHERE category_id = p.category_id\n);\n```\n\n## Key Difference\n\nIt references `p.category_id` from the *outer* query. It can't run independently.\n\n## Performance Warning\n\nIf you have 1,000,000 products, the subquery runs 1,000,000 times! Use Window Functions (`AVG() OVER...`) instead for large datasets.\n\n---\n\n## 🎯 Your Task\n\nFind employees earning more than the average of their *specific* department.",
-    "starter_code": "SELECT name, salary, dept_id\nFROM employees e\nWHERE salary > (\n    SELECT AVG(salary)\n    FROM employees\n    WHERE dept_id = e.dept_id\n);",
-    "solution_code": "SELECT name, salary, dept_id FROM employees e WHERE salary > (SELECT AVG(salary) FROM employees WHERE dept_id = e.dept_id);",
-    "expected_output": "Alice|90000|Eng\nBob|85000|Sales"
-  },
-  "1194": {
-    "title": "Multi-value IN",
-    "chapter_title": "Subqueries & Set Operations",
-    "content": "# 📋 Multi-Value IN: Matching Lists\n\n## Basic Usage\n\n```sql\nSELECT * FROM users WHERE status IN ('active', 'pending');\n```\n\n## Subquery Usage\n\n```sql\nSELECT * FROM products \nWHERE id IN (\n    SELECT product_id FROM top_selling_items\n);\n```\n\n## ⚠️ The NULL Danger\n\nIf the list contains `NULL`, `NOT IN` returns... nothing! \n`1 NOT IN (2, NULL)` -> `Unknown`.\nAlways ensure your subquery doesn't return NULLs if using `NOT IN`.\n\n---\n\n## 🎯 Your Task\n\nFind orders placed by users located in 'NY' or 'CA'.",
-    "starter_code": "SELECT order_id, amount\nFROM orders\nWHERE user_id IN (\n    SELECT id \n    FROM users \n    WHERE state IN ('NY', 'CA')\n);",
-    "solution_code": "SELECT order_id, amount FROM orders WHERE user_id IN (SELECT id FROM users WHERE state IN ('NY', 'CA'));",
-    "expected_output": "101|500\n102|120"
-  },
-  "1195": {
-    "title": "Scalar Comparison",
-    "chapter_title": "Subqueries & Set Operations",
-    "content": "# ⚖️ Scalar Subqueries: Comparing to One Value\n\n## Concept\n\nA subquery that returns EXACTLY one cell (1 row, 1 column) can be treated like a variable.\n\n```sql\nSELECT * \nFROM sales \nWHERE amount > (SELECT AVG(amount) FROM sales);\n```\n\nHere, `(SELECT AVG...)` runs once, gets a number (e.g. 500), and the query becomes `WHERE amount > 500`.\n\n## Rules\n\n1. Must return 1 column.\n2. Must return max 1 row (0 is NULL, >1 is Error).\n\n---\n\n## 🎯 Your Task\n\nFind the most expensive item (without using ORDER BY LIMIT).",
-    "starter_code": "SELECT name, price\nFROM products\nWHERE price = (\n    SELECT MAX(price) FROM products\n);",
-    "solution_code": "SELECT name, price FROM products WHERE price = (SELECT MAX(price) FROM products);",
-    "expected_output": "Flagship Phone|1200"
-  },
-  "1196": {
-    "title": "Double EXISTS",
-    "chapter_title": "Subqueries & Set Operations",
-    "content": "# 🔗 Double EXISTS: Complex Logic\n\n## The Scenario\n\nFind users who have performed Action A **AND** Action B.\n\n```sql\nSELECT * FROM users u\nWHERE EXISTS (\n    SELECT 1 FROM logs WHERE user_id = u.id AND action = 'Login'\n)\nAND EXISTS (\n    SELECT 1 FROM logs WHERE user_id = u.id AND action = 'Purchase'\n);\n```\n\n## Why not JOIN?\n\nIf a user logged in 50 times and bought 10 items, `JOIN` creates 500 rows! `EXISTS` just checks \"Is it there?\" and moves on.\n\n---\n\n## 🎯 Your Task\n\nFind students enrolled in both Math AND Science.",
-    "starter_code": "SELECT name \nFROM students s\nWHERE EXISTS (\n    SELECT 1 FROM enrollments WHERE student_id = s.id AND course = 'Math'\n)\nAND EXISTS (\n    SELECT 1 FROM enrollments WHERE student_id = s.id AND course = 'Science'\n);",
-    "solution_code": "SELECT name FROM students s WHERE EXISTS (SELECT 1 FROM enrollments WHERE student_id = s.id AND course = 'Math') AND EXISTS (SELECT 1 FROM enrollments WHERE student_id = s.id AND course = 'Science');",
-    "expected_output": "Hermione\nLisa"
-  },
-  "1197": {
-    "title": "NOT EXISTS Pattern",
-    "chapter_title": "Subqueries & Set Operations",
-    "content": "# 🚫 NOT EXISTS: The Exclusion Filter\n\n## Use Case\n\nFind records with NO corresponding entry in another table.\n- Blogs without comments\n- Projects without tasks\n\n```sql\nSELECT * \nFROM projects p\nWHERE NOT EXISTS (\n    SELECT 1 FROM tasks t WHERE t.project_id = p.id\n);\n```\n\n## vs. NOT IN\n\n`NOT EXISTS` is generally safer (handles NULLs correctly) and often faster on modern databases.\n\n---\n\n## 🎯 Your Task\n\nFind customers who have NEVER placed an order.",
-    "starter_code": "SELECT name \nFROM customers c\nWHERE NOT EXISTS (\n    SELECT 1 FROM orders WHERE customer_id = c.id\n);",
-    "solution_code": "SELECT name FROM customers c WHERE NOT EXISTS (SELECT 1 FROM orders WHERE customer_id = c.id);",
-    "expected_output": "Newbie Ned"
-  },
-  "1198": {
-    "title": "Correlated EXISTS",
-    "chapter_title": "Subqueries & Set Operations",
-    "content": "# 🔗 Correlated EXISTS: Conditional Presence\n\n## Concept\n\nCheck for existence where the condition depends on the row.\n\n```sql\n-- Find categories that have at least one expensive product (> $1000)\nSELECT name FROM categories c\nWHERE EXISTS (\n    SELECT 1 \n    FROM products p \n    WHERE p.category_id = c.id \n      AND p.price > 1000\n);\n```\n\nThis doesn't return the products, just the *Categories* that meet the criteria.\n\n---\n\n## 🎯 Your Task\n\nFind departments that have at least one employee earning over 100k.",
-    "starter_code": "SELECT dept_name\nFROM departments d\nWHERE EXISTS (\n    SELECT 1 \n    FROM employees e\n    WHERE e.dept_id = d.id \n      AND e.salary > 100000\n);",
-    "solution_code": "SELECT dept_name FROM departments d WHERE EXISTS (SELECT 1 FROM employees e WHERE e.dept_id = d.id AND e.salary > 100000);",
-    "expected_output": "Engineering\nExecutive"
-  },
-  "1199": {
-    "title": "Inline Views",
-    "chapter_title": "Subqueries & Set Operations",
-    "content": "# 📦 Inline Views: Querying a Query\n\n## The FROM Clause\n\nYou can select FROM another SELECT statement. This is an \"Inline View\" or \"Derived Table\".\n\n```sql\nSELECT avg_sales\nFROM (\n    SELECT region, AVG(sales) as avg_sales\n    FROM daily_sales\n    GROUP BY region\n) as regional_stats\nWHERE avg_sales > 1000;\n```\n\n## Alias Requirement\n\nMost DBs (Postgres, MySQL, SQL Server) REQUIRE an alias `AS name` for the subquery.\n\n---\n\n## 🎯 Your Task\n\nCalculate the average of the *daily* sums.",
-    "starter_code": "SELECT AVG(daily_total)\nFROM (\n    SELECT date, SUM(amount) as daily_total\n    FROM orders\n    GROUP BY date\n) as daily_stats;",
-    "solution_code": "SELECT AVG(daily_total) FROM (SELECT date, SUM(amount) as daily_total FROM orders GROUP BY date) as daily_stats;",
-    "expected_output": "1500.50"
-  },
-  "1200": {
-    "title": "SELECT Subqueries",
-    "chapter_title": "Subqueries & Set Operations",
-    "content": "# 🕵️ Subqueries in SELECT: Attributes\n\n## Concept\n\nFetch a single value for each row from another table.\n\n```sql\nSELECT \n    u.username,\n    (SELECT COUNT(*) FROM posts WHERE user_id = u.id) as post_count\nFROM users u;\n```\n\n## Pros & Cons\n\n- **Pro**: Easy to write for simple lookups.\n- **Con**: Slow! Executes per row. Use `LEFT JOIN` + `GROUP BY` for bulk data.\n\n---\n\n## 🎯 Your Task\n\nFor each team, get the count of players using a subquery.",
-    "starter_code": "SELECT \n    team_name,\n    (SELECT COUNT(*) FROM players WHERE team_id = t.id) as roster_size\nFROM teams t;",
-    "solution_code": "SELECT team_name, (SELECT COUNT(*) FROM players WHERE team_id = t.id) as roster_size FROM teams t;",
-    "expected_output": "Tigers|12\nLions|15"
-  },
-  "1201": {
-    "title": "Recursive Logic",
-    "chapter_title": "Subqueries & Set Operations",
-    "content": "# 🔄 Recursive Logic: The Hardest SQL?\n\n## Concept\n\nUsed for trees and graphs (Organizational Charts, Replies to Comments).\nNote: standard SQL uses `WITH RECURSIVE` (CTEs) for this, but the logic is nested.\n\n## Conceptual Flow\n\n1. **Base Case**: Find the root (e.g. CEO).\n2. **Recursive Step**: Find people managed by results of previous step.\n3. **Repeat** until no more rows.\n\n---\n\n## 🎯 Your Task\n\nWrite a basic Recursive CTE (we'll cover syntax fully in the CTE chapter) to count from 1 to 5.",
-    "starter_code": "WITH RECURSIVE counter AS (\n    SELECT 1 as n\n    UNION ALL\n    SELECT n + 1 FROM counter WHERE n < 5\n)\nSELECT * FROM counter;",
-    "solution_code": "WITH RECURSIVE counter AS (SELECT 1 as n UNION ALL SELECT n + 1 FROM counter WHERE n < 5) SELECT * FROM counter;",
-    "expected_output": "1\n2\n3\n4\n5"
-  },
-  "1202": {
-    "title": "Union Dedup",
-    "chapter_title": "Subqueries & Set Operations",
-    "content": "# 🔗 UNION vs UNION ALL\n\n## Deduping\n\n- `UNION`: Combines results and **removes duplicates**. Slower.\n- `UNION ALL`: Combines results and **keeps duplicates**. Faster.\n\n```sql\nSELECT city FROM us_users\nUNION\nSELECT city FROM ca_users;\n```\nIf 'London' is in both, it appears once.\n\n---\n\n## 🎯 Your Task\n\nGet a list of all unique email addresses from both `newsletter_subscribers` and `customers`.",
-    "starter_code": "SELECT email FROM subscribers\nUNION\nSELECT email FROM customers\nORDER BY email;",
-    "solution_code": "SELECT email FROM subscribers UNION SELECT email FROM customers ORDER BY email;",
-    "expected_output": "a@x.com\nb@x.com"
-  },
-  "1203": {
-    "title": "Intersection Find",
-    "chapter_title": "Subqueries & Set Operations",
-    "content": "# ∩ INTERSECT: The Common Ground\n\n## Concept\n\nReturns only rows that exist in **BOTH** query results.\n\n```sql\nSELECT user_id FROM activity_log WHERE date = '2023-01-01'\nINTERSECT\nSELECT user_id FROM activity_log WHERE date = '2023-01-02';\n```\n\nFinds users active on *both* days.\n\n---\n\n## 🎯 Your Task\n\nFind employee IDs who are also customers.",
-    "starter_code": "SELECT employee_id as id FROM employees\nINTERSECT\nSELECT customer_id as id FROM customers;",
-    "solution_code": "SELECT employee_id as id FROM employees INTERSECT SELECT customer_id as id FROM customers;",
-    "expected_output": "101"
-  },
-  "1204": {
-    "title": "Query Decomposition",
-    "chapter_title": "CTEs (WITH Clause)",
-    "content": "# 🧩 Query Decomposition: Divide and Conquer\n\n## Why CTEs?\n\nInstead of a 50-line nested subquery monster, use CTEs to verify each step.\n\n```sql\nWITH sales_by_region AS (\n    ...\n),\ntop_regions AS (\n    ...\n)\nSELECT * FROM top_regions;\n```\n\n## Strategy\n\n1. Isolate the first logical step (e.g., \"Clean the data\"). Put it in a CTE.\n2. Isolate the next step (e.g., \"Aggregate\"). Refers to CTE 1.\n3. Final Select.\n\n---\n\n## 🎯 Your Task\n\nRefactor this logic using a CTE named `cleaned_data`.",
-    "starter_code": "WITH cleaned_data AS (\n    SELECT TRIM(username) as user, LOWER(email) as email\n    FROM users\n)\nSELECT * FROM cleaned_data WHERE email LIKE '%.com';",
-    "solution_code": "WITH cleaned_data AS (SELECT TRIM(username) as user, LOWER(email) as email FROM users) SELECT * FROM cleaned_data WHERE email LIKE '%.com';",
-    "expected_output": "user1|u1@x.com"
   },
   "1191": {
     "title": "Self-Referential",
@@ -4986,7 +4871,7 @@
     "id": 2050,
     "title": "Scripts vs Console",
     "chapter_title": "Ch 6: Workflow: Scripts",
-    "content": "# \ud83d\udcdc Scripts\n\n## Console vs Script Editor\n\nThe **console** is for quick tests. **Scripts** are for your real work.\n\n```\nCONSOLE              SCRIPT (.R)\n-----------          -----------\n\u274c Ephemeral          \u2705 Saved\n\u274c Gone on restart    \u2705 Reproducible\n\u274c Hard to share      \u2705 Shareable\n```\n\n---\n\n## Essential Keyboard Shortcuts\n\n| Shortcut | Action |\n|----------|--------|\n| `Cmd/Ctrl + Shift + N` | Create new script |\n| `Cmd/Ctrl + Enter` | Run current line/selection |\n| `Cmd/Ctrl + Shift + S` | Run entire script |\n| `Cmd/Ctrl + S` | Save script |\n\n---\n\n## Best Practices\n\n1. **Always start with packages**: Put `library()` calls at the top\n2. **Never include `install.packages()`** in scripts you share\n3. **Restart R frequently**: `Cmd/Ctrl + Shift + F10` to ensure your script captures everything\n\n---\n\n## RStudio Diagnostics\n\nRStudio highlights errors with:\n- \ud83d\udd34 **Red squiggly line**: Syntax error\n- \ud83d\udfe1 **Yellow warning**: Potential problem\n\nHover over the icon to see what's wrong!\n\n---\n\n## \ud83c\udfaf Your Task\n\nRun this multi-line script. Notice how you can run it all at once or line-by-line.\n\n1. First, read through the code to understand what it does\n2. Run all lines together\n",
+    "content": "# 📜 Scripts\n\n## Console vs Script Editor\n\nThe **console** is for quick tests. **Scripts** are for your real work.\n\n```\nCONSOLE              SCRIPT (.R)\n-----------          -----------\n❌ Ephemeral          ✅ Saved\n❌ Gone on restart    ✅ Reproducible\n❌ Hard to share      ✅ Shareable\n```\n\n---\n\n## Essential Keyboard Shortcuts\n\n| Shortcut | Action |\n|----------|--------|\n| `Cmd/Ctrl + Shift + N` | Create new script |\n| `Cmd/Ctrl + Enter` | Run current line/selection |\n| `Cmd/Ctrl + Shift + S` | Run entire script |\n| `Cmd/Ctrl + S` | Save script |\n\n---\n\n## Best Practices\n\n1. **Always start with packages**: Put `library()` calls at the top\n2. **Never include `install.packages()`** in scripts you share\n3. **Restart R frequently**: `Cmd/Ctrl + Shift + F10` to ensure your script captures everything\n\n---\n\n## RStudio Diagnostics\n\nRStudio highlights errors with:\n- 🔴 **Red squiggly line**: Syntax error\n- 🟡 **Yellow warning**: Potential problem\n\nHover over the icon to see what's wrong!\n\n---\n\n## 🎯 Your Task\n\nRun this multi-line script. Notice how you can run it all at once or line-by-line.\n\n1. First, read through the code to understand what it does\n2. Run all lines together\n",
     "starter_code": "# Load packages first\nlibrary(dplyr)\n\n# Create some data\nx <- 5\ny <- 10\n\n# Calculate and print result\nx * y\n",
     "solution_code": "library(dplyr)\nx <- 5\ny <- 10\nx * y",
     "expected_output": "50",
@@ -5134,12 +5019,12 @@
   },
   "2210": {
     "id": 2210,
-    "title": "Counts & Ranks",
+    "title": "Counts & Summaries",
     "chapter_title": "Ch 13: Numbers",
-    "content": "# 🔢 Counts & Ranks\n\n## Counting\n\n`count()` is the most useful function you've never heard of (enough). It groups and summarizes in one go.\n\n```r\ncount(mpg, class, sort = TRUE)\n```\n\n## Ranking\n\n`min_rank()` gives you the rank of values.\n\n---\n\n## 🎯 Your Task\n\n1.  Count the number of cars for each `manufacturer`.\n2.  Sort the results descending (most common first).\n",
-    "starter_code": "count(mpg, ..., ...)\n",
-    "solution_code": "count(mpg, manufacturer, sort = TRUE)",
-    "expected_output": "[Data Frame: Top Manufacturers]",
+    "content": "# 🔢 Counts & Summaries\n\n## The `count()` Function\n\n`count()` is one of the most useful functions in dplyr!\n\n```r\n# Count flights per destination\nflights %>% count(dest)\n\n# Sort by most common\nflights %>% count(dest, sort = TRUE)\n```\n\n---\n\n## Counting Variants\n\n- `n()` - Count rows in current group\n- `n_distinct(x)` - Count unique values\n- `sum(is.na(x))` - Count missing values\n\n### Example: Carriers per Destination\n\n```r\nflights %>%\n  group_by(dest) %>%\n  summarize(\n    n_flights = n(),\n    n_carriers = n_distinct(carrier)\n  )\n```\n\n---\n\n## Ranking Functions\n\n- `min_rank(x)` - Rank with ties (1, 2, 2, 4)\n- `row_number(x)` - Unique rank (1, 2, 3, 4)\n- `dense_rank(x)` - No gaps (1, 2, 2, 3)\n\n---\n\n## Numeric Summaries\n\n- `mean(x, na.rm = TRUE)` - Average\n- `median(x, na.rm = TRUE)` - Middle value\n- `sd(x, na.rm = TRUE)` - Standard deviation\n\n---\n\n## 🎯 Your Task\n\nCount the number of flights per destination (`dest`) and sort by most common:\n\n1. Use `count()` on the `flights` dataset\n2. Set `sort = TRUE`\n\n> **Hint**: `count(data, column, sort = TRUE)`\n",
+    "starter_code": "# Count flights per destination\nflights %>%\n  count(..., sort = ...)\n",
+    "solution_code": "flights %>% count(dest, sort = TRUE)",
+    "expected_output": "[Tibble: Destinations by flight count]",
     "chapter_id": 13
   },
   "2220": {
