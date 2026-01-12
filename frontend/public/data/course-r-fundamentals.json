@@ -6,12 +6,12 @@
         {
             "id": 1,
             "title": "Part 1: Whole Game",
-            "icon": "\ud83d\udd79\ufe0f",
+            "icon": "🕹️",
             "is_boss": false,
             "concepts": [
                 {
                     "name": "Ch 1: Data Visualization",
-                    "icon": "\ud83d\udcca",
+                    "icon": "📊",
                     "lessons": [
                         {
                             "id": 2001,
@@ -20,40 +20,136 @@
                             "difficulty": 1
                         },
                         {
+                            "id": 20011,
+                            "title": "Analogy: Variables are Boxes",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20012,
+                            "title": "Variation: Changing Values",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20013,
+                            "title": "Fix the Code: Broken Arrow",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20014,
+                            "title": "Challenge: Your Own Vars",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2002,
                             "title": "The Empty Canvas",
-                            "order": 2,
+                            "order": 6,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20021,
+                            "title": "Analogy: Secret Notes",
+                            "order": 7,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20022,
+                            "title": "Variation: Silencing Code",
+                            "order": 8,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20023,
+                            "title": "Fix the Code: Missing #",
+                            "order": 9,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20024,
+                            "title": "Challenge: Annotate",
+                            "order": 10,
                             "difficulty": 1
                         },
                         {
                             "id": 2003,
                             "title": "Mapping Data to Axes",
-                            "order": 3,
+                            "order": 11,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20031,
+                            "title": "Analogy: The Sticker Album",
+                            "order": 12,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20032,
+                            "title": "Variation: How Big?",
+                            "order": 13,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20033,
+                            "title": "Fix the Code: Typo",
+                            "order": 14,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20034,
+                            "title": "Challenge: Another Dataset",
+                            "order": 15,
                             "difficulty": 1
                         },
                         {
                             "id": 2004,
                             "title": "Adding Dots with geom_point()",
-                            "order": 4,
+                            "order": 16,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20041,
+                            "title": "Analogy: Connect the Dots",
+                            "order": 17,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20042,
+                            "title": "Variation: City Driving",
+                            "order": 18,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20043,
+                            "title": "Fix the Code: The Plus Sign",
+                            "order": 19,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20044,
+                            "title": "Challenge: Cylinders",
+                            "order": 20,
                             "difficulty": 1
                         },
                         {
                             "id": 2005,
                             "title": "Coloring by Species",
-                            "order": 5,
+                            "order": 21,
                             "difficulty": 2
                         },
                         {
                             "id": 2006,
                             "title": "Adding a Trend Line",
-                            "order": 6,
+                            "order": 22,
                             "difficulty": 2
                         }
                     ]
                 },
                 {
                     "name": "Ch 2: Workflow: Basics",
-                    "icon": "\ud83d\udee0\ufe0f",
+                    "icon": "🛠️",
                     "lessons": [
                         {
                             "id": 2010,
@@ -62,22 +158,46 @@
                             "difficulty": 1
                         },
                         {
+                            "id": 20101,
+                            "title": "Analogy: Calling for Pizza",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20102,
+                            "title": "Variation: Variables in Functions",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20103,
+                            "title": "Fix the Code: Typos",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20104,
+                            "title": "Challenge: Math",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2011,
                             "title": "Names & Comments",
-                            "order": 2,
+                            "order": 6,
                             "difficulty": 1
                         },
                         {
                             "id": 2012,
                             "title": "Calling Functions",
-                            "order": 3,
+                            "order": 7,
                             "difficulty": 1
                         }
                     ]
                 },
                 {
                     "name": "Ch 3: Data Transformation",
-                    "icon": "\ud83d\udd04",
+                    "icon": "🔄",
                     "lessons": [
                         {
                             "id": 2020,
@@ -86,34 +206,130 @@
                             "difficulty": 2
                         },
                         {
+                            "id": 20201,
+                            "title": "Analogy: Collecting Red M&Ms",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20202,
+                            "title": "Variation: Different Month",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20203,
+                            "title": "Fix the Code: Equals Sign",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20204,
+                            "title": "Challenge: Delays",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2021,
                             "title": "Arrange Rows",
-                            "order": 2,
+                            "order": 6,
                             "difficulty": 2
+                        },
+                        {
+                            "id": 20211,
+                            "title": "Analogy: Sorting Cards",
+                            "order": 7,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20212,
+                            "title": "Variation: Two Levels",
+                            "order": 8,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20213,
+                            "title": "Fix the Code: Missing Parenthesis",
+                            "order": 9,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20214,
+                            "title": "Challenge: Backwards",
+                            "order": 10,
+                            "difficulty": 1
                         },
                         {
                             "id": 2022,
                             "title": "Select Columns",
-                            "order": 3,
+                            "order": 11,
                             "difficulty": 2
+                        },
+                        {
+                            "id": 20221,
+                            "title": "Analogy: Chopping Ingredients",
+                            "order": 12,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20222,
+                            "title": "Variation: Excluding",
+                            "order": 13,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20223,
+                            "title": "Fix the Code: Comma",
+                            "order": 14,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20224,
+                            "title": "Challenge: Range",
+                            "order": 15,
+                            "difficulty": 1
                         },
                         {
                             "id": 2023,
                             "title": "Add Columns (Mutate)",
-                            "order": 4,
+                            "order": 16,
                             "difficulty": 2
+                        },
+                        {
+                            "id": 20231,
+                            "title": "Analogy: The Mutation Ray",
+                            "order": 17,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20232,
+                            "title": "Variation: Math",
+                            "order": 18,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20233,
+                            "title": "Fix the Code: Name It",
+                            "order": 19,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20234,
+                            "title": "Challenge: Double Up",
+                            "order": 20,
+                            "difficulty": 1
                         },
                         {
                             "id": 2024,
                             "title": "Groups & Summaries",
-                            "order": 5,
+                            "order": 21,
                             "difficulty": 3
                         }
                     ]
                 },
                 {
                     "name": "Ch 4: Workflow: Code Style",
-                    "icon": "\ud83d\udc85",
+                    "icon": "💅",
                     "lessons": [
                         {
                             "id": 2030,
@@ -122,16 +338,40 @@
                             "difficulty": 1
                         },
                         {
+                            "id": 20301,
+                            "title": "Analogy: Grammar",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20302,
+                            "title": "Variation: Pipes",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20303,
+                            "title": "Fix the Code: Spacing",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20304,
+                            "title": "Challenge: Naming",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2031,
                             "title": "Pipes & Formatting",
-                            "order": 2,
+                            "order": 6,
                             "difficulty": 1
                         }
                     ]
                 },
                 {
                     "name": "Ch 5: Data Tidying",
-                    "icon": "\ud83e\uddf9",
+                    "icon": "🧹",
                     "lessons": [
                         {
                             "id": 2040,
@@ -140,22 +380,46 @@
                             "difficulty": 2
                         },
                         {
+                            "id": 20401,
+                            "title": "Analogy: Stacking Pancakes",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20402,
+                            "title": "Variation: Naming Columns",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20403,
+                            "title": "Fix the Code: Missing Quote",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20404,
+                            "title": "Challenge: Pivot It",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2041,
                             "title": "Lengthening Data",
-                            "order": 2,
+                            "order": 6,
                             "difficulty": 3
                         },
                         {
                             "id": 2042,
                             "title": "Widening Data",
-                            "order": 3,
+                            "order": 7,
                             "difficulty": 3
                         }
                     ]
                 },
                 {
                     "name": "Ch 6: Workflow: Scripts",
-                    "icon": "\ud83d\udcdc",
+                    "icon": "📜",
                     "lessons": [
                         {
                             "id": 2050,
@@ -164,16 +428,40 @@
                             "difficulty": 1
                         },
                         {
+                            "id": 20501,
+                            "title": "Analogy: The Recipe Card",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20502,
+                            "title": "Variation: Saving Plots",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20503,
+                            "title": "Fix the Code: Typos",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20504,
+                            "title": "Challenge: Comments",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2051,
                             "title": "Projects & Paths",
-                            "order": 2,
+                            "order": 6,
                             "difficulty": 1
                         }
                     ]
                 },
                 {
                     "name": "Ch 7: Data Import",
-                    "icon": "\ud83d\udce5",
+                    "icon": "📥",
                     "lessons": [
                         {
                             "id": 2060,
@@ -182,28 +470,34 @@
                             "difficulty": 2
                         },
                         {
-                            "id": 2061,
-                            "title": "Handling Messy Data",
+                            "id": 20601,
+                            "title": "Analogy: Opening Packages",
                             "order": 2,
-                            "difficulty": 2
-                        }
-                    ]
-                },
-                {
-                    "name": "Ch 8: Workflow: Getting Help",
-                    "icon": "\ud83c\udd98",
-                    "lessons": [
-                        {
-                            "id": 2070,
-                            "title": "Google is Your Friend",
-                            "order": 1,
                             "difficulty": 1
                         },
                         {
-                            "id": 2071,
-                            "title": "Making Reprexes",
-                            "order": 2,
+                            "id": 20602,
+                            "title": "Variation: Inspecting",
+                            "order": 3,
                             "difficulty": 1
+                        },
+                        {
+                            "id": 20603,
+                            "title": "Fix the Code: Function Name",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 20604,
+                            "title": "Challenge: Assigning",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 2061,
+                            "title": "Handling Messy Data",
+                            "order": 6,
+                            "difficulty": 2
                         }
                     ]
                 }
@@ -212,12 +506,12 @@
         {
             "id": 2,
             "title": "Part 2: Visualize",
-            "icon": "\ud83c\udfa8",
+            "icon": "🎨",
             "is_boss": false,
             "concepts": [
                 {
                     "name": "Ch 9: Layers",
-                    "icon": "\ud83c\udf70",
+                    "icon": "🍰",
                     "lessons": [
                         {
                             "id": 2100,
@@ -226,22 +520,94 @@
                             "difficulty": 3
                         },
                         {
+                            "id": 21001,
+                            "title": "Analogy: Coloring Book",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21002,
+                            "title": "Variation: Size",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21003,
+                            "title": "Fix the Code: Inside or Out?",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21004,
+                            "title": "Challenge: Shape",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2101,
                             "title": "Geoms & Layers",
-                            "order": 2,
+                            "order": 6,
                             "difficulty": 3
+                        },
+                        {
+                            "id": 21011,
+                            "title": "Analogy: Different Brushes",
+                            "order": 7,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21012,
+                            "title": "Variation: Two Layers",
+                            "order": 8,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21013,
+                            "title": "Fix the Code: Typos",
+                            "order": 9,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21014,
+                            "title": "Challenge: Boxplot",
+                            "order": 10,
+                            "difficulty": 1
                         },
                         {
                             "id": 2102,
                             "title": "Facets",
-                            "order": 3,
+                            "order": 11,
                             "difficulty": 3
+                        },
+                        {
+                            "id": 21021,
+                            "title": "Analogy: Small Multiples",
+                            "order": 12,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21022,
+                            "title": "Variation: Row Count",
+                            "order": 13,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21023,
+                            "title": "Fix the Code: Tilde",
+                            "order": 14,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21024,
+                            "title": "Challenge: Grid",
+                            "order": 15,
+                            "difficulty": 1
                         }
                     ]
                 },
                 {
                     "name": "Ch 10: EDA",
-                    "icon": "\ud83d\udd75\ufe0f",
+                    "icon": "🕵️",
                     "lessons": [
                         {
                             "id": 2110,
@@ -250,16 +616,64 @@
                             "difficulty": 2
                         },
                         {
+                            "id": 21101,
+                            "title": "Analogy: Sorting Buckets",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21102,
+                            "title": "Variation: Binwidth",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21103,
+                            "title": "Fix the Code: Y Axis",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21104,
+                            "title": "Challenge: Bar Chart",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2111,
                             "title": "Covariation",
-                            "order": 2,
+                            "order": 6,
                             "difficulty": 3
+                        },
+                        {
+                            "id": 21111,
+                            "title": "Analogy: Box and Whiskers",
+                            "order": 7,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21112,
+                            "title": "Variation: Reorder",
+                            "order": 8,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21113,
+                            "title": "Fix the Code: Flip",
+                            "order": 9,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21114,
+                            "title": "Challenge: Heatmap",
+                            "order": 10,
+                            "difficulty": 1
                         }
                     ]
                 },
                 {
                     "name": "Ch 11: Communication",
-                    "icon": "\ud83d\udce2",
+                    "icon": "📢",
                     "lessons": [
                         {
                             "id": 2120,
@@ -268,10 +682,58 @@
                             "difficulty": 2
                         },
                         {
+                            "id": 21201,
+                            "title": "Analogy: Name Tags",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21202,
+                            "title": "Variation: Axis Labels",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21203,
+                            "title": "Fix the Code: Quotes",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21204,
+                            "title": "Challenge: Caption",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2121,
                             "title": "Themes & Scales",
-                            "order": 2,
+                            "order": 6,
                             "difficulty": 2
+                        },
+                        {
+                            "id": 21211,
+                            "title": "Analogy: Changing Outfits",
+                            "order": 7,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21212,
+                            "title": "Variation: Classic",
+                            "order": 8,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21213,
+                            "title": "Fix the Code: Parentheses",
+                            "order": 9,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 21214,
+                            "title": "Challenge: Dark Mode",
+                            "order": 10,
+                            "difficulty": 1
                         }
                     ]
                 }
@@ -280,12 +742,12 @@
         {
             "id": 3,
             "title": "Part 3: Transform",
-            "icon": "\ud83c\udfd7\ufe0f",
+            "icon": "🏗️",
             "is_boss": false,
             "concepts": [
                 {
                     "name": "Ch 12: Logical Vectors",
-                    "icon": "\ud83e\udde0",
+                    "icon": "🧠",
                     "lessons": [
                         {
                             "id": 2200,
@@ -294,88 +756,280 @@
                             "difficulty": 2
                         },
                         {
+                            "id": 22001,
+                            "title": "Analogy: The Light Switch",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22002,
+                            "title": "Variation: Comparisons",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22003,
+                            "title": "Fix the Code: Case Sensitive",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22004,
+                            "title": "Challenge: Not Equal",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2201,
                             "title": "Conditional Logic",
-                            "order": 2,
+                            "order": 6,
                             "difficulty": 3
+                        },
+                        {
+                            "id": 22011,
+                            "title": "Analogy: Decisions",
+                            "order": 7,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22012,
+                            "title": "Variation: Or",
+                            "order": 8,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22013,
+                            "title": "Fix the Code: Not Python",
+                            "order": 9,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22014,
+                            "title": "Challenge: Negation",
+                            "order": 10,
+                            "difficulty": 1
                         }
                     ]
                 },
                 {
                     "name": "Ch 13: Numbers",
-                    "icon": "\ud83d\udd22",
+                    "icon": "🔢",
                     "lessons": [
                         {
                             "id": 2210,
                             "title": "Counts & Summaries",
                             "order": 1,
                             "difficulty": 2
+                        },
+                        {
+                            "id": 22101,
+                            "title": "Analogy: Counting Heads",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22102,
+                            "title": "Variation: Summarize",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22103,
+                            "title": "Fix the Code: Parentheses",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22104,
+                            "title": "Challenge: Max",
+                            "order": 5,
+                            "difficulty": 1
                         }
                     ]
                 },
                 {
                     "name": "Ch 14: Strings",
-                    "icon": "\ud83e\uddf5",
+                    "icon": "🧵",
                     "lessons": [
                         {
                             "id": 2220,
                             "title": "String Basics",
                             "order": 1,
                             "difficulty": 3
+                        },
+                        {
+                            "id": 22201,
+                            "title": "Analogy: Glue Stick",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22202,
+                            "title": "Variation: Combining",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22203,
+                            "title": "Fix the Code: Spelling",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22204,
+                            "title": "Challenge: Substring",
+                            "order": 5,
+                            "difficulty": 1
                         }
                     ]
                 },
                 {
                     "name": "Ch 15: Regex",
-                    "icon": "\ud83e\udde9",
+                    "icon": "🧩",
                     "lessons": [
                         {
                             "id": 2230,
                             "title": "Regex Basics",
                             "order": 1,
                             "difficulty": 4
+                        },
+                        {
+                            "id": 22301,
+                            "title": "Analogy: Ctrl+F",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22302,
+                            "title": "Variation: Start Anchor",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22303,
+                            "title": "Fix the Code: Characters",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22304,
+                            "title": "Challenge: Digits",
+                            "order": 5,
+                            "difficulty": 1
                         }
                     ]
                 },
                 {
                     "name": "Ch 16: Factors",
-                    "icon": "\ud83d\udcca",
+                    "icon": "📊",
                     "lessons": [
                         {
                             "id": 2240,
                             "title": "Factor Basics",
                             "order": 1,
                             "difficulty": 2
+                        },
+                        {
+                            "id": 22401,
+                            "title": "Analogy: Sorting Shirts",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22402,
+                            "title": "Variation: Reordering",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22403,
+                            "title": "Fix the Code: Levels",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22404,
+                            "title": "Challenge: Count",
+                            "order": 5,
+                            "difficulty": 1
                         }
                     ]
                 },
                 {
                     "name": "Ch 17: Dates and Times",
-                    "icon": "\ud83d\udcc5",
+                    "icon": "📅",
                     "lessons": [
                         {
                             "id": 2250,
                             "title": "Dates & Times",
                             "order": 1,
                             "difficulty": 3
+                        },
+                        {
+                            "id": 22501,
+                            "title": "Analogy: ISO Standard",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22502,
+                            "title": "Variation: MDY",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22503,
+                            "title": "Fix the Code: Quote",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22504,
+                            "title": "Challenge: Get Year",
+                            "order": 5,
+                            "difficulty": 1
                         }
                     ]
                 },
                 {
                     "name": "Ch 18: Missing Values",
-                    "icon": "\ud83d\udeab",
+                    "icon": "🚫",
                     "lessons": [
                         {
                             "id": 2260,
                             "title": "Missing Values",
                             "order": 1,
                             "difficulty": 2
+                        },
+                        {
+                            "id": 22601,
+                            "title": "Analogy: Empty Seat",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22602,
+                            "title": "Variation: Replacing",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22603,
+                            "title": "Fix the Code: Comparison",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22604,
+                            "title": "Challenge: Drop",
+                            "order": 5,
+                            "difficulty": 1
                         }
                     ]
                 },
                 {
                     "name": "Ch 19: Joins",
-                    "icon": "\ud83d\udd17",
+                    "icon": "🔗",
                     "lessons": [
                         {
                             "id": 2270,
@@ -384,10 +1038,58 @@
                             "difficulty": 3
                         },
                         {
+                            "id": 22701,
+                            "title": "Analogy: Identification Card",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22702,
+                            "title": "Variation: Right Join",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22703,
+                            "title": "Fix the Code: By Argument",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22704,
+                            "title": "Challenge: Inner Join",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2271,
                             "title": "Filtering Joins",
-                            "order": 2,
+                            "order": 6,
                             "difficulty": 3
+                        },
+                        {
+                            "id": 22711,
+                            "title": "Analogy: The Bouncer",
+                            "order": 7,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22712,
+                            "title": "Variation: Anti Join",
+                            "order": 8,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22713,
+                            "title": "Fix the Code: Columns",
+                            "order": 9,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 22714,
+                            "title": "Challenge: Filter",
+                            "order": 10,
+                            "difficulty": 1
                         }
                     ]
                 }
@@ -396,12 +1098,12 @@
         {
             "id": 4,
             "title": "Part 4: Import",
-            "icon": "\ud83d\udea2",
+            "icon": "🚢",
             "is_boss": false,
             "concepts": [
                 {
                     "name": "Data Sources",
-                    "icon": "\ud83d\uddc4\ufe0f",
+                    "icon": "🗄️",
                     "lessons": [
                         {
                             "id": 2300,
@@ -410,28 +1112,148 @@
                             "difficulty": 2
                         },
                         {
+                            "id": 23001,
+                            "title": "Analogy: Reading Spreadsheets",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23002,
+                            "title": "Variation: Specifying Sheet",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23003,
+                            "title": "Fix the Code: Extension",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23004,
+                            "title": "Challenge: Range",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2310,
                             "title": "Databases & dbplyr",
-                            "order": 2,
+                            "order": 6,
                             "difficulty": 3
+                        },
+                        {
+                            "id": 23101,
+                            "title": "Analogy: Remote Control",
+                            "order": 7,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23102,
+                            "title": "Variation: SQL Translation",
+                            "order": 8,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23103,
+                            "title": "Fix the Code: Collect",
+                            "order": 9,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23104,
+                            "title": "Challenge: Filter DB",
+                            "order": 10,
+                            "difficulty": 1
                         },
                         {
                             "id": 2320,
                             "title": "Arrow & Parquet",
-                            "order": 3,
+                            "order": 11,
                             "difficulty": 3
+                        },
+                        {
+                            "id": 23201,
+                            "title": "Analogy: Fast Lane",
+                            "order": 12,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23202,
+                            "title": "Variation: Write",
+                            "order": 13,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23203,
+                            "title": "Fix the Code: Function",
+                            "order": 14,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23204,
+                            "title": "Challenge: Filter",
+                            "order": 15,
+                            "difficulty": 1
                         },
                         {
                             "id": 2330,
                             "title": "Lists & Rectangling",
-                            "order": 4,
+                            "order": 16,
                             "difficulty": 3
+                        },
+                        {
+                            "id": 23301,
+                            "title": "Analogy: Unpacking Suitcase",
+                            "order": 17,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23302,
+                            "title": "Variation: Wider",
+                            "order": 18,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23303,
+                            "title": "Fix the Code: Plural",
+                            "order": 19,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23304,
+                            "title": "Challenge: Rectangling",
+                            "order": 20,
+                            "difficulty": 1
                         },
                         {
                             "id": 2340,
                             "title": "Web Scraping with rvest",
-                            "order": 5,
+                            "order": 21,
                             "difficulty": 3
+                        },
+                        {
+                            "id": 23401,
+                            "title": "Analogy: Mining",
+                            "order": 22,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23402,
+                            "title": "Variation: Selectors",
+                            "order": 23,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23403,
+                            "title": "Fix the Code: Text",
+                            "order": 24,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 23404,
+                            "title": "Challenge: Table",
+                            "order": 25,
+                            "difficulty": 1
                         }
                     ]
                 }
@@ -440,12 +1262,12 @@
         {
             "id": 5,
             "title": "Part 5: Program",
-            "icon": "\ud83d\udcbb",
+            "icon": "💻",
             "is_boss": false,
             "concepts": [
                 {
                     "name": "Programming",
-                    "icon": "\u2699\ufe0f",
+                    "icon": "⚙️",
                     "lessons": [
                         {
                             "id": 2400,
@@ -454,16 +1276,88 @@
                             "difficulty": 3
                         },
                         {
+                            "id": 24001,
+                            "title": "Analogy: Teaching Tricks",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 24002,
+                            "title": "Variation: Arguments",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 24003,
+                            "title": "Fix the Code: Braces",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 24004,
+                            "title": "Challenge: Return",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2410,
                             "title": "Iteration: across & map",
-                            "order": 2,
+                            "order": 6,
                             "difficulty": 3
+                        },
+                        {
+                            "id": 24101,
+                            "title": "Analogy: Assembly Line",
+                            "order": 7,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 24102,
+                            "title": "Variation: Double",
+                            "order": 8,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 24103,
+                            "title": "Fix the Code: Argument",
+                            "order": 9,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 24104,
+                            "title": "Challenge: Walk",
+                            "order": 10,
+                            "difficulty": 1
                         },
                         {
                             "id": 2420,
                             "title": "A Field Guide to Base R",
-                            "order": 3,
+                            "order": 11,
                             "difficulty": 2
+                        },
+                        {
+                            "id": 24201,
+                            "title": "Analogy: Pepper Shaker",
+                            "order": 12,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 24202,
+                            "title": "Variation: Brackets",
+                            "order": 13,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 24203,
+                            "title": "Fix the Code: Comma",
+                            "order": 14,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 24204,
+                            "title": "Challenge: Loop",
+                            "order": 15,
+                            "difficulty": 1
                         }
                     ]
                 }
@@ -472,12 +1366,12 @@
         {
             "id": 6,
             "title": "Part 6: Communicate",
-            "icon": "\ud83d\udce2",
+            "icon": "📢",
             "is_boss": false,
             "concepts": [
                 {
                     "name": "Quarto",
-                    "icon": "\ud83d\udcdd",
+                    "icon": "📝",
                     "lessons": [
                         {
                             "id": 2500,
@@ -486,9 +1380,57 @@
                             "difficulty": 1
                         },
                         {
+                            "id": 25001,
+                            "title": "Analogy: Notebook",
+                            "order": 2,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 25002,
+                            "title": "Variation: Code Chunk",
+                            "order": 3,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 25003,
+                            "title": "Fix the Code: Backticks",
+                            "order": 4,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 25004,
+                            "title": "Challenge: YAML",
+                            "order": 5,
+                            "difficulty": 1
+                        },
+                        {
                             "id": 2510,
                             "title": "Quarto Formats",
-                            "order": 2,
+                            "order": 6,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 25101,
+                            "title": "Analogy: Transformer",
+                            "order": 7,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 25102,
+                            "title": "Variation: PDF",
+                            "order": 8,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 25103,
+                            "title": "Fix the Code: Indent",
+                            "order": 9,
+                            "difficulty": 1
+                        },
+                        {
+                            "id": 25104,
+                            "title": "Challenge: Presentation",
+                            "order": 10,
                             "difficulty": 1
                         }
                     ]
