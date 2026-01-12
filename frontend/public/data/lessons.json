@@ -5094,22 +5094,22 @@
   },
   "2120": {
     "id": 2120,
-    "title": "Labels & Annotations",
+    "title": "Labels & Titles",
     "chapter_title": "Ch 11: Communication",
-    "content": "# 🏷️ Labels & Annotations\n\n## Polishing plots\n\nYour plot isn't finished until it's labeled. Use `labs()` to add:\n- `title`\n- `subtitle`\n- `caption`\n- `x` and `y` axis labels\n\n```r\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  labs(\n    title = \"Fuel Efficiency\",\n    caption = \"Data from 1999-2008\"\n  )\n```\n\n---\n\n## 🎯 Your Task\n\nAdd a title \"My Analysis\" and x-axis label \"Engine Size\" to the plot.\n",
-    "starter_code": "ggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  labs(title = \"...\", x = \"...\")\n",
-    "solution_code": "ggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  labs(title = \"My Analysis\", x = \"Engine Size\")",
-    "expected_output": "[Graph: Labeled Plot]",
+    "content": "# 🏷️ Labels & Titles\n\n## From Exploration to Communication\n\nExploratory plots are for you. **Communication** plots are for others!\n\nMake your message clear with `labs()`.\n\n---\n\n## The `labs()` Function\n\n| Argument | Purpose |\n|----------|---------|\n| `title` | Main finding (not just \"A plot of X vs Y\") |\n| `subtitle` | Additional context in smaller font |\n| `caption` | Data source, often bottom-right |\n| `x`, `y` | Axis labels with units |\n| `color`, `fill` | Legend title |\n\n---\n\n## Example: A Complete Label\n\n```r\nggplot(mpg, aes(x = displ, y = hwy, color = class)) +\n  geom_point() +\n  labs(\n    title = \"Fuel efficiency decreases with engine size\",\n    subtitle = \"Sports cars are an exception\",\n    caption = \"Data from fueleconomy.gov\",\n    x = \"Engine displacement (L)\",\n    y = \"Highway MPG\",\n    color = \"Car type\"\n  )\n```\n\n---\n\n## Pro Tip: Title = Main Finding\n\n❌ **Bad**: \"Scatterplot of hwy vs displ\"\n✅ **Good**: \"Fuel efficiency decreases with engine size\"\n\n---\n\n## 🎯 Your Task\n\nAdd informative labels to make this plot publication-ready:\n\n1. `title`: \"Fuel efficiency decreases with engine size\"\n2. `x`: \"Engine displacement (L)\"\n3. `y`: \"Highway MPG\"\n\n> **Hint**: Use the `labs()` function with named arguments.\n",
+    "starter_code": "# Add informative labels\nggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  labs(\n    title = \"...\",\n    x = \"...\",\n    y = \"...\"\n  )\n",
+    "solution_code": "ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  labs(\n    title = \"Fuel efficiency decreases with engine size\",\n    x = \"Engine displacement (L)\",\n    y = \"Highway MPG\"\n  )",
+    "expected_output": "[Labeled scatterplot]",
     "chapter_id": 11
   },
   "2121": {
     "id": 2121,
     "title": "Themes & Scales",
     "chapter_title": "Ch 11: Communication",
-    "content": "# 🎨 Themes & Scales\n\n## Themes\n\nThemes control the non-data display. Common themes:\n- `theme_bw()`: White background, black grid.\n- `theme_minimal()`: Minimalist.\n- `theme_classic()`: Classic scientific look.\n\n## Scales\n\nScales control how data maps to aesthetics. \n- `scale_color_brewer()`: Nice color palettes.\n- `scale_y_log10()`: Log scale axis.\n\n---\n\n## 🎯 Your Task\n\nApply `theme_minimal()` to the scatterplot.\n",
-    "starter_code": "ggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  ...\n",
-    "solution_code": "ggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  theme_minimal()",
-    "expected_output": "[Graph: Minimal Plot]",
+    "content": "# 🎨 Themes & Scales\n\n## Themes: Controlling the Look\n\nThemes control **non-data** elements of your plot.\n\n| Theme | Description |\n|-------|-------------|\n| `theme_gray()` | Default gray background |\n| `theme_bw()` | White background, black grid |\n| `theme_minimal()` | Minimal, no background |\n| `theme_classic()` | Classic scientific style |\n| `theme_void()` | Nothing but the geoms |\n\n---\n\n## Scales: Controlling Data Mapping\n\nScales control how data maps to visual properties.\n\n```r\n# Change axis breaks\nscale_y_continuous(breaks = seq(10, 40, by = 5))\n\n# Log scale\nscale_x_log10()\n\n# Better color palettes\nscale_color_brewer(palette = \"Set1\")\n```\n\n---\n\n## Color Palettes for Accessibility\n\n| Function | Use Case |\n|----------|----------|\n| `scale_color_brewer()` | Categorical, colorblind-friendly |\n| `scale_color_viridis_c()` | Continuous, perceptually uniform |\n| `scale_color_manual()` | Custom colors |\n\n---\n\n## Legend Position\n\n```r\ntheme(legend.position = \"bottom\")  # or \"top\", \"left\", \"none\"\n```\n\n---\n\n## 🎯 Your Task\n\nApply a clean, professional look to this plot:\n\n1. Use `theme_minimal()` for a clean background\n2. Use `scale_color_brewer(palette = \"Set1\")` for better colors\n\n> **Hint**: Add each as a separate layer with `+`.\n",
+    "starter_code": "# Make it professional\nggplot(mpg, aes(x = displ, y = hwy, color = drv)) +\n  geom_point() +\n  theme_...() +\n  scale_color_brewer(palette = \"...\")\n",
+    "solution_code": "ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +\n  geom_point() +\n  theme_minimal() +\n  scale_color_brewer(palette = \"Set1\")",
+    "expected_output": "[Professional styled plot]",
     "chapter_id": 11
   },
   "2200": {
