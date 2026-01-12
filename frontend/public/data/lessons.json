@@ -5076,20 +5076,20 @@
     "id": 2110,
     "title": "Variation",
     "chapter_title": "Ch 10: EDA",
-    "content": "# 🕵️ Variation\n\n## Distributions\n\nEDA starts by looking at the variation within variables.\n\n- **Categorical**: Use `geom_bar()`\n- **Continuous**: Use `geom_histogram()`\n\n```r\nggplot(diamonds, aes(carat)) +\n  geom_histogram(binwidth = 0.5)\n```\n\nExperiment with `binwidth`! It can hide or reveal patterns.\n\n---\n\n## 🎯 Your Task\n\nVisualize the distribution of `hwy` (highway mpg) using a histogram with `binwidth = 2`.\n",
-    "starter_code": "ggplot(mpg, aes(...)) + \n  geom_histogram(binwidth = ...)\n",
-    "solution_code": "ggplot(mpg, aes(hwy)) + \n  geom_histogram(binwidth = 2)",
-    "expected_output": "[Graph: Histogram]",
+    "content": "# 🔍 Variation\n\n## What is EDA?\n\n**Exploratory Data Analysis** is an iterative cycle:\n\n1. Generate questions about your data\n2. Search for answers by visualizing & transforming\n3. Use what you learn to refine questions\n\n---\n\n## Two Key Questions\n\n1. What **variation** occurs within my variables?\n2. What **covariation** occurs between my variables?\n\n---\n\n## Visualizing Variation\n\n| Variable Type | Visualization |\n|---------------|---------------|\n| **Categorical** | `geom_bar()` |\n| **Continuous** | `geom_histogram()` |\n\n## Example: Diamond Carats\n\n```r\nggplot(diamonds, aes(x = carat)) +\n  geom_histogram(binwidth = 0.5)\n```\n\nLook for:\n- **Typical values**: Which are most common?\n- **Unusual values**: Outliers or gaps?\n- **Patterns**: Clusters or peaks?\n\n---\n\n## The `diamonds` Dataset\n\n```\n| carat | cut       | color | clarity | price |\n|-------|-----------|-------|---------|-------|\n| 0.23  | Ideal     | E     | SI2     |   326 |\n| 0.21  | Premium   | E     | SI1     |   326 |\n| 0.29  | Premium   | I     | VS2     |   334 |\n```\n\n~54,000 diamonds with carat, cut, color, clarity, price\n\n---\n\n## 🎯 Your Task\n\nVisualize the **distribution of carat** in the `diamonds` dataset using a histogram.\n\n1. Map `carat` to x\n2. Use `geom_histogram()`\n3. Set `binwidth = 0.1` to see the pattern\n\n> **Hint**: Notice the peaks at whole numbers and common fractions (0.5, 1.0, 1.5, 2.0).\n",
+    "starter_code": "# Distribution of diamond carats\nggplot(diamonds, aes(x = ...)) +\n  geom_histogram(binwidth = 0.1)\n",
+    "solution_code": "ggplot(diamonds, aes(x = carat)) +\n  geom_histogram(binwidth = 0.1)",
+    "expected_output": "[Histogram of carat]",
     "chapter_id": 10
   },
   "2111": {
     "id": 2111,
     "title": "Covariation",
     "chapter_title": "Ch 10: EDA",
-    "content": "# 🔗 Covariation\n\n## Relations Between Variables\n\nCovariation describes how variables vary *together*.\n\n- **Cat vs Cont**: Boxplots (`geom_boxplot`)\n- **Cont vs Cont**: Scatterplots (`geom_point`)\n- **Cat vs Cat**: Heatmaps (`geom_tile` or count plots)\n\n## Boxplots\n\nBoxplots show the median (middle line), IQR (box), and outliers (dots).\n\n```r\nggplot(mpg, aes(class, hwy)) + geom_boxplot()\n```\n\n---\n\n## 🎯 Your Task\n\nVisualize the relationship between `drv` (categorical) and `cty` (continuous) using a boxplot.\n",
-    "starter_code": "ggplot(mpg, aes(x = ..., y = ...)) + \n  geom_boxplot()\n",
-    "solution_code": "ggplot(mpg, aes(x = drv, y = cty)) + \n  geom_boxplot()",
-    "expected_output": "[Graph: Boxplot]",
+    "content": "# 🔗 Covariation\n\n## What is Covariation?\n\nCovariation is how variables vary **together**. It reveals relationships!\n\n---\n\n## Visualization by Variable Types\n\n| X Variable | Y Variable | Best Plot |\n|------------|------------|-----------|\n| Categorical | Continuous | `geom_boxplot()` |\n| Continuous | Continuous | `geom_point()` |\n| Categorical | Categorical | `geom_count()` or `geom_tile()` |\n\n---\n\n## Boxplots: Categorical vs Continuous\n\nBoxplots show:\n- **Median** (middle line)\n- **IQR** (box = 25th to 75th percentile)\n- **Outliers** (dots beyond whiskers)\n\n```r\nggplot(diamonds, aes(x = cut, y = price)) +\n  geom_boxplot()\n```\n\n---\n\n## A Surprising Finding!\n\n```\n| cut       | median_price |\n|-----------|--------------|\n| Fair      |     3282     | ← Lowest quality, highest price?!\n| Good      |     3050     |\n| Very Good |     2648     |\n| Premium   |     3185     |\n| Ideal     |     1810     | ← Highest quality, lowest price?!\n```\n\nWhy? Because **carat** (size) is a confounding variable. Larger diamonds tend to be lower quality.\n\n---\n\n## 🎯 Your Task\n\nExplore the relationship between `cut` (quality) and `price` using a boxplot.\n\n1. Map `cut` to x-axis\n2. Map `price` to y-axis\n3. Use `geom_boxplot()`\n\n> **Question to ponder**: Why might \"Fair\" diamonds have a higher median price than \"Ideal\" diamonds?\n",
+    "starter_code": "# Are better cuts more expensive?\nggplot(diamonds, aes(x = ..., y = ...)) +\n  geom_boxplot()\n",
+    "solution_code": "ggplot(diamonds, aes(x = cut, y = price)) +\n  geom_boxplot()",
+    "expected_output": "[Boxplot of price by cut]",
     "chapter_id": 10
   },
   "2120": {
