@@ -5029,12 +5029,12 @@
   },
   "2220": {
     "id": 2220,
-    "title": "String Manipulation",
+    "title": "String Basics",
     "chapter_title": "Ch 14: Strings",
-    "content": "# 🧵 String Manipulation\n\n## stringr\n\nThe `stringr` package makes string work sane.\n- `str_length()`: Number of characters.\n- `str_c()`: Combine strings.\n- `str_sub()`: Extract parts.\n\n```r\nstr_c(\"Model: \", mpg$model)\n```\n\n## Glue\n\n`str_glue()` lets you embed R code in strings using `{}`.\n\n```r\nstr_glue(\"Car: {manufacturer} {model}\")\n```\n\n---\n\n## 🎯 Your Task\n\nCreate a description column using `str_c` joining `manufacturer` and `model` with a hyphen (`-`) separator.\n",
-    "starter_code": "mutate(mpg, desc = str_c(..., ..., sep = \"...\"))\n",
-    "solution_code": "mutate(mpg, desc = str_c(manufacturer, model, sep = \"-\"))",
-    "expected_output": "[Data Frame: Manufacturer-Model]",
+    "content": "# 🧵 String Basics\n\n## The stringr Package\n\nAll stringr functions start with `str_` for easy autocomplete!\n\n---\n\n## Creating Strings\n\n```r\n# Single or double quotes\nx <- \"Hello, World!\"\ny <- 'It's a string'\n\n# Escapes\nnewline <- \"Line1\\nLine2\"\ntab <- \"Col1\\tCol2\"\n```\n\n---\n\n## Combining Strings: `str_c()`\n\n```r\nstr_c(\"x\", \"y\", \"z\")           # \"xyz\"\nstr_c(\"Hello \", name, \"!\")     # \"Hello John!\"\nstr_c(x, y, sep = \"-\")         # \"x-y\"\n```\n\nWorks great with `mutate()`:\n```r\ndf %>% mutate(greeting = str_c(\"Hi \", name, \"!\"))\n```\n\n---\n\n## Template Strings: `str_glue()`\n\nEmbed variables directly with `{}`:\n\n```r\nname <- \"Alice\"\nstr_glue(\"Hello {name}!\")  # \"Hello Alice!\"\n\n# In mutate\ndf %>% mutate(greeting = str_glue(\"Hi {name}!\"))\n```\n\n---\n\n## String Length & Substrings\n\n```r\nstr_length(\"Apple\")        # 5\nstr_sub(\"Apple\", 1, 3)     # \"App\"\nstr_sub(\"Apple\", -3, -1)   # \"ple\"\n```\n\n---\n\n## 🎯 Your Task\n\nUse `str_glue()` to create a greeting that says \"Hello, {name}!\" for each row:\n\n1. Use `mutate()` with `str_glue()`\n2. Embed the `name` variable in curly braces\n\n> **Hint**: `mutate(df, greeting = str_glue(\"Hello, {name}!\"))`\n",
+    "starter_code": "# Create greetings with str_glue\ndf <- tibble(name = c(\"Alice\", \"Bob\", \"Carol\"))\n\ndf %>%\n  mutate(greeting = str_glue(\"Hello, {...}!\"))\n",
+    "solution_code": "df <- tibble(name = c(\"Alice\", \"Bob\", \"Carol\"))\ndf %>% mutate(greeting = str_glue(\"Hello, {name}!\"))",
+    "expected_output": "[Tibble with greeting column]",
     "chapter_id": 14
   },
   "2230": {
