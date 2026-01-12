@@ -417,19 +417,19 @@
                         },
                         {
                             "id": 2320,
-                            "title": "Arrow (Ch 22)",
+                            "title": "Arrow & Parquet",
                             "order": 3,
                             "difficulty": 3
                         },
                         {
                             "id": 2330,
-                            "title": "Hierarchical Data (Ch 23)",
+                            "title": "Lists & Rectangling",
                             "order": 4,
                             "difficulty": 3
                         },
                         {
                             "id": 2340,
-                            "title": "Web Scraping (Ch 24)",
+                            "title": "Web Scraping with rvest",
                             "order": 5,
                             "difficulty": 3
                         }
@@ -449,19 +449,19 @@
                     "lessons": [
                         {
                             "id": 2400,
-                            "title": "Functions (Ch 25)",
+                            "title": "Functions & Tidy Eval",
                             "order": 1,
                             "difficulty": 3
                         },
                         {
                             "id": 2410,
-                            "title": "Iteration (Ch 26)",
+                            "title": "Iteration: across & map",
                             "order": 2,
                             "difficulty": 3
                         },
                         {
                             "id": 2420,
-                            "title": "Base R (Ch 27)",
+                            "title": "A Field Guide to Base R",
                             "order": 3,
                             "difficulty": 2
                         }
@@ -481,13 +481,13 @@
                     "lessons": [
                         {
                             "id": 2500,
-                            "title": "Quarto (Ch 28)",
+                            "title": "Quarto Basics",
                             "order": 1,
                             "difficulty": 1
                         },
                         {
                             "id": 2510,
-                            "title": "Quarto Formats (Ch 29)",
+                            "title": "Quarto Formats",
                             "order": 2,
                             "difficulty": 1
                         }
