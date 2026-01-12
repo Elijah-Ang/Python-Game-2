@@ -5099,12 +5099,12 @@
   },
   "2300": {
     "id": 2300,
-    "title": "Spreadsheets",
+    "title": "Reading Excel",
     "chapter_title": "Ch 20: Spreadsheets",
-    "content": "# 📊 Spreadsheets\n\n## Reading Excel\n\n`readxl` is the tidyverse-adjacent package for Excel files. It does not load with `library(tidyverse)`.\n\n```r\nlibrary(readxl)\nread_excel(\"data.xlsx\", sheet = \"Sales\")\n```\n\n## Ranges\n\nYou can specify specific cells to read.\n\n```r\nread_excel(\"data.xlsx\", range = \"B3:D12\")\n```\n\n---\n\n## 🎯 Your Task\n\nSimulate reading the \"Summary\" sheet from \"budget.xlsx\".\n",
-    "starter_code": "# read_excel(..., sheet = \"...\")\n",
-    "solution_code": "read_excel(\"budget.xlsx\", sheet = \"Summary\")",
-    "expected_output": "[Data Frame: Excel Content]",
+    "content": "# 📊 Reading Excel Files\n\n## The readxl Package\n\nLoad separately - not part of core tidyverse!\n\n```r\nlibrary(readxl)\n```\n\n---\n\n## Basic Reading\n\n```r\n# Read first sheet\nstudents <- read_excel(\"students.xlsx\")\n\n# Read specific sheet\nread_excel(\"penguins.xlsx\", sheet = \"Torgersen Island\")\n```\n\n---\n\n## Common Arguments\n\n| Argument | Purpose | Example |\n|----------|---------|---------|\n| `sheet` | Which worksheet | `sheet = \"Sales\"` |\n| `skip` | Skip rows at top | `skip = 1` |\n| `na` | Strings to treat as NA | `na = c(\"\", \"N/A\")` |\n| `col_names` | Custom column names | `col_names = c(\"id\", \"name\")` |\n| `col_types` | Force types | `col_types = c(\"numeric\", \"text\")` |\n| `range` | Read specific cells | `range = \"A5:F15\"` |\n\n---\n\n## Working with Multiple Sheets\n\n```r\n# List all sheets\nexcel_sheets(\"penguins.xlsx\")\n# [1] \"Torgersen Island\" \"Biscoe Island\" \"Dream Island\"\n\n# Read each, then combine\ntorgersen <- read_excel(\"penguins.xlsx\", sheet = \"Torgersen Island\")\nbiscoe <- read_excel(\"penguins.xlsx\", sheet = \"Biscoe Island\")\n\npenguins <- bind_rows(torgersen, biscoe)\n```\n\n---\n\n## Reading Cell Ranges\n\n```r\n# Skip headers and footers - read only data!\nread_excel(\"messy.xlsx\", range = \"A5:F15\")\n```\n\n---\n\n## 🎯 Your Task\n\nRead the \"Sales\" sheet from an Excel file, skipping the first 2 rows:\n\n1. Use `read_excel()` with `sheet = \"Sales\"`\n2. Add `skip = 2` to skip header rows\n\n> **Hint**: `read_excel(\"data.xlsx\", sheet = \"...\", skip = ...)`\n",
+    "starter_code": "# Read Sales sheet, skip 2 rows\nlibrary(readxl)\n\nread_excel(\"data.xlsx\", sheet = ..., skip = ...)\n",
+    "solution_code": "read_excel(\"data.xlsx\", sheet = \"Sales\", skip = 2)",
+    "expected_output": "[Tibble: Sales data]",
     "chapter_id": 20
   },
   "2310": {
