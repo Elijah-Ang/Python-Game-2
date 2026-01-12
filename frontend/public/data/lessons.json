@@ -4936,20 +4936,20 @@
     "id": 2030,
     "title": "Names & Spaces",
     "chapter_title": "Ch 4: Workflow: Code Style",
-    "content": "# 💅 Names & Spaces\n\n## Why Style Matters\n\nCode is read 10x more than it is written. Following a style guide makes your code easier for others (and future-you) to understand.\n\n## Naming Conventions\n\nWe use **snake_case** for everything. \n\n| Type | Good | Bad |\n| -- | -- | -- |\n| **Variable** | `flight_data` | `FlightData` |\n| **Function** | `calculate_mean` | `calcMean` |\n\n## Spacing\n\nSpace is free. Use it to let your code breathe. Always put spaces around operators.\n\n```r\n# ❌ Cramped\nmean(x,na.rm=TRUE)\n# ✅ Clean\nmean(x, na.rm = TRUE)\n```\n\n> **Pro Tip**: In RStudio, use `Cmd/Ctrl + Shift + A` to automatically reformat your code!\n\n---\n\n## 🎯 Your Task\n\nFix the spacing and naming in the code below.\n",
-    "starter_code": "# Fix this mess\nMyVariable<-c(1,2,3)+4\n",
+    "content": "# 💅 Names & Spaces\n\n## Why Style Matters\n\n> Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread.\n\nUsing a consistent style makes it easier for others (and future-you!) to read your work.\n\n---\n\n## Naming Rules\n\nVariable names should use only **lowercase letters**, **numbers**, and **underscores** (`_`).\n\n```\n✅ GOOD                    ❌ BAD\n────────────────────────────────────────\nshort_flights             SHORTFLIGHTS\nflight_data               FlightData\ncalculate_mean            calcMean\n```\n\n**Tip**: Prefer long, descriptive names over short, cryptic ones. Autocomplete will help you type them!\n\n---\n\n## Spacing Rules\n\n### 1. Spaces around operators\n\nPut spaces around `+`, `-`, `*`, `/`, `<-`, `==`, etc.\n\n```r\n# ✅ Good\nz <- (a + b)^2 / d\n\n# ❌ Bad\nz<-( a + b ) ^ 2/d\n```\n\n### 2. Spaces in function calls\n\nNo space before `(`, always space after `,`.\n\n```r\n# ✅ Good\nmean(x, na.rm = TRUE)\n\n# ❌ Bad\nmean (x ,na.rm=TRUE)\n```\n\n---\n\n## 🎯 Your Task\n\nThe code below has **bad style**. Fix it by:\n1. Renaming `MyVariable` to use `snake_case`\n2. Adding proper spacing around `<-` and `+`\n3. Adding spaces after commas in `c()`\n\n> **Hint**: The fixed variable name should be `my_variable`.\n",
+    "starter_code": "# Fix the naming and spacing\nMyVariable<-c(1,2,3)+4\n",
     "solution_code": "my_variable <- c(1, 2, 3) + 4",
     "expected_output": "[Vector: 5 6 7]",
     "chapter_id": 4
   },
   "2031": {
     "id": 2031,
-    "title": "Pipes",
+    "title": "Pipes & Formatting",
     "chapter_title": "Ch 4: Workflow: Code Style",
-    "content": "# 🔧 Pipes\n\n## The Problem with Nesting\n\nWithout pipes, you have to read code inside-out. It's mentally taxing.\n\n```r\n# Hard to read\nresult <- filter(summarize(group_by(data, group), avg = mean(x)), avg > 10)\n```\n\n## The Pipe (`|>`) Solution\n\nThe pipe lets you write code like a story: \"Take data, THEN group it, THEN summarize, THEN filter.\"\n\n```r\n# Easy to read\nresult <- data |> \n  group_by(group) |> \n  summarize(avg = mean(x)) |> \n  filter(avg > 10)\n```\n\n## 🎯 Your Task\n\nRewrite this nested code using pipes:\n`select(filter(mpg, cyl == 4), model, hwy)`\n",
-    "starter_code": "# Rewrite with |>\nmpg |> ...\n",
-    "solution_code": "mpg |> \n  filter(cyl == 4) |> \n  select(model, hwy)",
-    "expected_output": "[Data Frame: Model & Hwy]",
+    "content": "# 🔧 Pipes & Formatting\n\n## Pipe Style Rules\n\nThe pipe `|>` should:\n1. Have a **space before** it\n2. Be the **last thing on a line**\n3. Each new step should be **indented**\n\n```r\n# ✅ Good: Easy to read and extend\nflights |>\n  filter(!is.na(arr_delay)) |>\n  group_by(dest) |>\n  summarize(delay = mean(arr_delay))\n\n# ❌ Bad: Hard to follow\nflights|>filter(!is.na(arr_delay))|>group_by(dest)|>summarize(delay=mean(arr_delay))\n```\n\n---\n\n## When to Break Lines\n\n**Named arguments** (like in `summarize()`) → each on its own line:\n\n```r\nflights |>\n  summarize(\n    delay = mean(arr_delay, na.rm = TRUE),\n    n = n()\n  )\n```\n\n**Simple functions** (like `filter()`) → can stay on one line if short.\n\n---\n\n## ggplot2 Uses `+`\n\nThe same rules apply to `ggplot2`, but use `+` instead of `|>`.\n\n```r\nggplot(data, aes(x = month, y = delay)) +\n  geom_point() +\n  geom_line()\n```\n\n---\n\n## 🎯 Your Task\n\nRestyle this messy pipeline to follow proper formatting:\n\n```r\nflights|>filter(dest==\"IAH\")|>group_by(year,month,day)|>summarize(n=n(),delay=mean(arr_delay,na.rm=TRUE))\n```\n\nRules to follow:\n1. Space before each `|>`\n2. Each verb on its own line\n3. Indent after the first line\n4. Space after commas\n\n> **Hint**: Start with `flights |>` then add each step on a new indented line.\n",
+    "starter_code": "# Restyle this pipeline with proper formatting\nflights|>filter(dest==\"IAH\")|>group_by(year,month,day)|>summarize(n=n(),delay=mean(arr_delay,na.rm=TRUE))\n",
+    "solution_code": "flights |>\n  filter(dest == \"IAH\") |>\n  group_by(year, month, day) |>\n  summarize(\n    n = n(),\n    delay = mean(arr_delay, na.rm = TRUE)\n  )",
+    "expected_output": "[Tibble: Formatted result]",
     "chapter_id": 4
   },
   "2040": {
