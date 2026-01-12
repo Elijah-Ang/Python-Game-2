@@ -5109,12 +5109,12 @@
   },
   "2310": {
     "id": 2310,
-    "title": "Databases",
+    "title": "Databases & dbplyr",
     "chapter_title": "Ch 21: Databases",
-    "content": "# 🗄️ Databases & dbplyr\n\n## Why Databases?\n\nCommercial data is often too big for your laptop's RAM. SQL databases solve this.\n\n## lazy Evaluation: The Magic Trick\n\n`dbplyr` is lazy. It **does not** touch the data until you force it.\n\n```r\n# This executes instantly (0 rows downloaded)\nq <- flight_db |> filter(dest == \"JFK\")\n```\n\nIt only generates SQL: `SELECT * FROM flights WHERE dest = 'JFK'`.\n\nIt runs ONLY when you `collect()` (download) or plot it.\n\n---\n\n## 🎯 Your Task\n\n1.  Filter `db_table` for `id > 100`.\n2.  Use `collect()` to force R to download the data.\n",
-    "starter_code": "db_table |> \n  filter(...) |> \n  collect()\n",
-    "solution_code": "db_table |> \n  filter(id > 100) |> \n  collect()",
-    "expected_output": "[Data Frame: Downloaded Data]",
+    "content": "# 🗄️ Databases & dbplyr\n\n## Why Databases?\n\nData frames live in RAM (limited). Databases live on disk (unlimited!).\n\n---\n\n## Connecting with DBI\n\n```r\nlibrary(DBI)\nlibrary(dbplyr)\n\n# Connect to duckdb (in-process database)\ncon <- DBI::dbConnect(duckdb::duckdb())\n\n# Write data to database\ndbWriteTable(con, \"flights\", nycflights13::flights)\n```\n\n---\n\n## The Magic of dbplyr\n\n### Create a table reference\n```r\nflights_db <- tbl(con, \"flights\")\n```\n\n### Write dplyr code - it's LAZY!\n```r\n# This runs INSTANTLY (no data downloaded!)\nquery <- flights_db |>\n  filter(dest == \"IAH\") |>\n  select(carrier, flight, dep_delay)\n```\n\n### See the generated SQL\n```r\nquery |> show_query()\n# SELECT carrier, flight, dep_delay\n# FROM flights\n# WHERE (dest = 'IAH')\n```\n\n### Download results with `collect()`\n```r\nresult <- query |> collect()  # NOW data downloads!\n```\n\n---\n\n## SQL Clause Mapping\n\n| dplyr | SQL Clause |\n|-------|------------|\n| `select()` | SELECT |\n| `filter()` | WHERE |\n| `arrange()` | ORDER BY |\n| `group_by() + summarize()` | GROUP BY |\n| `mutate()` | SELECT (with expressions) |\n\n---\n\n## 🎯 Your Task\n\nGiven a database table `diamonds_db`, filter for `price > 10000` and view the SQL:\n\n1. Use `filter()` to select expensive diamonds\n2. Use `show_query()` to see what SQL was generated\n\n> **Hint**: `diamonds_db |> filter(...) |> show_query()`\n",
+    "starter_code": "# Filter and view SQL\ndiamonds_db |>\n  filter(price > ...) |>\n  show_query()\n",
+    "solution_code": "diamonds_db |>\n  filter(price > 10000) |>\n  show_query()",
+    "expected_output": "[SQL: SELECT * FROM diamonds WHERE (price > 10000)]",
     "chapter_id": 21
   },
   "2320": {
