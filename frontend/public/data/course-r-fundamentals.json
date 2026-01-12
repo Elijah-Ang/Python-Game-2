@@ -177,13 +177,13 @@
                     "lessons": [
                         {
                             "id": 2060,
-                            "title": "Reading Data",
+                            "title": "Reading CSV Files",
                             "order": 1,
                             "difficulty": 2
                         },
                         {
                             "id": 2061,
-                            "title": "Parsing Vectors",
+                            "title": "Handling Messy Data",
                             "order": 2,
                             "difficulty": 2
                         }

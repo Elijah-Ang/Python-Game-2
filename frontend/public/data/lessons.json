@@ -5004,22 +5004,22 @@
   },
   "2060": {
     "id": 2060,
-    "title": "Reading Data",
+    "title": "Reading CSV Files",
     "chapter_title": "Ch 7: Data Import",
-    "content": "# 📥 Reading Data\n\n## read_csv()\n\nThe most common file type is CSV (Comma Separated Values). We use `read_csv()` from the `readr` package.\n\n```r\nstudents <- read_csv(\"data/students.csv\")\n```\n\nIt prints out column specifications (types) so you can catch errors early.\n\n## Inline CSV\n\nYou can also read CSV data directly from a string (useful for testing/examples):\n\n```r\nread_csv(\"a,b,c\\n1,2,3\\n4,5,6\")\n```\n\n---\n\n## 🎯 Your Task\n\nRead the provided inline CSV string into a dataframe.\n",
-    "starter_code": "csv_data <- \"x,y,z\\n1,2,3\\n4,5,6\"\n# read_csv(csv_data)\n",
-    "solution_code": "csv_data <- \"x,y,z\\n1,2,3\\n4,5,6\"\nread_csv(csv_data)",
-    "expected_output": "[Data Frame: 2 rows]",
+    "content": "# 📥 Reading CSV Files\n\n## What is a CSV?\n\nCSV = **C**omma-**S**eparated **V**alues. It's the most common data file format.\n\n```\nStudent ID,Full Name,favourite.food,AGE\n1,Sunil Huffmann,Strawberry yoghurt,4\n2,Barclay Lynn,French fries,5\n3,Jayendra Lyne,N/A,7\n```\n\n---\n\n## Reading with `read_csv()`\n\nUse `read_csv()` from the `readr` package:\n\n```r\nstudents <- read_csv(\"data/students.csv\")\n```\n\nIt automatically:\n- Detects column types (number, text, date)\n- Prints a summary of what it found\n\n---\n\n## Inline CSV (for testing)\n\nYou can read CSV data directly from a string:\n\n```r\nread_csv(\"a,b,c\n1,2,3\n4,5,6\")\n```\n\nResult:\n```\n| a | b | c |\n|---|---|---|\n| 1 | 2 | 3 |\n| 4 | 5 | 6 |\n```\n\n---\n\n## 🎯 Your Task\n\nRead this inline CSV string into a data frame. The string contains columns `x`, `y`, `z` with two rows of data.\n\n1. Uncomment the `read_csv()` line\n2. Run the code to see the resulting tibble\n",
+    "starter_code": "# An inline CSV string\ncsv_data <- \"x,y,z\n1,2,3\n4,5,6\"\n\n# Uncomment to read it:\n# read_csv(csv_data)\n",
+    "solution_code": "csv_data <- \"x,y,z\n1,2,3\n4,5,6\"\nread_csv(csv_data)",
+    "expected_output": "[Tibble: 2 x 3]",
     "chapter_id": 7
   },
   "2061": {
     "id": 2061,
-    "title": "Parsing Vectors",
+    "title": "Handling Messy Data",
     "chapter_title": "Ch 7: Data Import",
-    "content": "# 🧬 Parsing Vectors\n\n## Under the Hood\n\n`read_csv` guesses column types. Sometimes it fails. You can fix it with `parse_*()` functions.\n\n- `parse_integer(\"123\")` -> 123\n- `parse_double(\"1.23\")` -> 1.23\n- `parse_date(\"2023-01-01\")` -> Date\n\n## Handling Non-Standard Formats\n\nIf you have messy data like \"$1,000\", standard parsing fails.\n\n```r\nparse_number(\"$1,000\") \n# [1] 1000\n```\n\n---\n\n## 🎯 Your Task\n\nParse the string \"2023-01-01\" into a date object using `parse_date()`.\n",
-    "starter_code": "# Parse date\n",
-    "solution_code": "parse_date(\"2023-01-01\")",
-    "expected_output": "2023-01-01",
+    "content": "# 🧹 Handling Messy Data\n\n## Common Problems\n\nReal data is messy! Common issues include:\n\n| Problem | Example | Solution |\n|---------|---------|----------|\n| Custom NA values | `N/A`, `.`, `missing` | `na = c(\"N/A\", \".\")` |\n| Spaces in column names | `Student ID` | `janitor::clean_names()` |\n| Wrong column type | Age stored as text | `col_types` argument |\n\n---\n\n## Handling Custom NA Values\n\nBy default, `read_csv()` only treats empty cells as NA. Tell it about other values:\n\n```r\nread_csv(\"data/students.csv\", na = c(\"N/A\", \"\"))\n```\n\n---\n\n## Fixing Column Names\n\nColumn names with spaces need backticks. Use `janitor::clean_names()` to fix them:\n\n```r\nstudents |> janitor::clean_names()\n# student_id, full_name, favourite_food...\n```\n\n---\n\n## Parsing Functions\n\nWhen types are wrong, use parse functions:\n\n```r\nparse_number(\"$1,000\")    # 1000\nparse_date(\"2023-01-15\")  # Date object\nparse_integer(\"42\")       # 42L\n```\n\n---\n\n## 🎯 Your Task\n\nThe `parse_number()` function extracts numbers from messy strings.\n\nParse the string `\"$1,234.56\"` to get the numeric value `1234.56`.\n\n> **Hint**: Just call `parse_number()` with the string as its argument.\n",
+    "starter_code": "# Extract the number from this messy string\nmessy_price <- \"$1,234.56\"\n\n# Use parse_number() to clean it\n",
+    "solution_code": "messy_price <- \"$1,234.56\"\nparse_number(messy_price)",
+    "expected_output": "1234.56",
     "chapter_id": 7
   },
   "2070": {
