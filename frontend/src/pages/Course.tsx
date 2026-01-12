@@ -67,7 +67,7 @@ export const Course: React.FC = () => {
                 className="h-64 relative overflow-hidden"
                 style={{
                     backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url(${import.meta.env.BASE_URL}assets/headers/${slug === 'sql-fundamentals' ? 'sql_landscape.png' :
-                            slug === 'r-fundamentals' ? 'r_landscape.png' : 'python_landscape.png'
+                        slug === 'r-fundamentals' ? 'r_landscape.png' : 'python_landscape.png'
                         })`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
@@ -84,15 +84,7 @@ export const Course: React.FC = () => {
                         Master Python from fundamentals to Machine Learning. {totalLessons} exercises across {course.chapters.length} chapters.
                     </p>
                 </div>
-                <div className="absolute bottom-4 right-8 opacity-90">
-                    <img
-                        src={`${import.meta.env.BASE_URL}assets/icons/${slug === 'sql-fundamentals' ? 'sql_v2.png' :
-                                slug === 'r-fundamentals' ? 'r_v2.png' : 'python_v2.png'
-                            }`}
-                        alt="Course Icon"
-                        className="w-32 h-32 object-contain pixel-art drop-shadow-2xl"
-                    />
-                </div>
+
             </div>
 
             <div className="max-w-4xl mx-auto px-8 py-8">
