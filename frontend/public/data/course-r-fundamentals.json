@@ -289,7 +289,7 @@
                     "lessons": [
                         {
                             "id": 2200,
-                            "title": "Boolean Logic",
+                            "title": "Comparisons & Boolean",
                             "order": 1,
                             "difficulty": 2
                         },

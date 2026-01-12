@@ -5114,22 +5114,22 @@
   },
   "2200": {
     "id": 2200,
-    "title": "Boolean Logic",
+    "title": "Comparisons & Boolean",
     "chapter_title": "Ch 12: Logical Vectors",
-    "content": "# 🧠 Boolean Logic\n\n## Filtering with Logic\n\nLogical vectors (`TRUE`/`FALSE`) are the foundation of filtering.\n\n- `&` (AND): Both must be true.\n- `|` (OR): At least one must be true.\n- `!` (NOT): Inverts the condition.\n\n## Common Trap: `==` vs `%in%`\n\nNovices often write `filter(mpg, class == c(\"suv\", \"pickup\"))`. **THIS IS WRONG.** It recycles the vector and causes random misses.\n\n**Correct**: Use `%in%`.\n```r\nfilter(mpg, class %in% c(\"suv\", \"pickup\"))\n```\n\n---\n\n## 🎯 Your Task\n\nFilter `mpg` for cars where:\n1.  `class` is \"suv\" OR \"pickup\".\n2.  Use the `%in%` operator to avoid the recycling trap.\n",
-    "starter_code": "filter(mpg, class ... c(\"suv\", \"pickup\"))\n",
-    "solution_code": "filter(mpg, class %in% c(\"suv\", \"pickup\"))",
-    "expected_output": "[Data Frame: SUVs and Pickups]",
+    "content": "# 🧠 Comparisons & Boolean Logic\n\n## Logical Vectors\n\nLogical vectors have only 3 values: `TRUE`, `FALSE`, `NA`\n\n---\n\n## Comparison Operators\n\n- `<` Less than\n- `>` Greater than\n- `<=` Less than or equal\n- `>=` Greater than or equal\n- `==` Equal to\n- `!=` Not equal to\n\n---\n\n## Boolean Operators\n\n- `&` AND (both must be true)\n- OR operator (at least one true)\n- `!` NOT (invert the condition)\n\n---\n\n## The `%in%` Operator\n\nInstead of chaining OR conditions, use `%in%` for cleaner code:\n\n```r\n# Check if month is Nov or Dec\nflights %>% filter(month %in% c(11, 12))\n```\n\n---\n\n## Finding Missing Values: `is.na()`\n\n```r\nis.na(c(1, NA, 3))  # FALSE TRUE FALSE\n\n# Find cancelled flights\nflights %>% filter(is.na(dep_time))\n```\n\n---\n\n## 🎯 Your Task\n\nFind all flights that departed in **November or December**.\n\n1. Use `filter()` with `%in%`\n2. Check if `month` is in `c(11, 12)`\n\n> **Hint**: `filter(data, column %in% c(val1, val2))`\n",
+    "starter_code": "# Find Nov/Dec flights\nflights %>%\n  filter(month %in% c(..., ...))\n",
+    "solution_code": "flights %>% filter(month %in% c(11, 12))",
+    "expected_output": "[Tibble: Nov/Dec flights]",
     "chapter_id": 12
   },
   "2201": {
     "id": 2201,
     "title": "Conditional Logic",
     "chapter_title": "Ch 12: Logical Vectors",
-    "content": "# 🔀 Conditional Logic\n\n## if_else()\n\nUse `if_else()` inside `mutate()` to create conditional columns.\n\n```r\nmutate(mpg, \n  efficiency = if_else(hwy > 30, \"High\", \"Normal\")\n)\n```\n\n## case_when()\n\nFor more than two conditions, use `case_when()`.\n\n```r\nmutate(mpg, type = case_when(\n  hwy > 35 ~ \"Super\",\n  hwy > 25 ~ \"Good\",\n  TRUE ~ \"Average\"\n))\n```\n\n---\n\n## 🎯 Your Task\n\nCreate a column `status`:\n- If `year` < 2000, set to \"Old\".\n- Otherwise, set to \"New\".\n",
-    "starter_code": "mutate(mpg, status = if_else(..., ..., ...))\n",
-    "solution_code": "mutate(mpg, status = if_else(year < 2000, \"Old\", \"New\"))",
-    "expected_output": "[Data Frame: with status]",
+    "content": "# 🔀 Conditional Transformations\n\n## `if_else()`: Two Outcomes\n\nUse `if_else()` for **two** possible outcomes:\n\n```r\nif_else(condition, true_value, false_value)\n```\n\n### Example: Label Delays\n\n```r\nflights %>% mutate(\n  status = if_else(arr_delay > 0, \"Late\", \"On time\")\n)\n```\n\n---\n\n## `case_when()`: Multiple Outcomes\n\nFor **many** conditions, use `case_when()`:\n\n```r\ncase_when(\n  condition1 ~ result1,\n  condition2 ~ result2,\n  .default = default_result\n)\n```\n\n### Example: Flight Status\n\n```r\nflights %>% mutate(\n  status = case_when(\n    is.na(arr_delay)     ~ \"Cancelled\",\n    arr_delay < -15      ~ \"Early\",\n    abs(arr_delay) <= 15 ~ \"On time\",\n    arr_delay < 60       ~ \"Late\",\n    .default = \"Very late\"\n  )\n)\n```\n\n---\n\n## Key Differences\n\n- `if_else()`: Exactly 2 outcomes\n- `case_when()`: 3 or more outcomes\n\n---\n\n## 🎯 Your Task\n\nCreate a new column `delay_type` in the `flights` dataset:\n\n- If `arr_delay > 30`, label as \"Significant\"\n- Otherwise, label as \"Minor\"\n\n> **Hint**: `mutate(data, new_col = if_else(cond, \"yes\", \"no\"))`\n",
+    "starter_code": "# Create delay_type column\nflights %>%\n  mutate(\n    delay_type = if_else(arr_delay > ..., \"...\", \"...\")\n  )\n",
+    "solution_code": "flights %>%\n  mutate(delay_type = if_else(arr_delay > 30, \"Significant\", \"Minor\"))",
+    "expected_output": "[Tibble with delay_type]",
     "chapter_id": 12
   },
   "2210": {
