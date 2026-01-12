@@ -221,19 +221,19 @@
                     "lessons": [
                         {
                             "id": 2100,
-                            "title": "Geoms & Stats",
+                            "title": "Aesthetic Mappings",
                             "order": 1,
                             "difficulty": 3
                         },
                         {
                             "id": 2101,
-                            "title": "Position Adjustments",
+                            "title": "Geoms & Layers",
                             "order": 2,
                             "difficulty": 3
                         },
                         {
                             "id": 2102,
-                            "title": "Coordinate Systems",
+                            "title": "Facets",
                             "order": 3,
                             "difficulty": 3
                         }
