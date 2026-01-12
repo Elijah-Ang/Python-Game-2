@@ -5081,20 +5081,20 @@
     "id": 2270,
     "title": "Mutating Joins",
     "chapter_title": "Ch 19: Joins",
-    "content": "# 🔗 Mutating Joins\n\n## Connect Data\n\n`left_join(x, y)` keeps all rows from `x` and matches rows from `y`.\n\n## Keys\n\nIt joins by columns with the same name. If they differ, use `by = c(\"a\" = \"b\")`.\n\n## Duplicates\n\nIf the key is not unique in `y`, the row in `x` is duplicated. This is a \"one-to-many\" join.\n\n---\n\n## 🎯 Your Task\n\nLeft join `band_members` to `band_instruments`.\n",
-    "starter_code": "left_join(band_members, ...)\n",
-    "solution_code": "left_join(band_members, band_instruments)",
-    "expected_output": "[Data Frame: Joined]",
+    "content": "# 🔗 Mutating Joins\n\n## Keys: The Foundation\n\n### Primary Key\nUniquely identifies each row in its table.\n- `airlines$carrier` - Two-letter carrier code\n- `airports$faa` - Three-letter airport code\n- `planes$tailnum` - Plane tail number\n\n### Foreign Key\nReferences a primary key in another table.\n- `flights$carrier` → `airlines$carrier`\n- `flights$dest` → `airports$faa`\n\n---\n\n## The Four Mutating Joins\n\n```\n┌─────────────┬──────────────────────────────┐\n│ Join Type   │ What it Keeps                │\n├─────────────┼──────────────────────────────┤\n│ left_join   │ All rows from x              │\n│ right_join  │ All rows from y              │\n│ inner_join  │ Only matching rows           │\n│ full_join   │ All rows from x AND y        │\n└─────────────┴──────────────────────────────┘\n```\n\n---\n\n## Example: Add Airline Names to Flights\n\n```r\nflights %>%\n  left_join(airlines, join_by(carrier))\n```\n\n- Adds `name` column from `airlines`\n- Keeps ALL rows from `flights`\n- Unmatched rows get `NA`\n\n---\n\n## Specifying Keys with `join_by()`\n\n```r\n# Same column name\nleft_join(x, y, join_by(key))\n\n# Different column names\nleft_join(flights, airports, join_by(dest == faa))\n```\n\n---\n\n## 🎯 Your Task\n\nJoin `flights` to `airlines` to add the full carrier name:\n\n1. Use `left_join()`\n2. The common key is `carrier`\n\n> **Hint**: `left_join(flights, airlines)`\n",
+    "starter_code": "# Add airline names to flights\nlibrary(nycflights13)\n\nflights %>%\n  select(carrier, flight, origin, dest) %>%\n  left_join(..., join_by(...))\n",
+    "solution_code": "flights %>%\n  select(carrier, flight, origin, dest) %>%\n  left_join(airlines, join_by(carrier))",
+    "expected_output": "[Tibble with name column added]",
     "chapter_id": 19
   },
   "2271": {
     "id": 2271,
     "title": "Filtering Joins",
     "chapter_title": "Ch 19: Joins",
-    "content": "# 🔍 Filtering Joins\n\n## Filter, Don't Expand\n\nSometimes you want to filter `x` based on `y`, but NOT add columns from `y`. This prevents row duplication.\n\n- `semi_join(x, y)`: Keep rows in x that represent a match in y.\n- `anti_join(x, y)`: Keep rows in x that do NOT match y.\n\n## Use Case\n\n\"Find all airports that are mentioned in the `flights` dataset.\"\n\n---\n\n## 🎯 Your Task\n\nUse `semi_join` to find which `band_members` have an instrument listed in `band_instruments`.\n",
-    "starter_code": "semi_join(..., ...)\n",
-    "solution_code": "semi_join(band_members, band_instruments)",
-    "expected_output": "[Data Frame: Filtered Members]",
+    "content": "# 🔍 Filtering Joins\n\n## Filter, Don't Add Columns!\n\nFiltering joins affect which **rows** are kept, not which columns.\n\n---\n\n## Two Types\n\n### `semi_join(x, y)`\nKeep rows in `x` that **have** a match in `y`\n\n```r\n# Find airports that appear as destinations\nairports %>%\n  semi_join(flights, join_by(faa == dest))\n```\n\n### `anti_join(x, y)`\nKeep rows in `x` that **don't have** a match in `y`\n\n```r\n# Find flights to airports NOT in our database\nflights %>%\n  anti_join(airports, join_by(dest == faa))\n```\n\n---\n\n## Finding Missing Data\n\nAnti-joins are perfect for finding implicit missing values:\n\n```r\n# Which planes are in flights but NOT in planes table?\nflights %>%\n  distinct(tailnum) %>%\n  anti_join(planes)\n\n# Result: 722 planes with no info!\n```\n\n---\n\n## Visual Comparison\n\n```\n┌────────────┬─────────────────────────────┐\n│ semi_join  │ Keep matches (filter IN)    │\n│ anti_join  │ Keep non-matches (filter OUT)│\n└────────────┴─────────────────────────────┘\n```\n\n---\n\n## 🎯 Your Task\n\nFind all destinations (`dest`) in `flights` that are NOT in the `airports` table:\n\n1. Use `anti_join()` with `flights` and `airports`\n2. Match `dest` to `faa`\n3. Get unique destinations with `distinct()`\n\n> **Hint**: `flights %>% ... %>% anti_join(airports, join_by(dest == faa))`\n",
+    "starter_code": "# Find destinations not in airports table\nlibrary(nycflights13)\n\nflights %>%\n  distinct(dest) %>%\n  anti_join(..., join_by(... == ...))\n",
+    "solution_code": "flights %>%\n  distinct(dest) %>%\n  anti_join(airports, join_by(dest == faa))",
+    "expected_output": "[Tibble: 4 missing airports - BQN, SJU, STT, PSE]",
     "chapter_id": 19
   },
   "2300": {
