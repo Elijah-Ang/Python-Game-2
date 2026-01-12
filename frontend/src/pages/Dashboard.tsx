@@ -46,7 +46,7 @@ export const Dashboard: React.FC = () => {
                             <img
                                 src={`${import.meta.env.BASE_URL}assets/headers/${course.slug === 'sql-fundamentals' ? 'sql_landscape.png' :
                                     course.slug === 'r-fundamentals' ? 'r_landscape.png' : 'python_landscape.png'
-                                    }?v=4`}
+                                    }?v=5`}
                                 alt={course.title}
                                 className="w-full h-full object-cover pixel-art transition-transform duration-500 group-hover:scale-110"
                             />
