@@ -5059,12 +5059,12 @@
   },
   "2250": {
     "id": 2250,
-    "title": "Parsing & Math",
+    "title": "Dates & Times",
     "chapter_title": "Ch 17: Dates and Times",
-    "content": "# 📅 Parsing & Math\n\n## lubridate\n\nParsing is easy: `ymd()`, `mdy()`, `dmy()`.\n\n```r\nymd(\"2023-01-31\")\n```\n\n## Date Math\n\nYou can do math with dates.\n\n```r\ntoday() - ymd(\"2000-01-01\")\n```\n\n---\n\n## 🎯 Your Task\n\nCalculate the number of days between \"2024-01-01\" and \"2023-01-01\".\n",
-    "starter_code": "ymd(\"...\") - ymd(\"...\")\n",
-    "solution_code": "ymd(\"2024-01-01\") - ymd(\"2023-01-01\")",
-    "expected_output": "365 days",
+    "content": "# 📅 Dates & Times\n\n## The lubridate Package\n\nMakes dates easy! Part of the tidyverse.\n\n---\n\n## Parsing Dates\n\nMatch the function to your date format:\n\n| Function | Example Input |\n|----------|---------------|\n| `ymd()` | \"2023-01-31\" |\n| `mdy()` | \"January 31st, 2023\" |\n| `dmy()` | \"31-Jan-2023\" |\n\nAdd `_hms` for times: `ymd_hms(\"2023-01-31 20:11:59\")`\n\n---\n\n## Extracting Components\n\n```r\ndatetime <- ymd_hms(\"2023-07-08 12:34:56\")\n\nyear(datetime)   # 2023\nmonth(datetime)  # 7\nday(datetime)    # 8\nwday(datetime, label = TRUE)  # \"Sat\"\nhour(datetime)   # 12\n```\n\n---\n\n## Date Math: Durations vs Periods\n\n### Durations = Exact seconds\n```r\nddays(1)   # 86400 seconds\ndyears(1)  # 31557600 seconds\n```\n\n### Periods = Human units\n```r\ndays(1)    # 1 day (respects DST)\nyears(1)   # 1 year (respects leap years)\n```\n\n---\n\n## Useful Functions\n\n```r\ntoday()            # Current date\nnow()              # Current date-time\nfloor_date(x, \"week\")  # Round down to week\n```\n\n---\n\n## 🎯 Your Task\n\nParse the date \"March 15, 2023\" and extract the **day of the week**:\n\n1. Use `mdy()` to parse (month-day-year format)\n2. Use `wday()` with `label = TRUE` to get day name\n\n> **Hint**: `wday(mdy(\"...\"), label = TRUE)`\n",
+    "starter_code": "# Parse and extract day of week\nlibrary(lubridate)\n\ndate <- mdy(\"March 15, 2023\")\nwday(date, label = ...)\n",
+    "solution_code": "mdy(\"March 15, 2023\") %>% wday(label = TRUE)",
+    "expected_output": "[Factor: Wed]",
     "chapter_id": 17
   },
   "2260": {
