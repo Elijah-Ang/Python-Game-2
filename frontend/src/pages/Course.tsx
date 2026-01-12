@@ -26,6 +26,7 @@ interface Chapter {
 
 interface CourseDetails {
     id: number;
+    slug: string;
     title: string;
     chapters: Chapter[];
 }
