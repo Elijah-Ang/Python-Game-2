@@ -343,7 +343,7 @@
                     "lessons": [
                         {
                             "id": 2240,
-                            "title": "Categorical Data",
+                            "title": "Factor Basics",
                             "order": 1,
                             "difficulty": 2
                         }

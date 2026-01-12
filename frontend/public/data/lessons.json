@@ -5049,12 +5049,12 @@
   },
   "2240": {
     "id": 2240,
-    "title": "Categorical Data",
+    "title": "Factor Basics",
     "chapter_title": "Ch 16: Factors",
-    "content": "# 📊 Categorical Data\n\n## Factors\n\nStrings are unordered. Factors are ordered. This matters for plotting.\n\n## Reordering\n\n`fct_reorder()` is magic for plotting. It reorders a factor by another variable.\n\n```r\nggplot(mpg, aes(y = fct_reorder(class, hwy))) + \n  geom_boxplot()\n```\n\nNow the boxplots are sorted by median highway mpg! Visual bliss.\n\n---\n\n## 🎯 Your Task\n\nCreate a bar chart of `manufacturer`. Reorder them by the MEAN of `cty`.\n",
-    "starter_code": "ggplot(mpg, aes(y = fct_reorder(manufacturer, cty))) + \n  geom_bar()\n",
-    "solution_code": "ggplot(mpg, aes(y = fct_reorder(manufacturer, cty))) + \n  geom_bar()",
-    "expected_output": "[Graph: Sorted Manufacturers]",
+    "content": "# 📊 Factors\n\n## Why Factors?\n\nStrings sort alphabetically. Factors sort in **your** order!\n\n```r\n# Problem: Months sort alphabetically\nsort(c(\"Dec\", \"Apr\", \"Jan\"))  # Apr, Dec, Jan\n\n# Solution: Use factors with levels\nmonth_levels <- c(\"Jan\", \"Feb\", \"Mar\", ...)\nfactor(months, levels = month_levels)\n```\n\n---\n\n## The forcats Package\n\nAll functions start with `fct_` for easy autocomplete!\n\n---\n\n## Reordering for Plots\n\n### `fct_reorder()` - Sort by another variable\n\n```r\n# Sort religions by TV hours watched\nggplot(data, aes(x = tvhours, y = fct_reorder(relig, tvhours))) +\n  geom_point()\n```\n\n### `fct_infreq()` - Sort by frequency\n\n```r\n# Bar chart sorted by count\nggplot(gss_cat, aes(x = fct_infreq(marital))) +\n  geom_bar()\n```\n\n---\n\n## Modifying Levels\n\n### `fct_recode()` - Rename levels\n\n```r\nfct_recode(partyid,\n  \"Republican\" = \"Strong republican\",\n  \"Democrat\" = \"Strong democrat\"\n)\n```\n\n### `fct_collapse()` - Combine levels\n\n```r\nfct_collapse(partyid,\n  \"rep\" = c(\"Strong republican\", \"Not str republican\"),\n  \"dem\" = c(\"Strong democrat\", \"Not str democrat\")\n)\n```\n\n---\n\n## 🎯 Your Task\n\nUsing the `mpg` dataset, create a plot with `class` on the y-axis, reordered by median `hwy`:\n\n1. Use `fct_reorder(class, hwy)` in the aesthetic\n2. Add `geom_boxplot()`\n\n> **Hint**: The reordering goes inside `aes(y = fct_reorder(...))`\n",
+    "starter_code": "# Reorder class by highway mpg\nggplot(mpg, aes(x = hwy, y = fct_reorder(..., ...))) +\n  geom_boxplot()\n",
+    "solution_code": "ggplot(mpg, aes(x = hwy, y = fct_reorder(class, hwy))) +\n  geom_boxplot()",
+    "expected_output": "[Boxplot sorted by median hwy]",
     "chapter_id": 16
   },
   "2250": {
