@@ -64,11 +64,11 @@ export const Course: React.FC = () => {
         <div className="min-h-screen bg-[var(--bg-color)]">
             {/* Course Banner */}
             <div
-                className="h-[500px] relative overflow-hidden"
+                className="w-full aspect-video relative overflow-hidden"
                 style={{
                     backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url(${import.meta.env.BASE_URL}assets/headers/${slug === 'sql-fundamentals' ? 'sql_landscape.png' :
                         slug === 'r-fundamentals' ? 'r_landscape.png' : 'python_landscape.png'
-                        }?v=3)`,
+                        }?v=4)`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                 }}

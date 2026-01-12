@@ -42,11 +42,11 @@ export const Dashboard: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {courses.map(course => (
                     <div key={course.id} className="panel group hover:border-[var(--accent-secondary)] transition-all">
-                        <div className="h-40 bg-[var(--bg-color)] mb-4 rounded border border-[var(--border-color)] flex items-center justify-center overflow-hidden relative">
+                        <div className="w-full aspect-video bg-[var(--bg-color)] mb-4 rounded border border-[var(--border-color)] flex items-center justify-center overflow-hidden relative">
                             <img
                                 src={`${import.meta.env.BASE_URL}assets/headers/${course.slug === 'sql-fundamentals' ? 'sql_landscape.png' :
                                     course.slug === 'r-fundamentals' ? 'r_landscape.png' : 'python_landscape.png'
-                                    }?v=3`}
+                                    }?v=4`}
                                 alt={course.title}
                                 className="w-full h-full object-cover pixel-art transition-transform duration-500 group-hover:scale-110"
                             />
