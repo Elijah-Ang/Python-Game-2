@@ -597,7 +597,7 @@ ${code}
 
                 {/* Right Panel: Code Editor + Terminal */}
                 <div ref={rightPanelRef} className="w-1/2 flex flex-col">
-                    {/* Editor Header */}
+                    {/* Editor Header - Rebuild Trigger */}
                     <div className="h-10 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-2 justify-between">
                         <div className="flex items-center">
                             <div className="px-3 py-1.5 bg-[var(--bg-color)] border-t-2 border-t-[var(--accent-warning)] text-sm flex items-center gap-2">
