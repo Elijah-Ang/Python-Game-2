@@ -69,7 +69,7 @@ export const Course: React.FC = () => {
                 style={{
                     backgroundImage: `url(${import.meta.env.BASE_URL}assets/headers/${slug === 'sql-fundamentals' ? 'sql_landscape.png' :
                         slug === 'r-fundamentals' ? 'r_landscape.png' : 'python_landscape.png'
-                        }?v=5)`,
+                        }?v=6)`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                 }}
