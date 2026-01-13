@@ -155,15 +155,24 @@ export const Lesson: React.FC = () => {
             const currentId = Number(id);
             if (currentId >= 2000 && !webR) {
                 try {
+                    setOutput("⏳ Setting up R environment (downloading packages)...");
                     // Dynamic import from CDN
                     // @ts-ignore
                     const { WebR } = await import('https://webr.r-wasm.org/latest/webr.mjs');
                     const w = new WebR();
                     await w.init();
+
+                    // Install and load common packages
+                    console.log("Installing R packages...");
+                    await w.installPackages(['ggplot2', 'dplyr']);
+                    await w.evalR('library(ggplot2); library(dplyr)');
+
                     setWebR(w);
                     console.log("WebR Ready");
-                } catch (e) {
+                    setOutput(""); // Clear "Setting up" message
+                } catch (e: any) {
                     console.error("WebR init error:", e);
+                    setOutput("⚠️ Error loading R environment: " + e.message);
                 }
             }
         };
