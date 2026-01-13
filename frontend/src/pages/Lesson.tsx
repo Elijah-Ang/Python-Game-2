@@ -278,7 +278,7 @@ except:
 
             // Run code
             // We use options to capture stdout
-            const shelf = await webR.evalR(code);
+            // const shelf = await webR.evalR(code); // Unused, shelf causes build error
 
             // Try to capture basic print output
             // WebR console output capture involves hooking the console or using capture.output
