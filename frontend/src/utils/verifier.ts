@@ -519,8 +519,17 @@ export function verifyR(
         };
     }
 
+    // Customize output for R - strip [1] and quotes
+    const cleanR = (val: string) => val
+        .replace(/^\[\d+\]\s+/gm, '') // Remove [1] prefixes
+        .replace(/"/g, '') // Remove quotes
+        .trim();
+
+    const expectedClean = cleanR(expectedOutput);
+    const actualClean = cleanR(actualOutput);
+
     // Compare outputs with STRICTER matching (reuse comparison logic)
-    const { match, percent, exactMatch } = compareOutputs(expectedOutput, actualOutput);
+    const { match, percent, exactMatch } = compareOutputs(expectedClean, actualClean);
 
     if (exactMatch) {
         return {

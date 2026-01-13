@@ -290,14 +290,24 @@ ${code}
 }), collapse="\\n")`;
                 const outputResult = await webR.evalR(captureCode);
                 outputBuffer = await outputResult.toString();
-            } catch (innerErr) {
-                // Fallback if capture fails (e.g. syntax error in user code)
-                outputBuffer = "Error executed code";
+            } catch (innerErr: any) {
+                // Return actual error from WebR evaluation
+                outputBuffer = "Error: " + innerErr.message;
             }
 
             // Handle plots? (Advanced WebR setup needed for canvas, for now text output)
 
-            resultOutput = outputBuffer.replace(/^"|"$/g, '').replace(/\\n/g, '\n') || "✓ Code executed successfully (no output)";
+            // Clean up: Remove quotes "...", unescape newlines
+            // Also strip common R output indices like [1] but keep relevant data
+            resultOutput = outputBuffer
+                .replace(/^"|"$/g, '')
+                .replace(/\\n/g, '\n')
+                .replace(/^\[\d+\]\s+/gm, ''); // Remove [1] line prefixes
+
+            if (!resultOutput.trim()) {
+                resultOutput = "✓ Code executed successfully (no output)";
+            }
+
             setOutput(resultOutput);
 
         } catch (err: any) {
