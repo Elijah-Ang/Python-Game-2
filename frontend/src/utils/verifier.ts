@@ -478,10 +478,20 @@ function validateRStructure(userCode: string): VerifyResult | null {
 
 // Verify R code (Static Verification)
 export function verifyR(
-    solutionCode: string,
+    expectedOutput: string,
+    actualOutput: string,
     userCode: string
 ): VerifyResult {
-    if (!userCode || userCode.trim().length === 0 || userCode.includes("# Write your code here")) {
+    // Check for errors first
+    if (isErrorOutput(actualOutput)) {
+        return {
+            correct: false,
+            feedback: `Your code has an error!`,
+            suggestions: ["Check the error message for details."]
+        };
+    }
+
+    if (!userCode || userCode.trim().length === 0 || userCode.includes("# Write your R code here")) {
         return {
             correct: false,
             feedback: "Please write your R code!",
@@ -493,51 +503,56 @@ export function verifyR(
     const structureError = validateRStructure(userCode);
     if (structureError) return structureError;
 
-    // Normalize for comparison (remove whitespace, comments)
-    const normalize = (code: string) => code
-        .replace(/#.*$/gm, '') // Remove comments
-        .replace(/\s+/g, ' ')  // Collapse whitespace
-        .trim();
-
-    const normUser = normalize(userCode);
-    const normSol = normalize(solutionCode);
-
-    // Exact match (normalized)
-    if (normUser === normSol) {
-        return {
-            correct: true,
-            feedback: "Perfect! Your R code is correct! 🎉",
-            suggestions: []
-        };
-    }
-
-    // Check for key function usage
-    // Extract function names from solution: function_name(
-    const requiredFunctions = (solutionCode.match(/[\w\.]+(?=\()/g) || []);
-
-    for (const func of requiredFunctions) {
-        if (!userCode.includes(func)) {
+    // No expected output - just check if code ran
+    if (!expectedOutput || expectedOutput === "Run your code to see the output!") {
+        if (actualOutput && !isErrorOutput(actualOutput)) {
             return {
-                correct: false,
-                feedback: `Missing function: ${func}()`,
-                suggestions: [`You need to use the ${func}() function`]
+                correct: true,
+                feedback: "Your code ran successfully! 🎉",
+                suggestions: []
             };
         }
-    }
-
-    // Check for pipe usage if solution uses it
-    if (solutionCode.includes("|>") && !userCode.includes("|>")) {
         return {
             correct: false,
-            feedback: "Try using the pipe operator |>.",
-            suggestions: ["Chain your functions with |>"]
+            feedback: "Your code didn't produce any output.",
+            suggestions: ["Use print() or cat() to output results"]
         };
     }
 
-    // Lenient fallback
-    return {
-        correct: true,
-        feedback: "Great job! Your code looks correct! 🚀",
-        suggestions: ["(Note: Since this is a static check, ensure you double-check your logic!)"]
-    };
+    // Compare outputs with STRICTER matching (reuse comparison logic)
+    const { match, percent, exactMatch } = compareOutputs(expectedOutput, actualOutput);
+
+    if (exactMatch) {
+        return {
+            correct: true,
+            feedback: "Perfect! Your output matches exactly! 🎉",
+            suggestions: []
+        };
+    } else if (match) {
+        return {
+            correct: true,
+            feedback: "Great job! Your output is correct! 🎉",
+            suggestions: []
+        };
+    } else if (percent >= 70) {
+        const detailedSuggestions = generateComparisonFeedback(expectedOutput, actualOutput);
+        return {
+            correct: false,
+            feedback: "Almost there! Your output is close but not quite right.",
+            suggestions: detailedSuggestions.length > 0
+                ? detailedSuggestions
+                : ["Compare your output carefully with the expected output"],
+            expectedVsActual: { expected: expectedOutput, actual: actualOutput }
+        };
+    } else {
+        return {
+            correct: false,
+            feedback: "Your output doesn't match the expected result.",
+            suggestions: [
+                "Read the instructions carefully",
+                "Make sure you're using the correct values and operations"
+            ],
+            expectedVsActual: { expected: expectedOutput, actual: actualOutput }
+        };
+    }
 }

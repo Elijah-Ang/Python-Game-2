@@ -46,6 +46,7 @@ export const Lesson: React.FC = () => {
     const [isDragging, setIsDragging] = useState(false);
     const [lessonOrder, setLessonOrder] = useState<number | null>(null);
     const [orderedLessonIds, setOrderedLessonIds] = useState<number[]>([]);
+    const [webR, setWebR] = useState<any>(null);
     const rightPanelRef = useRef<HTMLDivElement>(null);
 
     // Load Lesson Data from static JSON
@@ -148,6 +149,27 @@ export const Lesson: React.FC = () => {
         initPyodide();
     }, [pyodide]);
 
+    // Load WebR for R lessons
+    useEffect(() => {
+        const initWebR = async () => {
+            const currentId = Number(id);
+            if (currentId >= 2000 && !webR) {
+                try {
+                    // Dynamic import from CDN
+                    // @ts-ignore
+                    const { WebR } = await import('https://webr.r-wasm.org/latest/webr.mjs');
+                    const w = new WebR();
+                    await w.init();
+                    setWebR(w);
+                    console.log("WebR Ready");
+                } catch (e) {
+                    console.error("WebR init error:", e);
+                }
+            }
+        };
+        initWebR();
+    }, [id, webR]);
+
     const triggerConfetti = useCallback(() => {
         confetti({
             particleCount: 100,
@@ -233,6 +255,58 @@ except:
             setIsRunning(false);
         }
         return resultOutput;
+        return resultOutput;
+    };
+
+    const runRCode = async (): Promise<string> => {
+        if (!webR) {
+            const msg = "⏳ Loading R engine...";
+            setOutput(msg);
+            return msg;
+        }
+        setIsRunning(true);
+        setOutput("");
+        setGraphOutput(null);
+
+        let resultOutput = "";
+        try {
+            // Setup canvas for plot capture (WebR has built-in canvas support, but we need to hook it)
+            // For now, capturing stdout
+
+            // Capture output
+            let outputBuffer = "";
+
+            // Run code
+            // We use options to capture stdout
+            const shelf = await webR.evalR(code);
+
+            // Try to capture basic print output
+            // WebR console output capture involves hooking the console or using capture.output
+            // Simpler approach: Wrap user code in capture.output and return it
+
+            try {
+                const captureCode = `paste(capture.output({
+${code}
+}), collapse="\\n")`;
+                const outputResult = await webR.evalR(captureCode);
+                outputBuffer = await outputResult.toString();
+            } catch (innerErr) {
+                // Fallback if capture fails (e.g. syntax error in user code)
+                outputBuffer = "Error executed code";
+            }
+
+            // Handle plots? (Advanced WebR setup needed for canvas, for now text output)
+
+            resultOutput = outputBuffer.replace(/^"|"$/g, '').replace(/\\n/g, '\n') || "✓ Code executed successfully (no output)";
+            setOutput(resultOutput);
+
+        } catch (err: any) {
+            resultOutput = "❌ Error:\n" + err.message;
+            setOutput(resultOutput);
+        } finally {
+            setIsRunning(false);
+        }
+        return resultOutput;
     };
 
     const submitAnswer = async () => {
@@ -249,9 +323,11 @@ except:
                 code
             );
         } else if (currentId >= 2000) {
-            // For R, use static verification
+            // For R, run code and compare output
+            const executionOutput = await runRCode();
             result = verifyR(
-                lesson?.solution_code || '',
+                lesson?.expected_output || '',
+                executionOutput,
                 code
             );
         } else {
@@ -566,7 +642,7 @@ except:
                             {/* Allow Run for Python and R (even if R uses simulation/verification for now) */}
                             {!isSqlLesson && (
                                 <button
-                                    onClick={isRLesson ? submitAnswer : runCode} // For now, R "Run" just submits/verifies since we don't have WebR yet
+                                    onClick={isRLesson ? runRCode : runCode}
                                     disabled={isRunning}
                                     className="px-4 py-1.5 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] flex items-center gap-2 text-sm"
                                 >
