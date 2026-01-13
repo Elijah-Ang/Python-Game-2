@@ -164,8 +164,8 @@ export const Lesson: React.FC = () => {
 
                     // Install and load common packages
                     console.log("Installing R packages...");
-                    await w.installPackages(['ggplot2', 'dplyr']);
-                    await w.evalR('library(ggplot2); library(dplyr)');
+                    await w.installPackages(['ggplot2', 'dplyr', 'palmerpenguins']);
+                    await w.evalR('library(ggplot2); library(dplyr); library(palmerpenguins)');
 
                     setWebR(w);
                     console.log("WebR Ready");
