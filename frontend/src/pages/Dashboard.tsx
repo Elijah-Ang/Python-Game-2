@@ -44,9 +44,9 @@ export const Dashboard: React.FC = () => {
                     <div key={course.id} className="panel group hover:border-[var(--accent-secondary)] transition-all">
                         <div className="w-full aspect-video bg-[var(--bg-color)] mb-4 rounded border border-[var(--border-color)] flex items-center justify-center overflow-hidden relative">
                             <img
-                                src={`${import.meta.env.BASE_URL}assets/headers/${course.slug === 'sql-fundamentals' ? 'sql_landscape.png' :
-                                    course.slug === 'r-fundamentals' ? 'r_landscape.png' : 'python_landscape.png'
-                                    }?v=6`}
+                                src={`${import.meta.env.BASE_URL}assets/headers/${course.slug === 'sql-fundamentals' ? 'sql_card.png' :
+                                    course.slug === 'r-fundamentals' ? 'r_card.png' : 'python_card.png'
+                                    }?v=7`}
                                 alt={course.title}
                                 className="w-full h-full object-cover pixel-art transition-transform duration-500 group-hover:scale-110"
                             />
