@@ -480,7 +480,8 @@ function validateRStructure(userCode: string): VerifyResult | null {
 export function verifyR(
     expectedOutput: string,
     actualOutput: string,
-    userCode: string
+    userCode: string,
+    hasGraph?: boolean
 ): VerifyResult {
     // Check for errors first
     if (isErrorOutput(actualOutput)) {
@@ -524,6 +525,29 @@ export function verifyR(
         .replace(/^\[\d+\]\s+/gm, '') // Remove [1] prefixes
         .replace(/"/g, '') // Remove quotes
         .trim();
+
+    // Check for Graph expectation
+    if (expectedOutput.includes("[Graph:")) {
+        if (hasGraph) {
+            // If text matches too (or is empty), it's perfect
+            const cleanExpected = cleanR(expectedOutput.replace(/\[Graph:[^\]]+\]/g, ''));
+            const cleanActual = cleanR(actualOutput);
+
+            if (!cleanExpected || compareOutputs(cleanExpected, cleanActual).match) {
+                return {
+                    correct: true,
+                    feedback: "Great work! The graph looks correct! 📊",
+                    suggestions: []
+                };
+            }
+        } else {
+            return {
+                correct: false,
+                feedback: "Expected a graph but none was generated.",
+                suggestions: ["Check your plot() or ggplot() code"]
+            };
+        }
+    }
 
     const expectedClean = cleanR(expectedOutput);
     const actualClean = cleanR(actualOutput);

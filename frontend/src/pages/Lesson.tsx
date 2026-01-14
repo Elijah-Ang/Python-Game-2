@@ -403,7 +403,8 @@ ${code}
             result = verifyR(
                 lesson?.expected_output || '',
                 executionOutput,
-                code
+                code,
+                !!graphOutput
             );
         } else {
             // For Python, run code and compare output
