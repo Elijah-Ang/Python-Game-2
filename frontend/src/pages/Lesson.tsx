@@ -23,9 +23,30 @@ interface VerifyResult {
     suggestions: string[];
 }
 
+interface PyodideInterface {
+    loadPackage: (packages: string | string[]) => Promise<void>;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    pyimport: (pkg: string) => any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    runPythonAsync: (code: string) => Promise<any>;
+    setStdout: (options: { batched: (msg: string) => void }) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    globals: any;
+}
+
+interface WebRInterface {
+    init: () => Promise<void>;
+    installPackages: (packages: string[]) => Promise<void>;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    evalR: (code: string) => Promise<any>;
+    FS: {
+        readFile: (path: string) => Promise<Uint8Array>;
+    };
+}
+
 declare global {
     interface Window {
-        loadPyodide: any;
+        loadPyodide: () => Promise<PyodideInterface>;
     }
 }
 
@@ -39,14 +60,14 @@ export const Lesson: React.FC = () => {
     const [graphOutput, setGraphOutput] = useState<string | null>(null);
     const [isRunning, setIsRunning] = useState(false);
     const [isVerifying, setIsVerifying] = useState(false);
-    const [pyodide, setPyodide] = useState<any>(null);
+    const [pyodide, setPyodide] = useState<PyodideInterface | null>(null);
     const [showSolution, setShowSolution] = useState(false);
     const [verifyResult, setVerifyResult] = useState<VerifyResult | null>(null);
     const [editorHeightPercent, setEditorHeightPercent] = useState(65);
     const [isDragging, setIsDragging] = useState(false);
     const [lessonOrder, setLessonOrder] = useState<number | null>(null);
     const [orderedLessonIds, setOrderedLessonIds] = useState<number[]>([]);
-    const [webR, setWebR] = useState<any>(null);
+    const [webR, setWebR] = useState<WebRInterface | null>(null);
     const rightPanelRef = useRef<HTMLDivElement>(null);
 
     // Load Lesson Data from static JSON
@@ -93,6 +114,7 @@ export const Lesson: React.FC = () => {
 
                     for (const chapter of courseData.chapters) {
                         // Handle both concepts structure and flat lessons structure
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         let chapterLessons: any[] = [];
                         if (chapter.concepts) {
                             // New structure: extract lessons from concepts
@@ -118,9 +140,10 @@ export const Lesson: React.FC = () => {
                     setOrderedLessonIds(orderedIds);
                     setLessonOrder(foundOrder);
                 }
-            } catch (err: any) {
+            } catch (err: unknown) {
+                const msg = err instanceof Error ? err.message : String(err);
                 console.error(err);
-                setError(err.message || "Failed to load lesson. Please try refreshing.");
+                setError(msg || "Failed to load lesson. Please try refreshing.");
             }
         };
         loadLessonData();
@@ -157,7 +180,7 @@ export const Lesson: React.FC = () => {
                 try {
                     setOutput("⏳ Setting up R environment (downloading packages)...");
                     // Dynamic import from CDN
-                    // @ts-ignore
+                    // @ts-expect-error WebR is loaded from CDN
                     const { WebR } = await import('https://webr.r-wasm.org/latest/webr.mjs');
                     const w = new WebR();
                     await w.init();
@@ -170,9 +193,10 @@ export const Lesson: React.FC = () => {
                     setWebR(w);
                     console.log("WebR Ready");
                     setOutput(""); // Clear "Setting up" message
-                } catch (e: any) {
+                } catch (e: unknown) {
+                    const msg = e instanceof Error ? e.message : String(e);
                     console.error("WebR init error:", e);
-                    setOutput("⚠️ Error loading R environment: " + e.message);
+                    setOutput("⚠️ Error loading R environment: " + msg);
                 }
             }
         };
@@ -257,13 +281,12 @@ except:
 
             resultOutput = outputBuffer || "✓ Code executed successfully (no output)";
             setOutput(resultOutput);
-        } catch (err: any) {
-            resultOutput = "❌ Error:\n" + err.toString();
+        } catch (err: unknown) {
+            resultOutput = "❌ Error:\n" + String(err);
             setOutput(resultOutput);
         } finally {
             setIsRunning(false);
         }
-        return resultOutput;
         return resultOutput;
     };
 
@@ -307,11 +330,13 @@ ${code}
                 // 3. Close device
                 await webR.evalR("dev.off()");
 
-            } catch (innerErr: any) {
+            } catch (innerErr: unknown) {
                 // Determine if error is from the code or the plotting
-                outputBuffer = "Error: " + innerErr.message;
+                const msg = innerErr instanceof Error ? innerErr.message : String(innerErr);
+                outputBuffer = "Error: " + msg;
                 // Try to close device just in case
-                try { await webR.evalR("dev.off()"); } catch (e) { }
+                // Try to close device just in case
+                try { await webR.evalR("dev.off()"); } catch { /* ignore */ }
             }
 
             // 4. Check for generated plot file
@@ -319,7 +344,8 @@ ${code}
                 const plotData = await webR.FS.readFile("output.png");
                 if (plotData && plotData.length > 0) {
                     // Convert Uint8Array to base64
-                    const blob = new Blob([plotData], { type: 'image/png' });
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    const blob = new Blob([plotData as any], { type: 'image/png' });
                     const reader = new FileReader();
                     reader.onloadend = () => {
                         // reader.result is "data:image/png;base64,..."
@@ -327,7 +353,7 @@ ${code}
                     };
                     reader.readAsDataURL(blob);
                 }
-            } catch (fsErr) {
+            } catch {
                 // No plot generated (file not found), which is fine
             }
 
@@ -348,9 +374,9 @@ ${code}
             }
 
             setOutput(resultOutput);
-
-        } catch (err: any) {
-            resultOutput = "❌ Error:\n" + err.message;
+        } catch (err: unknown) {
+            const msg = err instanceof Error ? err.message : String(err);
+            resultOutput = "❌ Error:\n" + msg;
             setOutput(resultOutput);
         } finally {
             setIsRunning(false);
@@ -798,6 +824,7 @@ ${code}
                                 <button
                                     onClick={() => setVerifyResult(null)}
                                     className="p-1 hover:bg-[rgba(255,255,255,0.1)] rounded"
+                                    title="Dismiss"
                                 >
                                     <X className="w-4 h-4" />
                                 </button>
