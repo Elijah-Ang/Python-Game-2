@@ -491,7 +491,7 @@ export function verifyR(
         };
     }
 
-    if (!userCode || userCode.trim().length === 0 || userCode.includes("# Write your R code here")) {
+    if (!userCode || userCode.trim().length === 0) {
         return {
             correct: false,
             feedback: "Please write your R code!",

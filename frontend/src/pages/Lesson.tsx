@@ -294,15 +294,45 @@ except:
             // Simpler approach: Wrap user code in capture.output and return it
 
             try {
+                // 1. Start PNG device
+                await webR.evalR(`png("output.png", width=500, height=400, res=72)`);
+
+                // 2. Run user code (capturing stdout)
                 const captureCode = `paste(capture.output({
 ${code}
 }), collapse="\\n")`;
                 const outputResult = await webR.evalR(captureCode);
                 outputBuffer = await outputResult.toString();
+
+                // 3. Close device
+                await webR.evalR("dev.off()");
+
             } catch (innerErr: any) {
-                // Return actual error from WebR evaluation
+                // Determine if error is from the code or the plotting
                 outputBuffer = "Error: " + innerErr.message;
+                // Try to close device just in case
+                try { await webR.evalR("dev.off()"); } catch (e) { }
             }
+
+            // 4. Check for generated plot file
+            try {
+                const plotData = await webR.FS.readFile("output.png");
+                if (plotData && plotData.length > 0) {
+                    // Convert Uint8Array to base64
+                    const blob = new Blob([plotData], { type: 'image/png' });
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        // reader.result is "data:image/png;base64,..."
+                        setGraphOutput(reader.result as string);
+                    };
+                    reader.readAsDataURL(blob);
+                }
+            } catch (fsErr) {
+                // No plot generated (file not found), which is fine
+            }
+
+            // Clean up: Remove quotes "...", unescape newlines
+            // Also strip common R output indices like [1] but keep relevant data
 
             // Handle plots? (Advanced WebR setup needed for canvas, for now text output)
 
