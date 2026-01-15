@@ -583,11 +583,11 @@ ${code}
             </div>
 
             {/* Main Content Area */}
-            <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
+            <div className="flex-1 flex flex-col md:flex-row overflow-hidden min-h-0">
                 {/* Left Panel: Instructions - Hidden on mobile when code tab active */}
                 <div className={`${mobileTab === 'lesson' ? 'flex' : 'hidden'
-                    } md:flex w-full md:w-1/2 flex-col border-r border-[var(--border-color)]`}>
-                    <div className="flex-1 overflow-y-auto p-4 md:p-6">
+                    } md:flex w-full md:w-1/2 flex-col border-r border-[var(--border-color)] min-h-0`}>
+                    <div className="flex-1 overflow-y-auto p-4 md:p-6 min-h-0">
                         {/* Exercise Number */}
                         <h1 className={`text-2xl font-bold mb-4 pixel-font ${lesson.id > 9999 ? 'pl-8 border-l-4 border-[var(--accent-secondary)]' : ''}`}>
                             {lesson.id > 9999 && <span className="text-sm font-normal text-[var(--accent-secondary)] block mb-1">REINFORCER</span>}
@@ -661,10 +661,11 @@ ${code}
                         )}
                     </div>
 
-                    {/* Instructions Footer */}
-                    <div className="border-t border-[var(--border-color)] bg-[var(--bg-panel)] p-3">
+                    {/* Instructions Footer - Simplified on mobile */}
+                    <div className="border-t border-[var(--border-color)] bg-[var(--bg-panel)] p-2 md:p-3">
                         <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
+                            {/* Hide title section on mobile */}
+                            <div className="hidden md:flex items-center gap-3">
                                 <div className="w-8 h-8 bg-[var(--border-color)] rounded flex items-center justify-center">
                                     📝
                                 </div>
@@ -675,17 +676,21 @@ ${code}
                                     </div>
                                 </div>
                             </div>
+                            {/* Mobile: Show exercise count inline */}
+                            <span className="md:hidden text-xs text-[var(--text-secondary)]">
+                                {displayExercise} / {totalExercises}
+                            </span>
                             <div className="flex items-center gap-2">
                                 <button
                                     onClick={goToPrev}
                                     disabled={currentExercise <= 1}
-                                    className="px-4 py-2 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] disabled:opacity-40 transition-colors"
+                                    className="px-3 md:px-4 py-1.5 md:py-2 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] disabled:opacity-40 transition-colors text-sm"
                                 >
                                     Back
                                 </button>
                                 <button
                                     onClick={goToNext}
-                                    className="px-4 py-2 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] transition-colors"
+                                    className="px-3 md:px-4 py-1.5 md:py-2 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] transition-colors text-sm"
                                 >
                                     Next
                                 </button>
@@ -696,7 +701,7 @@ ${code}
 
                 {/* Right Panel: Code Editor + Terminal - Hidden on mobile when lesson tab active */}
                 <div ref={rightPanelRef} className={`${mobileTab === 'code' ? 'flex' : 'hidden'
-                    } md:flex w-full md:w-1/2 flex-col`}>
+                    } md:flex w-full md:w-1/2 flex-col min-h-0`}>
                     {/* Editor Header - Rebuild Trigger */}
                     <div className="h-10 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-2 justify-between">
                         <div className="flex items-center">
@@ -761,9 +766,9 @@ ${code}
                         </div>
                     </div>
 
-                    {/* Resizable Divider */}
+                    {/* Resizable Divider - Supports both mouse and touch */}
                     <div
-                        className={`h-2 bg-[var(--border-color)] cursor-row-resize hover:bg-[var(--accent-secondary)] transition-colors flex items-center justify-center ${isDragging ? 'bg-[var(--accent-secondary)]' : ''}`}
+                        className={`h-3 md:h-2 bg-[var(--border-color)] cursor-row-resize hover:bg-[var(--accent-secondary)] active:bg-[var(--accent-secondary)] transition-colors flex items-center justify-center ${isDragging ? 'bg-[var(--accent-secondary)]' : ''}`}
                         onMouseDown={(e) => {
                             e.preventDefault();
                             setIsDragging(true);
@@ -774,7 +779,7 @@ ${code}
 
                             const handleMouseMove = (moveEvent: MouseEvent) => {
                                 const panelRect = panel.getBoundingClientRect();
-                                const panelHeight = panelRect.height - 56 - 48; // Subtract header and toolbar heights
+                                const panelHeight = panelRect.height - 56 - 48;
                                 const deltaY = moveEvent.clientY - startY;
                                 const deltaPercent = (deltaY / panelHeight) * 100;
                                 const newPercent = Math.min(85, Math.max(30, startPercent + deltaPercent));
@@ -790,8 +795,39 @@ ${code}
                             document.addEventListener('mousemove', handleMouseMove);
                             document.addEventListener('mouseup', handleMouseUp);
                         }}
+                        onTouchStart={(e) => {
+                            const touch = e.touches[0];
+                            const startY = touch.clientY;
+                            const startPercent = editorHeightPercent;
+                            const panel = rightPanelRef.current;
+                            if (!panel) return;
+
+                            const handleTouchMove = (moveEvent: TouchEvent) => {
+                                const touch = moveEvent.touches[0];
+                                const panelRect = panel.getBoundingClientRect();
+                                const panelHeight = panelRect.height - 56 - 48;
+                                const deltaY = touch.clientY - startY;
+                                const deltaPercent = (deltaY / panelHeight) * 100;
+                                const newPercent = Math.min(85, Math.max(30, startPercent + deltaPercent));
+                                setEditorHeightPercent(newPercent);
+                            };
+
+                            const handleTouchEnd = () => {
+                                document.removeEventListener('touchmove', handleTouchMove);
+                                document.removeEventListener('touchend', handleTouchEnd);
+                            };
+
+                            document.addEventListener('touchmove', handleTouchMove, { passive: true });
+                            document.addEventListener('touchend', handleTouchEnd);
+                        }}
+                        onDoubleClick={() => {
+                            // Tap to cycle through presets: 50% -> 70% -> 40% -> 50%
+                            if (editorHeightPercent < 45) setEditorHeightPercent(50);
+                            else if (editorHeightPercent < 60) setEditorHeightPercent(70);
+                            else setEditorHeightPercent(40);
+                        }}
                     >
-                        <div className="w-8 h-1 bg-[var(--text-secondary)] rounded opacity-50"></div>
+                        <div className="w-12 h-1 bg-[var(--text-secondary)] rounded opacity-50"></div>
                     </div>
 
                     {/* Terminal / Output */}
