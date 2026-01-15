@@ -133,3 +133,24 @@ body {
   background-color: var(--bg-panel);
   font-weight: 600;
 }
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .lesson-content {
+    font-size: 0.875rem;
+  }
+
+  .lesson-content pre {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .lesson-content table {
+    font-size: 0.75rem;
+  }
+
+  .lesson-content th,
+  .lesson-content td {
+    padding: 0.25rem 0.5rem;
+  }
+}

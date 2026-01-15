@@ -69,6 +69,7 @@ export const Lesson: React.FC = () => {
     const [orderedLessonIds, setOrderedLessonIds] = useState<number[]>([]);
     const [webR, setWebR] = useState<WebRInterface | null>(null);
     const rightPanelRef = useRef<HTMLDivElement>(null);
+    const [mobileTab, setMobileTab] = useState<'lesson' | 'code'>('lesson');
 
     // Load Lesson Data from static JSON
     useEffect(() => {
@@ -522,27 +523,26 @@ ${code}
     }
 
     const courseSlug = isRLesson ? 'r-fundamentals' : (isSqlLesson ? 'sql-fundamentals' : 'python-basics');
-    const courseName = isRLesson ? 'R' : (isSqlLesson ? 'SQL' : 'Python');
     const editorLanguage = isRLesson ? 'r' : (isSqlLesson ? 'sql' : 'python');
     const scriptFilename = isRLesson ? 'script.R' : (isSqlLesson ? 'query.sql' : 'script.py');
 
     return (
         <div className="h-screen flex flex-col bg-[var(--bg-color)] overflow-hidden">
             {/* Top Navigation Bar */}
-            <div className="h-12 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-4 gap-4 shrink-0">
+            <div className="h-12 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-3 md:px-4 gap-2 md:gap-4 shrink-0">
                 <Link to="/" className="flex items-center gap-2 hover:opacity-80">
                     <span className="text-lg">📊</span>
-                    <span className="font-bold text-[var(--accent-primary)] pixel-font">DS Adventure</span>
+                    <span className="font-bold text-[var(--accent-primary)] pixel-font hidden sm:inline">DS Adventure</span>
                 </Link>
 
-                <span className="text-[var(--border-color)]">|</span>
+                <span className="text-[var(--border-color)] hidden sm:inline">|</span>
 
                 <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium">{courseName} / {lesson.title}</span>
+                    <span className="text-sm font-medium truncate max-w-[150px] md:max-w-none">{lesson.title}</span>
                 </div>
 
-                {/* Progress Bar */}
-                <div className="flex-1 max-w-xs mx-4">
+                {/* Progress Bar - Hide on very small screens */}
+                <div className="flex-1 max-w-xs mx-2 md:mx-4 hidden sm:block">
                     <div className="h-2 bg-[var(--border-color)] rounded-full overflow-hidden">
                         <div
                             className="h-full bg-[var(--accent-secondary)] transition-all"
@@ -560,11 +560,34 @@ ${code}
                 </div>
             </div>
 
+            {/* Mobile Tab Bar - Only visible on small screens */}
+            <div className="md:hidden flex border-b border-[var(--border-color)] bg-[var(--bg-panel)]">
+                <button
+                    onClick={() => setMobileTab('lesson')}
+                    className={`flex-1 py-3 text-sm font-medium text-center transition-colors ${mobileTab === 'lesson'
+                        ? 'text-[var(--accent-primary)] border-b-2 border-[var(--accent-primary)] bg-[var(--bg-color)]'
+                        : 'text-[var(--text-secondary)] hover:text-white'
+                        }`}
+                >
+                    📖 Lesson
+                </button>
+                <button
+                    onClick={() => setMobileTab('code')}
+                    className={`flex-1 py-3 text-sm font-medium text-center transition-colors ${mobileTab === 'code'
+                        ? 'text-[var(--accent-warning)] border-b-2 border-[var(--accent-warning)] bg-[var(--bg-color)]'
+                        : 'text-[var(--text-secondary)] hover:text-white'
+                        }`}
+                >
+                    💻 Code
+                </button>
+            </div>
+
             {/* Main Content Area */}
-            <div className="flex-1 flex overflow-hidden">
-                {/* Left Panel: Instructions */}
-                <div className="w-1/2 flex flex-col border-r border-[var(--border-color)]">
-                    <div className="flex-1 overflow-y-auto p-6">
+            <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
+                {/* Left Panel: Instructions - Hidden on mobile when code tab active */}
+                <div className={`${mobileTab === 'lesson' ? 'flex' : 'hidden'
+                    } md:flex w-full md:w-1/2 flex-col border-r border-[var(--border-color)]`}>
+                    <div className="flex-1 overflow-y-auto p-4 md:p-6">
                         {/* Exercise Number */}
                         <h1 className={`text-2xl font-bold mb-4 pixel-font ${lesson.id > 9999 ? 'pl-8 border-l-4 border-[var(--accent-secondary)]' : ''}`}>
                             {lesson.id > 9999 && <span className="text-sm font-normal text-[var(--accent-secondary)] block mb-1">REINFORCER</span>}
@@ -671,8 +694,9 @@ ${code}
                     </div>
                 </div>
 
-                {/* Right Panel: Code Editor + Terminal */}
-                <div ref={rightPanelRef} className="w-1/2 flex flex-col">
+                {/* Right Panel: Code Editor + Terminal - Hidden on mobile when lesson tab active */}
+                <div ref={rightPanelRef} className={`${mobileTab === 'code' ? 'flex' : 'hidden'
+                    } md:flex w-full md:w-1/2 flex-col`}>
                     {/* Editor Header - Rebuild Trigger */}
                     <div className="h-10 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-2 justify-between">
                         <div className="flex items-center">
