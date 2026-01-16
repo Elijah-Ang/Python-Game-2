@@ -6,13 +6,15 @@ interface DraggableValueBoxProps {
     acceptedValues: (string | number)[];
     label?: string;
     type?: string;
+    onValueChange?: (value: string | number) => void;
 }
 
 export const DraggableValueBox: React.FC<DraggableValueBoxProps> = ({
     name,
     acceptedValues,
     label,
-    type = 'auto'
+    type = 'auto',
+    onValueChange
 }) => {
     const { variables, setVariable } = useInteractive();
     const currentValue = variables[name];
@@ -28,6 +30,7 @@ export const DraggableValueBox: React.FC<DraggableValueBoxProps> = ({
 
         if (acceptedValues.includes(parsedValue)) {
             setVariable(name, parsedValue);
+            onValueChange?.(parsedValue);
         }
     };
 

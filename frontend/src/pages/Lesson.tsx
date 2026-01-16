@@ -18,8 +18,10 @@ import { StateInspector } from '../components/interactive/StateInspector';
 import { ResetStateButton } from '../components/interactive/ResetStateButton';
 import { OutputDiff } from '../components/interactive/OutputDiff';
 import { StepExecutor } from '../components/interactive/StepExecutor';
+import { InteractionLab } from '../components/interactive/InteractionLab';
 import confetti from 'canvas-confetti';
 import { verifyCode, verifySql, verifyR } from '../utils/verifier';
+import type { CurriculumMode } from '../utils/interactionLabConfig';
 
 interface LessonData {
     id: number;
@@ -497,6 +499,15 @@ ${code}
         }
     };
 
+    const handlePrimeCode = useCallback((snippet: string) => {
+        setCode(snippet);
+        setOutput("");
+        setGraphOutput(null);
+        setVerifyResult(null);
+        setShowSolution(false);
+        setMobileTab('code');
+    }, [setCode, setGraphOutput, setMobileTab, setOutput, setShowSolution, setVerifyResult]);
+
     if (error) {
         return (
             <div className="h-screen bg-[var(--bg-color)] flex flex-col items-center justify-center p-4">
@@ -539,6 +550,7 @@ ${code}
     const courseSlug = isRLesson ? 'r-fundamentals' : (isSqlLesson ? 'sql-fundamentals' : 'python-basics');
     const editorLanguage = isRLesson ? 'r' : (isSqlLesson ? 'sql' : 'python');
     const scriptFilename = isRLesson ? 'script.R' : (isSqlLesson ? 'query.sql' : 'script.py');
+    const interactiveMode: CurriculumMode = isRLesson ? 'r' : (isSqlLesson ? 'sql' : 'python');
 
     return (
         <InteractiveProvider>
@@ -670,6 +682,13 @@ ${code}
                                     {lesson.content}
                                 </ReactMarkdown>
                             </div>
+
+                            <InteractionLab
+                                mode={interactiveMode}
+                                onPrimeCode={handlePrimeCode}
+                                expectedOutput={lesson.expected_output}
+                                lessonTitle={lesson.title}
+                            />
 
                             {/* Expected Output Section */}
                             {lesson.expected_output && lesson.expected_output !== "Run your code to see the output!" && (

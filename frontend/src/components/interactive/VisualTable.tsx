@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface VisualTableProps {
     data: Record<string, any>[];
@@ -7,6 +7,9 @@ interface VisualTableProps {
     allowSort?: boolean;
     allowFilter?: boolean;
     highlightColumn?: string;
+    allowReorder?: boolean;
+    allowRowHighlight?: boolean;
+    onRowHighlight?: (row: Record<string, any> | null) => void;
 }
 
 export const VisualTable: React.FC<VisualTableProps> = ({
@@ -15,12 +18,24 @@ export const VisualTable: React.FC<VisualTableProps> = ({
     title,
     allowSort = true,
     allowFilter = false,
-    highlightColumn
+    highlightColumn,
+    allowReorder = false,
+    allowRowHighlight = false,
+    onRowHighlight
 }) => {
     const [sortColumn, setSortColumn] = useState<string | null>(null);
     const [sortAsc, setSortAsc] = useState(true);
     const [visibleColumns, setVisibleColumns] = useState<Set<string>>(new Set(columns));
     const [filterValue, setFilterValue] = useState('');
+    const [columnOrder, setColumnOrder] = useState<string[]>(columns);
+    const [draggedColumn, setDraggedColumn] = useState<string | null>(null);
+    const [highlightedRow, setHighlightedRow] = useState<number | null>(null);
+
+    useEffect(() => {
+        setColumnOrder(columns);
+        setVisibleColumns(new Set(columns));
+        setHighlightedRow(null);
+    }, [columns]);
 
     const handleSort = (col: string) => {
         if (!allowSort) return;
@@ -40,6 +55,27 @@ export const VisualTable: React.FC<VisualTableProps> = ({
             newVisible.add(col);
         }
         setVisibleColumns(newVisible);
+    };
+
+    const handleColumnDragStart = (col: string) => {
+        if (!allowReorder) return;
+        setDraggedColumn(col);
+    };
+
+    const handleColumnDragEnter = (targetCol: string) => {
+        if (!allowReorder || !draggedColumn || draggedColumn === targetCol) return;
+        const currentIdx = columnOrder.indexOf(draggedColumn);
+        const targetIdx = columnOrder.indexOf(targetCol);
+        if (currentIdx === -1 || targetIdx === -1) return;
+
+        const newOrder = [...columnOrder];
+        newOrder.splice(currentIdx, 1);
+        newOrder.splice(targetIdx, 0, draggedColumn);
+        setColumnOrder(newOrder);
+    };
+
+    const handleColumnDragEnd = () => {
+        setDraggedColumn(null);
     };
 
     let displayData = [...data];
@@ -63,7 +99,14 @@ export const VisualTable: React.FC<VisualTableProps> = ({
         });
     }
 
-    const visibleCols = columns.filter(c => visibleColumns.has(c));
+    const handleRowHighlight = (idx: number) => {
+        if (!allowRowHighlight) return;
+        const newIdx = highlightedRow === idx ? null : idx;
+        setHighlightedRow(newIdx);
+        onRowHighlight?.(newIdx === null ? null : displayData[idx]);
+    };
+
+    const visibleCols = columnOrder.filter(c => visibleColumns.has(c));
 
     return (
         <div className="my-4">
@@ -86,6 +129,28 @@ export const VisualTable: React.FC<VisualTableProps> = ({
                     </button>
                 ))}
             </div>
+
+            {allowReorder && (
+                <div className="flex flex-wrap items-center gap-2 mb-2 text-xs text-[var(--text-secondary)]">
+                    <span className="uppercase tracking-wide">Drag to reorder:</span>
+                    {columnOrder.map(col => (
+                        <span
+                            key={col}
+                            draggable
+                            onDragStart={() => handleColumnDragStart(col)}
+                            onDragEnter={() => handleColumnDragEnter(col)}
+                            onDragEnd={handleColumnDragEnd}
+                            onDragOver={(e) => e.preventDefault()}
+                            className={`
+                                px-2 py-1 rounded border text-[var(--text-primary)] transition-all cursor-grab active:cursor-grabbing
+                                ${draggedColumn === col ? 'border-[var(--accent-secondary)] bg-[rgba(var(--accent-secondary-rgb),0.2)]' : 'border-[var(--border-color)] bg-[var(--bg-panel)]'}
+                            `}
+                        >
+                            {col}
+                        </span>
+                    ))}
+                </div>
+            )}
 
             {/* Filter */}
             {allowFilter && (
@@ -123,7 +188,17 @@ export const VisualTable: React.FC<VisualTableProps> = ({
                     </thead>
                     <tbody>
                         {displayData.map((row, idx) => (
-                            <tr key={idx} className="hover:bg-[rgba(255,255,255,0.02)]">
+                            <tr
+                                key={idx}
+                                onClick={() => handleRowHighlight(idx)}
+                                className={`
+                                    hover:bg-[rgba(255,255,255,0.02)]
+                                    ${allowRowHighlight ? 'cursor-pointer' : ''}
+                                    ${allowRowHighlight && highlightedRow === idx
+                                        ? 'bg-[rgba(var(--accent-secondary-rgb),0.12)] border border-[var(--accent-secondary)]'
+                                        : ''}
+                                `}
+                            >
                                 {visibleCols.map(col => (
                                     <td
                                         key={col}

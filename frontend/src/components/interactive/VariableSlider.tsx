@@ -7,9 +7,10 @@ interface VariableSliderProps {
     max: number | string;
     initial?: number | string;
     label?: string;
+    onValueChange?: (value: number) => void;
 }
 
-export const VariableSlider: React.FC<VariableSliderProps> = ({ name, min, max, initial, label }) => {
+export const VariableSlider: React.FC<VariableSliderProps> = ({ name, min, max, initial, label, onValueChange }) => {
     const { variables, setVariable } = useInteractive();
     const minVal = Number(min);
     const maxVal = Number(max);
@@ -21,8 +22,9 @@ export const VariableSlider: React.FC<VariableSliderProps> = ({ name, min, max, 
     useEffect(() => {
         if (variables[name] === undefined) {
             setVariable(name, initialVal);
+            onValueChange?.(initialVal);
         }
-    }, [name, initialVal, setVariable, variables]);
+    }, [name, initialVal, onValueChange, setVariable, variables]);
 
     return (
         <div className="my-4 p-4 bg-[var(--bg-panel)] rounded border border-[var(--border-color)]">
@@ -36,7 +38,11 @@ export const VariableSlider: React.FC<VariableSliderProps> = ({ name, min, max, 
                 min={minVal}
                 max={maxVal}
                 value={value}
-                onChange={(e) => setVariable(name, Number(e.target.value))}
+                onChange={(e) => {
+                    const newValue = Number(e.target.value);
+                    setVariable(name, newValue);
+                    onValueChange?.(newValue);
+                }}
                 className="w-full accent-[var(--accent-primary)] cursor-pointer"
             />
         </div>
