@@ -1,28 +1,47 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useInteractive } from '../../context/InteractiveContext';
+import { Play } from 'lucide-react';
 
 interface LiveCodeBlockProps {
-    initialCode: string;
-    language: 'python' | 'sql' | 'r';
-    variableName?: string; // If set, stores result in context
-    highlightLine?: number; // Line to highlight for editing
+    initialcode?: string;  // lowercase for HTML attribute compatibility
+    language?: string;
+    variablename?: string;
+    highlightline?: string | number;
 }
 
 export const LiveCodeBlock: React.FC<LiveCodeBlockProps> = ({
-    initialCode,
-    language,
-    variableName,
-    highlightLine
+    initialcode = '# Write code here',
+    language = 'python',
+    variablename,
+    highlightline
 }) => {
     const { setVariable } = useInteractive();
-    const [code, setCode] = useState(initialCode);
+    const [code, setCode] = useState(initialcode || '# Write code here');
     const [output, setOutput] = useState<string>('');
     const [isRunning, setIsRunning] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [hasRun, setHasRun] = useState(false);
+
+    const highlightNum = typeof highlightline === 'string' ? parseInt(highlightline, 10) : highlightline;
 
     const runCode = useCallback(async () => {
-        if (language !== 'python') {
-            setOutput('(Live execution only available for Python)');
+        const lang = (language || 'python').toLowerCase();
+
+        if (lang === 'sql') {
+            setOutput('📊 SQL preview mode - submit in the code editor below');
+            setHasRun(true);
+            return;
+        }
+
+        if (lang === 'r') {
+            setOutput('📈 R preview mode - submit in the code editor below');
+            setHasRun(true);
+            return;
+        }
+
+        if (lang !== 'python') {
+            setOutput(`(${lang} not supported for live execution)`);
+            setHasRun(true);
             return;
         }
 
@@ -44,8 +63,8 @@ export const LiveCodeBlock: React.FC<LiveCodeBlockProps> = ({
                 const result = outputBuffer.trim() || '(no output)';
                 setOutput(result);
 
-                if (variableName) {
-                    setVariable(variableName, result);
+                if (variablename) {
+                    setVariable(variablename, result);
                 }
             } else {
                 setOutput('⏳ Python engine loading...');
@@ -56,18 +75,19 @@ export const LiveCodeBlock: React.FC<LiveCodeBlockProps> = ({
             setOutput('');
         } finally {
             setIsRunning(false);
+            setHasRun(true);
         }
-    }, [code, language, variableName, setVariable]);
+    }, [code, language, variablename, setVariable]);
 
-    // Auto-run on code change (debounced)
+    // Reset code when initialcode changes (new lesson)
     useEffect(() => {
-        const timer = setTimeout(() => {
-            runCode();
-        }, 500);
-        return () => clearTimeout(timer);
-    }, [code, runCode]);
+        setCode(initialcode || '# Write code here');
+        setOutput('');
+        setError(null);
+        setHasRun(false);
+    }, [initialcode]);
 
-    const lines = code.split('\n');
+    const lines = (code || '').split('\n');
 
     return (
         <div className="my-4 rounded-lg overflow-hidden border border-[var(--border-color)]">
@@ -77,12 +97,12 @@ export const LiveCodeBlock: React.FC<LiveCodeBlockProps> = ({
                     {lines.map((line, idx) => (
                         <div
                             key={idx}
-                            className={`flex ${highlightLine === idx + 1 ? 'bg-[rgba(var(--accent-warning-rgb),0.2)] -mx-3 px-3' : ''}`}
+                            className={`flex ${highlightNum === idx + 1 ? 'bg-[rgba(var(--accent-warning-rgb),0.2)] -mx-3 px-3' : ''}`}
                         >
                             <span className="w-6 text-[var(--text-secondary)] opacity-50 select-none">
                                 {idx + 1}
                             </span>
-                            {highlightLine === idx + 1 ? (
+                            {highlightNum === idx + 1 ? (
                                 <input
                                     type="text"
                                     value={line}
@@ -94,22 +114,33 @@ export const LiveCodeBlock: React.FC<LiveCodeBlockProps> = ({
                                     className="flex-1 bg-transparent text-[var(--accent-success)] outline-none border-b border-[var(--accent-warning)]"
                                 />
                             ) : (
-                                <span className="text-[var(--accent-success)]">{line}</span>
+                                <span className="text-[var(--accent-success)]">{line || ' '}</span>
                             )}
                         </div>
                     ))}
                 </div>
             </div>
 
-            {/* Output */}
+            {/* Run button + Output */}
             <div className="bg-[#0a0a0c] border-t border-[var(--border-color)] p-3">
-                <div className="text-xs text-[var(--text-secondary)] mb-1 flex items-center gap-2">
-                    Output
-                    {isRunning && <span className="animate-pulse">⏳</span>}
+                <div className="flex items-center gap-2 mb-2">
+                    <button
+                        onClick={runCode}
+                        disabled={isRunning}
+                        className="px-3 py-1 text-sm rounded bg-[var(--accent-secondary)] text-black font-medium flex items-center gap-1 hover:opacity-90 disabled:opacity-50"
+                    >
+                        <Play className="w-3 h-3" />
+                        {isRunning ? 'Running...' : 'Run'}
+                    </button>
+                    <span className="text-xs text-[var(--text-secondary)]">
+                        {hasRun ? 'Output:' : 'Click Run to execute'}
+                    </span>
                 </div>
-                <pre className={`font-mono text-sm ${error ? 'text-[var(--accent-error)]' : 'text-[var(--accent-success)]'}`}>
-                    {error || output || '(waiting...)'}
-                </pre>
+                {hasRun && (
+                    <pre className={`font-mono text-sm ${error ? 'text-[var(--accent-error)]' : 'text-[var(--accent-success)]'}`}>
+                        {error || output || '(no output)'}
+                    </pre>
+                )}
             </div>
         </div>
     );

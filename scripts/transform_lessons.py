@@ -2,118 +2,50 @@
 Batch Lesson Transformer: Add Interactive Components
 
 This script processes lessons.json and injects interactive component tags
-based on the lesson's chapter and type.
+into lessons that don't already have them.
 """
 
 import json
-import re
 from pathlib import Path
 
-# Component mappings by chapter/concept type
-INTERACTION_MAP = {
-    # Python chapters
-    1: {  # Variables, Types & Memory
-        'components': ['draggablevaluebox', 'valuechip', 'visualmemorybox'],
-        'pattern': r'(## Interactive Demo.*?)(## )',
-        'replacement': '''## Interactive Demo
+INTERACTIVE_TAGS = ['<variableslider', '<draggablevaluebox', '<livecodeblock', '<parsonspuzzle', '<visualtable']
 
-Drag a value into the box:
+def get_language_from_lesson_id(lesson_id: str) -> str:
+    """Determine language based on lesson ID."""
+    id_num = int(lesson_id)
+    if id_num >= 2001:
+        return 'r'
+    elif id_num >= 1001 and id_num < 2000:
+        return 'sql'
+    else:
+        return 'python'
 
-<div style="display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0;">
-<valuechip value="{value1}"></valuechip>
-<valuechip value="{value2}"></valuechip>
-<valuechip value="{value3}"></valuechip>
-</div>
-
-<draggablevaluebox name="{varname}" acceptedvalues='[{value1}, {value2}, {value3}]'></draggablevaluebox>
-
-\\2'''
-    },
-    2: {  # Loops
-        'components': ['variableslider', 'livecodeblock'],
-        'pattern': None,  # Will add at end
-        'template': '''
-
-## Try It Yourself
-
-Adjust the loop bound:
-
-<variableslider name="loop_bound" min="1" max="10" initial="5" label="Loop iterations"></variableslider>
-
-'''
-    },
-    3: {  # Logic & Control Flow
-        'components': ['livecodeblock'],
-        'pattern': None,
-        'template': '''
-
-## Experiment
-
-Modify the condition value:
-
-<livecodeblock initialcode="{sample_code}" language="python" highlightline="1"></livecodeblock>
-
-'''
-    },
-    4: {  # Functions
-        'components': ['parsonspuzzle'],
-        'pattern': None,
-        'template': '''
-
-## Arrange the Code
-
-<parsonspuzzle correctorder='["{line1}", "{line2}", "{line3}"]'></parsonspuzzle>
-
-'''
-    },
-    # SQL chapters (1001+)
-    1001: {  # SELECT basics
-        'components': ['visualtable'],
-        'pattern': None,
-        'template': '''
-
-## Explore the Data
-
-<visualtable 
-    data='[{"id": 1, "name": "Alice", "age": 30}, {"id": 2, "name": "Bob", "age": 25}]'
-    columns='["id", "name", "age"]'
-    allowsort="true"
-    allowfilter="true"
-></visualtable>
-
-'''
-    },
-}
-
-def get_chapter_id_from_lesson(lesson_data: dict) -> int:
-    """Extract chapter ID from lesson data."""
-    return lesson_data.get('chapter_id', 1)
-
-def inject_interaction(content: str, chapter_id: int, lesson_data: dict) -> str:
-    """Inject interactive components based on chapter type."""
-    config = INTERACTION_MAP.get(chapter_id)
+def inject_interaction(content: str, language: str) -> str:
+    """Inject a livecodeblock component into the lesson content."""
     
-    if not config:
-        # Default: add a simple live code block at the end before "Your Task"
-        if '## 🎯 Your Task' in content:
-            insert_point = content.find('## 🎯 Your Task')
-            interactive_section = '''
+    interactive_section = f'''
 ## Try It First
 
 Run this example to see how it works:
 
-<livecodeblock initialcode="# Modify this code" language="python"></livecodeblock>
+<livecodeblock initialcode="# Modify this code" language="{language}"></livecodeblock>
 
 '''
-            content = content[:insert_point] + interactive_section + content[insert_point:]
-    else:
-        if config.get('template'):
-            # Add template before "Your Task"
-            if '## 🎯 Your Task' in content:
-                insert_point = content.find('## 🎯 Your Task')
-                content = content[:insert_point] + config['template'] + content[insert_point:]
     
-    return content
+    # Find the best insertion point
+    if '## 🎯 Your Task' in content:
+        insert_point = content.find('## 🎯 Your Task')
+        return content[:insert_point] + interactive_section + content[insert_point:]
+    elif '## Your Task' in content:
+        insert_point = content.find('## Your Task')
+        return content[:insert_point] + interactive_section + content[insert_point:]
+    elif '---' in content:
+        # Insert before the last horizontal rule
+        last_hr = content.rfind('---')
+        return content[:last_hr] + interactive_section + content[last_hr:]
+    else:
+        # Just append at the end
+        return content + interactive_section
 
 def transform_lessons(input_path: str, output_path: str = None, dry_run: bool = True):
     """Transform all lessons to include interactive components."""
@@ -125,19 +57,20 @@ def transform_lessons(input_path: str, output_path: str = None, dry_run: bool = 
     
     for lesson_id, lesson_data in lessons.items():
         try:
-            chapter_id = get_chapter_id_from_lesson(lesson_data)
-            original_content = lesson_data.get('content', '')
+            content = lesson_data.get('content', '')
             
             # Skip if already has interactive components
-            if any(tag in original_content.lower() for tag in 
-                   ['<variableslider', '<draggablevaluebox', '<livecodeblock', '<parsonspuzzle', '<visualtable']):
+            if any(tag in content.lower() for tag in INTERACTIVE_TAGS):
                 stats['skipped'] += 1
                 continue
             
-            # Transform content
-            new_content = inject_interaction(original_content, chapter_id, lesson_data)
+            # Determine language
+            language = get_language_from_lesson_id(lesson_id)
             
-            if new_content != original_content:
+            # Transform content
+            new_content = inject_interaction(content, language)
+            
+            if new_content != content:
                 lessons[lesson_id]['content'] = new_content
                 lessons[lesson_id]['interaction_required'] = True
                 stats['transformed'] += 1
@@ -162,7 +95,7 @@ if __name__ == '__main__':
     import sys
     
     input_file = 'frontend/public/data/lessons.json'
-    output_file = 'frontend/public/data/lessons_interactive.json'
+    output_file = 'frontend/public/data/lessons.json'  # Write back to same file
     
     dry_run = '--apply' not in sys.argv
     
