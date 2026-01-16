@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useInteractive } from '../../context/InteractiveContext';
 
 interface HintLadderProps {
     hints: [string, string, string]; // Exactly 3 tiers
@@ -6,6 +7,7 @@ interface HintLadderProps {
 }
 
 export const HintLadder: React.FC<HintLadderProps> = ({ hints, onHintUsed }) => {
+    const { recordEvent } = useInteractive();
     const [revealedLevel, setRevealedLevel] = useState(0); // 0 = none, 1-3 = hint level
 
     const handleReveal = () => {
@@ -13,6 +15,7 @@ export const HintLadder: React.FC<HintLadderProps> = ({ hints, onHintUsed }) => 
             const newLevel = revealedLevel + 1;
             setRevealedLevel(newLevel);
             onHintUsed?.(newLevel);
+            recordEvent('hint_used', { level: newLevel });
         }
     };
 

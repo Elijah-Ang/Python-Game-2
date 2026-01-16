@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useInteractive } from '../../context/InteractiveContext';
 
 interface PredictionCheckProps {
     question: string;
@@ -15,19 +16,23 @@ export const PredictionCheck: React.FC<PredictionCheckProps> = ({
     explanation,
     onCorrect
 }) => {
+    const { recordDecision, recordConsequence, recordEvent } = useInteractive();
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
     const [revealed, setRevealed] = useState(false);
 
     const handleSelect = (idx: number) => {
         if (revealed) return;
         setSelectedIndex(idx);
+        recordDecision('predict_select', { index: idx });
     };
 
     const handleCheck = () => {
         if (selectedIndex === null) return;
         setRevealed(true);
+        recordConsequence('prediction', { index: selectedIndex, correct: selectedIndex === correctIndex });
         if (selectedIndex === correctIndex) {
             onCorrect?.();
+            recordEvent('prediction_correct', { index: selectedIndex });
         }
     };
 

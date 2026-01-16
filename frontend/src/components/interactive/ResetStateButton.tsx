@@ -11,10 +11,12 @@ export const ResetStateButton: React.FC<ResetStateButtonProps> = ({
     label = 'Reset',
     onReset
 }) => {
-    const { resetVariables } = useInteractive();
+    const { resetVariables, resetInteractions, recordEvent } = useInteractive();
 
     const handleReset = () => {
         resetVariables();
+        resetInteractions();
+        recordEvent('reset_count', { source: 'interaction' });
         onReset?.();
     };
 

@@ -15,7 +15,7 @@ export const LiveCodeBlock: React.FC<LiveCodeBlockProps> = ({
     variablename,
     highlightline
 }) => {
-    const { setVariable } = useInteractive();
+    const { setVariable, recordDecision, recordConsequence } = useInteractive();
     const [code, setCode] = useState(initialcode || '# Write code here');
     const [output, setOutput] = useState<string>('');
     const [isRunning, setIsRunning] = useState(false);
@@ -47,6 +47,7 @@ export const LiveCodeBlock: React.FC<LiveCodeBlockProps> = ({
 
         setIsRunning(true);
         setError(null);
+        recordDecision('run_preview', { language: lang });
 
         try {
             // @ts-ignore - Pyodide is loaded globally
@@ -62,6 +63,7 @@ export const LiveCodeBlock: React.FC<LiveCodeBlockProps> = ({
 
                 const result = outputBuffer.trim() || '(no output)';
                 setOutput(result);
+                recordConsequence('output', { type: 'preview', language: lang });
 
                 if (variablename) {
                     setVariable(variablename, result);
@@ -73,6 +75,7 @@ export const LiveCodeBlock: React.FC<LiveCodeBlockProps> = ({
             const msg = err instanceof Error ? err.message : String(err);
             setError(msg);
             setOutput('');
+            recordConsequence('output', { type: 'preview', status: 'error' });
         } finally {
             setIsRunning(false);
             setHasRun(true);

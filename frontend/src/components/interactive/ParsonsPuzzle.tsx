@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useInteractive } from '../../context/InteractiveContext';
 
 interface ParsonsPuzzleProps {
     correctOrder: string[];
@@ -11,6 +12,7 @@ export const ParsonsPuzzle: React.FC<ParsonsPuzzleProps> = ({
     scrambledOrder,
     onSolved
 }) => {
+    const { recordDecision, recordConsequence } = useInteractive();
     // Scramble if not provided
     const initialOrder = scrambledOrder || [...correctOrder].sort(() => Math.random() - 0.5);
     const [lines, setLines] = useState<string[]>(initialOrder);
@@ -19,6 +21,7 @@ export const ParsonsPuzzle: React.FC<ParsonsPuzzleProps> = ({
 
     const handleDragStart = (idx: number) => {
         setDraggedIdx(idx);
+        recordDecision('parsons_drag', { index: idx });
     };
 
     const handleDragOver = (e: React.DragEvent, idx: number) => {
@@ -40,6 +43,7 @@ export const ParsonsPuzzle: React.FC<ParsonsPuzzleProps> = ({
         if (isCorrect && !isSolved) {
             setIsSolved(true);
             onSolved?.();
+            recordConsequence('puzzle_solved', { type: 'parsons' });
         }
     };
 

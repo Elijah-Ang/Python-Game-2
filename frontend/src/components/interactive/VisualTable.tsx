@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useInteractive } from '../../context/InteractiveContext';
 
 interface VisualTableProps {
     data: Record<string, any>[];
@@ -23,6 +24,7 @@ export const VisualTable: React.FC<VisualTableProps> = ({
     allowRowHighlight = false,
     onRowHighlight
 }) => {
+    const { recordDecision, recordConsequence } = useInteractive();
     const [sortColumn, setSortColumn] = useState<string | null>(null);
     const [sortAsc, setSortAsc] = useState(true);
     const [visibleColumns, setVisibleColumns] = useState<Set<string>>(new Set(columns));
@@ -45,6 +47,8 @@ export const VisualTable: React.FC<VisualTableProps> = ({
             setSortColumn(col);
             setSortAsc(true);
         }
+        recordDecision('sort', { column: col });
+        recordConsequence('table', { column: col });
     };
 
     const toggleColumn = (col: string) => {
@@ -55,11 +59,14 @@ export const VisualTable: React.FC<VisualTableProps> = ({
             newVisible.add(col);
         }
         setVisibleColumns(newVisible);
+        recordDecision('toggle_column', { column: col });
+        recordConsequence('table', { column: col });
     };
 
     const handleColumnDragStart = (col: string) => {
         if (!allowReorder) return;
         setDraggedColumn(col);
+        recordDecision('reorder_start', { column: col });
     };
 
     const handleColumnDragEnter = (targetCol: string) => {
@@ -72,6 +79,7 @@ export const VisualTable: React.FC<VisualTableProps> = ({
         newOrder.splice(currentIdx, 1);
         newOrder.splice(targetIdx, 0, draggedColumn);
         setColumnOrder(newOrder);
+        recordConsequence('table', { order: newOrder });
     };
 
     const handleColumnDragEnd = () => {
@@ -104,6 +112,8 @@ export const VisualTable: React.FC<VisualTableProps> = ({
         const newIdx = highlightedRow === idx ? null : idx;
         setHighlightedRow(newIdx);
         onRowHighlight?.(newIdx === null ? null : displayData[idx]);
+        recordDecision('row_highlight', { rowIndex: idx });
+        recordConsequence('table', { rowIndex: idx });
     };
 
     const visibleCols = columnOrder.filter(c => visibleColumns.has(c));
@@ -158,7 +168,12 @@ export const VisualTable: React.FC<VisualTableProps> = ({
                     type="text"
                     placeholder="Filter rows..."
                     value={filterValue}
-                    onChange={(e) => setFilterValue(e.target.value)}
+                    onChange={(e) => {
+                        const nextValue = e.target.value;
+                        setFilterValue(nextValue);
+                        recordDecision('filter', { value: nextValue });
+                        recordConsequence('table', { filter: nextValue });
+                    }}
                     className="w-full mb-2 px-2 py-1 text-sm bg-[var(--bg-panel)] border border-[var(--border-color)] rounded text-white"
                 />
             )}

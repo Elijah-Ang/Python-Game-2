@@ -16,7 +16,7 @@ export const StepExecutor: React.FC<StepExecutorProps> = ({
     code,
     steps
 }) => {
-    const { setVariable } = useInteractive();
+    const { setVariable, recordDecision, recordConsequence } = useInteractive();
     const [currentStep, setCurrentStep] = useState(-1); // -1 = not started
     const [isPlaying, setIsPlaying] = useState(false);
 
@@ -30,6 +30,7 @@ export const StepExecutor: React.FC<StepExecutorProps> = ({
                     setVariable(key, value);
                 });
             }
+            recordConsequence('state', { type: 'step', step: stepIndex + 1 });
         }
     };
 
@@ -37,12 +38,14 @@ export const StepExecutor: React.FC<StepExecutorProps> = ({
         if (currentStep < steps.length - 1) {
             const nextStep = currentStep + 1;
             setCurrentStep(nextStep);
+            recordDecision('step_next', { step: nextStep + 1 });
             executeStep(nextStep);
         }
     };
 
     const handlePlay = async () => {
         setIsPlaying(true);
+        recordDecision('step_play', { from: currentStep + 1 });
         for (let i = currentStep + 1; i < steps.length; i++) {
             setCurrentStep(i);
             executeStep(i);
@@ -54,6 +57,7 @@ export const StepExecutor: React.FC<StepExecutorProps> = ({
     const handleReset = () => {
         setCurrentStep(-1);
         setIsPlaying(false);
+        recordDecision('step_reset', { step: 0 });
     };
 
     const currentLineNumber = currentStep >= 0 ? steps[currentStep]?.line : null;

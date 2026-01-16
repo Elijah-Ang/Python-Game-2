@@ -7,6 +7,7 @@ interface DraggableValueBoxProps {
     label?: string;
     type?: string;
     onValueChange?: (value: string | number) => void;
+    initial?: string | number;
 }
 
 export const DraggableValueBox: React.FC<DraggableValueBoxProps> = ({
@@ -14,11 +15,28 @@ export const DraggableValueBox: React.FC<DraggableValueBoxProps> = ({
     acceptedValues,
     label,
     type = 'auto',
-    onValueChange
+    onValueChange,
+    initial
 }) => {
-    const { variables, setVariable } = useInteractive();
+    const { variables, setVariable, selectedValue, setSelectedValue, recordDecision, recordConsequence } = useInteractive();
     const currentValue = variables[name];
     const [isDragOver, setIsDragOver] = useState(false);
+
+    const applyValue = (value: string | number, source: 'drag' | 'click' | 'keyboard' | 'init') => {
+        if (!acceptedValues.includes(value)) return;
+        setVariable(name, value);
+        onValueChange?.(value);
+        if (source !== 'init') {
+            recordDecision('value_select', { name, value, source });
+        }
+        recordConsequence('state', { control: 'draggable', name, value });
+    };
+
+    React.useEffect(() => {
+        if (currentValue === undefined && initial !== undefined) {
+            applyValue(initial, 'init');
+        }
+    }, [currentValue, initial]);
 
     const handleDrop = (e: DragEvent<HTMLDivElement>) => {
         e.preventDefault();
@@ -28,10 +46,8 @@ export const DraggableValueBox: React.FC<DraggableValueBoxProps> = ({
         // Try to parse as number if it looks like one
         const parsedValue = !isNaN(Number(droppedValue)) ? Number(droppedValue) : droppedValue;
 
-        if (acceptedValues.includes(parsedValue)) {
-            setVariable(name, parsedValue);
-            onValueChange?.(parsedValue);
-        }
+        applyValue(parsedValue, 'drag');
+        setSelectedValue(null);
     };
 
     const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
@@ -53,6 +69,21 @@ export const DraggableValueBox: React.FC<DraggableValueBoxProps> = ({
                 onDrop={handleDrop}
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
+                onClick={() => {
+                    if (selectedValue !== null) {
+                        applyValue(selectedValue, 'click');
+                        setSelectedValue(null);
+                    }
+                }}
+                onKeyDown={(e) => {
+                    if ((e.key === 'Enter' || e.key === ' ') && selectedValue !== null) {
+                        e.preventDefault();
+                        applyValue(selectedValue, 'keyboard');
+                        setSelectedValue(null);
+                    }
+                }}
+                role="button"
+                tabIndex={0}
                 className={`
                     w-28 h-28 rounded-lg border-2 border-dashed
                     flex flex-col items-center justify-center
@@ -77,6 +108,11 @@ export const DraggableValueBox: React.FC<DraggableValueBoxProps> = ({
                     </div>
                 )}
             </div>
+            {selectedValue !== null && (
+                <div className="mt-2 text-[10px] text-[var(--text-secondary)] font-mono">
+                    Selected: {JSON.stringify(selectedValue)} — click or press Enter to place
+                </div>
+            )}
         </div>
     );
 };
@@ -84,24 +120,45 @@ export const DraggableValueBox: React.FC<DraggableValueBoxProps> = ({
 // Value chip that can be dragged
 interface ValueChipProps {
     value: string | number;
+    onSelect?: (value: string | number) => void;
 }
 
-export const ValueChip: React.FC<ValueChipProps> = ({ value }) => {
+export const ValueChip: React.FC<ValueChipProps> = ({ value, onSelect }) => {
+    const { selectedValue, setSelectedValue, recordDecision, recordConsequence } = useInteractive();
     const handleDragStart = (e: DragEvent<HTMLSpanElement>) => {
         e.dataTransfer.setData('text/plain', String(value));
         e.dataTransfer.effectAllowed = 'copy';
     };
 
     const isNumber = typeof value === 'number';
+    const isSelected = selectedValue === value;
 
     return (
         <span
             draggable
             onDragStart={handleDragStart}
+            onClick={() => {
+                setSelectedValue(value);
+                onSelect?.(value);
+                recordDecision('value_select', { value, source: 'click_chip' });
+                recordConsequence('state', { control: 'chip', value });
+            }}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setSelectedValue(value);
+                    onSelect?.(value);
+                    recordDecision('value_select', { value, source: 'keyboard_chip' });
+                    recordConsequence('state', { control: 'chip', value });
+                }
+            }}
+            tabIndex={0}
+            role="button"
             className={`
                 inline-block px-3 py-1.5 rounded-full cursor-grab active:cursor-grabbing
                 font-mono text-sm font-bold select-none
                 transition-all hover:scale-105 hover:shadow-lg
+                ${isSelected ? 'ring-2 ring-[var(--accent-success)]' : ''}
                 ${isNumber
                     ? 'bg-[var(--accent-secondary)] text-black'
                     : 'bg-[var(--accent-warning)] text-black'}

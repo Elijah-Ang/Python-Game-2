@@ -5,7 +5,7 @@ import { Play, Send, ChevronRight, FileCode, RotateCcw, Eye, EyeOff, Lightbulb, 
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
-import { InteractiveProvider } from '../context/InteractiveContext';
+import { InteractiveProvider, useInteractive } from '../context/InteractiveContext';
 import { VariableSlider } from '../components/interactive/VariableSlider';
 import { VisualMemoryBox } from '../components/interactive/VisualMemoryBox';
 import { DraggableValueBox, ValueChip } from '../components/interactive/DraggableValueBox';
@@ -18,10 +18,11 @@ import { StateInspector } from '../components/interactive/StateInspector';
 import { ResetStateButton } from '../components/interactive/ResetStateButton';
 import { OutputDiff } from '../components/interactive/OutputDiff';
 import { StepExecutor } from '../components/interactive/StepExecutor';
-import { InteractionLab } from '../components/interactive/InteractionLab';
+import { InteractionPlanRenderer } from '../components/interactive/InteractionPlanRenderer';
+import { FillBlanks } from '../components/interactive/FillBlanks';
 import confetti from 'canvas-confetti';
 import { verifyCode, verifySql, verifyR } from '../utils/verifier';
-import type { CurriculumMode } from '../utils/interactionLabConfig';
+import type { LessonInteractionPlan } from '../types/interaction';
 
 interface LessonData {
     id: number;
@@ -31,6 +32,13 @@ interface LessonData {
     solution_code: string;
     expected_output: string;
     chapter_id: number;
+    concept_tags?: string[];
+    interaction_plan?: LessonInteractionPlan;
+    interaction_required?: boolean;
+    expected_result?: string;
+    send_to_editor_template?: string;
+    interaction_confidence?: number;
+    manual_review?: boolean;
 }
 
 interface VerifyResult {
@@ -60,13 +68,30 @@ interface WebRInterface {
     };
 }
 
+const runWithTimeout = async <T,>(promise: Promise<T>, timeoutMs: number, timeoutMessage: string) => {
+    let timeoutHandle: number | undefined;
+    const timeoutPromise = new Promise<never>((_, reject) => {
+        timeoutHandle = window.setTimeout(() => {
+            reject(new Error(timeoutMessage));
+        }, timeoutMs);
+    });
+
+    try {
+        return await Promise.race([promise, timeoutPromise]);
+    } finally {
+        if (timeoutHandle) {
+            window.clearTimeout(timeoutHandle);
+        }
+    }
+};
+
 declare global {
     interface Window {
         loadPyodide: () => Promise<PyodideInterface>;
     }
 }
 
-export const Lesson: React.FC = () => {
+const LessonContent: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
     const [lesson, setLesson] = useState<LessonData | null>(null);
@@ -86,6 +111,9 @@ export const Lesson: React.FC = () => {
     const [webR, setWebR] = useState<WebRInterface | null>(null);
     const rightPanelRef = useRef<HTMLDivElement>(null);
     const [mobileTab, setMobileTab] = useState<'lesson' | 'code'>('lesson');
+    const { decisionCount, consequenceCount, recordEvent, recordDecision, recordConsequence } = useInteractive();
+    const lessonStartRef = useRef(Date.now());
+    const [completionLogged, setCompletionLogged] = useState(false);
 
     // Load Lesson Data from static JSON
     useEffect(() => {
@@ -164,6 +192,11 @@ export const Lesson: React.FC = () => {
             }
         };
         loadLessonData();
+    }, [id]);
+
+    useEffect(() => {
+        lessonStartRef.current = Date.now();
+        setCompletionLogged(false);
     }, [id]);
 
     // Load Pyodide with matplotlib support
@@ -252,6 +285,7 @@ export const Lesson: React.FC = () => {
         setIsRunning(true);
         setOutput("");
         setGraphOutput(null);
+        recordDecision('run_code', { language: 'python' });
 
         let resultOutput = "";
         try {
@@ -285,7 +319,7 @@ except:
     pass
 `;
             await pyodide.runPythonAsync(setupCode);
-            await pyodide.runPythonAsync(code);
+            await runWithTimeout(pyodide.runPythonAsync(code), 5000, "Python execution timed out after 5 seconds.");
 
             // Check for captured figures
             const figures = pyodide.globals.get('_captured_figures');
@@ -298,9 +332,11 @@ except:
 
             resultOutput = outputBuffer || "✓ Code executed successfully (no output)";
             setOutput(resultOutput);
+            recordConsequence('output', { language: 'python', status: 'success' });
         } catch (err: unknown) {
             resultOutput = "❌ Error:\n" + String(err);
             setOutput(resultOutput);
+            recordConsequence('output', { language: 'python', status: 'error' });
         } finally {
             setIsRunning(false);
         }
@@ -316,6 +352,7 @@ except:
         setIsRunning(true);
         setOutput("");
         setGraphOutput(null);
+        recordDecision('run_code', { language: 'r' });
 
         let resultOutput = "";
         try {
@@ -341,7 +378,7 @@ except:
                 const captureCode = `paste(capture.output({
 ${code}
 }), collapse="\\n")`;
-                const outputResult = await webR.evalR(captureCode);
+                const outputResult = await runWithTimeout(webR.evalR(captureCode), 5000, "R execution timed out after 5 seconds.");
                 outputBuffer = await outputResult.toString();
 
                 // 3. Close device
@@ -391,10 +428,12 @@ ${code}
             }
 
             setOutput(resultOutput);
+            recordConsequence('output', { language: 'r', status: resultOutput.startsWith('❌') ? 'error' : 'success' });
         } catch (err: unknown) {
             const msg = err instanceof Error ? err.message : String(err);
             resultOutput = "❌ Error:\n" + msg;
             setOutput(resultOutput);
+            recordConsequence('output', { language: 'r', status: 'error' });
         } finally {
             setIsRunning(false);
         }
@@ -406,6 +445,7 @@ ${code}
         const isSql = currentId >= 1001 && currentId < 2000;
 
         setIsVerifying(true);
+        recordDecision('submit', { lessonId: currentId });
 
         let result;
         if (isSql) {
@@ -434,9 +474,19 @@ ${code}
         }
 
         setVerifyResult(result);
+        recordConsequence('verification', { correct: result.correct });
 
         if (result.correct) {
             triggerConfetti();
+            if (!completionLogged) {
+                const elapsedMs = Date.now() - lessonStartRef.current;
+                recordEvent('time_to_complete', {
+                    lessonId: lesson?.id,
+                    ms: elapsedMs,
+                    seconds: Math.round(elapsedMs / 1000)
+                });
+                setCompletionLogged(true);
+            }
         }
 
         setIsVerifying(false);
@@ -453,6 +503,7 @@ ${code}
         setVerifyResult(null);
         setOutput("");
         setGraphOutput(null);
+        recordEvent('reset_count', { source: 'editor' });
     };
 
     const goToNext = () => {
@@ -550,11 +601,20 @@ ${code}
     const courseSlug = isRLesson ? 'r-fundamentals' : (isSqlLesson ? 'sql-fundamentals' : 'python-basics');
     const editorLanguage = isRLesson ? 'r' : (isSqlLesson ? 'sql' : 'python');
     const scriptFilename = isRLesson ? 'script.R' : (isSqlLesson ? 'query.sql' : 'script.py');
-    const interactiveMode: CurriculumMode = isRLesson ? 'r' : (isSqlLesson ? 'sql' : 'python');
+    const interactionRequired = lesson.interaction_required ?? true;
+    const interactionLocked = interactionRequired && (decisionCount < 1 || consequenceCount < 1);
+    const interactionPlan: LessonInteractionPlan = lesson.interaction_plan ? [...lesson.interaction_plan] : [];
+
+    if (lesson.send_to_editor_template && !interactionPlan.some(item => item.type === 'send_to_editor')) {
+        interactionPlan.push({
+            type: 'send_to_editor',
+            template: lesson.send_to_editor_template,
+            templateId: 'lesson_template'
+        });
+    }
 
     return (
-        <InteractiveProvider>
-            <div className="h-screen flex flex-col bg-[var(--bg-color)] overflow-hidden">
+        <div className="h-screen flex flex-col bg-[var(--bg-color)] overflow-hidden">
                 {/* Top Navigation Bar */}
                 <div className="h-12 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-3 md:px-4 gap-2 md:gap-4 shrink-0">
                     <Link to="/" className="flex items-center gap-2 hover:opacity-80">
@@ -653,6 +713,8 @@ ${code}
                                         outputdiff: OutputDiff,
                                         // @ts-ignore
                                         stepexecutor: StepExecutor,
+                                        // @ts-ignore
+                                        fillblanks: FillBlanks,
                                         h1: ({ children }) => <h1 className="text-xl font-bold mt-6 mb-3 text-[var(--accent-primary)]">{children}</h1>,
                                         h2: ({ children }) => <h2 className="text-lg font-bold mt-5 mb-2">{children}</h2>,
                                         h3: ({ children }) => <h3 className="text-md font-bold mt-4 mb-2">{children}</h3>,
@@ -683,12 +745,13 @@ ${code}
                                 </ReactMarkdown>
                             </div>
 
-                            <InteractionLab
-                                mode={interactiveMode}
-                                onPrimeCode={handlePrimeCode}
-                                expectedOutput={lesson.expected_output}
-                                lessonTitle={lesson.title}
-                            />
+                            {interactionPlan.length > 0 && (
+                                <InteractionPlanRenderer
+                                    plan={interactionPlan}
+                                    onSendToEditor={handlePrimeCode}
+                                    expectedOutput={lesson.expected_output}
+                                />
+                            )}
 
                             {/* Expected Output Section */}
                             {lesson.expected_output && lesson.expected_output !== "Run your code to see the output!" && (
@@ -818,13 +881,19 @@ ${code}
                                 )}
                                 <button
                                     onClick={submitAnswer}
-                                    disabled={isRunning || isVerifying}
+                                    disabled={isRunning || isVerifying || interactionLocked}
                                     className="px-4 py-1.5 bg-[var(--accent-secondary)] text-white rounded hover:opacity-90 flex items-center gap-2 text-sm font-medium"
+                                    title={interactionLocked ? 'Complete an interactive step to unlock submission' : 'Submit your answer'}
                                 >
                                     <Send className="w-4 h-4" />
-                                    {isVerifying ? "Checking..." : "Submit"}
+                                    {interactionLocked ? "Interact to Unlock" : (isVerifying ? "Checking..." : "Submit")}
                                 </button>
                             </div>
+                            {interactionLocked && (
+                                <span className="text-xs text-[var(--accent-warning)]">
+                                    Complete 1 interaction to unlock
+                                </span>
+                            )}
                         </div>
 
                         {/* Resizable Divider - Supports both mouse and touch */}
@@ -956,6 +1025,15 @@ ${code}
                     </div>
                 </div>
             </div>
+    );
+};
+
+export const Lesson: React.FC = () => {
+    const { id } = useParams<{ id: string }>();
+
+    return (
+        <InteractiveProvider key={id}>
+            <LessonContent />
         </InteractiveProvider>
     );
 };
