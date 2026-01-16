@@ -4,6 +4,20 @@ import Editor from '@monaco-editor/react';
 import { Play, Send, ChevronRight, FileCode, RotateCcw, Eye, EyeOff, Lightbulb, X, CheckCircle, AlertCircle } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import { InteractiveProvider } from '../context/InteractiveContext';
+import { VariableSlider } from '../components/interactive/VariableSlider';
+import { VisualMemoryBox } from '../components/interactive/VisualMemoryBox';
+import { DraggableValueBox, ValueChip } from '../components/interactive/DraggableValueBox';
+import { LiveCodeBlock } from '../components/interactive/LiveCodeBlock';
+import { VisualTable } from '../components/interactive/VisualTable';
+import { ParsonsPuzzle } from '../components/interactive/ParsonsPuzzle';
+import { PredictionCheck } from '../components/interactive/PredictionCheck';
+import { HintLadder } from '../components/interactive/HintLadder';
+import { StateInspector } from '../components/interactive/StateInspector';
+import { ResetStateButton } from '../components/interactive/ResetStateButton';
+import { OutputDiff } from '../components/interactive/OutputDiff';
+import { StepExecutor } from '../components/interactive/StepExecutor';
 import confetti from 'canvas-confetti';
 import { verifyCode, verifySql, verifyR } from '../utils/verifier';
 
@@ -527,373 +541,402 @@ ${code}
     const scriptFilename = isRLesson ? 'script.R' : (isSqlLesson ? 'query.sql' : 'script.py');
 
     return (
-        <div className="h-screen flex flex-col bg-[var(--bg-color)] overflow-hidden">
-            {/* Top Navigation Bar */}
-            <div className="h-12 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-3 md:px-4 gap-2 md:gap-4 shrink-0">
-                <Link to="/" className="flex items-center gap-2 hover:opacity-80">
-                    <span className="text-lg">📊</span>
-                    <span className="font-bold text-[var(--accent-primary)] pixel-font hidden sm:inline">DS Adventure</span>
-                </Link>
+        <InteractiveProvider>
+            <div className="h-screen flex flex-col bg-[var(--bg-color)] overflow-hidden">
+                {/* Top Navigation Bar */}
+                <div className="h-12 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-3 md:px-4 gap-2 md:gap-4 shrink-0">
+                    <Link to="/" className="flex items-center gap-2 hover:opacity-80">
+                        <span className="text-lg">📊</span>
+                        <span className="font-bold text-[var(--accent-primary)] pixel-font hidden sm:inline">DS Adventure</span>
+                    </Link>
 
-                <span className="text-[var(--border-color)] hidden sm:inline">|</span>
+                    <span className="text-[var(--border-color)] hidden sm:inline">|</span>
 
-                <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium truncate max-w-[150px] md:max-w-none">{lesson.title}</span>
-                </div>
-
-                {/* Progress Bar - Hide on very small screens */}
-                <div className="flex-1 max-w-xs mx-2 md:mx-4 hidden sm:block">
-                    <div className="h-2 bg-[var(--border-color)] rounded-full overflow-hidden">
-                        <div
-                            className="h-full bg-[var(--accent-secondary)] transition-all"
-                            style={{ width: `${(displayExercise / totalExercises) * 100}%` }}
-                        ></div>
-                    </div>
-                </div>
-                <span className="text-xs text-[var(--text-secondary)]">
-                    {Math.round((displayExercise / totalExercises) * 100)}%
-                </span>
-
-                {/* Right side */}
-                <div className="ml-auto flex items-center gap-4 text-xs text-[var(--text-secondary)]">
-                    <Link to={`/course/${courseSlug}`} className="hover:text-white">← Back to course</Link>
-                </div>
-            </div>
-
-            {/* Mobile Tab Bar - Only visible on small screens */}
-            <div className="md:hidden flex border-b border-[var(--border-color)] bg-[var(--bg-panel)]">
-                <button
-                    onClick={() => setMobileTab('lesson')}
-                    className={`flex-1 py-3 text-sm font-medium text-center transition-colors ${mobileTab === 'lesson'
-                        ? 'text-[var(--accent-primary)] border-b-2 border-[var(--accent-primary)] bg-[var(--bg-color)]'
-                        : 'text-[var(--text-secondary)] hover:text-white'
-                        }`}
-                >
-                    📖 Lesson
-                </button>
-                <button
-                    onClick={() => setMobileTab('code')}
-                    className={`flex-1 py-3 text-sm font-medium text-center transition-colors ${mobileTab === 'code'
-                        ? 'text-[var(--accent-warning)] border-b-2 border-[var(--accent-warning)] bg-[var(--bg-color)]'
-                        : 'text-[var(--text-secondary)] hover:text-white'
-                        }`}
-                >
-                    💻 Code
-                </button>
-            </div>
-
-            {/* Main Content Area */}
-            <div className="flex-1 flex flex-col md:flex-row overflow-hidden min-h-0">
-                {/* Left Panel: Instructions - Hidden on mobile when code tab active */}
-                <div className={`${mobileTab === 'lesson' ? 'flex' : 'hidden'
-                    } md:flex w-full md:w-1/2 flex-col border-r border-[var(--border-color)] min-h-0`}>
-                    <div className="flex-1 overflow-y-auto p-4 md:p-6 min-h-0">
-                        {/* Exercise Number */}
-                        <h1 className={`text-2xl font-bold mb-4 pixel-font ${lesson.id > 9999 ? 'pl-8 border-l-4 border-[var(--accent-secondary)]' : ''}`}>
-                            {lesson.id > 9999 && <span className="text-sm font-normal text-[var(--accent-secondary)] block mb-1">REINFORCER</span>}
-                            {String(displayExercise).padStart(2, '0')}. {lesson.title}
-                        </h1>
-
-                        {/* Lesson Content */}
-                        <div className="prose prose-invert prose-sm max-w-none lesson-content">
-                            <ReactMarkdown
-                                remarkPlugins={[remarkGfm]}
-                                components={{
-                                    h1: ({ children }) => <h1 className="text-xl font-bold mt-6 mb-3 text-[var(--accent-primary)]">{children}</h1>,
-                                    h2: ({ children }) => <h2 className="text-lg font-bold mt-5 mb-2">{children}</h2>,
-                                    h3: ({ children }) => <h3 className="text-md font-bold mt-4 mb-2">{children}</h3>,
-                                    p: ({ children }) => <p className="mb-3 leading-relaxed">{children}</p>,
-                                    ul: ({ children }) => <ul className="list-disc list-inside mb-3 space-y-1">{children}</ul>,
-                                    ol: ({ children }) => <ol className="list-decimal list-inside mb-3 space-y-1">{children}</ol>,
-                                    code: ({ className, children }) => {
-                                        const isBlock = className?.includes('language-');
-                                        return isBlock ? (
-                                            <pre className="bg-[#0d0d10] p-3 rounded text-sm overflow-x-auto my-3">
-                                                <code className="text-[var(--accent-success)]">{children}</code>
-                                            </pre>
-                                        ) : (
-                                            <code className="bg-[#0d0d10] px-1.5 py-0.5 rounded text-[var(--accent-warning)] text-sm">{children}</code>
-                                        );
-                                    },
-                                    strong: ({ children }) => <strong className="text-[var(--accent-warning)] font-bold">{children}</strong>,
-                                    a: ({ href, children }) => <a href={href} className="text-[var(--accent-secondary)] underline hover:opacity-80">{children}</a>,
-                                    table: ({ children }) => <table className="w-full border-collapse my-3 text-sm">{children}</table>,
-                                    thead: ({ children }) => <thead>{children}</thead>,
-                                    tbody: ({ children }) => <tbody>{children}</tbody>,
-                                    tr: ({ children }) => <tr>{children}</tr>,
-                                    th: ({ children }) => <th className="border border-[var(--border-color)] px-2 py-1 bg-[var(--bg-panel)] text-left">{children}</th>,
-                                    td: ({ children }) => <td className="border border-[var(--border-color)] px-2 py-1">{children}</td>,
-                                }}
-                            >
-                                {lesson.content}
-                            </ReactMarkdown>
-                        </div>
-
-                        {/* Expected Output Section */}
-                        {lesson.expected_output && lesson.expected_output !== "Run your code to see the output!" && (
-                            <div className="mt-6 p-3 bg-[var(--bg-panel)] rounded border border-[var(--border-color)]">
-                                <div className="text-sm font-medium text-[var(--accent-secondary)] mb-2 flex items-center gap-2">
-                                    <Lightbulb className="w-4 h-4" />
-                                    Expected Output:
-                                </div>
-                                <pre className="bg-[#0d0d10] p-3 rounded text-sm text-[var(--accent-success)] overflow-x-auto">
-                                    {lesson.expected_output}
-                                </pre>
-                            </div>
-                        )}
-
-                        {/* Solution Section (Collapsible) */}
-                        {lesson.solution_code && (
-                            <div className="mt-4">
-                                <button
-                                    onClick={toggleSolution}
-                                    className="flex items-center gap-2 text-sm text-[var(--accent-warning)] hover:opacity-80"
-                                >
-                                    {showSolution ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                                    {showSolution ? "Hide Solution" : "Show Solution"}
-                                </button>
-                                {showSolution && (
-                                    <pre className="mt-2 bg-[#1a1a2e] p-3 rounded text-sm text-[var(--text-secondary)] overflow-x-auto border border-[var(--accent-warning)] border-opacity-30">
-                                        <code>{lesson.solution_code}</code>
-                                    </pre>
-                                )}
-                            </div>
-                        )}
+                    <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium truncate max-w-[150px] md:max-w-none">{lesson.title}</span>
                     </div>
 
-                    {/* Instructions Footer - Simplified on mobile */}
-                    <div className="border-t border-[var(--border-color)] bg-[var(--bg-panel)] p-2 md:p-3">
-                        <div className="flex items-center justify-between">
-                            {/* Hide title section on mobile */}
-                            <div className="hidden md:flex items-center gap-3">
-                                <div className="w-8 h-8 bg-[var(--border-color)] rounded flex items-center justify-center">
-                                    📝
-                                </div>
-                                <div>
-                                    <div className="text-sm font-medium">{lesson.title}</div>
-                                    <div className="text-xs text-[var(--text-secondary)]">
-                                        Exercise {displayExercise} / {totalExercises}
-                                    </div>
-                                </div>
-                            </div>
-                            {/* Mobile: Show exercise count inline */}
-                            <span className="md:hidden text-xs text-[var(--text-secondary)]">
-                                {displayExercise} / {totalExercises}
-                            </span>
-                            <div className="flex items-center gap-2">
-                                <button
-                                    onClick={goToPrev}
-                                    disabled={currentExercise <= 1}
-                                    className="px-3 md:px-4 py-1.5 md:py-2 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] disabled:opacity-40 transition-colors text-sm"
-                                >
-                                    Back
-                                </button>
-                                <button
-                                    onClick={goToNext}
-                                    className="px-3 md:px-4 py-1.5 md:py-2 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] transition-colors text-sm"
-                                >
-                                    Next
-                                </button>
-                            </div>
+                    {/* Progress Bar - Hide on very small screens */}
+                    <div className="flex-1 max-w-xs mx-2 md:mx-4 hidden sm:block">
+                        <div className="h-2 bg-[var(--border-color)] rounded-full overflow-hidden">
+                            <div
+                                className="h-full bg-[var(--accent-secondary)] transition-all"
+                                style={{ width: `${(displayExercise / totalExercises) * 100}%` }}
+                            ></div>
                         </div>
+                    </div>
+                    <span className="text-xs text-[var(--text-secondary)]">
+                        {Math.round((displayExercise / totalExercises) * 100)}%
+                    </span>
+
+                    {/* Right side */}
+                    <div className="ml-auto flex items-center gap-4 text-xs text-[var(--text-secondary)]">
+                        <Link to={`/course/${courseSlug}`} className="hover:text-white">← Back to course</Link>
                     </div>
                 </div>
 
-                {/* Right Panel: Code Editor + Terminal - Hidden on mobile when lesson tab active */}
-                <div ref={rightPanelRef} className={`${mobileTab === 'code' ? 'flex' : 'hidden'
-                    } md:flex w-full md:w-1/2 flex-col min-h-0`}>
-                    {/* Editor Header - Rebuild Trigger */}
-                    <div className="h-10 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-2 justify-between">
-                        <div className="flex items-center">
-                            <div className="px-3 py-1.5 bg-[var(--bg-color)] border-t-2 border-t-[var(--accent-warning)] text-sm flex items-center gap-2">
-                                <FileCode className="w-4 h-4 text-[var(--accent-warning)]" />
-                                <span>{scriptFilename}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Code Editor */}
-                    <div style={{ height: `${editorHeightPercent}%` }} className="min-h-0">
-                        <Editor
-                            height="100%"
-                            language={editorLanguage}
-                            theme="vs-dark"
-                            value={code}
-                            onChange={(val) => setCode(val || "")}
-                            options={{
-                                minimap: { enabled: false },
-                                fontSize: 14,
-                                fontFamily: "'Fira Code', 'Monaco', monospace",
-                                lineNumbers: 'on',
-                                scrollBeyondLastLine: false,
-                                padding: { top: 16 },
-                            }}
-                        />
-                    </div>
-
-                    {/* Editor Toolbar */}
-                    <div className="h-12 bg-[var(--bg-panel)] border-t border-b border-[var(--border-color)] flex items-center px-4 justify-between">
-                        <div className="flex items-center gap-2">
-                            <button
-                                onClick={resetCode}
-                                className="w-8 h-8 flex items-center justify-center rounded hover:bg-[rgba(255,255,255,0.1)]"
-                                title="Reset Code"
-                            >
-                                <RotateCcw className="w-4 h-4" />
-                            </button>
-
-                        </div>
-                        <div className="flex items-center gap-2">
-                            {/* Allow Run for Python and R (even if R uses simulation/verification for now) */}
-                            {!isSqlLesson && (
-                                <button
-                                    onClick={isRLesson ? runRCode : runCode}
-                                    disabled={isRunning}
-                                    className="px-4 py-1.5 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] flex items-center gap-2 text-sm"
-                                >
-                                    <Play className="w-4 h-4" />
-                                    Run
-                                </button>
-                            )}
-                            <button
-                                onClick={submitAnswer}
-                                disabled={isRunning || isVerifying}
-                                className="px-4 py-1.5 bg-[var(--accent-secondary)] text-white rounded hover:opacity-90 flex items-center gap-2 text-sm font-medium"
-                            >
-                                <Send className="w-4 h-4" />
-                                {isVerifying ? "Checking..." : "Submit"}
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Resizable Divider - Supports both mouse and touch */}
-                    <div
-                        className={`h-3 md:h-2 bg-[var(--border-color)] cursor-row-resize hover:bg-[var(--accent-secondary)] active:bg-[var(--accent-secondary)] transition-colors flex items-center justify-center ${isDragging ? 'bg-[var(--accent-secondary)]' : ''}`}
-                        onMouseDown={(e) => {
-                            e.preventDefault();
-                            setIsDragging(true);
-                            const startY = e.clientY;
-                            const startPercent = editorHeightPercent;
-                            const panel = rightPanelRef.current;
-                            if (!panel) return;
-
-                            const handleMouseMove = (moveEvent: MouseEvent) => {
-                                const panelRect = panel.getBoundingClientRect();
-                                const panelHeight = panelRect.height - 56 - 48;
-                                const deltaY = moveEvent.clientY - startY;
-                                const deltaPercent = (deltaY / panelHeight) * 100;
-                                const newPercent = Math.min(85, Math.max(30, startPercent + deltaPercent));
-                                setEditorHeightPercent(newPercent);
-                            };
-
-                            const handleMouseUp = () => {
-                                setIsDragging(false);
-                                document.removeEventListener('mousemove', handleMouseMove);
-                                document.removeEventListener('mouseup', handleMouseUp);
-                            };
-
-                            document.addEventListener('mousemove', handleMouseMove);
-                            document.addEventListener('mouseup', handleMouseUp);
-                        }}
-                        onTouchStart={(e) => {
-                            const touch = e.touches[0];
-                            const startY = touch.clientY;
-                            const startPercent = editorHeightPercent;
-                            const panel = rightPanelRef.current;
-                            if (!panel) return;
-
-                            const handleTouchMove = (moveEvent: TouchEvent) => {
-                                const touch = moveEvent.touches[0];
-                                const panelRect = panel.getBoundingClientRect();
-                                const panelHeight = panelRect.height - 56 - 48;
-                                const deltaY = touch.clientY - startY;
-                                const deltaPercent = (deltaY / panelHeight) * 100;
-                                const newPercent = Math.min(85, Math.max(30, startPercent + deltaPercent));
-                                setEditorHeightPercent(newPercent);
-                            };
-
-                            const handleTouchEnd = () => {
-                                document.removeEventListener('touchmove', handleTouchMove);
-                                document.removeEventListener('touchend', handleTouchEnd);
-                            };
-
-                            document.addEventListener('touchmove', handleTouchMove, { passive: true });
-                            document.addEventListener('touchend', handleTouchEnd);
-                        }}
-                        onDoubleClick={() => {
-                            // Tap to cycle through presets: 50% -> 70% -> 40% -> 50%
-                            if (editorHeightPercent < 45) setEditorHeightPercent(50);
-                            else if (editorHeightPercent < 60) setEditorHeightPercent(70);
-                            else setEditorHeightPercent(40);
-                        }}
+                {/* Mobile Tab Bar - Only visible on small screens */}
+                <div className="md:hidden flex border-b border-[var(--border-color)] bg-[var(--bg-panel)]">
+                    <button
+                        onClick={() => setMobileTab('lesson')}
+                        className={`flex-1 py-3 text-sm font-medium text-center transition-colors ${mobileTab === 'lesson'
+                            ? 'text-[var(--accent-primary)] border-b-2 border-[var(--accent-primary)] bg-[var(--bg-color)]'
+                            : 'text-[var(--text-secondary)] hover:text-white'
+                            }`}
                     >
-                        <div className="w-12 h-1 bg-[var(--text-secondary)] rounded opacity-50"></div>
-                    </div>
+                        📖 Lesson
+                    </button>
+                    <button
+                        onClick={() => setMobileTab('code')}
+                        className={`flex-1 py-3 text-sm font-medium text-center transition-colors ${mobileTab === 'code'
+                            ? 'text-[var(--accent-warning)] border-b-2 border-[var(--accent-warning)] bg-[var(--bg-color)]'
+                            : 'text-[var(--text-secondary)] hover:text-white'
+                            }`}
+                    >
+                        💻 Code
+                    </button>
+                </div>
 
-                    {/* Terminal / Output */}
-                    <div style={{ height: `${100 - editorHeightPercent - 10}%` }} className="bg-[#0a0a0c] flex flex-col min-h-0">
-                        <div className="px-4 py-2 text-xs text-[var(--text-secondary)] border-b border-[var(--border-color)] flex items-center justify-between">
-                            <span>Output</span>
-                            {graphOutput && <span className="text-[var(--accent-success)]">📊 Graph rendered</span>}
-                        </div>
-                        <div className="flex-1 p-4 font-mono text-sm overflow-auto">
-                            {graphOutput ? (
-                                <div className="flex flex-col gap-2">
-                                    <img src={graphOutput} alt="Plot output" className="max-w-full h-auto rounded" />
-                                    {output && <pre className="text-[var(--accent-success)]">{output}</pre>}
+                {/* Main Content Area */}
+                <div className="flex-1 flex flex-col md:flex-row overflow-hidden min-h-0">
+                    {/* Left Panel: Instructions - Hidden on mobile when code tab active */}
+                    <div className={`${mobileTab === 'lesson' ? 'flex' : 'hidden'
+                        } md:flex w-full md:w-1/2 flex-col border-r border-[var(--border-color)] min-h-0`}>
+                        <div className="flex-1 overflow-y-auto p-4 md:p-6 min-h-0">
+                            {/* Exercise Number */}
+                            <h1 className={`text-2xl font-bold mb-4 pixel-font ${lesson.id > 9999 ? 'pl-8 border-l-4 border-[var(--accent-secondary)]' : ''}`}>
+                                {lesson.id > 9999 && <span className="text-sm font-normal text-[var(--accent-secondary)] block mb-1">REINFORCER</span>}
+                                {String(displayExercise).padStart(2, '0')}. {lesson.title}
+                            </h1>
+
+                            {/* Lesson Content */}
+                            <div className="prose prose-invert prose-sm max-w-none lesson-content">
+                                <ReactMarkdown
+                                    remarkPlugins={[remarkGfm]}
+                                    rehypePlugins={[rehypeRaw]}
+                                    components={{
+                                        // @ts-ignore
+                                        variableslider: VariableSlider,
+                                        // @ts-ignore
+                                        visualmemorybox: VisualMemoryBox,
+                                        // @ts-ignore
+                                        draggablevaluebox: DraggableValueBox,
+                                        // @ts-ignore
+                                        valuechip: ValueChip,
+                                        // @ts-ignore
+                                        livecodeblock: LiveCodeBlock,
+                                        // @ts-ignore
+                                        visualtable: VisualTable,
+                                        // @ts-ignore
+                                        parsonspuzzle: ParsonsPuzzle,
+                                        // @ts-ignore
+                                        predictioncheck: PredictionCheck,
+                                        // @ts-ignore
+                                        hintladder: HintLadder,
+                                        // @ts-ignore
+                                        stateinspector: StateInspector,
+                                        // @ts-ignore
+                                        resetstatebutton: ResetStateButton,
+                                        // @ts-ignore
+                                        outputdiff: OutputDiff,
+                                        // @ts-ignore
+                                        stepexecutor: StepExecutor,
+                                        h1: ({ children }) => <h1 className="text-xl font-bold mt-6 mb-3 text-[var(--accent-primary)]">{children}</h1>,
+                                        h2: ({ children }) => <h2 className="text-lg font-bold mt-5 mb-2">{children}</h2>,
+                                        h3: ({ children }) => <h3 className="text-md font-bold mt-4 mb-2">{children}</h3>,
+                                        p: ({ children }) => <p className="mb-3 leading-relaxed">{children}</p>,
+                                        ul: ({ children }) => <ul className="list-disc list-inside mb-3 space-y-1">{children}</ul>,
+                                        ol: ({ children }) => <ol className="list-decimal list-inside mb-3 space-y-1">{children}</ol>,
+                                        code: ({ className, children }) => {
+                                            const isBlock = className?.includes('language-');
+                                            return isBlock ? (
+                                                <pre className="bg-[#0d0d10] p-3 rounded text-sm overflow-x-auto my-3">
+                                                    <code className="text-[var(--accent-success)]">{children}</code>
+                                                </pre>
+                                            ) : (
+                                                <code className="bg-[#0d0d10] px-1.5 py-0.5 rounded text-[var(--accent-warning)] text-sm">{children}</code>
+                                            );
+                                        },
+                                        strong: ({ children }) => <strong className="text-[var(--accent-warning)] font-bold">{children}</strong>,
+                                        a: ({ href, children }) => <a href={href} className="text-[var(--accent-secondary)] underline hover:opacity-80">{children}</a>,
+                                        table: ({ children }) => <table className="w-full border-collapse my-3 text-sm">{children}</table>,
+                                        thead: ({ children }) => <thead>{children}</thead>,
+                                        tbody: ({ children }) => <tbody>{children}</tbody>,
+                                        tr: ({ children }) => <tr>{children}</tr>,
+                                        th: ({ children }) => <th className="border border-[var(--border-color)] px-2 py-1 bg-[var(--bg-panel)] text-left">{children}</th>,
+                                        td: ({ children }) => <td className="border border-[var(--border-color)] px-2 py-1">{children}</td>,
+                                    }}
+                                >
+                                    {lesson.content}
+                                </ReactMarkdown>
+                            </div>
+
+                            {/* Expected Output Section */}
+                            {lesson.expected_output && lesson.expected_output !== "Run your code to see the output!" && (
+                                <div className="mt-6 p-3 bg-[var(--bg-panel)] rounded border border-[var(--border-color)]">
+                                    <div className="text-sm font-medium text-[var(--accent-secondary)] mb-2 flex items-center gap-2">
+                                        <Lightbulb className="w-4 h-4" />
+                                        Expected Output:
+                                    </div>
+                                    <pre className="bg-[#0d0d10] p-3 rounded text-sm text-[var(--accent-success)] overflow-x-auto">
+                                        {lesson.expected_output}
+                                    </pre>
                                 </div>
-                            ) : output ? (
-                                <pre className={`whitespace-pre-wrap ${output.includes('Error') ? 'text-[var(--accent-error)]' : 'text-[var(--accent-success)]'}`}>{output}</pre>
-                            ) : (
-                                <span className="text-[var(--text-secondary)] opacity-50">▌ {isSqlLesson ? 'Click Submit to verify your query' : 'Click Run to execute your code'}</span>
                             )}
-                        </div>
-                    </div>
 
-                    {/* Verification Result */}
-                    {verifyResult && (
-                        <div className={`p-4 border-t-2 ${verifyResult.correct ? 'border-[var(--accent-success)] bg-[rgba(74,222,128,0.1)]' : 'border-[var(--accent-error)] bg-[rgba(239,68,68,0.1)]'}`}>
-                            <div className="flex items-start gap-3">
-                                {verifyResult.correct ? (
-                                    <CheckCircle className="w-6 h-6 text-[var(--accent-success)] shrink-0" />
-                                ) : (
-                                    <AlertCircle className="w-6 h-6 text-[var(--accent-error)] shrink-0" />
-                                )}
-                                <div className="flex-1">
-                                    <p className={`font-medium ${verifyResult.correct ? 'text-[var(--accent-success)]' : 'text-[var(--accent-error)]'}`}>
-                                        {verifyResult.correct ? "🎉 Correct!" : "Not quite right"}
-                                    </p>
-                                    <p className="text-sm text-[var(--text-secondary)] mt-1">{verifyResult.feedback}</p>
-                                    {verifyResult.suggestions.length > 0 && (
-                                        <ul className="mt-2 text-sm text-[var(--text-secondary)]">
-                                            {verifyResult.suggestions.map((s, i) => (
-                                                <li key={i} className="flex items-center gap-2">
-                                                    <span>💡</span> {s}
-                                                </li>
-                                            ))}
-                                        </ul>
+                            {/* Solution Section (Collapsible) */}
+                            {lesson.solution_code && (
+                                <div className="mt-4">
+                                    <button
+                                        onClick={toggleSolution}
+                                        className="flex items-center gap-2 text-sm text-[var(--accent-warning)] hover:opacity-80"
+                                    >
+                                        {showSolution ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                        {showSolution ? "Hide Solution" : "Show Solution"}
+                                    </button>
+                                    {showSolution && (
+                                        <pre className="mt-2 bg-[#1a1a2e] p-3 rounded text-sm text-[var(--text-secondary)] overflow-x-auto border border-[var(--accent-warning)] border-opacity-30">
+                                            <code>{lesson.solution_code}</code>
+                                        </pre>
                                     )}
                                 </div>
-                                {verifyResult.correct && (
+                            )}
+                        </div>
+
+                        {/* Instructions Footer - Simplified on mobile */}
+                        <div className="border-t border-[var(--border-color)] bg-[var(--bg-panel)] p-2 md:p-3">
+                            <div className="flex items-center justify-between">
+                                {/* Hide title section on mobile */}
+                                <div className="hidden md:flex items-center gap-3">
+                                    <div className="w-8 h-8 bg-[var(--border-color)] rounded flex items-center justify-center">
+                                        📝
+                                    </div>
+                                    <div>
+                                        <div className="text-sm font-medium">{lesson.title}</div>
+                                        <div className="text-xs text-[var(--text-secondary)]">
+                                            Exercise {displayExercise} / {totalExercises}
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* Mobile: Show exercise count inline */}
+                                <span className="md:hidden text-xs text-[var(--text-secondary)]">
+                                    {displayExercise} / {totalExercises}
+                                </span>
+                                <div className="flex items-center gap-2">
+                                    <button
+                                        onClick={goToPrev}
+                                        disabled={currentExercise <= 1}
+                                        className="px-3 md:px-4 py-1.5 md:py-2 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] disabled:opacity-40 transition-colors text-sm"
+                                    >
+                                        Back
+                                    </button>
                                     <button
                                         onClick={goToNext}
-                                        className="px-4 py-2 bg-[var(--accent-success)] text-black rounded font-medium flex items-center gap-1"
+                                        className="px-3 md:px-4 py-1.5 md:py-2 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] transition-colors text-sm"
                                     >
-                                        Next <ChevronRight className="w-4 h-4" />
+                                        Next
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right Panel: Code Editor + Terminal - Hidden on mobile when lesson tab active */}
+                    <div ref={rightPanelRef} className={`${mobileTab === 'code' ? 'flex' : 'hidden'
+                        } md:flex w-full md:w-1/2 flex-col min-h-0`}>
+                        {/* Editor Header - Rebuild Trigger */}
+                        <div className="h-10 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-2 justify-between">
+                            <div className="flex items-center">
+                                <div className="px-3 py-1.5 bg-[var(--bg-color)] border-t-2 border-t-[var(--accent-warning)] text-sm flex items-center gap-2">
+                                    <FileCode className="w-4 h-4 text-[var(--accent-warning)]" />
+                                    <span>{scriptFilename}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Code Editor */}
+                        <div style={{ height: `${editorHeightPercent}%` }} className="min-h-0">
+                            <Editor
+                                height="100%"
+                                language={editorLanguage}
+                                theme="vs-dark"
+                                value={code}
+                                onChange={(val) => setCode(val || "")}
+                                options={{
+                                    minimap: { enabled: false },
+                                    fontSize: 14,
+                                    fontFamily: "'Fira Code', 'Monaco', monospace",
+                                    lineNumbers: 'on',
+                                    scrollBeyondLastLine: false,
+                                    padding: { top: 16 },
+                                }}
+                            />
+                        </div>
+
+                        {/* Editor Toolbar */}
+                        <div className="h-12 bg-[var(--bg-panel)] border-t border-b border-[var(--border-color)] flex items-center px-4 justify-between">
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={resetCode}
+                                    className="w-8 h-8 flex items-center justify-center rounded hover:bg-[rgba(255,255,255,0.1)]"
+                                    title="Reset Code"
+                                >
+                                    <RotateCcw className="w-4 h-4" />
+                                </button>
+
+                            </div>
+                            <div className="flex items-center gap-2">
+                                {/* Allow Run for Python and R (even if R uses simulation/verification for now) */}
+                                {!isSqlLesson && (
+                                    <button
+                                        onClick={isRLesson ? runRCode : runCode}
+                                        disabled={isRunning}
+                                        className="px-4 py-1.5 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] flex items-center gap-2 text-sm"
+                                    >
+                                        <Play className="w-4 h-4" />
+                                        Run
                                     </button>
                                 )}
                                 <button
-                                    onClick={() => setVerifyResult(null)}
-                                    className="p-1 hover:bg-[rgba(255,255,255,0.1)] rounded"
-                                    title="Dismiss"
+                                    onClick={submitAnswer}
+                                    disabled={isRunning || isVerifying}
+                                    className="px-4 py-1.5 bg-[var(--accent-secondary)] text-white rounded hover:opacity-90 flex items-center gap-2 text-sm font-medium"
                                 >
-                                    <X className="w-4 h-4" />
+                                    <Send className="w-4 h-4" />
+                                    {isVerifying ? "Checking..." : "Submit"}
                                 </button>
                             </div>
                         </div>
-                    )}
+
+                        {/* Resizable Divider - Supports both mouse and touch */}
+                        <div
+                            className={`h-3 md:h-2 bg-[var(--border-color)] cursor-row-resize hover:bg-[var(--accent-secondary)] active:bg-[var(--accent-secondary)] transition-colors flex items-center justify-center ${isDragging ? 'bg-[var(--accent-secondary)]' : ''}`}
+                            onMouseDown={(e) => {
+                                e.preventDefault();
+                                setIsDragging(true);
+                                const startY = e.clientY;
+                                const startPercent = editorHeightPercent;
+                                const panel = rightPanelRef.current;
+                                if (!panel) return;
+
+                                const handleMouseMove = (moveEvent: MouseEvent) => {
+                                    const panelRect = panel.getBoundingClientRect();
+                                    const panelHeight = panelRect.height - 56 - 48;
+                                    const deltaY = moveEvent.clientY - startY;
+                                    const deltaPercent = (deltaY / panelHeight) * 100;
+                                    const newPercent = Math.min(85, Math.max(30, startPercent + deltaPercent));
+                                    setEditorHeightPercent(newPercent);
+                                };
+
+                                const handleMouseUp = () => {
+                                    setIsDragging(false);
+                                    document.removeEventListener('mousemove', handleMouseMove);
+                                    document.removeEventListener('mouseup', handleMouseUp);
+                                };
+
+                                document.addEventListener('mousemove', handleMouseMove);
+                                document.addEventListener('mouseup', handleMouseUp);
+                            }}
+                            onTouchStart={(e) => {
+                                const touch = e.touches[0];
+                                const startY = touch.clientY;
+                                const startPercent = editorHeightPercent;
+                                const panel = rightPanelRef.current;
+                                if (!panel) return;
+
+                                const handleTouchMove = (moveEvent: TouchEvent) => {
+                                    const touch = moveEvent.touches[0];
+                                    const panelRect = panel.getBoundingClientRect();
+                                    const panelHeight = panelRect.height - 56 - 48;
+                                    const deltaY = touch.clientY - startY;
+                                    const deltaPercent = (deltaY / panelHeight) * 100;
+                                    const newPercent = Math.min(85, Math.max(30, startPercent + deltaPercent));
+                                    setEditorHeightPercent(newPercent);
+                                };
+
+                                const handleTouchEnd = () => {
+                                    document.removeEventListener('touchmove', handleTouchMove);
+                                    document.removeEventListener('touchend', handleTouchEnd);
+                                };
+
+                                document.addEventListener('touchmove', handleTouchMove, { passive: true });
+                                document.addEventListener('touchend', handleTouchEnd);
+                            }}
+                            onDoubleClick={() => {
+                                // Tap to cycle through presets: 50% -> 70% -> 40% -> 50%
+                                if (editorHeightPercent < 45) setEditorHeightPercent(50);
+                                else if (editorHeightPercent < 60) setEditorHeightPercent(70);
+                                else setEditorHeightPercent(40);
+                            }}
+                        >
+                            <div className="w-12 h-1 bg-[var(--text-secondary)] rounded opacity-50"></div>
+                        </div>
+
+                        {/* Terminal / Output */}
+                        <div style={{ height: `${100 - editorHeightPercent - 10}%` }} className="bg-[#0a0a0c] flex flex-col min-h-0">
+                            <div className="px-4 py-2 text-xs text-[var(--text-secondary)] border-b border-[var(--border-color)] flex items-center justify-between">
+                                <span>Output</span>
+                                {graphOutput && <span className="text-[var(--accent-success)]">📊 Graph rendered</span>}
+                            </div>
+                            <div className="flex-1 p-4 font-mono text-sm overflow-auto">
+                                {graphOutput ? (
+                                    <div className="flex flex-col gap-2">
+                                        <img src={graphOutput} alt="Plot output" className="max-w-full h-auto rounded" />
+                                        {output && <pre className="text-[var(--accent-success)]">{output}</pre>}
+                                    </div>
+                                ) : output ? (
+                                    <pre className={`whitespace-pre-wrap ${output.includes('Error') ? 'text-[var(--accent-error)]' : 'text-[var(--accent-success)]'}`}>{output}</pre>
+                                ) : (
+                                    <span className="text-[var(--text-secondary)] opacity-50">▌ {isSqlLesson ? 'Click Submit to verify your query' : 'Click Run to execute your code'}</span>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Verification Result */}
+                        {verifyResult && (
+                            <div className={`p-4 border-t-2 ${verifyResult.correct ? 'border-[var(--accent-success)] bg-[rgba(74,222,128,0.1)]' : 'border-[var(--accent-error)] bg-[rgba(239,68,68,0.1)]'}`}>
+                                <div className="flex items-start gap-3">
+                                    {verifyResult.correct ? (
+                                        <CheckCircle className="w-6 h-6 text-[var(--accent-success)] shrink-0" />
+                                    ) : (
+                                        <AlertCircle className="w-6 h-6 text-[var(--accent-error)] shrink-0" />
+                                    )}
+                                    <div className="flex-1">
+                                        <p className={`font-medium ${verifyResult.correct ? 'text-[var(--accent-success)]' : 'text-[var(--accent-error)]'}`}>
+                                            {verifyResult.correct ? "🎉 Correct!" : "Not quite right"}
+                                        </p>
+                                        <p className="text-sm text-[var(--text-secondary)] mt-1">{verifyResult.feedback}</p>
+                                        {verifyResult.suggestions.length > 0 && (
+                                            <ul className="mt-2 text-sm text-[var(--text-secondary)]">
+                                                {verifyResult.suggestions.map((s, i) => (
+                                                    <li key={i} className="flex items-center gap-2">
+                                                        <span>💡</span> {s}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </div>
+                                    {verifyResult.correct && (
+                                        <button
+                                            onClick={goToNext}
+                                            className="px-4 py-2 bg-[var(--accent-success)] text-black rounded font-medium flex items-center gap-1"
+                                        >
+                                            Next <ChevronRight className="w-4 h-4" />
+                                        </button>
+                                    )}
+                                    <button
+                                        onClick={() => setVerifyResult(null)}
+                                        className="p-1 hover:bg-[rgba(255,255,255,0.1)] rounded"
+                                        title="Dismiss"
+                                    >
+                                        <X className="w-4 h-4" />
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+        </InteractiveProvider>
     );
 };
