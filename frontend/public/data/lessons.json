@@ -6667,7 +6667,7 @@
   "1009": {
     "id": 1009,
     "title": "Query Execution Order",
-    "content": "# \ud83d\udd04 Query Execution Order\n\n## SQL Doesn't Run Top-to-Bottom!\n\nThis is the most important concept for understanding complex queries later. Even though we write `SELECT` first, the database engine actually runs it much later.\n\n![Execution Order](/Python-Game-2/assets/sql-diagrams/sql_execution_order.png)\n\n## The Logical Flow\n\n1.  **FROM**: Where are we looking? (Identify the table).\n2.  **WHERE**: Which rows do we keep? (Filtering).\n3.  **GROUP BY**: How do we group them? (Summarization).\n4.  **SELECT**: Which columns do we show? (Final display).\n\n## Why This Matters\nImagine searching for a book in a library. You don't pick a page (SELECT) until you've found the bookshelf (FROM) and the book (WHERE). SQL works exactly the same way!\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nWrite a query that retrieves the `name` column from the `employees` table where the `department` is 'Sales'.",
+    "content": "# \ud83d\udd04 Query Execution Order\n\n## SQL Doesn't Run Top-to-Bottom!\n\nThis is the most important concept for understanding complex queries later. Even though we write `SELECT` first, the database engine actually runs it much later.\n\n![Execution Order](/Python-Game-2/assets/sql-diagrams/sql_execution_order.png)\n\n## The Logical Flow\n\n1.  **FROM**: Where are we looking? (Identify the table).\n2.  **WHERE**: Which rows do we keep? (Filtering).\n3.  **GROUP BY**: How do we group them? (Summarization).\n4.  **SELECT**: Which columns do we show? (Final display).\n\n## Why This Matters\nImagine searching for a book in a library. You don't pick a page (SELECT) until you've found the bookshelf (FROM) and the book (WHERE). SQL works exactly the same way!\n\n## Full logical order (when all clauses are present)\n\n1. **FROM** and **JOIN**\n2. **WHERE** (row filters)\n3. **GROUP BY** (grouping)\n4. **HAVING** (group filters)\n5. **SELECT** (project columns)\n6. **ORDER BY** (sort)\n7. **LIMIT / OFFSET** (final trim)\n\nHAVING runs *after* grouping, so it can filter by aggregates.\n\n```sql\nSELECT region, COUNT(*) AS orders\nFROM orders\nWHERE status = 'complete'\nGROUP BY region\nHAVING COUNT(*) >= 10\nORDER BY orders DESC\nLIMIT 5;\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nWrite a query that retrieves the `name` column from the `employees` table where the `department` is 'Sales'.",
     "starter_code": "-- Writing Order: SELECT -> FROM -> WHERE\n-- Logical Order: FROM -> WHERE -> SELECT\n\n",
     "solution_code": "SELECT name FROM employees WHERE department = 'Sales';",
     "chapter_id": 200,
@@ -6681,12 +6681,16 @@
     ],
     "interaction_confidence": 0.92,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "gap_ids": [
+      "SQL-006",
+      "SQL-034"
+    ]
   },
   "1010": {
     "id": 1010,
     "title": "Your First SELECT",
-    "content": "# \ud83d\udccb Your First SELECT\n\n## Mastering the Fetch\n\nNow that you have the mental model, let's start fetching data! `SELECT` is how we ask the database for specific information.\n\n## Basic Syntax\n\n```sql\nSELECT column_name FROM table_name;\n```\n\n## Conventions\nWorking with SQL is easier when you follow standard patterns:\n- **UPPERCASE** for keywords (`SELECT`, `FROM`).\n- **lowercase** for column and table names.\n- **Semicolons** `;` at the end of your query.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nRetrieve the `email` column from the `users` table.\n\n## DISTINCT for unique values\nDISTINCT removes duplicate rows in the result set.\n",
+    "content": "# \ud83d\udccb Your First SELECT\n\n## Mastering the Fetch\n\nNow that you have the mental model, let's start fetching data! `SELECT` is how we ask the database for specific information.\n\n## Basic Syntax\n\n```sql\nSELECT column_name FROM table_name;\n```\n\n## Conventions\nWorking with SQL is easier when you follow standard patterns:\n- **UPPERCASE** for keywords (`SELECT`, `FROM`).\n- **lowercase** for column and table names.\n- **Semicolons** `;` at the end of your query.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nRetrieve the `email` column from the `users` table.\n\n## DISTINCT for unique values\nDISTINCT removes duplicate rows in the result set.\n\n**Example table: users**\n| id | city |\n|----|------|\n| 1 | Austin |\n| 2 | Austin |\n| 3 | Denver |\n\n```sql\nSELECT DISTINCT city\nFROM users;\n```\n\n**Result**\n```\nAustin\nDenver\n```\n\n**Note**: DISTINCT applies to the full selected row (all selected columns).\n\n",
     "starter_code": "-- Fetch emails from the users table\n\n",
     "solution_code": "SELECT email FROM users;",
     "chapter_id": 201,
@@ -6851,7 +6855,7 @@
   "1015": {
     "id": 1015,
     "title": "LIMIT Clause",
-    "content": "# \ud83d\udd22 LIMIT: Control Result Size\n\n## Why Limit Results?\n\n- Preview data without loading millions of rows\n- Pagination (show 10 results per page)\n- Top-N queries (top 5 customers)\n\n## Basic Syntax\n\n```sql\nSELECT * FROM products LIMIT 10;\n```\n\nReturns only the first 10 rows.\n\n## With ORDER BY\n\nLIMIT is most useful with ORDER BY:\n\n```sql\n-- Top 5 highest paid employees\nSELECT name, salary \nFROM employees \nORDER BY salary DESC \nLIMIT 5;\n```\n\n## OFFSET for Pagination\n\nSkip rows before limiting:\n\n```sql\n-- Page 1: rows 1-10\nSELECT * FROM products LIMIT 10 OFFSET 0;\n\n-- Page 2: rows 11-20\nSELECT * FROM products LIMIT 10 OFFSET 10;\n\n-- Page 3: rows 21-30\nSELECT * FROM products LIMIT 10 OFFSET 20;\n```\n\n## Database Variations\n\n| Database | Syntax |\n|----------|--------|\n| PostgreSQL, MySQL | LIMIT n |\n| SQL Server | TOP n |\n| Oracle | FETCH FIRST n ROWS |\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nGet the 10 most expensive products using LIMIT and ORDER BY.\n\n## TOP vs LIMIT\nDifferent SQL dialects use `TOP` or `LIMIT` to keep only the first N rows.\n",
+    "content": "# \ud83d\udd22 LIMIT: Control Result Size\n\n## Why Limit Results?\n\n- Preview data without loading millions of rows\n- Pagination (show 10 results per page)\n- Top-N queries (top 5 customers)\n\n## Basic Syntax\n\n```sql\nSELECT * FROM products LIMIT 10;\n```\n\nReturns only the first 10 rows.\n\n## With ORDER BY\n\nLIMIT is most useful with ORDER BY:\n\n```sql\n-- Top 5 highest paid employees\nSELECT name, salary \nFROM employees \nORDER BY salary DESC \nLIMIT 5;\n```\n\n## OFFSET for Pagination\n\nSkip rows before limiting:\n\n```sql\n-- Page 1: rows 1-10\nSELECT * FROM products LIMIT 10 OFFSET 0;\n\n-- Page 2: rows 11-20\nSELECT * FROM products LIMIT 10 OFFSET 10;\n\n-- Page 3: rows 21-30\nSELECT * FROM products LIMIT 10 OFFSET 20;\n```\n\n## Database Variations\n\n| Database | Syntax |\n|----------|--------|\n| PostgreSQL, MySQL | LIMIT n |\n| SQL Server | TOP n |\n| Oracle | FETCH FIRST n ROWS |\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nGet the 10 most expensive products using LIMIT and ORDER BY.\n\n## TOP vs LIMIT (dialect differences)\nDifferent databases use different syntax for the same idea:\n\n```sql\n-- SQL Server\nSELECT TOP 5 name, salary\nFROM employees\nORDER BY salary DESC;\n```\n\n```sql\n-- PostgreSQL / MySQL / SQLite\nSELECT name, salary\nFROM employees\nORDER BY salary DESC\nLIMIT 5;\n```\n\n```sql\n-- Standard SQL (Postgres also supports)\nSELECT name, salary\nFROM employees\nORDER BY salary DESC\nFETCH FIRST 5 ROWS ONLY;\n```\n\nAlways pair TOP/LIMIT with ORDER BY, or the \"top\" rows are arbitrary.\n\n",
     "starter_code": "-- Get first 3 orders\n\n",
     "solution_code": "SELECT * FROM orders LIMIT 3;",
     "chapter_id": 201,
@@ -7583,7 +7587,7 @@
   "1039": {
     "id": 1039,
     "title": "GROUP BY Basics",
-    "content": "# \ud83d\udcca GROUP BY: Aggregate by Category\n\n## Thinking in Buckets\n\nAggregating a whole table is great, but often you want to see summaries **by category**. `GROUP BY` takes your rows and puts them into \"buckets\" based on a column's value.\n\n![Group By Buckets](/Python-Game-2/assets/sql-diagrams/group_by_buckets.png)\n\n## How it Works\n\n1.  **Split**: Rows are split into groups (e.g., one group for each Department).\n2.  **Apply**: The aggregate function (COUNT, SUM, AVG) is applied to each group separately.\n3.  **Combine**: The results are combined into a final summary table.\n\n## The Rule\n\nEvery non-aggregate column in SELECT must be in GROUP BY:\n\n```sql\n-- WRONG\nSELECT category, name, SUM(price)\nFROM products\nGROUP BY category;  -- 'name' missing!\n\n-- RIGHT\nSELECT category, SUM(price)\nFROM products\nGROUP BY category;\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nGroup orders by status and calculate the count of orders for each status.",
+    "content": "# \ud83d\udcca GROUP BY: Aggregate by Category\n\n## Thinking in Buckets\n\nAggregating a whole table is great, but often you want to see summaries **by category**. `GROUP BY` takes your rows and puts them into \"buckets\" based on a column's value.\n\n![Group By Buckets](/Python-Game-2/assets/sql-diagrams/group_by_buckets.png)\n\n## How it Works\n\n1.  **Split**: Rows are split into groups (e.g., one group for each Department).\n2.  **Apply**: The aggregate function (COUNT, SUM, AVG) is applied to each group separately.\n3.  **Combine**: The results are combined into a final summary table.\n\n## The Rule\n\nEvery non-aggregate column in SELECT must be in GROUP BY:\n\n```sql\n-- WRONG\nSELECT category, name, SUM(price)\nFROM products\nGROUP BY category;  -- 'name' missing!\n\n-- RIGHT\nSELECT category, SUM(price)\nFROM products\nGROUP BY category;\n```\n\n## Aggregate behavior: COUNT vs COUNT(col)\n\n`COUNT(*)` counts rows. `COUNT(column)` skips NULLs.\n\n**Example table: orders**\n| order_id | promo_code |\n|----------|------------|\n| 1 | SAVE10 |\n| 2 | NULL |\n| 3 | SAVE10 |\n\n```sql\nSELECT\n  COUNT(*) AS rows,\n  COUNT(promo_code) AS codes\nFROM orders;\n```\n\nResult: `rows = 3`, `codes = 2` because NULLs are ignored. `SUM` and `AVG` also skip NULLs.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nGroup orders by status and calculate the count of orders for each status.",
     "starter_code": "-- Group orders by status\n\n",
     "solution_code": "SELECT status, COUNT(*) FROM orders GROUP BY status;",
     "chapter_id": 203,
@@ -7595,7 +7599,10 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": false,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "gap_ids": [
+      "SQL-015"
+    ]
   },
   "1040": {
     "id": 1040,
@@ -7773,7 +7780,7 @@
   "1049": {
     "id": 1049,
     "title": "FULL OUTER JOIN",
-    "content": "# \u2194\ufe0f FULL OUTER JOIN: Everything from Everywhere\n\n## The \"Everything\" Join\n\nFULL JOIN returns ALL rows from BOTH tables.\n- Matches are linked.\n- Non-matches from Left are preserved (Right is NULL).\n- Non-matches from Right are preserved (Left is NULL).\n\n## Syntax\n\n```sql\nSELECT columns\nFROM TableA\nFULL OUTER JOIN TableB\nON TableA.key = TableB.key;\n```\n\n## Use Cases\n\n1. **Comparing Lists**: Compare Month 1 customers vs Month 2 customers.\n2. **Data Reconciliation**: Find records present in System A but not B, and vice versa.\n\n## Example\n\n**A:** {1, 2}\n**B:** {2, 3}\n\n**A FULL JOIN B:**\n1 - NULL (Only in A)\n2 - 2    (In Both)\nNULL - 3 (Only in B)\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nUse FULL OUTER JOIN to find discrepancies between two inventory lists.\n\n## Full join intuition\nFULL OUTER JOIN keeps **all** rows from both sides, matching where it can.\n",
+    "content": "# \u2194\ufe0f FULL OUTER JOIN: Everything from Everywhere\n\n## The \"Everything\" Join\n\nFULL JOIN returns ALL rows from BOTH tables.\n- Matches are linked.\n- Non-matches from Left are preserved (Right is NULL).\n- Non-matches from Right are preserved (Left is NULL).\n\n## Syntax\n\n```sql\nSELECT columns\nFROM TableA\nFULL OUTER JOIN TableB\nON TableA.key = TableB.key;\n```\n\n## Use Cases\n\n1. **Comparing Lists**: Compare Month 1 customers vs Month 2 customers.\n2. **Data Reconciliation**: Find records present in System A but not B, and vice versa.\n\n## Example\n\n**A:** {1, 2}\n**B:** {2, 3}\n\n**A FULL JOIN B:**\n1 - NULL (Only in A)\n2 - 2    (In Both)\nNULL - 3 (Only in B)\n\n## Missing matches pitfall\n\nBe careful with filters after a FULL JOIN. This will drop NULL-side rows:\n\n```sql\nSELECT *\nFROM a FULL OUTER JOIN b ON a.id = b.id\nWHERE b.id = 2;  -- turns into an inner join effect\n```\n\nIf you need the unmatched rows, filter with `IS NULL` checks or move conditions into the `ON` clause.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nUse FULL OUTER JOIN to find discrepancies between two inventory lists.\n\n## Full join intuition\nFULL OUTER JOIN keeps **all** rows from both sides, matching where it can.\n",
     "starter_code": "-- Full outer join\n\n",
     "solution_code": "SELECT c.name, o.order_id FROM customers c FULL OUTER JOIN orders o ON c.id = o.customer_id;",
     "chapter_id": 204,
@@ -8123,7 +8130,7 @@
   "1066": {
     "id": 1066,
     "title": "Basic CTE Syntax",
-    "content": "# \ud83d\udcdd Basic CTE Syntax\n\n## The WITH Clause\n\nDefine CTEs at the top, THEN write your main SELECT.\n\n```sql\nWITH HighValueOrders AS (\n    SELECT *\n    FROM Orders\n    WHERE Total > 500\n)\nSELECT CustomerID, COUNT(*)\nFROM HighValueOrders\nGROUP BY CustomerID;\n```\n\n## Naming\n\n- Give meaningful names like `MonthlySales`, `ActiveUsers`, `FlaggedTransactions`.\n- The name is valid only for the query immediately following.\n\n## Scope\n\nA CTE dies immediately after the main query runs. You can't reference it in a later query.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nDefine a CTE named `RecentLogins` and select from it.",
+    "content": "# \ud83d\udcdd Basic CTE Syntax\n\n## The WITH Clause\n\nDefine CTEs at the top, THEN write your main SELECT.\n\n```sql\nWITH HighValueOrders AS (\n    SELECT *\n    FROM Orders\n    WHERE Total > 500\n)\nSELECT CustomerID, COUNT(*)\nFROM HighValueOrders\nGROUP BY CustomerID;\n```\n\n## Multiple CTEs (readable steps)\n\nCTEs can be chained to break a query into clear steps:\n\n```sql\nWITH base_orders AS (\n    SELECT customer_id, amount\n    FROM orders\n    WHERE amount > 100\n),\ncustomer_totals AS (\n    SELECT customer_id, SUM(amount) AS total_spend\n    FROM base_orders\n    GROUP BY customer_id\n)\nSELECT *\nFROM customer_totals\nORDER BY total_spend DESC;\n```\n\nThink of each CTE as a named subquery you can reuse once in the main statement.\n\n## Naming\n\n- Give meaningful names like `MonthlySales`, `ActiveUsers`, `FlaggedTransactions`.\n- The name is valid only for the query immediately following.\n\n## Scope\n\nA CTE dies immediately after the main query runs. You can't reference it in a later query.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nDefine a CTE named `RecentLogins` and select from it.",
     "starter_code": "-- CTE for active users\n\n",
     "solution_code": "WITH active_users AS (\n  SELECT * FROM users WHERE is_active = true\n)\nSELECT name, email FROM active_users;",
     "chapter_id": 206,
@@ -8138,7 +8145,10 @@
     ],
     "interaction_confidence": 0.92,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "gap_ids": [
+      "SQL-002"
+    ]
   },
   "1067": {
     "id": 1067,
@@ -9110,7 +9120,7 @@
   "1120": {
     "id": 1120,
     "title": "Unique Constraints",
-    "content": "# \ud83e\udd84 Unique Constraints: One of a Kind\n\n## Beyond Primary Keys\n\nYou can enforce uniqueness on columns that aren't the ID.\n\n- **Emails**: ID is PK, but Email must also be unique.\n- **Usernames**.\n- **SKU Codes**.\n\n## Composite Unique\n\n\"A user can only like a post once.\"\n`UNIQUE (UserID, PostID)`\n\n## Syntax\n\n```sql\nCREATE TABLE Users (\n    ID SERIAL PRIMARY KEY,\n    Email TEXT UNIQUE,\n    Username TEXT,\n    CONSTRAINT unique_user_name UNIQUE (Username)\n);\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nAdd a constraint to ensure no two products have the same barcode.",
+    "content": "# \ud83e\udd84 Unique Constraints: One of a Kind\n\n## Beyond Primary Keys\n\nYou can enforce uniqueness on columns that aren't the ID.\n\n- **Emails**: ID is PK, but Email must also be unique.\n- **Usernames**.\n- **SKU Codes**.\n\n## Composite Unique\n\n\"A user can only like a post once.\"\n`UNIQUE (UserID, PostID)`\n\n## Syntax\n\n```sql\nCREATE TABLE Users (\n    ID SERIAL PRIMARY KEY,\n    Email TEXT UNIQUE,\n    Username TEXT,\n    CONSTRAINT unique_user_name UNIQUE (Username)\n);\n```\n\n## UNIQUE constraint vs UNIQUE index\n\nA UNIQUE constraint enforces data rules. A UNIQUE index enforces uniqueness and can also speed lookups.\n\n```sql\nALTER TABLE users\nADD CONSTRAINT users_email_unique UNIQUE (email);\n```\n\n```sql\nCREATE UNIQUE INDEX idx_users_email ON users (email);\n```\n\nUse a constraint for integrity; use a unique index when you also need performance or a named index.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nAdd a constraint to ensure no two products have the same barcode.",
     "starter_code": "-- Find duplicate emails\n\n",
     "solution_code": "SELECT email, COUNT(*)\nFROM users\nGROUP BY email\nHAVING COUNT(*) > 1;",
     "chapter_id": 210,
@@ -9120,7 +9130,10 @@
     ],
     "interaction_confidence": 0.92,
     "manual_review": false,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "gap_ids": [
+      "SQL-079"
+    ]
   },
   "1121": {
     "id": 1121,
@@ -9179,7 +9192,7 @@
   "1124": {
     "id": 1124,
     "title": "Introduction to Indexes",
-    "content": "# \ud83d\udd16 Intro to Indexes: The Book Index\n\n## An Analogy\n\nImagine finding \"Harry Potter\" in a library.\n- **No Index**: Walk every shelf, scan every spine. (Full Table Scan)\n- **Index**: Go to computer, type \"Harry Potter\", get Shelf #4. (Index Scan)\n\n## Syntax\n\n```sql\nCREATE INDEX idx_lastname ON Users (LastName);\n```\n\n## What it does\n\nIt creates a separate data structure (B-Tree) that keeps `LastName` sorted and points to the actual row.\n\n## When to Index?\n\n- Columns in **WHERE** clauses.\n- Columns in **JOIN** conditions.\n- Columns in **ORDER BY**.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nCreate an index on the 'Email' column of the Users table.",
+    "content": "# \ud83d\udd16 Intro to Indexes: The Book Index\n\n## An Analogy\n\nImagine finding \"Harry Potter\" in a library.\n- **No Index**: Walk every shelf, scan every spine. (Full Table Scan)\n- **Index**: Go to computer, type \"Harry Potter\", get Shelf #4. (Index Scan)\n\n## Syntax\n\n```sql\nCREATE INDEX idx_lastname ON Users (LastName);\n```\n\n## What it does\n\nIt creates a separate data structure (B-Tree) that keeps `LastName` sorted and points to the actual row.\n\n## When to Index?\n\n- Columns in **WHERE** clauses.\n- Columns in **JOIN** conditions.\n- Columns in **ORDER BY**.\n\n## Example: index for a common filter\n\nIf this query is frequent:\n\n```sql\nSELECT * FROM users WHERE email = 'ava@site.com';\n```\n\nAdd a targeted index:\n\n```sql\nCREATE INDEX idx_users_email ON users (email);\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nCreate an index on the 'Email' column of the Users table.",
     "starter_code": "-- Find user by email\n\n",
     "solution_code": "SELECT * FROM users WHERE email = 'alice@mail.com';",
     "chapter_id": 211,
@@ -9193,7 +9206,10 @@
     ],
     "interaction_confidence": 0.84,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "gap_ids": [
+      "SQL-076"
+    ]
   },
   "1125": {
     "id": 1125,
@@ -9215,7 +9231,7 @@
   "1126": {
     "id": 1126,
     "title": "Index Trade-offs",
-    "content": "# \u2696\ufe0f Index Trade-offs: Not Free Lunch\n\n## The Costs\n\n1. **Storage**: Indexes take up disk space. Sometimes more than the table itself!\n2. **Write Penalty**: Updating the index on every change.\n3. **Maintenance**: Indexes can get fragmented.\n\n## Over-Indexing\n\nDon't index everything.\n- Low Cardinality (Gender: M/F) -> Index useless (use Bitmap if available).\n- High Cardinality (Email, UUID) -> Index great.\n\n## Rule of Thumb\n\nIndex columns used frequently for filtering/joining. Monitor usage and drop unused indexes.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nDecide whether to index the 'Status' column (3 values) or 'TransactionID' column (unique).",
+    "content": "# \u2696\ufe0f Index Trade-offs: Not Free Lunch\n\n## The Costs\n\n1. **Storage**: Indexes take up disk space. Sometimes more than the table itself!\n2. **Write Penalty**: Updating the index on every change.\n3. **Maintenance**: Indexes can get fragmented.\n\n## Over-Indexing\n\nDon't index everything.\n- Low Cardinality (Gender: M/F) -> Index useless (use Bitmap if available).\n- High Cardinality (Email, UUID) -> Index great.\n\n## Rule of Thumb\n\nIndex columns used frequently for filtering/joining. Monitor usage and drop unused indexes.\n\n## Dropping an index\n\nIf an index is unused or too costly to maintain:\n\n```sql\nDROP INDEX idx_users_email;\n```\n\nDrop only after confirming the index is not helping critical queries.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nDecide whether to index the 'Status' column (3 values) or 'TransactionID' column (unique).",
     "starter_code": "-- Find orders for customer 5\n\n",
     "solution_code": "SELECT * FROM orders WHERE customer_id = 5;",
     "chapter_id": 211,
@@ -9228,7 +9244,10 @@
     ],
     "interaction_confidence": 0.76,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "gap_ids": [
+      "SQL-089"
+    ]
   },
   "1127": {
     "id": 1127,
@@ -9585,7 +9604,7 @@
   "1144": {
     "id": 1144,
     "title": "View Basics",
-    "content": "# \ud83d\uddbc\ufe0f Views: The Virtual Table\n\n## What is a View?\n\nA saved query that looks like a table.\nIt doesn't store data (usually), it stores the **definition**.\n\n## Creating a View\n\n```sql\nCREATE VIEW ActiveUsers AS\nSELECT * FROM Users WHERE Status = 'Active';\n```\n\n## Using a View\n\n```sql\nSELECT * FROM ActiveUsers;\n```\n\n## Why use them?\n\n1. **Simplicity**: Hide complex Joins from users.\n2. **Security**: Give users access to the View, but not the underlying Table (e.g., hide Salary column).\n3. **Consistency**: Ensure everyone defines \"Active User\" the same way.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nCreate a view that simplifies a complex 3-table join.\n\n## Replace a view safely\nCREATE OR REPLACE VIEW updates a view definition without dropping it first.\n",
+    "content": "# \ud83d\uddbc\ufe0f Views: The Virtual Table\n\n## What is a View?\n\nA saved query that looks like a table.\nIt doesn't store data (usually), it stores the **definition**.\n\n## Creating a View\n\n```sql\nCREATE VIEW ActiveUsers AS\nSELECT * FROM Users WHERE Status = 'Active';\n```\n\n## Using a View\n\n```sql\nSELECT * FROM ActiveUsers;\n```\n\n## Why use them?\n\n1. **Simplicity**: Hide complex Joins from users.\n2. **Security**: Give users access to the View, but not the underlying Table (e.g., hide Salary column).\n3. **Consistency**: Ensure everyone defines \"Active User\" the same way.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nCreate a view that simplifies a complex 3-table join.\n\n## Replace a view safely\n\n```sql\nCREATE OR REPLACE VIEW ActiveUsers AS\nSELECT id, email\nFROM users\nWHERE status = 'Active';\n```\n\nNot all databases support `CREATE OR REPLACE`. If unsupported, use `DROP VIEW` then `CREATE VIEW`.\n\n",
     "starter_code": "-- Query active orders\n\n",
     "solution_code": "SELECT * FROM orders WHERE status = 'active';",
     "chapter_id": 213,
@@ -10839,7 +10858,7 @@
   "1210": {
     "title": "Window vs GROUP BY",
     "chapter_title": "Window Functions",
-    "content": "# \ud83e\ude9f Window Functions vs GROUP BY\n\n## The Conceptual Leap\n\n*   **GROUP BY**: Collapses rows. Input 100 rows -> Output 5 rows. You lose individual row detail.\n*   **Window Functions**: Retains rows. Input 100 rows -> Output 100 rows, but with extra info attached.\n\n## When to Use Which?\n\n| Goal | Use... |\n| :--- | :--- |\n| \"Total sales per region\" | `GROUP BY region` |\n| \"This order's sales vs region average\" | `AVG(sales) OVER (PARTITION BY region)` |\n\n## Syntax\n\n```sql\nFUNCTION_NAME(col) OVER (\n    PARTITION BY group_col\n    ORDER BY sort_col\n)\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"sql\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nCalculate the average salary for each department, but attach it to **every employee row** so we can verify if they are above/below average.",
+    "content": "# \ud83e\ude9f Window Functions vs GROUP BY\n\n## The Conceptual Leap\n\n*   **GROUP BY**: Collapses rows. Input 100 rows -> Output 5 rows. You lose individual row detail.\n*   **Window Functions**: Retains rows. Input 100 rows -> Output 100 rows, but with extra info attached.\n\n## When to Use Which?\n\n| Goal | Use... |\n| :--- | :--- |\n| \"Total sales per region\" | `GROUP BY region` |\n| \"This order's sales vs region average\" | `AVG(sales) OVER (PARTITION BY region)` |\n\n## Syntax\n\n```sql\nFUNCTION_NAME(col) OVER (\n    PARTITION BY group_col\n    ORDER BY sort_col\n)\n```\n\n## Example: keep rows vs collapse\n\n**orders**\n| order_id | region | amount |\n|----------|--------|--------|\n| 1 | East | 50 |\n| 2 | East | 70 |\n| 3 | West | 40 |\n\n**GROUP BY (collapses rows)**\n```sql\nSELECT region, SUM(amount) AS region_total\nFROM orders\nGROUP BY region;\n```\n\n**Window (keeps rows)**\n```sql\nSELECT order_id, region, amount,\n       SUM(amount) OVER (PARTITION BY region) AS region_total\nFROM orders;\n```\n\nUse GROUP BY for summaries. Use windows when you need row-level detail plus the group metric.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"sql\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nCalculate the average salary for each department, but attach it to **every employee row** so we can verify if they are above/below average.",
     "starter_code": "SELECT \n    name, \n    department, \n    salary,\n    -- Calculate dept average without collapsing rows\n    AVG(salary) OVER (PARTITION BY department) as dept_avg,\n    salary - AVG(salary) OVER (PARTITION BY department) as diff\nFROM employees\nORDER BY department, salary DESC;",
     "solution_code": "SELECT AVG(x) OVER() FROM t;",
     "concept_tags": [
@@ -10853,12 +10872,15 @@
     "interaction_confidence": 0.95,
     "manual_review": true,
     "prediction_justification": null,
-    "id": 1210
+    "id": 1210,
+    "gap_ids": [
+      "SQL-033"
+    ]
   },
   "1211": {
     "title": "Top N per Group",
     "chapter_title": "Window Functions",
-    "content": "# \ud83c\udfc6 Top N Per Group: The Classic Interview Question\n\n## The Problem\n\n\"Find the top 3 highest-paid employees in **each** department.\"\n\nUsing `GROUP BY`, this is incredibly hard. You can find the Max, but not the \"Top 3 rows\".\n\n## The Solution: ROW_NUMBER()\n\n1.  Rank employees *within* their department.\n2.  Filter for rank <= 3.\n\n```sql\nWITH ranked AS (\n    SELECT \n        *, \n        ROW_NUMBER() OVER (PARTITION BY dept_id ORDER BY salary DESC) as rn\n    FROM employees\n)\nSELECT * FROM ranked WHERE rn <= 3;\n```\n\n## Understanding the Parts\n\n*   `PARTITION BY dept_id`: Restart numbering for each department.\n*   `ORDER BY salary DESC`: Highest salary gets number 1.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"sql\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nFind the top 2 recent orders for every customer.",
+    "content": "# \ud83c\udfc6 Top N Per Group: The Classic Interview Question\n\n## The Problem\n\n\"Find the top 3 highest-paid employees in **each** department.\"\n\nUsing `GROUP BY`, this is incredibly hard. You can find the Max, but not the \"Top 3 rows\".\n\n## The Solution: ROW_NUMBER()\n\n1.  Rank employees *within* their department.\n2.  Filter for rank <= 3.\n\n```sql\nWITH ranked AS (\n    SELECT \n        *, \n        ROW_NUMBER() OVER (PARTITION BY dept_id ORDER BY salary DESC) as rn\n    FROM employees\n)\nSELECT * FROM ranked WHERE rn <= 3;\n```\n\n## Understanding the Parts\n\n*   `PARTITION BY dept_id`: Restart numbering for each department.\n*   `ORDER BY salary DESC`: Highest salary gets number 1.\n\n## Stable Top N using ROW_NUMBER\n\nFor per-group \"Top N\", `ROW_NUMBER()` gives a clear, stable ranking:\n\n```sql\nWITH ranked AS (\n    SELECT employee_id, dept_id, salary,\n           ROW_NUMBER() OVER (PARTITION BY dept_id ORDER BY salary DESC, employee_id) AS rn\n    FROM employees\n)\nSELECT * FROM ranked WHERE rn <= 3;\n```\n\nNote the tie-breaker (`employee_id`) to keep results stable when salaries tie.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"sql\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nFind the top 2 recent orders for every customer.",
     "starter_code": "WITH ranked_orders AS (\n    SELECT \n        customer_id,\n        order_id,\n        amount,\n        order_date,\n        ROW_NUMBER() OVER (\n            PARTITION BY customer_id \n            ORDER BY order_date DESC\n        ) as rank_num\n    FROM orders\n)\nSELECT * \nFROM ranked_orders \nWHERE rank_num <= 2\nORDER BY customer_id, rank_num;",
     "solution_code": "SELECT * FROM (SELECT ROW_NUMBER() OVER() as rn FROM t) WHERE rn <= 2;",
     "concept_tags": [
@@ -10874,7 +10896,10 @@
     "interaction_confidence": 0.84,
     "manual_review": true,
     "prediction_justification": null,
-    "id": 1211
+    "id": 1211,
+    "gap_ids": [
+      "SQL-103"
+    ]
   },
   "1212": {
     "title": "Percentile Rank",
@@ -11341,7 +11366,7 @@
   "1237": {
     "title": "Constraint Testing",
     "chapter_title": "Database Design",
-    "content": "# \ud83d\udd12 Testing Constraints: Verify Data Integrity\n\n## Why Test Constraints?\n\nConstraints prevent bad data... but are they working? Test them!\n\n## Types of Constraints\n\n| Constraint | Purpose |\n|------------|---------|\n| PRIMARY KEY | Unique identifier |\n| UNIQUE | No duplicates |\n| NOT NULL | Required values |\n| FOREIGN KEY | Valid references |\n| CHECK | Custom validation |\n\n## Testing Primary Key\n\n```sql\n-- Should return 0 rows if PK works\nSELECT id, COUNT(*) \nFROM table \nGROUP BY id \nHAVING COUNT(*) > 1;\n```\n\n## Testing Foreign Key\n\n```sql\n-- Find orphan records (should be 0 if FK enforced)\nSELECT child.id\nFROM child_table child\nLEFT JOIN parent_table parent ON child.parent_id = parent.id\nWHERE parent.id IS NULL;\n```\n\n## Testing NOT NULL\n\n```sql\n-- Check for nulls in required columns\nSELECT COUNT(*) as null_count\nFROM customers\nWHERE email IS NULL;\n```\n\n## Testing CHECK Constraints\n\n```sql\n-- Verify CHECK (age >= 0)\nSELECT * FROM users WHERE age < 0;  -- Should be empty\n```\n\n## Constraint Validation Report\n\n```sql\nSELECT 'Duplicate PKs' as check, COUNT(*) FROM (\n    SELECT id FROM orders GROUP BY id HAVING COUNT(*) > 1\n) dupes\nUNION ALL\nSELECT 'Orphan FKs', COUNT(*) FROM orders o \nLEFT JOIN customers c ON o.customer_id = c.id WHERE c.id IS NULL\nUNION ALL\nSELECT 'Null Required', COUNT(*) FROM orders WHERE amount IS NULL;\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"sql\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nCreate tests to verify database constraints are enforced.\n\n## Add a constraint\nConstraints reject rows that violate rules (like missing required values).\n\n## Drop a constraint\nDropping a constraint removes the rule, which can allow previously invalid rows.\n",
+    "content": "# \ud83d\udd12 Testing Constraints: Verify Data Integrity\n\n## Why Test Constraints?\n\nConstraints prevent bad data... but are they working? Test them!\n\n## Types of Constraints\n\n| Constraint | Purpose |\n|------------|---------|\n| PRIMARY KEY | Unique identifier |\n| UNIQUE | No duplicates |\n| NOT NULL | Required values |\n| FOREIGN KEY | Valid references |\n| CHECK | Custom validation |\n\n## Testing Primary Key\n\n```sql\n-- Should return 0 rows if PK works\nSELECT id, COUNT(*) \nFROM table \nGROUP BY id \nHAVING COUNT(*) > 1;\n```\n\n## Testing Foreign Key\n\n```sql\n-- Find orphan records (should be 0 if FK enforced)\nSELECT child.id\nFROM child_table child\nLEFT JOIN parent_table parent ON child.parent_id = parent.id\nWHERE parent.id IS NULL;\n```\n\n## Testing NOT NULL\n\n```sql\n-- Check for nulls in required columns\nSELECT COUNT(*) as null_count\nFROM customers\nWHERE email IS NULL;\n```\n\n## Testing CHECK Constraints\n\n```sql\n-- Verify CHECK (age >= 0)\nSELECT * FROM users WHERE age < 0;  -- Should be empty\n```\n\n## Constraint Validation Report\n\n```sql\nSELECT 'Duplicate PKs' as check, COUNT(*) FROM (\n    SELECT id FROM orders GROUP BY id HAVING COUNT(*) > 1\n) dupes\nUNION ALL\nSELECT 'Orphan FKs', COUNT(*) FROM orders o \nLEFT JOIN customers c ON o.customer_id = c.id WHERE c.id IS NULL\nUNION ALL\nSELECT 'Null Required', COUNT(*) FROM orders WHERE amount IS NULL;\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"sql\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nCreate tests to verify database constraints are enforced.\n\n## Add a constraint\nConstraints reject rows that violate rules (like missing required values).\n\n```sql\nALTER TABLE orders\nADD CONSTRAINT orders_customer_fk\nFOREIGN KEY (customer_id) REFERENCES customers(id);\n```\n\n```sql\nALTER TABLE products\nADD CONSTRAINT price_positive\nCHECK (price >= 0);\n```\n\n## Drop a constraint\nDropping a constraint removes the rule, which can allow previously invalid rows.\n\n```sql\nALTER TABLE orders\nDROP CONSTRAINT orders_customer_fk;\n```\n\nOnly drop constraints when you understand the downstream impact.\n",
     "starter_code": "-- Constraint validation tests\nSELECT \n    'Duplicate Order IDs' as constraint_test,\n    CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END as result,\n    COUNT(*) as violations\nFROM (\n    SELECT order_id FROM orders GROUP BY order_id HAVING COUNT(*) > 1\n) dupes\nUNION ALL\nSELECT \n    'Orphan Customer References',\n    CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END,\n    COUNT(*)\nFROM orders o\nLEFT JOIN customers c ON o.customer_id = c.customer_id\nWHERE c.customer_id IS NULL\nUNION ALL\nSELECT \n    'Null Order Amounts',\n    CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END,\n    COUNT(*)\nFROM orders WHERE amount IS NULL;",
     "solution_code": "SELECT 'Orphan FKs' as test, COUNT(*) FROM orders o LEFT JOIN customers c ON o.customer_id = c.id WHERE c.id IS NULL;",
     "concept_tags": [
@@ -15707,5 +15732,26 @@
     "interaction_confidence": 0.76,
     "manual_review": true,
     "prediction_justification": null
+  },
+  "1268": {
+    "id": 1268,
+    "title": "SELECT INTO / CTAS",
+    "chapter_id": 212,
+    "chapter_title": "Mutations & Transactions",
+    "content": "# \ud83e\uddf1 SELECT INTO / CTAS: Create Tables from Queries\n\n## Two ways to materialize results\n\nYou can create a brand new table directly from a query:\n- **CTAS**: `CREATE TABLE ... AS SELECT ...`\n- **SELECT INTO** (SQL Server): `SELECT ... INTO new_table ...`\n\n## CTAS (common in Postgres, SQLite, Snowflake)\n\n```sql\nCREATE TABLE top_customers AS\nSELECT customer_id, SUM(amount) AS total_spend\nFROM orders\nGROUP BY customer_id;\n```\n\n## SELECT INTO (SQL Server)\n\n```sql\nSELECT customer_id, SUM(amount) AS total_spend\nINTO top_customers\nFROM orders\nGROUP BY customer_id;\n```\n\n## INSERT INTO ... SELECT (existing table)\n\n```sql\nINSERT INTO top_customers (customer_id, total_spend)\nSELECT customer_id, SUM(amount)\nFROM orders\nGROUP BY customer_id;\n```\n\n## Schema side effects (important)\n\nCTAS / SELECT INTO usually copy **column names and types** but not:\n- constraints (PK/FK/UNIQUE/CHECK)\n- indexes\n- triggers or defaults\n\nAdd those after creation if you need them.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"sql\"></livecodeblock>\n\n## \ud83c\udfaf Your Task\n\nCreate a table `orders_2024` from `orders` using CTAS or SELECT INTO, then note the missing constraints you would add.\n",
+    "starter_code": "-- Create a new table with just 2024 orders\nCREATE TABLE orders_2024 AS\nSELECT order_id, customer_id, order_date, amount\nFROM orders\nWHERE order_date >= '2024-01-01'\n  AND order_date < '2025-01-01';\n",
+    "solution_code": "-- CTAS (most databases)\nCREATE TABLE orders_2024 AS\nSELECT order_id, customer_id, order_date, amount\nFROM orders\nWHERE order_date >= '2024-01-01'\n  AND order_date < '2025-01-01';\n\n-- SQL Server version\nSELECT order_id, customer_id, order_date, amount\nINTO orders_2024\nFROM orders\nWHERE order_date >= '2024-01-01'\n  AND order_date < '2025-01-01';\n\n-- Follow-up: add constraints/indexes as needed\n",
+    "concept_tags": [
+      "select",
+      "mutations",
+      "schema",
+      "ctas"
+    ],
+    "interaction_confidence": 0.75,
+    "manual_review": true,
+    "prediction_justification": null,
+    "gap_ids": [
+      "SQL-037"
+    ]
   }
 }

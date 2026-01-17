@@ -5,12 +5,12 @@
     {
       "id": 200,
       "title": "Setup & Mental Model",
-      "icon": "🧠",
+      "icon": "\ud83e\udde0",
       "is_boss": false,
       "concepts": [
         {
           "name": "Database Basics",
-          "icon": "🗄️",
+          "icon": "\ud83d\uddc4\ufe0f",
           "lessons": [
             {
               "id": 1001,
@@ -41,7 +41,7 @@
         },
         {
           "name": "Relationships",
-          "icon": "🔗",
+          "icon": "\ud83d\udd17",
           "lessons": [
             {
               "id": 1004,
@@ -72,7 +72,7 @@
         },
         {
           "name": "Advanced Concepts",
-          "icon": "🧠",
+          "icon": "\ud83e\udde0",
           "lessons": [
             {
               "id": 1007,
@@ -106,12 +106,12 @@
     {
       "id": 201,
       "title": "SELECT Basics",
-      "icon": "📋",
+      "icon": "\ud83d\udccb",
       "is_boss": false,
       "concepts": [
         {
           "name": "SELECT Fundamentals",
-          "icon": "📋",
+          "icon": "\ud83d\udccb",
           "lessons": [
             {
               "id": 1010,
@@ -142,7 +142,7 @@
         },
         {
           "name": "Aliases & Limiting",
-          "icon": "🏷️",
+          "icon": "\ud83c\udff7\ufe0f",
           "lessons": [
             {
               "id": 1013,
@@ -173,7 +173,7 @@
         },
         {
           "name": "WHERE Clause",
-          "icon": "🔍",
+          "icon": "\ud83d\udd0d",
           "lessons": [
             {
               "id": 1016,
@@ -204,7 +204,7 @@
         },
         {
           "name": "Pattern & Range",
-          "icon": "📏",
+          "icon": "\ud83d\udccf",
           "lessons": [
             {
               "id": 1019,
@@ -238,12 +238,12 @@
     {
       "id": 202,
       "title": "Data Types, NULLs & Calculations",
-      "icon": "🔢",
+      "icon": "\ud83d\udd22",
       "is_boss": false,
       "concepts": [
         {
           "name": "Numeric Types",
-          "icon": "��",
+          "icon": "\ufffd\ufffd",
           "lessons": [
             {
               "id": 1022,
@@ -274,7 +274,7 @@
         },
         {
           "name": "Text & Date Types",
-          "icon": "📝",
+          "icon": "\ud83d\udcdd",
           "lessons": [
             {
               "id": 1024,
@@ -305,7 +305,7 @@
         },
         {
           "name": "NULL Handling",
-          "icon": "❓",
+          "icon": "\u2753",
           "lessons": [
             {
               "id": 1027,
@@ -336,7 +336,7 @@
         },
         {
           "name": "Type Conversion",
-          "icon": "🔄",
+          "icon": "\ud83d\udd04",
           "lessons": [
             {
               "id": 1031,
@@ -370,12 +370,12 @@
     {
       "id": 203,
       "title": "Aggregations & Grouping",
-      "icon": "📊",
+      "icon": "\ud83d\udcca",
       "is_boss": false,
       "concepts": [
         {
           "name": "Basic Aggregates",
-          "icon": "📊",
+          "icon": "\ud83d\udcca",
           "lessons": [
             {
               "id": 1034,
@@ -406,7 +406,7 @@
         },
         {
           "name": "Statistical Functions",
-          "icon": "📈",
+          "icon": "\ud83d\udcc8",
           "lessons": [
             {
               "id": 1037,
@@ -437,7 +437,7 @@
         },
         {
           "name": "GROUP BY",
-          "icon": "📋",
+          "icon": "\ud83d\udccb",
           "lessons": [
             {
               "id": 1039,
@@ -471,12 +471,12 @@
     {
       "id": 204,
       "title": "Joins Like a Pro",
-      "icon": "🔗",
+      "icon": "\ud83d\udd17",
       "is_boss": false,
       "concepts": [
         {
           "name": "Inner Joins",
-          "icon": "🔗",
+          "icon": "\ud83d\udd17",
           "lessons": [
             {
               "id": 1043,
@@ -507,7 +507,7 @@
         },
         {
           "name": "Outer Joins",
-          "icon": "↔️",
+          "icon": "\u2194\ufe0f",
           "lessons": [
             {
               "id": 1046,
@@ -538,7 +538,7 @@
         },
         {
           "name": "Special Joins",
-          "icon": "⭐",
+          "icon": "\u2b50",
           "lessons": [
             {
               "id": 1050,
@@ -572,12 +572,12 @@
     {
       "id": 250,
       "title": "Query Architect Boss",
-      "icon": "🏛️",
+      "icon": "\ud83c\udfdb\ufe0f",
       "is_boss": true,
       "lessons": [
         {
           "id": 1055,
-          "title": "🏛️ Query Architect Challenge",
+          "title": "\ud83c\udfdb\ufe0f Query Architect Challenge",
           "order": 1
         }
       ]
@@ -585,12 +585,12 @@
     {
       "id": 205,
       "title": "Subqueries & Set Operations",
-      "icon": "🎯",
+      "icon": "\ud83c\udfaf",
       "is_boss": false,
       "concepts": [
         {
           "name": "WHERE Subqueries",
-          "icon": "🎯",
+          "icon": "\ud83c\udfaf",
           "lessons": [
             {
               "id": 1056,
@@ -621,7 +621,7 @@
         },
         {
           "name": "EXISTS Operator",
-          "icon": "✓",
+          "icon": "\u2713",
           "lessons": [
             {
               "id": 1058,
@@ -652,7 +652,7 @@
         },
         {
           "name": "Advanced Subqueries",
-          "icon": "🚀",
+          "icon": "\ud83d\ude80",
           "lessons": [
             {
               "id": 1060,
@@ -683,7 +683,7 @@
         },
         {
           "name": "Set Operations",
-          "icon": "⋃",
+          "icon": "\u22c3",
           "lessons": [
             {
               "id": 1062,
@@ -717,12 +717,12 @@
     {
       "id": 206,
       "title": "CTEs (WITH Clause)",
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "is_boss": false,
       "concepts": [
         {
           "name": "CTE Basics",
-          "icon": "📦",
+          "icon": "\ud83d\udce6",
           "lessons": [
             {
               "id": 1065,
@@ -753,7 +753,7 @@
         },
         {
           "name": "Multiple CTEs",
-          "icon": "📚",
+          "icon": "\ud83d\udcda",
           "lessons": [
             {
               "id": 1068,
@@ -784,7 +784,7 @@
         },
         {
           "name": "CTE Best Practices",
-          "icon": "✨",
+          "icon": "\u2728",
           "lessons": [
             {
               "id": 1070,
@@ -818,12 +818,12 @@
     {
       "id": 207,
       "title": "Window Functions",
-      "icon": "🪟",
+      "icon": "\ud83e\ude9f",
       "is_boss": false,
       "concepts": [
         {
           "name": "Window Basics",
-          "icon": "🪟",
+          "icon": "\ud83e\ude9f",
           "lessons": [
             {
               "id": 1074,
@@ -854,7 +854,7 @@
         },
         {
           "name": "Ranking Functions",
-          "icon": "🏆",
+          "icon": "\ud83c\udfc6",
           "lessons": [
             {
               "id": 1078,
@@ -885,7 +885,7 @@
         },
         {
           "name": "Running Calculations",
-          "icon": "📊",
+          "icon": "\ud83d\udcca",
           "lessons": [
             {
               "id": 1080,
@@ -916,7 +916,7 @@
         },
         {
           "name": "Navigation Functions",
-          "icon": "🧭",
+          "icon": "\ud83e\udded",
           "lessons": [
             {
               "id": 1082,
@@ -950,12 +950,12 @@
     {
       "id": 208,
       "title": "Time-Series SQL",
-      "icon": "📅",
+      "icon": "\ud83d\udcc5",
       "is_boss": false,
       "concepts": [
         {
           "name": "Date Functions",
-          "icon": "📅",
+          "icon": "\ud83d\udcc5",
           "lessons": [
             {
               "id": 1086,
@@ -986,7 +986,7 @@
         },
         {
           "name": "Date Arithmetic",
-          "icon": "➕",
+          "icon": "\u2795",
           "lessons": [
             {
               "id": 1089,
@@ -1017,7 +1017,7 @@
         },
         {
           "name": "User Analytics",
-          "icon": "👥",
+          "icon": "\ud83d\udc65",
           "lessons": [
             {
               "id": 1091,
@@ -1048,7 +1048,7 @@
         },
         {
           "name": "Advanced Analytics",
-          "icon": "📈",
+          "icon": "\ud83d\udcc8",
           "lessons": [
             {
               "id": 1094,
@@ -1082,12 +1082,12 @@
     {
       "id": 251,
       "title": "Analytics Wizard Boss",
-      "icon": "🧙",
+      "icon": "\ud83e\uddd9",
       "is_boss": true,
       "lessons": [
         {
           "id": 1098,
-          "title": "🧙 Analytics Wizard Challenge",
+          "title": "\ud83e\uddd9 Analytics Wizard Challenge",
           "order": 1
         }
       ]
@@ -1095,12 +1095,12 @@
     {
       "id": 209,
       "title": "Data Cleaning & Metrics",
-      "icon": "🧹",
+      "icon": "\ud83e\uddf9",
       "is_boss": false,
       "concepts": [
         {
           "name": "Duplicates",
-          "icon": "👯",
+          "icon": "\ud83d\udc6f",
           "lessons": [
             {
               "id": 1099,
@@ -1131,7 +1131,7 @@
         },
         {
           "name": "Outliers",
-          "icon": "��",
+          "icon": "\ufffd\ufffd",
           "lessons": [
             {
               "id": 1102,
@@ -1162,7 +1162,7 @@
         },
         {
           "name": "Metrics",
-          "icon": "📏",
+          "icon": "\ud83d\udccf",
           "lessons": [
             {
               "id": 1105,
@@ -1193,7 +1193,7 @@
         },
         {
           "name": "Data Quality",
-          "icon": "✅",
+          "icon": "\u2705",
           "lessons": [
             {
               "id": 1108,
@@ -1227,12 +1227,12 @@
     {
       "id": 210,
       "title": "Database Design Essentials",
-      "icon": "🏗️",
+      "icon": "\ud83c\udfd7\ufe0f",
       "is_boss": false,
       "concepts": [
         {
           "name": "Normalization",
-          "icon": "📐",
+          "icon": "\ud83d\udcd0",
           "lessons": [
             {
               "id": 1111,
@@ -1263,7 +1263,7 @@
         },
         {
           "name": "Data Modeling",
-          "icon": "🏗️",
+          "icon": "\ud83c\udfd7\ufe0f",
           "lessons": [
             {
               "id": 1115,
@@ -1294,7 +1294,7 @@
         },
         {
           "name": "Constraints",
-          "icon": "🔒",
+          "icon": "\ud83d\udd12",
           "lessons": [
             {
               "id": 1118,
@@ -1325,7 +1325,7 @@
         },
         {
           "name": "Design Patterns",
-          "icon": "⚡",
+          "icon": "\u26a1",
           "lessons": [
             {
               "id": 1121,
@@ -1359,12 +1359,12 @@
     {
       "id": 211,
       "title": "Performance & Query Plans",
-      "icon": "⚡",
+      "icon": "\u26a1",
       "is_boss": false,
       "concepts": [
         {
           "name": "Indexes",
-          "icon": "📇",
+          "icon": "\ud83d\udcc7",
           "lessons": [
             {
               "id": 1123,
@@ -1395,7 +1395,7 @@
         },
         {
           "name": "Query Plans",
-          "icon": "📋",
+          "icon": "\ud83d\udccb",
           "lessons": [
             {
               "id": 1127,
@@ -1426,7 +1426,7 @@
         },
         {
           "name": "Optimization",
-          "icon": "⚡",
+          "icon": "\u26a1",
           "lessons": [
             {
               "id": 1129,
@@ -1460,12 +1460,12 @@
     {
       "id": 212,
       "title": "Mutations & Transactions",
-      "icon": "✏️",
+      "icon": "\u270f\ufe0f",
       "is_boss": false,
       "concepts": [
         {
           "name": "INSERT",
-          "icon": "➕",
+          "icon": "\u2795",
           "lessons": [
             {
               "id": 1132,
@@ -1483,20 +1483,25 @@
               "order": 3
             },
             {
+              "id": 1268,
+              "title": "SELECT INTO / CTAS",
+              "order": 4
+            },
+            {
               "id": 1248,
               "title": "Upsert Pattern",
-              "order": 4
+              "order": 5
             },
             {
               "id": 1249,
               "title": "Default Values",
-              "order": 5
+              "order": 6
             }
           ]
         },
         {
           "name": "UPDATE",
-          "icon": "✏️",
+          "icon": "\u270f\ufe0f",
           "lessons": [
             {
               "id": 1135,
@@ -1527,7 +1532,7 @@
         },
         {
           "name": "DELETE & Transactions",
-          "icon": "🗑️",
+          "icon": "\ud83d\uddd1\ufe0f",
           "lessons": [
             {
               "id": 1138,
@@ -1581,12 +1586,12 @@
     {
       "id": 213,
       "title": "Analytics Engineering",
-      "icon": "⚙️",
+      "icon": "\u2699\ufe0f",
       "is_boss": false,
       "concepts": [
         {
           "name": "Views & Abstractions",
-          "icon": "👁️",
+          "icon": "\ud83d\udc41\ufe0f",
           "lessons": [
             {
               "id": 1252,
@@ -1617,7 +1622,7 @@
         },
         {
           "name": "dbt Data Modeling",
-          "icon": "🏗️",
+          "icon": "\ud83c\udfd7\ufe0f",
           "lessons": [
             {
               "id": 1150,
@@ -1648,7 +1653,7 @@
         },
         {
           "name": "Style & Conventions",
-          "icon": "📐",
+          "icon": "\ud83d\udcd0",
           "lessons": [
             {
               "id": 1148,
@@ -1682,12 +1687,12 @@
     {
       "id": 214,
       "title": "Cloud Warehouse Features",
-      "icon": "☁️",
+      "icon": "\u2601\ufe0f",
       "is_boss": false,
       "concepts": [
         {
           "name": "Cloud Fundamentals",
-          "icon": "🌐",
+          "icon": "\ud83c\udf10",
           "lessons": [
             {
               "id": 1153,
@@ -1718,7 +1723,7 @@
         },
         {
           "name": "Partitioning & Clustering",
-          "icon": "📊",
+          "icon": "\ud83d\udcca",
           "lessons": [
             {
               "id": 1156,
@@ -1749,7 +1754,7 @@
         },
         {
           "name": "Cost Optimization",
-          "icon": "💰",
+          "icon": "\ud83d\udcb0",
           "lessons": [
             {
               "id": 1158,
@@ -1783,12 +1788,12 @@
     {
       "id": 13,
       "title": "Final Boss",
-      "icon": "🏆",
+      "icon": "\ud83c\udfc6",
       "is_boss": true,
       "concepts": [
         {
           "name": "The Ultimate Challenge",
-          "icon": "🔥",
+          "icon": "\ud83d\udd25",
           "lessons": [
             {
               "id": 1267,
