@@ -2,7 +2,7 @@
   "1": {
     "id": 1,
     "title": "What is a Variable?",
-    "content": "# 📦 What is a Variable?\n\nImagine a variable as a labeled box where you can store data.\n\nThe label is the **variable name**, and the contents are the **value**.\n\n## Interactive Demo\n\nTry changing the value in the box below using the slider:\n\n<variableslider name=\"score\" min=\"0\" max=\"100\" label=\"score output\"></variableslider>\n\n<div style=\"display: flex; justify-content: center; margin: 20px 0;\">\n<visualmemorybox name=\"score\" type=\"number\"></visualmemorybox>\n</div>\n\nNotice how the value inside the box changes instantly? In Python, we create this link using the `=` operator:\n\n```python\nscore = 50\n```\n\nThis tells Python: \"Create a box named `score` and put the number `50` inside it.\"\n\n## Real-World Analogy\n\nThink of a variable like a **sticky note on a box**:\n- The **box** holds something (a piece of data)\n- The **sticky note** has a name written on it (the variable name)\n- When you need what's inside, you just look for the note!\n\n## 🎯 Your Task\n\nCreate a variable called `student` and set it to `\"Alice\"`. Then print it!\n",
+    "content": "# 📦 What is a Variable?\n\nImagine a variable as a labeled box where you can store data.\n\nThe label is the **variable name**, and the contents are the **value**.\n\n## Interactive Demo\n\nTry changing the value in the box below using the slider:\n\n<variableslider name=\"score\" min=\"0\" max=\"100\" label=\"score output\"></variableslider>\n\n<div style=\"display: flex; justify-content: center; margin: 20px 0;\">\n<visualmemorybox name=\"score\" type=\"number\"></visualmemorybox>\n</div>\n\nNotice how the value inside the box changes instantly? In Python, we create this link using the `=` operator:\n\n```python\nscore = 50\n```\n\nThis tells Python: \"Create a box named `score` and put the number `50` inside it.\"\n\n## Real-World Analogy\n\nThink of a variable like a **sticky note on a box**:\n- The **box** holds something (a piece of data)\n- The **sticky note** has a name written on it (the variable name)\n- When you need what's inside, you just look for the note!\n\n## 🎯 Your Task\n\nCreate a variable called `student` and set it to `\"Alice\"`. Then print it!\n\n## Syntax essentials (micro)\nPython uses **indentation** to show code blocks. A line ending with `:` opens a block, and the next line must be indented by **4 spaces**.\n\n## Output essentials (micro)\n`print()` shows output. Each call ends with a newline, so separate print calls appear on separate lines.\n",
     "starter_code": "# Create a variable called student with value \"Alice\"\n\n\n# Print the variable\n",
     "solution_code": "# Create a variable called student with value \"Alice\"\nstudent = \"Alice\"\n\n# Print the variable\nprint(student)",
     "chapter_id": 1,
@@ -17,12 +17,55 @@
     ],
     "interaction_confidence": 0.84,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "token_slot",
+        "template": "if score > 90{{colon}}\\n{{indent}}print(\"A\")",
+        "slots": [
+          {
+            "id": "colon",
+            "label": "block opener",
+            "options": [
+              ":",
+              ";"
+            ],
+            "correct": ":"
+          },
+          {
+            "id": "indent",
+            "label": "indentation",
+            "options": [
+              "▸▸▸▸",
+              "▸▸"
+            ],
+            "correct": "▸▸▸▸"
+          }
+        ]
+      },
+      {
+        "type": "live_code_block",
+        "initialCode": "score = 4\\nprint(\"Score:\", score)\\nprint(\"Done\")",
+        "language": "python",
+        "highlightLine": 1,
+        "variableName": "print_output"
+      },
+      {
+        "type": "output_diff",
+        "title": "Match the output (set score to 7)",
+        "expected": "Score: 7\\nDone",
+        "actualVar": "print_output"
+      }
+    ],
+    "gap_ids": [
+      "PY-003",
+      "PY-005"
+    ]
   },
   "2": {
     "id": 2,
     "title": "Naming Variables",
-    "content": "# 🏷️ How to Name Variables\n\n## Why Does Naming Matter?\n\nGood variable names make your code **readable**. Compare:\n\n```python\n# Bad - What is x? What is y?\nx = 25\ny = 75000\n\n# Good - Clear what each variable represents!\nage = 25\nsalary = 75000\n```\n\nWhen you (or someone else) read the code later, good names save time and prevent confusion.\n\n## Python's Naming Rules\n\nThese are rules you MUST follow or Python will give an error:\n\n| Rule | ✅ Valid | ❌ Invalid |\n| --- | --- | --- |\n| Can start with letter or _ | `name`, `_count` | — |\n| Cannot start with number | — | `2name` |\n| No spaces allowed | `my_name` | `my name` |\n| Only letters, numbers, _ | `user_1` | `user-name` |\n| Case sensitive | `Age` ≠ `age` | — |\n\n## Naming Conventions (Best Practices)\n\nThese aren't required, but make your code professional:\n\n```python\n# ✅ Use snake_case (lowercase with underscores)\nuser_name = \"Alice\"\ntotal_price = 99.99\n\n# ❌ Avoid starting with uppercase (reserved for classes)\nUserName = \"Alice\"  # Works but not conventional\n\n# ✅ Be descriptive\ncustomer_email = \"alice@email.com\"\n\n# ❌ Avoid single letters (except for loops)\ne = \"alice@email.com\"  # What is 'e'?\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate these two properly named variables:\n- `first_name` = `\"John\"`\n- `last_name` = `\"Doe\"`\n\nThen print both.\n",
+    "content": "# 🏷️ How to Name Variables\n\n## Why Does Naming Matter?\n\nGood variable names make your code **readable**. Compare:\n\n```python\n# Bad - What is x? What is y?\nx = 25\ny = 75000\n\n# Good - Clear what each variable represents!\nage = 25\nsalary = 75000\n```\n\nWhen you (or someone else) read the code later, good names save time and prevent confusion.\n\n## Python's Naming Rules\n\nThese are rules you MUST follow or Python will give an error:\n\n| Rule | ✅ Valid | ❌ Invalid |\n| --- | --- | --- |\n| Can start with letter or _ | `name`, `_count` | — |\n| Cannot start with number | — | `2name` |\n| No spaces allowed | `my_name` | `my name` |\n| Only letters, numbers, _ | `user_1` | `user-name` |\n| Case sensitive | `Age` ≠ `age` | — |\n\n## Naming Conventions (Best Practices)\n\nThese aren't required, but make your code professional:\n\n```python\n# ✅ Use snake_case (lowercase with underscores)\nuser_name = \"Alice\"\ntotal_price = 99.99\n\n# ❌ Avoid starting with uppercase (reserved for classes)\nUserName = \"Alice\"  # Works but not conventional\n\n# ✅ Be descriptive\ncustomer_email = \"alice@email.com\"\n\n# ❌ Avoid single letters (except for loops)\ne = \"alice@email.com\"  # What is 'e'?\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate these two properly named variables:\n- `first_name` = `\"John\"`\n- `last_name` = `\"Doe\"`\n\nThen print both.\n\n## Quick comments\nUse `#` for single-line comments. Comments explain **why** something exists, without changing how the code runs.\n\n```python\n# Explain intent, not the obvious\nage = 25  # customer age in years\n```\n",
     "starter_code": "# Create first_name variable\n\n\n# Create last_name variable\n\n\n# Print both\n",
     "solution_code": "# Create first_name variable\nfirst_name = \"John\"\n\n# Create last_name variable\nlast_name = \"Doe\"\n\n# Print both\nprint(first_name)\nprint(last_name)",
     "chapter_id": 1,
@@ -38,7 +81,28 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "token_slot",
+        "template": "{{comment}} This line explains the variable purpose\\nage = 25",
+        "slots": [
+          {
+            "id": "comment",
+            "label": "comment marker",
+            "options": [
+              "#",
+              "//",
+              "--"
+            ],
+            "correct": "#"
+          }
+        ]
+      }
+    ],
+    "gap_ids": [
+      "PY-007"
+    ]
   },
   "3": {
     "id": 3,
@@ -160,7 +224,7 @@
   "9": {
     "id": 9,
     "title": "Numbers: Integers and Floats",
-    "content": "# 🔢 Numbers in Python\n\n## Two Main Types of Numbers\n\nPython has two types of numbers:\n\n| Type | Definition | Examples |\n| --- | --- | --- |\n| **Integer (int)** | Whole numbers, no decimal | `10`, `-5`, `0`, `1000` |\n| **Float** | Numbers with decimals | `3.14`, `-2.5`, `0.0` |\n\n## Why Two Types?\n\n- **Integers** are precise and faster (good for counting)\n- **Floats** are needed for measurements, science, money\n\n```python\ncount = 42       # Integer - exact count\nprice = 19.99    # Float - needs decimals\ntemperature = 98.6\n```\n\n## Python Auto-Detects the Type\n\n```python\nwhole = 10      # Python sees int\ndecimal = 10.0  # Python sees float\n\n# Check the type\nprint(type(whole))    # <class 'int'>\nprint(type(decimal))  # <class 'float'>\n```\n\n## Converting Between Types\n\n```python\nx = 10\ny = float(x)    # 10.0 (now a float)\n\nz = 10.7\nw = int(z)      # 10 (decimals cut off, not rounded!)\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate:\n- `quantity` = `5` (integer)\n- `unit_price` = `12.50` (float)\n- `total` = quantity × unit_price\n\nPrint: `Total: 62.5`\n",
+    "content": "# 🔢 Numbers in Python\n\n## Two Main Types of Numbers\n\nPython has two types of numbers:\n\n| Type | Definition | Examples |\n| --- | --- | --- |\n| **Integer (int)** | Whole numbers, no decimal | `10`, `-5`, `0`, `1000` |\n| **Float** | Numbers with decimals | `3.14`, `-2.5`, `0.0` |\n\n## Why Two Types?\n\n- **Integers** are precise and faster (good for counting)\n- **Floats** are needed for measurements, science, money\n\n```python\ncount = 42       # Integer - exact count\nprice = 19.99    # Float - needs decimals\ntemperature = 98.6\n```\n\n## Python Auto-Detects the Type\n\n```python\nwhole = 10      # Python sees int\ndecimal = 10.0  # Python sees float\n\n# Check the type\nprint(type(whole))    # <class 'int'>\nprint(type(decimal))  # <class 'float'>\n```\n\n## Converting Between Types\n\n```python\nx = 10\ny = float(x)    # 10.0 (now a float)\n\nz = 10.7\nw = int(z)      # 10 (decimals cut off, not rounded!)\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate:\n- `quantity` = `5` (integer)\n- `unit_price` = `12.50` (float)\n- `total` = quantity × unit_price\n\nPrint: `Total: 62.5`\n\n## Print numbers clearly\nIntegers and floats print **without quotes**. Use `print()` to show numeric values directly or mix them with labels.\n",
     "starter_code": "# Create quantity (integer)\nquantity = 5\n\n# Create unit_price (float)\nunit_price = 12.50\n\n# Calculate total\n\n\n# Print total\n",
     "solution_code": "# Create quantity (integer)\nquantity = 5\n\n# Create unit_price (float)\nunit_price = 12.50\n\n# Calculate total\ntotal = quantity * unit_price\n\n# Print total\nprint(f\"Total: {total}\")",
     "chapter_id": 1,
@@ -175,12 +239,41 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "fill_blanks",
+        "template": "print({{int_value}})\\nprint({{float_value}})",
+        "blanks": [
+          {
+            "id": "int_value",
+            "options": [
+              "5",
+              "5.0",
+              "\"5\""
+            ],
+            "correct": "5"
+          },
+          {
+            "id": "float_value",
+            "options": [
+              "5.0",
+              "5",
+              "\"5\""
+            ],
+            "correct": "5.0"
+          }
+        ]
+      }
+    ],
+    "gap_ids": [
+      "PY-006"
+    ]
   },
   "10": {
     "id": 10,
     "title": "Math Operations",
-    "content": "# ➕ Math in Python\n\n## Basic Operations\n\nPython supports all standard math:\n\n| Operator | Name | Example | Result |\n| --- | --- | --- | --- |\n| `+` | Addition | `5 + 3` | `8` |\n| `-` | Subtraction | `5 - 3` | `2` |\n| `*` | Multiplication | `5 * 3` | `15` |\n| `/` | Division | `5 / 2` | `2.5` |\n| `**` | Power | `5 ** 2` | `25` |\n| `//` | Floor Division | `5 // 2` | `2` |\n| `%` | Modulo (remainder) | `5 % 2` | `1` |\n\n## Understanding Floor Division and Modulo\n\n- `//` gives the **whole number** part of division\n- `%` gives the **remainder**\n\n```python\n17 // 5  # 3 (17 goes into 5 three times)\n17 % 5   # 2 (with 2 left over)\n```\n\n## Order of Operations (PEMDAS)\n\nPython follows standard math order:\n1. **P**arentheses `()`\n2. **E**xponents `**`\n3. **M**ultiplication & **D**ivision `* / // %`\n4. **A**ddition & **S**ubtraction `+ -`\n\n```python\nresult = 2 + 3 * 4      # 14 (not 20!)\nresult = (2 + 3) * 4    # 20 (parentheses first)\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCalculate a restaurant tip:\n- `bill` = `80.00`\n- `tip_percent` = `20`\n- Calculate `tip` as 20% of bill\n- Calculate `total` as bill + tip\n\nPrint: `Tip: 16.0` and `Total: 96.0`\n",
+    "content": "# ➕ Math in Python\n\n## Basic Operations\n\nPython supports all standard math:\n\n| Operator | Name | Example | Result |\n| --- | --- | --- | --- |\n| `+` | Addition | `5 + 3` | `8` |\n| `-` | Subtraction | `5 - 3` | `2` |\n| `*` | Multiplication | `5 * 3` | `15` |\n| `/` | Division | `5 / 2` | `2.5` |\n| `**` | Power | `5 ** 2` | `25` |\n| `//` | Floor Division | `5 // 2` | `2` |\n| `%` | Modulo (remainder) | `5 % 2` | `1` |\n\n## Understanding Floor Division and Modulo\n\n- `//` gives the **whole number** part of division\n- `%` gives the **remainder**\n\n```python\n17 // 5  # 3 (17 goes into 5 three times)\n17 % 5   # 2 (with 2 left over)\n```\n\n## Order of Operations (PEMDAS)\n\nPython follows standard math order:\n1. **P**arentheses `()`\n2. **E**xponents `**`\n3. **M**ultiplication & **D**ivision `* / // %`\n4. **A**ddition & **S**ubtraction `+ -`\n\n```python\nresult = 2 + 3 * 4      # 14 (not 20!)\nresult = (2 + 3) * 4    # 20 (parentheses first)\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCalculate a restaurant tip:\n- `bill` = `80.00`\n- `tip_percent` = `20`\n- Calculate `tip` as 20% of bill\n- Calculate `total` as bill + tip\n\nPrint: `Tip: 16.0` and `Total: 96.0`\n\n## Operator precedence\nMultiplication and division happen **before** addition and subtraction. Use parentheses to control the order.\n",
     "starter_code": "# Bill amount\nbill = 80.00\ntip_percent = 20\n\n# Calculate tip (20% of bill)\n\n\n# Calculate total\n\n\n# Print tip and total\n",
     "solution_code": "# Bill amount\nbill = 80.00\ntip_percent = 20\n\n# Calculate tip (20% of bill)\ntip = bill * (tip_percent / 100)\n\n# Calculate total\ntotal = bill + tip\n\n# Print tip and total\nprint(f\"Tip: {tip}\")\nprint(f\"Total: {total}\")",
     "chapter_id": 1,
@@ -192,7 +285,26 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": false,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "fill_blanks",
+        "template": "result = {{expr}}\\nprint(result)",
+        "blanks": [
+          {
+            "id": "expr",
+            "options": [
+              "3 + 2 * 4",
+              "(3 + 2) * 4"
+            ],
+            "correct": "(3 + 2) * 4"
+          }
+        ]
+      }
+    ],
+    "gap_ids": [
+      "PY-036"
+    ]
   },
   "11": {
     "id": 11,
@@ -215,7 +327,7 @@
   "12": {
     "id": 12,
     "title": "Booleans and Type Conversion",
-    "content": "# ⭕ Booleans: True or False\n\n## What is a Boolean?\n\nA **Boolean** (named after mathematician George Boole) can only be one of two values:\n- `True`\n- `False`\n\n```python\nis_sunny = True\nis_raining = False\n```\n\n## Why Are Booleans Important?\n\nBooleans are the foundation of **decision making** in code:\n\n```python\nis_adult = age >= 18\nis_logged_in = True\nhas_permission = user_role == \"admin\"\n```\n\nWe'll use these extensively in the Logic chapter!\n\n## Type Conversion\n\nYou can convert between types:\n\n```python\n# To integer\nint(\"42\")       # 42\nint(3.7)        # 3 (truncates, doesn't round!)\n\n# To float\nfloat(\"3.14\")   # 3.14\nfloat(5)        # 5.0\n\n# To string\nstr(42)         # \"42\"\nstr(3.14)       # \"3.14\"\n\n# To boolean\nbool(1)         # True\nbool(0)         # False\nbool(\"\")        # False (empty string)\nbool(\"hello\")   # True (non-empty string)\n```\n\n## Common Use: User Input\n\n```python\n# input() always returns a string!\nage_text = \"25\"\nage = int(age_text)  # Convert to number for math\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nGiven: `age_text = \"25\"`\n\n1. Convert it to an integer using `int()`\n2. Add 5 to get age in 5 years\n3. Print the future age (should be 30)\n",
+    "content": "# ⭕ Booleans: True or False\n\n## What is a Boolean?\n\nA **Boolean** (named after mathematician George Boole) can only be one of two values:\n- `True`\n- `False`\n\n```python\nis_sunny = True\nis_raining = False\n```\n\n## Why Are Booleans Important?\n\nBooleans are the foundation of **decision making** in code:\n\n```python\nis_adult = age >= 18\nis_logged_in = True\nhas_permission = user_role == \"admin\"\n```\n\nWe'll use these extensively in the Logic chapter!\n\n## Type Conversion\n\nYou can convert between types:\n\n```python\n# To integer\nint(\"42\")       # 42\nint(3.7)        # 3 (truncates, doesn't round!)\n\n# To float\nfloat(\"3.14\")   # 3.14\nfloat(5)        # 5.0\n\n# To string\nstr(42)         # \"42\"\nstr(3.14)       # \"3.14\"\n\n# To boolean\nbool(1)         # True\nbool(0)         # False\nbool(\"\")        # False (empty string)\nbool(\"hello\")   # True (non-empty string)\n```\n\n## Common Use: User Input\n\n```python\n# input() always returns a string!\nage_text = \"25\"\nage = int(age_text)  # Convert to number for math\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nGiven: `age_text = \"25\"`\n\n1. Convert it to an integer using `int()`\n2. Add 5 to get age in 5 years\n3. Print the future age (should be 30)\n\n## Casting basics\nUse `int()`, `float()`, and `str()` to convert values safely when types do not match.\n\n```python\nage_text = \"42\"\nage = int(age_text)\nprice = float(\"3.5\")\nlabel = str(100)\n```\n",
     "starter_code": "# Age as a string\nage_text = \"25\"\n\n# Convert to integer\n\n\n# Add 5 years\n\n\n# Print future age\n",
     "solution_code": "# Age as a string\nage_text = \"25\"\n\n# Convert to integer\nage = int(age_text)\n\n# Add 5 years\nfuture_age = age + 5\n\n# Print future age\nprint(future_age)",
     "chapter_id": 1,
@@ -232,7 +344,38 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "token_slot",
+        "template": "age_text = \"42\"\\nage = {{cast1}}(age_text)\\nprice_text = \"3.5\"\\nprice = {{cast2}}(price_text)",
+        "slots": [
+          {
+            "id": "cast1",
+            "label": "convert to int",
+            "options": [
+              "int",
+              "float",
+              "str"
+            ],
+            "correct": "int"
+          },
+          {
+            "id": "cast2",
+            "label": "convert to float",
+            "options": [
+              "float",
+              "int",
+              "str"
+            ],
+            "correct": "float"
+          }
+        ]
+      }
+    ],
+    "gap_ids": [
+      "PY-019"
+    ]
   },
   "13": {
     "id": 13,
@@ -4363,7 +4506,7 @@
   "227": {
     "title": "Error Handling",
     "chapter_title": "Data Cleaning",
-    "content": "# ⚠️ Error Handling in Data Cleaning: Graceful Failures\n\n## Why Error Handling Matters\n\nReal data WILL have problems:\n- Unexpected formats\n- Missing files\n- Invalid values\n- Encoding issues\n\nYour pipeline should handle these gracefully, not crash!\n\n## Python Try/Except Pattern\n\n```python\ntry:\n    # Risky operation\n    value = int(user_input)\nexcept ValueError:\n    # Handle the error\n    value = 0  # default\n    print(\"Invalid input, using default\")\n```\n\n## Pandas Error Handling\n\n```python\n# Convert with error handling\ndf['amount'] = pd.to_numeric(df['amount'], errors='coerce')  # Bad → NaN\ndf['date'] = pd.to_datetime(df['date'], errors='coerce')\n\n# Check errors='coerce' options:\n# 'raise' - throw error (default)\n# 'coerce' - set to NaN\n# 'ignore' - leave as-is\n```\n\n## Logging Errors for Review\n\n```python\n# Track what went wrong\nerrors = []\n\nfor idx, row in df.iterrows():\n    try:\n        process_row(row)\n    except Exception as e:\n        errors.append({'row': idx, 'error': str(e)})\n\n# Review errors after\nerror_df = pd.DataFrame(errors)\n```\n\n## Safe File Reading\n\n```python\nimport os\n\ndef safe_read_csv(filepath):\n    if not os.path.exists(filepath):\n        print(f\"File not found: {filepath}\")\n        return None\n    \n    try:\n        return pd.read_csv(filepath)\n    except Exception as e:\n        print(f\"Error reading file: {e}\")\n        return None\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nImplement error handling for data type conversion.",
+    "content": "# ⚠️ Error Handling in Data Cleaning: Graceful Failures\n\n## Why Error Handling Matters\n\nReal data WILL have problems:\n- Unexpected formats\n- Missing files\n- Invalid values\n- Encoding issues\n\nYour pipeline should handle these gracefully, not crash!\n\n## Python Try/Except Pattern\n\n```python\ntry:\n    # Risky operation\n    value = int(user_input)\nexcept ValueError:\n    # Handle the error\n    value = 0  # default\n    print(\"Invalid input, using default\")\n```\n\n## Pandas Error Handling\n\n```python\n# Convert with error handling\ndf['amount'] = pd.to_numeric(df['amount'], errors='coerce')  # Bad → NaN\ndf['date'] = pd.to_datetime(df['date'], errors='coerce')\n\n# Check errors='coerce' options:\n# 'raise' - throw error (default)\n# 'coerce' - set to NaN\n# 'ignore' - leave as-is\n```\n\n## Logging Errors for Review\n\n```python\n# Track what went wrong\nerrors = []\n\nfor idx, row in df.iterrows():\n    try:\n        process_row(row)\n    except Exception as e:\n        errors.append({'row': idx, 'error': str(e)})\n\n# Review errors after\nerror_df = pd.DataFrame(errors)\n```\n\n## Safe File Reading\n\n```python\nimport os\n\ndef safe_read_csv(filepath):\n    if not os.path.exists(filepath):\n        print(f\"File not found: {filepath}\")\n        return None\n    \n    try:\n        return pd.read_csv(filepath)\n    except Exception as e:\n        print(f\"Error reading file: {e}\")\n        return None\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nImplement error handling for data type conversion.\n\n## Exception safety\nCatch the **specific** error you expect, and set a safe fallback value so the pipeline keeps moving.\n\n```python\ntry:\n    value = int(raw_value)\nexcept ValueError:\n    value = 0\n```\n",
     "starter_code": "import pandas as pd\n\n# Messy data that will cause errors\ndf = pd.DataFrame({\n    'amount': ['100', '200', 'INVALID', '400', 'N/A'],\n    'date': ['2024-01-15', 'bad_date', '2024-03-10', '', '2024-05-20']\n})\n\nprint(\"Original data:\")\nprint(df)\n\n# Safe conversion with error handling\ndf['amount_clean'] = pd.to_numeric(df['amount'], errors='coerce')\ndf['date_clean'] = pd.to_datetime(df['date'], errors='coerce')\n\n# Report what couldn't be converted\namount_errors = df['amount_clean'].isna().sum()\ndate_errors = df['date_clean'].isna().sum()\n\nprint(f\"\\nConversion errors:\")\nprint(f\"  Amount: {amount_errors} errors\")\nprint(f\"  Date: {date_errors} errors\")\n\nprint(\"\\nCleaned data:\")\nprint(df)",
     "solution_code": "import pandas as pd\n\ndf = pd.DataFrame({\n    'amount': ['100', 'INVALID', '300'],\n    'date': ['2024-01-15', 'bad', '2024-03-10']\n})\n\ndf['amount'] = pd.to_numeric(df['amount'], errors='coerce')\ndf['date'] = pd.to_datetime(df['date'], errors='coerce')\n\nprint(f\"Errors: {df.isna().sum().sum()}\")",
     "concept_tags": [
@@ -4381,7 +4524,36 @@
     "interaction_confidence": 0.84,
     "manual_review": true,
     "prediction_justification": null,
-    "id": 227
+    "id": 227,
+    "interaction_plan": [
+      {
+        "type": "debug_quest",
+        "title": "Fix the conversion crash",
+        "snippet": "value = \"17a\"\\nnum = int(value)\\nprint(num)",
+        "bugLine": 2,
+        "options": [
+          {
+            "label": "Wrap the conversion in try/except ValueError and fall back to 0",
+            "fix": "try:\\n    num = int(value)\\nexcept ValueError:\\n    num = 0",
+            "correct": true
+          },
+          {
+            "label": "Convert with float() to avoid errors",
+            "fix": "num = float(value)",
+            "correct": false
+          },
+          {
+            "label": "Comment out the conversion line",
+            "fix": "# num = int(value)",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "gap_ids": [
+      "PY-099",
+      "PY-195"
+    ]
   },
   "228": {
     "title": "Weighted Mean",
@@ -5231,7 +5403,7 @@
   "1016": {
     "id": 1016,
     "title": "WHERE Basics",
-    "content": "# 🔍 WHERE: The Data Funnel\n\n## The Filter Clause\n\nImagine you have a table with 1,000,000 rows. Most of the time, you only want a tiny slice of that data. The **WHERE** clause is like a funnel that drops rows that don't match your criteria.\n\n![Filter Funnel](/Python-Game-2/assets/sql-diagrams/filter_funnel.png)\n\n## Comparison Operators\n\n| Operator | Meaning |\n|----------|---------|\n| = | Equal |\n| != or <> | Not equal |\n| > | Greater than |\n| < | Less than |\n| >= | Greater or equal |\n| <= | Less or equal |\n\n## Text Values Need Quotes\n\n```sql\n-- String: use quotes\nWHERE name = 'Alice'\n\n-- Number: no quotes\nWHERE age = 30\n```\n\n## Execution Order\n\n1. FROM - identify table\n2. **WHERE - filter rows**\n3. SELECT - choose columns\n\nFiltering happens before selection!\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nWrite a query to find all products where price is greater than 100.",
+    "content": "# 🔍 WHERE: The Data Funnel\n\n## The Filter Clause\n\nImagine you have a table with 1,000,000 rows. Most of the time, you only want a tiny slice of that data. The **WHERE** clause is like a funnel that drops rows that don't match your criteria.\n\n![Filter Funnel](/Python-Game-2/assets/sql-diagrams/filter_funnel.png)\n\n## Comparison Operators\n\n| Operator | Meaning |\n|----------|---------|\n| = | Equal |\n| != or <> | Not equal |\n| > | Greater than |\n| < | Less than |\n| >= | Greater or equal |\n| <= | Less or equal |\n\n## Text Values Need Quotes\n\n```sql\n-- String: use quotes\nWHERE name = 'Alice'\n\n-- Number: no quotes\nWHERE age = 30\n```\n\n## Execution Order\n\n1. FROM - identify table\n2. **WHERE - filter rows**\n3. SELECT - choose columns\n\nFiltering happens before selection!\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nWrite a query to find all products where price is greater than 100.\n\n## OR conditions\nUse `OR` to keep rows that match **either** condition.\n\n```sql\nSELECT *\nFROM orders\nWHERE status = 'Open' OR priority = 'High';\n```\n",
     "starter_code": "-- Filter employees with salary > 70000\n\n",
     "solution_code": "SELECT name, salary FROM employees WHERE salary > 70000;",
     "chapter_id": 201,
@@ -5244,7 +5416,104 @@
     ],
     "interaction_confidence": 0.92,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "data_transform",
+        "title": "Compare AND vs OR filters",
+        "columns": [
+          "order_id",
+          "status",
+          "priority"
+        ],
+        "beforeRows": [
+          {
+            "order_id": 101,
+            "status": "Open",
+            "priority": "Low"
+          },
+          {
+            "order_id": 102,
+            "status": "Closed",
+            "priority": "High"
+          },
+          {
+            "order_id": 103,
+            "status": "Open",
+            "priority": "High"
+          },
+          {
+            "order_id": 104,
+            "status": "Pending",
+            "priority": "Low"
+          },
+          {
+            "order_id": 105,
+            "status": "Closed",
+            "priority": "Low"
+          },
+          {
+            "order_id": 106,
+            "status": "Pending",
+            "priority": "High"
+          }
+        ],
+        "filters": [
+          {
+            "id": "open_only",
+            "label": "status = 'Open'",
+            "rows": [
+              {
+                "order_id": 101,
+                "status": "Open",
+                "priority": "Low"
+              },
+              {
+                "order_id": 103,
+                "status": "Open",
+                "priority": "High"
+              }
+            ]
+          },
+          {
+            "id": "open_or_high",
+            "label": "status = 'Open' OR priority = 'High'",
+            "rows": [
+              {
+                "order_id": 101,
+                "status": "Open",
+                "priority": "Low"
+              },
+              {
+                "order_id": 102,
+                "status": "Closed",
+                "priority": "High"
+              },
+              {
+                "order_id": 103,
+                "status": "Open",
+                "priority": "High"
+              },
+              {
+                "order_id": 106,
+                "status": "Pending",
+                "priority": "High"
+              }
+            ]
+          }
+        ],
+        "resultVar": "rows_kept"
+      },
+      {
+        "type": "output_diff",
+        "title": "Match the OR result count",
+        "expected": "4",
+        "actualVar": "rows_kept"
+      }
+    ],
+    "gap_ids": [
+      "SQL-008"
+    ]
   },
   "1017": {
     "id": 1017,
@@ -5266,7 +5535,7 @@
   "1018": {
     "id": 1018,
     "title": "IN Operator",
-    "content": "# 📋 IN Operator: Match Multiple Values\n\n## The Problem\n\nWithout IN, you need multiple ORs:\n\n```sql\nWHERE department = 'Sales' \n   OR department = 'Marketing' \n   OR department = 'Support'\n```\n\n## IN Makes It Clean\n\n```sql\nWHERE department IN ('Sales', 'Marketing', 'Support')\n```\n\nSame result, much cleaner!\n\n## How IN Works\n\nIN checks if a value matches ANY item in the list:\n\n```sql\nSELECT * FROM products\nWHERE category IN ('Electronics', 'Computers', 'Phones');\n```\n\n## NOT IN\n\nExclude multiple values:\n\n```sql\nSELECT * FROM employees\nWHERE department NOT IN ('HR', 'Finance');\n```\n\n## With Numbers\n\n```sql\nSELECT * FROM orders\nWHERE status_id IN (1, 2, 5);\n```\n\n## Performance Tip\n\nFor large lists, consider using a subquery or temporary table instead:\n\n```sql\nWHERE id IN (SELECT id FROM active_users)\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nFind all orders with status 'pending', 'processing', or 'shipped'.",
+    "content": "# 📋 IN Operator: Match Multiple Values\n\n## The Problem\n\nWithout IN, you need multiple ORs:\n\n```sql\nWHERE department = 'Sales' \n   OR department = 'Marketing' \n   OR department = 'Support'\n```\n\n## IN Makes It Clean\n\n```sql\nWHERE department IN ('Sales', 'Marketing', 'Support')\n```\n\nSame result, much cleaner!\n\n## How IN Works\n\nIN checks if a value matches ANY item in the list:\n\n```sql\nSELECT * FROM products\nWHERE category IN ('Electronics', 'Computers', 'Phones');\n```\n\n## NOT IN\n\nExclude multiple values:\n\n```sql\nSELECT * FROM employees\nWHERE department NOT IN ('HR', 'Finance');\n```\n\n## With Numbers\n\n```sql\nSELECT * FROM orders\nWHERE status_id IN (1, 2, 5);\n```\n\n## Performance Tip\n\nFor large lists, consider using a subquery or temporary table instead:\n\n```sql\nWHERE id IN (SELECT id FROM active_users)\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nFind all orders with status 'pending', 'processing', or 'shipped'.\n\n## IN for multiple values\nUse `IN` to match **any** value in a list, instead of chaining many `OR` checks.\n\n```sql\nSELECT *\nFROM customers\nWHERE state IN ('CA', 'NY', 'TX');\n```\n",
     "starter_code": "-- Use IN to match multiple categories\n\n",
     "solution_code": "SELECT * FROM products WHERE category IN ('Electronics', 'Tools');",
     "chapter_id": 201,
@@ -5279,7 +5548,28 @@
     ],
     "interaction_confidence": 0.76,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "token_slot",
+        "template": "SELECT *\\nFROM customers\\nWHERE state {{op}} ('CA', 'NY', 'TX');",
+        "slots": [
+          {
+            "id": "op",
+            "label": "list match",
+            "options": [
+              "IN",
+              "=",
+              "LIKE"
+            ],
+            "correct": "IN"
+          }
+        ]
+      }
+    ],
+    "gap_ids": [
+      "SQL-022"
+    ]
   },
   "1019": {
     "id": 1019,
@@ -5301,7 +5591,7 @@
   "1020": {
     "id": 1020,
     "title": "LIKE Pattern Matching",
-    "content": "# 🔎 LIKE: Pattern Matching\n\n## Wildcards\n\n| Symbol | Meaning |\n|--------|---------|\n| % | Any characters (0 or more) |\n| _ | Exactly one character |\n\n## Examples\n\n```sql\n-- Starts with 'A'\nWHERE name LIKE 'A%'\n\n-- Ends with 'son'\nWHERE name LIKE '%son'\n\n-- Contains 'data'\nWHERE title LIKE '%data%'\n\n-- Exactly 5 characters\nWHERE code LIKE '_____'\n```\n\n## Case Sensitivity\n\nLIKE is case-sensitive in most databases!\n\n```sql\n-- Use ILIKE for case-insensitive (PostgreSQL)\nWHERE name ILIKE '%john%'\n\n-- Or use LOWER()\nWHERE LOWER(name) LIKE '%john%'\n```\n\n## NOT LIKE\n\n```sql\n-- Names NOT starting with 'A'\nWHERE name NOT LIKE 'A%'\n```\n\n## Escape Special Characters\n\n```sql\n-- Find literal %\nWHERE text LIKE '%\\%%' ESCAPE '\\\\'\n```\n\n## Performance Warning\n\nLeading wildcards are slow:\n```sql\nWHERE name LIKE '%smith'  -- Cannot use index!\nWHERE name LIKE 'smith%'  -- Can use index\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nFind all customers whose email ends with '@gmail.com'.",
+    "content": "# 🔎 LIKE: Pattern Matching\n\n## Wildcards\n\n| Symbol | Meaning |\n|--------|---------|\n| % | Any characters (0 or more) |\n| _ | Exactly one character |\n\n## Examples\n\n```sql\n-- Starts with 'A'\nWHERE name LIKE 'A%'\n\n-- Ends with 'son'\nWHERE name LIKE '%son'\n\n-- Contains 'data'\nWHERE title LIKE '%data%'\n\n-- Exactly 5 characters\nWHERE code LIKE '_____'\n```\n\n## Case Sensitivity\n\nLIKE is case-sensitive in most databases!\n\n```sql\n-- Use ILIKE for case-insensitive (PostgreSQL)\nWHERE name ILIKE '%john%'\n\n-- Or use LOWER()\nWHERE LOWER(name) LIKE '%john%'\n```\n\n## NOT LIKE\n\n```sql\n-- Names NOT starting with 'A'\nWHERE name NOT LIKE 'A%'\n```\n\n## Escape Special Characters\n\n```sql\n-- Find literal %\nWHERE text LIKE '%\\%%' ESCAPE '\\\\'\n```\n\n## Performance Warning\n\nLeading wildcards are slow:\n```sql\nWHERE name LIKE '%smith'  -- Cannot use index!\nWHERE name LIKE 'smith%'  -- Can use index\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nFind all customers whose email ends with '@gmail.com'.\n\n## Wildcards: % and _\n`%` matches **any length** of text, and `_` matches **one character**.\n\n```sql\n-- starts with \"Al\"\nname LIKE 'Al%'\n```\n",
     "starter_code": "-- Select names starting with 'A'\n\n",
     "solution_code": "SELECT * FROM employees WHERE name LIKE 'A%';",
     "chapter_id": 201,
@@ -5315,7 +5605,34 @@
     ],
     "interaction_confidence": 0.76,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "fill_blanks",
+        "template": "name LIKE 'Al{{wild1}}'\\nname LIKE '{{wild2}}y'",
+        "blanks": [
+          {
+            "id": "wild1",
+            "options": [
+              "%",
+              "_"
+            ],
+            "correct": "%"
+          },
+          {
+            "id": "wild2",
+            "options": [
+              "____",
+              "%"
+            ],
+            "correct": "____"
+          }
+        ]
+      }
+    ],
+    "gap_ids": [
+      "SQL-021"
+    ]
   },
   "1021": {
     "id": 1021,

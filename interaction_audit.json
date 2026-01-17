@@ -5,6 +5,9 @@
     "route": "#/lesson/1",
     "interaction_recipe_id": "",
     "components_used": [
+      "token_slot",
+      "live_code_block",
+      "output_diff",
       "variable_slider",
       "memory_box"
     ],
@@ -12,7 +15,7 @@
     "prediction_present": false,
     "prediction_justified": false,
     "issues": [],
-    "quality_score": 2,
+    "quality_score": 5,
     "proposed_interaction": "Memory machine: assign value and watch state update for \"What is a Variable?\".",
     "curriculum": "python",
     "chapter_id": 1
@@ -23,13 +26,14 @@
     "route": "#/lesson/2",
     "interaction_recipe_id": "",
     "components_used": [
+      "token_slot",
       "live_code_block"
     ],
     "consecutive_recipe_count": 2,
     "prediction_present": false,
     "prediction_justified": false,
     "issues": [],
-    "quality_score": 1,
+    "quality_score": 2,
     "proposed_interaction": "Memory machine: assign value and watch state update for \"Naming Variables\".",
     "curriculum": "python",
     "chapter_id": 1
@@ -192,6 +196,7 @@
     "route": "#/lesson/9",
     "interaction_recipe_id": "",
     "components_used": [
+      "fill_blanks",
       "live_code_block"
     ],
     "consecutive_recipe_count": 11,
@@ -200,7 +205,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 1,
     "proposed_interaction": "Graph manipulator: drag x and see numeric output change for \"Numbers: Integers and Floats\".",
     "curriculum": "python",
     "chapter_id": 1
@@ -211,6 +216,7 @@
     "route": "#/lesson/10",
     "interaction_recipe_id": "",
     "components_used": [
+      "fill_blanks",
       "live_code_block"
     ],
     "consecutive_recipe_count": 12,
@@ -219,7 +225,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 1,
     "proposed_interaction": "Graph manipulator: drag x and see numeric output change for \"Math Operations\".",
     "curriculum": "python",
     "chapter_id": 1
@@ -287,6 +293,7 @@
     "route": "#/lesson/12",
     "interaction_recipe_id": "",
     "components_used": [
+      "token_slot",
       "live_code_block"
     ],
     "consecutive_recipe_count": 16,
@@ -295,7 +302,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 1,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"Booleans and Type Conversion\".",
     "curriculum": "python",
     "chapter_id": 1
@@ -3327,6 +3334,7 @@
     "route": "#/lesson/227",
     "interaction_recipe_id": "",
     "components_used": [
+      "debug_quest",
       "live_code_block"
     ],
     "consecutive_recipe_count": 176,
@@ -3335,7 +3343,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 1,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"Error Handling\".",
     "curriculum": "python",
     "chapter_id": null
@@ -4976,6 +4984,8 @@
     "route": "#/lesson/1016",
     "interaction_recipe_id": "",
     "components_used": [
+      "data_transform",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 26,
@@ -4984,7 +4994,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"WHERE Basics\".",
     "curriculum": "sql",
     "chapter_id": 201
@@ -5014,6 +5024,7 @@
     "route": "#/lesson/1018",
     "interaction_recipe_id": "",
     "components_used": [
+      "token_slot",
       "live_code_block"
     ],
     "consecutive_recipe_count": 28,
@@ -5022,7 +5033,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 1,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"IN Operator\".",
     "curriculum": "sql",
     "chapter_id": 201
@@ -5090,6 +5101,7 @@
     "route": "#/lesson/1020",
     "interaction_recipe_id": "",
     "components_used": [
+      "fill_blanks",
       "live_code_block"
     ],
     "consecutive_recipe_count": 32,
@@ -5098,7 +5110,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 1,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"LIKE Pattern Matching\".",
     "curriculum": "sql",
     "chapter_id": 201
