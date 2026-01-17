@@ -115,7 +115,7 @@
   "3": {
     "id": 3,
     "title": "Reassigning Variables",
-    "content": "# 🔄 Changing Variable Values\n\n## What is Reassignment?\n\nVariables can change! You can update a variable by assigning a new value:\n\n```python\nscore = 0          # Start at 0\nprint(score)       # Output: 0\n\nscore = 100        # Now it's 100!\nprint(score)       # Output: 100\n```\n\n## Why Does This Matter?\n\nIn real programs, values change constantly:\n- A player's score goes up\n- A shopping cart total increases\n- A countdown timer decreases\n\n## How It Works in Memory\n\nWhen you reassign:\n1. Python finds the variable name\n2. Throws away the old value\n3. Stores the new value\n\n```python\ntemperature = 72   # Box now holds 72\ntemperature = 85   # Box now holds 85 (72 is gone!)\n```\n\n## Using the Current Value\n\nYou can use a variable's current value to calculate a new one:\n\n```python\ncount = 5\ncount = count + 1  # Take current (5), add 1, store result (6)\nprint(count)       # Output: 6\n```\n\nShorthand version:\n```python\ncount += 1  # Same as: count = count + 1\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\n1. Start with `points = 0`\n2. Add 10 to points using `+=`\n3. Add 5 more to points using `+=`\n4. Print the final value (should be 15)\n",
+    "content": "# 🔄 Changing Variable Values\n\n## What is Reassignment?\n\nVariables can change! You can update a variable by assigning a new value:\n\n```python\nscore = 0          # Start at 0\nprint(score)       # Output: 0\n\nscore = 100        # Now it's 100!\nprint(score)       # Output: 100\n```\n\n## Why Does This Matter?\n\nIn real programs, values change constantly:\n- A player's score goes up\n- A shopping cart total increases\n- A countdown timer decreases\n\n## How It Works in Memory\n\nWhen you reassign:\n1. Python finds the variable name\n2. Throws away the old value\n3. Stores the new value\n\n```python\ntemperature = 72   # Box now holds 72\ntemperature = 85   # Box now holds 85 (72 is gone!)\n```\n\n## Using the Current Value\n\nYou can use a variable's current value to calculate a new one:\n\n```python\ncount = 5\ncount = count + 1  # Take current (5), add 1, store result (6)\nprint(count)       # Output: 6\n```\n\nShorthand version:\n```python\ncount += 1  # Same as: count = count + 1\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\n1. Start with `points = 0`\n2. Add 10 to points using `+=`\n3. Add 5 more to points using `+=`\n4. Print the final value (should be 15)\n\n## Watch reassignment happen\nReassigning updates the **same** memory slot with a new value.\n",
     "starter_code": "# Start with 0 points\npoints = 0\n\n# Add 10 points\n\n\n# Add 5 more points\n\n\n# Print final value\n",
     "solution_code": "# Start with 0 points\npoints = 0\n\n# Add 10 points\npoints += 10\n\n# Add 5 more points\npoints += 5\n\n# Print final value\nprint(points)",
     "chapter_id": 1,
@@ -127,7 +127,37 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "memory_machine",
+        "title": "Reassign the same variable",
+        "slots": [
+          "score"
+        ],
+        "steps": [
+          {
+            "label": "score = 0",
+            "slot": "score",
+            "value": 0
+          },
+          {
+            "label": "score = 100",
+            "slot": "score",
+            "value": 100
+          }
+        ]
+      },
+      {
+        "type": "output_diff",
+        "title": "Final score after reassignment",
+        "expected": "100",
+        "actualVar": "score"
+      }
+    ],
+    "gap_ids": [
+      "B2-FP"
+    ]
   },
   "4": {
     "id": 4,
@@ -370,7 +400,7 @@
   "11": {
     "id": 11,
     "title": "Compound Assignment",
-    "content": "# 📝 Shorthand Math Operations\n\n## What is Compound Assignment?\n\nInstead of writing `x = x + 5`, Python has shorter versions:\n\n| Long Form | Shorthand | Meaning |\n| --- | --- | --- |\n| `x = x + 5` | `x += 5` | Add 5 to x |\n| `x = x - 5` | `x -= 5` | Subtract 5 from x |\n| `x = x * 5` | `x *= 5` | Multiply x by 5 |\n| `x = x / 5` | `x /= 5` | Divide x by 5 |\n| `x = x ** 2` | `x **= 2` | Square x |\n\n## Why Use Shorthand?\n\n1. Less typing\n2. Clearer intent (you're modifying, not replacing)\n3. Industry standard practice\n\n```python\nscore = 0\nscore += 10   # Player earns 10 points\nscore += 25   # Player earns 25 more\nscore -= 5    # Player loses 5 points\nprint(score)  # 30\n```\n\n## Common Use: Counters and Accumulators\n\n```python\n# Counting\ncount = 0\ncount += 1\ncount += 1\ncount += 1\nprint(count)  # 3\n\n# Running total\ntotal = 0\ntotal += 100\ntotal += 50\ntotal += 25\nprint(total)  # 175\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nSimulate a game:\n1. Start `health = 100`\n2. Take 25 damage (use `-=`)\n3. Heal 10 health (use `+=`)\n4. Print final health (should be 85)\n",
+    "content": "# 📝 Shorthand Math Operations\n\n## What is Compound Assignment?\n\nInstead of writing `x = x + 5`, Python has shorter versions:\n\n| Long Form | Shorthand | Meaning |\n| --- | --- | --- |\n| `x = x + 5` | `x += 5` | Add 5 to x |\n| `x = x - 5` | `x -= 5` | Subtract 5 from x |\n| `x = x * 5` | `x *= 5` | Multiply x by 5 |\n| `x = x / 5` | `x /= 5` | Divide x by 5 |\n| `x = x ** 2` | `x **= 2` | Square x |\n\n## Why Use Shorthand?\n\n1. Less typing\n2. Clearer intent (you're modifying, not replacing)\n3. Industry standard practice\n\n```python\nscore = 0\nscore += 10   # Player earns 10 points\nscore += 25   # Player earns 25 more\nscore -= 5    # Player loses 5 points\nprint(score)  # 30\n```\n\n## Common Use: Counters and Accumulators\n\n```python\n# Counting\ncount = 0\ncount += 1\ncount += 1\ncount += 1\nprint(count)  # 3\n\n# Running total\ntotal = 0\ntotal += 100\ntotal += 50\ntotal += 25\nprint(total)  # 175\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nSimulate a game:\n1. Start `health = 100`\n2. Take 25 damage (use `-=`)\n3. Heal 10 health (use `+=`)\n4. Print final health (should be 85)\n\n## In-place updates\n`score = score + 1` and `score += 1` both update the **same memory cell**.\n",
     "starter_code": "# Start with full health\nhealth = 100\n\n# Take 25 damage\n\n\n# Heal 10 health\n\n\n# Print final health\n",
     "solution_code": "# Start with full health\nhealth = 100\n\n# Take 25 damage\nhealth -= 25\n\n# Heal 10 health\nhealth += 10\n\n# Print final health\nprint(health)",
     "chapter_id": 1,
@@ -383,7 +413,42 @@
     ],
     "interaction_confidence": 0.92,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "memory_machine",
+        "title": "Compound assignment updates in place",
+        "slots": [
+          "score"
+        ],
+        "steps": [
+          {
+            "label": "score = 5",
+            "slot": "score",
+            "value": 5
+          },
+          {
+            "label": "score = score + 1",
+            "slot": "score",
+            "value": 6
+          },
+          {
+            "label": "score += 1",
+            "slot": "score",
+            "value": 7
+          }
+        ]
+      },
+      {
+        "type": "output_diff",
+        "title": "Final score after two updates",
+        "expected": "7",
+        "actualVar": "score"
+      }
+    ],
+    "gap_ids": [
+      "B2-FP"
+    ]
   },
   "12": {
     "id": 12,
@@ -568,7 +633,7 @@
   "16": {
     "id": 16,
     "title": "Using range()",
-    "content": "# 📊 The range() Function\n\n## What is range()?\n\n`range()` generates a sequence of numbers. It's perfect when you need to repeat something a specific number of times.\n\n```python\nfor i in range(5):\n    print(i)\n# Output: 0, 1, 2, 3, 4\n```\n\n## Why Start at 0?\n\nPython (like most languages) uses **zero-based indexing**. This means counting starts at 0, not 1.\n\n```python\nrange(5)  # Generates: 0, 1, 2, 3, 4 (that's 5 numbers!)\n```\n\n## Common Pattern: Repeat N Times\n\nIf you just want to repeat something:\n\n```python\nfor i in range(3):\n    print(\"Hello!\")\n# Output: Hello! Hello! Hello!\n```\n\n## range() Returns a Special Object\n\nNote: `range()` doesn't create a list immediately (to save memory). But it works in for loops!\n\n```python\nprint(range(5))       # range(0, 5) - the object\nprint(list(range(5))) # [0, 1, 2, 3, 4] - converted to list\n```\n\n---\n\n\n\n## Try It Yourself\n\nAdjust the loop bound:\n\n<variableslider name=\"loop_bound\" min=\"1\" max=\"10\" initial=\"5\" label=\"Loop iterations\"></variableslider>\n\n## 🎯 Your Task\n\nUse `range(5)` to print numbers 0 through 4, each on a new line.\n",
+    "content": "# 📊 The range() Function\n\n## What is range()?\n\n`range()` generates a sequence of numbers. It's perfect when you need to repeat something a specific number of times.\n\n```python\nfor i in range(5):\n    print(i)\n# Output: 0, 1, 2, 3, 4\n```\n\n## Why Start at 0?\n\nPython (like most languages) uses **zero-based indexing**. This means counting starts at 0, not 1.\n\n```python\nrange(5)  # Generates: 0, 1, 2, 3, 4 (that's 5 numbers!)\n```\n\n## Common Pattern: Repeat N Times\n\nIf you just want to repeat something:\n\n```python\nfor i in range(3):\n    print(\"Hello!\")\n# Output: Hello! Hello! Hello!\n```\n\n## range() Returns a Special Object\n\nNote: `range()` doesn't create a list immediately (to save memory). But it works in for loops!\n\n```python\nprint(range(5))       # range(0, 5) - the object\nprint(list(range(5))) # [0, 1, 2, 3, 4] - converted to list\n```\n\n---\n\n\n\n## Try It Yourself\n\nAdjust the loop bound:\n\n<variableslider name=\"loop_bound\" min=\"1\" max=\"10\" initial=\"5\" label=\"Loop iterations\"></variableslider>\n\n## 🎯 Your Task\n\nUse `range(5)` to print numbers 0 through 4, each on a new line.\n\n## Start, stop, step\n`range(start, stop, step)` generates a sequence that **stops before** the stop value.\n",
     "starter_code": "# Print 0 through 4 using range\n",
     "solution_code": "# Print 0 through 4 using range\nfor i in range(5):\n    print(i)",
     "chapter_id": 2,
@@ -584,7 +649,65 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "step_executor",
+        "code": "for i in range(2, 7, 2):\\n    print(i)",
+        "steps": [
+          {
+            "line": 1,
+            "description": "First value from range",
+            "stateChanges": {
+              "i": 2
+            }
+          },
+          {
+            "line": 2,
+            "description": "Print 2"
+          },
+          {
+            "line": 1,
+            "description": "Next value",
+            "stateChanges": {
+              "i": 4
+            }
+          },
+          {
+            "line": 2,
+            "description": "Print 4"
+          },
+          {
+            "line": 1,
+            "description": "Next value",
+            "stateChanges": {
+              "i": 6
+            }
+          },
+          {
+            "line": 2,
+            "description": "Print 6"
+          }
+        ]
+      },
+      {
+        "type": "state_inspector",
+        "title": "Current i",
+        "filter": [
+          "i"
+        ],
+        "showTypes": true
+      },
+      {
+        "type": "output_diff",
+        "title": "Last value produced by range(2, 7, 2)",
+        "expected": "6",
+        "actualVar": "i"
+      }
+    ],
+    "gap_ids": [
+      "B2-FP"
+    ]
   },
   "17": {
     "title": "range() with Start and End",
@@ -711,7 +834,7 @@
   "22": {
     "id": 22,
     "title": "If Statements",
-    "content": "# 🎯 If Statements: Making Decisions\n\n## What is an If Statement?\n\nAn `if` statement lets your code make decisions. It runs code ONLY when a condition is True.\n\n## Real-World Analogy\n\nThink of a bouncer at a club:\n- **IF** you're 21 or older → you can enter\n- Otherwise → you're turned away\n\nIn Python:\n```python\nage = 25\nif age >= 21:\n    print(\"Welcome!\")\n```\n\n## The Basic Syntax\n\n```python\nif condition:\n    # This code runs if condition is True\n    # Notice the indentation!\n```\n\n![If Flowchart](/Python-Game-2/assets/python-diagrams/flowchart_if.png)\n\n**Important**: The colon `:` and indentation are required!\n\n## How Python Evaluates Conditions\n\nPython checks if the condition is `True` or `False`:\n\n```python\nage = 20\nif age >= 18:  # 20 >= 18 is True\n    print(\"You're an adult!\")  # This runs!\n\nif age >= 21:  # 20 >= 21 is False\n    print(\"You can drink!\")  # This does NOT run\n```\n\n---\n\n\n\n## Experiment\n\nModify the condition value:\n\n<livecodeblock initialcode=\"{sample_code}\" language=\"python\" highlightline=\"1\"></livecodeblock>\n\n## 🎯 Your Task\n\nGiven `score = 85`:\n- If score >= 70, print `\"Pass\"`\n",
+    "content": "# 🎯 If Statements: Making Decisions\n\n## What is an If Statement?\n\nAn `if` statement lets your code make decisions. It runs code ONLY when a condition is True.\n\n## Real-World Analogy\n\nThink of a bouncer at a club:\n- **IF** you're 21 or older → you can enter\n- Otherwise → you're turned away\n\nIn Python:\n```python\nage = 25\nif age >= 21:\n    print(\"Welcome!\")\n```\n\n## The Basic Syntax\n\n```python\nif condition:\n    # This code runs if condition is True\n    # Notice the indentation!\n```\n\n![If Flowchart](/Python-Game-2/assets/python-diagrams/flowchart_if.png)\n\n**Important**: The colon `:` and indentation are required!\n\n## How Python Evaluates Conditions\n\nPython checks if the condition is `True` or `False`:\n\n```python\nage = 20\nif age >= 18:  # 20 >= 18 is True\n    print(\"You're an adult!\")  # This runs!\n\nif age >= 21:  # 20 >= 21 is False\n    print(\"You can drink!\")  # This does NOT run\n```\n\n---\n\n\n\n## Experiment\n\nModify the condition value:\n\n<livecodeblock initialcode=\"{sample_code}\" language=\"python\" highlightline=\"1\"></livecodeblock>\n\n## 🎯 Your Task\n\nGiven `score = 85`:\n- If score >= 70, print `\"Pass\"`\n\n## Choose the true path\nPick the input that makes the condition evaluate to **True**.\n",
     "starter_code": "score = 85\n\n# If score >= 70, print Pass\n",
     "solution_code": "score = 85\n\n# If score >= 70, print Pass\nif score >= 70:\n    print(\"Pass\")",
     "chapter_id": 3,
@@ -724,7 +847,35 @@
     ],
     "interaction_confidence": 0.84,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "conditional_path",
+        "prompt": "Condition: age >= 21",
+        "choices": [
+          {
+            "label": "age = 25",
+            "outcome": "true"
+          },
+          {
+            "label": "age = 17",
+            "outcome": "false"
+          }
+        ],
+        "trueLabel": "Welcome!",
+        "falseLabel": "Access denied",
+        "resultVar": "if_result"
+      },
+      {
+        "type": "output_diff",
+        "title": "Did you choose a True case?",
+        "expected": "true",
+        "actualVar": "if_result"
+      }
+    ],
+    "gap_ids": [
+      "B2-FP"
+    ]
   },
   "23": {
     "id": 23,
@@ -1029,7 +1180,7 @@
   "32": {
     "id": 32,
     "title": "Function Parameters",
-    "content": "# 📥 Parameters: Passing Data to Functions\n\n## What are Parameters?\n\nParameters let you pass data INTO a function. They're like ingredients for a recipe - different ingredients, different results!\n\n```python\ndef greet(name):  # 'name' is a parameter\n    print(f\"Hello, {name}!\")\n\ngreet(\"Alice\")  # Output: Hello, Alice!\ngreet(\"Bob\")    # Output: Hello, Bob!\n```\n\n## Parameters vs Arguments\n\n| Term | Definition |\n| --- | --- |\n| **Parameter** | Variable in function definition |\n| **Argument** | Actual value passed when calling |\n\n```python\ndef greet(name):    # 'name' is the PARAMETER\n    print(f\"Hello, {name}!\")\n\ngreet(\"Alice\")      # \"Alice\" is the ARGUMENT\n```\n\n## Multiple Parameters\n\nFunctions can have multiple parameters:\n\n```python\ndef add(a, b):\n    result = a + b\n    print(result)\n\nadd(5, 3)  # Output: 8\nadd(10, 20)  # Output: 30\n```\n\n---\n\n\n\n## Arrange the Code\n\n<parsonspuzzle correctorder='[\"{line1}\", \"{line2}\", \"{line3}\"]'></parsonspuzzle>\n\n## 🎯 Your Task\n\nDefine `greet(name)` that prints `\"Welcome, {name}!\"`.\nCall it with `\"Python\"`.\n",
+    "content": "# 📥 Parameters: Passing Data to Functions\n\n## What are Parameters?\n\nParameters let you pass data INTO a function. They're like ingredients for a recipe - different ingredients, different results!\n\n```python\ndef greet(name):  # 'name' is a parameter\n    print(f\"Hello, {name}!\")\n\ngreet(\"Alice\")  # Output: Hello, Alice!\ngreet(\"Bob\")    # Output: Hello, Bob!\n```\n\n## Parameters vs Arguments\n\n| Term | Definition |\n| --- | --- |\n| **Parameter** | Variable in function definition |\n| **Argument** | Actual value passed when calling |\n\n```python\ndef greet(name):    # 'name' is the PARAMETER\n    print(f\"Hello, {name}!\")\n\ngreet(\"Alice\")      # \"Alice\" is the ARGUMENT\n```\n\n## Multiple Parameters\n\nFunctions can have multiple parameters:\n\n```python\ndef add(a, b):\n    result = a + b\n    print(result)\n\nadd(5, 3)  # Output: 8\nadd(10, 20)  # Output: 30\n```\n\n---\n\n\n\n## Arrange the Code\n\n<parsonspuzzle correctorder='[\"{line1}\", \"{line2}\", \"{line3}\"]'></parsonspuzzle>\n\n## 🎯 Your Task\n\nDefine `greet(name)` that prints `\"Welcome, {name}!\"`.\nCall it with `\"Python\"`.\n\n## Parameters in action\nArguments flow into parameters, then the function returns a result.\n",
     "starter_code": "# Define greet with name parameter\n\n\n# Call with \"Python\"\n",
     "solution_code": "# Define greet with name parameter\ndef greet(name):\n    print(f\"Welcome, {name}!\")\n\n# Call with \"Python\"\ngreet(\"Python\")",
     "chapter_id": 4,
@@ -1043,7 +1194,61 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "step_executor",
+        "code": "def add(a, b):\\n    total = a + b\\n    return total\\n\\nresult = add(2, 5)",
+        "steps": [
+          {
+            "line": 1,
+            "description": "Define add(a, b)"
+          },
+          {
+            "line": 5,
+            "description": "Call add(2, 5)",
+            "stateChanges": {
+              "a": 2,
+              "b": 5
+            }
+          },
+          {
+            "line": 2,
+            "description": "Compute total",
+            "stateChanges": {
+              "total": 7
+            }
+          },
+          {
+            "line": 3,
+            "description": "Return total",
+            "stateChanges": {
+              "result": 7
+            }
+          }
+        ]
+      },
+      {
+        "type": "state_inspector",
+        "title": "Parameters and result",
+        "filter": [
+          "a",
+          "b",
+          "total",
+          "result"
+        ],
+        "showTypes": true
+      },
+      {
+        "type": "output_diff",
+        "title": "Result of add(2, 5)",
+        "expected": "7",
+        "actualVar": "result"
+      }
+    ],
+    "gap_ids": [
+      "B2-FP"
+    ]
   },
   "33": {
     "id": 33,
@@ -2342,7 +2547,7 @@
   "98": {
     "id": 98,
     "title": "Range",
-    "content": "# 📏 Range: Spread of Your Data\n\n## What is the Range?\n\nThe **range** is the simplest measure of spread—it's just the difference between the largest and smallest values.\n\n```\nRange = Maximum - Minimum\n```\n\n## Real-World Analogy\n\nIf temperatures this week ranged from 60°F to 85°F, the range is 25°F. This tells you how much the temperature varied.\n\n## How to Calculate\n\n```python\ndata = [10, 25, 15, 30, 20]\nrange_value = max(data) - min(data)  # 30 - 10 = 20\n```\n\n## Using NumPy\n\n```python\nimport numpy as np\ndata = np.array([10, 25, 15, 30, 20])\nrange_value = np.ptp(data)  # Peak-to-peak = 20\n# Or: np.max(data) - np.min(data)\n```\n\n## Limitations\n\n⚠️ Range is sensitive to outliers!\n- Data: [10, 15, 20, 25, 30] → Range = 20\n- Data: [10, 15, 20, 25, 100] → Range = 90 (misleading!)\n\n## Better Alternatives\n\nFor more robust spread measures, consider:\n- **Interquartile Range (IQR)**\n- **Standard Deviation**\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCalculate the range of daily temperatures.",
+    "content": "# 📏 Range: Spread of Your Data\n\n## What is the Range?\n\nThe **range** is the simplest measure of spread—it's just the difference between the largest and smallest values.\n\n```\nRange = Maximum - Minimum\n```\n\n## Real-World Analogy\n\nIf temperatures this week ranged from 60°F to 85°F, the range is 25°F. This tells you how much the temperature varied.\n\n## How to Calculate\n\n```python\ndata = [10, 25, 15, 30, 20]\nrange_value = max(data) - min(data)  # 30 - 10 = 20\n```\n\n## Using NumPy\n\n```python\nimport numpy as np\ndata = np.array([10, 25, 15, 30, 20])\nrange_value = np.ptp(data)  # Peak-to-peak = 20\n# Or: np.max(data) - np.min(data)\n```\n\n## Limitations\n\n⚠️ Range is sensitive to outliers!\n- Data: [10, 15, 20, 25, 30] → Range = 20\n- Data: [10, 15, 20, 25, 100] → Range = 90 (misleading!)\n\n## Better Alternatives\n\nFor more robust spread measures, consider:\n- **Interquartile Range (IQR)**\n- **Standard Deviation**\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCalculate the range of daily temperatures.\n\n## Outliers change the range\nPick the dataset with the **larger** range (the one with the outlier).\n",
     "starter_code": "import numpy as np\n\n# Daily high temperatures (Fahrenheit)\ntemps = np.array([72, 75, 68, 82, 79, 85, 71, 88, 69, 74])\n\n# Calculate range\ntemp_range = None  # Your code here\n\nprint(f\"Temperature range: {temp_range}°F\")",
     "solution_code": "import numpy as np\n\n# Daily high temperatures (Fahrenheit)\ntemps = np.array([72, 75, 68, 82, 79, 85, 71, 88, 69, 74])\n\n# Calculate range\ntemp_range = np.ptp(temps)  # or np.max(temps) - np.min(temps)\n\nprint(f\"Temperature range: {temp_range}°F\")",
     "chapter_id": 13,
@@ -2355,7 +2560,90 @@
     ],
     "interaction_confidence": 0.92,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "data_transform",
+        "title": "Range with and without an outlier",
+        "columns": [
+          "value"
+        ],
+        "beforeRows": [
+          {
+            "value": 10
+          },
+          {
+            "value": 15
+          },
+          {
+            "value": 20
+          },
+          {
+            "value": 25
+          },
+          {
+            "value": 30
+          }
+        ],
+        "filters": [
+          {
+            "id": "base",
+            "label": "Base data",
+            "rows": [
+              {
+                "value": 10
+              },
+              {
+                "value": 15
+              },
+              {
+                "value": 20
+              },
+              {
+                "value": 25
+              },
+              {
+                "value": 30
+              }
+            ]
+          },
+          {
+            "id": "outlier",
+            "label": "With outlier",
+            "rows": [
+              {
+                "value": 10
+              },
+              {
+                "value": 15
+              },
+              {
+                "value": 20
+              },
+              {
+                "value": 25
+              },
+              {
+                "value": 30
+              },
+              {
+                "value": 100
+              }
+            ]
+          }
+        ],
+        "resultVar": "range_rows"
+      },
+      {
+        "type": "output_diff",
+        "title": "Select the larger-range dataset (row count)",
+        "expected": "6",
+        "actualVar": "range_rows"
+      }
+    ],
+    "gap_ids": [
+      "B2-FP"
+    ]
   },
   "99": {
     "id": 99,
@@ -3201,7 +3489,7 @@
     "title": "Duplicates in Specific Columns",
     "chapter_id": 96,
     "chapter_title": "Data Cleaning",
-    "content": "# 🎯 Duplicates in Specific Columns\n\n## Definition\nSometimes you want to find duplicates based on only CERTAIN columns, not all columns.\n\n## When to Use Subset?\n\n| Scenario | Approach |\n| --- | --- |\n| Same person, different info | Check 'email' only |\n| Same product, different dates | Check 'product_id' only |\n| Exact duplicate rows | Check all columns |\n\n## Real-World Analogy\n\nCustomer database with email duplicates:\n- Same email might have different addresses (they moved!)\n- We want unique CUSTOMERS (by email), not unique rows\n\n## Using subset Parameter\n\n```python\nimport pandas as pd\n\ndf = pd.DataFrame({\n    'email': ['a@b.com', 'c@d.com', 'a@b.com'],\n    'name': ['Alice', 'Bob', 'Alice Smith'],  # Names differ!\n    'city': ['NYC', 'LA', 'Boston']\n})\n\n# Duplicates considering ALL columns → None (rows differ)\nprint(df.duplicated().sum())  # 0\n\n# Duplicates considering only email\nprint(df.duplicated(subset=['email']).sum())  # 1\n\n# Keep only unique emails\ndf_unique = df.drop_duplicates(subset=['email'])\n```\n\n## Key Vocabulary\n\n| Term | Meaning |\n| --- | --- |\n| **subset** | List of columns to check for duplicates |\n| **keep='first'** | Keep first occurrence of duplicate |\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nRemove duplicates based only on the 'product' column (keep first). Print the result.\n",
+    "content": "# 🎯 Duplicates in Specific Columns\n\n## Definition\nSometimes you want to find duplicates based on only CERTAIN columns, not all columns.\n\n## When to Use Subset?\n\n| Scenario | Approach |\n| --- | --- |\n| Same person, different info | Check 'email' only |\n| Same product, different dates | Check 'product_id' only |\n| Exact duplicate rows | Check all columns |\n\n## Real-World Analogy\n\nCustomer database with email duplicates:\n- Same email might have different addresses (they moved!)\n- We want unique CUSTOMERS (by email), not unique rows\n\n## Using subset Parameter\n\n```python\nimport pandas as pd\n\ndf = pd.DataFrame({\n    'email': ['a@b.com', 'c@d.com', 'a@b.com'],\n    'name': ['Alice', 'Bob', 'Alice Smith'],  # Names differ!\n    'city': ['NYC', 'LA', 'Boston']\n})\n\n# Duplicates considering ALL columns → None (rows differ)\nprint(df.duplicated().sum())  # 0\n\n# Duplicates considering only email\nprint(df.duplicated(subset=['email']).sum())  # 1\n\n# Keep only unique emails\ndf_unique = df.drop_duplicates(subset=['email'])\n```\n\n## Key Vocabulary\n\n| Term | Meaning |\n| --- | --- |\n| **subset** | List of columns to check for duplicates |\n| **keep='first'** | Keep first occurrence of duplicate |\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nRemove duplicates based only on the 'product' column (keep first). Print the result.\n\n## Dedupe by subset\nWhen you dedupe on `email`, rows with the same email collapse into one.\n",
     "starter_code": "import pandas as pd\n\ndf = pd.DataFrame({\n    'product': ['Apple', 'Banana', 'Apple'],\n    'price': [1.00, 0.50, 1.25],\n    'store': ['A', 'B', 'C']\n})\n\n# Remove duplicates by product only\n",
     "solution_code": "import pandas as pd\n\ndf = pd.DataFrame({\n    'product': ['Apple', 'Banana', 'Apple'],\n    'price': [1.00, 0.50, 1.25],\n    'store': ['A', 'B', 'C']\n})\n\n# Remove duplicates by product only\ndf_unique = df.drop_duplicates(subset=['product'])\nprint(df_unique)",
     "order": 9,
@@ -3215,7 +3503,95 @@
     ],
     "interaction_confidence": 0.84,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "data_transform",
+        "title": "Duplicates by email",
+        "columns": [
+          "email",
+          "city"
+        ],
+        "beforeRows": [
+          {
+            "email": "ava@site.com",
+            "city": "Boston"
+          },
+          {
+            "email": "ava@site.com",
+            "city": "Austin"
+          },
+          {
+            "email": "kai@site.com",
+            "city": "Denver"
+          },
+          {
+            "email": "min@site.com",
+            "city": "Denver"
+          },
+          {
+            "email": "kai@site.com",
+            "city": "Boulder"
+          }
+        ],
+        "filters": [
+          {
+            "id": "all_rows",
+            "label": "All rows",
+            "rows": [
+              {
+                "email": "ava@site.com",
+                "city": "Boston"
+              },
+              {
+                "email": "ava@site.com",
+                "city": "Austin"
+              },
+              {
+                "email": "kai@site.com",
+                "city": "Denver"
+              },
+              {
+                "email": "min@site.com",
+                "city": "Denver"
+              },
+              {
+                "email": "kai@site.com",
+                "city": "Boulder"
+              }
+            ]
+          },
+          {
+            "id": "by_email",
+            "label": "Deduped by email",
+            "rows": [
+              {
+                "email": "ava@site.com",
+                "city": "Boston"
+              },
+              {
+                "email": "kai@site.com",
+                "city": "Denver"
+              },
+              {
+                "email": "min@site.com",
+                "city": "Denver"
+              }
+            ]
+          }
+        ],
+        "resultVar": "unique_rows"
+      },
+      {
+        "type": "output_diff",
+        "title": "Unique customers after dedupe",
+        "expected": "3",
+        "actualVar": "unique_rows"
+      }
+    ],
+    "gap_ids": [
+      "B2-FP"
+    ]
   },
   "141": {
     "id": 141,
@@ -3869,7 +4245,7 @@
   "175": {
     "title": "Nested Lookup",
     "chapter_title": "Data Structures",
-    "content": "# 🔍 Nested Data Structures: Deep Lookups\n\n## Why Nested Structures?\n\nReal data is rarely flat. APIs, configs, and databases return nested structures:\n\n```python\nuser = {\n    \"profile\": {\n        \"name\": \"Alice\",\n        \"settings\": {\n            \"theme\": \"dark\",\n            \"notifications\": True\n        }\n    }\n}\n```\n\n## Accessing Nested Data\n\n```python\n# Step by step\nprofile = user[\"profile\"]\nsettings = profile[\"settings\"]\ntheme = settings[\"theme\"]\n\n# All at once\ntheme = user[\"profile\"][\"settings\"][\"theme\"]\n```\n\n## Safe Access (Avoid KeyError)\n\n```python\n# Risky - crashes if key missing\ntheme = user[\"profile\"][\"settings\"][\"theme\"]\n\n# Safe with .get()\ntheme = user.get(\"profile\", {}).get(\"settings\", {}).get(\"theme\", \"light\")\n\n# Or with try/except\ntry:\n    theme = user[\"profile\"][\"settings\"][\"theme\"]\nexcept KeyError:\n    theme = \"light\"\n```\n\n## Nested Lists\n\n```python\nmatrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\n\n# Access: matrix[row][column]\ncenter = matrix[1][1]  # 5\n```\n\n## Real-World Example\n\n```python\n# API response\nresponse = {\n    \"data\": {\n        \"users\": [\n            {\"id\": 1, \"name\": \"Alice\"},\n            {\"id\": 2, \"name\": \"Bob\"}\n        ]\n    }\n}\n\n# Get first user's name\nfirst_user_name = response[\"data\"][\"users\"][0][\"name\"]  # \"Alice\"\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nNavigate a nested structure to extract specific values.",
+    "content": "# 🔍 Nested Data Structures: Deep Lookups\n\n## Why Nested Structures?\n\nReal data is rarely flat. APIs, configs, and databases return nested structures:\n\n```python\nuser = {\n    \"profile\": {\n        \"name\": \"Alice\",\n        \"settings\": {\n            \"theme\": \"dark\",\n            \"notifications\": True\n        }\n    }\n}\n```\n\n## Accessing Nested Data\n\n```python\n# Step by step\nprofile = user[\"profile\"]\nsettings = profile[\"settings\"]\ntheme = settings[\"theme\"]\n\n# All at once\ntheme = user[\"profile\"][\"settings\"][\"theme\"]\n```\n\n## Safe Access (Avoid KeyError)\n\n```python\n# Risky - crashes if key missing\ntheme = user[\"profile\"][\"settings\"][\"theme\"]\n\n# Safe with .get()\ntheme = user.get(\"profile\", {}).get(\"settings\", {}).get(\"theme\", \"light\")\n\n# Or with try/except\ntry:\n    theme = user[\"profile\"][\"settings\"][\"theme\"]\nexcept KeyError:\n    theme = \"light\"\n```\n\n## Nested Lists\n\n```python\nmatrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\n\n# Access: matrix[row][column]\ncenter = matrix[1][1]  # 5\n```\n\n## Real-World Example\n\n```python\n# API response\nresponse = {\n    \"data\": {\n        \"users\": [\n            {\"id\": 1, \"name\": \"Alice\"},\n            {\"id\": 2, \"name\": \"Bob\"}\n        ]\n    }\n}\n\n# Get first user's name\nfirst_user_name = response[\"data\"][\"users\"][0][\"name\"]  # \"Alice\"\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nNavigate a nested structure to extract specific values.\n\n## Trace the lookup\nAccess each layer one step at a time to avoid mistakes.\n",
     "starter_code": "# Complex nested structure\ndata = {\n    \"company\": \"TechCorp\",\n    \"departments\": {\n        \"engineering\": {\n            \"head\": \"Alice\",\n            \"teams\": {\n                \"frontend\": [\"Bob\", \"Charlie\"],\n                \"backend\": [\"Diana\", \"Eve\"]\n            }\n        },\n        \"sales\": {\n            \"head\": \"Frank\",\n            \"teams\": {\n                \"enterprise\": [\"Grace\", \"Henry\"]\n            }\n        }\n    }\n}\n\n# Navigate to extract values\ncompany = data[\"company\"]\neng_head = data[\"departments\"][\"engineering\"][\"head\"]\nfrontend_team = data[\"departments\"][\"engineering\"][\"teams\"][\"frontend\"]\nfirst_backend = data[\"departments\"][\"engineering\"][\"teams\"][\"backend\"][0]\n\nprint(f\"Company: {company}\")\nprint(f\"Engineering Head: {eng_head}\")\nprint(f\"Frontend Team: {frontend_team}\")\nprint(f\"First Backend Dev: {first_backend}\")",
     "solution_code": "data = {\n    \"company\": \"TechCorp\",\n    \"departments\": {\n        \"engineering\": {\"head\": \"Alice\", \"teams\": {\"backend\": [\"Diana\", \"Eve\"]}}\n    }\n}\n\nprint(f\"Head: {data['departments']['engineering']['head']}\")\nprint(f\"Backend[0]: {data['departments']['engineering']['teams']['backend'][0]}\")",
     "concept_tags": [
@@ -3885,7 +4261,74 @@
     "interaction_confidence": 0.76,
     "manual_review": true,
     "prediction_justification": null,
-    "id": 175
+    "id": 175,
+    "interaction_plan": [
+      {
+        "type": "step_executor",
+        "code": "user = {\"profile\": {\"settings\": {\"theme\": \"dark\"}}}\\nprofile = user[\"profile\"]\\nsettings = profile[\"settings\"]\\ntheme = settings[\"theme\"]",
+        "steps": [
+          {
+            "line": 1,
+            "description": "Create nested data",
+            "stateChanges": {
+              "user": {
+                "profile": {
+                  "settings": {
+                    "theme": "dark"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "line": 2,
+            "description": "Grab profile",
+            "stateChanges": {
+              "profile": {
+                "settings": {
+                  "theme": "dark"
+                }
+              }
+            }
+          },
+          {
+            "line": 3,
+            "description": "Grab settings",
+            "stateChanges": {
+              "settings": {
+                "theme": "dark"
+              }
+            }
+          },
+          {
+            "line": 4,
+            "description": "Read theme",
+            "stateChanges": {
+              "theme": "dark"
+            }
+          }
+        ]
+      },
+      {
+        "type": "state_inspector",
+        "title": "Lookup trail",
+        "filter": [
+          "profile",
+          "settings",
+          "theme"
+        ],
+        "showTypes": true
+      },
+      {
+        "type": "output_diff",
+        "title": "Final theme value",
+        "expected": "dark",
+        "actualVar": "theme"
+      }
+    ],
+    "gap_ids": [
+      "B2-FP"
+    ]
   },
   "176": {
     "title": "Unique Elements",
@@ -4223,7 +4666,7 @@
   "194": {
     "title": "Conditional Replace",
     "chapter_title": "NumPy",
-    "content": "# 🔄 Conditional Replacement: Modify Data Based on Conditions\n\n## Why Conditional Replace?\n\nSometimes you need to change values that meet certain criteria:\n- Cap outliers at a maximum\n- Replace negative values with zero\n- Clean up invalid data\n\n## Using np.where\n\n```python\nimport numpy as np\n\narr = np.array([1, -2, 3, -4, 5])\n\n# Replace negative values with 0\nresult = np.where(arr < 0, 0, arr)\n# [1, 0, 3, 0, 5]\n```\n\n## np.where Syntax\n\n```python\nnp.where(condition, value_if_true, value_if_false)\n```\n\n## Examples\n\n```python\n# Cap values at 100\nscores = np.array([85, 110, 95, 130, 78])\ncapped = np.where(scores > 100, 100, scores)\n# [85, 100, 95, 100, 78]\n\n# Binary classification\nages = np.array([15, 22, 17, 30, 16])\nadult = np.where(ages >= 18, 'adult', 'minor')\n# ['minor', 'adult', 'minor', 'adult', 'minor']\n```\n\n## Using Boolean Indexing\n\nAlternative approach:\n```python\narr = np.array([1, -2, 3, -4, 5])\n\n# Modify in place\narr[arr < 0] = 0  # [1, 0, 3, 0, 5]\n```\n\n## Clipping (Common Pattern)\n\n```python\n# Keep values between min and max\narr = np.array([5, 15, 25, 35, 45])\nnp.clip(arr, 10, 30)  # [10, 15, 25, 30, 30]\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nReplace values in an array based on conditions.",
+    "content": "# 🔄 Conditional Replacement: Modify Data Based on Conditions\n\n## Why Conditional Replace?\n\nSometimes you need to change values that meet certain criteria:\n- Cap outliers at a maximum\n- Replace negative values with zero\n- Clean up invalid data\n\n## Using np.where\n\n```python\nimport numpy as np\n\narr = np.array([1, -2, 3, -4, 5])\n\n# Replace negative values with 0\nresult = np.where(arr < 0, 0, arr)\n# [1, 0, 3, 0, 5]\n```\n\n## np.where Syntax\n\n```python\nnp.where(condition, value_if_true, value_if_false)\n```\n\n## Examples\n\n```python\n# Cap values at 100\nscores = np.array([85, 110, 95, 130, 78])\ncapped = np.where(scores > 100, 100, scores)\n# [85, 100, 95, 100, 78]\n\n# Binary classification\nages = np.array([15, 22, 17, 30, 16])\nadult = np.where(ages >= 18, 'adult', 'minor')\n# ['minor', 'adult', 'minor', 'adult', 'minor']\n```\n\n## Using Boolean Indexing\n\nAlternative approach:\n```python\narr = np.array([1, -2, 3, -4, 5])\n\n# Modify in place\narr[arr < 0] = 0  # [1, 0, 3, 0, 5]\n```\n\n## Clipping (Common Pattern)\n\n```python\n# Keep values between min and max\narr = np.array([5, 15, 25, 35, 45])\nnp.clip(arr, 10, 30)  # [10, 15, 25, 30, 30]\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nReplace values in an array based on conditions.\n\n## See what changes\nFocus on the values that actually change when the condition matches.\n",
     "starter_code": "import numpy as np\n\n# Test scores (some invalid)\nscores = np.array([85, -5, 105, 92, 78, 110, -10, 88])\n\nprint(\"Original scores:\", scores)\n\n# Replace negative scores with 0\n# Replace scores over 100 with 100\ncleaned = np.where(scores < 0, 0, scores)\ncleaned = np.where(cleaned > 100, 100, cleaned)\n\nprint(\"Cleaned scores:\", cleaned)\n\n# Alternative using clip\nclipped = np.clip(scores, 0, 100)\nprint(\"Clipped scores:\", clipped)",
     "solution_code": "import numpy as np\n\nscores = np.array([85, -5, 105, 92])\ncleaned = np.clip(scores, 0, 100)\nprint(f\"Cleaned: {cleaned}\")",
     "concept_tags": [
@@ -4237,7 +4680,78 @@
     "interaction_confidence": 0.92,
     "manual_review": true,
     "prediction_justification": null,
-    "id": 194
+    "id": 194,
+    "interaction_plan": [
+      {
+        "type": "data_transform",
+        "title": "Values replaced by np.where",
+        "columns": [
+          "value"
+        ],
+        "beforeRows": [
+          {
+            "value": 1
+          },
+          {
+            "value": -2
+          },
+          {
+            "value": 3
+          },
+          {
+            "value": -4
+          },
+          {
+            "value": 5
+          }
+        ],
+        "filters": [
+          {
+            "id": "original",
+            "label": "Original values",
+            "rows": [
+              {
+                "value": 1
+              },
+              {
+                "value": -2
+              },
+              {
+                "value": 3
+              },
+              {
+                "value": -4
+              },
+              {
+                "value": 5
+              }
+            ]
+          },
+          {
+            "id": "replaced_only",
+            "label": "Replaced values only",
+            "rows": [
+              {
+                "value": 0
+              },
+              {
+                "value": 0
+              }
+            ]
+          }
+        ],
+        "resultVar": "replaced_count"
+      },
+      {
+        "type": "output_diff",
+        "title": "How many values were replaced?",
+        "expected": "2",
+        "actualVar": "replaced_count"
+      }
+    ],
+    "gap_ids": [
+      "B2-FP"
+    ]
   },
   "195": {
     "title": "Matrix Operations",
@@ -4405,7 +4919,7 @@
   "204": {
     "title": "Data Reshaping",
     "chapter_title": "Pandas",
-    "content": "# 🔄 Reshaping Data: Melt and Pivot\n\n## Wide vs Long Format\n\n**Wide format** (good for reading):\n```\nStudent | Math | Science | English\nAlice   | 90   | 85      | 92\nBob     | 78   | 82      | 88\n```\n\n**Long format** (good for analysis):\n```\nStudent | Subject | Score\nAlice   | Math    | 90\nAlice   | Science | 85\nAlice   | English | 92\nBob     | Math    | 78\n...\n```\n\n## Converting Wide to Long: melt()\n\n```python\nlong = df.melt(\n    id_vars=['Student'],        # Keep these columns\n    value_vars=['Math', 'Science', 'English'],  # Unpivot these\n    var_name='Subject',         # Name for column headers\n    value_name='Score'          # Name for values\n)\n```\n\n## Converting Long to Wide: pivot()\n\n```python\nwide = df.pivot(\n    index='Student',     # Row identifiers\n    columns='Subject',   # New column headers\n    values='Score'       # Values to fill in\n)\n```\n\n## When to Use Which Format\n\n| Format | Best For |\n|--------|----------|\n| Wide | Human reading, small datasets |\n| Long | Visualization, groupby operations, ML |\n\n## Real-World Example\n\n```python\n# Financial data often comes wide\n#   Date | AAPL | GOOGL | MSFT\n# Need long format for analysis\n#   Date | Ticker | Price\n\nlong = stocks.melt(id_vars=['Date'], var_name='Ticker', value_name='Price')\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nReshape grade data from wide to long format for analysis.",
+    "content": "# 🔄 Reshaping Data: Melt and Pivot\n\n## Wide vs Long Format\n\n**Wide format** (good for reading):\n```\nStudent | Math | Science | English\nAlice   | 90   | 85      | 92\nBob     | 78   | 82      | 88\n```\n\n**Long format** (good for analysis):\n```\nStudent | Subject | Score\nAlice   | Math    | 90\nAlice   | Science | 85\nAlice   | English | 92\nBob     | Math    | 78\n...\n```\n\n## Converting Wide to Long: melt()\n\n```python\nlong = df.melt(\n    id_vars=['Student'],        # Keep these columns\n    value_vars=['Math', 'Science', 'English'],  # Unpivot these\n    var_name='Subject',         # Name for column headers\n    value_name='Score'          # Name for values\n)\n```\n\n## Converting Long to Wide: pivot()\n\n```python\nwide = df.pivot(\n    index='Student',     # Row identifiers\n    columns='Subject',   # New column headers\n    values='Score'       # Values to fill in\n)\n```\n\n## When to Use Which Format\n\n| Format | Best For |\n|--------|----------|\n| Wide | Human reading, small datasets |\n| Long | Visualization, groupby operations, ML |\n\n## Real-World Example\n\n```python\n# Financial data often comes wide\n#   Date | AAPL | GOOGL | MSFT\n# Need long format for analysis\n#   Date | Ticker | Price\n\nlong = stocks.melt(id_vars=['Date'], var_name='Ticker', value_name='Price')\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nReshape grade data from wide to long format for analysis.\n\n## Wide vs long shape\nThe long format has **more rows** because each subject becomes its own row.\n",
     "starter_code": "import pandas as pd\n\n# Wide format grades\ngrades_wide = pd.DataFrame({\n    'Student': ['Alice', 'Bob', 'Charlie'],\n    'Math': [90, 78, 85],\n    'Science': [85, 82, 90],\n    'English': [92, 88, 87]\n})\n\nprint(\"Wide format:\")\nprint(grades_wide)\n\n# Convert to long format\ngrades_long = grades_wide.melt(\n    id_vars=['Student'],\n    var_name='Subject',\n    value_name='Score'\n)\n\nprint(\"\\nLong format:\")\nprint(grades_long)",
     "solution_code": "import pandas as pd\n\ngrades_wide = pd.DataFrame({\n    'Student': ['Alice', 'Bob'],\n    'Math': [90, 78],\n    'Science': [85, 82]\n})\n\ngrades_long = grades_wide.melt(id_vars=['Student'], var_name='Subject', value_name='Score')\nprint(grades_long)",
     "concept_tags": [
@@ -4421,7 +4935,114 @@
     "interaction_confidence": 0.68,
     "manual_review": true,
     "prediction_justification": null,
-    "id": 204
+    "id": 204,
+    "interaction_plan": [
+      {
+        "type": "data_transform",
+        "title": "Wide to long reshape",
+        "columns": [
+          "student",
+          "subject",
+          "score"
+        ],
+        "beforeRows": [
+          {
+            "student": "Alice",
+            "subject": "Math",
+            "score": 90
+          },
+          {
+            "student": "Alice",
+            "subject": "Science",
+            "score": 85
+          },
+          {
+            "student": "Alice",
+            "subject": "English",
+            "score": 92
+          },
+          {
+            "student": "Bob",
+            "subject": "Math",
+            "score": 78
+          },
+          {
+            "student": "Bob",
+            "subject": "Science",
+            "score": 82
+          },
+          {
+            "student": "Bob",
+            "subject": "English",
+            "score": 88
+          }
+        ],
+        "filters": [
+          {
+            "id": "wide",
+            "label": "Wide format (2 rows)",
+            "rows": [
+              {
+                "student": "Alice",
+                "subject": "Math, Science, English",
+                "score": "90, 85, 92"
+              },
+              {
+                "student": "Bob",
+                "subject": "Math, Science, English",
+                "score": "78, 82, 88"
+              }
+            ]
+          },
+          {
+            "id": "long",
+            "label": "Long format (6 rows)",
+            "rows": [
+              {
+                "student": "Alice",
+                "subject": "Math",
+                "score": 90
+              },
+              {
+                "student": "Alice",
+                "subject": "Science",
+                "score": 85
+              },
+              {
+                "student": "Alice",
+                "subject": "English",
+                "score": 92
+              },
+              {
+                "student": "Bob",
+                "subject": "Math",
+                "score": 78
+              },
+              {
+                "student": "Bob",
+                "subject": "Science",
+                "score": 82
+              },
+              {
+                "student": "Bob",
+                "subject": "English",
+                "score": 88
+              }
+            ]
+          }
+        ],
+        "resultVar": "shape_rows"
+      },
+      {
+        "type": "output_diff",
+        "title": "Select the long format (row count)",
+        "expected": "6",
+        "actualVar": "shape_rows"
+      }
+    ],
+    "gap_ids": [
+      "B2-FP"
+    ]
   },
   "205": {
     "title": "Multiple Series",

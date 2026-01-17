@@ -43,11 +43,16 @@
     "lesson_id": 11,
     "title": "Compound Assignment",
     "route": "#/lesson/11",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "MemoryMachine",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -66,12 +71,10 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"InteractionPlanRenderer\",\"MemoryMachine\",\"OutputDiff\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "3c6c5756b7",
     "screenshot": "ui_sample_screenshots/lesson-11.png",
-    "issues": [
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 25,
@@ -221,11 +224,17 @@
     "lesson_id": 175,
     "title": "Nested Lookup",
     "route": "#/lesson/175",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "StepExecutor",
+      "StateInspector",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -244,12 +253,10 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"InteractionPlanRenderer\",\"OutputDiff\",\"StateInspector\",\"StepExecutor\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "22e17f4fb7",
     "screenshot": "ui_sample_screenshots/lesson-175.png",
-    "issues": [
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 54,
@@ -316,7 +323,6 @@
     "interaction_fingerprint_id": "ccdba50231",
     "screenshot": "ui_sample_screenshots/lesson-184.png",
     "issues": [
-      "fingerprint_repeated_3x",
       "fingerprint_overused"
     ]
   },
@@ -359,11 +365,17 @@
     "lesson_id": 194,
     "title": "Conditional Replace",
     "route": "#/lesson/194",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "DataTransformAnimator",
+      "VisualTable",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -382,13 +394,10 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"DataTransformAnimator\",\"InteractionPlanRenderer\",\"OutputDiff\",\"VisualTable\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "2951d4bf57",
     "screenshot": "ui_sample_screenshots/lesson-194.png",
-    "issues": [
-      "fingerprint_repeated_3x",
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 70,
@@ -421,7 +430,6 @@
     "interaction_fingerprint_id": "ccdba50231",
     "screenshot": "ui_sample_screenshots/lesson-70.png",
     "issues": [
-      "fingerprint_repeated_3x",
       "fingerprint_overused"
     ]
   },
@@ -429,11 +437,17 @@
     "lesson_id": 204,
     "title": "Data Reshaping",
     "route": "#/lesson/204",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "DataTransformAnimator",
+      "VisualTable",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -452,23 +466,26 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"DataTransformAnimator\",\"InteractionPlanRenderer\",\"OutputDiff\",\"VisualTable\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "2951d4bf57",
     "screenshot": "ui_sample_screenshots/lesson-204.png",
-    "issues": [
-      "fingerprint_repeated_3x",
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 140,
     "title": "Duplicates in Specific Columns",
     "route": "#/lesson/140",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "DataTransformAnimator",
+      "VisualTable",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -487,13 +504,10 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"DataTransformAnimator\",\"InteractionPlanRenderer\",\"OutputDiff\",\"VisualTable\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "2951d4bf57",
     "screenshot": "ui_sample_screenshots/lesson-140.png",
-    "issues": [
-      "fingerprint_repeated_3x",
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 227,
@@ -603,11 +617,17 @@
     "lesson_id": 98,
     "title": "Range",
     "route": "#/lesson/98",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "DataTransformAnimator",
+      "VisualTable",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -626,13 +646,10 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"DataTransformAnimator\",\"InteractionPlanRenderer\",\"OutputDiff\",\"VisualTable\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "2951d4bf57",
     "screenshot": "ui_sample_screenshots/lesson-98.png",
-    "issues": [
-      "fingerprint_repeated_3x",
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 110,
@@ -665,7 +682,6 @@
     "interaction_fingerprint_id": "ccdba50231",
     "screenshot": "ui_sample_screenshots/lesson-110.png",
     "issues": [
-      "fingerprint_repeated_3x",
       "fingerprint_overused"
     ]
   },
@@ -700,7 +716,6 @@
     "interaction_fingerprint_id": "ccdba50231",
     "screenshot": "ui_sample_screenshots/lesson-113.png",
     "issues": [
-      "fingerprint_repeated_3x",
       "fingerprint_overused"
     ]
   },

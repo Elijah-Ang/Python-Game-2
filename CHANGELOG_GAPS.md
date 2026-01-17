@@ -34,3 +34,15 @@
 - SQL-079 → lesson 1238 (Index Creation) — CREATE UNIQUE INDEX via step executor.
 - SQL-089 → lesson 1238 (Index Creation) — DROP INDEX via step executor.
 - SQL-077 → lesson 1144 (View Basics) — CREATE OR REPLACE VIEW visualized.
+
+## Batch 2 — Reduce “none” fingerprints (Python core)
+- B2-FP → lesson 3 (Reassigning Variables) — memory machine + output diff.
+- B2-FP → lesson 11 (Compound Assignment) — in-place update memory machine.
+- B2-FP → lesson 16 (Using range()) — range step executor.
+- B2-FP → lesson 22 (If Statements) — conditional path check.
+- B2-FP → lesson 32 (Function Parameters) — step executor with parameters.
+- B2-FP → lesson 175 (Nested Lookup) — nested lookup trace.
+- B2-FP → lesson 98 (Range) — outlier range visual.
+- B2-FP → lesson 140 (Duplicates in Specific Columns) — subset dedupe visual.
+- B2-FP → lesson 194 (Conditional Replace) — replaced values visual.
+- B2-FP → lesson 204 (Data Reshaping) — wide vs long visual.

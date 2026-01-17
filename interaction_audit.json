@@ -44,6 +44,8 @@
     "route": "#/lesson/3",
     "interaction_recipe_id": "",
     "components_used": [
+      "memory_machine",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 3,
@@ -52,7 +54,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Memory machine: assign points and watch state update for \"Reassigning Variables\".",
     "curriculum": "python",
     "chapter_id": 1
@@ -238,6 +240,8 @@
     "route": "#/lesson/11",
     "interaction_recipe_id": "",
     "components_used": [
+      "memory_machine",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 13,
@@ -246,7 +250,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Memory machine: assign health and watch state update for \"Compound Assignment\".",
     "curriculum": "python",
     "chapter_id": 1
@@ -391,6 +395,8 @@
     "route": "#/lesson/22",
     "interaction_recipe_id": "",
     "components_used": [
+      "conditional_path",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 21,
@@ -399,7 +405,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Conditional path visualizer: pick a branch and see the output.",
     "curriculum": "python",
     "chapter_id": 3
@@ -776,6 +782,9 @@
     "route": "#/lesson/16",
     "interaction_recipe_id": "",
     "components_used": [
+      "step_executor",
+      "state_inspector",
+      "output_diff",
       "variable_slider"
     ],
     "consecutive_recipe_count": 41,
@@ -784,7 +793,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 3,
     "proposed_interaction": "Loop simulator: animate iterations and show running total for \"Using range()\".",
     "curriculum": "python",
     "chapter_id": 2
@@ -989,6 +998,9 @@
     "route": "#/lesson/32",
     "interaction_recipe_id": "",
     "components_used": [
+      "step_executor",
+      "state_inspector",
+      "output_diff",
       "parsons_puzzle"
     ],
     "consecutive_recipe_count": 52,
@@ -997,7 +1009,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 3,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"Function Parameters\".",
     "curriculum": "python",
     "chapter_id": 4
@@ -1447,6 +1459,9 @@
     "route": "#/lesson/175",
     "interaction_recipe_id": "",
     "components_used": [
+      "step_executor",
+      "state_inspector",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 76,
@@ -1455,7 +1470,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 3,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"Nested Lookup\".",
     "curriculum": "python",
     "chapter_id": null
@@ -2397,6 +2412,8 @@
     "route": "#/lesson/194",
     "interaction_recipe_id": "",
     "components_used": [
+      "data_transform",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 126,
@@ -2405,7 +2422,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Conditional path visualizer: pick a branch and see the output.",
     "curriculum": "python",
     "chapter_id": null
@@ -2872,6 +2889,8 @@
     "route": "#/lesson/204",
     "interaction_recipe_id": "",
     "components_used": [
+      "data_transform",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 151,
@@ -2880,7 +2899,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Token slots: build a message with grades_wide and preview the output.",
     "curriculum": "python",
     "chapter_id": null
@@ -3119,6 +3138,8 @@
     "route": "#/lesson/140",
     "interaction_recipe_id": "",
     "components_used": [
+      "data_transform",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 164,
@@ -3127,7 +3148,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Conditional path visualizer: pick a branch and see the output.",
     "curriculum": "python",
     "chapter_id": 96
@@ -4070,6 +4091,8 @@
     "route": "#/lesson/98",
     "interaction_recipe_id": "",
     "components_used": [
+      "data_transform",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 214,
@@ -4078,7 +4101,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Loop simulator: animate iterations and show running total for \"Range\".",
     "curriculum": "python",
     "chapter_id": 13
