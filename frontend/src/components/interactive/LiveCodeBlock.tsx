@@ -93,7 +93,11 @@ export const LiveCodeBlock: React.FC<LiveCodeBlockProps> = ({
     const lines = (code || '').split('\n');
 
     return (
-        <div className="my-4 rounded-lg overflow-hidden border border-[var(--border-color)]">
+        <div
+            data-interaction-type="live_code_block"
+            data-component="LiveCodeBlock"
+            className="my-4 rounded-lg overflow-hidden border border-[var(--border-color)]"
+        >
             {/* Code editor */}
             <div className="bg-[#0d0d10] p-3">
                 <div className="font-mono text-sm">

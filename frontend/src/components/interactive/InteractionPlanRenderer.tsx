@@ -12,6 +12,14 @@ import { ResetStateButton } from './ResetStateButton';
 import { OutputDiff } from './OutputDiff';
 import { StepExecutor } from './StepExecutor';
 import { FillBlanks } from './FillBlanks';
+import { TokenSlotPuzzle } from './TokenSlotPuzzle';
+import { LoopSimulator } from './LoopSimulator';
+import { ConditionalPath } from './ConditionalPath';
+import { DataTransformAnimator } from './DataTransformAnimator';
+import { JoinVisualizer } from './JoinVisualizer';
+import { DebugQuest } from './DebugQuest';
+import { GraphManipulator } from './GraphManipulator';
+import { MemoryMachine } from './MemoryMachine';
 import { useInteractive } from '../../context/InteractiveContext';
 import { resolveInteractionDataset } from '../../utils/interactionPlanDatasets';
 import { renderTemplate } from '../../utils/interactionTemplate';
@@ -39,12 +47,16 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
 
     const renderedItems = useMemo(() => safePlan.map((item, index) => {
         const key = `${item.type}-${index}`;
+        const wrap = (node: React.ReactNode) => (
+            <div key={key} data-interaction-type={item.type}>
+                {node}
+            </div>
+        );
 
         switch (item.type) {
             case 'prediction': {
-                return (
+                return wrap(
                     <PredictionCheck
-                        key={key}
                         question={item.question}
                         options={item.options}
                         correctIndex={item.correctIndex}
@@ -53,17 +65,15 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
                 );
             }
             case 'hint_ladder': {
-                return (
+                return wrap(
                     <HintLadder
-                        key={key}
                         hints={item.hints}
                     />
                 );
             }
             case 'variable_slider': {
-                return (
+                return wrap(
                     <VariableSlider
-                        key={key}
                         name={item.name}
                         min={item.min}
                         max={item.max}
@@ -73,8 +83,8 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
                 );
             }
             case 'memory_box': {
-                return (
-                    <div key={key} className="flex flex-wrap gap-3">
+                return wrap(
+                    <div className="flex flex-wrap gap-3">
                         {item.names.map((name) => (
                             <VisualMemoryBox key={name} name={name} type={item.valueType} />
                         ))}
@@ -82,8 +92,8 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
                 );
             }
             case 'draggable_value': {
-                return (
-                    <div key={key} className="space-y-2">
+                return wrap(
+                    <div className="space-y-2">
                         {item.chips?.length ? (
                             <div className="flex flex-wrap gap-2">
                                 {item.chips.map((chip) => (
@@ -103,9 +113,8 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
             }
             case 'visual_table': {
                 const data = item.data ?? resolveInteractionDataset(item.dataRef);
-                return (
+                return wrap(
                     <VisualTable
-                        key={key}
                         data={data}
                         columns={item.columns}
                         title={item.title}
@@ -118,9 +127,8 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
                 );
             }
             case 'live_code_block': {
-                return (
+                return wrap(
                     <LiveCodeBlock
-                        key={key}
                         initialcode={item.initialCode}
                         language={item.language}
                         highlightline={item.highlightLine}
@@ -129,27 +137,116 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
                 );
             }
             case 'parsons_puzzle': {
-                return (
+                return wrap(
                     <ParsonsPuzzle
-                        key={key}
                         correctOrder={item.correctOrder}
                         scrambledOrder={item.scrambledOrder}
                     />
                 );
             }
             case 'fill_blanks': {
-                return (
+                return wrap(
                     <FillBlanks
-                        key={key}
                         template={item.template}
                         blanks={item.blanks}
                     />
                 );
             }
+            case 'token_slot': {
+                return wrap(
+                    <TokenSlotPuzzle
+                        template={item.template}
+                        slots={item.slots}
+                    />
+                );
+            }
+            case 'loop_simulator': {
+                return wrap(
+                    <LoopSimulator
+                        label={item.label}
+                        iterations={item.iterations}
+                        startValue={item.startValue}
+                        stepValue={item.stepValue}
+                        valueVar={item.valueVar}
+                        stepVar={item.stepVar}
+                    />
+                );
+            }
+            case 'conditional_path': {
+                return wrap(
+                    <ConditionalPath
+                        prompt={item.prompt}
+                        choices={item.choices}
+                        trueLabel={item.trueLabel}
+                        falseLabel={item.falseLabel}
+                        resultVar={item.resultVar}
+                    />
+                );
+            }
+            case 'data_transform': {
+                return wrap(
+                    <DataTransformAnimator
+                        title={item.title}
+                        columns={item.columns}
+                        beforeRows={item.beforeRows}
+                        filters={item.filters}
+                        resultVar={item.resultVar}
+                    />
+                );
+            }
+            case 'join_visualizer': {
+                return wrap(
+                    <JoinVisualizer
+                        leftTitle={item.leftTitle}
+                        rightTitle={item.rightTitle}
+                        leftRows={item.leftRows}
+                        rightRows={item.rightRows}
+                        leftKey={item.leftKey}
+                        rightKey={item.rightKey}
+                        joinTypes={item.joinTypes}
+                        resultVar={item.resultVar}
+                        joinVar={item.joinVar}
+                    />
+                );
+            }
+            case 'debug_quest': {
+                return wrap(
+                    <DebugQuest
+                        title={item.title}
+                        snippet={item.snippet}
+                        bugLine={item.bugLine}
+                        options={item.options}
+                        solvedVar={item.solvedVar}
+                    />
+                );
+            }
+            case 'graph_manipulator': {
+                return wrap(
+                    <GraphManipulator
+                        title={item.title}
+                        mode={item.mode}
+                        slope={item.slope}
+                        intercept={item.intercept}
+                        xMin={item.xMin}
+                        xMax={item.xMax}
+                        initialX={item.initialX}
+                        xVar={item.xVar}
+                        yVar={item.yVar}
+                    />
+                );
+            }
+            case 'memory_machine': {
+                return wrap(
+                    <MemoryMachine
+                        title={item.title}
+                        slots={item.slots}
+                        steps={item.steps}
+                    />
+                );
+            }
             case 'step_executor': {
-                return (
+                return wrap(
                     <StepExecutor
-                        key={key}
                         code={item.code}
                         steps={item.steps}
                     />
@@ -158,9 +255,8 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
             case 'output_diff': {
                 const expected = item.expected ?? expectedOutput ?? '';
                 const actual = item.actual ?? getStringValue(variables[item.actualVar || ''] ?? '');
-                return (
+                return wrap(
                     <OutputDiff
-                        key={key}
                         expected={expected}
                         actual={actual}
                         title={item.title}
@@ -168,9 +264,8 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
                 );
             }
             case 'state_inspector': {
-                return (
+                return wrap(
                     <StateInspector
-                        key={key}
                         title={item.title}
                         showTypes={item.showTypes}
                         filter={item.filter}
@@ -178,9 +273,8 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
                 );
             }
             case 'reset_state': {
-                return (
+                return wrap(
                     <ResetStateButton
-                        key={key}
                         label={item.label}
                     />
                 );
@@ -191,9 +285,9 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
                     ? renderTemplate(template, variables)
                     : '';
 
-                return (
+                return wrap(
                     <div
-                        key={key}
+                        data-component="SendToEditor"
                         className="my-4 p-4 bg-[var(--bg-panel)] rounded-lg border border-[var(--border-color)] flex flex-wrap items-center justify-between gap-3"
                     >
                         <div>
@@ -211,6 +305,7 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
                                 recordDecision('send_to_editor', { template: item.templateId || 'inline' });
                                 recordConsequence('editor', { filled: Boolean(interpolated) });
                             }}
+                            data-cta="send_to_editor"
                             className="px-3 py-2 bg-[var(--accent-secondary)] text-black rounded text-sm font-medium hover:opacity-90"
                         >
                             Send to editor
@@ -228,7 +323,7 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
     }
 
     return (
-        <div className="mt-6 space-y-4">
+        <div data-component="InteractionPlanRenderer" data-layout="interaction-plan" className="mt-6 space-y-4">
             <div className="text-xs uppercase tracking-[0.25em] text-[var(--text-secondary)]">
                 Interactive Plan
             </div>

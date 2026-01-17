@@ -20,7 +20,11 @@ export const StateInspector: React.FC<StateInspectorProps> = ({
 
     if (displayVars.length === 0) {
         return (
-            <div className="my-4 p-4 bg-[#1a1a2e] rounded-lg border border-[var(--border-color)]">
+            <div
+                data-interaction-type="state_inspector"
+                data-component="StateInspector"
+                className="my-4 p-4 bg-[#1a1a2e] rounded-lg border border-[var(--border-color)]"
+            >
                 <div className="text-xs text-[var(--text-secondary)] mb-2">{title}</div>
                 <div className="text-sm text-[var(--text-secondary)] italic">No variables yet</div>
             </div>
@@ -44,7 +48,11 @@ export const StateInspector: React.FC<StateInspectorProps> = ({
     };
 
     return (
-        <div className="my-4 p-4 bg-[#1a1a2e] rounded-lg border border-[var(--border-color)]">
+        <div
+            data-interaction-type="state_inspector"
+            data-component="StateInspector"
+            className="my-4 p-4 bg-[#1a1a2e] rounded-lg border border-[var(--border-color)]"
+        >
             <div className="text-xs text-[var(--text-secondary)] mb-3 flex items-center gap-2">
                 📋 {title}
             </div>

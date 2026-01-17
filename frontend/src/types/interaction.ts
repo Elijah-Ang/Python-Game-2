@@ -98,4 +98,95 @@ export type InteractionPlanItem =
         label?: string;
     };
 
-export type LessonInteractionPlan = InteractionPlanItem[];
+export type ExtendedInteractionPlanItem =
+    | InteractionPlanItem
+    | {
+        type: 'token_slot';
+        template: string;
+        slots: {
+            id: string;
+            label?: string;
+            options: string[];
+            correct: string;
+        }[];
+    }
+    | {
+        type: 'loop_simulator';
+        label?: string;
+        iterations: number;
+        startValue: number;
+        stepValue: number;
+        valueVar?: string;
+        stepVar?: string;
+    }
+    | {
+        type: 'conditional_path';
+        prompt: string;
+        choices: {
+            label: string;
+            outcome: string;
+        }[];
+        trueLabel: string;
+        falseLabel: string;
+        resultVar?: string;
+    }
+    | {
+        type: 'data_transform';
+        title?: string;
+        columns: string[];
+        beforeRows: Record<string, any>[];
+        filters: {
+            id: string;
+            label: string;
+            rows: Record<string, any>[];
+        }[];
+        resultVar?: string;
+    }
+    | {
+        type: 'join_visualizer';
+        leftTitle?: string;
+        rightTitle?: string;
+        leftRows: Record<string, any>[];
+        rightRows: Record<string, any>[];
+        leftKey: string;
+        rightKey: string;
+        joinTypes: string[];
+        resultVar?: string;
+        joinVar?: string;
+    }
+    | {
+        type: 'debug_quest';
+        title?: string;
+        snippet: string;
+        bugLine: number;
+        options: {
+            label: string;
+            fix: string;
+            correct: boolean;
+        }[];
+        solvedVar?: string;
+    }
+    | {
+        type: 'graph_manipulator';
+        title?: string;
+        mode?: 'linear' | 'quadratic';
+        slope?: number;
+        intercept?: number;
+        xMin?: number;
+        xMax?: number;
+        initialX?: number;
+        xVar?: string;
+        yVar?: string;
+    }
+    | {
+        type: 'memory_machine';
+        title?: string;
+        slots: string[];
+        steps: {
+            label: string;
+            slot: string;
+            value: string | number;
+        }[];
+    };
+
+export type LessonInteractionPlan = ExtendedInteractionPlanItem[];

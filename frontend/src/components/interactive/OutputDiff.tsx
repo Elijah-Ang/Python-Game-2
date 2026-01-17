@@ -14,7 +14,7 @@ export const OutputDiff: React.FC<OutputDiffProps> = ({
     const isMatch = expected.trim() === actual.trim();
 
     return (
-        <div className="my-4">
+        <div data-interaction-type="output_diff" data-component="OutputDiff" className="my-4">
             <div className="text-xs text-[var(--text-secondary)] mb-2">{title}</div>
             <div className="grid grid-cols-2 gap-2">
                 <div className="p-3 bg-[#0d0d10] rounded border border-[var(--border-color)]">

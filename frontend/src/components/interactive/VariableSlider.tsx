@@ -28,7 +28,11 @@ export const VariableSlider: React.FC<VariableSliderProps> = ({ name, min, max, 
     }, [name, initialVal, onValueChange, recordConsequence, setVariable, variables]);
 
     return (
-        <div className="my-4 p-4 bg-[var(--bg-panel)] rounded border border-[var(--border-color)]">
+        <div
+            data-interaction-type="variable_slider"
+            data-component="VariableSlider"
+            className="my-4 p-4 bg-[var(--bg-panel)] rounded border border-[var(--border-color)]"
+        >
             <div className="flex justify-between mb-2">
                 <label className="text-sm font-medium text-[var(--accent-primary)] font-mono">
                     {label || name} = <span className="text-[var(--accent-warning)]">{value}</span>

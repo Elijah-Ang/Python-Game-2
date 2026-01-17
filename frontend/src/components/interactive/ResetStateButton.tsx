@@ -23,6 +23,9 @@ export const ResetStateButton: React.FC<ResetStateButtonProps> = ({
     return (
         <button
             onClick={handleReset}
+            data-interaction-type="reset_state"
+            data-component="ResetStateButton"
+            data-cta="reset_state"
             className="inline-flex items-center gap-2 px-3 py-1.5 text-sm rounded
                        bg-[var(--bg-panel)] border border-[var(--border-color)]
                        hover:border-[var(--accent-error)] hover:text-[var(--accent-error)]

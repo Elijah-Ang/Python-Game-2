@@ -66,7 +66,11 @@ export const FillBlanks: React.FC<FillBlanksProps> = ({ template, blanks, onSolv
     });
 
     return (
-        <div className="my-4 p-4 bg-[var(--bg-panel)] rounded-lg border border-[var(--border-color)]">
+        <div
+            data-interaction-type="fill_blanks"
+            data-component="FillBlanks"
+            className="my-4 p-4 bg-[var(--bg-panel)] rounded-lg border border-[var(--border-color)]"
+        >
             <div className="text-sm font-medium text-[var(--accent-primary)] mb-3">
                 Fill the blanks
             </div>

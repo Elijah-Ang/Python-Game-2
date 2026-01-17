@@ -63,7 +63,11 @@ export const DraggableValueBox: React.FC<DraggableValueBoxProps> = ({
     const displayValue = currentValue === undefined ? '?' : JSON.stringify(currentValue);
 
     return (
-        <div className="flex flex-col items-center my-4">
+        <div
+            data-interaction-type="draggable_value"
+            data-component="DraggableValueBox"
+            className="flex flex-col items-center my-4"
+        >
             <div className="text-xs text-[var(--text-secondary)] font-mono mb-2">{label || name}</div>
             <div
                 onDrop={handleDrop}
@@ -154,6 +158,8 @@ export const ValueChip: React.FC<ValueChipProps> = ({ value, onSelect }) => {
             }}
             tabIndex={0}
             role="button"
+            data-interaction-type="value_chip"
+            data-component="ValueChip"
             className={`
                 inline-block px-3 py-1.5 rounded-full cursor-grab active:cursor-grabbing
                 font-mono text-sm font-bold select-none

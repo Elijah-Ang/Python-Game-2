@@ -63,7 +63,11 @@ export const StepExecutor: React.FC<StepExecutorProps> = ({
     const currentLineNumber = currentStep >= 0 ? steps[currentStep]?.line : null;
 
     return (
-        <div className="my-4 rounded-lg overflow-hidden border border-[var(--border-color)]">
+        <div
+            data-interaction-type="step_executor"
+            data-component="StepExecutor"
+            className="my-4 rounded-lg overflow-hidden border border-[var(--border-color)]"
+        >
             {/* Code Display */}
             <div className="bg-[#0d0d10] p-3 font-mono text-sm">
                 {lines.map((line, idx) => {

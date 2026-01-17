@@ -39,7 +39,11 @@ export const PredictionCheck: React.FC<PredictionCheckProps> = ({
     const isCorrect = selectedIndex === correctIndex;
 
     return (
-        <div className="my-4 p-4 bg-[var(--bg-panel)] rounded-lg border border-[var(--border-color)]">
+        <div
+            data-interaction-type="prediction"
+            data-component="PredictionCheck"
+            className="my-4 p-4 bg-[var(--bg-panel)] rounded-lg border border-[var(--border-color)]"
+        >
             <div className="text-sm font-medium text-[var(--accent-primary)] mb-3 flex items-center gap-2">
                 🤔 Predict the output:
             </div>

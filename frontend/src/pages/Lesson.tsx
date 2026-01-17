@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useRef } from 'react';
+import React, { useEffect, useState, useCallback, useRef, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Editor from '@monaco-editor/react';
 import { Play, Send, ChevronRight, FileCode, RotateCcw, Eye, EyeOff, Lightbulb, X, CheckCircle, AlertCircle } from 'lucide-react';
@@ -37,6 +37,8 @@ interface LessonData {
     interaction_required?: boolean;
     expected_result?: string;
     send_to_editor_template?: string;
+    interaction_recipe_id?: string;
+    prediction_justification?: string;
     interaction_confidence?: number;
     manual_review?: boolean;
 }
@@ -68,6 +70,67 @@ interface WebRInterface {
     };
 }
 
+const CONTENT_COMPONENT_MAP: Record<string, string> = {
+    VariableSlider: 'variable_slider',
+    VisualMemoryBox: 'memory_box',
+    DraggableValueBox: 'draggable_value',
+    ValueChip: 'value_chip',
+    LiveCodeBlock: 'live_code_block',
+    VisualTable: 'visual_table',
+    ParsonsPuzzle: 'parsons_puzzle',
+    PredictionCheck: 'prediction',
+    HintLadder: 'hint_ladder',
+    StateInspector: 'state_inspector',
+    ResetStateButton: 'reset_state',
+    OutputDiff: 'output_diff',
+    StepExecutor: 'step_executor',
+    FillBlanks: 'fill_blanks',
+    TokenSlotPuzzle: 'token_slot',
+    LoopSimulator: 'loop_simulator',
+    ConditionalPath: 'conditional_path',
+    DataTransformAnimator: 'data_transform',
+    JoinVisualizer: 'join_visualizer',
+    DebugQuest: 'debug_quest',
+    GraphManipulator: 'graph_manipulator',
+    MemoryMachine: 'memory_machine'
+};
+
+const extractContentComponents = (content?: string): string[] => {
+    if (!content) {
+        return [];
+    }
+    const found = new Set<string>();
+    Object.entries(CONTENT_COMPONENT_MAP).forEach(([tag, type]) => {
+        const regex = new RegExp(`<${tag}\\b`, 'i');
+        if (regex.test(content)) {
+            found.add(type);
+        }
+    });
+    return Array.from(found);
+};
+
+const extractPlanComponents = (lesson?: LessonData | null): string[] => {
+    if (!lesson) {
+        return [];
+    }
+    const found = new Set<string>();
+    (lesson.interaction_plan || []).forEach((item) => {
+        if (item && item.type) {
+            found.add(item.type);
+        }
+    });
+    if (lesson.send_to_editor_template) {
+        found.add('send_to_editor');
+    }
+    return Array.from(found);
+};
+
+const buildAuditComponents = (lesson?: LessonData | null): string[] => {
+    const planComponents = extractPlanComponents(lesson);
+    const contentComponents = extractContentComponents(lesson?.content);
+    return Array.from(new Set([...planComponents, ...contentComponents]));
+};
+
 const runWithTimeout = async <T,>(promise: Promise<T>, timeoutMs: number, timeoutMessage: string) => {
     let timeoutHandle: number | undefined;
     const timeoutPromise = new Promise<never>((_, reject) => {
@@ -88,6 +151,12 @@ const runWithTimeout = async <T,>(promise: Promise<T>, timeoutMs: number, timeou
 declare global {
     interface Window {
         loadPyodide: () => Promise<PyodideInterface>;
+        __AUDIT_READY__?: {
+            lessonId: number;
+            recipeId: string;
+            components: string[];
+            hasPrediction: boolean;
+        };
     }
 }
 
@@ -114,6 +183,48 @@ const LessonContent: React.FC = () => {
     const { decisionCount, consequenceCount, recordEvent, recordDecision, recordConsequence } = useInteractive();
     const lessonStartRef = useRef(Date.now());
     const [completionLogged, setCompletionLogged] = useState(false);
+    const isAuditMode = useMemo(() => {
+        if (typeof window === 'undefined') {
+            return false;
+        }
+        const hash = window.location.hash || '';
+        const queryIndex = hash.indexOf('?');
+        if (queryIndex === -1) {
+            return false;
+        }
+        const params = new URLSearchParams(hash.slice(queryIndex + 1));
+        return params.get('audit') === '1';
+    }, [id]);
+    const isUiAuditMode = useMemo(() => {
+        if (typeof window === 'undefined') {
+            return false;
+        }
+        const hash = window.location.hash || '';
+        const queryIndex = hash.indexOf('?');
+        if (queryIndex === -1) {
+            return false;
+        }
+        const params = new URLSearchParams(hash.slice(queryIndex + 1));
+        return params.get('ui_audit') === '1';
+    }, [id]);
+
+    const currentExercise = Number(id) || 1;
+
+    useEffect(() => {
+        if (!lesson || typeof window === 'undefined') {
+            return;
+        }
+        const lessonId = lesson.id ?? currentExercise;
+        const recipeId = lesson.interaction_recipe_id || '';
+        const components = buildAuditComponents(lesson);
+        const hasPrediction = components.includes('prediction');
+        window.__AUDIT_READY__ = {
+            lessonId,
+            recipeId,
+            components,
+            hasPrediction
+        };
+    }, [lesson, currentExercise]);
 
     // Load Lesson Data from static JSON
     useEffect(() => {
@@ -144,6 +255,12 @@ const LessonContent: React.FC = () => {
                     setVerifyResult(null);
                     setOutput("");
                     setGraphOutput(null);
+
+                    if (isAuditMode) {
+                        setOrderedLessonIds([]);
+                        setLessonOrder(null);
+                        return;
+                    }
 
                     // Fetch course data to get the lesson order
                     let courseFile = `${import.meta.env.BASE_URL}data/course-python-basics.json`;
@@ -201,6 +318,11 @@ const LessonContent: React.FC = () => {
 
     // Load Pyodide with matplotlib support
     useEffect(() => {
+        const currentId = Number(id) || 1;
+        const isPythonLesson = currentId < 1000;
+        if (!isPythonLesson || isAuditMode || isUiAuditMode) {
+            return;
+        }
         const initPyodide = async () => {
             if (window.loadPyodide && !pyodide) {
                 try {
@@ -220,13 +342,13 @@ const LessonContent: React.FC = () => {
             }
         };
         initPyodide();
-    }, [pyodide]);
+    }, [id, pyodide, isAuditMode, isUiAuditMode]);
 
     // Load WebR for R lessons
     useEffect(() => {
         const initWebR = async () => {
             const currentId = Number(id);
-            if (currentId >= 2000 && !webR) {
+            if (currentId >= 2000 && !webR && !isAuditMode && !isUiAuditMode) {
                 try {
                     setOutput("⏳ Setting up R environment (downloading packages)...");
                     // Dynamic import from CDN
@@ -251,7 +373,7 @@ const LessonContent: React.FC = () => {
             }
         };
         initWebR();
-    }, [id, webR]);
+    }, [id, webR, isAuditMode, isUiAuditMode]);
 
     const triggerConfetti = useCallback(() => {
         confetti({
@@ -481,7 +603,7 @@ ${code}
             if (!completionLogged) {
                 const elapsedMs = Date.now() - lessonStartRef.current;
                 recordEvent('time_to_complete', {
-                    lessonId: lesson?.id,
+                    lessonId: lesson?.id ?? currentId,
                     ms: elapsedMs,
                     seconds: Math.round(elapsedMs / 1000)
                 });
@@ -584,10 +706,27 @@ ${code}
         );
     }
 
-    const currentExercise = Number(id) || 1;
     const isSqlLesson = currentExercise >= 1001 && currentExercise < 2000;
     const isRLesson = currentExercise >= 2000;
     const totalExercises = isRLesson ? 200 : (isSqlLesson ? 161 : 113); // TODO: Update R total
+    const lessonId = lesson.id ?? currentExercise;
+
+    if (isAuditMode) {
+        const auditComponents = buildAuditComponents(lesson);
+        return (
+            <div
+                data-lesson-id={lessonId}
+                data-recipe-id={lesson.interaction_recipe_id || ''}
+                className="min-h-screen bg-[var(--bg-color)] text-[var(--text-primary)] p-6"
+            >
+                <div className="text-xs uppercase tracking-wide text-[var(--text-secondary)]">Audit Mode</div>
+                <div className="text-xl font-bold mt-2">{lesson.title}</div>
+                <div className="text-sm text-[var(--text-secondary)]">Lesson ID: {lessonId}</div>
+                <div className="text-sm text-[var(--text-secondary)]">Recipe: {lesson.interaction_recipe_id || 'none'}</div>
+                <div className="text-sm text-[var(--text-secondary)]">Components: {auditComponents.join(', ') || 'none'}</div>
+            </div>
+        );
+    }
 
     // Determine display order
     let displayExercise = currentExercise;
@@ -614,9 +753,14 @@ ${code}
     }
 
     return (
-        <div className="h-screen flex flex-col bg-[var(--bg-color)] overflow-hidden">
+        <div
+            data-lesson-id={lessonId}
+            data-recipe-id={lesson.interaction_recipe_id || ''}
+            data-layout="lesson-root"
+            className="h-screen flex flex-col bg-[var(--bg-color)] overflow-hidden"
+        >
                 {/* Top Navigation Bar */}
-                <div className="h-12 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-3 md:px-4 gap-2 md:gap-4 shrink-0">
+                <div data-layout="top-nav" className="h-12 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-3 md:px-4 gap-2 md:gap-4 shrink-0">
                     <Link to="/" className="flex items-center gap-2 hover:opacity-80">
                         <span className="text-lg">📊</span>
                         <span className="font-bold text-[var(--accent-primary)] pixel-font hidden sm:inline">DS Adventure</span>
@@ -672,12 +816,12 @@ ${code}
                 {/* Main Content Area */}
                 <div className="flex-1 flex flex-col md:flex-row overflow-hidden min-h-0">
                     {/* Left Panel: Instructions - Hidden on mobile when code tab active */}
-                    <div className={`${mobileTab === 'lesson' ? 'flex' : 'hidden'
+                    <div data-layout="lesson-panel" className={`${mobileTab === 'lesson' ? 'flex' : 'hidden'
                         } md:flex w-full md:w-1/2 flex-col border-r border-[var(--border-color)] min-h-0`}>
                         <div className="flex-1 overflow-y-auto p-4 md:p-6 min-h-0">
                             {/* Exercise Number */}
-                            <h1 className={`text-2xl font-bold mb-4 pixel-font ${lesson.id > 9999 ? 'pl-8 border-l-4 border-[var(--accent-secondary)]' : ''}`}>
-                                {lesson.id > 9999 && <span className="text-sm font-normal text-[var(--accent-secondary)] block mb-1">REINFORCER</span>}
+                            <h1 className={`text-2xl font-bold mb-4 pixel-font ${lessonId > 9999 ? 'pl-8 border-l-4 border-[var(--accent-secondary)]' : ''}`}>
+                                {lessonId > 9999 && <span className="text-sm font-normal text-[var(--accent-secondary)] block mb-1">REINFORCER</span>}
                                 {String(displayExercise).padStart(2, '0')}. {lesson.title}
                             </h1>
 
@@ -771,6 +915,7 @@ ${code}
                                 <div className="mt-4">
                                     <button
                                         onClick={toggleSolution}
+                                        data-cta="toggle_solution"
                                         className="flex items-center gap-2 text-sm text-[var(--accent-warning)] hover:opacity-80"
                                     >
                                         {showSolution ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -808,12 +953,14 @@ ${code}
                                     <button
                                         onClick={goToPrev}
                                         disabled={currentExercise <= 1}
+                                        data-cta="prev_lesson"
                                         className="px-3 md:px-4 py-1.5 md:py-2 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] disabled:opacity-40 transition-colors text-sm"
                                     >
                                         Back
                                     </button>
                                     <button
                                         onClick={goToNext}
+                                        data-cta="next_lesson"
                                         className="px-3 md:px-4 py-1.5 md:py-2 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] transition-colors text-sm"
                                     >
                                         Next
@@ -824,10 +971,10 @@ ${code}
                     </div>
 
                     {/* Right Panel: Code Editor + Terminal - Hidden on mobile when lesson tab active */}
-                    <div ref={rightPanelRef} className={`${mobileTab === 'code' ? 'flex' : 'hidden'
+                    <div ref={rightPanelRef} data-layout="code-panel" className={`${mobileTab === 'code' ? 'flex' : 'hidden'
                         } md:flex w-full md:w-1/2 flex-col min-h-0`}>
                         {/* Editor Header - Rebuild Trigger */}
-                        <div className="h-10 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-2 justify-between">
+                        <div data-layout="editor-header" className="h-10 bg-[var(--bg-panel)] border-b border-[var(--border-color)] flex items-center px-2 justify-between">
                             <div className="flex items-center">
                                 <div className="px-3 py-1.5 bg-[var(--bg-color)] border-t-2 border-t-[var(--accent-warning)] text-sm flex items-center gap-2">
                                     <FileCode className="w-4 h-4 text-[var(--accent-warning)]" />
@@ -837,29 +984,36 @@ ${code}
                         </div>
 
                         {/* Code Editor */}
-                        <div style={{ height: `${editorHeightPercent}%` }} className="min-h-0">
-                            <Editor
-                                height="100%"
-                                language={editorLanguage}
-                                theme="vs-dark"
-                                value={code}
-                                onChange={(val) => setCode(val || "")}
-                                options={{
-                                    minimap: { enabled: false },
-                                    fontSize: 14,
-                                    fontFamily: "'Fira Code', 'Monaco', monospace",
-                                    lineNumbers: 'on',
-                                    scrollBeyondLastLine: false,
-                                    padding: { top: 16 },
-                                }}
-                            />
+                        <div data-layout="code-editor" style={{ height: `${editorHeightPercent}%` }} className="min-h-0">
+                            {isAuditMode ? (
+                                <div className="h-full bg-[var(--bg-color)] text-[var(--text-secondary)] text-xs p-3 overflow-auto">
+                                    <pre className="whitespace-pre-wrap">{code}</pre>
+                                </div>
+                            ) : (
+                                <Editor
+                                    height="100%"
+                                    language={editorLanguage}
+                                    theme="vs-dark"
+                                    value={code}
+                                    onChange={(val) => setCode(val || "")}
+                                    options={{
+                                        minimap: { enabled: false },
+                                        fontSize: 14,
+                                        fontFamily: "'Fira Code', 'Monaco', monospace",
+                                        lineNumbers: 'on',
+                                        scrollBeyondLastLine: false,
+                                        padding: { top: 16 },
+                                    }}
+                                />
+                            )}
                         </div>
 
                         {/* Editor Toolbar */}
-                        <div className="h-12 bg-[var(--bg-panel)] border-t border-b border-[var(--border-color)] flex items-center px-4 justify-between">
+                        <div data-layout="editor-toolbar" className="h-12 bg-[var(--bg-panel)] border-t border-b border-[var(--border-color)] flex items-center px-4 justify-between">
                             <div className="flex items-center gap-2">
                                 <button
                                     onClick={resetCode}
+                                    data-cta="reset_code"
                                     className="w-8 h-8 flex items-center justify-center rounded hover:bg-[rgba(255,255,255,0.1)]"
                                     title="Reset Code"
                                 >
@@ -873,6 +1027,7 @@ ${code}
                                     <button
                                         onClick={isRLesson ? runRCode : runCode}
                                         disabled={isRunning}
+                                        data-cta="run_code"
                                         className="px-4 py-1.5 bg-[var(--border-color)] rounded hover:bg-[rgba(255,255,255,0.1)] flex items-center gap-2 text-sm"
                                     >
                                         <Play className="w-4 h-4" />
@@ -882,6 +1037,7 @@ ${code}
                                 <button
                                     onClick={submitAnswer}
                                     disabled={isRunning || isVerifying || interactionLocked}
+                                    data-cta="submit"
                                     className="px-4 py-1.5 bg-[var(--accent-secondary)] text-white rounded hover:opacity-90 flex items-center gap-2 text-sm font-medium"
                                     title={interactionLocked ? 'Complete an interactive step to unlock submission' : 'Submit your answer'}
                                 >
@@ -961,8 +1117,8 @@ ${code}
                         </div>
 
                         {/* Terminal / Output */}
-                        <div style={{ height: `${100 - editorHeightPercent - 10}%` }} className="bg-[#0a0a0c] flex flex-col min-h-0">
-                            <div className="px-4 py-2 text-xs text-[var(--text-secondary)] border-b border-[var(--border-color)] flex items-center justify-between">
+                        <div data-layout="output-panel" style={{ height: `${100 - editorHeightPercent - 10}%` }} className="bg-[#0a0a0c] flex flex-col min-h-0">
+                            <div data-layout="output-header" className="px-4 py-2 text-xs text-[var(--text-secondary)] border-b border-[var(--border-color)] flex items-center justify-between">
                                 <span>Output</span>
                                 {graphOutput && <span className="text-[var(--accent-success)]">📊 Graph rendered</span>}
                             </div>

@@ -27,7 +27,7 @@ export const HintLadder: React.FC<HintLadderProps> = ({ hints, onHintUsed }) => 
     ];
 
     return (
-        <div className="my-4">
+        <div data-interaction-type="hint_ladder" data-component="HintLadder" className="my-4">
             <div className="flex items-center gap-2 mb-2">
                 <span className="text-sm text-[var(--text-secondary)]">Need help?</span>
                 {revealedLevel < 3 && (

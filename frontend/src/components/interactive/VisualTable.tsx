@@ -119,7 +119,7 @@ export const VisualTable: React.FC<VisualTableProps> = ({
     const visibleCols = columnOrder.filter(c => visibleColumns.has(c));
 
     return (
-        <div className="my-4">
+        <div data-interaction-type="visual_table" data-component="VisualTable" className="my-4">
             {title && <div className="text-sm font-medium text-[var(--accent-secondary)] mb-2">{title}</div>}
 
             {/* Column toggles */}
