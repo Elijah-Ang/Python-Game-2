@@ -1,0 +1,1990 @@
+{
+  "rows": [
+    {
+      "concept_lesson_id": 2001,
+      "concept_title": "Meet the Penguins",
+      "reinforcer_lesson_id": 20011,
+      "reinforcer_title": "Analogy: Variables are Boxes",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 1,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2001,
+      "concept_title": "Meet the Penguins",
+      "reinforcer_lesson_id": 20012,
+      "reinforcer_title": "Variation: Changing Values",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2001,
+      "concept_title": "Meet the Penguins",
+      "reinforcer_lesson_id": 20013,
+      "reinforcer_title": "Fix the Code: Broken Arrow",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2001,
+      "concept_title": "Meet the Penguins",
+      "reinforcer_lesson_id": 20014,
+      "reinforcer_title": "Challenge: Your Own Vars",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2002,
+      "concept_title": "The Empty Canvas",
+      "reinforcer_lesson_id": 20021,
+      "reinforcer_title": "Analogy: Secret Notes",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2002,
+      "concept_title": "The Empty Canvas",
+      "reinforcer_lesson_id": 20022,
+      "reinforcer_title": "Variation: Silencing Code",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2002,
+      "concept_title": "The Empty Canvas",
+      "reinforcer_lesson_id": 20023,
+      "reinforcer_title": "Fix the Code: Missing #",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2002,
+      "concept_title": "The Empty Canvas",
+      "reinforcer_lesson_id": 20024,
+      "reinforcer_title": "Challenge: Annotate",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2003,
+      "concept_title": "Mapping Data to Axes",
+      "reinforcer_lesson_id": 20031,
+      "reinforcer_title": "Analogy: The Sticker Album",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2003,
+      "concept_title": "Mapping Data to Axes",
+      "reinforcer_lesson_id": 20032,
+      "reinforcer_title": "Variation: How Big?",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2003,
+      "concept_title": "Mapping Data to Axes",
+      "reinforcer_lesson_id": 20033,
+      "reinforcer_title": "Fix the Code: Typo",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2003,
+      "concept_title": "Mapping Data to Axes",
+      "reinforcer_lesson_id": 20034,
+      "reinforcer_title": "Challenge: Another Dataset",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2004,
+      "concept_title": "Adding Dots with geom_point()",
+      "reinforcer_lesson_id": 20041,
+      "reinforcer_title": "Analogy: Connect the Dots",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2004,
+      "concept_title": "Adding Dots with geom_point()",
+      "reinforcer_lesson_id": 20042,
+      "reinforcer_title": "Variation: City Driving",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2004,
+      "concept_title": "Adding Dots with geom_point()",
+      "reinforcer_lesson_id": 20043,
+      "reinforcer_title": "Fix the Code: The Plus Sign",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2004,
+      "concept_title": "Adding Dots with geom_point()",
+      "reinforcer_lesson_id": 20044,
+      "reinforcer_title": "Challenge: Cylinders",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 0,
+      "notes": "Weak or missing task clarity; Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2010,
+      "concept_title": "Coding Basics",
+      "reinforcer_lesson_id": 20101,
+      "reinforcer_title": "Analogy: Calling for Pizza",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 3,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2010,
+      "concept_title": "Coding Basics",
+      "reinforcer_lesson_id": 20102,
+      "reinforcer_title": "Variation: Variables in Functions",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2010,
+      "concept_title": "Coding Basics",
+      "reinforcer_lesson_id": 20103,
+      "reinforcer_title": "Fix the Code: Typos",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2010,
+      "concept_title": "Coding Basics",
+      "reinforcer_lesson_id": 20104,
+      "reinforcer_title": "Challenge: Math",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2020,
+      "concept_title": "Filter Rows",
+      "reinforcer_lesson_id": 20201,
+      "reinforcer_title": "Analogy: Collecting Red M&Ms",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2020,
+      "concept_title": "Filter Rows",
+      "reinforcer_lesson_id": 20202,
+      "reinforcer_title": "Variation: Different Month",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2020,
+      "concept_title": "Filter Rows",
+      "reinforcer_lesson_id": 20203,
+      "reinforcer_title": "Fix the Code: Equals Sign",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2020,
+      "concept_title": "Filter Rows",
+      "reinforcer_lesson_id": 20204,
+      "reinforcer_title": "Challenge: Delays",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 0,
+      "notes": "Weak or missing task clarity; Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2021,
+      "concept_title": "Arrange Rows",
+      "reinforcer_lesson_id": 20211,
+      "reinforcer_title": "Analogy: Sorting Cards",
+      "relevance": 2,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2021,
+      "concept_title": "Arrange Rows",
+      "reinforcer_lesson_id": 20212,
+      "reinforcer_title": "Variation: Two Levels",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2021,
+      "concept_title": "Arrange Rows",
+      "reinforcer_lesson_id": 20213,
+      "reinforcer_title": "Fix the Code: Missing Parenthesis",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2021,
+      "concept_title": "Arrange Rows",
+      "reinforcer_lesson_id": 20214,
+      "reinforcer_title": "Challenge: Backwards",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2022,
+      "concept_title": "Select Columns",
+      "reinforcer_lesson_id": 20221,
+      "reinforcer_title": "Analogy: Chopping Ingredients",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2022,
+      "concept_title": "Select Columns",
+      "reinforcer_lesson_id": 20222,
+      "reinforcer_title": "Variation: Excluding",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2022,
+      "concept_title": "Select Columns",
+      "reinforcer_lesson_id": 20223,
+      "reinforcer_title": "Fix the Code: Comma",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2022,
+      "concept_title": "Select Columns",
+      "reinforcer_lesson_id": 20224,
+      "reinforcer_title": "Challenge: Range",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2023,
+      "concept_title": "Add Columns (Mutate)",
+      "reinforcer_lesson_id": 20231,
+      "reinforcer_title": "Analogy: The Mutation Ray",
+      "relevance": 2,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2023,
+      "concept_title": "Add Columns (Mutate)",
+      "reinforcer_lesson_id": 20232,
+      "reinforcer_title": "Variation: Math",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2023,
+      "concept_title": "Add Columns (Mutate)",
+      "reinforcer_lesson_id": 20233,
+      "reinforcer_title": "Fix the Code: Name It",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2023,
+      "concept_title": "Add Columns (Mutate)",
+      "reinforcer_lesson_id": 20234,
+      "reinforcer_title": "Challenge: Double Up",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 0,
+      "notes": "Weak or missing task clarity; Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2030,
+      "concept_title": "Names & Spaces",
+      "reinforcer_lesson_id": 20301,
+      "reinforcer_title": "Analogy: Grammar",
+      "relevance": 2,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2030,
+      "concept_title": "Names & Spaces",
+      "reinforcer_lesson_id": 20302,
+      "reinforcer_title": "Variation: Pipes",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2030,
+      "concept_title": "Names & Spaces",
+      "reinforcer_lesson_id": 20303,
+      "reinforcer_title": "Fix the Code: Spacing",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2030,
+      "concept_title": "Names & Spaces",
+      "reinforcer_lesson_id": 20304,
+      "reinforcer_title": "Challenge: Naming",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2040,
+      "concept_title": "Tidy Data",
+      "reinforcer_lesson_id": 20401,
+      "reinforcer_title": "Analogy: Stacking Pancakes",
+      "relevance": 0,
+      "difficulty_jump": 2,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "New funcs: pivot_longer; Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2040,
+      "concept_title": "Tidy Data",
+      "reinforcer_lesson_id": 20402,
+      "reinforcer_title": "Variation: Naming Columns",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2040,
+      "concept_title": "Tidy Data",
+      "reinforcer_lesson_id": 20403,
+      "reinforcer_title": "Fix the Code: Missing Quote",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2040,
+      "concept_title": "Tidy Data",
+      "reinforcer_lesson_id": 20404,
+      "reinforcer_title": "Challenge: Pivot It",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2050,
+      "concept_title": "Scripts vs Console",
+      "reinforcer_lesson_id": 20501,
+      "reinforcer_title": "Analogy: The Recipe Card",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2050,
+      "concept_title": "Scripts vs Console",
+      "reinforcer_lesson_id": 20502,
+      "reinforcer_title": "Variation: Saving Plots",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2050,
+      "concept_title": "Scripts vs Console",
+      "reinforcer_lesson_id": 20503,
+      "reinforcer_title": "Fix the Code: Typos",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2050,
+      "concept_title": "Scripts vs Console",
+      "reinforcer_lesson_id": 20504,
+      "reinforcer_title": "Challenge: Comments",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2060,
+      "concept_title": "Reading CSV Files",
+      "reinforcer_lesson_id": 20601,
+      "reinforcer_title": "Analogy: Opening Packages",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2060,
+      "concept_title": "Reading CSV Files",
+      "reinforcer_lesson_id": 20602,
+      "reinforcer_title": "Variation: Inspecting",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2060,
+      "concept_title": "Reading CSV Files",
+      "reinforcer_lesson_id": 20603,
+      "reinforcer_title": "Fix the Code: Function Name",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2060,
+      "concept_title": "Reading CSV Files",
+      "reinforcer_lesson_id": 20604,
+      "reinforcer_title": "Challenge: Assigning",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 3,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2100,
+      "concept_title": "Aesthetic Mappings",
+      "reinforcer_lesson_id": 21001,
+      "reinforcer_title": "Analogy: Coloring Book",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2100,
+      "concept_title": "Aesthetic Mappings",
+      "reinforcer_lesson_id": 21002,
+      "reinforcer_title": "Variation: Size",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2100,
+      "concept_title": "Aesthetic Mappings",
+      "reinforcer_lesson_id": 21003,
+      "reinforcer_title": "Fix the Code: Inside or Out?",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2100,
+      "concept_title": "Aesthetic Mappings",
+      "reinforcer_lesson_id": 21004,
+      "reinforcer_title": "Challenge: Shape",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2101,
+      "concept_title": "Geoms & Layers",
+      "reinforcer_lesson_id": 21011,
+      "reinforcer_title": "Analogy: Different Brushes",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2101,
+      "concept_title": "Geoms & Layers",
+      "reinforcer_lesson_id": 21012,
+      "reinforcer_title": "Variation: Two Layers",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2101,
+      "concept_title": "Geoms & Layers",
+      "reinforcer_lesson_id": 21013,
+      "reinforcer_title": "Fix the Code: Typos",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2101,
+      "concept_title": "Geoms & Layers",
+      "reinforcer_lesson_id": 21014,
+      "reinforcer_title": "Challenge: Boxplot",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2102,
+      "concept_title": "Facets",
+      "reinforcer_lesson_id": 21021,
+      "reinforcer_title": "Analogy: Small Multiples",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2102,
+      "concept_title": "Facets",
+      "reinforcer_lesson_id": 21022,
+      "reinforcer_title": "Variation: Row Count",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2102,
+      "concept_title": "Facets",
+      "reinforcer_lesson_id": 21023,
+      "reinforcer_title": "Fix the Code: Tilde",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2102,
+      "concept_title": "Facets",
+      "reinforcer_lesson_id": 21024,
+      "reinforcer_title": "Challenge: Grid",
+      "relevance": 2,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2110,
+      "concept_title": "Variation",
+      "reinforcer_lesson_id": 21101,
+      "reinforcer_title": "Analogy: Sorting Buckets",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2110,
+      "concept_title": "Variation",
+      "reinforcer_lesson_id": 21102,
+      "reinforcer_title": "Variation: Binwidth",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2110,
+      "concept_title": "Variation",
+      "reinforcer_lesson_id": 21103,
+      "reinforcer_title": "Fix the Code: Y Axis",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2110,
+      "concept_title": "Variation",
+      "reinforcer_lesson_id": 21104,
+      "reinforcer_title": "Challenge: Bar Chart",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2111,
+      "concept_title": "Covariation",
+      "reinforcer_lesson_id": 21111,
+      "reinforcer_title": "Analogy: Box and Whiskers",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2111,
+      "concept_title": "Covariation",
+      "reinforcer_lesson_id": 21112,
+      "reinforcer_title": "Variation: Reorder",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2111,
+      "concept_title": "Covariation",
+      "reinforcer_lesson_id": 21113,
+      "reinforcer_title": "Fix the Code: Flip",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2111,
+      "concept_title": "Covariation",
+      "reinforcer_lesson_id": 21114,
+      "reinforcer_title": "Challenge: Heatmap",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2120,
+      "concept_title": "Labels & Titles",
+      "reinforcer_lesson_id": 21201,
+      "reinforcer_title": "Analogy: Name Tags",
+      "relevance": 2,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2120,
+      "concept_title": "Labels & Titles",
+      "reinforcer_lesson_id": 21202,
+      "reinforcer_title": "Variation: Axis Labels",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2120,
+      "concept_title": "Labels & Titles",
+      "reinforcer_lesson_id": 21203,
+      "reinforcer_title": "Fix the Code: Quotes",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2120,
+      "concept_title": "Labels & Titles",
+      "reinforcer_lesson_id": 21204,
+      "reinforcer_title": "Challenge: Caption",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2121,
+      "concept_title": "Themes & Scales",
+      "reinforcer_lesson_id": 21211,
+      "reinforcer_title": "Analogy: Changing Outfits",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2121,
+      "concept_title": "Themes & Scales",
+      "reinforcer_lesson_id": 21212,
+      "reinforcer_title": "Variation: Classic",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2121,
+      "concept_title": "Themes & Scales",
+      "reinforcer_lesson_id": 21213,
+      "reinforcer_title": "Fix the Code: Parentheses",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2121,
+      "concept_title": "Themes & Scales",
+      "reinforcer_lesson_id": 21214,
+      "reinforcer_title": "Challenge: Dark Mode",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2200,
+      "concept_title": "Comparisons & Boolean",
+      "reinforcer_lesson_id": 22001,
+      "reinforcer_title": "Analogy: The Light Switch",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2200,
+      "concept_title": "Comparisons & Boolean",
+      "reinforcer_lesson_id": 22002,
+      "reinforcer_title": "Variation: Comparisons",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2200,
+      "concept_title": "Comparisons & Boolean",
+      "reinforcer_lesson_id": 22003,
+      "reinforcer_title": "Fix the Code: Case Sensitive",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2200,
+      "concept_title": "Comparisons & Boolean",
+      "reinforcer_lesson_id": 22004,
+      "reinforcer_title": "Challenge: Not Equal",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2201,
+      "concept_title": "Conditional Logic",
+      "reinforcer_lesson_id": 22011,
+      "reinforcer_title": "Analogy: Decisions",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2201,
+      "concept_title": "Conditional Logic",
+      "reinforcer_lesson_id": 22012,
+      "reinforcer_title": "Variation: Or",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2201,
+      "concept_title": "Conditional Logic",
+      "reinforcer_lesson_id": 22013,
+      "reinforcer_title": "Fix the Code: Not Python",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2201,
+      "concept_title": "Conditional Logic",
+      "reinforcer_lesson_id": 22014,
+      "reinforcer_title": "Challenge: Negation",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2210,
+      "concept_title": "Counts & Summaries",
+      "reinforcer_lesson_id": 22101,
+      "reinforcer_title": "Analogy: Counting Heads",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2210,
+      "concept_title": "Counts & Summaries",
+      "reinforcer_lesson_id": 22102,
+      "reinforcer_title": "Variation: Summarize",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2210,
+      "concept_title": "Counts & Summaries",
+      "reinforcer_lesson_id": 22103,
+      "reinforcer_title": "Fix the Code: Parentheses",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2210,
+      "concept_title": "Counts & Summaries",
+      "reinforcer_lesson_id": 22104,
+      "reinforcer_title": "Challenge: Max",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2220,
+      "concept_title": "String Basics",
+      "reinforcer_lesson_id": 22201,
+      "reinforcer_title": "Analogy: Glue Stick",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2220,
+      "concept_title": "String Basics",
+      "reinforcer_lesson_id": 22202,
+      "reinforcer_title": "Variation: Combining",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2220,
+      "concept_title": "String Basics",
+      "reinforcer_lesson_id": 22203,
+      "reinforcer_title": "Fix the Code: Spelling",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2220,
+      "concept_title": "String Basics",
+      "reinforcer_lesson_id": 22204,
+      "reinforcer_title": "Challenge: Substring",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2230,
+      "concept_title": "Regex Basics",
+      "reinforcer_lesson_id": 22301,
+      "reinforcer_title": "Analogy: Ctrl+F",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2230,
+      "concept_title": "Regex Basics",
+      "reinforcer_lesson_id": 22302,
+      "reinforcer_title": "Variation: Start Anchor",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2230,
+      "concept_title": "Regex Basics",
+      "reinforcer_lesson_id": 22303,
+      "reinforcer_title": "Fix the Code: Characters",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2230,
+      "concept_title": "Regex Basics",
+      "reinforcer_lesson_id": 22304,
+      "reinforcer_title": "Challenge: Digits",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2240,
+      "concept_title": "Factor Basics",
+      "reinforcer_lesson_id": 22401,
+      "reinforcer_title": "Analogy: Sorting Shirts",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2240,
+      "concept_title": "Factor Basics",
+      "reinforcer_lesson_id": 22402,
+      "reinforcer_title": "Variation: Reordering",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2240,
+      "concept_title": "Factor Basics",
+      "reinforcer_lesson_id": 22403,
+      "reinforcer_title": "Fix the Code: Levels",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2240,
+      "concept_title": "Factor Basics",
+      "reinforcer_lesson_id": 22404,
+      "reinforcer_title": "Challenge: Count",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2250,
+      "concept_title": "Dates & Times",
+      "reinforcer_lesson_id": 22501,
+      "reinforcer_title": "Analogy: ISO Standard",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2250,
+      "concept_title": "Dates & Times",
+      "reinforcer_lesson_id": 22502,
+      "reinforcer_title": "Variation: MDY",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2250,
+      "concept_title": "Dates & Times",
+      "reinforcer_lesson_id": 22503,
+      "reinforcer_title": "Fix the Code: Quote",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2250,
+      "concept_title": "Dates & Times",
+      "reinforcer_lesson_id": 22504,
+      "reinforcer_title": "Challenge: Get Year",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2260,
+      "concept_title": "Missing Values",
+      "reinforcer_lesson_id": 22601,
+      "reinforcer_title": "Analogy: Empty Seat",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2260,
+      "concept_title": "Missing Values",
+      "reinforcer_lesson_id": 22602,
+      "reinforcer_title": "Variation: Replacing",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2260,
+      "concept_title": "Missing Values",
+      "reinforcer_lesson_id": 22603,
+      "reinforcer_title": "Fix the Code: Comparison",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2260,
+      "concept_title": "Missing Values",
+      "reinforcer_lesson_id": 22604,
+      "reinforcer_title": "Challenge: Drop",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2270,
+      "concept_title": "Mutating Joins",
+      "reinforcer_lesson_id": 22701,
+      "reinforcer_title": "Analogy: Identification Card",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2270,
+      "concept_title": "Mutating Joins",
+      "reinforcer_lesson_id": 22702,
+      "reinforcer_title": "Variation: Right Join",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2270,
+      "concept_title": "Mutating Joins",
+      "reinforcer_lesson_id": 22703,
+      "reinforcer_title": "Fix the Code: By Argument",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2270,
+      "concept_title": "Mutating Joins",
+      "reinforcer_lesson_id": 22704,
+      "reinforcer_title": "Challenge: Inner Join",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2271,
+      "concept_title": "Filtering Joins",
+      "reinforcer_lesson_id": 22711,
+      "reinforcer_title": "Analogy: The Bouncer",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2271,
+      "concept_title": "Filtering Joins",
+      "reinforcer_lesson_id": 22712,
+      "reinforcer_title": "Variation: Anti Join",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2271,
+      "concept_title": "Filtering Joins",
+      "reinforcer_lesson_id": 22713,
+      "reinforcer_title": "Fix the Code: Columns",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 3,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2271,
+      "concept_title": "Filtering Joins",
+      "reinforcer_lesson_id": 22714,
+      "reinforcer_title": "Challenge: Filter",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2300,
+      "concept_title": "Reading Excel",
+      "reinforcer_lesson_id": 23001,
+      "reinforcer_title": "Analogy: Reading Spreadsheets",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2300,
+      "concept_title": "Reading Excel",
+      "reinforcer_lesson_id": 23002,
+      "reinforcer_title": "Variation: Specifying Sheet",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2300,
+      "concept_title": "Reading Excel",
+      "reinforcer_lesson_id": 23003,
+      "reinforcer_title": "Fix the Code: Extension",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2300,
+      "concept_title": "Reading Excel",
+      "reinforcer_lesson_id": 23004,
+      "reinforcer_title": "Challenge: Range",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2310,
+      "concept_title": "Databases & dbplyr",
+      "reinforcer_lesson_id": 23101,
+      "reinforcer_title": "Analogy: Remote Control",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2310,
+      "concept_title": "Databases & dbplyr",
+      "reinforcer_lesson_id": 23102,
+      "reinforcer_title": "Variation: SQL Translation",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2310,
+      "concept_title": "Databases & dbplyr",
+      "reinforcer_lesson_id": 23103,
+      "reinforcer_title": "Fix the Code: Collect",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2310,
+      "concept_title": "Databases & dbplyr",
+      "reinforcer_lesson_id": 23104,
+      "reinforcer_title": "Challenge: Filter DB",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2320,
+      "concept_title": "Arrow & Parquet",
+      "reinforcer_lesson_id": 23201,
+      "reinforcer_title": "Analogy: Fast Lane",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2320,
+      "concept_title": "Arrow & Parquet",
+      "reinforcer_lesson_id": 23202,
+      "reinforcer_title": "Variation: Write",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2320,
+      "concept_title": "Arrow & Parquet",
+      "reinforcer_lesson_id": 23203,
+      "reinforcer_title": "Fix the Code: Function",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2320,
+      "concept_title": "Arrow & Parquet",
+      "reinforcer_lesson_id": 23204,
+      "reinforcer_title": "Challenge: Filter",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2330,
+      "concept_title": "Lists & Rectangling",
+      "reinforcer_lesson_id": 23301,
+      "reinforcer_title": "Analogy: Unpacking Suitcase",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2330,
+      "concept_title": "Lists & Rectangling",
+      "reinforcer_lesson_id": 23302,
+      "reinforcer_title": "Variation: Wider",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2330,
+      "concept_title": "Lists & Rectangling",
+      "reinforcer_lesson_id": 23303,
+      "reinforcer_title": "Fix the Code: Plural",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2330,
+      "concept_title": "Lists & Rectangling",
+      "reinforcer_lesson_id": 23304,
+      "reinforcer_title": "Challenge: Rectangling",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2340,
+      "concept_title": "Web Scraping with rvest",
+      "reinforcer_lesson_id": 23401,
+      "reinforcer_title": "Analogy: Mining",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2340,
+      "concept_title": "Web Scraping with rvest",
+      "reinforcer_lesson_id": 23402,
+      "reinforcer_title": "Variation: Selectors",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2340,
+      "concept_title": "Web Scraping with rvest",
+      "reinforcer_lesson_id": 23403,
+      "reinforcer_title": "Fix the Code: Text",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2340,
+      "concept_title": "Web Scraping with rvest",
+      "reinforcer_lesson_id": 23404,
+      "reinforcer_title": "Challenge: Table",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2400,
+      "concept_title": "Functions & Tidy Eval",
+      "reinforcer_lesson_id": 24001,
+      "reinforcer_title": "Analogy: Teaching Tricks",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2400,
+      "concept_title": "Functions & Tidy Eval",
+      "reinforcer_lesson_id": 24002,
+      "reinforcer_title": "Variation: Arguments",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2400,
+      "concept_title": "Functions & Tidy Eval",
+      "reinforcer_lesson_id": 24003,
+      "reinforcer_title": "Fix the Code: Braces",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2400,
+      "concept_title": "Functions & Tidy Eval",
+      "reinforcer_lesson_id": 24004,
+      "reinforcer_title": "Challenge: Return",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2410,
+      "concept_title": "Iteration: across & map",
+      "reinforcer_lesson_id": 24101,
+      "reinforcer_title": "Analogy: Assembly Line",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2410,
+      "concept_title": "Iteration: across & map",
+      "reinforcer_lesson_id": 24102,
+      "reinforcer_title": "Variation: Double",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2410,
+      "concept_title": "Iteration: across & map",
+      "reinforcer_lesson_id": 24103,
+      "reinforcer_title": "Fix the Code: Argument",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2410,
+      "concept_title": "Iteration: across & map",
+      "reinforcer_lesson_id": 24104,
+      "reinforcer_title": "Challenge: Walk",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2420,
+      "concept_title": "A Field Guide to Base R",
+      "reinforcer_lesson_id": 24201,
+      "reinforcer_title": "Analogy: Pepper Shaker",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2420,
+      "concept_title": "A Field Guide to Base R",
+      "reinforcer_lesson_id": 24202,
+      "reinforcer_title": "Variation: Brackets",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2420,
+      "concept_title": "A Field Guide to Base R",
+      "reinforcer_lesson_id": 24203,
+      "reinforcer_title": "Fix the Code: Comma",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2420,
+      "concept_title": "A Field Guide to Base R",
+      "reinforcer_lesson_id": 24204,
+      "reinforcer_title": "Challenge: Loop",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2500,
+      "concept_title": "Quarto Basics",
+      "reinforcer_lesson_id": 25001,
+      "reinforcer_title": "Analogy: Notebook",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2500,
+      "concept_title": "Quarto Basics",
+      "reinforcer_lesson_id": 25002,
+      "reinforcer_title": "Variation: Code Chunk",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2500,
+      "concept_title": "Quarto Basics",
+      "reinforcer_lesson_id": 25003,
+      "reinforcer_title": "Fix the Code: Backticks",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2500,
+      "concept_title": "Quarto Basics",
+      "reinforcer_lesson_id": 25004,
+      "reinforcer_title": "Challenge: YAML",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2510,
+      "concept_title": "Quarto Formats",
+      "reinforcer_lesson_id": 25101,
+      "reinforcer_title": "Analogy: Transformer",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2510,
+      "concept_title": "Quarto Formats",
+      "reinforcer_lesson_id": 25102,
+      "reinforcer_title": "Variation: PDF",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2510,
+      "concept_title": "Quarto Formats",
+      "reinforcer_lesson_id": 25103,
+      "reinforcer_title": "Fix the Code: Indent",
+      "relevance": 1,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    },
+    {
+      "concept_lesson_id": 2510,
+      "concept_title": "Quarto Formats",
+      "reinforcer_lesson_id": 25104,
+      "reinforcer_title": "Challenge: Presentation",
+      "relevance": 0,
+      "difficulty_jump": 3,
+      "explanation_quality": 0,
+      "robustness": 2,
+      "notes": "Thin explanation"
+    }
+  ],
+  "worst_sets": [
+    {
+      "concept_lesson_id": 2004,
+      "concept_title": "Adding Dots with geom_point()",
+      "avg_score": 1.1875,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Weak or missing task clarity",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2040,
+      "concept_title": "Tidy Data",
+      "avg_score": 1.1875,
+      "notes": [
+        "New funcs: pivot_longer",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2002,
+      "concept_title": "The Empty Canvas",
+      "avg_score": 1.25,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2003,
+      "concept_title": "Mapping Data to Axes",
+      "avg_score": 1.25,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2110,
+      "concept_title": "Variation",
+      "avg_score": 1.25,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2201,
+      "concept_title": "Conditional Logic",
+      "avg_score": 1.25,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2250,
+      "concept_title": "Dates & Times",
+      "avg_score": 1.25,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2320,
+      "concept_title": "Arrow & Parquet",
+      "avg_score": 1.25,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2330,
+      "concept_title": "Lists & Rectangling",
+      "avg_score": 1.25,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2340,
+      "concept_title": "Web Scraping with rvest",
+      "avg_score": 1.25,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2400,
+      "concept_title": "Functions & Tidy Eval",
+      "avg_score": 1.25,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2001,
+      "concept_title": "Meet the Penguins",
+      "avg_score": 1.3125,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2010,
+      "concept_title": "Coding Basics",
+      "avg_score": 1.3125,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2020,
+      "concept_title": "Filter Rows",
+      "avg_score": 1.3125,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Weak or missing task clarity",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2023,
+      "concept_title": "Add Columns (Mutate)",
+      "avg_score": 1.3125,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Weak or missing task clarity",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2050,
+      "concept_title": "Scripts vs Console",
+      "avg_score": 1.3125,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2111,
+      "concept_title": "Covariation",
+      "avg_score": 1.3125,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2210,
+      "concept_title": "Counts & Summaries",
+      "avg_score": 1.3125,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2220,
+      "concept_title": "String Basics",
+      "avg_score": 1.3125,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    },
+    {
+      "concept_lesson_id": 2230,
+      "concept_title": "Regex Basics",
+      "avg_score": 1.3125,
+      "notes": [
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation",
+        "Thin explanation"
+      ]
+    }
+  ]
+}

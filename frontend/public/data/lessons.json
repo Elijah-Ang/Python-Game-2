@@ -8848,12 +8848,12 @@
     ]
   },
   "2040": {
-    "id": 2040,
     "title": "Tidy Data",
-    "chapter_title": "Ch 5: Data Tidying",
-    "content": "# \ud83e\uddf9 Tidy Data\n\n> \"Tidy datasets are all alike, but every messy dataset is messy in its own way.\"\n> \u2014 Hadley Wickham\n\n## The Three Rules of Tidy Data\n\n```\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502  1. Each VARIABLE is a COLUMN     \u2502\n\u2502  2. Each OBSERVATION is a ROW     \u2502\n\u2502  3. Each VALUE is a CELL          \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n```\n\n---\n\n## Example: Tidy vs Messy\n\n**\u2705 TIDY (`table1`)**:\n```\n| country     | year | cases  | population |\n|-------------|------|--------|------------|\n| Afghanistan | 1999 |    745 |   19987071 |\n| Afghanistan | 2000 |   2666 |   20595360 |\n| Brazil      | 1999 |  37737 |  172006362 |\n```\n\n**\u274c MESSY (values in column names)**:\n```\n| country     | 1999 | 2000 |\n|-------------|------|------|\n| Afghanistan |  745 | 2666 |\n| Brazil      |37737 |80488 |\n```\n\nThe messy version hides \"year\" in the column headers instead of having it as a column!\n\n---\n\n## Why Tidy Data?\n\nWith tidy data, `dplyr` and `ggplot2` work seamlessly:\n\n```r\n# Compute rate per 10,000\ntable1 |> mutate(rate = cases / population * 10000)\n\n# Total cases per year\ntable1 |> group_by(year) |> summarize(total = sum(cases))\n```\n\n---\n\n## \ud83c\udfaf Your Task\n\nInspect `table1` by typing its name. Notice how:\n- Each variable (`country`, `year`, `cases`, `population`) has its own column\n- Each observation (country-year combination) is a row\n- Each cell contains a single value",
+    "content": "# \ud83e\uddf9 Tidy Data\n\n> \"Tidy datasets are all alike, but every messy dataset is messy in its own way.\"\n> \u2014 Hadley Wickham\n\n## The Three Rules of Tidy Data\n\n```\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502  1. Each VARIABLE is a COLUMN     \u2502\n\u2502  2. Each OBSERVATION is a ROW     \u2502\n\u2502  3. Each VALUE is a CELL          \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n```\n\n---\n\n## Example: Tidy vs Messy\n\n**\u2705 TIDY (`table1`)**:\n```\n| country     | year | cases  | population |\n|-------------|------|--------|------------|\n| Afghanistan | 1999 |    745 |   19987071 |\n| Afghanistan | 2000 |   2666 |   20595360 |\n| Brazil      | 1999 |  37737 |  172006362 |\n```\n\n**\u274c MESSY (values in column names)**:\n```\n| country     | 1999 | 2000 |\n|-------------|------|------|\n| Afghanistan |  745 | 2666 |\n| Brazil      |37737 |80488 |\n```\n\nThe messy version hides \"year\" in the column headers instead of having it as a column!\n\n---\n\n## A simple tidying tool\n\nWe will use tidyr::pivot_longer() to stack multiple value columns into two columns:\n- a key column set by names_to\n- a value column set by values_to\n\n## Why Tidy Data?\n\nWith tidy data, `dplyr` and `ggplot2` work seamlessly:\n\n```r\n# Compute rate per 10,000\ntable1 |> mutate(rate = cases / population * 10000)\n\n# Total cases per year\ntable1 |> group_by(year) |> summarize(total = sum(cases))\n```\n\n---\n\n## \ud83c\udfaf Your Task\n\nInspect `table1` by typing its name. Notice how:\n- Each variable (`country`, `year`, `cases`, `population`) has its own column\n- Each observation (country-year combination) is a row\n- Each cell contains a single value",
     "starter_code": "# View the tidy dataset\ntable1\n",
     "solution_code": "table1",
+    "id": 2040,
+    "chapter_title": "Ch 5: Data Tidying",
     "chapter_id": 5,
     "concept_tags": [
       "visualization",
@@ -9372,154 +9372,190 @@
   },
   "20011": {
     "title": "Analogy: Variables are Boxes",
-    "content": "# \ud83d\udce6 Variables are Boxes\n\nImagine you have a moving box. You write \"Kitchen\" on the outside and put **plates** inside.\n\nIn R, the box name is the variable (`kitchen`) and the content is the value (`\"plates\"`).\n\n![Variable Box](/Python-Game-2/assets/r-diagrams/variable_box_kitchen.png)\n\n```r\nkitchen <- \"plates\"\n```\n\nNow whenever you ask for `kitchen`, R gives you `\"plates\"`.\n\n## \ud83c\udfaf Your Task\nCreate a box named `pet` and put `\"dog\"` inside.",
-    "starter_code": "# Create the variable\npet <- ...",
-    "solution_code": "pet <- \"dog\"",
+    "content": "# Plot questions from penguins\n\n## What you'll learn\nChoose x and y variables that match a visual question.\n\n## Why this matters\nA plot only answers the question you encode on its axes.\n\n## Step-by-step task\n1. Review the available columns.\n2. Set x_var and y_var to answer: Do penguins with longer flippers tend to be heavier?\n\n## Expected output or check condition\n- x_var should be \"flipper_length_mm\".\n- y_var should be \"body_mass_g\".\n\n## One common mistake to avoid\n- Using a category like species on a scatterplot axis.\n\n## Confirm no hidden prerequisites\n- Uses only column names listed in the starter code and simple assignment.",
+    "starter_code": "# Column options you can plot\ncols <- c(\"bill_length_mm\", \"bill_depth_mm\", \"flipper_length_mm\", \"body_mass_g\", \"species\", \"island\", \"sex\")\n\n# Choose axes for: Do penguins with longer flippers tend to be heavier?\nx_var <- ...\ny_var <- ...",
+    "solution_code": "x_var <- \"flipper_length_mm\"\ny_var <- \"body_mass_g\"",
     "id": 20011,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20012": {
     "title": "Variation: Changing Values",
-    "content": "# \ud83d\udd04 Changing the Box Content\n\nYou can empty the box and put something else in. The old stuff is gone!\n\n```r\nscore <- 10\nscore <- 20 # Now score is 20\n```\n\n## \ud83c\udfaf Your Task\n1. Set `apples` to 5.\n2. Change `apples` to 10.",
-    "starter_code": "apples <- 5\n# Change it to 10\napples <- ...",
-    "solution_code": "apples <- 5\napples <- 10",
+    "content": "# Grouped visual question\n\n## What you'll learn\nAdd a grouping variable to compare categories in a plot.\n\n## Why this matters\nGrouping changes the story a plot tells.\n\n## Step-by-step task\n1. Keep x_var and y_var as a size comparison.\n2. Choose a category to compare (for example island or species).\n3. Set group_var and update the question.\n\n## Expected output or check condition\n- identical(group_var, \"island\") should return TRUE.\n- identical(question, \"Do penguins on different islands have different body_mass_g?\") should return TRUE.\n## One common mistake to avoid\n- Using a numeric column for a grouping variable.\n\n## Confirm no hidden prerequisites\n- Uses only column names listed in the starter code and simple assignment.",
+    "starter_code": "cols <- c(\"bill_length_mm\", \"bill_depth_mm\", \"flipper_length_mm\", \"body_mass_g\", \"species\", \"island\", \"sex\")\nx_var <- \"body_mass_g\"\ny_var <- \"bill_length_mm\"\n\n# Add a grouping variable to compare categories\ngroup_var <- ...\nquestion <- ...\n\nidentical(group_var, \"island\")\nidentical(question, \"Do penguins on different islands have different body_mass_g?\")",
+    "solution_code": "x_var <- \"body_mass_g\"\ny_var <- \"bill_length_mm\"\ngroup_var <- \"island\"\nquestion <- \"Do penguins on different islands have different body_mass_g?\"\n\nidentical(group_var, \"island\")\nidentical(question, \"Do penguins on different islands have different body_mass_g?\")",
     "id": 20012,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20013": {
     "title": "Fix the Code: Broken Arrow",
-    "content": "# \ud83d\udd27 Fix the Code\n\nThe assignment arrow `<-` needs to be together. It's not `< -` (less than minus)!\n\n## \ud83c\udfaf Your Task\nFix the broken arrow so the code runs.",
-    "starter_code": "my_number < - 100",
-    "solution_code": "my_number <- 100",
+    "content": "# Fix the axis choice\n\n## What you'll learn\nChoose numeric axes for a scatterplot question.\n\n## Why this matters\nScatterplots need numeric values on both axes to show a relationship.\n\n## Step-by-step task\n1. Review the numeric columns.\n2. Replace x_var and y_var so both are numeric.\n\n## Expected output or check condition\n- x_var %in% numeric_cols should return TRUE.\n- y_var %in% numeric_cols should return TRUE.\n## One common mistake to avoid\n- Keeping both axes as categories like species and island.\n\n## Confirm no hidden prerequisites\n- Uses only column names listed in the starter code and simple assignment.",
+    "starter_code": "numeric_cols <- c(\"bill_length_mm\", \"bill_depth_mm\", \"flipper_length_mm\", \"body_mass_g\")\n\n# Wrong: both are categories for a scatterplot\nx_var <- \"species\"\ny_var <- \"island\"\n\n# Fix x_var and y_var to use two numeric columns\nx_var %in% numeric_cols\ny_var %in% numeric_cols",
+    "solution_code": "numeric_cols <- c(\"bill_length_mm\", \"bill_depth_mm\", \"flipper_length_mm\", \"body_mass_g\")\nx_var <- \"bill_length_mm\"\ny_var <- \"body_mass_g\"\n\nx_var %in% numeric_cols\ny_var %in% numeric_cols",
     "id": 20013,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20014": {
     "title": "Challenge: Your Own Vars",
-    "content": "# \ud83e\uddb8 Your Turn\n\nTime to pack your own boxes without help.\n\n## \ud83c\udfaf Your Task\nCreate a variable named `favorite_color` and assign it the text `\"blue\"` (or any color).",
-    "starter_code": "# Write it from scratch!",
-    "solution_code": "favorite_color <- \"blue\"",
+    "content": "# Mini task: choose axes for a question\n\n## What you'll learn\nTranslate a visual question into x and y axes.\n\n## Why this matters\nGood plots start with clear questions.\n\n## Step-by-step task\n1. Use the provided question.\n2. Set x_var and y_var to match it.\n\n## Expected output or check condition\n- identical(question, \"Do heavier penguins have longer bills?\") should return TRUE.\n- identical(x_var, \"body_mass_g\") should return TRUE.\n- identical(y_var, \"bill_length_mm\") should return TRUE.\n## One common mistake to avoid\n- Swapping axes so the question no longer matches the plot.\n\n## Confirm no hidden prerequisites\n- Uses only column names listed in the starter code and simple assignment.",
+    "starter_code": "question <- ...\nx_var <- ...\ny_var <- ...\n\nidentical(question, \"Do heavier penguins have longer bills?\")\nidentical(x_var, \"body_mass_g\")\nidentical(y_var, \"bill_length_mm\")",
+    "solution_code": "question <- \"Do heavier penguins have longer bills?\"\nx_var <- \"body_mass_g\"\ny_var <- \"bill_length_mm\"\n\nidentical(question, \"Do heavier penguins have longer bills?\")\nidentical(x_var, \"body_mass_g\")\nidentical(y_var, \"bill_length_mm\")",
     "id": 20014,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20021": {
     "title": "Analogy: Secret Notes",
-    "content": "# \ud83e\udd2b Secret Notes\n\nComments (`#`) are like whispering to yourself. The computer can't hear you.\n\n```r\n1 + 1 # The computer calculates 2 and ignores this text\n```\n\n## \ud83c\udfaf Your Task\nRun the code below. The computer will ignore the comment.",
-    "starter_code": "# This is a secret message\n10 + 10",
-    "solution_code": "# This is a secret message\n10 + 10",
+    "content": "# Build a blank canvas\n\n## What you'll learn\nCreate a ggplot canvas with data and axis mappings.\n\n## Why this matters\nA blank canvas defines the coordinate system for your data.\n## Step-by-step task\n1. Use the penguins dataset.\n2. Map bill_length_mm to x and body_mass_g to y.\n\n## Expected output or check condition\n- identical(p$labels$x, \"bill_length_mm\") should return TRUE.\n- identical(p$labels$y, \"body_mass_g\") should return TRUE.\n## One common mistake to avoid\n- Leaving data or aes empty.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
+    "starter_code": "# Build a blank canvas for bill length vs body mass\np <- ggplot(data = ..., mapping = aes(x = ..., y = ...))\np\n\nidentical(p$labels$x, \"bill_length_mm\")\nidentical(p$labels$y, \"body_mass_g\")",
+    "solution_code": "p <- ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = body_mass_g))\np\n\nidentical(p$labels$x, \"bill_length_mm\")\nidentical(p$labels$y, \"body_mass_g\")",
     "id": 20021,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20022": {
     "title": "Variation: Silencing Code",
-    "content": "# \ud83d\udd07 Silencing Code\n\nYou can use comments to temporarily \"turn off\" a line of code without deleting it.\n\n## \ud83c\udfaf Your Task\nComment out the line that subtracts 50 so it doesn't happen.",
-    "starter_code": "100 + 100\n# Comment out the next line:\n- 50",
-    "solution_code": "100 + 100\n# - 50",
+    "content": "# Swap axes on the canvas\n\n## What you'll learn\nSwap x and y to change the view of the same variables.\n\n## Why this matters\nAxis choices affect how patterns are read.\n\n## Step-by-step task\n1. Swap x and y so mass is on x and bill length is on y.\n2. Run the plot.\n\n## Expected output or check condition\n- The x axis should be body_mass_g and the y axis should be bill_length_mm.\n\n## One common mistake to avoid\n- Changing labels in text but not swapping the variables.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
+    "starter_code": "p <- ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = body_mass_g))\n# Swap axes so mass is on x and bill length on y\np",
+    "solution_code": "p <- ggplot(data = penguins, mapping = aes(x = body_mass_g, y = bill_length_mm))\np",
     "id": 20022,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20023": {
     "title": "Fix the Code: Missing #",
-    "content": "# \ud83d\udd27 Fix the Code\n\nThe programmer wrote a note but forgot the `#`. R thinks it's code and is confused!\n\n## \ud83c\udfaf Your Task\nAdd a `#` before the text \"Calculate sum\".",
-    "starter_code": "Calculate sum\n5 + 5",
-    "solution_code": "# Calculate sum\n5 + 5",
+    "content": "# Fix missing aes\n\n## What you'll learn\nPlace x and y mappings inside aes().\n\n## Why this matters\nggplot() only recognizes mappings inside aes().\n\n## Step-by-step task\n1. Fix the ggplot call so x and y are inside aes().\n2. Run the plot.\n\n## Expected output or check condition\n- identical(p$labels$x, \"bill_length_mm\") should return TRUE.\n- identical(p$labels$y, \"body_mass_g\") should return TRUE.\n## One common mistake to avoid\n- Passing x and y directly to ggplot().\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
+    "starter_code": "# This fails because x and y are not inside aes()\np <- ggplot(data = penguins, x = bill_length_mm, y = body_mass_g)\np\n\nidentical(p$labels$x, \"bill_length_mm\")\nidentical(p$labels$y, \"body_mass_g\")",
+    "solution_code": "p <- ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = body_mass_g))\np\n\nidentical(p$labels$x, \"bill_length_mm\")\nidentical(p$labels$y, \"body_mass_g\")",
     "id": 20023,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20024": {
     "title": "Challenge: Annotate",
-    "content": "# \ud83e\uddb8 Your Turn\n\nGood code explains itself.\n\n## \ud83c\udfaf Your Task\n1. Write a comment `# My calculation`.\n2. On the next line, calculate `10 * 10`.",
-    "starter_code": "# Write your comment and code below\n",
-    "solution_code": "# My calculation\n10 * 10",
+    "content": "# Mini task: new canvas\n\n## What you'll learn\nCreate a blank canvas for a new pair of variables.\n\n## Why this matters\nYou need a clear axis mapping for the canvas.\n## Step-by-step task\n1. Use the penguins dataset.\n2. Map flipper_length_mm to x and bill_depth_mm to y.\n\n## Expected output or check condition\n- identical(p$labels$x, \"flipper_length_mm\") should return TRUE.\n- identical(p$labels$y, \"bill_depth_mm\") should return TRUE.\n## One common mistake to avoid\n- Mixing up x and y variables.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
+    "starter_code": "p <- ggplot(data = ..., mapping = aes(x = ..., y = ...))\np\n\nidentical(p$labels$x, \"flipper_length_mm\")\nidentical(p$labels$y, \"bill_depth_mm\")",
+    "solution_code": "p <- ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = bill_depth_mm))\np\n\nidentical(p$labels$x, \"flipper_length_mm\")\nidentical(p$labels$y, \"bill_depth_mm\")",
     "id": 20024,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20031": {
     "title": "Analogy: The Sticker Album",
-    "content": "# \ud83d\udcd3 The Sticker Album\n\nA pandas DataFrame (or R Data Frame) is like a sticker album. It organizes your data into rows (stickers) and columns (features).\n\nIn this lesson we use `mpg`. It's a built-in album about cars.\n\n## \ud83c\udfaf Your Task\nJust type `mpg` to look at the album pages.",
-    "starter_code": "# View the dataset\nmpg",
-    "solution_code": "mpg",
+    "content": "# Map axes for a question\n\n## What you'll learn\nMatch a plot question to x and y variables.\n\n## Why this matters\nThe axes control the story your plot tells.\n\n## Step-by-step task\n1. Use the mpg dataset.\n2. Map x and y to answer: Does engine size relate to highway mpg?\n\n## Expected output or check condition\n- x should be displ and y should be hwy.\n\n## One common mistake to avoid\n- Swapping x and y and changing the question.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
+    "starter_code": "p <- ggplot(data = mpg, mapping = aes(x = ..., y = ...))\np",
+    "solution_code": "p <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy))\np",
     "id": 20031,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "dataframe",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20032": {
     "title": "Variation: How Big?",
-    "content": "# \ud83d\udccf How Big is the Algebra?\n\nYou can ask \"How many stickers?\" (`nrow`) or \"How many features?\" (`ncol`).\n\n## \ud83c\udfaf Your Task\nFind out how many rows (cars) are in `mpg` using `nrow(mpg)`.",
-    "starter_code": "# Count the rows\n...",
-    "solution_code": "nrow(mpg)",
+    "content": "# Swap axes\n\n## What you'll learn\nSwap x and y to change how a relationship is read.\n\n## Why this matters\nAxis choices affect which variable feels like the input or output.\n\n## Step-by-step task\n1. Swap x and y so highway mpg is on x and engine size is on y.\n2. Run the plot.\n\n## Expected output or check condition\n- The x axis should be hwy and the y axis should be displ.\n\n## One common mistake to avoid\n- Changing the labels without swapping the variables.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
+    "starter_code": "p <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy))\n# Swap axes\np",
+    "solution_code": "p <- ggplot(data = mpg, mapping = aes(x = hwy, y = displ))\np",
     "id": 20032,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20033": {
     "title": "Fix the Code: Typo",
-    "content": "# \ud83d\udd27 Fix the Code\n\nR is very specific about spelling. `Mpg` is not `mpg`.\n\n## \ud83c\udfaf Your Task\nFix the spelling to view the data.",
-    "starter_code": "Mpg",
-    "solution_code": "mpg",
+    "content": "# Fix mapping placement\n\n## What you'll learn\nPlace x and y mappings inside aes().\n\n## Why this matters\nMappings outside aes() are ignored by ggplot().\n\n## Step-by-step task\n1. Move x and y into aes().\n2. Run the plot.\n\n## Expected output or check condition\n- identical(p$labels$x, \"displ\") should return TRUE.\n- identical(p$labels$y, \"hwy\") should return TRUE.\n## One common mistake to avoid\n- Passing x and y directly to ggplot().\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
+    "starter_code": "p <- ggplot(data = mpg, x = displ, y = hwy)\np\n\nidentical(p$labels$x, \"displ\")\nidentical(p$labels$y, \"hwy\")",
+    "solution_code": "p <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy))\np\n\nidentical(p$labels$x, \"displ\")\nidentical(p$labels$y, \"hwy\")",
     "id": 20033,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20034": {
     "title": "Challenge: Another Dataset",
-    "content": "# \ud83e\uddb8 Your Turn\n\nThere is another dataset called `mtcars`. It's a classic.\n\n## \ud83c\udfaf Your Task\nPrint the `mtcars` dataset to the screen.",
-    "starter_code": "",
-    "solution_code": "mtcars",
+    "content": "# Mini task: new dataset\n\n## What you'll learn\nMap axes in a different dataset.\n\n## Why this matters\nThe same mapping logic applies across datasets.\n\n## Step-by-step task\n1. Use the mtcars dataset.\n2. Map weight (wt) to x and mpg to y.\n\n## Expected output or check condition\n- The x axis should be wt and the y axis should be mpg.\n\n## One common mistake to avoid\n- Using columns that are not in mtcars.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
+    "starter_code": "p <- ggplot(data = mtcars, mapping = aes(x = ..., y = ...))\np",
+    "solution_code": "p <- ggplot(data = mtcars, mapping = aes(x = wt, y = mpg))\np",
     "id": 20034,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20041": {
     "title": "Analogy: Connect the Dots",
-    "content": "# \ud83c\udfa8 Connect the Dots\n\n`ggplot()` is your canvas. `geom_point()` is the paint brush that makes dots.\n\n## \ud83c\udfaf Your Task\nMake a simple plot of Engine Size (`displ`) vs Highway MPG (`hwy`).\n\n> **Analogy**: It's like putting stickers on a graph paper where `x` is the horizontal line and `y` is the vertical line.",
-    "starter_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy))",
-    "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy))",
+    "content": "# Observe a scatterplot\n\n## What you'll learn\nInterpret a scatterplot after adding geom_point().\n\n## Why this matters\nDots reveal the direction and strength of relationships.\n\n## Step-by-step task\n1. Run the plot.\n2. Write one observation using the required template.\n\n## Expected output or check condition\n- observation == \"Direction: negative; Strength: moderate; Outlier: yes\" should return TRUE.\n## One common mistake to avoid\n- Describing the variables without stating the relationship.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot(), aes(), and geom_point() introduced above.",
+    "starter_code": "p <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +\n  geom_point()\np\n\n# Use the template exactly\nobservation <- \"Direction: ...; Strength: ...; Outlier: ...\"\nobservation == \"Direction: negative; Strength: moderate; Outlier: yes\"",
+    "solution_code": "p <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +\n  geom_point()\np\n\nobservation <- \"Direction: negative; Strength: moderate; Outlier: yes\"\nobservation == \"Direction: negative; Strength: moderate; Outlier: yes\"",
     "id": 20041,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
@@ -9527,52 +9563,64 @@
       "visualization",
       "dplyr_filter",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20042": {
     "title": "Variation: City Driving",
-    "content": "# \ud83c\udfd9\ufe0f City Driving\n\nLet's change what we plot. Instead of Highway (`hwy`), let's see City (`cty`) mileage.\n\n## \ud83c\udfaf Your Task\nChange `y = hwy` to `y = cty`.",
-    "starter_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = ...))",
-    "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = cty))",
+    "content": "# Change the y variable\n\n## What you'll learn\nUpdate a scatterplot by changing one variable.\n\n## Why this matters\nSmall changes in mapping can reveal new patterns.\n\n## Step-by-step task\n1. Change y from hwy to cty.\n2. Update the observation using the required template.\n\n## Expected output or check condition\n- observation == \"Direction: negative; Strength: moderate; Outlier: yes\" should return TRUE.\n## One common mistake to avoid\n- Updating the text without changing the mapping.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot(), aes(), and geom_point() introduced above.",
+    "starter_code": "p <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +\n  geom_point()\np\n\n# Change y to cty, then update the observation template\nobservation <- \"Direction: ...; Strength: ...; Outlier: ...\"\nobservation == \"Direction: negative; Strength: moderate; Outlier: yes\"",
+    "solution_code": "p <- ggplot(data = mpg, mapping = aes(x = displ, y = cty)) +\n  geom_point()\np\n\nobservation <- \"Direction: negative; Strength: moderate; Outlier: yes\"\nobservation == \"Direction: negative; Strength: moderate; Outlier: yes\"",
     "id": 20042,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "visualization",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20043": {
     "title": "Fix the Code: The Plus Sign",
-    "content": "# \ud83d\udd27 Fix the Code\n\nIn `ggplot`, layers are added with `+`. The plus sign must be at the **end** of the line, not the start of the next one!\n\n## \ud83c\udfaf Your Task\nFix the misplaced `+`.",
-    "starter_code": "ggplot(data = mpg) \n+ geom_point(mapping = aes(x = displ, y = hwy))",
-    "solution_code": "ggplot(data = mpg) + \n  geom_point(mapping = aes(x = displ, y = hwy))",
+    "content": "# Fix the plus sign\n\n## What you'll learn\nPlace the + correctly when adding a layer.\n\n## Why this matters\nggplot adds layers using + at the end of the line.\n\n## Step-by-step task\n1. Move the + to the end of the first line.\n2. Run the plot to confirm points appear.\n\n## Expected output or check condition\n- length(p$layers) == 1 should return TRUE.\n## One common mistake to avoid\n- Starting a new line with +.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot(), aes(), and geom_point() introduced above.",
+    "starter_code": "p <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy))\n+ geom_point()\np\n\nlength(p$layers) == 1",
+    "solution_code": "p <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +\n  geom_point()\np\n\nlength(p$layers) == 1",
     "id": 20043,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "visualization",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20044": {
     "title": "Challenge: Cylinders",
-    "content": "# \ud83e\uddb8 Your Turn\n\nPlot `cyl` (cylinders) on the x-axis and `hwy` on the y-axis.\n\n*(Don't forget the `+`)*",
-    "starter_code": "ggplot(data = mpg) ...",
-    "solution_code": "ggplot(data = mpg) + geom_point(aes(x = cyl, y = hwy))",
+    "content": "# Mini task: cylinders vs highway mpg\n\n## What you'll learn\nBuild a scatterplot and summarize the relationship.\n\n## Why this matters\nYou should be able to create a plot and describe what it shows.\n\n## Step-by-step task\n1. Map cyl to x and hwy to y.\n2. Add geom_point().\n3. Fill in the observation template.\n\n## Expected output or check condition\n- observation == \"Direction: negative; Strength: moderate; Outlier: yes\" should return TRUE.\n## One common mistake to avoid\n- Forgetting to add geom_point().\n\n## Confirm no hidden prerequisites\n- Uses only ggplot(), aes(), and geom_point() introduced above.",
+    "starter_code": "p <- ggplot(data = mpg, mapping = aes(x = ..., y = ...)) +\n  geom_point()\np\n\nobservation <- \"Direction: ...; Strength: ...; Outlier: ...\"\nobservation == \"Direction: negative; Strength: moderate; Outlier: yes\"",
+    "solution_code": "p <- ggplot(data = mpg, mapping = aes(x = cyl, y = hwy)) +\n  geom_point()\np\n\nobservation <- \"Direction: negative; Strength: moderate; Outlier: yes\"\nobservation == \"Direction: negative; Strength: moderate; Outlier: yes\"",
     "id": 20044,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
     "concept_tags": [
       "control",
       "visualization"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20101": {
     "title": "Analogy: Calling for Pizza",
-    "content": "# \ud83c\udf55 Calling Functions\n\nUsing a function is like calling a pizza place. You give them inputs (toppings), and they give you output (pizza).\n\n```r\nseq(1, 10)\n```\n`seq` is the shop. `1` and `10` are the order details.\n\n## \ud83c\udfaf Your Task\nOrder a sequence from 1 to 5.",
-    "starter_code": "# Call the function\nseq(..., ...)",
-    "solution_code": "seq(1, 5)",
+    "content": "# Identify function and arguments\n\n## What you'll learn\nIdentify a function name and its arguments in a call.\n\n## Why this matters\nR evaluates the function name and then uses the arguments to produce output.\n\n## Step-by-step task\n1. Look at the call to seq().\n2. Set fn to the function name and args to the argument vector.\n\n## Expected output or check condition\n- identical(fn, \"seq\") should return TRUE.\n- identical(args, c(1, 5)) should return TRUE.\n\n## One common mistake to avoid\n- Confusing the function name with its arguments.\n\n## Confirm no hidden prerequisites\n- Uses only seq() and basic assignment from the concept.",
+    "starter_code": "result <- seq(1, 5)\nfn <- ...\nargs <- ...\nidentical(fn, \"seq\")\nidentical(args, c(1, 5))",
+    "solution_code": "result <- seq(1, 5)\nfn <- \"seq\"\nargs <- c(1, 5)\nidentical(fn, \"seq\")\nidentical(args, c(1, 5))",
     "id": 20101,
     "chapter_title": "Ch 2: Workflow: Basics",
     "chapter_id": 2,
@@ -9580,13 +9628,16 @@
       "control",
       "vectors",
       "functions"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20102": {
     "title": "Variation: Variables in Functions",
-    "content": "# \ud83d\udce6 Variables in Functions\n\nYou can put variables into functions too.\n\n```r\nx <- 10\nseq(1, x)\n```\n\n## \ud83c\udfaf Your Task\n1. set `y` to 20.\n2. Create a sequence from 10 to `y`.",
-    "starter_code": "y <- ...\nseq(10, ...)",
-    "solution_code": "y <- 20\nseq(10, y)",
+    "content": "# Modify a function argument\n\n## What you'll learn\nChange a function argument and verify the new output.\n\n## Why this matters\nSmall argument changes can change the entire result.\n\n## Step-by-step task\n1. Set y to 20.\n2. Run seq(10, y).\n\n## Expected output or check condition\n- identical(result, 10:20) should return TRUE.\n\n## One common mistake to avoid\n- Leaving y as the placeholder.\n\n## Confirm no hidden prerequisites\n- Uses only seq() and basic assignment from the concept.",
+    "starter_code": "y <- ...\nresult <- seq(10, y)\nidentical(result, 10:20)",
+    "solution_code": "y <- 20\nresult <- seq(10, y)\nidentical(result, 10:20)",
     "id": 20102,
     "chapter_title": "Ch 2: Workflow: Basics",
     "chapter_id": 2,
@@ -9594,13 +9645,16 @@
       "functions",
       "vectors",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20103": {
     "title": "Fix the Code: Typos",
-    "content": "# \ud83d\udd27 Fix the Code\n\nComputers are terrible at guessing. `seqq` is not `seq`.\n\n## \ud83c\udfaf Your Task\nFix the function name.",
-    "starter_code": "seqq(1, 10)",
-    "solution_code": "seq(1, 10)",
+    "content": "# Fix the function name\n\n## What you'll learn\nFix a typo in a function call.\n\n## Why this matters\nR will not guess the function you meant.\n\n## Step-by-step task\n1. Fix the function name.\n2. Run the code.\n\n## Expected output or check condition\n- identical(result, c(1, 2, 3)) should return TRUE.\n\n## One common mistake to avoid\n- Keeping the misspelled function name.\n\n## Confirm no hidden prerequisites\n- Uses only seq() and basic vectors from the concept.",
+    "starter_code": "result <- seqq(1, 3)\nidentical(result, c(1, 2, 3))",
+    "solution_code": "result <- seq(1, 3)\nidentical(result, c(1, 2, 3))",
     "id": 20103,
     "chapter_title": "Ch 2: Workflow: Basics",
     "chapter_id": 2,
@@ -9608,25 +9662,31 @@
       "vectors",
       "functions",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20104": {
     "title": "Challenge: Math",
-    "content": "# \ud83e\uddb8 Your Turn\n\nLet's do some math with parenthesis.\n\n## \ufffd\ufffd Your Task\nCalculate `(5 + 5) * 2`.",
-    "starter_code": "# Calculate it",
-    "solution_code": "(5 + 5) * 2",
+    "content": "# Mini task: arithmetic\n\n## What you'll learn\nEvaluate a multi-step arithmetic expression.\n\n## Why this matters\nR follows order of operations exactly.\n\n## Step-by-step task\n1. Compute (5 + 5) * 2.\n2. Store it in result.\n\n## Expected output or check condition\n- identical(result, 20) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting the parentheses.\n\n## Confirm no hidden prerequisites\n- Uses only arithmetic and assignment from the concept.",
+    "starter_code": "result <- ...\nidentical(result, 20)",
+    "solution_code": "result <- (5 + 5) * 2\nidentical(result, 20)",
     "id": 20104,
     "chapter_title": "Ch 2: Workflow: Basics",
     "chapter_id": 2,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20201": {
     "title": "Analogy: Collecting Red M&Ms",
-    "content": "# \ud83c\udf6c Collecting Red M&Ms\n\n`filter()` is like picking only the red M&Ms from the bowl.\n\n```r\nfilter(candy, color == \"red\")\n```\n\nWe use `==` (double equals) to check if it matches.\n\n## \ud83c\udfaf Your Task\nFilter `flights` for flights in January (`month == 1`).",
-    "starter_code": "filter(flights, month == ...)",
-    "solution_code": "filter(flights, month == 1)",
+    "content": "# Filter to a month\n\n## What you'll learn\nUse filter() with an equality condition.\n\n## Why this matters\nFiltering isolates the rows you care about.\n\n## Step-by-step task\n1. Filter flights to keep only month 1.\n2. Use the check line to verify the result.\n\n## Expected output or check condition\n- all(flights_jan$month == 1) should return TRUE.\n\n## One common mistake to avoid\n- Using = instead of == in a filter condition.\n\n## Confirm no hidden prerequisites\n- Uses filter() and == introduced above. all() is a base R check shown in the starter code.",
+    "starter_code": "flights_jan <- filter(flights, ...)\nall(flights_jan$month == 1)",
+    "solution_code": "flights_jan <- filter(flights, month == 1)\nall(flights_jan$month == 1)",
     "id": 20201,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
@@ -9634,13 +9694,16 @@
       "control",
       "dplyr_filter",
       "dplyr_mutate"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20202": {
     "title": "Variation: Different Month",
-    "content": "# \ud83d\uddd3\ufe0f Different Month\n\nLet's try finding flights in December (`month == 12`).\n\n## \ud83c\udfaf Your Task\nFilter for December.",
-    "starter_code": "filter(flights, ...)",
-    "solution_code": "filter(flights, month == 12)",
+    "content": "# Change the condition\n\n## What you'll learn\nModify a filter condition safely.\n\n## Why this matters\nSmall changes in conditions can produce very different subsets.\n\n## Step-by-step task\n1. Change the month filter from 12 to 2.\n2. Verify the result with the check line.\n\n## Expected output or check condition\n- all(flights_month$month == 2) should return TRUE.\n\n## One common mistake to avoid\n- Updating the check but not the filter.\n\n## Confirm no hidden prerequisites\n- Uses filter() and == introduced above. all() is a base R check shown in the starter code.",
+    "starter_code": "flights_month <- filter(flights, month == 12)\n# Change 12 to 2\nflights_month <- ...\nall(flights_month$month == 2)",
+    "solution_code": "flights_month <- filter(flights, month == 2)\nall(flights_month$month == 2)",
     "id": 20202,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
@@ -9648,13 +9711,16 @@
       "control",
       "dplyr_filter",
       "dplyr_mutate"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20203": {
     "title": "Fix the Code: Equals Sign",
-    "content": "# \ud83d\udd27 Fix the Code\n\nA common mistake: using `=` instead of `==` for comparisons.\n\n## \ud83c\udfaf Your Task\nFix the code to filter where day is 1.",
-    "starter_code": "filter(flights, day = 1)",
-    "solution_code": "filter(flights, day == 1)",
+    "content": "# Fix the comparison\n\n## What you'll learn\nUse == for equality checks inside filter().\n\n## Why this matters\nA single character changes assignment into comparison.\n\n## Step-by-step task\n1. Fix the comparison so it uses ==.\n2. Verify the result with the check line.\n\n## Expected output or check condition\n- all(flights_day1$day == 1) should return TRUE.\n\n## One common mistake to avoid\n- Leaving a single = in a filter condition.\n\n## Confirm no hidden prerequisites\n- Uses filter() and == introduced above. all() is a base R check shown in the starter code.",
+    "starter_code": "flights_day1 <- filter(flights, day = 1)\nall(flights_day1$day == 1)",
+    "solution_code": "flights_day1 <- filter(flights, day == 1)\nall(flights_day1$day == 1)",
     "id": 20203,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
@@ -9662,13 +9728,16 @@
       "dplyr_filter",
       "control",
       "dplyr_mutate"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20204": {
     "title": "Challenge: Delays",
-    "content": "# \ud83e\uddb8 Your Turn\n\nFind distinct rows where `dep_delay` is greater than 120 (minutes).\n\nUse `>` (greater than).",
-    "starter_code": "filter(flights, ...)",
-    "solution_code": "filter(flights, dep_delay > 120)",
+    "content": "# Mini task: delay filter\n\n## What you'll learn\nCombine multiple filter conditions.\n\n## Why this matters\nReal questions often require more than one condition.\n\n## Step-by-step task\n1. Keep flights with dep_delay > 120 and dest == 'SFO'.\n2. Verify both conditions using the check lines.\n\n## Expected output or check condition\n- all(flights_delay$dep_delay > 120) should return TRUE.\n- all(flights_delay$dest == 'SFO') should return TRUE.\n\n## One common mistake to avoid\n- Forgetting one of the conditions.\n\n## Confirm no hidden prerequisites\n- Uses filter(), >, and == introduced above. all() is a base R check shown in the starter code.",
+    "starter_code": "flights_delay <- filter(flights, dep_delay > 120, dest == \"SFO\")\nall(flights_delay$dep_delay > 120)\nall(flights_delay$dest == \"SFO\")",
+    "solution_code": "flights_delay <- filter(flights, dep_delay > 120, dest == \"SFO\")\nall(flights_delay$dep_delay > 120)\nall(flights_delay$dest == \"SFO\")",
     "id": 20204,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
@@ -9676,6 +9745,9 @@
       "control",
       "dplyr_filter",
       "dplyr_mutate"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20211": {
@@ -9787,54 +9859,66 @@
   },
   "20231": {
     "title": "Analogy: The Mutation Ray",
-    "content": "# \ud83e\uddea The Mutation Ray\n\n`mutate()` adds NEW columns based on old ones. It's like a mutation ray that gives your data superpowers.\n\n```r\nmutate(df, new_col = old_col * 2)\n```\n\n## \ud83c\udfaf Your Task\nCreate a new column `gain` that is `dep_delay - arr_delay`.",
-    "starter_code": "mutate(flights, gain = ...)",
-    "solution_code": "mutate(flights, gain = dep_delay - arr_delay)",
+    "content": "# Create a gain column\n\n## What you'll learn\nUse mutate() to create a new column from existing columns.\n\n## Why this matters\nNew columns help you compute features without changing the raw data.\n\n## Step-by-step task\n1. Create gain as dep_delay - arr_delay.\n2. Use the check line to verify.\n\n## Expected output or check condition\n- all(flights_gain$gain == flights_gain$dep_delay - flights_gain$arr_delay, na.rm = TRUE) should return TRUE.\n\n## One common mistake to avoid\n- Reversing the subtraction order.\n\n## Confirm no hidden prerequisites\n- Uses mutate() and basic arithmetic introduced above. all() is a base R check shown in the starter code.",
+    "starter_code": "flights_gain <- mutate(flights, gain = ...)\nall(flights_gain$gain == flights_gain$dep_delay - flights_gain$arr_delay, na.rm = TRUE)",
+    "solution_code": "flights_gain <- mutate(flights, gain = dep_delay - arr_delay)\nall(flights_gain$gain == flights_gain$dep_delay - flights_gain$arr_delay, na.rm = TRUE)",
     "id": 20231,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
     "concept_tags": [
       "dplyr_mutate",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20232": {
     "title": "Variation: Math",
-    "content": "# \u2797 Simple Math\n\nCreate a column `speed`.\n\n## \ud83c\udfaf Your Task\nSet `speed` to `distance / air_time * 60`.",
-    "starter_code": "mutate(flights, speed = ...)",
-    "solution_code": "mutate(flights, speed = distance / air_time * 60)",
+    "content": "# Compute speed\n\n## What you'll learn\nCreate a new column using a formula.\n\n## Why this matters\nFormulas turn raw columns into meaningful measures.\n\n## Step-by-step task\n1. Create speed = distance / air_time * 60.\n2. Use the check line to verify.\n\n## Expected output or check condition\n- all(flights_speed$speed == flights_speed$distance / flights_speed$air_time * 60, na.rm = TRUE) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting to multiply by 60 to convert minutes to hours.\n\n## Confirm no hidden prerequisites\n- Uses mutate() and basic arithmetic introduced above. all() is a base R check shown in the starter code.",
+    "starter_code": "flights_speed <- mutate(flights, speed = ...)\nall(flights_speed$speed == flights_speed$distance / flights_speed$air_time * 60, na.rm = TRUE)",
+    "solution_code": "flights_speed <- mutate(flights, speed = distance / air_time * 60)\nall(flights_speed$speed == flights_speed$distance / flights_speed$air_time * 60, na.rm = TRUE)",
     "id": 20232,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
     "concept_tags": [
       "control",
       "dplyr_mutate"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20233": {
     "title": "Fix the Code: Name It",
-    "content": "# \ud83d\udd27 Fix the Code\n\nYou MUST give the new column a name.\n\n## \ud83c\udfaf Your Task\nName the new column `hours`.",
-    "starter_code": "mutate(flights, air_time / 60)",
-    "solution_code": "mutate(flights, hours = air_time / 60)",
+    "content": "# Name the new column\n\n## What you'll learn\nName the output of an expression inside mutate().\n\n## Why this matters\nUnnamed expressions are hard to use later.\n\n## Step-by-step task\n1. Give the new column the name gain.\n2. Confirm the name exists.\n\n## Expected output or check condition\n- \"gain\" %in% names(flights_gain) should return TRUE.\n## One common mistake to avoid\n- Writing an expression without a column name.\n\n## Confirm no hidden prerequisites\n- Uses mutate() and names() from base R shown in the starter code.",
+    "starter_code": "flights_gain <- mutate(flights, dep_delay - arr_delay)\n\"gain\" %in% names(flights_gain)",
+    "solution_code": "flights_gain <- mutate(flights, gain = dep_delay - arr_delay)\n\"gain\" %in% names(flights_gain)",
     "id": 20233,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
     "concept_tags": [
       "control",
       "dplyr_mutate"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20234": {
     "title": "Challenge: Double Up",
-    "content": "# \ud83e\uddb8 Your Turn\n\nCreate a new column `double_delay` that is `dep_delay * 2`.",
-    "starter_code": "mutate(flights, ...)",
-    "solution_code": "mutate(flights, double_delay = dep_delay * 2)",
+    "content": "# Mini task: double delay\n\n## What you'll learn\nCreate a simple derived column.\n\n## Why this matters\nDerived columns make comparisons easier.\n\n## Step-by-step task\n1. Create double_delay = dep_delay * 2.\n2. Use the check line to verify.\n\n## Expected output or check condition\n- all(flights_double$double_delay == flights_double$dep_delay * 2, na.rm = TRUE) should return TRUE.\n\n## One common mistake to avoid\n- Multiplying the wrong column.\n\n## Confirm no hidden prerequisites\n- Uses mutate() and basic arithmetic introduced above. all() is a base R check shown in the starter code.",
+    "starter_code": "flights_double <- mutate(flights, double_delay = ...)\nall(flights_double$double_delay == flights_double$dep_delay * 2, na.rm = TRUE)",
+    "solution_code": "flights_double <- mutate(flights, double_delay = dep_delay * 2)\nall(flights_double$double_delay == flights_double$dep_delay * 2, na.rm = TRUE)",
     "id": 20234,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
     "concept_tags": [
       "control",
       "dplyr_mutate"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20301": {
@@ -9887,104 +9971,127 @@
   },
   "20401": {
     "title": "Analogy: Stacking Pancakes",
-    "content": "# \ud83e\udd5e Stacking Pancakes\n\n`pivot_longer()` takes wide data (pancakes side-by-side) and stacks them into a tall pile.\n\n```r\npivot_longer(data, cols = c(1999, 2000))\n```\n\n## \ud83c\udfaf Your Task\nPivot the columns `1999` and `2000` into a longer format.",
-    "starter_code": "pivot_longer(table4a, cols = ...)",
-    "solution_code": "pivot_longer(table4a, cols = c(\"1999\", \"2000\"))",
+    "content": "# Tidy a wide table\n\n## What you'll learn\nUse pivot_longer() to turn wide columns into key-value pairs.\n\n## Why this matters\nTidy data keeps variables in columns and observations in rows.\n\n## Step-by-step task\n1. Fill in names_to and values_to.\n2. Check the resulting column names.\n\n## Expected output or check condition\n- names(tidy) should be c(\"store\", \"year\", \"sales\").\n\n## One common mistake to avoid\n- Swapping the meanings of names_to and values_to.\n\n## Confirm no hidden prerequisites\n- Introduces pivot_longer() here and shows its arguments explicitly.",
+    "starter_code": "library(tidyr)\n\nsales <- data.frame(\n  store = c(\"A\", \"B\"),\n  year_2022 = c(5, 6),\n  year_2023 = c(7, 8)\n)\n\ntidy <- pivot_longer(\n  sales,\n  cols = c(year_2022, year_2023),\n  names_to = ... ,\n  values_to = ...\n)\n\nnames(tidy)",
+    "solution_code": "library(tidyr)\n\nsales <- data.frame(\n  store = c(\"A\", \"B\"),\n  year_2022 = c(5, 6),\n  year_2023 = c(7, 8)\n)\n\ntidy <- pivot_longer(\n  sales,\n  cols = c(year_2022, year_2023),\n  names_to = \"year\",\n  values_to = \"sales\"\n)\n\nnames(tidy)",
     "id": 20401,
     "chapter_title": "Ch 5: Data Tidying",
     "chapter_id": 5,
     "concept_tags": [
       "control",
       "vectors"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20402": {
     "title": "Variation: Naming Columns",
-    "content": "# \ud83c\udff7\ufe0f Naming The Stack\n\nWhen you stack them, give the new columns names using `names_to` and `values_to`.\n\n## \ud83c\udfaf Your Task\nSet `names_to = \"year\"`.",
-    "starter_code": "pivot_longer(table4a, cols = c(\"1999\", \"2000\"), names_to = ...)",
-    "solution_code": "pivot_longer(table4a, cols = c(\"1999\", \"2000\"), names_to = \"year\")",
+    "content": "# Keep the id column\n\n## What you'll learn\nPivot only the value columns and keep the identifier.\n\n## Why this matters\nIdentifiers must stay with each observation.\n\n## Step-by-step task\n1. Set cols to math, english, and science.\n2. Check the row count.\n\n## Expected output or check condition\n- identical(nrow(tidy), 6) should return TRUE.\n## One common mistake to avoid\n- Pivoting the id column (student) into the long form.\n\n## Confirm no hidden prerequisites\n- Uses pivot_longer() introduced above with explicit column names.",
+    "starter_code": "library(tidyr)\n\nscores <- data.frame(\n  student = c(\"A\", \"B\"),\n  math = c(90, 85),\n  english = c(88, 92),\n  science = c(91, 87)\n)\n\ntidy <- pivot_longer(\n  scores,\n  cols = ... ,\n  names_to = \"subject\",\n  values_to = \"score\"\n)\n\nidentical(nrow(tidy), 6)",
+    "solution_code": "library(tidyr)\n\nscores <- data.frame(\n  student = c(\"A\", \"B\"),\n  math = c(90, 85),\n  english = c(88, 92),\n  science = c(91, 87)\n)\n\ntidy <- pivot_longer(\n  scores,\n  cols = c(math, english, science),\n  names_to = \"subject\",\n  values_to = \"score\"\n)\n\nidentical(nrow(tidy), 6)",
     "id": 20402,
     "chapter_title": "Ch 5: Data Tidying",
     "chapter_id": 5,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20403": {
     "title": "Fix the Code: Missing Quote",
-    "content": "# \ud83d\udd27 Fix the Code\n\nColumn names generally need quotes if they are numbers (like \"1999\").\n\n## \ud83c\udfaf Your Task\nFix the code by adding quotes.",
-    "starter_code": "pivot_longer(table4a, cols = c(1999, 2000))",
-    "solution_code": "pivot_longer(table4a, cols = c(\"1999\", \"2000\"))",
+    "content": "# Fix the column list\n\n## What you'll learn\nAvoid pivoting identifier columns into long format.\n\n## Why this matters\nIdentifiers should stay attached to each observation.\n\n## Step-by-step task\n1. Remove student from the cols list.\n2. Verify that student stays intact.\n\n## Expected output or check condition\n- all(tidy$student %in% c(\"A\", \"B\")) should return TRUE.\n\n## One common mistake to avoid\n- Including the id column in cols.\n\n## Confirm no hidden prerequisites\n- Uses pivot_longer() introduced above with explicit column names.",
+    "starter_code": "library(tidyr)\n\nscores <- data.frame(\n  student = c(\"A\", \"B\"),\n  math = c(90, 85),\n  english = c(88, 92)\n)\n\ntidy <- pivot_longer(\n  scores,\n  cols = c(student, math, english),\n  names_to = \"subject\",\n  values_to = \"score\"\n)\n\nall(tidy$student %in% c(\"A\", \"B\"))",
+    "solution_code": "library(tidyr)\n\nscores <- data.frame(\n  student = c(\"A\", \"B\"),\n  math = c(90, 85),\n  english = c(88, 92)\n)\n\ntidy <- pivot_longer(\n  scores,\n  cols = c(math, english),\n  names_to = \"subject\",\n  values_to = \"score\"\n)\n\nall(tidy$student %in% c(\"A\", \"B\"))",
     "id": 20403,
     "chapter_title": "Ch 5: Data Tidying",
     "chapter_id": 5,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20404": {
     "title": "Challenge: Pivot It",
-    "content": "# \ud83e\uddb8 Your Turn\n\nPivot columns `c(x, y, z)` into longer format.\n\n## \ud83c\udfaf Your Task\nUse `pivot_longer` on `df` with columns `x`, `y`, `z`.",
-    "starter_code": "pivot_longer(df, ...)",
-    "solution_code": "pivot_longer(df, cols = c(x, y, z))",
+    "content": "# Mini task: pivot three columns\n\n## What you'll learn\nApply pivot_longer() to a new dataset.\n\n## Why this matters\nYou should be able to tidy any wide table by stacking value columns.\n\n## Step-by-step task\n1. Pivot x, y, and z into key and value.\n2. Check the row count.\n\n## Expected output or check condition\n- identical(nrow(tidy), 6) should return TRUE.\n## One common mistake to avoid\n- Forgetting one of the columns in cols.\n\n## Confirm no hidden prerequisites\n- Uses pivot_longer() introduced above with explicit column names.",
+    "starter_code": "library(tidyr)\n\ndf <- data.frame(\n  id = c(\"r1\", \"r2\"),\n  x = c(1, 2),\n  y = c(3, 4),\n  z = c(5, 6)\n)\n\ntidy <- pivot_longer(\n  df,\n  cols = c(x, y, z),\n  names_to = ... ,\n  values_to = ...\n)\n\nidentical(nrow(tidy), 6)",
+    "solution_code": "library(tidyr)\n\ndf <- data.frame(\n  id = c(\"r1\", \"r2\"),\n  x = c(1, 2),\n  y = c(3, 4),\n  z = c(5, 6)\n)\n\ntidy <- pivot_longer(\n  df,\n  cols = c(x, y, z),\n  names_to = \"key\",\n  values_to = \"value\"\n)\n\nidentical(nrow(tidy), 6)",
     "id": 20404,
     "chapter_title": "Ch 5: Data Tidying",
     "chapter_id": 5,
     "concept_tags": [
       "control",
       "vectors"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20501": {
     "title": "Analogy: The Recipe Card",
-    "content": "# \ud83d\udcdc The Recipe Card\n\nA script (`.R` file) is like a recipe card. You can save it and cook (run) it later.\n\n## \ud83c\udfaf Your Task\nWrite code in a script to load the `tidyverse` library.",
-    "starter_code": "# Load the library\nlibrary(...)",
-    "solution_code": "library(tidyverse)",
+    "content": "# Script or console?\n\n## What you'll learn\nDecide when code belongs in a script.\n\n## Why this matters\nScripts keep your work saved and reproducible.\n\n## Step-by-step task\n1. You want to save your analysis for later.\n2. Set location to the correct place.\n\n## Expected output or check condition\n- identical(location, \"script\") should return TRUE.\n\n## One common mistake to avoid\n- Choosing \"console\" for work you need to save.\n\n## Confirm no hidden prerequisites\n- Uses only strings and assignment from the concept.",
+    "starter_code": "location <- ...\nidentical(location, \"script\")",
+    "solution_code": "location <- \"script\"\nidentical(location, \"script\")",
     "id": 20501,
     "chapter_title": "Ch 6: Workflow: Scripts",
     "chapter_id": 6,
     "concept_tags": [
       "control",
       "packages"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20502": {
     "title": "Variation: Saving Plots",
-    "content": "# \ud83d\udcbe Saving\n\nScripts let you save your work. Imagine this is a file `plot.R`.\n\n## \ud83c\udfaf Your Task\nRun the `ggplot` code provided.",
-    "starter_code": "ggplot(mpg, aes(hwy, cty)) + geom_point()",
-    "solution_code": "ggplot(mpg, aes(hwy, cty)) + geom_point()",
+    "content": "# Build a small script header\n\n## What you'll learn\nCreate a minimal script header with a comment and a setup line.\n\n## Why this matters\nA clear header makes scripts easier to understand and rerun.\n\n## Step-by-step task\n1. Set the header comment.\n2. Add the setup line to load tidyverse.\n\n## Expected output or check condition\n- identical(script_lines, c(\"# Analysis of Cars\", \"library(tidyverse)\")) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting the leading # in the comment.\n\n## Confirm no hidden prerequisites\n- Uses only character vectors and assignment.",
+    "starter_code": "script_lines <- c(..., ...)\nidentical(script_lines, c(\"# Analysis of Cars\", \"library(tidyverse)\"))",
+    "solution_code": "script_lines <- c(\"# Analysis of Cars\", \"library(tidyverse)\")\nidentical(script_lines, c(\"# Analysis of Cars\", \"library(tidyverse)\"))",
     "id": 20502,
     "chapter_title": "Ch 6: Workflow: Scripts",
     "chapter_id": 6,
     "concept_tags": [
       "visualization",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20503": {
     "title": "Fix the Code: Typos",
-    "content": "# \ud83d\udd27 Fix the Code\n\n`libary` is spelled `library`.\n\n## \ud83c\udfaf Your Task\nFix the typo.",
-    "starter_code": "libary(dplyr)",
-    "solution_code": "library(dplyr)",
+    "content": "# Fix the library call\n\n## What you'll learn\nCorrect a common typo when loading a package.\n\n## Why this matters\nA single misspelling prevents your script from running.\n\n## Step-by-step task\n1. Fix the word libary.\n2. Store the corrected line in fixed_line.\n\n## Expected output or check condition\n- identical(fixed_line, \"library(tidyverse)\") should return TRUE.\n\n## One common mistake to avoid\n- Forgetting the parentheses after library.\n\n## Confirm no hidden prerequisites\n- Uses only strings and assignment.",
+    "starter_code": "fixed_line <- ...\nidentical(fixed_line, \"library(tidyverse)\")",
+    "solution_code": "fixed_line <- \"library(tidyverse)\"\nidentical(fixed_line, \"library(tidyverse)\")",
     "id": 20503,
     "chapter_title": "Ch 6: Workflow: Scripts",
     "chapter_id": 6,
     "concept_tags": [
       "control",
       "packages"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20504": {
     "title": "Challenge: Comments",
-    "content": "# \ud83e\uddb8 Your Turn\n\nWrite a header comment for your script.\n\n## \ud83c\udfaf Your Task\nWrite `# Analysis of Cars`.",
-    "starter_code": "",
-    "solution_code": "# Analysis of Cars",
-    "expected_output": "",
+    "content": "# Mini task: save a script note\n\n## What you'll learn\nWrite a clear header comment for a script.\n\n## Why this matters\nHeaders help you and others understand the script quickly.\n\n## Step-by-step task\n1. Write the header comment exactly.\n2. Store it in header.\n\n## Expected output or check condition\n- identical(header, \"# Analysis of Cars\") should return TRUE.\n\n## One common mistake to avoid\n- Missing the # at the start of the comment.\n\n## Confirm no hidden prerequisites\n- Uses only strings and assignment.",
+    "starter_code": "header <- ...\nidentical(header, \"# Analysis of Cars\")",
+    "solution_code": "header <- \"# Analysis of Cars\"\nidentical(header, \"# Analysis of Cars\")",
     "id": 20504,
     "chapter_title": "Ch 6: Workflow: Scripts",
     "chapter_id": 6,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "20601": {
@@ -10039,9 +10146,9 @@
   },
   "21001": {
     "title": "Analogy: Coloring Book",
-    "content": "# \ud83d\udd8d\ufe0f Coloring Book\n\n`aes(color = variable)` tells R to color the dots based on a column. It's like coloring all 'SUV' dots red and 'Compact' dots blue.\n\n## \ud83c\udfaf Your Task\nMap `color` to `class` in the plot.",
-    "starter_code": "ggplot(mpg, aes(x = displ, y = hwy, color = ...)) + geom_point()",
-    "solution_code": "ggplot(mpg, aes(x = displ, y = hwy, color = class)) + geom_point()",
+    "content": "# Color by category\n\n## What you'll learn\nMap a categorical variable to color.\n\n## Why this matters\nColor helps you compare groups in the same plot.\n\n## Step-by-step task\n1. Map color to class.\n2. Run the plot.\n\n## Expected output or check condition\n- label_ok should return TRUE.\n## One common mistake to avoid\n- Putting a constant color inside aes().\n\n## Confirm no hidden prerequisites\n- Uses ggplot(), aes(), and geom_point() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = displ, y = hwy, color = ...)) +\n  geom_point()\np\n\nlabel_ok <- identical(p$labels$colour, \"class\") || identical(p$labels$color, \"class\")\nlabel_ok",
+    "solution_code": "p <- ggplot(mpg, aes(x = displ, y = hwy, color = class)) +\n  geom_point()\np\n\nlabel_ok <- identical(p$labels$colour, \"class\") || identical(p$labels$color, \"class\")\nlabel_ok",
     "id": 21001,
     "chapter_title": "Ch 9: Layers",
     "chapter_id": 9,
@@ -10049,38 +10156,47 @@
       "visualization",
       "functions",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21002": {
     "title": "Variation: Size",
-    "content": "# \ud83c\udf88 Size Matters\n\nYou can also change the `size` of dots based on data.\n\n## \ud83c\udfaf Your Task\nMap `size` to `cyl` (cylinders). Bigger engine = bigger dot.",
-    "starter_code": "ggplot(mpg, aes(x = displ, y = hwy, size = ...)) + geom_point()",
-    "solution_code": "ggplot(mpg, aes(x = displ, y = hwy, size = cyl)) + geom_point()",
+    "content": "# Size by cylinder count\n\n## What you'll learn\nMap a numeric variable to point size.\n\n## Why this matters\nSize can encode magnitude directly in the plot.\n\n## Step-by-step task\n1. Add size mapping for cyl.\n2. Run the plot.\n\n## Expected output or check condition\n- Points should vary in size and a size legend should appear.\n\n## One common mistake to avoid\n- Mapping size outside aes().\n\n## Confirm no hidden prerequisites\n- Uses ggplot(), aes(), and geom_point() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = displ, y = hwy, color = class, size = ...)) +\n  geom_point()\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = displ, y = hwy, color = class, size = cyl)) +\n  geom_point()\np",
     "id": 21002,
     "chapter_title": "Ch 9: Layers",
     "chapter_id": 9,
     "concept_tags": [
       "functions",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21003": {
     "title": "Fix the Code: Inside or Out?",
-    "content": "# \ud83d\udd27 Fix the Code\n\nIf you want ALL dots blue, put `color=\"blue\"` **outside** `aes()`. If you want color based on data, put it **inside** `aes()`.\n\nThis code tries to make them all blue but fails because it's inside `aes()`.\n\n## \ud83c\udfaf Your Task\nMove `color = \"blue\"` outside of `aes()` closing parenthesis.",
-    "starter_code": "ggplot(mpg) + geom_point(aes(x = displ, y = hwy, color = \"blue\"))",
-    "solution_code": "ggplot(mpg) + geom_point(aes(x = displ, y = hwy), color = \"blue\")",
+    "content": "# Fix constant color\n\n## What you'll learn\nSet a constant color outside aes().\n\n## Why this matters\nConstants belong outside aes() so ggplot does not build a legend.\n\n## Step-by-step task\n1. Move color = \"blue\" outside aes().\n2. Run the plot.\n\n## Expected output or check condition\n- All points should be blue and no color legend should appear.\n\n## One common mistake to avoid\n- Leaving a constant inside aes().\n\n## Confirm no hidden prerequisites\n- Uses ggplot(), aes(), and geom_point() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = displ, y = hwy, color = \"blue\")) +\n  geom_point()\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point(color = \"blue\")\np",
     "id": 21003,
     "chapter_title": "Ch 9: Layers",
     "chapter_id": 9,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21004": {
     "title": "Challenge: Shape",
-    "content": "# \ud83e\uddb8 Your Turn\n\nMap the `shape` aesthetics to `drv` (drive type).\n\n## \ud83c\udfaf Your Task\nCreate a plot with `x=displ`, `y=hwy`, and `shape=drv`.",
-    "starter_code": "ggplot(mpg, ...) + ...",
-    "solution_code": "ggplot(mpg, aes(x = displ, y = hwy, shape = drv)) + geom_point()",
+    "content": "# Mini task: shape mapping\n\n## What you'll learn\nMap a category to point shape.\n\n## Why this matters\nShape adds another channel for comparing groups.\n\n## Step-by-step task\n1. Map shape to drv.\n2. Run the plot.\n\n## Expected output or check condition\n- Points should use different shapes for each drv value.\n\n## One common mistake to avoid\n- Forgetting to include shape inside aes().\n\n## Confirm no hidden prerequisites\n- Uses ggplot(), aes(), and geom_point() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = displ, y = hwy, shape = ...)) +\n  geom_point()\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = displ, y = hwy, shape = drv)) +\n  geom_point()\np",
     "id": 21004,
     "chapter_title": "Ch 9: Layers",
     "chapter_id": 9,
@@ -10088,52 +10204,64 @@
       "visualization",
       "functions",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21011": {
     "title": "Analogy: Different Brushes",
-    "content": "# \ud83d\udd8c\ufe0f Different Brushes\n\n`geom_point` is a dot brush. `geom_smooth` is a smooth line brush. You can switch brushes!\n\n## \ud83c\udfaf Your Task\nUse `geom_smooth()` instead of `geom_point()`.",
-    "starter_code": "ggplot(mpg, aes(displ, hwy)) + ...",
-    "solution_code": "ggplot(mpg, aes(displ, hwy)) + geom_smooth()",
+    "content": "# Use a different geom\n\n## What you'll learn\nChoose a geom that draws a trend line.\n\n## Why this matters\nDifferent geoms reveal different kinds of structure.\n\n## Step-by-step task\n1. Replace the placeholder with geom_smooth().\n2. Run the plot.\n\n## Expected output or check condition\n- The plot should show a smooth trend line instead of points.\n\n## One common mistake to avoid\n- Using geom_point() when you want a trend line.\n\n## Confirm no hidden prerequisites\n- Uses ggplot(), aes(), and geoms introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  ...\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_smooth()\np",
     "id": 21011,
     "chapter_title": "Ch 9: Layers",
     "chapter_id": 9,
     "concept_tags": [
       "control",
       "visualization"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21012": {
     "title": "Variation: Two Layers",
-    "content": "# \ud83e\udd5e Layering\n\nYou can use BOTH brushes. Just add them together with `+`.\n\n## \ud83c\udfaf Your Task\nAdd `geom_point()` AND `geom_smooth()`.",
-    "starter_code": "ggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  ...",
-    "solution_code": "ggplot(mpg, aes(displ, hwy)) + geom_point() + geom_smooth()",
+    "content": "# Add two layers\n\n## What you'll learn\nLayer multiple geoms in one plot.\n\n## Why this matters\nLayering lets you combine raw data with summaries.\n\n## Step-by-step task\n1. Add geom_smooth() as a second layer.\n2. Run the plot.\n\n## Expected output or check condition\n- The plot should show points and a smooth trend line.\n\n## One common mistake to avoid\n- Forgetting the + between layers.\n\n## Confirm no hidden prerequisites\n- Uses ggplot(), aes(), and geoms introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  ...\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  geom_smooth()\np",
     "id": 21012,
     "chapter_title": "Ch 9: Layers",
     "chapter_id": 9,
     "concept_tags": [
       "visualization",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21013": {
     "title": "Fix the Code: Typos",
-    "content": "# \ud83d\udd27 Fix the Code\n\nIt's `geom`, short for geometry.\n\n## \ud83c\udfaf Your Task\nFix the typo `geometry_point`.",
-    "starter_code": "ggplot(mpg, aes(displ, hwy)) + geometry_point()",
-    "solution_code": "ggplot(mpg, aes(displ, hwy)) + geom_point()",
+    "content": "# Fix the geom name\n\n## What you'll learn\nUse the correct geom function name.\n\n## Why this matters\nA small typo can break the entire plot.\n\n## Step-by-step task\n1. Fix the geom function name.\n2. Run the plot.\n\n## Expected output or check condition\n- The plot should render with points.\n\n## One common mistake to avoid\n- Using geometry_point instead of geom_point.\n\n## Confirm no hidden prerequisites\n- Uses ggplot(), aes(), and geoms introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geometry_point()\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point()\np",
     "id": 21013,
     "chapter_title": "Ch 9: Layers",
     "chapter_id": 9,
     "concept_tags": [
       "control",
       "visualization"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21014": {
     "title": "Challenge: Boxplot",
-    "content": "# \ud83e\uddb8 Your Turn\n\nUse `geom_boxplot()` to show distribution. Map `x = class` and `y = hwy`.\n\n## \ufffd\ufffd Your Task\nCreate a boxplot.",
-    "starter_code": "",
-    "solution_code": "ggplot(mpg, aes(class, hwy)) + geom_boxplot()",
+    "content": "# Mini task: boxplot\n\n## What you'll learn\nUse geom_boxplot() for comparing distributions by category.\n\n## Why this matters\nBoxplots summarize variation and make comparisons easy.\n\n## Step-by-step task\n1. Map class to x and hwy to y.\n2. Use geom_boxplot().\n\n## Expected output or check condition\n- The plot should show one boxplot per class.\n\n## One common mistake to avoid\n- Reversing x and y for a boxplot.\n\n## Confirm no hidden prerequisites\n- Uses ggplot(), aes(), and geoms introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = ..., y = ...)) +\n  geom_boxplot()\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = class, y = hwy)) +\n  geom_boxplot()\np",
     "id": 21014,
     "chapter_title": "Ch 9: Layers",
     "chapter_id": 9,
@@ -10141,113 +10269,140 @@
       "visualization",
       "functions",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21021": {
     "title": "Analogy: Small Multiples",
-    "content": "# \ud83d\uddbc\ufe0f Small Multiples\n\n`facet_wrap(~ variable)` splits your one big plot into many small plots, one for each category.\n\n## \ud83c\udfaf Your Task\nFacet by `class`.",
-    "starter_code": "ggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  facet_wrap(~ ...)",
-    "solution_code": "ggplot(mpg, aes(displ, hwy)) + geom_point() + facet_wrap(~ class)",
+    "content": "# Facet by class\n\n## What you'll learn\nSplit a plot into small multiples with facet_wrap().\n\n## Why this matters\nFaceting makes group comparisons easier without overlapping points.\n\n## Step-by-step task\n1. Facet the plot by class.\n2. Run the plot.\n\n## Expected output or check condition\n- The plot should show one panel per class.\n\n## One common mistake to avoid\n- Forgetting the tilde before the variable.\n\n## Confirm no hidden prerequisites\n- Uses facet_wrap() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  facet_wrap(~ ...)\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  facet_wrap(~ class)\np",
     "id": 21021,
     "chapter_title": "Ch 9: Layers",
     "chapter_id": 9,
     "concept_tags": [
       "control",
       "visualization"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21022": {
     "title": "Variation: Row Count",
-    "content": "# \ud83d\udd22 Rows\n\nYou can control how many rows of plots you get with `nrow`.\n\n## \ud83c\udfaf Your Task\nFacet by `class` with `nrow = 2`.",
-    "starter_code": "ggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  facet_wrap(~ class, nrow = ...)",
-    "solution_code": "ggplot(mpg, aes(displ, hwy)) + geom_point() + facet_wrap(~ class, nrow = 2)",
+    "content": "# Control facet layout\n\n## What you'll learn\nAdjust the number of rows in facet_wrap().\n\n## Why this matters\nLayout choices improve readability.\n\n## Step-by-step task\n1. Set nrow to 2.\n2. Run the plot.\n\n## Expected output or check condition\n- Facets should wrap into two rows.\n\n## One common mistake to avoid\n- Passing nrow as a string instead of a number.\n\n## Confirm no hidden prerequisites\n- Uses facet_wrap() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  facet_wrap(~ class, nrow = ...)\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  facet_wrap(~ class, nrow = 2)\np",
     "id": 21022,
     "chapter_title": "Ch 9: Layers",
     "chapter_id": 9,
     "concept_tags": [
       "visualization",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21023": {
     "title": "Fix the Code: Tilde",
-    "content": "# \ud83d\udd27 Fix the Code\n\nFacets need a tilde `~` before the variable name. It means \"by\".\n\n## \ud83c\udfaf Your Task\nAdd the missing `~`.",
-    "starter_code": "facet_wrap(class)",
-    "solution_code": "facet_wrap(~ class)",
+    "content": "# Fix the facet syntax\n\n## What you'll learn\nUse the tilde syntax in facet_wrap().\n\n## Why this matters\nfacet_wrap() expects a formula.\n\n## Step-by-step task\n1. Add the missing tilde.\n2. Run the plot.\n\n## Expected output or check condition\n- The plot should facet by class.\n\n## One common mistake to avoid\n- Writing facet_wrap(class) without ~.\n\n## Confirm no hidden prerequisites\n- Uses facet_wrap() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  facet_wrap(class)\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  facet_wrap(~ class)\np",
     "id": 21023,
     "chapter_title": "Ch 9: Layers",
     "chapter_id": 9,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21024": {
     "title": "Challenge: Grid",
-    "content": "# \ud83e\uddb8 Your Turn\n\n`facet_grid(row ~ col)` makes a matrix of plots.\n\n## \ud83c\udfaf Your Task\nFacet grid with `drv` as rows and `cyl` as columns.",
-    "starter_code": "",
-    "solution_code": "ggplot(mpg, aes(displ, hwy)) + geom_point() + facet_grid(drv ~ cyl)",
+    "content": "# Mini task: facet grid\n\n## What you'll learn\nUse facet_grid() to create a row by column layout.\n\n## Why this matters\nA grid shows two categorical splits at once.\n\n## Step-by-step task\n1. Set drv as rows and cyl as columns.\n2. Run the plot.\n\n## Expected output or check condition\n- The plot should show a grid of panels by drv and cyl.\n\n## One common mistake to avoid\n- Swapping rows and columns in facet_grid().\n\n## Confirm no hidden prerequisites\n- Uses facet_grid() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  facet_grid(... ~ ...)\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = displ, y = hwy)) +\n  geom_point() +\n  facet_grid(drv ~ cyl)\np",
     "id": 21024,
     "chapter_title": "Ch 9: Layers",
     "chapter_id": 9,
     "concept_tags": [
       "visualization",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21101": {
     "title": "Analogy: Sorting Buckets",
-    "content": "# \ud83d\uddd1\ufe0f Sorting Buckets\n\nA histogram works by creating buckets (bins) and dropping values into them. It shows you the shape of your data.\n\n## \ud83c\udfaf Your Task\nCreate a histogram of `hwy`.",
-    "starter_code": "ggplot(mpg, aes(hwy)) + geom_histogram()",
-    "solution_code": "ggplot(mpg, aes(hwy)) + geom_histogram()",
+    "content": "# Histogram of highway mpg\n\n## What you'll learn\nUse a histogram to see variation in a numeric variable.\n\n## Why this matters\nHistograms show the shape of a distribution.\n\n## Step-by-step task\n1. Map hwy to x.\n2. Use geom_histogram().\n\n## Expected output or check condition\n- The plot should show counts of hwy values on the y axis.\n\n## One common mistake to avoid\n- Using geom_bar() for a numeric variable.\n\n## Confirm no hidden prerequisites\n- Uses ggplot(), aes(), and geom_histogram() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = ...)) +\n  geom_histogram()\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = hwy)) +\n  geom_histogram()\np",
     "id": 21101,
     "chapter_title": "Ch 10: EDA",
     "chapter_id": 10,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21102": {
     "title": "Variation: Binwidth",
-    "content": "# \ud83d\udccf Bin Width\n\nYou can make the buckets wider or narrower.\n\n## \ud83c\udfaf Your Task\nSet `binwidth` to 5.",
-    "starter_code": "ggplot(mpg, aes(hwy)) + geom_histogram(binwidth = ...)",
-    "solution_code": "ggplot(mpg, aes(hwy)) + geom_histogram(binwidth = 5)",
+    "content": "# Adjust bin width\n\n## What you'll learn\nChange histogram binwidth to control detail.\n\n## Why this matters\nBinwidth affects how smooth or noisy the distribution looks.\n\n## Step-by-step task\n1. Set binwidth to 5.\n2. Run the plot.\n\n## Expected output or check condition\n- The histogram should have fewer, wider bins.\n\n## One common mistake to avoid\n- Using a binwidth that is too small to read.\n\n## Confirm no hidden prerequisites\n- Uses geom_histogram() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = hwy)) +\n  geom_histogram(binwidth = ...)\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = hwy)) +\n  geom_histogram(binwidth = 5)\np",
     "id": 21102,
     "chapter_title": "Ch 10: EDA",
     "chapter_id": 10,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21103": {
     "title": "Fix the Code: Y Axis",
-    "content": "# \ud83d\udd27 Fix the Code\n\nHistograms only need an `x`. `y` is calculated automatically (count).\n\n## \ud83c\udfaf Your Task\nRemove `y = cty` from the code.",
-    "starter_code": "ggplot(mpg, aes(x = hwy, y = cty)) + geom_histogram()",
-    "solution_code": "ggplot(mpg, aes(x = hwy)) + geom_histogram()",
+    "content": "# Remove the y mapping\n\n## What you'll learn\nLet histograms compute counts automatically.\n\n## Why this matters\nHistograms only need an x variable.\n\n## Step-by-step task\n1. Remove y from aes().\n2. Run the plot.\n\n## Expected output or check condition\n- The histogram should render without errors.\n\n## One common mistake to avoid\n- Mapping a second variable to y in a histogram.\n\n## Confirm no hidden prerequisites\n- Uses geom_histogram() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = hwy, y = cty)) +\n  geom_histogram()\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = hwy)) +\n  geom_histogram()\np",
     "id": 21103,
     "chapter_title": "Ch 10: EDA",
     "chapter_id": 10,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21104": {
     "title": "Challenge: Bar Chart",
-    "content": "# \ud83e\uddb8 Your Turn\n\nFor categories (like `class`), use `geom_bar()` instead of histogram.\n\n## \ud83c\udfaf Your Task\nCreate a bar chart of `class`.",
-    "starter_code": "",
-    "solution_code": "ggplot(mpg, aes(class)) + geom_bar()",
+    "content": "# Mini task: bar chart\n\n## What you'll learn\nUse geom_bar() for a categorical variable.\n\n## Why this matters\nBar charts show counts for categories.\n\n## Step-by-step task\n1. Map class to x.\n2. Use geom_bar().\n\n## Expected output or check condition\n- The plot should show one bar per class.\n\n## One common mistake to avoid\n- Using geom_histogram() for categories.\n\n## Confirm no hidden prerequisites\n- Uses ggplot(), aes(), and geom_bar() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = ...)) +\n  geom_bar()\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = class)) +\n  geom_bar()\np",
     "id": 21104,
     "chapter_title": "Ch 10: EDA",
     "chapter_id": 10,
     "concept_tags": [
       "visualization",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21111": {
     "title": "Analogy: Box and Whiskers",
-    "content": "# \ud83d\udce6 Box and Whiskers\n\nA boxplot summarizes a distribution with 5 numbers: min, q1, median, q3, max. It's great for comparing categories.\n\n## \ud83c\udfaf Your Task\nPlot `class` vs `hwy` using `geom_boxplot`.",
-    "starter_code": "ggplot(mpg, aes(class, hwy)) + ...",
-    "solution_code": "ggplot(mpg, aes(class, hwy)) + geom_boxplot()",
+    "content": "# Boxplot for covariation\n\n## What you'll learn\nCompare a numeric variable across categories.\n\n## Why this matters\nBoxplots summarize distributions side by side.\n\n## Step-by-step task\n1. Map class to x and hwy to y.\n2. Use geom_boxplot().\n\n## Expected output or check condition\n- The plot should show a boxplot for each class.\n\n## One common mistake to avoid\n- Swapping x and y for a boxplot.\n\n## Confirm no hidden prerequisites\n- Uses ggplot(), aes(), and geom_boxplot() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = ..., y = ...)) +\n  geom_boxplot()\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = class, y = hwy)) +\n  geom_boxplot()\np",
     "id": 21111,
     "chapter_title": "Ch 10: EDA",
     "chapter_id": 10,
@@ -10255,38 +10410,47 @@
       "visualization",
       "control",
       "dplyr_group"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21112": {
     "title": "Variation: Reorder",
-    "content": "# \u2194\ufe0f Reordering\n\nBoxplots are easier to read if sorted. Use `reorder(class, hwy)`.\n\n## \ud83c\udfaf Your Task\nReorder the x-axis.",
-    "starter_code": "ggplot(mpg, aes(x = reorder(class, hwy), y = hwy)) + geom_boxplot()",
-    "solution_code": "ggplot(mpg, aes(x = reorder(class, hwy), y = hwy)) + geom_boxplot()",
+    "content": "# Reorder categories\n\n## What you'll learn\nReorder categories by a numeric summary.\n\n## Why this matters\nSorted plots are easier to read.\n\n## Step-by-step task\n1. Reorder class by hwy using reorder().\n2. Run the plot.\n\n## Expected output or check condition\n- Categories should appear ordered by typical hwy values.\n\n## One common mistake to avoid\n- Forgetting to wrap class in reorder().\n\n## Confirm no hidden prerequisites\n- Uses reorder() from base R and ggplot() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = ..., y = hwy)) +\n  geom_boxplot()\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = reorder(class, hwy), y = hwy)) +\n  geom_boxplot()\np",
     "id": 21112,
     "chapter_title": "Ch 10: EDA",
     "chapter_id": 10,
     "concept_tags": [
       "visualization",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21113": {
     "title": "Fix the Code: Flip",
-    "content": "# \ud83d\udd27 Fix the Code\n\nYou can flip coordinates to make labels readable using `coord_flip()`.\n\n## \ud83c\udfaf Your Task\nAdd `coord_flip()`.",
-    "starter_code": "ggplot(mpg, aes(class, hwy)) + geom_boxplot() + ...",
-    "solution_code": "ggplot(mpg, aes(class, hwy)) + geom_boxplot() + coord_flip()",
+    "content": "# Flip coordinates\n\n## What you'll learn\nUse coord_flip() to make labels easier to read.\n\n## Why this matters\nLong category labels often fit better on the y axis.\n\n## Step-by-step task\n1. Add coord_flip() to the plot.\n2. Run the plot.\n\n## Expected output or check condition\n- The plot should be flipped with class on the y axis.\n\n## One common mistake to avoid\n- Trying to swap axes manually instead of using coord_flip().\n\n## Confirm no hidden prerequisites\n- Uses coord_flip() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = class, y = hwy)) +\n  geom_boxplot() +\n  ...\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = class, y = hwy)) +\n  geom_boxplot() +\n  coord_flip()\np",
     "id": 21113,
     "chapter_title": "Ch 10: EDA",
     "chapter_id": 10,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21114": {
     "title": "Challenge: Heatmap",
-    "content": "# \ud83e\uddb8 Your Turn\n\nUse `geom_bin2d()` to see where points overlap (counts).\n\n## \ud83c\udfaf Your Task\nPlot `hwy` vs `cty` with `geom_bin2d()`.",
-    "starter_code": "",
-    "solution_code": "ggplot(mpg, aes(hwy, cty)) + geom_bin2d()",
+    "content": "# Mini task: heatmap of density\n\n## What you'll learn\nUse geom_bin2d() to show dense regions of points.\n\n## Why this matters\nBinning reveals where points overlap.\n\n## Step-by-step task\n1. Map hwy to x and cty to y.\n2. Use geom_bin2d().\n\n## Expected output or check condition\n- The plot should show a 2D binned heatmap.\n\n## One common mistake to avoid\n- Using geom_point() when bins are requested.\n\n## Confirm no hidden prerequisites\n- Uses ggplot(), aes(), and geom_bin2d() introduced above.",
+    "starter_code": "p <- ggplot(mpg, aes(x = ..., y = ...)) +\n  geom_bin2d()\np",
+    "solution_code": "p <- ggplot(mpg, aes(x = hwy, y = cty)) +\n  geom_bin2d()\np",
     "id": 21114,
     "chapter_title": "Ch 10: EDA",
     "chapter_id": 10,
@@ -10295,6 +10459,9 @@
       "visualization",
       "dplyr_filter",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "21201": {
@@ -10452,202 +10619,250 @@
   },
   "22011": {
     "title": "Analogy: Decisions",
-    "content": "# \ud83d\udea6 Decisions\n\nSometimes you need TWO things to be true. logic `&` (AND) means both must be true.\n\n`TRUE & TRUE` is `TRUE`.\n`TRUE & FALSE` is `FALSE`.\n\n## \ud83c\udfaf Your Task\nCheck if `1 == 1` AND `2 == 2`.",
-    "starter_code": "1 == 1 ... 2 == 2",
-    "solution_code": "1 == 1 & 2 == 2",
+    "content": "# Vectorized comparison\n\n## What you'll learn\nCreate a logical vector with a comparison.\n\n## Why this matters\nLogical vectors are the foundation for filtering and if_else().\n\n## Step-by-step task\n1. Replace the placeholder with >.\n2. Check the logical result.\n\n## Expected output or check condition\n- identical(result, c(FALSE, FALSE, TRUE, TRUE)) should return TRUE.\n\n## One common mistake to avoid\n- Using >= when the prompt says strictly greater.\n\n## Confirm no hidden prerequisites\n- Uses basic comparisons introduced above.",
+    "starter_code": "x <- c(1, 3, 5, 7)\nresult <- x ... 3\nidentical(result, c(FALSE, FALSE, TRUE, TRUE))",
+    "solution_code": "x <- c(1, 3, 5, 7)\nresult <- x > 3\nidentical(result, c(FALSE, FALSE, TRUE, TRUE))",
     "id": 22011,
     "chapter_title": "Ch 12: Logical Vectors",
     "chapter_id": 12,
     "concept_tags": [
       "vectors",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22012": {
     "title": "Variation: Or",
-    "content": "# \ud83e\udd37 Either Or\n\nLogic `|` (OR) means AT LEAST ONE must be true.\n\n`TRUE | FALSE` is `TRUE`.\n\n## \ud83c\udfaf Your Task\nCheck if `1 == 1` OR `1 == 5`.",
-    "starter_code": "1 == 1 ... 1 == 5",
-    "solution_code": "1 == 1 | 1 == 5",
+    "content": "# Combine conditions with OR\n\n## What you'll learn\nUse | to combine two conditions.\n\n## Why this matters\nOR logic lets you keep values that meet either rule.\n\n## Step-by-step task\n1. Replace the placeholder with |.\n2. Check the logical result.\n\n## Expected output or check condition\n- identical(result, c(TRUE, FALSE, FALSE, TRUE)) should return TRUE.\n\n## One common mistake to avoid\n- Using & when you mean |.\n\n## Confirm no hidden prerequisites\n- Uses basic comparisons introduced above.",
+    "starter_code": "x <- c(1, 3, 5, 7)\nresult <- x < 2 ... x > 6\nidentical(result, c(TRUE, FALSE, FALSE, TRUE))",
+    "solution_code": "x <- c(1, 3, 5, 7)\nresult <- x < 2 | x > 6\nidentical(result, c(TRUE, FALSE, FALSE, TRUE))",
     "id": 22012,
     "chapter_title": "Ch 12: Logical Vectors",
     "chapter_id": 12,
     "concept_tags": [
       "vectors",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22013": {
-    "title": "Fix the Code: Not Python",
-    "content": "# \ud83d\udd27 Fix the Code\n\nR uses symbols `&`, `|`, not words `and`, `or`.\n\n## \ud83c\udfaf Your Task\nFix the code.",
-    "starter_code": "TRUE and TRUE",
-    "solution_code": "TRUE & TRUE",
+    "title": "Fix the Code: R Logical Operators",
+    "content": "# Fix the logical operator\n\n## What you'll learn\nUse & inside if_else() for vectorized logic.\n\n## Why this matters\nR uses & and | for element-wise logical operations.\n\n## Step-by-step task\n1. Replace and with &.\n2. Check the result.\n\n## Expected output or check condition\n- identical(status, c(\"ok\", \"ok\", \"hot\", \"hot\")) should return TRUE.\n\n## One common mistake to avoid\n- Writing and instead of &.\n\n## Confirm no hidden prerequisites\n- Uses if_else() and vectorized comparisons introduced above.",
+    "starter_code": "temps <- c(50, 72, 85, 90)\nstatus <- if_else(temps > 80 and temps < 95, \"hot\", \"ok\")\nidentical(status, c(\"ok\", \"ok\", \"hot\", \"hot\"))",
+    "solution_code": "temps <- c(50, 72, 85, 90)\nstatus <- if_else(temps > 80 & temps < 95, \"hot\", \"ok\")\nidentical(status, c(\"ok\", \"ok\", \"hot\", \"hot\"))",
     "id": 22013,
     "chapter_title": "Ch 12: Logical Vectors",
     "chapter_id": 12,
     "concept_tags": [
       "vectors",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22014": {
     "title": "Challenge: Negation",
-    "content": "# \ud83e\uddb8 Your Turn\n\n`!` means NOT. `!TRUE` is `FALSE`.\n\n## \ud83c\udfaf Your Task\nCheck if NOT `FALSE`.",
-    "starter_code": "",
-    "solution_code": "!FALSE",
+    "content": "# Mini task: label delays\n\n## What you'll learn\nUse if_else() to label values based on a condition.\n\n## Why this matters\nLabeling makes raw numbers easier to interpret.\n\n## Step-by-step task\n1. Create a status label using if_else().\n2. Check two positions and a count.\n\n## Expected output or check condition\n- status[1] should be \"on_time\".\n- status[4] should be \"late\".\n- sum(status == \"late\") should return 2.\n\n## One common mistake to avoid\n- Reversing the true and false labels.\n\n## Confirm no hidden prerequisites\n- Uses if_else() and basic comparisons introduced above.",
+    "starter_code": "delays <- c(-5, 0, 10, 30, 120)\nstatus <- if_else(delays > 15, \"late\", \"on_time\")\nstatus[1]\nstatus[4]\nsum(status == \"late\")",
+    "solution_code": "delays <- c(-5, 0, 10, 30, 120)\nstatus <- if_else(delays > 15, \"late\", \"on_time\")\nstatus[1]\nstatus[4]\nsum(status == \"late\")",
     "id": 22014,
     "chapter_title": "Ch 12: Logical Vectors",
     "chapter_id": 12,
     "concept_tags": [
       "vectors",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22101": {
     "title": "Analogy: Counting Heads",
-    "content": "# \ud83d\udde3\ufe0f Counting Heads\n\n`count()` counts how many rows fall into each category. Like counting how many people want Pizza vs Tacos.\n\n## \ud83c\udfaf Your Task\nCount the `cut` of diamonds.",
-    "starter_code": "count(diamonds, ...)",
-    "solution_code": "count(diamonds, cut)",
+    "content": "# Count categories\n\n## What you'll learn\nUse count() to tally rows per category.\n\n## Why this matters\nCounting is the fastest way to summarize categorical data.\n\n## Step-by-step task\n1. Count rows by group.\n2. Check the result vector.\n\n## Expected output or check condition\n- identical(result$group, c(\"A\", \"B\")) should return TRUE.\n- identical(result$n, c(2, 1)) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting to load dplyr.\n\n## Confirm no hidden prerequisites\n- Uses count() from the concept with a small data frame.",
+    "starter_code": "library(dplyr)\ndf <- data.frame(group = c(\"A\", \"A\", \"B\"), value = c(5, 7, 3))\nresult <- count(df, group)\nidentical(result$group, c(\"A\", \"B\"))\nidentical(result$n, c(2, 1))",
+    "solution_code": "library(dplyr)\ndf <- data.frame(group = c(\"A\", \"A\", \"B\"), value = c(5, 7, 3))\nresult <- count(df, group)\nidentical(result$group, c(\"A\", \"B\"))\nidentical(result$n, c(2, 1))",
     "id": 22101,
     "chapter_title": "Ch 13: Numbers",
     "chapter_id": 13,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22102": {
     "title": "Variation: Summarize",
-    "content": "# \ud83d\udcdd Summarize\n\n`summarize()` squashes data into one number (like the average).\n\n## \ud83c\udfaf Your Task\nCalculate the `mean` of `price`.",
-    "starter_code": "summarize(diamonds, avg_price = mean(...))",
-    "solution_code": "summarize(diamonds, avg_price = mean(price))",
+    "content": "# Summarize a numeric column\n\n## What you'll learn\nCompute a mean with summarize().\n\n## Why this matters\nSummaries turn many rows into one useful number.\n\n## Step-by-step task\n1. Calculate the mean of value.\n2. Verify it with all.equal().\n\n## Expected output or check condition\n- isTRUE(all.equal(result$mean_value, mean(df$value))) should return TRUE.\n\n## One common mistake to avoid\n- Using mean(value) without summarize().\n\n## Confirm no hidden prerequisites\n- Uses summarize() and mean() from the concept.",
+    "starter_code": "library(dplyr)\ndf <- data.frame(group = c(\"A\", \"A\", \"B\"), value = c(5, 7, 3))\nresult <- summarize(df, mean_value = mean(value))\nisTRUE(all.equal(result$mean_value, mean(df$value)))",
+    "solution_code": "library(dplyr)\ndf <- data.frame(group = c(\"A\", \"A\", \"B\"), value = c(5, 7, 3))\nresult <- summarize(df, mean_value = mean(value))\nisTRUE(all.equal(result$mean_value, mean(df$value)))",
     "id": 22102,
     "chapter_title": "Ch 13: Numbers",
     "chapter_id": 13,
     "concept_tags": [
       "dplyr_group",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22103": {
     "title": "Fix the Code: Parentheses",
-    "content": "# \ud83d\udd27 Fix the Code\n\nFunctions need `()`.\n\n## \ud83c\udfaf Your Task\nFix `n`.",
-    "starter_code": "summarize(diamonds, total = n)",
-    "solution_code": "summarize(diamonds, total = n())",
+    "content": "# Fix missing parentheses\n\n## What you'll learn\nUse n() correctly inside summarize().\n\n## Why this matters\nn() counts rows; without parentheses it does not work.\n\n## Step-by-step task\n1. Fix the summary call.\n2. Confirm the row count.\n\n## Expected output or check condition\n- identical(result$n, nrow(df)) should return TRUE.\n\n## One common mistake to avoid\n- Writing n instead of n().\n\n## Confirm no hidden prerequisites\n- Uses n() and summarize() from the concept.",
+    "starter_code": "library(dplyr)\ndf <- data.frame(group = c(\"A\", \"A\", \"B\"), value = c(5, 7, 3))\nresult <- summarize(df, n = n)\nidentical(result$n, nrow(df))",
+    "solution_code": "library(dplyr)\ndf <- data.frame(group = c(\"A\", \"A\", \"B\"), value = c(5, 7, 3))\nresult <- summarize(df, n = n())\nidentical(result$n, nrow(df))",
     "id": 22103,
     "chapter_title": "Ch 13: Numbers",
     "chapter_id": 13,
     "concept_tags": [
       "functions",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22104": {
     "title": "Challenge: Max",
-    "content": "# \ud83e\uddb8 Your Turn\n\nFind the `max()` price.\n\n## \ud83c\udfaf Your Task\nSummarize max price.",
-    "starter_code": "",
-    "solution_code": "summarize(diamonds, max_price = max(price))",
+    "content": "# Mini task: max value\n\n## What you'll learn\nCompute a maximum with summarize().\n\n## Why this matters\nMax values are common summary statistics.\n\n## Step-by-step task\n1. Compute max(value).\n2. Verify it against the data.\n\n## Expected output or check condition\n- identical(result$max_value, max(df$value)) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting to name the output column.\n\n## Confirm no hidden prerequisites\n- Uses summarize() and max() from the concept.",
+    "starter_code": "library(dplyr)\ndf <- data.frame(group = c(\"A\", \"A\", \"B\"), value = c(5, 7, 3))\nresult <- summarize(df, max_value = max(value))\nidentical(result$max_value, max(df$value))",
+    "solution_code": "library(dplyr)\ndf <- data.frame(group = c(\"A\", \"A\", \"B\"), value = c(5, 7, 3))\nresult <- summarize(df, max_value = max(value))\nidentical(result$max_value, max(df$value))",
     "id": 22104,
     "chapter_title": "Ch 13: Numbers",
     "chapter_id": 13,
     "concept_tags": [
       "dplyr_group",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22201": {
     "title": "Analogy: Glue Stick",
-    "content": "# \ud83e\uddf4 Glue Stick\n\n`str_glue()` sticks text and variables together easily. Use `{variable}` to insert values.\n\n```r\nname <- \"Bond\"\nstr_glue(\"James {name}\")\n```\n\n## \ud83c\udfaf Your Task\nGlue \"Value: \" with `x`.",
-    "starter_code": "x <- 100\nstr_glue(\"Value: ...\")",
-    "solution_code": "x <- 100\nstr_glue(\"Value: {x}\")",
+    "content": "# Glue a value into text\n\n## What you'll learn\nInsert a variable into a string with str_glue().\n\n## Why this matters\nReadable text output is essential for reporting results.\n\n## Step-by-step task\n1. Insert x inside the braces in str_glue().\n2. Run the code.\n\n## Expected output or check condition\n- text should be \"Value: 7\".\n\n## One common mistake to avoid\n- Leaving the braces empty.\n\n## Confirm no hidden prerequisites\n- Uses stringr and str_glue() introduced above.",
+    "starter_code": "library(stringr)\nx <- 7\ntext <- str_glue(\"Value: {...}\")\ntext",
+    "solution_code": "library(stringr)\nx <- 7\ntext <- str_glue(\"Value: {x}\")\ntext",
     "id": 22201,
     "chapter_title": "Ch 14: Strings",
     "chapter_id": 14,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22202": {
     "title": "Variation: Combining",
-    "content": "# \ud83d\udd17 Combining Strings\n\n`str_c()` joins strings directly.\n\n## \ud83c\udfaf Your Task\nCombine \"A\" and \"B\".",
-    "starter_code": "str_c(\"A\", ...)",
-    "solution_code": "str_c(\"A\", \"B\")",
+    "content": "# Combine strings with a separator\n\n## What you'll learn\nUse str_c() to join strings with a separator.\n\n## Why this matters\nSeparators make combined strings readable.\n\n## Step-by-step task\n1. Set sep to \"-\".\n2. Run the code.\n\n## Expected output or check condition\n- result should be \"A-B\".\n\n## One common mistake to avoid\n- Forgetting to set sep when you want a delimiter.\n\n## Confirm no hidden prerequisites\n- Uses stringr and str_c() introduced above.",
+    "starter_code": "library(stringr)\nresult <- str_c(\"A\", \"B\", sep = ...)\nresult",
+    "solution_code": "library(stringr)\nresult <- str_c(\"A\", \"B\", sep = \"-\")\nresult",
     "id": 22202,
     "chapter_title": "Ch 14: Strings",
     "chapter_id": 14,
     "concept_tags": [
       "vectors",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22203": {
     "title": "Fix the Code: Spelling",
-    "content": "# \ud83d\udd27 Fix the Code\n\nIt's `str`, short for string.\n\n## \ud83c\udfaf Your Task\nFix `string_length`.",
-    "starter_code": "string_length(\"abc\")",
-    "solution_code": "str_length(\"abc\")",
+    "content": "# Fix the function name\n\n## What you'll learn\nUse the correct stringr function name.\n\n## Why this matters\nSmall typos break string operations.\n\n## Step-by-step task\n1. Replace string_length with str_length.\n2. Run the code.\n\n## Expected output or check condition\n- n should be 5.\n\n## One common mistake to avoid\n- Mixing up stringr and base R names.\n\n## Confirm no hidden prerequisites\n- Uses stringr and str_length() introduced above.",
+    "starter_code": "library(stringr)\nn <- string_length(\"hello\")\nn",
+    "solution_code": "library(stringr)\nn <- str_length(\"hello\")\nn",
     "id": 22203,
     "chapter_title": "Ch 14: Strings",
     "chapter_id": 14,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22204": {
     "title": "Challenge: Substring",
-    "content": "# \ud83e\uddb8 Your Turn\n\nGet the first letter using `str_sub(text, 1, 1)`.\n\n## \ud83c\udfaf Your Task\nGet 'H' from 'Hello'.",
-    "starter_code": "",
-    "solution_code": "str_sub(\"Hello\", 1, 1)",
+    "content": "# Mini task: extract a substring\n\n## What you'll learn\nUse str_sub() to slice a string.\n\n## Why this matters\nSubstring operations are common in cleaning text.\n\n## Step-by-step task\n1. Set the start and end positions to get the first letter.\n2. Run the code.\n\n## Expected output or check condition\n- letter should be \"H\".\n\n## One common mistake to avoid\n- Using zero-based positions in R strings.\n\n## Confirm no hidden prerequisites\n- Uses stringr and str_sub() introduced above.",
+    "starter_code": "library(stringr)\nletter <- str_sub(\"Hello\", ..., ...)\nletter",
+    "solution_code": "library(stringr)\nletter <- str_sub(\"Hello\", 1, 1)\nletter",
     "id": 22204,
     "chapter_title": "Ch 14: Strings",
     "chapter_id": 14,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22301": {
     "title": "Analogy: Ctrl+F",
-    "content": "# \ud83d\udd0d Ctrl+F\n\n`str_detect` returns TRUE if it finds the pattern. It's like finding a needle in a haystack.\n\n## \ud83c\udfaf Your Task\nDoes \"banana\" contain \"ana\"?",
-    "starter_code": "str_detect(\"banana\", ...)",
-    "solution_code": "str_detect(\"banana\", \"ana\")",
+    "content": "# Detect a pattern\n\n## What you'll learn\nUse str_detect() to find a pattern.\n\n## Why this matters\nRegex lets you search text quickly and consistently.\n\n## Step-by-step task\n1. Run str_detect() on the vector.\n2. Check the logical result.\n\n## Expected output or check condition\n- identical(result, c(TRUE, FALSE, TRUE)) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting to load stringr.\n\n## Confirm no hidden prerequisites\n- Uses str_detect() introduced in the concept.",
+    "starter_code": "library(stringr)\nresult <- str_detect(c(\"banana\", \"apple\", \"anvil\"), \"an\")\nidentical(result, c(TRUE, FALSE, TRUE))",
+    "solution_code": "library(stringr)\nresult <- str_detect(c(\"banana\", \"apple\", \"anvil\"), \"an\")\nidentical(result, c(TRUE, FALSE, TRUE))",
     "id": 22301,
     "chapter_title": "Ch 15: Regex",
     "chapter_id": 15,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22302": {
     "title": "Variation: Start Anchor",
-    "content": "# \u2693 Start Anchor\n\n`^` matches the START of a string.\n\n`^a` matches \"apple\" but not \"banana\".\n\n## \ud83c\udfaf Your Task\nCheck if \"apple\" starts with \"a\".",
-    "starter_code": "str_detect(\"apple\", \"^a\")",
-    "solution_code": "str_detect(\"apple\", \"^a\")",
+    "content": "# Use a start anchor\n\n## What you'll learn\nUse ^ to match the start of a string.\n\n## Why this matters\nAnchors make matches precise.\n\n## Step-by-step task\n1. Detect strings that start with a.\n2. Check the logical result.\n\n## Expected output or check condition\n- identical(result, c(TRUE, FALSE, TRUE)) should return TRUE.\n\n## One common mistake to avoid\n- Using \"a\" without the ^ anchor.\n\n## Confirm no hidden prerequisites\n- Uses anchors from the concept.",
+    "starter_code": "library(stringr)\nresult <- str_detect(c(\"apple\", \"banana\", \"avocado\"), \"^a\")\nidentical(result, c(TRUE, FALSE, TRUE))",
+    "solution_code": "library(stringr)\nresult <- str_detect(c(\"apple\", \"banana\", \"avocado\"), \"^a\")\nidentical(result, c(TRUE, FALSE, TRUE))",
     "id": 22302,
     "chapter_title": "Ch 15: Regex",
     "chapter_id": 15,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22303": {
     "title": "Fix the Code: Characters",
-    "content": "# \ud83d\udd27 Fix the Code\n\nRegex patterns need quotes.\n\n## \ud83c\udfaf Your Task\nFix the pattern.",
-    "starter_code": "str_detect(\"abc\", a)",
-    "solution_code": "str_detect(\"abc\", \"a\")",
+    "content": "# Fix the pattern\n\n## What you'll learn\nWrite a valid quoted regex pattern.\n\n## Why this matters\nUnquoted patterns cause errors.\n\n## Step-by-step task\n1. Put the pattern in quotes.\n2. Run str_detect().\n\n## Expected output or check condition\n- identical(result, TRUE) should return TRUE.\n\n## One common mistake to avoid\n- Leaving the pattern unquoted.\n\n## Confirm no hidden prerequisites\n- Uses str_detect() and quoted patterns from the concept.",
+    "starter_code": "library(stringr)\npattern <- ...\nresult <- str_detect(\"apple\", pattern)\nidentical(result, TRUE)",
+    "solution_code": "library(stringr)\npattern <- \"^a\"\nresult <- str_detect(\"apple\", pattern)\nidentical(result, TRUE)",
     "id": 22303,
     "chapter_title": "Ch 15: Regex",
     "chapter_id": 15,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22304": {
     "title": "Challenge: Digits",
-    "content": "# \ud83e\uddb8 Your Turn\n\n`\\d` matches any digit (0-9). In R strings, type it as `\\\\d`.\n\n## \ud83c\udfaf Your Task\nDetect a digit in \"R2D2\".",
-    "starter_code": "",
-    "solution_code": "str_detect(\"R2D2\", \"\\\\d\")",
+    "content": "# Mini task: detect digits\n\n## What you'll learn\nUse \\d to detect digits in strings.\n\n## Why this matters\nDigit detection is common in data cleaning.\n\n## Step-by-step task\n1. Detect digits in each string.\n2. Check the logical result.\n\n## Expected output or check condition\n- identical(result, c(TRUE, TRUE, FALSE)) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting to escape \\d in an R string.\n\n## Confirm no hidden prerequisites\n- Uses \\d from the concept and str_detect().",
+    "starter_code": "library(stringr)\nresult <- str_detect(c(\"R2D2\", \"HAL9000\", \"HAL\"), \"\\\\d\")\nidentical(result, c(TRUE, TRUE, FALSE))",
+    "solution_code": "library(stringr)\nresult <- str_detect(c(\"R2D2\", \"HAL9000\", \"HAL\"), \"\\\\d\")\nidentical(result, c(TRUE, TRUE, FALSE))",
     "id": 22304,
     "chapter_title": "Ch 15: Regex",
     "chapter_id": 15,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22401": {
@@ -10701,50 +10916,62 @@
   },
   "22501": {
     "title": "Analogy: ISO Standard",
-    "content": "# \ud83d\udcc5 ISO Standard\n\nDates are messy. `lubridate` makes them standard. `ymd()` parses \"2023-01-01\".\n\n## \ud83c\udfaf Your Task\nParse \"2023-01-01\".",
-    "starter_code": "ymd(\"...\")",
-    "solution_code": "ymd(\"2023-01-01\")",
+    "content": "# Parse an ISO date\n\n## What you'll learn\nUse the correct parser for YYYY-MM-DD.\n\n## Why this matters\nParsed dates become real Date objects you can compute with.\n\n## Step-by-step task\n1. Replace the placeholder with ymd.\n2. Run the code.\n\n## Expected output or check condition\n- as.character(d) should be \"2023-01-31\".\n\n## One common mistake to avoid\n- Using the wrong parser for the format.\n\n## Confirm no hidden prerequisites\n- Uses lubridate and ymd() introduced above.",
+    "starter_code": "library(lubridate)\nd <- ...(\"2023-01-31\")\nas.character(d)",
+    "solution_code": "library(lubridate)\nd <- ymd(\"2023-01-31\")\nas.character(d)",
     "id": 22501,
     "chapter_title": "Ch 17: Dates and Times",
     "chapter_id": 17,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22502": {
     "title": "Variation: MDY",
-    "content": "# \ud83c\uddfa\ud83c\uddf8 MDY Format\n\nIf the date is \"January 1st, 2023\", use `mdy()`.\n\n## \ud83c\udfaf Your Task\nParse \"01-31-2023\".",
-    "starter_code": "mdy(\"...\")",
-    "solution_code": "mdy(\"01-31-2023\")",
+    "content": "# Parse an MDY date\n\n## What you'll learn\nUse the correct parser for MM-DD-YYYY.\n\n## Why this matters\nDifferent formats require different parsers.\n\n## Step-by-step task\n1. Replace the placeholder with mdy.\n2. Run the code.\n\n## Expected output or check condition\n- as.character(d) should be \"2023-01-31\".\n\n## One common mistake to avoid\n- Using ymd() for an MDY string.\n\n## Confirm no hidden prerequisites\n- Uses lubridate and mdy() introduced above.",
+    "starter_code": "library(lubridate)\nd <- ...(\"01-31-2023\")\nas.character(d)",
+    "solution_code": "library(lubridate)\nd <- mdy(\"01-31-2023\")\nas.character(d)",
     "id": 22502,
     "chapter_title": "Ch 17: Dates and Times",
     "chapter_id": 17,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22503": {
     "title": "Fix the Code: Quote",
-    "content": "# \ud83d\udd27 Fix the Code\n\nDates are strings until parsed.\n\n## \ud83c\udfaf Your Task\nAdd quotes.",
-    "starter_code": "ymd(2023-01-01)",
-    "solution_code": "ymd(\"2023-01-01\")",
+    "content": "# Fix the quotes\n\n## What you'll learn\nPass dates as strings before parsing.\n\n## Why this matters\nDates start as text and must be quoted.\n\n## Step-by-step task\n1. Add quotes around the date.\n2. Run the code.\n\n## Expected output or check condition\n- as.character(d) should be \"2023-01-31\".\n\n## One common mistake to avoid\n- Leaving a date unquoted.\n\n## Confirm no hidden prerequisites\n- Uses lubridate and ymd() introduced above.",
+    "starter_code": "library(lubridate)\nd <- ymd(2023-01-31)\nas.character(d)",
+    "solution_code": "library(lubridate)\nd <- ymd(\"2023-01-31\")\nas.character(d)",
     "id": 22503,
     "chapter_title": "Ch 17: Dates and Times",
     "chapter_id": 17,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22504": {
     "title": "Challenge: Get Year",
-    "content": "# \ud83e\uddb8 Your Turn\n\nExtract year with `year(date)`.\n\n## \ud83c\udfaf Your Task\nGet year from today.",
-    "starter_code": "",
-    "solution_code": "year(today())",
+    "content": "# Mini task: extract a year\n\n## What you'll learn\nPull the year from a Date object.\n\n## Why this matters\nDate parts are useful for grouping and summaries.\n\n## Step-by-step task\n1. Parse the date.\n2. Use year() to extract the year.\n\n## Expected output or check condition\n- y should be 2024.\n\n## One common mistake to avoid\n- Calling year() on a string instead of a Date.\n\n## Confirm no hidden prerequisites\n- Uses lubridate and year() introduced above.",
+    "starter_code": "library(lubridate)\nd <- ymd(\"2024-02-03\")\ny <- year(d)\ny",
+    "solution_code": "library(lubridate)\nd <- ymd(\"2024-02-03\")\ny <- year(d)\ny",
     "id": 22504,
     "chapter_title": "Ch 17: Dates and Times",
     "chapter_id": 17,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "22601": {
@@ -10993,202 +11220,250 @@
   },
   "23201": {
     "title": "Analogy: Fast Lane",
-    "content": "# \ud83c\udfce\ufe0f Fast Lane\n\nParquet files are super fast compressed data files. Reading them is instant.\n\n## \ud83c\udfaf Your Task\nOpen dataset.",
-    "starter_code": "open_dataset(\"data.parquet\")",
-    "solution_code": "open_dataset(\"data.parquet\")",
+    "content": "# Open a dataset lazily\n\n## What you'll learn\nUse open_dataset() to create a lazy Arrow dataset.\n\n## Why this matters\nLazy datasets are fast because they avoid loading all data at once.\n\n## Step-by-step task\n1. Write a tiny data frame to a temporary Parquet dataset.\n2. Open it with open_dataset().\n\n## Expected output or check condition\n- inherits(ds, \"Dataset\") should return TRUE.\n\n## One common mistake to avoid\n- Passing a non-existent path to open_dataset().\n\n## Confirm no hidden prerequisites\n- Uses open_dataset() and write_dataset() from the concept.\n- If arrow is unavailable in your environment, treat this as a reading exercise (no installation required).",
+    "starter_code": "library(arrow)\ndf <- data.frame(year = c(2020, 2021), value = c(10, 20))\ndir <- tempfile(\"arrow_ds_\")\ndir.create(dir)\nwrite_dataset(df, dir, format = \"parquet\")\n\nds <- open_dataset(dir)\ninherits(ds, \"Dataset\")",
+    "solution_code": "library(arrow)\ndf <- data.frame(year = c(2020, 2021), value = c(10, 20))\ndir <- tempfile(\"arrow_ds_\")\ndir.create(dir)\nwrite_dataset(df, dir, format = \"parquet\")\n\nds <- open_dataset(dir)\ninherits(ds, \"Dataset\")",
     "id": 23201,
     "chapter_title": "Ch 22: Arrow",
     "chapter_id": 22,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "23202": {
     "title": "Variation: Write",
-    "content": "# \ud83d\udcbe Write\n\nSave as parquet for speed.\n\n## \ud83c\udfaf Your Task\nWrite dataset.",
-    "starter_code": "write_dataset(df, \"folder\")",
-    "solution_code": "write_dataset(df, \"folder\")",
+    "content": "# Filter and collect\n\n## What you'll learn\nFilter an Arrow dataset and collect results.\n\n## Why this matters\nFiltering before collect() saves time and memory.\n\n## Step-by-step task\n1. Filter for year == 2020.\n2. Collect the rows.\n\n## Expected output or check condition\n- identical(unique(result$year), 2020) should return TRUE.\n\n## One common mistake to avoid\n- Calling collect() before filter().\n\n## Confirm no hidden prerequisites\n- Uses filter() and collect() from the concept.\n- If arrow is unavailable in your environment, treat this as a reading exercise (no installation required).",
+    "starter_code": "library(arrow)\nlibrary(dplyr)\ndf <- data.frame(year = c(2020, 2021, 2020), value = c(10, 20, 30))\ndir <- tempfile(\"arrow_ds_\")\ndir.create(dir)\nwrite_dataset(df, dir, format = \"parquet\")\n\nds <- open_dataset(dir)\nresult <- ds |> filter(year == 2020) |> collect()\nidentical(unique(result$year), 2020)",
+    "solution_code": "library(arrow)\nlibrary(dplyr)\ndf <- data.frame(year = c(2020, 2021, 2020), value = c(10, 20, 30))\ndir <- tempfile(\"arrow_ds_\")\ndir.create(dir)\nwrite_dataset(df, dir, format = \"parquet\")\n\nds <- open_dataset(dir)\nresult <- ds |> filter(year == 2020) |> collect()\nidentical(unique(result$year), 2020)",
     "id": 23202,
     "chapter_title": "Ch 22: Arrow",
     "chapter_id": 22,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "23203": {
     "title": "Fix the Code: Function",
-    "content": "# \ud83d\udd27 Fix the Code\n\nIt's `open_dataset`, not `read_parquet` (usually).\n\n## \ud83c\udfaf Your Task\nFix function.",
-    "starter_code": "open_dataset(\"file\")",
-    "solution_code": "open_dataset(\"file\")",
+    "content": "# Fix the function name\n\n## What you'll learn\nUse the correct Arrow function to open a dataset.\n\n## Why this matters\nA small naming mistake prevents Arrow from working.\n\n## Step-by-step task\n1. Replace the wrong function name.\n2. Confirm you created a Dataset.\n\n## Expected output or check condition\n- inherits(ds, \"Dataset\") should return TRUE.\n\n## One common mistake to avoid\n- Using open_datasets instead of open_dataset.\n\n## Confirm no hidden prerequisites\n- Uses open_dataset() from the concept.\n- If arrow is unavailable in your environment, treat this as a reading exercise (no installation required).",
+    "starter_code": "library(arrow)\ndf <- data.frame(year = c(2020, 2021), value = c(10, 20))\ndir <- tempfile(\"arrow_ds_\")\ndir.create(dir)\nwrite_dataset(df, dir, format = \"parquet\")\n\nds <- open_datasets(dir)\ninherits(ds, \"Dataset\")",
+    "solution_code": "library(arrow)\ndf <- data.frame(year = c(2020, 2021), value = c(10, 20))\ndir <- tempfile(\"arrow_ds_\")\ndir.create(dir)\nwrite_dataset(df, dir, format = \"parquet\")\n\nds <- open_dataset(dir)\ninherits(ds, \"Dataset\")",
     "id": 23203,
     "chapter_title": "Ch 22: Arrow",
     "chapter_id": 22,
     "concept_tags": [
       "functions",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "23204": {
     "title": "Challenge: Filter",
-    "content": "# \ud83e\uddb8 Your Turn\n\nFilter before collecting.\n\n## \ud83c\udfaf Your Task\nFilter.",
-    "starter_code": "",
-    "solution_code": "ds |> filter(x > 0) |> collect()",
+    "content": "# Mini task: confirm parquet output\n\n## What you'll learn\nVerify that write_dataset() produced parquet files.\n\n## Why this matters\nYou should confirm that output was actually written.\n\n## Step-by-step task\n1. Write the dataset to a temp directory.\n2. Check that at least one parquet file exists.\n\n## Expected output or check condition\n- length(parquet_files) > 0 should return TRUE.\n\n## One common mistake to avoid\n- Writing to a file path instead of a directory.\n\n## Confirm no hidden prerequisites\n- Uses write_dataset() from the concept.\n- If arrow is unavailable in your environment, treat this as a reading exercise (no installation required).",
+    "starter_code": "library(arrow)\ndf <- data.frame(year = c(2020, 2021), value = c(10, 20))\ndir <- tempfile(\"arrow_ds_\")\ndir.create(dir)\nwrite_dataset(df, dir, format = \"parquet\")\n\nparquet_files <- list.files(dir, recursive = TRUE, pattern = \"\\\\.parquet$\")\nlength(parquet_files) > 0",
+    "solution_code": "library(arrow)\ndf <- data.frame(year = c(2020, 2021), value = c(10, 20))\ndir <- tempfile(\"arrow_ds_\")\ndir.create(dir)\nwrite_dataset(df, dir, format = \"parquet\")\n\nparquet_files <- list.files(dir, recursive = TRUE, pattern = \"\\\\.parquet$\")\nlength(parquet_files) > 0",
     "id": 23204,
     "chapter_title": "Ch 22: Arrow",
     "chapter_id": 22,
     "concept_tags": [
       "dplyr_filter",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "23301": {
     "title": "Analogy: Unpacking Suitcase",
-    "content": "# \ud83e\uddf3 Unpacking Suitcase\n\nList-columns are like suitcases inside your data row. `unnest()` unpacks them so you can see the clothes.\n\n## \ud83c\udfaf Your Task\nUnnest `data` column.",
-    "starter_code": "unnest(df, cols = ...)",
-    "solution_code": "unnest(df, cols = data)",
+    "content": "# Unnest a list-column\n\n## What you'll learn\nUse unnest() to expand a list-column into rows.\n\n## Why this matters\nUnnesting turns nested data into a flat table.\n\n## Step-by-step task\n1. Unnest the info column.\n2. Check the row count.\n\n## Expected output or check condition\n- identical(nrow(tidy), 4) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting to load tidyr.\n\n## Confirm no hidden prerequisites\n- Uses list-columns and unnest() from the concept.",
+    "starter_code": "library(tibble)\nlibrary(tidyr)\ndf <- tibble(\n  id = c(\"A\", \"B\"),\n  info = list(\n    tibble(a = c(1, 2), b = c(3, 4)),\n    tibble(a = c(5, 6), b = c(7, 8))\n  )\n)\n\ntidy <- unnest(df, info)\nidentical(nrow(tidy), 4)",
+    "solution_code": "library(tibble)\nlibrary(tidyr)\ndf <- tibble(\n  id = c(\"A\", \"B\"),\n  info = list(\n    tibble(a = c(1, 2), b = c(3, 4)),\n    tibble(a = c(5, 6), b = c(7, 8))\n  )\n)\n\ntidy <- unnest(df, info)\nidentical(nrow(tidy), 4)",
     "id": 23301,
     "chapter_title": "Ch 23: Hierarchical Data",
     "chapter_id": 23,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "23302": {
     "title": "Variation: Wider",
-    "content": "# \u2194\ufe0f Wider\n\n`unnest_wider` puts items into columns.\n\n## \ud83c\udfaf Your Task\nUnnest wider.",
-    "starter_code": "unnest_wider(df, metadata)",
-    "solution_code": "unnest_wider(df, metadata)",
+    "content": "# Unnest wider\n\n## What you'll learn\nUse unnest_wider() to spread list items into columns.\n\n## Why this matters\nWidening makes list data easier to analyze.\n\n## Step-by-step task\n1. Unnest the info column into columns a and b.\n2. Check the output columns.\n\n## Expected output or check condition\n- all(c(\"a\", \"b\") %in% names(wide)) should return TRUE.\n- identical(ncol(wide), 3) should return TRUE.\n\n## One common mistake to avoid\n- Using unnest() when you need columns.\n\n## Confirm no hidden prerequisites\n- Uses unnest_wider() from the concept.",
+    "starter_code": "library(tibble)\nlibrary(tidyr)\ndf <- tibble(\n  id = 1:2,\n  info = list(list(a = 1, b = 2), list(a = 3, b = 4))\n)\n\nwide <- unnest_wider(df, info)\nall(c(\"a\", \"b\") %in% names(wide))\nidentical(ncol(wide), 3)",
+    "solution_code": "library(tibble)\nlibrary(tidyr)\ndf <- tibble(\n  id = 1:2,\n  info = list(list(a = 1, b = 2), list(a = 3, b = 4))\n)\n\nwide <- unnest_wider(df, info)\nall(c(\"a\", \"b\") %in% names(wide))\nidentical(ncol(wide), 3)",
     "id": 23302,
     "chapter_title": "Ch 23: Hierarchical Data",
     "chapter_id": 23,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "23303": {
     "title": "Fix the Code: Plural",
-    "content": "# \ud83d\udd27 Fix the Code\n\nIt's `cols`, plural.\n\n## \ud83c\udfaf Your Task\nFix `col`.",
-    "starter_code": "unnest(df, col = data)",
-    "solution_code": "unnest(df, cols = data)",
+    "content": "# Fix the argument name\n\n## What you'll learn\nUse the correct argument name in unnest_wider().\n\n## Why this matters\nA small argument typo can break the function.\n\n## Step-by-step task\n1. Replace col with cols.\n2. Check the output columns.\n\n## Expected output or check condition\n- all(c(\"a\", \"b\") %in% names(wide)) should return TRUE.\n\n## One common mistake to avoid\n- Using col instead of cols.\n\n## Confirm no hidden prerequisites\n- Uses unnest_wider() from the concept.",
+    "starter_code": "library(tibble)\nlibrary(tidyr)\ndf <- tibble(\n  id = 1:2,\n  info = list(list(a = 1, b = 2), list(a = 3, b = 4))\n)\n\nwide <- unnest_wider(df, col = info)\nall(c(\"a\", \"b\") %in% names(wide))",
+    "solution_code": "library(tibble)\nlibrary(tidyr)\ndf <- tibble(\n  id = 1:2,\n  info = list(list(a = 1, b = 2), list(a = 3, b = 4))\n)\n\nwide <- unnest_wider(df, cols = info)\nall(c(\"a\", \"b\") %in% names(wide))",
     "id": 23303,
     "chapter_title": "Ch 23: Hierarchical Data",
     "chapter_id": 23,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "23304": {
     "title": "Challenge: Rectangling",
-    "content": "# \ud83e\uddb8 Your Turn\n\nRectangling means turning nested lists into a rectangle (table).\n\n## \ud83c\udfaf Your Task\nJust run `unnest()`.",
-    "starter_code": "",
-    "solution_code": "unnest(df, cols = c(x))",
+    "content": "# Mini task: rectangle the data\n\n## What you'll learn\nTurn nested list data into a flat table.\n\n## Why this matters\nRectangling makes nested data usable for analysis.\n\n## Step-by-step task\n1. Unnest the list-column.\n2. Check rows and columns.\n\n## Expected output or check condition\n- identical(nrow(tidy), 4) should return TRUE.\n- identical(ncol(tidy), 3) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting to keep the id column.\n\n## Confirm no hidden prerequisites\n- Uses list-columns and unnest() from the concept.",
+    "starter_code": "library(tibble)\nlibrary(tidyr)\ndf <- tibble(\n  id = c(\"A\", \"B\"),\n  info = list(\n    tibble(a = c(1, 2), b = c(3, 4)),\n    tibble(a = c(5, 6), b = c(7, 8))\n  )\n)\n\ntidy <- unnest(df, info)\nidentical(nrow(tidy), 4)\nidentical(ncol(tidy), 3)",
+    "solution_code": "library(tibble)\nlibrary(tidyr)\ndf <- tibble(\n  id = c(\"A\", \"B\"),\n  info = list(\n    tibble(a = c(1, 2), b = c(3, 4)),\n    tibble(a = c(5, 6), b = c(7, 8))\n  )\n)\n\ntidy <- unnest(df, info)\nidentical(nrow(tidy), 4)\nidentical(ncol(tidy), 3)",
     "id": 23304,
     "chapter_title": "Ch 23: Hierarchical Data",
     "chapter_id": 23,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "23401": {
     "title": "Analogy: Mining",
-    "content": "# \u26cf\ufe0f Mining\n\nWeb scraping is mining the web for data. `read_html` grabs the site.\n\n## \ud83c\udfaf Your Task\nRead example.com.",
-    "starter_code": "read_html(\"http://example.com\")",
-    "solution_code": "read_html(\"http://example.com\")",
+    "content": "# Read HTML text\n\n## What you'll learn\nExtract text from an HTML element.\n\n## Why this matters\nScraping starts by pulling text from the right nodes.\n\n## Step-by-step task\n1. Read the HTML string.\n2. Extract the h1 text.\n\n## Expected output or check condition\n- identical(text, \"Title\") should return TRUE.\n\n## One common mistake to avoid\n- Using html_elements() without html_text2().\n\n## Confirm no hidden prerequisites\n- Uses read_html(), html_elements(), and html_text2() from the concept.",
+    "starter_code": "library(rvest)\nhtml <- \"<html><body><h1>Title</h1></body></html>\"\npage <- read_html(html)\ntext <- page |> html_elements(\"h1\") |> html_text2()\nidentical(text, \"Title\")",
+    "solution_code": "library(rvest)\nhtml <- \"<html><body><h1>Title</h1></body></html>\"\npage <- read_html(html)\ntext <- page |> html_elements(\"h1\") |> html_text2()\nidentical(text, \"Title\")",
     "id": 23401,
     "chapter_title": "Ch 24: Web Scraping",
     "chapter_id": 24,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "23402": {
     "title": "Variation: Selectors",
-    "content": "# \ud83c\udfaf Selectors\n\nUse CSS selectors to find specific elements (like `.title`).\n\n## \ud83c\udfaf Your Task\nFind `h1`.",
-    "starter_code": "html_elements(html, \"...\")",
-    "solution_code": "html_elements(html, \"h1\")",
+    "content": "# Use a class selector\n\n## What you'll learn\nSelect elements by class with a CSS selector.\n\n## Why this matters\nCSS selectors target exactly the elements you need.\n\n## Step-by-step task\n1. Select the element with class title.\n2. Extract its text.\n\n## Expected output or check condition\n- identical(text, \"Hello\") should return TRUE.\n\n## One common mistake to avoid\n- Forgetting the dot in .title.\n\n## Confirm no hidden prerequisites\n- Uses html_elements() and html_text2() from the concept.",
+    "starter_code": "library(rvest)\nhtml <- \"<html><body><p class='title'>Hello</p></body></html>\"\npage <- read_html(html)\ntext <- page |> html_elements(\".title\") |> html_text2()\nidentical(text, \"Hello\")",
+    "solution_code": "library(rvest)\nhtml <- \"<html><body><p class='title'>Hello</p></body></html>\"\npage <- read_html(html)\ntext <- page |> html_elements(\".title\") |> html_text2()\nidentical(text, \"Hello\")",
     "id": 23402,
     "chapter_title": "Ch 24: Web Scraping",
     "chapter_id": 24,
     "concept_tags": [
       "dplyr_select",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "23403": {
     "title": "Fix the Code: Text",
-    "content": "# \ud83d\udd27 Fix the Code\n\nYou need `html_text2()` to get the text out of the tag.\n\n## \ud83c\udfaf Your Task\nGet text.",
-    "starter_code": "html_element(html, \"p\")",
-    "solution_code": "html_text2(html_element(html, \"p\"))",
+    "content": "# Fix the text extraction\n\n## What you'll learn\nConvert selected nodes into plain text.\n\n## Why this matters\nWithout html_text2(), you only have nodes, not text.\n\n## Step-by-step task\n1. Add html_text2() to the pipeline.\n2. Check the extracted text.\n\n## Expected output or check condition\n- identical(text, \"Hi\") should return TRUE.\n\n## One common mistake to avoid\n- Stopping at html_elements().\n\n## Confirm no hidden prerequisites\n- Uses html_elements() and html_text2() from the concept.",
+    "starter_code": "library(rvest)\nhtml <- \"<html><body><p>Hi</p></body></html>\"\npage <- read_html(html)\ntext <- page |> html_elements(\"p\")\nidentical(text, \"Hi\")",
+    "solution_code": "library(rvest)\nhtml <- \"<html><body><p>Hi</p></body></html>\"\npage <- read_html(html)\ntext <- page |> html_elements(\"p\") |> html_text2()\nidentical(text, \"Hi\")",
     "id": 23403,
     "chapter_title": "Ch 24: Web Scraping",
     "chapter_id": 24,
     "concept_tags": [
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "23404": {
     "title": "Challenge: Table",
-    "content": "# \ud83e\uddb8 Your Turn\n\n`html_table()` turns HTML tables into R Data Frames.\n\n## \ud83c\udfaf Your Task\nParse table.",
-    "starter_code": "",
-    "solution_code": "html_table(element)",
+    "content": "# Mini task: parse a table\n\n## What you'll learn\nConvert an HTML table into a data frame.\n\n## Why this matters\nTables are a common scraping target.\n\n## Step-by-step task\n1. Parse the HTML table.\n2. Check its dimensions.\n\n## Expected output or check condition\n- identical(nrow(tables[[1]]), 2) should return TRUE.\n- identical(ncol(tables[[1]]), 2) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting to index tables[[1]].\n\n## Confirm no hidden prerequisites\n- Uses html_table() from the concept.",
+    "starter_code": "library(rvest)\nhtml <- \"<table><tr><th>name</th><th>score</th></tr><tr><td>A</td><td>1</td></tr><tr><td>B</td><td>2</td></tr></table>\"\npage <- read_html(html)\ntables <- html_table(page)\nidentical(nrow(tables[[1]]), 2)\nidentical(ncol(tables[[1]]), 2)",
+    "solution_code": "library(rvest)\nhtml <- \"<table><tr><th>name</th><th>score</th></tr><tr><td>A</td><td>1</td></tr><tr><td>B</td><td>2</td></tr></table>\"\npage <- read_html(html)\ntables <- html_table(page)\nidentical(nrow(tables[[1]]), 2)\nidentical(ncol(tables[[1]]), 2)",
     "id": 23404,
     "chapter_title": "Ch 24: Web Scraping",
     "chapter_id": 24,
     "concept_tags": [
       "dataframe",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "24001": {
     "title": "Analogy: Teaching Tricks",
-    "content": "# \ud83d\udc15 Teaching Tricks\n\nWriting a function is teaching R a new trick. You say \"Sit\" (call function) and it sits.\n\n```r\nsit <- function() { print(\"Sat down\") }\n```\n\n## \ud83c\udfaf Your Task\nWrite a function `say_hi`.",
-    "starter_code": "say_hi <- function() { print(\"Hi\") }",
-    "solution_code": "say_hi <- function() { print(\"Hi\") }",
+    "content": "# Interpret a vector function\n\n## What you'll learn\nCheck the output of a vector function.\n\n## Why this matters\nFunction output must be verified to trust your results.\n\n## Step-by-step task\n1. Run rescale01() on a small vector.\n2. Verify the result with all.equal().\n\n## Expected output or check condition\n- isTRUE(all.equal(result, c(0, 0.5, 1))) should return TRUE.\n\n## One common mistake to avoid\n- Checking floats with identical().\n\n## Confirm no hidden prerequisites\n- Uses a vector function from the concept.",
+    "starter_code": "rescale01 <- function(x) {\n  (x - min(x)) / (max(x) - min(x))\n}\n\nresult <- rescale01(c(2, 4, 6))\nisTRUE(all.equal(result, c(0, 0.5, 1)))",
+    "solution_code": "rescale01 <- function(x) {\n  (x - min(x)) / (max(x) - min(x))\n}\n\nresult <- rescale01(c(2, 4, 6))\nisTRUE(all.equal(result, c(0, 0.5, 1)))",
     "id": 24001,
     "chapter_title": "Ch 25: Functions",
     "chapter_id": 25,
     "concept_tags": [
       "functions",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "24002": {
     "title": "Variation: Arguments",
-    "content": "# \ud83e\uddb4 Arguments\n\nGive the dog a bone. Arguments passed to function.\n\n## \ud83c\udfaf Your Task\nFunction taking `name`.",
-    "starter_code": "greet <- function(name) { ... }",
-    "solution_code": "greet <- function(name) { paste(\"Hi\", name) }",
+    "content": "# Use tidy evaluation\n\n## What you'll learn\nEmbrace a column name inside count().\n\n## Why this matters\nTidy evaluation lets functions accept column names safely.\n\n## Step-by-step task\n1. Wrap var with {{ }} inside count().\n2. Check the counts.\n\n## Expected output or check condition\n- identical(result$n, c(2, 1)) should return TRUE.\n\n## One common mistake to avoid\n- Passing var without {{ }}.\n\n## Confirm no hidden prerequisites\n- Uses {{ }} and count() from the concept.",
+    "starter_code": "library(dplyr)\ncount_group <- function(df, var) {\n  df |> count(var)\n}\n\ndf <- data.frame(team = c(\"A\", \"A\", \"B\"))\nresult <- count_group(df, team)\nidentical(result$n, c(2, 1))",
+    "solution_code": "library(dplyr)\ncount_group <- function(df, var) {\n  df |> count({{ var }})\n}\n\ndf <- data.frame(team = c(\"A\", \"A\", \"B\"))\nresult <- count_group(df, team)\nidentical(result$n, c(2, 1))",
     "id": 24002,
     "chapter_title": "Ch 25: Functions",
     "chapter_id": 25,
     "concept_tags": [
       "functions",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "24003": {
     "title": "Fix the Code: Braces",
-    "content": "# \ud83d\udd27 Fix the Code\n\nCode body goes in `{}`.\n\n## \ud83c\udfaf Your Task\nAdd braces.",
-    "starter_code": "f <- function() print(\"hi\")",
-    "solution_code": "f <- function() { print(\"hi\") }",
+    "content": "# Fix the function body\n\n## What you'll learn\nGroup multi-line function code with braces.\n\n## Why this matters\nWithout braces, only the first line is inside the function.\n\n## Step-by-step task\n1. Add braces so both lines are in the function body.\n2. Run the function.\n\n## Expected output or check condition\n- identical(add_two(3), 5) should return TRUE.\n\n## One common mistake to avoid\n- Leaving the second line outside the function.\n\n## Confirm no hidden prerequisites\n- Uses basic function syntax from the concept.",
+    "starter_code": "add_two <- function(x)\n  y <- x + 1\n  y + 1\n\nidentical(add_two(3), 5)",
+    "solution_code": "add_two <- function(x) {\n  y <- x + 1\n  y + 1\n}\n\nidentical(add_two(3), 5)",
     "id": 24003,
     "chapter_title": "Ch 25: Functions",
     "chapter_id": 25,
     "concept_tags": [
       "functions",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "24004": {
     "title": "Challenge: Return",
-    "content": "# \ud83e\uddb8 Your Turn\n\nFunctions return the last value. Write `add_one(x)`.\n\n## \ud83c\udfaf Your Task\nWrite function.",
-    "starter_code": "",
-    "solution_code": "add_one <- function(x) { x + 1 }",
+    "content": "# Mini task: count proportions\n\n## What you'll learn\nWrite a small function that returns counts and proportions.\n\n## Why this matters\nReusable functions reduce repeated data-wrangling steps.\n\n## Step-by-step task\n1. Complete count_prop() using count() and mutate().\n2. Check the output proportions.\n\n## Expected output or check condition\n- isTRUE(all.equal(sum(result$prop), 1)) should return TRUE.\n- identical(nrow(result), 2) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting to use {{ }} inside count().\n\n## Confirm no hidden prerequisites\n- Uses count(), mutate(), and {{ }} from the concept.",
+    "starter_code": "library(dplyr)\ncount_prop <- function(df, var) {\n  df |>\n    count({{ var }}) |>\n    mutate(prop = n / sum(n))\n}\n\ndf <- data.frame(group = c(\"A\", \"A\", \"B\"))\nresult <- count_prop(df, group)\nisTRUE(all.equal(sum(result$prop), 1))\nidentical(nrow(result), 2)",
+    "solution_code": "library(dplyr)\ncount_prop <- function(df, var) {\n  df |>\n    count({{ var }}) |>\n    mutate(prop = n / sum(n))\n}\n\ndf <- data.frame(group = c(\"A\", \"A\", \"B\"))\nresult <- count_prop(df, group)\nisTRUE(all.equal(sum(result$prop), 1))\nidentical(nrow(result), 2)",
     "id": 24004,
     "chapter_title": "Ch 25: Functions",
     "chapter_id": 25,
     "concept_tags": [
       "functions",
       "control"
+    ],
+    "gap_ids": [
+      "R-REINF"
     ]
   },
   "24101": {
