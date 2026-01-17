@@ -95,14 +95,23 @@ const CONTENT_COMPONENT_MAP: Record<string, string> = {
     MemoryMachine: 'memory_machine'
 };
 
+const stripTryItFirstSection = (content?: string): string => {
+    if (!content) {
+        return '';
+    }
+    const stripped = content.replace(/(^|\n)##\s*Try It First[\s\S]*?(?=\n##\s|\n#\s|$)/gi, '\n');
+    return stripped.replace(/\n{3,}/g, '\n\n').trim();
+};
+
 const extractContentComponents = (content?: string): string[] => {
     if (!content) {
         return [];
     }
+    const sanitized = stripTryItFirstSection(content);
     const found = new Set<string>();
     Object.entries(CONTENT_COMPONENT_MAP).forEach(([tag, type]) => {
         const regex = new RegExp(`<${tag}\\b`, 'i');
-        if (regex.test(content)) {
+        if (regex.test(sanitized)) {
             found.add(type);
         }
     });
@@ -183,6 +192,7 @@ const LessonContent: React.FC = () => {
     const { decisionCount, consequenceCount, recordEvent, recordDecision, recordConsequence } = useInteractive();
     const lessonStartRef = useRef(Date.now());
     const [completionLogged, setCompletionLogged] = useState(false);
+    const warnedNoPlanRef = useRef<number | null>(null);
     const isAuditMode = useMemo(() => {
         if (typeof window === 'undefined') {
             return false;
@@ -209,6 +219,10 @@ const LessonContent: React.FC = () => {
     }, [id]);
 
     const currentExercise = Number(id) || 1;
+    const sanitizedContent = useMemo(
+        () => stripTryItFirstSection(lesson?.content),
+        [lesson?.content]
+    );
 
     useEffect(() => {
         if (!lesson || typeof window === 'undefined') {
@@ -224,6 +238,20 @@ const LessonContent: React.FC = () => {
             components,
             hasPrediction
         };
+    }, [lesson, currentExercise]);
+
+    useEffect(() => {
+        if (!lesson) {
+            return;
+        }
+        const lessonId = lesson.id ?? currentExercise;
+        if (warnedNoPlanRef.current === lessonId) {
+            return;
+        }
+        if (!lesson.interaction_plan || lesson.interaction_plan.length === 0) {
+            console.warn(`[lesson ${lessonId}] Missing interaction_plan; define one instead of relying on defaults.`);
+        }
+        warnedNoPlanRef.current = lessonId;
     }, [lesson, currentExercise]);
 
     // Load Lesson Data from static JSON
@@ -885,7 +913,7 @@ ${code}
                                         td: ({ children }) => <td className="border border-[var(--border-color)] px-2 py-1">{children}</td>,
                                     }}
                                 >
-                                    {lesson.content}
+                                    {sanitizedContent}
                                 </ReactMarkdown>
                             </div>
 

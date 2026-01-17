@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useRef } from 'react';
 import { VariableSlider } from './VariableSlider';
 import { VisualMemoryBox } from './VisualMemoryBox';
 import { DraggableValueBox, ValueChip } from './DraggableValueBox';
@@ -44,8 +44,38 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
     const { variables, recordDecision, recordConsequence } = useInteractive();
 
     const safePlan = plan || [];
+    const sendToEditorItems = useMemo(
+        () => safePlan.filter((item) => item.type === 'send_to_editor'),
+        [safePlan]
+    );
+    const lastSentRef = useRef<string | null>(null);
 
-    const renderedItems = useMemo(() => safePlan.map((item, index) => {
+    useEffect(() => {
+        const item = sendToEditorItems[0];
+        if (!item) {
+            return;
+        }
+
+        const template = item.template ? renderTemplate(item.template, variables) : '';
+        if (!template) {
+            return;
+        }
+
+        const templateId = item.templateId || 'inline';
+        const signature = `${templateId}::${template}`;
+        if (signature === lastSentRef.current) {
+            return;
+        }
+
+        onSendToEditor(template);
+        recordDecision('send_to_editor_auto', { template: templateId });
+        recordConsequence('editor', { filled: true, source: 'auto' });
+        lastSentRef.current = signature;
+    }, [sendToEditorItems, variables, onSendToEditor, recordDecision, recordConsequence]);
+
+    const renderedItems = useMemo(() => safePlan
+        .filter((item) => item.type !== 'send_to_editor')
+        .map((item, index) => {
         const key = `${item.type}-${index}`;
         const wrap = (node: React.ReactNode) => (
             <div key={key} data-interaction-type={item.type}>
@@ -279,44 +309,10 @@ export const InteractionPlanRenderer: React.FC<InteractionPlanRendererProps> = (
                     />
                 );
             }
-            case 'send_to_editor': {
-                const template = item.template;
-                const interpolated = template
-                    ? renderTemplate(template, variables)
-                    : '';
-
-                return wrap(
-                    <div
-                        data-component="SendToEditor"
-                        className="my-4 p-4 bg-[var(--bg-panel)] rounded-lg border border-[var(--border-color)] flex flex-wrap items-center justify-between gap-3"
-                    >
-                        <div>
-                            <div className="text-sm font-medium text-[var(--accent-secondary)]">
-                                {item.label || 'Send to editor'}
-                            </div>
-                            <div className="text-xs text-[var(--text-secondary)]">
-                                Use your current choices to generate the next code snippet.
-                            </div>
-                        </div>
-                        <button
-                            type="button"
-                            onClick={() => {
-                                onSendToEditor(interpolated);
-                                recordDecision('send_to_editor', { template: item.templateId || 'inline' });
-                                recordConsequence('editor', { filled: Boolean(interpolated) });
-                            }}
-                            data-cta="send_to_editor"
-                            className="px-3 py-2 bg-[var(--accent-secondary)] text-black rounded text-sm font-medium hover:opacity-90"
-                        >
-                            Send to editor
-                        </button>
-                    </div>
-                );
-            }
             default:
                 return null;
         }
-    }).filter(Boolean), [expectedOutput, onSendToEditor, recordConsequence, recordDecision, safePlan, variables]);
+    }).filter(Boolean), [expectedOutput, recordDecision, recordConsequence, safePlan, variables]);
 
     if (!renderedItems.length) {
         return null;

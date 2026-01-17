@@ -19,7 +19,7 @@ export const HintLadder: React.FC<HintLadderProps> = ({ hints, onHintUsed }) => 
         }
     };
 
-    const hintLabels = ['💡 Nudge', '🔍 Guidance', '📖 Solution'];
+    const hintLabels = ['Hint 1', 'Hint 2', 'Hint 3'];
     const hintColors = [
         'border-[var(--accent-warning)]',
         'border-[var(--accent-secondary)]',
@@ -29,13 +29,12 @@ export const HintLadder: React.FC<HintLadderProps> = ({ hints, onHintUsed }) => 
     return (
         <div data-interaction-type="hint_ladder" data-component="HintLadder" className="my-4">
             <div className="flex items-center gap-2 mb-2">
-                <span className="text-sm text-[var(--text-secondary)]">Need help?</span>
                 {revealedLevel < 3 && (
                     <button
                         onClick={handleReveal}
                         className="text-sm px-3 py-1 rounded bg-[var(--bg-panel)] border border-[var(--border-color)] hover:border-[var(--accent-warning)] transition-all"
                     >
-                        {hintLabels[revealedLevel]}
+                        Reveal hint
                     </button>
                 )}
                 <div className="flex gap-1 ml-auto">
