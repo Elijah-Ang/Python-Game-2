@@ -1,0 +1,233 @@
+# R Interactive Element Recommendations
+
+Generated from lesson content (`frontend/public/data/lessons.json`) and R course ordering (`frontend/public/data/course-r-fundamentals.json`).
+
+Each bullet is a per-exercise, concept-aligned interactive system recommendation, tailored using the exercise title/content and starter R code (datasets/pipelines/aesthetics).
+
+## Chapter 1: Part 1: Whole Game
+
+- 2001 — Meet the Penguins — **DatasetExplorer**: Visual table explorer: preview penguins, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20011 — Analogy: Variables are Boxes — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20012 — Variation: Changing Values — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20013 — Fix the Code: Broken Arrow — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20014 — Challenge: Your Own Vars — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2002 — The Empty Canvas — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 20021 — Analogy: Secret Notes — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20022 — Variation: Silencing Code — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20023 — Fix the Code: Missing # — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20024 — Challenge: Annotate — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2003 — Mapping Data to Axes — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 20031 — Analogy: The Sticker Album — **DatasetExplorer**: Visual table explorer: preview mpg, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20032 — Variation: How Big? — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20033 — Fix the Code: Typo — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20034 — Challenge: Another Dataset — **DatasetExplorer**: Visual table explorer: preview mtcars, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2004 — Adding Dots with geom_point() — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 20041 — Analogy: Connect the Dots — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x=displ, y=hwy).
+- 20042 — Variation: City Driving — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x=displ, y=...).
+- 20043 — Fix the Code: The Plus Sign — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20044 — Challenge: Cylinders — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x=cyl, y=hwy).
+- 2005 — Coloring by Species — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(penguins, aes(...)); the plot preview updates as you swap mappings (x=flipper_length_mm, y=body_mass_g, color=...).
+- 2006 — Adding a Trend Line — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(penguins, aes(...)); the plot preview updates as you swap mappings (x=flipper_length_mm, y=body_mass_g).
+- 2010 — Coding Basics — **VectorIndexPlayground**: Vector index playground: click indices (1-based) and see the selected elements + resulting vector update; goal checks exact slice/replacement.
+- 20101 — Analogy: Calling for Pizza — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 20102 — Variation: Variables in Functions — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 20103 — Fix the Code: Typos — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20104 — Challenge: Math — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2011 — Names & Comments — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 2012 — Calling Functions — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 2020 — Filter Rows — **FilterAnimator**: Filter animator: toggle filter chips (predicate on flights) and watch rows animate in/out; success = correct remaining rows for the prompt.
+- 20201 — Analogy: Collecting Red M&Ms — **FilterAnimator**: Filter animator: toggle filter chips (predicate on your_dataset) and watch rows animate in/out; success = correct remaining rows for the prompt.
+- 20202 — Variation: Different Month — **FilterAnimator**: Filter animator: toggle filter chips (predicate on your_dataset) and watch rows animate in/out; success = correct remaining rows for the prompt.
+- 20203 — Fix the Code: Equals Sign — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20204 — Challenge: Delays — **FilterAnimator**: Filter animator: toggle filter chips (predicate on your_dataset) and watch rows animate in/out; success = correct remaining rows for the prompt.
+- 2021 — Arrange Rows — **FilterAnimator**: Filter animator: toggle filter chips (predicate on flights) and watch rows animate in/out; success = correct remaining rows for the prompt.
+- 20211 — Analogy: Sorting Cards — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20212 — Variation: Two Levels — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20213 — Fix the Code: Missing Parenthesis — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20214 — Challenge: Backwards — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2022 — Select Columns — **DatasetExplorer**: Visual table explorer: preview flights, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20221 — Analogy: Chopping Ingredients — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20222 — Variation: Excluding — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20223 — Fix the Code: Comma — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20224 — Challenge: Range — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2023 — Add Columns (Mutate) — **MutateFactory**: Mutate factory: choose an expression for a new column; “before/after” table updates and highlights the changed cells for flights.
+- 20231 — Analogy: The Mutation Ray — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20232 — Variation: Math — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20233 — Fix the Code: Name It — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20234 — Challenge: Double Up — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2024 — Groups & Summaries — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 2030 — Names & Spaces — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 20301 — Analogy: Grammar — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20302 — Variation: Pipes — **FilterAnimator**: Filter animator: toggle filter chips (predicate on flights) and watch rows animate in/out; success = correct remaining rows for the prompt.
+- 20303 — Fix the Code: Spacing — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20304 — Challenge: Naming — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2031 — Pipes & Formatting — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 2040 — Tidy Data — **GroupSummarizeWorkbench**: Group+summarise workbench: drag a grouping column into the GROUP slot and choose an aggregate; groups and summary table update for table1.
+- 20401 — Analogy: Stacking Pancakes — **PivotAnimator**: Pivot animator: pick key/value columns to pivot_longer/wider; table morphs between wide↔long with highlighted moved cells.
+- 20402 — Variation: Naming Columns — **PivotAnimator**: Pivot animator: pick key/value columns to pivot_longer/wider; table morphs between wide↔long with highlighted moved cells.
+- 20403 — Fix the Code: Missing Quote — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20404 — Challenge: Pivot It — **PivotAnimator**: Pivot animator: pick key/value columns to pivot_longer/wider; table morphs between wide↔long with highlighted moved cells.
+- 2041 — Lengthening Data — **PivotAnimator**: Pivot animator: pick key/value columns to pivot_longer/wider; table morphs between wide↔long with highlighted moved cells.
+- 2042 — Widening Data — **PivotAnimator**: Pivot animator: pick key/value columns to pivot_longer/wider; table morphs between wide↔long with highlighted moved cells.
+- 2050 — Scripts vs Console — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20501 — Analogy: The Recipe Card — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20502 — Variation: Saving Plots — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x/y/color).
+- 20503 — Fix the Code: Typos — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20504 — Challenge: Comments — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2051 — Projects & Paths — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2060 — Reading CSV Files — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20601 — Analogy: Opening Packages — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20602 — Variation: Inspecting — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 20603 — Fix the Code: Function Name — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 20604 — Challenge: Assigning — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2061 — Handling Messy Data — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+
+## Chapter 2: Part 2: Visualize
+
+- 2100 — Aesthetic Mappings — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 21001 — Analogy: Coloring Book — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 21002 — Variation: Size — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 21003 — Fix the Code: Inside or Out? — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 21004 — Challenge: Shape — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 2101 — Geoms & Layers — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x=displ, y=hwy).
+- 21011 — Analogy: Different Brushes — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x/y/color).
+- 21012 — Variation: Two Layers — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x/y/color).
+- 21013 — Fix the Code: Typos — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 21014 — Challenge: Boxplot — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 2102 — Facets — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x=displ, y=hwy).
+- 21021 — Analogy: Small Multiples — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x/y/color).
+- 21022 — Variation: Row Count — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x/y/color).
+- 21023 — Fix the Code: Tilde — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 21024 — Challenge: Grid — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x/y/color).
+- 2110 — Variation — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 21101 — Analogy: Sorting Buckets — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x/y/color).
+- 21102 — Variation: Binwidth — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x/y/color).
+- 21103 — Fix the Code: Y Axis — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 21104 — Challenge: Bar Chart — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x/y/color).
+- 2111 — Covariation — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 21111 — Analogy: Box and Whiskers — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x/y/color).
+- 21112 — Variation: Reorder — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x=reorder(class).
+- 21113 — Fix the Code: Flip — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 21114 — Challenge: Heatmap — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 2120 — Labels & Titles — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 21201 — Analogy: Name Tags — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x/y/color).
+- 21202 — Variation: Axis Labels — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 21203 — Fix the Code: Quotes — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 21204 — Challenge: Caption — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2121 — Themes & Scales — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 21211 — Analogy: Changing Outfits — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x/y/color).
+- 21212 — Variation: Classic — **AesMappingBuilder**: Aesthetic mapping puzzle: fill the {{x}}, {{y}}, and {{color/fill}} slots for ggplot(mpg, aes(...)); the plot preview updates as you swap mappings (x/y/color).
+- 21213 — Fix the Code: Parentheses — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 21214 — Challenge: Dark Mode — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+
+## Chapter 3: Part 3: Transform
+
+- 2200 — Comparisons & Boolean — **FilterAnimator**: Filter animator: toggle filter chips (predicate on flights) and watch rows animate in/out; success = correct remaining rows for the prompt.
+- 22001 — Analogy: The Light Switch — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 22002 — Variation: Comparisons — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 22003 — Fix the Code: Case Sensitive — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 22004 — Challenge: Not Equal — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2201 — Conditional Logic — **CaseBranchMapper**: CASE/ifelse branch mapper: choose which condition routes rows to each branch; rows flow into TRUE/FALSE bins with immediate labeling feedback.
+- 22011 — Analogy: Decisions — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 22012 — Variation: Or — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 22013 — Fix the Code: Not Python — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 22014 — Challenge: Negation — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2210 — Counts & Summaries — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 22101 — Analogy: Counting Heads — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 22102 — Variation: Summarize — **StatWhatIfLab**: Stats what-if lab: use a slider to change sample size/parameter; summary stats update live (mean/SD/CI), with a simple visualization reacting immediately.
+- 22103 — Fix the Code: Parentheses — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 22104 — Challenge: Max — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2220 — String Basics — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 22201 — Analogy: Glue Stick — **StringWorkbench**: String workbench: slot the correct string function/regex token and see transformed outputs update immediately for sample inputs.
+- 22202 — Variation: Combining — **StringWorkbench**: String workbench: slot the correct string function/regex token and see transformed outputs update immediately for sample inputs.
+- 22203 — Fix the Code: Spelling — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 22204 — Challenge: Substring — **StringWorkbench**: String workbench: slot the correct string function/regex token and see transformed outputs update immediately for sample inputs.
+- 2230 — Regex Basics — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 22301 — Analogy: Ctrl+F — **StringWorkbench**: String workbench: slot the correct string function/regex token and see transformed outputs update immediately for sample inputs.
+- 22302 — Variation: Start Anchor — **StringWorkbench**: String workbench: slot the correct string function/regex token and see transformed outputs update immediately for sample inputs.
+- 22303 — Fix the Code: Characters — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 22304 — Challenge: Digits — **StringWorkbench**: String workbench: slot the correct string function/regex token and see transformed outputs update immediately for sample inputs.
+- 2240 — Factor Basics — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 22401 — Analogy: Sorting Shirts — **VectorIndexPlayground**: Vector index playground: click indices (1-based) and see the selected elements + resulting vector update; goal checks exact slice/replacement.
+- 22402 — Variation: Reordering — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 22403 — Fix the Code: Levels — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 22404 — Challenge: Count — **FactorLevelsRack**: Factor levels rack: reorder/select levels and watch counts (or color mapping) update; success = correct reference level/order.
+- 2250 — Dates & Times — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 22501 — Analogy: ISO Standard — **TimeBucketingWorkbench**: Time bucketing workbench: select a date floor/round granularity; grouped counts update (day/week/month) and the table preview re-buckets.
+- 22502 — Variation: MDY — **TimeBucketingWorkbench**: Time bucketing workbench: select a date floor/round granularity; grouped counts update (day/week/month) and the table preview re-buckets.
+- 22503 — Fix the Code: Quote — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 22504 — Challenge: Get Year — **TimeBucketingWorkbench**: Time bucketing workbench: select a date floor/round granularity; grouped counts update (day/week/month) and the table preview re-buckets.
+- 2260 — Missing Values — **VectorIndexPlayground**: Vector index playground: click indices (1-based) and see the selected elements + resulting vector update; goal checks exact slice/replacement.
+- 22601 — Analogy: Empty Seat — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 22602 — Variation: Replacing — **VectorIndexPlayground**: Vector index playground: click indices (1-based) and see the selected elements + resulting vector update; goal checks exact slice/replacement.
+- 22603 — Fix the Code: Comparison — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 22604 — Challenge: Drop — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2270 — Mutating Joins — **JoinVisualizer**: Join visualizer: connect matching keys between two tables and toggle join type; result table updates and unmatched rows highlight.
+- 22701 — Analogy: Identification Card — **JoinVisualizer**: Join visualizer: connect matching keys between two tables and toggle join type; result table updates and unmatched rows highlight.
+- 22702 — Variation: Right Join — **JoinVisualizer**: Join visualizer: connect matching keys between two tables and toggle join type; result table updates and unmatched rows highlight.
+- 22703 — Fix the Code: By Argument — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 22704 — Challenge: Inner Join — **JoinVisualizer**: Join visualizer: connect matching keys between two tables and toggle join type; result table updates and unmatched rows highlight.
+- 2271 — Filtering Joins — **FilterAnimator**: Filter animator: toggle filter chips (predicate on flights) and watch rows animate in/out; success = correct remaining rows for the prompt.
+- 22711 — Analogy: The Bouncer — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 22712 — Variation: Anti Join — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 22713 — Fix the Code: Columns — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 22714 — Challenge: Filter — **FilterAnimator**: Filter animator: toggle filter chips (predicate on your_dataset) and watch rows animate in/out; success = correct remaining rows for the prompt.
+
+## Chapter 4: Part 4: Import
+
+- 2300 — Reading Excel — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 23001 — Analogy: Reading Spreadsheets — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 23002 — Variation: Specifying Sheet — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 23003 — Fix the Code: Extension — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 23004 — Challenge: Range — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2310 — Databases & dbplyr — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 23101 — Analogy: Remote Control — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 23102 — Variation: SQL Translation — **DatasetExplorer**: Visual table explorer: preview flights_db, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 23103 — Fix the Code: Collect — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 23104 — Challenge: Filter DB — **FilterAnimator**: Filter animator: toggle filter chips (predicate on flights_db) and watch rows animate in/out; success = correct remaining rows for the prompt.
+- 2320 — Arrow & Parquet — **GroupSummarizeWorkbench**: Group+summarise workbench: drag a grouping column into the GROUP slot and choose an aggregate; groups and summary table update for seattle_pq.
+- 23201 — Analogy: Fast Lane — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 23202 — Variation: Write — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 23203 — Fix the Code: Function — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 23204 — Challenge: Filter — **FilterAnimator**: Filter animator: toggle filter chips (predicate on ds) and watch rows animate in/out; success = correct remaining rows for the prompt.
+- 2330 — Lists & Rectangling — **VectorIndexPlayground**: Vector index playground: click indices (1-based) and see the selected elements + resulting vector update; goal checks exact slice/replacement.
+- 23301 — Analogy: Unpacking Suitcase — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 23302 — Variation: Wider — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 23303 — Fix the Code: Plural — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 23304 — Challenge: Rectangling — **VectorIndexPlayground**: Vector index playground: click indices (1-based) and see the selected elements + resulting vector update; goal checks exact slice/replacement.
+- 2340 — Web Scraping with rvest — **DatasetExplorer**: Visual table explorer: preview page, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 23401 — Analogy: Mining — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 23402 — Variation: Selectors — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 23403 — Fix the Code: Text — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 23404 — Challenge: Table — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+
+## Chapter 5: Part 5: Program
+
+- 2400 — Functions & Tidy Eval — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 24001 — Analogy: Teaching Tricks — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 24002 — Variation: Arguments — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 24003 — Fix the Code: Braces — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 24004 — Challenge: Return — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 2410 — Iteration: across & map — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 24101 — Analogy: Assembly Line — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 24102 — Variation: Double — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 24103 — Fix the Code: Argument — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 24104 — Challenge: Walk — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 2420 — A Field Guide to Base R — **FunctionScopeStepper**: Function scope stepper: step through a function call; show argument binding + local variables changing at each line (state inspector updates).
+- 24201 — Analogy: Pepper Shaker — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 24202 — Variation: Brackets — **VectorIndexPlayground**: Vector index playground: click indices (1-based) and see the selected elements + resulting vector update; goal checks exact slice/replacement.
+- 24203 — Fix the Code: Comma — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 24204 — Challenge: Loop — **LoopSimulator**: Loop simulator: animate iterations and show accumulator state at each step; success = reach the target final value without off-by-one.
+
+## Chapter 6: Part 6: Communicate
+
+- 2500 — Quarto Basics — **StringWorkbench**: String workbench: slot the correct string function/regex token and see transformed outputs update immediately for sample inputs.
+- 25001 — Analogy: Notebook — **DatasetExplorer**: Visual table explorer: preview Text, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 25002 — Variation: Code Chunk — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 25003 — Fix the Code: Backticks — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 25004 — Challenge: YAML — **StringWorkbench**: String workbench: slot the correct string function/regex token and see transformed outputs update immediately for sample inputs.
+- 2510 — Quarto Formats — **StringWorkbench**: String workbench: slot the correct string function/regex token and see transformed outputs update immediately for sample inputs.
+- 25101 — Analogy: Transformer — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 25102 — Variation: PDF — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
+- 25103 — Fix the Code: Indent — **DebugQuestR**: Debug quest: pick the correct fix for a broken R snippet; the “run” result and error message update instantly until it passes.
+- 25104 — Challenge: Presentation — **DatasetExplorer**: Visual table explorer: preview your_dataset, toggle column highlights, and click rows to see how “observations vs variables” behave.
