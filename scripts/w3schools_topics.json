@@ -1,0 +1,2078 @@
+{
+  "python": [
+    {
+      "title": "Python HOME",
+      "url": "https://www.w3schools.com/python/default.asp"
+    },
+    {
+      "title": "Python Intro",
+      "url": "https://www.w3schools.com/python/python_intro.asp"
+    },
+    {
+      "title": "Python Get Started",
+      "url": "https://www.w3schools.com/python/python_getstarted.asp"
+    },
+    {
+      "title": "Python Syntax",
+      "url": "https://www.w3schools.com/python/python_syntax.asp"
+    },
+    {
+      "title": "Statements",
+      "url": "https://www.w3schools.com/python/python_statements.asp"
+    },
+    {
+      "title": "Python Output",
+      "url": "https://www.w3schools.com/python/python_output.asp"
+    },
+    {
+      "title": "Print Numbers",
+      "url": "https://www.w3schools.com/python/python_output_numbers.asp"
+    },
+    {
+      "title": "Python Comments",
+      "url": "https://www.w3schools.com/python/python_comments.asp"
+    },
+    {
+      "title": "Python Variables",
+      "url": "https://www.w3schools.com/python/python_variables.asp"
+    },
+    {
+      "title": "Variable Names",
+      "url": "https://www.w3schools.com/python/python_variables_names.asp"
+    },
+    {
+      "title": "Assign Multiple Values",
+      "url": "https://www.w3schools.com/python/python_variables_multiple.asp"
+    },
+    {
+      "title": "Output Variables",
+      "url": "https://www.w3schools.com/python/python_variables_output.asp"
+    },
+    {
+      "title": "Global Variables",
+      "url": "https://www.w3schools.com/python/python_variables_global.asp"
+    },
+    {
+      "title": "Variable Exercises",
+      "url": "https://www.w3schools.com/python/python_variables_exercises.asp"
+    },
+    {
+      "title": "Python Data Types",
+      "url": "https://www.w3schools.com/python/python_datatypes.asp"
+    },
+    {
+      "title": "Python bytes",
+      "url": "https://www.w3schools.com/python/python_bytes.asp"
+    },
+    {
+      "title": "Python bytearray",
+      "url": "https://www.w3schools.com/python/python_bytearray.asp"
+    },
+    {
+      "title": "Python memoryview",
+      "url": "https://www.w3schools.com/python/python_memoryview.asp"
+    },
+    {
+      "title": "Python Numbers",
+      "url": "https://www.w3schools.com/python/python_numbers.asp"
+    },
+    {
+      "title": "Python Primitive Types",
+      "url": "https://www.w3schools.com/python/python_primitivetypes.asp"
+    },
+    {
+      "title": "Python Casting",
+      "url": "https://www.w3schools.com/python/python_casting.asp"
+    },
+    {
+      "title": "Python Strings",
+      "url": "https://www.w3schools.com/python/python_strings.asp"
+    },
+    {
+      "title": "Slicing Strings",
+      "url": "https://www.w3schools.com/python/python_strings_slicing.asp"
+    },
+    {
+      "title": "Modify Strings",
+      "url": "https://www.w3schools.com/python/python_strings_modify.asp"
+    },
+    {
+      "title": "Concatenate Strings",
+      "url": "https://www.w3schools.com/python/python_strings_concatenate.asp"
+    },
+    {
+      "title": "Format Strings",
+      "url": "https://www.w3schools.com/python/python_strings_format.asp"
+    },
+    {
+      "title": "Escape Characters",
+      "url": "https://www.w3schools.com/python/python_strings_escape.asp"
+    },
+    {
+      "title": "String Methods",
+      "url": "https://www.w3schools.com/python/python_strings_methods.asp"
+    },
+    {
+      "title": "String Exercises",
+      "url": "https://www.w3schools.com/python/python_strings_exercises.asp"
+    },
+    {
+      "title": "Python Booleans",
+      "url": "https://www.w3schools.com/python/python_booleans.asp"
+    },
+    {
+      "title": "Python Operators",
+      "url": "https://www.w3schools.com/python/python_operators.asp"
+    },
+    {
+      "title": "Arithmetic Operators",
+      "url": "https://www.w3schools.com/python/python_operators_arithmetic.asp"
+    },
+    {
+      "title": "Assignment Operators",
+      "url": "https://www.w3schools.com/python/python_operators_assign.asp"
+    },
+    {
+      "title": "Comparison Operators",
+      "url": "https://www.w3schools.com/python/python_operators_comparison.asp"
+    },
+    {
+      "title": "Logical Operators",
+      "url": "https://www.w3schools.com/python/python_operators_logical.asp"
+    },
+    {
+      "title": "Identity Operators",
+      "url": "https://www.w3schools.com/python/python_operators_identity.asp"
+    },
+    {
+      "title": "Membership Operators",
+      "url": "https://www.w3schools.com/python/python_operators_membership.asp"
+    },
+    {
+      "title": "Bitwise Operators",
+      "url": "https://www.w3schools.com/python/python_operators_bitwise.asp"
+    },
+    {
+      "title": "Operator Precedence",
+      "url": "https://www.w3schools.com/python/python_operators_precedence.asp"
+    },
+    {
+      "title": "Python Lists",
+      "url": "https://www.w3schools.com/python/python_lists.asp"
+    },
+    {
+      "title": "Access List Items",
+      "url": "https://www.w3schools.com/python/python_lists_access.asp"
+    },
+    {
+      "title": "Change List Items",
+      "url": "https://www.w3schools.com/python/python_lists_change.asp"
+    },
+    {
+      "title": "Add List Items",
+      "url": "https://www.w3schools.com/python/python_lists_add.asp"
+    },
+    {
+      "title": "Remove List Items",
+      "url": "https://www.w3schools.com/python/python_lists_remove.asp"
+    },
+    {
+      "title": "Loop Lists",
+      "url": "https://www.w3schools.com/python/python_lists_loop.asp"
+    },
+    {
+      "title": "List Comprehension",
+      "url": "https://www.w3schools.com/python/python_lists_comprehension.asp"
+    },
+    {
+      "title": "Sort Lists",
+      "url": "https://www.w3schools.com/python/python_lists_sort.asp"
+    },
+    {
+      "title": "Copy Lists",
+      "url": "https://www.w3schools.com/python/python_lists_copy.asp"
+    },
+    {
+      "title": "Join Lists",
+      "url": "https://www.w3schools.com/python/python_lists_join.asp"
+    },
+    {
+      "title": "List Methods",
+      "url": "https://www.w3schools.com/python/python_lists_methods.asp"
+    },
+    {
+      "title": "List Exercises",
+      "url": "https://www.w3schools.com/python/python_lists_exercises.asp"
+    },
+    {
+      "title": "Python Tuples",
+      "url": "https://www.w3schools.com/python/python_tuples.asp"
+    },
+    {
+      "title": "Access Tuples",
+      "url": "https://www.w3schools.com/python/python_tuples_access.asp"
+    },
+    {
+      "title": "Update Tuples",
+      "url": "https://www.w3schools.com/python/python_tuples_update.asp"
+    },
+    {
+      "title": "Unpack Tuples",
+      "url": "https://www.w3schools.com/python/python_tuples_unpack.asp"
+    },
+    {
+      "title": "Loop Tuples",
+      "url": "https://www.w3schools.com/python/python_tuples_loop.asp"
+    },
+    {
+      "title": "Join Tuples",
+      "url": "https://www.w3schools.com/python/python_tuples_join.asp"
+    },
+    {
+      "title": "Tuple Methods",
+      "url": "https://www.w3schools.com/python/python_tuples_methods.asp"
+    },
+    {
+      "title": "Tuple Exercises",
+      "url": "https://www.w3schools.com/python/python_tuples_exercises.asp"
+    },
+    {
+      "title": "Python Sets",
+      "url": "https://www.w3schools.com/python/python_sets.asp"
+    },
+    {
+      "title": "Access Set Items",
+      "url": "https://www.w3schools.com/python/python_sets_access.asp"
+    },
+    {
+      "title": "Add Set Items",
+      "url": "https://www.w3schools.com/python/python_sets_add.asp"
+    },
+    {
+      "title": "Remove Set Items",
+      "url": "https://www.w3schools.com/python/python_sets_remove.asp"
+    },
+    {
+      "title": "Loop Sets",
+      "url": "https://www.w3schools.com/python/python_sets_loop.asp"
+    },
+    {
+      "title": "Join Sets",
+      "url": "https://www.w3schools.com/python/python_sets_join.asp"
+    },
+    {
+      "title": "Frozenset",
+      "url": "https://www.w3schools.com/python/python_frozenset.asp"
+    },
+    {
+      "title": "Set Methods",
+      "url": "https://www.w3schools.com/python/python_sets_methods.asp"
+    },
+    {
+      "title": "Set Exercises",
+      "url": "https://www.w3schools.com/python/python_sets_exercises.asp"
+    },
+    {
+      "title": "Python Dictionaries",
+      "url": "https://www.w3schools.com/python/python_dictionaries.asp"
+    },
+    {
+      "title": "Access Items",
+      "url": "https://www.w3schools.com/python/python_dictionaries_access.asp"
+    },
+    {
+      "title": "Change Items",
+      "url": "https://www.w3schools.com/python/python_dictionaries_change.asp"
+    },
+    {
+      "title": "Add Items",
+      "url": "https://www.w3schools.com/python/python_dictionaries_add.asp"
+    },
+    {
+      "title": "Remove Items",
+      "url": "https://www.w3schools.com/python/python_dictionaries_remove.asp"
+    },
+    {
+      "title": "Loop Dictionaries",
+      "url": "https://www.w3schools.com/python/python_dictionaries_loop.asp"
+    },
+    {
+      "title": "Copy Dictionaries",
+      "url": "https://www.w3schools.com/python/python_dictionaries_copy.asp"
+    },
+    {
+      "title": "Nested Dictionaries",
+      "url": "https://www.w3schools.com/python/python_dictionaries_nested.asp"
+    },
+    {
+      "title": "Dictionary Methods",
+      "url": "https://www.w3schools.com/python/python_dictionaries_methods.asp"
+    },
+    {
+      "title": "Dictionary Exercises",
+      "url": "https://www.w3schools.com/python/python_dictionaries_exercises.asp"
+    },
+    {
+      "title": "Python If...Else",
+      "url": "https://www.w3schools.com/python/python_conditions.asp"
+    },
+    {
+      "title": "Python Elif",
+      "url": "https://www.w3schools.com/python/python_if_elif.asp"
+    },
+    {
+      "title": "Python Else",
+      "url": "https://www.w3schools.com/python/python_if_else.asp"
+    },
+    {
+      "title": "Shorthand If",
+      "url": "https://www.w3schools.com/python/python_if_shorthand.asp"
+    },
+    {
+      "title": "Nested If",
+      "url": "https://www.w3schools.com/python/python_if_nested_if.asp"
+    },
+    {
+      "title": "Pass Statement",
+      "url": "https://www.w3schools.com/python/python_if_pass.asp"
+    },
+    {
+      "title": "Python Match",
+      "url": "https://www.w3schools.com/python/python_match.asp"
+    },
+    {
+      "title": "Python While Loops",
+      "url": "https://www.w3schools.com/python/python_while_loops.asp"
+    },
+    {
+      "title": "Python For Loops",
+      "url": "https://www.w3schools.com/python/python_for_loops.asp"
+    },
+    {
+      "title": "Python Data Processing",
+      "url": "https://www.w3schools.com/python/python_dataprocessing.asp"
+    },
+    {
+      "title": "Python Functions",
+      "url": "https://www.w3schools.com/python/python_functions.asp"
+    },
+    {
+      "title": "Python Arguments",
+      "url": "https://www.w3schools.com/python/python_arguments.asp"
+    },
+    {
+      "title": "Python *args / **kwargs",
+      "url": "https://www.w3schools.com/python/python_args_kwargs.asp"
+    },
+    {
+      "title": "Python Scope",
+      "url": "https://www.w3schools.com/python/python_scope.asp"
+    },
+    {
+      "title": "Python Decorators",
+      "url": "https://www.w3schools.com/python/python_decorators.asp"
+    },
+    {
+      "title": "Python Lambda",
+      "url": "https://www.w3schools.com/python/python_lambda.asp"
+    },
+    {
+      "title": "Python Recursion",
+      "url": "https://www.w3schools.com/python/python_recursion.asp"
+    },
+    {
+      "title": "Python Generators",
+      "url": "https://www.w3schools.com/python/python_generators.asp"
+    },
+    {
+      "title": "Python Range",
+      "url": "https://www.w3schools.com/python/python_range.asp"
+    },
+    {
+      "title": "Python Arrays",
+      "url": "https://www.w3schools.com/python/python_arrays.asp"
+    },
+    {
+      "title": "Python Iterators",
+      "url": "https://www.w3schools.com/python/python_iterators.asp"
+    },
+    {
+      "title": "Python Modules",
+      "url": "https://www.w3schools.com/python/python_modules.asp"
+    },
+    {
+      "title": "Python Dates",
+      "url": "https://www.w3schools.com/python/python_datetime.asp"
+    },
+    {
+      "title": "Python Math",
+      "url": "https://www.w3schools.com/python/python_math.asp"
+    },
+    {
+      "title": "Python JSON",
+      "url": "https://www.w3schools.com/python/python_json.asp"
+    },
+    {
+      "title": "Python RegEx",
+      "url": "https://www.w3schools.com/python/python_regex.asp"
+    },
+    {
+      "title": "Python PIP",
+      "url": "https://www.w3schools.com/python/python_pip.asp"
+    },
+    {
+      "title": "Python Try...Except",
+      "url": "https://www.w3schools.com/python/python_try_except.asp"
+    },
+    {
+      "title": "Python String Formatting",
+      "url": "https://www.w3schools.com/python/python_string_formatting.asp"
+    },
+    {
+      "title": "Python None",
+      "url": "https://www.w3schools.com/python/python_none.asp"
+    },
+    {
+      "title": "Python User Input",
+      "url": "https://www.w3schools.com/python/python_user_input.asp"
+    },
+    {
+      "title": "Python VirtualEnv",
+      "url": "https://www.w3schools.com/python/python_virtualenv.asp"
+    },
+    {
+      "title": "Python OOP",
+      "url": "https://www.w3schools.com/python/python_oop.asp"
+    },
+    {
+      "title": "Python Classes/Objects",
+      "url": "https://www.w3schools.com/python/python_classes.asp"
+    },
+    {
+      "title": "Python __init__ Method",
+      "url": "https://www.w3schools.com/python/python_class_init.asp"
+    },
+    {
+      "title": "Python self Parameter",
+      "url": "https://www.w3schools.com/python/python_class_self.asp"
+    },
+    {
+      "title": "Python Class Properties",
+      "url": "https://www.w3schools.com/python/python_class_properties.asp"
+    },
+    {
+      "title": "Python Class Methods",
+      "url": "https://www.w3schools.com/python/python_class_methods.asp"
+    },
+    {
+      "title": "Python Inheritance",
+      "url": "https://www.w3schools.com/python/python_inheritance.asp"
+    },
+    {
+      "title": "Python Polymorphism",
+      "url": "https://www.w3schools.com/python/python_polymorphism.asp"
+    },
+    {
+      "title": "Python Encapsulation",
+      "url": "https://www.w3schools.com/python/python_encapsulation.asp"
+    },
+    {
+      "title": "Python Inner Classes",
+      "url": "https://www.w3schools.com/python/python_class_inner.asp"
+    },
+    {
+      "title": "Python File Handling",
+      "url": "https://www.w3schools.com/python/python_file_handling.asp"
+    },
+    {
+      "title": "Python Read Files",
+      "url": "https://www.w3schools.com/python/python_file_open.asp"
+    },
+    {
+      "title": "Python Write/Create Files",
+      "url": "https://www.w3schools.com/python/python_file_write.asp"
+    },
+    {
+      "title": "Python Delete Files",
+      "url": "https://www.w3schools.com/python/python_file_remove.asp"
+    },
+    {
+      "title": "Getting Started",
+      "url": "https://www.w3schools.com/python/python_ml_getting_started.asp"
+    },
+    {
+      "title": "Mean Median Mode",
+      "url": "https://www.w3schools.com/python/python_ml_mean_median_mode.asp"
+    },
+    {
+      "title": "Standard Deviation",
+      "url": "https://www.w3schools.com/python/python_ml_standard_deviation.asp"
+    },
+    {
+      "title": "Percentile",
+      "url": "https://www.w3schools.com/python/python_ml_percentile.asp"
+    },
+    {
+      "title": "Data Distribution",
+      "url": "https://www.w3schools.com/python/python_ml_data_distribution.asp"
+    },
+    {
+      "title": "Normal Data Distribution",
+      "url": "https://www.w3schools.com/python/python_ml_normal_data_distribution.asp"
+    },
+    {
+      "title": "Scatter Plot",
+      "url": "https://www.w3schools.com/python/python_ml_scatterplot.asp"
+    },
+    {
+      "title": "Linear Regression",
+      "url": "https://www.w3schools.com/python/python_ml_linear_regression.asp"
+    },
+    {
+      "title": "Polynomial Regression",
+      "url": "https://www.w3schools.com/python/python_ml_polynomial_regression.asp"
+    },
+    {
+      "title": "Multiple Regression",
+      "url": "https://www.w3schools.com/python/python_ml_multiple_regression.asp"
+    },
+    {
+      "title": "Scale",
+      "url": "https://www.w3schools.com/python/python_ml_scale.asp"
+    },
+    {
+      "title": "Train/Test",
+      "url": "https://www.w3schools.com/python/python_ml_train_test.asp"
+    },
+    {
+      "title": "Decision Tree",
+      "url": "https://www.w3schools.com/python/python_ml_decision_tree.asp"
+    },
+    {
+      "title": "Confusion Matrix",
+      "url": "https://www.w3schools.com/python/python_ml_confusion_matrix.asp"
+    },
+    {
+      "title": "Hierarchical Clustering",
+      "url": "https://www.w3schools.com/python/python_ml_hierarchial_clustering.asp"
+    },
+    {
+      "title": "Logistic Regression",
+      "url": "https://www.w3schools.com/python/python_ml_logistic_regression.asp"
+    },
+    {
+      "title": "Grid Search",
+      "url": "https://www.w3schools.com/python/python_ml_grid_search.asp"
+    },
+    {
+      "title": "Categorical Data",
+      "url": "https://www.w3schools.com/python/python_ml_preprocessing.asp"
+    },
+    {
+      "title": "K-means",
+      "url": "https://www.w3schools.com/python/python_ml_k-means.asp"
+    },
+    {
+      "title": "Bootstrap Aggregation",
+      "url": "https://www.w3schools.com/python/python_ml_bagging.asp"
+    },
+    {
+      "title": "Cross Validation",
+      "url": "https://www.w3schools.com/python/python_ml_cross_validation.asp"
+    },
+    {
+      "title": "AUC - ROC Curve",
+      "url": "https://www.w3schools.com/python/python_ml_auc_roc.asp"
+    },
+    {
+      "title": "K-nearest neighbors",
+      "url": "https://www.w3schools.com/python/python_ml_knn.asp"
+    },
+    {
+      "title": "Python DSA",
+      "url": "https://www.w3schools.com/python/python_dsa.asp"
+    },
+    {
+      "title": "Lists and Arrays",
+      "url": "https://www.w3schools.com/python/python_dsa_lists.asp"
+    },
+    {
+      "title": "Stacks",
+      "url": "https://www.w3schools.com/python/python_dsa_stacks.asp"
+    },
+    {
+      "title": "Queues",
+      "url": "https://www.w3schools.com/python/python_dsa_queues.asp"
+    },
+    {
+      "title": "Linked Lists",
+      "url": "https://www.w3schools.com/python/python_dsa_linkedlists.asp"
+    },
+    {
+      "title": "Hash Tables",
+      "url": "https://www.w3schools.com/python/python_dsa_hashtables.asp"
+    },
+    {
+      "title": "Trees",
+      "url": "https://www.w3schools.com/python/python_dsa_trees.asp"
+    },
+    {
+      "title": "Binary Trees",
+      "url": "https://www.w3schools.com/python/python_dsa_binarytrees.asp"
+    },
+    {
+      "title": "Binary Search Trees",
+      "url": "https://www.w3schools.com/python/python_dsa_binarysearchtrees.asp"
+    },
+    {
+      "title": "AVL Trees",
+      "url": "https://www.w3schools.com/python/python_dsa_avltrees.asp"
+    },
+    {
+      "title": "Graphs",
+      "url": "https://www.w3schools.com/python/python_dsa_graphs.asp"
+    },
+    {
+      "title": "Linear Search",
+      "url": "https://www.w3schools.com/python/python_dsa_linearsearch.asp"
+    },
+    {
+      "title": "Binary Search",
+      "url": "https://www.w3schools.com/python/python_dsa_binarysearch.asp"
+    },
+    {
+      "title": "Bubble Sort",
+      "url": "https://www.w3schools.com/python/python_dsa_bubblesort.asp"
+    },
+    {
+      "title": "Selection Sort",
+      "url": "https://www.w3schools.com/python/python_dsa_selectionsort.asp"
+    },
+    {
+      "title": "Insertion Sort",
+      "url": "https://www.w3schools.com/python/python_dsa_insertionsort.asp"
+    },
+    {
+      "title": "Quick Sort",
+      "url": "https://www.w3schools.com/python/python_dsa_quicksort.asp"
+    },
+    {
+      "title": "Counting Sort",
+      "url": "https://www.w3schools.com/python/python_dsa_countingsort.asp"
+    },
+    {
+      "title": "Radix Sort",
+      "url": "https://www.w3schools.com/python/python_dsa_radixsort.asp"
+    },
+    {
+      "title": "Merge Sort",
+      "url": "https://www.w3schools.com/python/python_dsa_mergesort.asp"
+    },
+    {
+      "title": "MySQL Get Started",
+      "url": "https://www.w3schools.com/python/python_mysql_getstarted.asp"
+    },
+    {
+      "title": "MySQL Create Database",
+      "url": "https://www.w3schools.com/python/python_mysql_create_db.asp"
+    },
+    {
+      "title": "MySQL Create Table",
+      "url": "https://www.w3schools.com/python/python_mysql_create_table.asp"
+    },
+    {
+      "title": "MySQL Insert",
+      "url": "https://www.w3schools.com/python/python_mysql_insert.asp"
+    },
+    {
+      "title": "MySQL Select",
+      "url": "https://www.w3schools.com/python/python_mysql_select.asp"
+    },
+    {
+      "title": "MySQL Where",
+      "url": "https://www.w3schools.com/python/python_mysql_where.asp"
+    },
+    {
+      "title": "MySQL Order By",
+      "url": "https://www.w3schools.com/python/python_mysql_orderby.asp"
+    },
+    {
+      "title": "MySQL Delete",
+      "url": "https://www.w3schools.com/python/python_mysql_delete.asp"
+    },
+    {
+      "title": "MySQL Drop Table",
+      "url": "https://www.w3schools.com/python/python_mysql_drop_table.asp"
+    },
+    {
+      "title": "MySQL Update",
+      "url": "https://www.w3schools.com/python/python_mysql_update.asp"
+    },
+    {
+      "title": "MySQL Limit",
+      "url": "https://www.w3schools.com/python/python_mysql_limit.asp"
+    },
+    {
+      "title": "MySQL Join",
+      "url": "https://www.w3schools.com/python/python_mysql_join.asp"
+    },
+    {
+      "title": "MongoDB Get Started",
+      "url": "https://www.w3schools.com/python/python_mongodb_getstarted.asp"
+    },
+    {
+      "title": "MongoDB Create DB",
+      "url": "https://www.w3schools.com/python/python_mongodb_create_db.asp"
+    },
+    {
+      "title": "MongoDB Collection",
+      "url": "https://www.w3schools.com/python/python_mongodb_create_collection.asp"
+    },
+    {
+      "title": "MongoDB Insert",
+      "url": "https://www.w3schools.com/python/python_mongodb_insert.asp"
+    },
+    {
+      "title": "MongoDB Find",
+      "url": "https://www.w3schools.com/python/python_mongodb_find.asp"
+    },
+    {
+      "title": "MongoDB Query",
+      "url": "https://www.w3schools.com/python/python_mongodb_query.asp"
+    },
+    {
+      "title": "MongoDB Sort",
+      "url": "https://www.w3schools.com/python/python_mongodb_sort.asp"
+    },
+    {
+      "title": "MongoDB Delete",
+      "url": "https://www.w3schools.com/python/python_mongodb_delete.asp"
+    },
+    {
+      "title": "MongoDB Drop Collection",
+      "url": "https://www.w3schools.com/python/python_mongodb_drop_collection.asp"
+    },
+    {
+      "title": "MongoDB Update",
+      "url": "https://www.w3schools.com/python/python_mongodb_update.asp"
+    },
+    {
+      "title": "MongoDB Limit",
+      "url": "https://www.w3schools.com/python/python_mongodb_limit.asp"
+    },
+    {
+      "title": "Python as Aspect Oriented",
+      "url": "https://www.w3schools.com/python/python_aspectoriented.asp"
+    },
+    {
+      "title": "Python Database",
+      "url": "https://www.w3schools.com/python/python_database.asp"
+    },
+    {
+      "title": "Python Web Applications",
+      "url": "https://www.w3schools.com/python/python_webapps.asp"
+    },
+    {
+      "title": "Python Workflows",
+      "url": "https://www.w3schools.com/python/python_workflows.asp"
+    },
+    {
+      "title": "Python Maths & Science",
+      "url": "https://www.w3schools.com/python/python_maths.asp"
+    },
+    {
+      "title": "Python Regular Expressions",
+      "url": "https://www.w3schools.com/python/python_regexp.asp"
+    },
+    {
+      "title": "Python Unit Testing",
+      "url": "https://www.w3schools.com/python/python_unittesting.asp"
+    },
+    {
+      "title": "Python Overview",
+      "url": "https://www.w3schools.com/python/python_reference.asp"
+    },
+    {
+      "title": "Python Built-in Functions",
+      "url": "https://www.w3schools.com/python/python_ref_functions.asp"
+    },
+    {
+      "title": "Python String Methods",
+      "url": "https://www.w3schools.com/python/python_ref_string.asp"
+    },
+    {
+      "title": "Python List Methods",
+      "url": "https://www.w3schools.com/python/python_ref_list.asp"
+    },
+    {
+      "title": "Python Dictionary Methods",
+      "url": "https://www.w3schools.com/python/python_ref_dictionary.asp"
+    },
+    {
+      "title": "Python Tuple Methods",
+      "url": "https://www.w3schools.com/python/python_ref_tuple.asp"
+    },
+    {
+      "title": "Python Set Methods",
+      "url": "https://www.w3schools.com/python/python_ref_set.asp"
+    },
+    {
+      "title": "Python File Methods",
+      "url": "https://www.w3schools.com/python/python_ref_file.asp"
+    },
+    {
+      "title": "Python Keywords",
+      "url": "https://www.w3schools.com/python/python_ref_keywords.asp"
+    },
+    {
+      "title": "Python Exceptions",
+      "url": "https://www.w3schools.com/python/python_ref_exceptions.asp"
+    },
+    {
+      "title": "Python Glossary",
+      "url": "https://www.w3schools.com/python/python_ref_glossary.asp"
+    },
+    {
+      "title": "Built-in Modules",
+      "url": "https://www.w3schools.com/python/python_ref_modules.asp"
+    },
+    {
+      "title": "Remove List Duplicates",
+      "url": "https://www.w3schools.com/python/python_howto_remove_duplicates.asp"
+    },
+    {
+      "title": "Reverse a String",
+      "url": "https://www.w3schools.com/python/python_howto_reverse_string.asp"
+    },
+    {
+      "title": "Add Two Numbers",
+      "url": "https://www.w3schools.com/python/python_howto_add_two_numbers.asp"
+    },
+    {
+      "title": "Python Examples",
+      "url": "https://www.w3schools.com/python/python_examples.asp"
+    },
+    {
+      "title": "Python Compiler",
+      "url": "https://www.w3schools.com/python/python_compiler.asp"
+    },
+    {
+      "title": "Python Exercises",
+      "url": "https://www.w3schools.com/python/python_exercises.asp"
+    },
+    {
+      "title": "Python Quiz",
+      "url": "https://www.w3schools.com/python/python_quiz.asp"
+    },
+    {
+      "title": "Python Server",
+      "url": "https://www.w3schools.com/python/python_server.asp"
+    },
+    {
+      "title": "Python Syllabus",
+      "url": "https://www.w3schools.com/python/python_syllabus.asp"
+    },
+    {
+      "title": "Python Study Plan",
+      "url": "https://www.w3schools.com/python/python_study_plan.asp"
+    },
+    {
+      "title": "Python Interview Q&amp;A",
+      "url": "https://www.w3schools.com/python/python_interview_questions.asp"
+    },
+    {
+      "title": "Python Bootcamp",
+      "url": "https://www.w3schools.com/python/python_bootcamp.asp"
+    },
+    {
+      "title": "Python Certificate",
+      "url": "https://www.w3schools.com/python/python_exam.asp"
+    },
+    {
+      "title": "Python Training",
+      "url": "https://www.w3schools.com/python/python_training.asp"
+    }
+  ],
+  "sql": [
+    {
+      "title": "SQL HOME",
+      "url": "https://www.w3schools.com/sql/default.asp"
+    },
+    {
+      "title": "SQL Intro",
+      "url": "https://www.w3schools.com/sql/sql_intro.asp"
+    },
+    {
+      "title": "SQL Syntax",
+      "url": "https://www.w3schools.com/sql/sql_syntax.asp"
+    },
+    {
+      "title": "SQL Select",
+      "url": "https://www.w3schools.com/sql/sql_select.asp"
+    },
+    {
+      "title": "SQL Select Distinct",
+      "url": "https://www.w3schools.com/sql/sql_distinct.asp"
+    },
+    {
+      "title": "SQL Where",
+      "url": "https://www.w3schools.com/sql/sql_where.asp"
+    },
+    {
+      "title": "SQL Order By",
+      "url": "https://www.w3schools.com/sql/sql_orderby.asp"
+    },
+    {
+      "title": "SQL And",
+      "url": "https://www.w3schools.com/sql/sql_and.asp"
+    },
+    {
+      "title": "SQL Or",
+      "url": "https://www.w3schools.com/sql/sql_or.asp"
+    },
+    {
+      "title": "SQL Not",
+      "url": "https://www.w3schools.com/sql/sql_not.asp"
+    },
+    {
+      "title": "SQL Insert Into",
+      "url": "https://www.w3schools.com/sql/sql_insert.asp"
+    },
+    {
+      "title": "SQL Null Values",
+      "url": "https://www.w3schools.com/sql/sql_null_values.asp"
+    },
+    {
+      "title": "SQL Update",
+      "url": "https://www.w3schools.com/sql/sql_update.asp"
+    },
+    {
+      "title": "SQL Delete",
+      "url": "https://www.w3schools.com/sql/sql_delete.asp"
+    },
+    {
+      "title": "SQL Select Top",
+      "url": "https://www.w3schools.com/sql/sql_top.asp"
+    },
+    {
+      "title": "SQL Aggregate Functions",
+      "url": "https://www.w3schools.com/sql/sql_aggregate_functions.asp"
+    },
+    {
+      "title": "SQL Min and Max",
+      "url": "https://www.w3schools.com/sql/sql_min_max.asp"
+    },
+    {
+      "title": "SQL Count",
+      "url": "https://www.w3schools.com/sql/sql_count.asp"
+    },
+    {
+      "title": "SQL Sum",
+      "url": "https://www.w3schools.com/sql/sql_sum.asp"
+    },
+    {
+      "title": "SQL Avg",
+      "url": "https://www.w3schools.com/sql/sql_avg.asp"
+    },
+    {
+      "title": "SQL Like",
+      "url": "https://www.w3schools.com/sql/sql_like.asp"
+    },
+    {
+      "title": "SQL Wildcards",
+      "url": "https://www.w3schools.com/sql/sql_wildcards.asp"
+    },
+    {
+      "title": "SQL In",
+      "url": "https://www.w3schools.com/sql/sql_in.asp"
+    },
+    {
+      "title": "SQL Between",
+      "url": "https://www.w3schools.com/sql/sql_between.asp"
+    },
+    {
+      "title": "SQL Aliases",
+      "url": "https://www.w3schools.com/sql/sql_alias.asp"
+    },
+    {
+      "title": "SQL Joins",
+      "url": "https://www.w3schools.com/sql/sql_join.asp"
+    },
+    {
+      "title": "SQL Inner Join",
+      "url": "https://www.w3schools.com/sql/sql_join_inner.asp"
+    },
+    {
+      "title": "SQL Left Join",
+      "url": "https://www.w3schools.com/sql/sql_join_left.asp"
+    },
+    {
+      "title": "SQL Right Join",
+      "url": "https://www.w3schools.com/sql/sql_join_right.asp"
+    },
+    {
+      "title": "SQL Full Join",
+      "url": "https://www.w3schools.com/sql/sql_join_full.asp"
+    },
+    {
+      "title": "SQL Self Join",
+      "url": "https://www.w3schools.com/sql/sql_join_self.asp"
+    },
+    {
+      "title": "SQL Union",
+      "url": "https://www.w3schools.com/sql/sql_union.asp"
+    },
+    {
+      "title": "SQL Union All",
+      "url": "https://www.w3schools.com/sql/sql_union_all.asp"
+    },
+    {
+      "title": "SQL Group By",
+      "url": "https://www.w3schools.com/sql/sql_groupby.asp"
+    },
+    {
+      "title": "SQL Having",
+      "url": "https://www.w3schools.com/sql/sql_having.asp"
+    },
+    {
+      "title": "SQL Exists",
+      "url": "https://www.w3schools.com/sql/sql_exists.asp"
+    },
+    {
+      "title": "SQL Any, All",
+      "url": "https://www.w3schools.com/sql/sql_any_all.asp"
+    },
+    {
+      "title": "SQL Select Into",
+      "url": "https://www.w3schools.com/sql/sql_select_into.asp"
+    },
+    {
+      "title": "SQL Insert Into Select",
+      "url": "https://www.w3schools.com/sql/sql_insert_into_select.asp"
+    },
+    {
+      "title": "SQL Case",
+      "url": "https://www.w3schools.com/sql/sql_case.asp"
+    },
+    {
+      "title": "SQL Null Functions",
+      "url": "https://www.w3schools.com/sql/sql_isnull.asp"
+    },
+    {
+      "title": "SQL Stored Procedures",
+      "url": "https://www.w3schools.com/sql/sql_stored_procedures.asp"
+    },
+    {
+      "title": "SQL Comments",
+      "url": "https://www.w3schools.com/sql/sql_comments.asp"
+    },
+    {
+      "title": "SQL Operators",
+      "url": "https://www.w3schools.com/sql/sql_operators.asp"
+    },
+    {
+      "title": "SQL Create DB",
+      "url": "https://www.w3schools.com/sql/sql_create_db.asp"
+    },
+    {
+      "title": "SQL Drop DB",
+      "url": "https://www.w3schools.com/sql/sql_drop_db.asp"
+    },
+    {
+      "title": "SQL Backup DB",
+      "url": "https://www.w3schools.com/sql/sql_backup_db.asp"
+    },
+    {
+      "title": "SQL Create Table",
+      "url": "https://www.w3schools.com/sql/sql_create_table.asp"
+    },
+    {
+      "title": "SQL Drop Table",
+      "url": "https://www.w3schools.com/sql/sql_drop_table.asp"
+    },
+    {
+      "title": "SQL Alter Table",
+      "url": "https://www.w3schools.com/sql/sql_alter.asp"
+    },
+    {
+      "title": "SQL Constraints",
+      "url": "https://www.w3schools.com/sql/sql_constraints.asp"
+    },
+    {
+      "title": "SQL Not Null",
+      "url": "https://www.w3schools.com/sql/sql_notnull.asp"
+    },
+    {
+      "title": "SQL Unique",
+      "url": "https://www.w3schools.com/sql/sql_unique.asp"
+    },
+    {
+      "title": "SQL Primary Key",
+      "url": "https://www.w3schools.com/sql/sql_primarykey.asp"
+    },
+    {
+      "title": "SQL Foreign Key",
+      "url": "https://www.w3schools.com/sql/sql_foreignkey.asp"
+    },
+    {
+      "title": "SQL Check",
+      "url": "https://www.w3schools.com/sql/sql_check.asp"
+    },
+    {
+      "title": "SQL Default",
+      "url": "https://www.w3schools.com/sql/sql_default.asp"
+    },
+    {
+      "title": "SQL Index",
+      "url": "https://www.w3schools.com/sql/sql_create_index.asp"
+    },
+    {
+      "title": "SQL Auto Increment",
+      "url": "https://www.w3schools.com/sql/sql_autoincrement.asp"
+    },
+    {
+      "title": "SQL Dates",
+      "url": "https://www.w3schools.com/sql/sql_dates.asp"
+    },
+    {
+      "title": "SQL Views",
+      "url": "https://www.w3schools.com/sql/sql_view.asp"
+    },
+    {
+      "title": "SQL Injection",
+      "url": "https://www.w3schools.com/sql/sql_injection.asp"
+    },
+    {
+      "title": "SQL Hosting",
+      "url": "https://www.w3schools.com/sql/sql_hosting.asp"
+    },
+    {
+      "title": "SQL Data Types",
+      "url": "https://www.w3schools.com/sql/sql_datatypes.asp"
+    },
+    {
+      "title": "SQL Keywords",
+      "url": "https://www.w3schools.com/sql/sql_ref_keywords.asp"
+    },
+    {
+      "title": "ADD",
+      "url": "https://www.w3schools.com/sql/sql_ref_add.asp"
+    },
+    {
+      "title": "ADD CONSTRAINT",
+      "url": "https://www.w3schools.com/sql/sql_ref_add_constraint.asp"
+    },
+    {
+      "title": "ALL",
+      "url": "https://www.w3schools.com/sql/sql_ref_all.asp"
+    },
+    {
+      "title": "ALTER",
+      "url": "https://www.w3schools.com/sql/sql_ref_alter.asp"
+    },
+    {
+      "title": "ALTER COLUMN",
+      "url": "https://www.w3schools.com/sql/sql_ref_alter_column.asp"
+    },
+    {
+      "title": "ALTER TABLE",
+      "url": "https://www.w3schools.com/sql/sql_ref_alter_table.asp"
+    },
+    {
+      "title": "AND",
+      "url": "https://www.w3schools.com/sql/sql_ref_and.asp"
+    },
+    {
+      "title": "ANY",
+      "url": "https://www.w3schools.com/sql/sql_ref_any.asp"
+    },
+    {
+      "title": "AS",
+      "url": "https://www.w3schools.com/sql/sql_ref_as.asp"
+    },
+    {
+      "title": "ASC",
+      "url": "https://www.w3schools.com/sql/sql_ref_asc.asp"
+    },
+    {
+      "title": "BACKUP DATABASE",
+      "url": "https://www.w3schools.com/sql/sql_ref_backup_database.asp"
+    },
+    {
+      "title": "BETWEEN",
+      "url": "https://www.w3schools.com/sql/sql_ref_between.asp"
+    },
+    {
+      "title": "CASE",
+      "url": "https://www.w3schools.com/sql/sql_ref_case.asp"
+    },
+    {
+      "title": "CHECK",
+      "url": "https://www.w3schools.com/sql/sql_ref_check.asp"
+    },
+    {
+      "title": "COLUMN",
+      "url": "https://www.w3schools.com/sql/sql_ref_column.asp"
+    },
+    {
+      "title": "CONSTRAINT",
+      "url": "https://www.w3schools.com/sql/sql_ref_constraint.asp"
+    },
+    {
+      "title": "CREATE",
+      "url": "https://www.w3schools.com/sql/sql_ref_create.asp"
+    },
+    {
+      "title": "CREATE DATABASE",
+      "url": "https://www.w3schools.com/sql/sql_ref_create_database.asp"
+    },
+    {
+      "title": "CREATE INDEX",
+      "url": "https://www.w3schools.com/sql/sql_ref_create_index.asp"
+    },
+    {
+      "title": "CREATE OR REPLACE VIEW",
+      "url": "https://www.w3schools.com/sql/sql_ref_create_or_replace_view.asp"
+    },
+    {
+      "title": "CREATE TABLE",
+      "url": "https://www.w3schools.com/sql/sql_ref_create_table.asp"
+    },
+    {
+      "title": "CREATE PROCEDURE",
+      "url": "https://www.w3schools.com/sql/sql_ref_create_procedure.asp"
+    },
+    {
+      "title": "CREATE UNIQUE INDEX",
+      "url": "https://www.w3schools.com/sql/sql_ref_create_unique_index.asp"
+    },
+    {
+      "title": "CREATE VIEW",
+      "url": "https://www.w3schools.com/sql/sql_ref_create_view.asp"
+    },
+    {
+      "title": "DATABASE",
+      "url": "https://www.w3schools.com/sql/sql_ref_database.asp"
+    },
+    {
+      "title": "DEFAULT",
+      "url": "https://www.w3schools.com/sql/sql_ref_default.asp"
+    },
+    {
+      "title": "DELETE",
+      "url": "https://www.w3schools.com/sql/sql_ref_delete.asp"
+    },
+    {
+      "title": "DESC",
+      "url": "https://www.w3schools.com/sql/sql_ref_desc.asp"
+    },
+    {
+      "title": "DISTINCT",
+      "url": "https://www.w3schools.com/sql/sql_ref_distinct.asp"
+    },
+    {
+      "title": "DROP",
+      "url": "https://www.w3schools.com/sql/sql_ref_drop.asp"
+    },
+    {
+      "title": "DROP COLUMN",
+      "url": "https://www.w3schools.com/sql/sql_ref_drop_column.asp"
+    },
+    {
+      "title": "DROP CONSTRAINT",
+      "url": "https://www.w3schools.com/sql/sql_ref_drop_constraint.asp"
+    },
+    {
+      "title": "DROP DATABASE",
+      "url": "https://www.w3schools.com/sql/sql_ref_drop_database.asp"
+    },
+    {
+      "title": "DROP DEFAULT",
+      "url": "https://www.w3schools.com/sql/sql_ref_drop_default.asp"
+    },
+    {
+      "title": "DROP INDEX",
+      "url": "https://www.w3schools.com/sql/sql_ref_drop_index.asp"
+    },
+    {
+      "title": "DROP TABLE",
+      "url": "https://www.w3schools.com/sql/sql_ref_drop_table.asp"
+    },
+    {
+      "title": "DROP VIEW",
+      "url": "https://www.w3schools.com/sql/sql_ref_drop_view.asp"
+    },
+    {
+      "title": "EXEC",
+      "url": "https://www.w3schools.com/sql/sql_ref_exec.asp"
+    },
+    {
+      "title": "EXISTS",
+      "url": "https://www.w3schools.com/sql/sql_ref_exists.asp"
+    },
+    {
+      "title": "FOREIGN KEY",
+      "url": "https://www.w3schools.com/sql/sql_ref_foreign_key.asp"
+    },
+    {
+      "title": "FROM",
+      "url": "https://www.w3schools.com/sql/sql_ref_from.asp"
+    },
+    {
+      "title": "FULL OUTER JOIN",
+      "url": "https://www.w3schools.com/sql/sql_ref_full_outer_join.asp"
+    },
+    {
+      "title": "GROUP BY",
+      "url": "https://www.w3schools.com/sql/sql_ref_group_by.asp"
+    },
+    {
+      "title": "HAVING",
+      "url": "https://www.w3schools.com/sql/sql_ref_having.asp"
+    },
+    {
+      "title": "IN",
+      "url": "https://www.w3schools.com/sql/sql_ref_in.asp"
+    },
+    {
+      "title": "INDEX",
+      "url": "https://www.w3schools.com/sql/sql_ref_index.asp"
+    },
+    {
+      "title": "INNER JOIN",
+      "url": "https://www.w3schools.com/sql/sql_ref_inner_join.asp"
+    },
+    {
+      "title": "INSERT INTO",
+      "url": "https://www.w3schools.com/sql/sql_ref_insert_into.asp"
+    },
+    {
+      "title": "INSERT INTO SELECT",
+      "url": "https://www.w3schools.com/sql/sql_ref_insert_into_select.asp"
+    },
+    {
+      "title": "IS NULL",
+      "url": "https://www.w3schools.com/sql/sql_ref_is_null.asp"
+    },
+    {
+      "title": "IS NOT NULL",
+      "url": "https://www.w3schools.com/sql/sql_ref_is_not_null.asp"
+    },
+    {
+      "title": "JOIN",
+      "url": "https://www.w3schools.com/sql/sql_ref_join.asp"
+    },
+    {
+      "title": "LEFT JOIN",
+      "url": "https://www.w3schools.com/sql/sql_ref_left_join.asp"
+    },
+    {
+      "title": "LIKE",
+      "url": "https://www.w3schools.com/sql/sql_ref_like.asp"
+    },
+    {
+      "title": "LIMIT",
+      "url": "https://www.w3schools.com/sql/sql_ref_limit.asp"
+    },
+    {
+      "title": "NOT",
+      "url": "https://www.w3schools.com/sql/sql_ref_not.asp"
+    },
+    {
+      "title": "NOT NULL",
+      "url": "https://www.w3schools.com/sql/sql_ref_not_null.asp"
+    },
+    {
+      "title": "OR",
+      "url": "https://www.w3schools.com/sql/sql_ref_or.asp"
+    },
+    {
+      "title": "ORDER BY",
+      "url": "https://www.w3schools.com/sql/sql_ref_order_by.asp"
+    },
+    {
+      "title": "OUTER JOIN",
+      "url": "https://www.w3schools.com/sql/sql_ref_outer_join.asp"
+    },
+    {
+      "title": "PRIMARY KEY",
+      "url": "https://www.w3schools.com/sql/sql_ref_primary_key.asp"
+    },
+    {
+      "title": "PROCEDURE",
+      "url": "https://www.w3schools.com/sql/sql_ref_procedure.asp"
+    },
+    {
+      "title": "RIGHT JOIN",
+      "url": "https://www.w3schools.com/sql/sql_ref_right_join.asp"
+    },
+    {
+      "title": "ROWNUM",
+      "url": "https://www.w3schools.com/sql/sql_ref_rownum.asp"
+    },
+    {
+      "title": "SELECT",
+      "url": "https://www.w3schools.com/sql/sql_ref_select.asp"
+    },
+    {
+      "title": "SELECT DISTINCT",
+      "url": "https://www.w3schools.com/sql/sql_ref_select_distinct.asp"
+    },
+    {
+      "title": "SELECT INTO",
+      "url": "https://www.w3schools.com/sql/sql_ref_select_into.asp"
+    },
+    {
+      "title": "SELECT TOP",
+      "url": "https://www.w3schools.com/sql/sql_ref_select_top.asp"
+    },
+    {
+      "title": "SET",
+      "url": "https://www.w3schools.com/sql/sql_ref_set.asp"
+    },
+    {
+      "title": "TABLE",
+      "url": "https://www.w3schools.com/sql/sql_ref_table.asp"
+    },
+    {
+      "title": "TOP",
+      "url": "https://www.w3schools.com/sql/sql_ref_top.asp"
+    },
+    {
+      "title": "TRUNCATE TABLE",
+      "url": "https://www.w3schools.com/sql/sql_ref_truncate_table.asp"
+    },
+    {
+      "title": "UNION",
+      "url": "https://www.w3schools.com/sql/sql_ref_union.asp"
+    },
+    {
+      "title": "UNION ALL",
+      "url": "https://www.w3schools.com/sql/sql_ref_union_all.asp"
+    },
+    {
+      "title": "UNIQUE",
+      "url": "https://www.w3schools.com/sql/sql_ref_unique.asp"
+    },
+    {
+      "title": "UPDATE",
+      "url": "https://www.w3schools.com/sql/sql_ref_update.asp"
+    },
+    {
+      "title": "VALUES",
+      "url": "https://www.w3schools.com/sql/sql_ref_values.asp"
+    },
+    {
+      "title": "VIEW",
+      "url": "https://www.w3schools.com/sql/sql_ref_view.asp"
+    },
+    {
+      "title": "WHERE",
+      "url": "https://www.w3schools.com/sql/sql_ref_where.asp"
+    },
+    {
+      "title": "MySQL Functions",
+      "url": "https://www.w3schools.com/sql/sql_ref_mysql.asp"
+    },
+    {
+      "title": "ASCII",
+      "url": "https://www.w3schools.com/sql/func_mysql_ascii.asp"
+    },
+    {
+      "title": "CHAR_LENGTH",
+      "url": "https://www.w3schools.com/sql/func_mysql_char_length.asp"
+    },
+    {
+      "title": "CHARACTER_LENGTH",
+      "url": "https://www.w3schools.com/sql/func_mysql_character_length.asp"
+    },
+    {
+      "title": "CONCAT",
+      "url": "https://www.w3schools.com/sql/func_mysql_concat.asp"
+    },
+    {
+      "title": "CONCAT_WS",
+      "url": "https://www.w3schools.com/sql/func_mysql_concat_ws.asp"
+    },
+    {
+      "title": "FIELD",
+      "url": "https://www.w3schools.com/sql/func_mysql_field.asp"
+    },
+    {
+      "title": "FIND_IN_SET",
+      "url": "https://www.w3schools.com/sql/func_mysql_find_in_set.asp"
+    },
+    {
+      "title": "FORMAT",
+      "url": "https://www.w3schools.com/sql/func_mysql_format.asp"
+    },
+    {
+      "title": "INSERT",
+      "url": "https://www.w3schools.com/sql/func_mysql_insert.asp"
+    },
+    {
+      "title": "INSTR",
+      "url": "https://www.w3schools.com/sql/func_mysql_instr.asp"
+    },
+    {
+      "title": "LCASE",
+      "url": "https://www.w3schools.com/sql/func_mysql_lcase.asp"
+    },
+    {
+      "title": "LEFT",
+      "url": "https://www.w3schools.com/sql/func_mysql_left.asp"
+    },
+    {
+      "title": "LENGTH",
+      "url": "https://www.w3schools.com/sql/func_mysql_length.asp"
+    },
+    {
+      "title": "LOCATE",
+      "url": "https://www.w3schools.com/sql/func_mysql_locate.asp"
+    },
+    {
+      "title": "LOWER",
+      "url": "https://www.w3schools.com/sql/func_mysql_lower.asp"
+    },
+    {
+      "title": "LPAD",
+      "url": "https://www.w3schools.com/sql/func_mysql_lpad.asp"
+    },
+    {
+      "title": "LTRIM",
+      "url": "https://www.w3schools.com/sql/func_mysql_ltrim.asp"
+    },
+    {
+      "title": "MID",
+      "url": "https://www.w3schools.com/sql/func_mysql_mid.asp"
+    },
+    {
+      "title": "POSITION",
+      "url": "https://www.w3schools.com/sql/func_mysql_position.asp"
+    },
+    {
+      "title": "REPEAT",
+      "url": "https://www.w3schools.com/sql/func_mysql_repeat.asp"
+    },
+    {
+      "title": "REPLACE",
+      "url": "https://www.w3schools.com/sql/func_mysql_replace.asp"
+    },
+    {
+      "title": "REVERSE",
+      "url": "https://www.w3schools.com/sql/func_mysql_reverse.asp"
+    },
+    {
+      "title": "RIGHT",
+      "url": "https://www.w3schools.com/sql/func_mysql_right.asp"
+    },
+    {
+      "title": "RPAD",
+      "url": "https://www.w3schools.com/sql/func_mysql_rpad.asp"
+    },
+    {
+      "title": "RTRIM",
+      "url": "https://www.w3schools.com/sql/func_mysql_rtrim.asp"
+    },
+    {
+      "title": "SPACE",
+      "url": "https://www.w3schools.com/sql/func_mysql_space.asp"
+    },
+    {
+      "title": "STRCMP",
+      "url": "https://www.w3schools.com/sql/func_mysql_strcmp.asp"
+    },
+    {
+      "title": "SUBSTR",
+      "url": "https://www.w3schools.com/sql/func_mysql_substr.asp"
+    },
+    {
+      "title": "SUBSTRING",
+      "url": "https://www.w3schools.com/sql/func_mysql_substring.asp"
+    },
+    {
+      "title": "SUBSTRING_INDEX",
+      "url": "https://www.w3schools.com/sql/func_mysql_substring_index.asp"
+    },
+    {
+      "title": "TRIM",
+      "url": "https://www.w3schools.com/sql/func_mysql_trim.asp"
+    },
+    {
+      "title": "UCASE",
+      "url": "https://www.w3schools.com/sql/func_mysql_ucase.asp"
+    },
+    {
+      "title": "UPPER",
+      "url": "https://www.w3schools.com/sql/func_mysql_upper.asp"
+    },
+    {
+      "title": "ABS",
+      "url": "https://www.w3schools.com/sql/func_mysql_abs.asp"
+    },
+    {
+      "title": "ACOS",
+      "url": "https://www.w3schools.com/sql/func_mysql_acos.asp"
+    },
+    {
+      "title": "ASIN",
+      "url": "https://www.w3schools.com/sql/func_mysql_asin.asp"
+    },
+    {
+      "title": "ATAN",
+      "url": "https://www.w3schools.com/sql/func_mysql_atan.asp"
+    },
+    {
+      "title": "ATAN2",
+      "url": "https://www.w3schools.com/sql/func_mysql_atan2.asp"
+    },
+    {
+      "title": "AVG",
+      "url": "https://www.w3schools.com/sql/func_mysql_avg.asp"
+    },
+    {
+      "title": "CEIL",
+      "url": "https://www.w3schools.com/sql/func_mysql_ceil.asp"
+    },
+    {
+      "title": "CEILING",
+      "url": "https://www.w3schools.com/sql/func_mysql_ceiling.asp"
+    },
+    {
+      "title": "COS",
+      "url": "https://www.w3schools.com/sql/func_mysql_cos.asp"
+    },
+    {
+      "title": "COT",
+      "url": "https://www.w3schools.com/sql/func_mysql_cot.asp"
+    },
+    {
+      "title": "COUNT",
+      "url": "https://www.w3schools.com/sql/func_mysql_count.asp"
+    },
+    {
+      "title": "DEGREES",
+      "url": "https://www.w3schools.com/sql/func_mysql_degrees.asp"
+    },
+    {
+      "title": "DIV",
+      "url": "https://www.w3schools.com/sql/func_mysql_div.asp"
+    },
+    {
+      "title": "EXP",
+      "url": "https://www.w3schools.com/sql/func_mysql_exp.asp"
+    },
+    {
+      "title": "FLOOR",
+      "url": "https://www.w3schools.com/sql/func_mysql_floor.asp"
+    },
+    {
+      "title": "GREATEST",
+      "url": "https://www.w3schools.com/sql/func_mysql_greatest.asp"
+    },
+    {
+      "title": "LEAST",
+      "url": "https://www.w3schools.com/sql/func_mysql_least.asp"
+    },
+    {
+      "title": "LN",
+      "url": "https://www.w3schools.com/sql/func_mysql_ln.asp"
+    },
+    {
+      "title": "LOG",
+      "url": "https://www.w3schools.com/sql/func_mysql_log.asp"
+    },
+    {
+      "title": "LOG10",
+      "url": "https://www.w3schools.com/sql/func_mysql_log10.asp"
+    },
+    {
+      "title": "LOG2",
+      "url": "https://www.w3schools.com/sql/func_mysql_log2.asp"
+    },
+    {
+      "title": "MAX",
+      "url": "https://www.w3schools.com/sql/func_mysql_max.asp"
+    },
+    {
+      "title": "MIN",
+      "url": "https://www.w3schools.com/sql/func_mysql_min.asp"
+    },
+    {
+      "title": "MOD",
+      "url": "https://www.w3schools.com/sql/func_mysql_mod.asp"
+    },
+    {
+      "title": "PI",
+      "url": "https://www.w3schools.com/sql/func_mysql_pi.asp"
+    },
+    {
+      "title": "POW",
+      "url": "https://www.w3schools.com/sql/func_mysql_pow.asp"
+    },
+    {
+      "title": "POWER",
+      "url": "https://www.w3schools.com/sql/func_mysql_power.asp"
+    },
+    {
+      "title": "RADIANS",
+      "url": "https://www.w3schools.com/sql/func_mysql_radians.asp"
+    },
+    {
+      "title": "RAND",
+      "url": "https://www.w3schools.com/sql/func_mysql_rand.asp"
+    },
+    {
+      "title": "ROUND",
+      "url": "https://www.w3schools.com/sql/func_mysql_round.asp"
+    },
+    {
+      "title": "SIGN",
+      "url": "https://www.w3schools.com/sql/func_mysql_sign.asp"
+    },
+    {
+      "title": "SIN",
+      "url": "https://www.w3schools.com/sql/func_mysql_sin.asp"
+    },
+    {
+      "title": "SQRT",
+      "url": "https://www.w3schools.com/sql/func_mysql_sqrt.asp"
+    },
+    {
+      "title": "SUM",
+      "url": "https://www.w3schools.com/sql/func_mysql_sum.asp"
+    },
+    {
+      "title": "TAN",
+      "url": "https://www.w3schools.com/sql/func_mysql_tan.asp"
+    },
+    {
+      "title": "TRUNCATE",
+      "url": "https://www.w3schools.com/sql/func_mysql_truncate.asp"
+    },
+    {
+      "title": "ADDDATE",
+      "url": "https://www.w3schools.com/sql/func_mysql_adddate.asp"
+    },
+    {
+      "title": "ADDTIME",
+      "url": "https://www.w3schools.com/sql/func_mysql_addtime.asp"
+    },
+    {
+      "title": "CURDATE",
+      "url": "https://www.w3schools.com/sql/func_mysql_curdate.asp"
+    },
+    {
+      "title": "CURRENT_DATE",
+      "url": "https://www.w3schools.com/sql/func_mysql_current_date.asp"
+    },
+    {
+      "title": "CURRENT_TIME",
+      "url": "https://www.w3schools.com/sql/func_mysql_current_time.asp"
+    },
+    {
+      "title": "CURRENT_TIMESTAMP",
+      "url": "https://www.w3schools.com/sql/func_mysql_current_timestamp.asp"
+    },
+    {
+      "title": "CURTIME",
+      "url": "https://www.w3schools.com/sql/func_mysql_curtime.asp"
+    },
+    {
+      "title": "DATE",
+      "url": "https://www.w3schools.com/sql/func_mysql_date.asp"
+    },
+    {
+      "title": "DATEDIFF",
+      "url": "https://www.w3schools.com/sql/func_mysql_datediff.asp"
+    },
+    {
+      "title": "DATE_ADD",
+      "url": "https://www.w3schools.com/sql/func_mysql_date_add.asp"
+    },
+    {
+      "title": "DATE_FORMAT",
+      "url": "https://www.w3schools.com/sql/func_mysql_date_format.asp"
+    },
+    {
+      "title": "DATE_SUB",
+      "url": "https://www.w3schools.com/sql/func_mysql_date_sub.asp"
+    },
+    {
+      "title": "DAY",
+      "url": "https://www.w3schools.com/sql/func_mysql_day.asp"
+    },
+    {
+      "title": "DAYNAME",
+      "url": "https://www.w3schools.com/sql/func_mysql_dayname.asp"
+    },
+    {
+      "title": "DAYOFMONTH",
+      "url": "https://www.w3schools.com/sql/func_mysql_dayofmonth.asp"
+    },
+    {
+      "title": "DAYOFWEEK",
+      "url": "https://www.w3schools.com/sql/func_mysql_dayofweek.asp"
+    },
+    {
+      "title": "DAYOFYEAR",
+      "url": "https://www.w3schools.com/sql/func_mysql_dayofyear.asp"
+    },
+    {
+      "title": "EXTRACT",
+      "url": "https://www.w3schools.com/sql/func_mysql_extract.asp"
+    },
+    {
+      "title": "FROM_DAYS",
+      "url": "https://www.w3schools.com/sql/func_mysql_from_days.asp"
+    },
+    {
+      "title": "HOUR",
+      "url": "https://www.w3schools.com/sql/func_mysql_hour.asp"
+    },
+    {
+      "title": "LAST_DAY",
+      "url": "https://www.w3schools.com/sql/func_mysql_last_day.asp"
+    },
+    {
+      "title": "LOCALTIME",
+      "url": "https://www.w3schools.com/sql/func_mysql_localtime.asp"
+    },
+    {
+      "title": "LOCALTIMESTAMP",
+      "url": "https://www.w3schools.com/sql/func_mysql_localtimestamp.asp"
+    },
+    {
+      "title": "MAKEDATE",
+      "url": "https://www.w3schools.com/sql/func_mysql_makedate.asp"
+    },
+    {
+      "title": "MAKETIME",
+      "url": "https://www.w3schools.com/sql/func_mysql_maketime.asp"
+    },
+    {
+      "title": "MICROSECOND",
+      "url": "https://www.w3schools.com/sql/func_mysql_microsecond.asp"
+    },
+    {
+      "title": "MINUTE",
+      "url": "https://www.w3schools.com/sql/func_mysql_minute.asp"
+    },
+    {
+      "title": "MONTH",
+      "url": "https://www.w3schools.com/sql/func_mysql_month.asp"
+    },
+    {
+      "title": "MONTHNAME",
+      "url": "https://www.w3schools.com/sql/func_mysql_monthname.asp"
+    },
+    {
+      "title": "NOW",
+      "url": "https://www.w3schools.com/sql/func_mysql_now.asp"
+    },
+    {
+      "title": "PERIOD_ADD",
+      "url": "https://www.w3schools.com/sql/func_mysql_period_add.asp"
+    },
+    {
+      "title": "PERIOD_DIFF",
+      "url": "https://www.w3schools.com/sql/func_mysql_period_diff.asp"
+    },
+    {
+      "title": "QUARTER",
+      "url": "https://www.w3schools.com/sql/func_mysql_quarter.asp"
+    },
+    {
+      "title": "SECOND",
+      "url": "https://www.w3schools.com/sql/func_mysql_second.asp"
+    },
+    {
+      "title": "SEC_TO_TIME",
+      "url": "https://www.w3schools.com/sql/func_mysql_sec_to_time.asp"
+    },
+    {
+      "title": "STR_TO_DATE",
+      "url": "https://www.w3schools.com/sql/func_mysql_str_to_date.asp"
+    },
+    {
+      "title": "SUBDATE",
+      "url": "https://www.w3schools.com/sql/func_mysql_subdate.asp"
+    },
+    {
+      "title": "SUBTIME",
+      "url": "https://www.w3schools.com/sql/func_mysql_subtime.asp"
+    },
+    {
+      "title": "SYSDATE",
+      "url": "https://www.w3schools.com/sql/func_mysql_sysdate.asp"
+    },
+    {
+      "title": "TIME",
+      "url": "https://www.w3schools.com/sql/func_mysql_time.asp"
+    },
+    {
+      "title": "TIME_FORMAT",
+      "url": "https://www.w3schools.com/sql/func_mysql_time_format.asp"
+    },
+    {
+      "title": "TIME_TO_SEC",
+      "url": "https://www.w3schools.com/sql/func_mysql_time_to_sec.asp"
+    },
+    {
+      "title": "TIMEDIFF",
+      "url": "https://www.w3schools.com/sql/func_mysql_timediff.asp"
+    },
+    {
+      "title": "TIMESTAMP",
+      "url": "https://www.w3schools.com/sql/func_mysql_timestamp.asp"
+    },
+    {
+      "title": "TO_DAYS",
+      "url": "https://www.w3schools.com/sql/func_mysql_to_days.asp"
+    },
+    {
+      "title": "WEEK",
+      "url": "https://www.w3schools.com/sql/func_mysql_week.asp"
+    },
+    {
+      "title": "WEEKDAY",
+      "url": "https://www.w3schools.com/sql/func_mysql_weekday.asp"
+    },
+    {
+      "title": "WEEKOFYEAR",
+      "url": "https://www.w3schools.com/sql/func_mysql_weekofyear.asp"
+    },
+    {
+      "title": "YEAR",
+      "url": "https://www.w3schools.com/sql/func_mysql_year.asp"
+    },
+    {
+      "title": "YEARWEEK",
+      "url": "https://www.w3schools.com/sql/func_mysql_yearweek.asp"
+    },
+    {
+      "title": "BIN",
+      "url": "https://www.w3schools.com/sql/func_mysql_bin.asp"
+    },
+    {
+      "title": "BINARY",
+      "url": "https://www.w3schools.com/sql/func_mysql_binary.asp"
+    },
+    {
+      "title": "CAST",
+      "url": "https://www.w3schools.com/sql/func_mysql_cast.asp"
+    },
+    {
+      "title": "COALESCE",
+      "url": "https://www.w3schools.com/sql/func_mysql_coalesce.asp"
+    },
+    {
+      "title": "CONNECTION_ID",
+      "url": "https://www.w3schools.com/sql/func_mysql_connection_id.asp"
+    },
+    {
+      "title": "CONV",
+      "url": "https://www.w3schools.com/sql/func_mysql_conv.asp"
+    },
+    {
+      "title": "CONVERT",
+      "url": "https://www.w3schools.com/sql/func_mysql_convert.asp"
+    },
+    {
+      "title": "CURRENT_USER",
+      "url": "https://www.w3schools.com/sql/func_mysql_current_user.asp"
+    },
+    {
+      "title": "IF",
+      "url": "https://www.w3schools.com/sql/func_mysql_if.asp"
+    },
+    {
+      "title": "IFNULL",
+      "url": "https://www.w3schools.com/sql/func_mysql_ifnull.asp"
+    },
+    {
+      "title": "ISNULL",
+      "url": "https://www.w3schools.com/sql/func_mysql_isnull.asp"
+    },
+    {
+      "title": "LAST_INSERT_ID",
+      "url": "https://www.w3schools.com/sql/func_mysql_last_insert_id.asp"
+    },
+    {
+      "title": "NULLIF",
+      "url": "https://www.w3schools.com/sql/func_mysql_nullif.asp"
+    },
+    {
+      "title": "SESSION_USER",
+      "url": "https://www.w3schools.com/sql/func_mysql_session_user.asp"
+    },
+    {
+      "title": "SYSTEM_USER",
+      "url": "https://www.w3schools.com/sql/func_mysql_system_user.asp"
+    },
+    {
+      "title": "USER",
+      "url": "https://www.w3schools.com/sql/func_mysql_user.asp"
+    },
+    {
+      "title": "VERSION",
+      "url": "https://www.w3schools.com/sql/func_mysql_version.asp"
+    },
+    {
+      "title": "SQL Server Functions",
+      "url": "https://www.w3schools.com/sql/sql_ref_sqlserver.asp"
+    },
+    {
+      "title": "MS Access Functions",
+      "url": "https://www.w3schools.com/sql/sql_ref_msaccess.asp"
+    },
+    {
+      "title": "SQL Quick Ref",
+      "url": "https://www.w3schools.com/sql/sql_quickref.asp"
+    },
+    {
+      "title": "SQL Examples",
+      "url": "https://www.w3schools.com/sql/sql_examples.asp"
+    },
+    {
+      "title": "SQL Editor",
+      "url": "https://www.w3schools.com/sql/sql_editor.asp"
+    },
+    {
+      "title": "SQL Quiz",
+      "url": "https://www.w3schools.com/sql/sql_quiz.asp"
+    },
+    {
+      "title": "SQL Exercises",
+      "url": "https://www.w3schools.com/sql/sql_exercises.asp"
+    },
+    {
+      "title": "SQL Server",
+      "url": "https://www.w3schools.com/sql/sql_server.asp"
+    },
+    {
+      "title": "SQL Syllabus",
+      "url": "https://www.w3schools.com/sql/sql_syllabus.asp"
+    },
+    {
+      "title": "SQL Study Plan",
+      "url": "https://www.w3schools.com/sql/sql_study_plan.asp"
+    },
+    {
+      "title": "SQL Bootcamp",
+      "url": "https://www.w3schools.com/sql/sql_bootcamp.asp"
+    },
+    {
+      "title": "SQL Certificate",
+      "url": "https://www.w3schools.com/sql/sql_exam.asp"
+    },
+    {
+      "title": "SQL Training",
+      "url": "https://www.w3schools.com/sql/sql_training.asp"
+    },
+    {
+      "title": "Try it Yourself &raquo;",
+      "url": "https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all"
+    }
+  ]
+}

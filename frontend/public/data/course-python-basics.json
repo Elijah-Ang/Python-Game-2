@@ -5,12 +5,12 @@
     {
       "id": 1,
       "title": "Variables, Types & Memory",
-      "icon": "\ud83c\udfe0",
+      "icon": "🏠",
       "is_boss": false,
       "concepts": [
         {
           "name": "Variables",
-          "icon": "\ud83d\udce6",
+          "icon": "📦",
           "lessons": [
             {
               "id": 1,
@@ -41,7 +41,7 @@
         },
         {
           "name": "Strings",
-          "icon": "\ud83d\udcdd",
+          "icon": "📝",
           "lessons": [
             {
               "id": 5,
@@ -72,7 +72,7 @@
         },
         {
           "name": "Numbers",
-          "icon": "\ud83d\udd22",
+          "icon": "🔢",
           "lessons": [
             {
               "id": 9,
@@ -103,7 +103,7 @@
         },
         {
           "name": "Type Conversion",
-          "icon": "\ud83d\udd04",
+          "icon": "🔄",
           "lessons": [
             {
               "id": 12,
@@ -137,12 +137,12 @@
     {
       "id": 3,
       "title": "Logic & Control Flow",
-      "icon": "\ud83d\udd00",
+      "icon": "🔀",
       "is_boss": false,
       "concepts": [
         {
           "name": "Conditionals",
-          "icon": "\ud83d\udd00",
+          "icon": "🔀",
           "lessons": [
             {
               "id": 22,
@@ -173,7 +173,7 @@
         },
         {
           "name": "Comparison & Logical",
-          "icon": "\u2696\ufe0f",
+          "icon": "⚖️",
           "lessons": [
             {
               "id": 25,
@@ -204,7 +204,7 @@
         },
         {
           "name": "Advanced Conditionals",
-          "icon": "\ud83c\udfaf",
+          "icon": "🎯",
           "lessons": [
             {
               "id": 29,
@@ -238,12 +238,12 @@
     {
       "id": 2,
       "title": "Loops (Iteration)",
-      "icon": "\ud83d\udd01",
+      "icon": "🔁",
       "is_boss": false,
       "concepts": [
         {
           "name": "For Loops",
-          "icon": "\ud83d\udd04",
+          "icon": "🔄",
           "lessons": [
             {
               "id": 13,
@@ -274,7 +274,7 @@
         },
         {
           "name": "range() Function",
-          "icon": "\ud83d\udd22",
+          "icon": "🔢",
           "lessons": [
             {
               "id": 16,
@@ -305,7 +305,7 @@
         },
         {
           "name": "While Loops & Control",
-          "icon": "\u23f9\ufe0f",
+          "icon": "⏹️",
           "lessons": [
             {
               "id": 19,
@@ -339,12 +339,12 @@
     {
       "id": 4,
       "title": "Functions",
-      "icon": "\u2699\ufe0f",
+      "icon": "⚙️",
       "is_boss": false,
       "concepts": [
         {
           "name": "Function Basics",
-          "icon": "\u2699\ufe0f",
+          "icon": "⚙️",
           "lessons": [
             {
               "id": 31,
@@ -375,7 +375,7 @@
         },
         {
           "name": "Parameters & Arguments",
-          "icon": "\ud83d\udce5",
+          "icon": "📥",
           "lessons": [
             {
               "id": 34,
@@ -406,7 +406,7 @@
         },
         {
           "name": "Advanced Functions",
-          "icon": "\ud83d\ude80",
+          "icon": "🚀",
           "lessons": [
             {
               "id": 37,
@@ -440,12 +440,12 @@
     {
       "id": 100,
       "title": "Sand Sphinx Boss",
-      "icon": "\ud83d\udc0d",
+      "icon": "🐍",
       "is_boss": true,
       "lessons": [
         {
           "id": 40,
-          "title": "\ud83d\udc0d Sand Sphinx Challenge",
+          "title": "🐍 Sand Sphinx Challenge",
           "order": 1
         }
       ]
@@ -453,12 +453,12 @@
     {
       "id": 7,
       "title": "Data Structures",
-      "icon": "\ud83d\udce6",
+      "icon": "📦",
       "is_boss": false,
       "concepts": [
         {
           "name": "Lists",
-          "icon": "\ud83d\udccb",
+          "icon": "📋",
           "lessons": [
             {
               "id": 41,
@@ -489,7 +489,7 @@
         },
         {
           "name": "Dictionaries",
-          "icon": "\ud83d\uddc2\ufe0f",
+          "icon": "🗂️",
           "lessons": [
             {
               "id": 44,
@@ -520,7 +520,7 @@
         },
         {
           "name": "Other Structures",
-          "icon": "\ud83d\udce6",
+          "icon": "📦",
           "lessons": [
             {
               "id": 46,
@@ -554,12 +554,12 @@
     {
       "id": 8,
       "title": "File Handling",
-      "icon": "\ud83d\udcc1",
+      "icon": "📁",
       "is_boss": false,
       "concepts": [
         {
           "name": "Reading Files",
-          "icon": "\ud83d\udcd6",
+          "icon": "📖",
           "lessons": [
             {
               "id": 50,
@@ -590,7 +590,7 @@
         },
         {
           "name": "Data Formats",
-          "icon": "\ud83d\udcc4",
+          "icon": "📄",
           "lessons": [
             {
               "id": 53,
@@ -621,7 +621,7 @@
         },
         {
           "name": "Text Operations",
-          "icon": "\ud83d\udd0d",
+          "icon": "🔍",
           "lessons": [
             {
               "id": 56,
@@ -655,12 +655,12 @@
     {
       "id": 9,
       "title": "Modules & Packages",
-      "icon": "\ud83d\udce6",
+      "icon": "📦",
       "is_boss": false,
       "concepts": [
         {
           "name": "Import Basics",
-          "icon": "\ud83d\udce6",
+          "icon": "📦",
           "lessons": [
             {
               "id": 59,
@@ -691,7 +691,7 @@
         },
         {
           "name": "Standard Modules",
-          "icon": "\ud83d\udee0\ufe0f",
+          "icon": "🛠️",
           "lessons": [
             {
               "id": 61,
@@ -722,7 +722,7 @@
         },
         {
           "name": "Advanced Modules",
-          "icon": "\ud83e\uddf0",
+          "icon": "🧰",
           "lessons": [
             {
               "id": 65,
@@ -756,12 +756,12 @@
     {
       "id": 95,
       "title": "NumPy Fundamentals",
-      "icon": "\ud83d\udd22",
+      "icon": "🔢",
       "is_boss": false,
       "concepts": [
         {
           "name": "Array Creation",
-          "icon": "\ud83d\udd22",
+          "icon": "🔢",
           "lessons": [
             {
               "id": 114,
@@ -792,7 +792,7 @@
         },
         {
           "name": "Array Operations",
-          "icon": "\u2795",
+          "icon": "➕",
           "lessons": [
             {
               "id": 115,
@@ -823,7 +823,7 @@
         },
         {
           "name": "Boolean Indexing",
-          "icon": "\u2705",
+          "icon": "✅",
           "lessons": [
             {
               "id": 116,
@@ -854,7 +854,7 @@
         },
         {
           "name": "Broadcasting",
-          "icon": "\ud83d\udce1",
+          "icon": "📡",
           "lessons": [
             {
               "id": 117,
@@ -885,7 +885,7 @@
         },
         {
           "name": "Statistics",
-          "icon": "\ud83d\udcca",
+          "icon": "📊",
           "lessons": [
             {
               "id": 118,
@@ -919,12 +919,12 @@
     {
       "id": 10,
       "title": "Pandas & Data Wrangling",
-      "icon": "\ud83d\udc3c",
+      "icon": "🐼",
       "is_boss": false,
       "concepts": [
         {
           "name": "DataFrame Basics",
-          "icon": "\ud83d\udc3c",
+          "icon": "🐼",
           "lessons": [
             {
               "id": 68,
@@ -955,7 +955,7 @@
         },
         {
           "name": "Data Analysis",
-          "icon": "\ud83d\udcca",
+          "icon": "📊",
           "lessons": [
             {
               "id": 71,
@@ -986,7 +986,7 @@
         },
         {
           "name": "Data Wrangling",
-          "icon": "\ud83d\udd27",
+          "icon": "🔧",
           "lessons": [
             {
               "id": 74,
@@ -1020,12 +1020,12 @@
     {
       "id": 96,
       "title": "Data Cleaning",
-      "icon": "\ud83e\uddf9",
+      "icon": "🧹",
       "is_boss": false,
       "concepts": [
         {
           "name": "Missing Data",
-          "icon": "\u2753",
+          "icon": "❓",
           "lessons": [
             {
               "id": 119,
@@ -1056,7 +1056,7 @@
         },
         {
           "name": "Filling Values",
-          "icon": "\ud83d\udcdd",
+          "icon": "📝",
           "lessons": [
             {
               "id": 120,
@@ -1087,7 +1087,7 @@
         },
         {
           "name": "Duplicates",
-          "icon": "\ud83d\udc6f",
+          "icon": "👯",
           "lessons": [
             {
               "id": 121,
@@ -1118,7 +1118,7 @@
         },
         {
           "name": "String Cleanup",
-          "icon": "\ud83e\uddf9",
+          "icon": "🧹",
           "lessons": [
             {
               "id": 122,
@@ -1149,7 +1149,7 @@
         },
         {
           "name": "Type Conversion",
-          "icon": "\ud83d\udd04",
+          "icon": "🔄",
           "lessons": [
             {
               "id": 123,
@@ -1183,12 +1183,12 @@
     {
       "id": 11,
       "title": "Data Visualization",
-      "icon": "\ud83d\udcca",
+      "icon": "📊",
       "is_boss": false,
       "concepts": [
         {
           "name": "Basic Charts",
-          "icon": "\ud83d\udcc8",
+          "icon": "📈",
           "lessons": [
             {
               "id": 77,
@@ -1219,7 +1219,7 @@
         },
         {
           "name": "Distribution Charts",
-          "icon": "\ud83d\udcca",
+          "icon": "📊",
           "lessons": [
             {
               "id": 80,
@@ -1250,7 +1250,7 @@
         },
         {
           "name": "Customization",
-          "icon": "\ud83c\udfa8",
+          "icon": "🎨",
           "lessons": [
             {
               "id": 82,
@@ -1284,12 +1284,12 @@
     {
       "id": 97,
       "title": "EDA Mini-Boss",
-      "icon": "\ud83d\udd0d",
+      "icon": "🔍",
       "is_boss": true,
       "lessons": [
         {
           "id": 124,
-          "title": "\ud83d\udd0d EDA Capstone",
+          "title": "🔍 EDA Capstone",
           "order": 1
         }
       ]
@@ -1297,12 +1297,12 @@
     {
       "id": 12,
       "title": "Algorithms",
-      "icon": "\ud83e\uddee",
+      "icon": "🧮",
       "is_boss": false,
       "concepts": [
         {
           "name": "Search Algorithms",
-          "icon": "\ud83d\udd0d",
+          "icon": "🔍",
           "lessons": [
             {
               "id": 86,
@@ -1333,7 +1333,7 @@
         },
         {
           "name": "Sorting Algorithms",
-          "icon": "\ud83d\udcca",
+          "icon": "📊",
           "lessons": [
             {
               "id": 88,
@@ -1364,7 +1364,7 @@
         },
         {
           "name": "Array Problems",
-          "icon": "\ud83e\uddee",
+          "icon": "🧮",
           "lessons": [
             {
               "id": 89,
@@ -1403,12 +1403,12 @@
     {
       "id": 13,
       "title": "Statistics",
-      "icon": "\ud83d\udcca",
+      "icon": "📊",
       "is_boss": false,
       "concepts": [
         {
           "name": "Central Tendency",
-          "icon": "\ud83c\udfaf",
+          "icon": "🎯",
           "lessons": [
             {
               "id": 95,
@@ -1439,7 +1439,7 @@
         },
         {
           "name": "Spread & Dispersion",
-          "icon": "\ud83d\udccf",
+          "icon": "📏",
           "lessons": [
             {
               "id": 98,
@@ -1470,7 +1470,7 @@
         },
         {
           "name": "Relationships & Normalize",
-          "icon": "\ud83d\udd17",
+          "icon": "🔗",
           "lessons": [
             {
               "id": 101,
@@ -1504,12 +1504,12 @@
     {
       "id": 14,
       "title": "Machine Learning Intro",
-      "icon": "\ud83e\udd16",
+      "icon": "🤖",
       "is_boss": false,
       "concepts": [
         {
           "name": "Data Preparation",
-          "icon": "\ud83d\udd27",
+          "icon": "🔧",
           "lessons": [
             {
               "id": 104,
@@ -1540,7 +1540,7 @@
         },
         {
           "name": "Regression Models",
-          "icon": "\ud83d\udcc8",
+          "icon": "📈",
           "lessons": [
             {
               "id": 105,
@@ -1571,7 +1571,7 @@
         },
         {
           "name": "Classification Models",
-          "icon": "\ud83c\udff7\ufe0f",
+          "icon": "🏷️",
           "lessons": [
             {
               "id": 107,
@@ -1605,13 +1605,912 @@
     {
       "id": 101,
       "title": "Final Boss: Data Scientist",
-      "icon": "\ud83d\udc80",
+      "icon": "💀",
       "is_boss": true,
       "lessons": [
         {
           "id": 113,
-          "title": "\ud83d\udc80 FINAL BOSS: Full Stack Data Scientist",
+          "title": "💀 FINAL BOSS: Full Stack Data Scientist",
           "order": 1
+        }
+      ]
+    },
+    {
+      "id": 150,
+      "title": "W3Schools Coverage: Python",
+      "icon": "📚",
+      "is_boss": false,
+      "concepts": [
+        {
+          "name": "W3Schools Coverage",
+          "icon": "📘",
+          "lessons": [
+            {
+              "id": 26000,
+              "title": "Python HOME",
+              "order": 1
+            },
+            {
+              "id": 26001,
+              "title": "Python Intro",
+              "order": 2
+            },
+            {
+              "id": 26002,
+              "title": "Python Get Started",
+              "order": 3
+            },
+            {
+              "id": 26003,
+              "title": "Python Syntax",
+              "order": 4
+            },
+            {
+              "id": 26004,
+              "title": "Statements",
+              "order": 5
+            },
+            {
+              "id": 26005,
+              "title": "Python Output",
+              "order": 6
+            },
+            {
+              "id": 26006,
+              "title": "Print Numbers",
+              "order": 7
+            },
+            {
+              "id": 26007,
+              "title": "Python Comments",
+              "order": 8
+            },
+            {
+              "id": 26008,
+              "title": "Python Variables",
+              "order": 9
+            },
+            {
+              "id": 26009,
+              "title": "Variable Names",
+              "order": 10
+            },
+            {
+              "id": 26010,
+              "title": "Assign Multiple Values",
+              "order": 11
+            },
+            {
+              "id": 26011,
+              "title": "Output Variables",
+              "order": 12
+            },
+            {
+              "id": 26012,
+              "title": "Global Variables",
+              "order": 13
+            },
+            {
+              "id": 26013,
+              "title": "Python Data Types",
+              "order": 14
+            },
+            {
+              "id": 26014,
+              "title": "Python bytes",
+              "order": 15
+            },
+            {
+              "id": 26015,
+              "title": "Python bytearray",
+              "order": 16
+            },
+            {
+              "id": 26016,
+              "title": "Python memoryview",
+              "order": 17
+            },
+            {
+              "id": 26017,
+              "title": "Python Numbers",
+              "order": 18
+            },
+            {
+              "id": 26018,
+              "title": "Python Primitive Types",
+              "order": 19
+            },
+            {
+              "id": 26019,
+              "title": "Python Casting",
+              "order": 20
+            },
+            {
+              "id": 26020,
+              "title": "Python Strings",
+              "order": 21
+            },
+            {
+              "id": 26021,
+              "title": "Slicing Strings",
+              "order": 22
+            },
+            {
+              "id": 26022,
+              "title": "Modify Strings",
+              "order": 23
+            },
+            {
+              "id": 26023,
+              "title": "Concatenate Strings",
+              "order": 24
+            },
+            {
+              "id": 26024,
+              "title": "Format Strings",
+              "order": 25
+            },
+            {
+              "id": 26025,
+              "title": "Escape Characters",
+              "order": 26
+            },
+            {
+              "id": 26026,
+              "title": "Python Booleans",
+              "order": 27
+            },
+            {
+              "id": 26027,
+              "title": "Python Operators",
+              "order": 28
+            },
+            {
+              "id": 26028,
+              "title": "Arithmetic Operators",
+              "order": 29
+            },
+            {
+              "id": 26029,
+              "title": "Assignment Operators",
+              "order": 30
+            },
+            {
+              "id": 26030,
+              "title": "Logical Operators",
+              "order": 31
+            },
+            {
+              "id": 26031,
+              "title": "Identity Operators",
+              "order": 32
+            },
+            {
+              "id": 26032,
+              "title": "Membership Operators",
+              "order": 33
+            },
+            {
+              "id": 26033,
+              "title": "Bitwise Operators",
+              "order": 34
+            },
+            {
+              "id": 26034,
+              "title": "Operator Precedence",
+              "order": 35
+            },
+            {
+              "id": 26035,
+              "title": "Python Lists",
+              "order": 36
+            },
+            {
+              "id": 26036,
+              "title": "Access List Items",
+              "order": 37
+            },
+            {
+              "id": 26037,
+              "title": "Change List Items",
+              "order": 38
+            },
+            {
+              "id": 26038,
+              "title": "Add List Items",
+              "order": 39
+            },
+            {
+              "id": 26039,
+              "title": "Remove List Items",
+              "order": 40
+            },
+            {
+              "id": 26040,
+              "title": "Loop Lists",
+              "order": 41
+            },
+            {
+              "id": 26041,
+              "title": "Sort Lists",
+              "order": 42
+            },
+            {
+              "id": 26042,
+              "title": "Copy Lists",
+              "order": 43
+            },
+            {
+              "id": 26043,
+              "title": "Join Lists",
+              "order": 44
+            },
+            {
+              "id": 26044,
+              "title": "Access Tuples",
+              "order": 45
+            },
+            {
+              "id": 26045,
+              "title": "Update Tuples",
+              "order": 46
+            },
+            {
+              "id": 26046,
+              "title": "Unpack Tuples",
+              "order": 47
+            },
+            {
+              "id": 26047,
+              "title": "Loop Tuples",
+              "order": 48
+            },
+            {
+              "id": 26048,
+              "title": "Join Tuples",
+              "order": 49
+            },
+            {
+              "id": 26049,
+              "title": "Tuple Methods",
+              "order": 50
+            },
+            {
+              "id": 26050,
+              "title": "Access Set Items",
+              "order": 51
+            },
+            {
+              "id": 26051,
+              "title": "Add Set Items",
+              "order": 52
+            },
+            {
+              "id": 26052,
+              "title": "Remove Set Items",
+              "order": 53
+            },
+            {
+              "id": 26053,
+              "title": "Loop Sets",
+              "order": 54
+            },
+            {
+              "id": 26054,
+              "title": "Join Sets",
+              "order": 55
+            },
+            {
+              "id": 26055,
+              "title": "Frozenset",
+              "order": 56
+            },
+            {
+              "id": 26056,
+              "title": "Set Methods",
+              "order": 57
+            },
+            {
+              "id": 26057,
+              "title": "Access Items",
+              "order": 58
+            },
+            {
+              "id": 26058,
+              "title": "Change Items",
+              "order": 59
+            },
+            {
+              "id": 26059,
+              "title": "Add Items",
+              "order": 60
+            },
+            {
+              "id": 26060,
+              "title": "Remove Items",
+              "order": 61
+            },
+            {
+              "id": 26061,
+              "title": "Loop Dictionaries",
+              "order": 62
+            },
+            {
+              "id": 26062,
+              "title": "Copy Dictionaries",
+              "order": 63
+            },
+            {
+              "id": 26063,
+              "title": "Nested Dictionaries",
+              "order": 64
+            },
+            {
+              "id": 26064,
+              "title": "Python Elif",
+              "order": 65
+            },
+            {
+              "id": 26065,
+              "title": "Python Else",
+              "order": 66
+            },
+            {
+              "id": 26066,
+              "title": "Shorthand If",
+              "order": 67
+            },
+            {
+              "id": 26067,
+              "title": "Nested If",
+              "order": 68
+            },
+            {
+              "id": 26068,
+              "title": "Pass Statement",
+              "order": 69
+            },
+            {
+              "id": 26069,
+              "title": "Python Match",
+              "order": 70
+            },
+            {
+              "id": 26070,
+              "title": "Python While Loops",
+              "order": 71
+            },
+            {
+              "id": 26071,
+              "title": "Python For Loops",
+              "order": 72
+            },
+            {
+              "id": 26072,
+              "title": "Python Data Processing",
+              "order": 73
+            },
+            {
+              "id": 26073,
+              "title": "Python Functions",
+              "order": 74
+            },
+            {
+              "id": 26074,
+              "title": "Python Arguments",
+              "order": 75
+            },
+            {
+              "id": 26075,
+              "title": "Python *args / **kwargs",
+              "order": 76
+            },
+            {
+              "id": 26076,
+              "title": "Python Scope",
+              "order": 77
+            },
+            {
+              "id": 26077,
+              "title": "Python Decorators",
+              "order": 78
+            },
+            {
+              "id": 26078,
+              "title": "Python Lambda",
+              "order": 79
+            },
+            {
+              "id": 26079,
+              "title": "Python Recursion",
+              "order": 80
+            },
+            {
+              "id": 26080,
+              "title": "Python Generators",
+              "order": 81
+            },
+            {
+              "id": 26081,
+              "title": "Python Arrays",
+              "order": 82
+            },
+            {
+              "id": 26082,
+              "title": "Python Iterators",
+              "order": 83
+            },
+            {
+              "id": 26083,
+              "title": "Python Modules",
+              "order": 84
+            },
+            {
+              "id": 26084,
+              "title": "Python Dates",
+              "order": 85
+            },
+            {
+              "id": 26085,
+              "title": "Python Math",
+              "order": 86
+            },
+            {
+              "id": 26086,
+              "title": "Python JSON",
+              "order": 87
+            },
+            {
+              "id": 26087,
+              "title": "Python RegEx",
+              "order": 88
+            },
+            {
+              "id": 26088,
+              "title": "Python PIP",
+              "order": 89
+            },
+            {
+              "id": 26089,
+              "title": "Python Try...Except",
+              "order": 90
+            },
+            {
+              "id": 26090,
+              "title": "Python String Formatting",
+              "order": 91
+            },
+            {
+              "id": 26091,
+              "title": "Python None",
+              "order": 92
+            },
+            {
+              "id": 26092,
+              "title": "Python User Input",
+              "order": 93
+            },
+            {
+              "id": 26093,
+              "title": "Python VirtualEnv",
+              "order": 94
+            },
+            {
+              "id": 26094,
+              "title": "Python OOP",
+              "order": 95
+            },
+            {
+              "id": 26095,
+              "title": "Python Classes/Objects",
+              "order": 96
+            },
+            {
+              "id": 26096,
+              "title": "Python __init__ Method",
+              "order": 97
+            },
+            {
+              "id": 26097,
+              "title": "Python self Parameter",
+              "order": 98
+            },
+            {
+              "id": 26098,
+              "title": "Python Class Properties",
+              "order": 99
+            },
+            {
+              "id": 26099,
+              "title": "Python Class Methods",
+              "order": 100
+            },
+            {
+              "id": 26100,
+              "title": "Python Inheritance",
+              "order": 101
+            },
+            {
+              "id": 26101,
+              "title": "Python Polymorphism",
+              "order": 102
+            },
+            {
+              "id": 26102,
+              "title": "Python Encapsulation",
+              "order": 103
+            },
+            {
+              "id": 26103,
+              "title": "Python Inner Classes",
+              "order": 104
+            },
+            {
+              "id": 26104,
+              "title": "Python File Handling",
+              "order": 105
+            },
+            {
+              "id": 26105,
+              "title": "Python Read Files",
+              "order": 106
+            },
+            {
+              "id": 26106,
+              "title": "Python Write/Create Files",
+              "order": 107
+            },
+            {
+              "id": 26107,
+              "title": "Python Delete Files",
+              "order": 108
+            },
+            {
+              "id": 26108,
+              "title": "Getting Started",
+              "order": 109
+            },
+            {
+              "id": 26109,
+              "title": "Mean Median Mode",
+              "order": 110
+            },
+            {
+              "id": 26110,
+              "title": "Percentile",
+              "order": 111
+            },
+            {
+              "id": 26111,
+              "title": "Data Distribution",
+              "order": 112
+            },
+            {
+              "id": 26112,
+              "title": "Normal Data Distribution",
+              "order": 113
+            },
+            {
+              "id": 26113,
+              "title": "Polynomial Regression",
+              "order": 114
+            },
+            {
+              "id": 26114,
+              "title": "Multiple Regression",
+              "order": 115
+            },
+            {
+              "id": 26115,
+              "title": "Scale",
+              "order": 116
+            },
+            {
+              "id": 26116,
+              "title": "Train/Test",
+              "order": 117
+            },
+            {
+              "id": 26117,
+              "title": "Hierarchical Clustering",
+              "order": 118
+            },
+            {
+              "id": 26118,
+              "title": "Logistic Regression",
+              "order": 119
+            },
+            {
+              "id": 26119,
+              "title": "Grid Search",
+              "order": 120
+            },
+            {
+              "id": 26120,
+              "title": "Categorical Data",
+              "order": 121
+            },
+            {
+              "id": 26121,
+              "title": "K-means",
+              "order": 122
+            },
+            {
+              "id": 26122,
+              "title": "Bootstrap Aggregation",
+              "order": 123
+            },
+            {
+              "id": 26123,
+              "title": "AUC - ROC Curve",
+              "order": 124
+            },
+            {
+              "id": 26124,
+              "title": "Python DSA",
+              "order": 125
+            },
+            {
+              "id": 26125,
+              "title": "Lists and Arrays",
+              "order": 126
+            },
+            {
+              "id": 26126,
+              "title": "Stacks",
+              "order": 127
+            },
+            {
+              "id": 26127,
+              "title": "Queues",
+              "order": 128
+            },
+            {
+              "id": 26128,
+              "title": "Linked Lists",
+              "order": 129
+            },
+            {
+              "id": 26129,
+              "title": "Hash Tables",
+              "order": 130
+            },
+            {
+              "id": 26130,
+              "title": "Trees",
+              "order": 131
+            },
+            {
+              "id": 26131,
+              "title": "Binary Trees",
+              "order": 132
+            },
+            {
+              "id": 26132,
+              "title": "Binary Search Trees",
+              "order": 133
+            },
+            {
+              "id": 26133,
+              "title": "AVL Trees",
+              "order": 134
+            },
+            {
+              "id": 26134,
+              "title": "Graphs",
+              "order": 135
+            },
+            {
+              "id": 26135,
+              "title": "Counting Sort",
+              "order": 136
+            },
+            {
+              "id": 26136,
+              "title": "Radix Sort",
+              "order": 137
+            },
+            {
+              "id": 26137,
+              "title": "MySQL Get Started",
+              "order": 138
+            },
+            {
+              "id": 26138,
+              "title": "MySQL Create Database",
+              "order": 139
+            },
+            {
+              "id": 26139,
+              "title": "MySQL Create Table",
+              "order": 140
+            },
+            {
+              "id": 26140,
+              "title": "MySQL Insert",
+              "order": 141
+            },
+            {
+              "id": 26141,
+              "title": "MySQL Select",
+              "order": 142
+            },
+            {
+              "id": 26142,
+              "title": "MySQL Where",
+              "order": 143
+            },
+            {
+              "id": 26143,
+              "title": "MySQL Order By",
+              "order": 144
+            },
+            {
+              "id": 26144,
+              "title": "MySQL Delete",
+              "order": 145
+            },
+            {
+              "id": 26145,
+              "title": "MySQL Drop Table",
+              "order": 146
+            },
+            {
+              "id": 26146,
+              "title": "MySQL Update",
+              "order": 147
+            },
+            {
+              "id": 26147,
+              "title": "MySQL Limit",
+              "order": 148
+            },
+            {
+              "id": 26148,
+              "title": "MySQL Join",
+              "order": 149
+            },
+            {
+              "id": 26149,
+              "title": "MongoDB Get Started",
+              "order": 150
+            },
+            {
+              "id": 26150,
+              "title": "MongoDB Create DB",
+              "order": 151
+            },
+            {
+              "id": 26151,
+              "title": "MongoDB Collection",
+              "order": 152
+            },
+            {
+              "id": 26152,
+              "title": "MongoDB Insert",
+              "order": 153
+            },
+            {
+              "id": 26153,
+              "title": "MongoDB Find",
+              "order": 154
+            },
+            {
+              "id": 26154,
+              "title": "MongoDB Query",
+              "order": 155
+            },
+            {
+              "id": 26155,
+              "title": "MongoDB Sort",
+              "order": 156
+            },
+            {
+              "id": 26156,
+              "title": "MongoDB Delete",
+              "order": 157
+            },
+            {
+              "id": 26157,
+              "title": "MongoDB Drop Collection",
+              "order": 158
+            },
+            {
+              "id": 26158,
+              "title": "MongoDB Update",
+              "order": 159
+            },
+            {
+              "id": 26159,
+              "title": "MongoDB Limit",
+              "order": 160
+            },
+            {
+              "id": 26160,
+              "title": "Python as Aspect Oriented",
+              "order": 161
+            },
+            {
+              "id": 26161,
+              "title": "Python Database",
+              "order": 162
+            },
+            {
+              "id": 26162,
+              "title": "Python Web Applications",
+              "order": 163
+            },
+            {
+              "id": 26163,
+              "title": "Python Workflows",
+              "order": 164
+            },
+            {
+              "id": 26164,
+              "title": "Python Maths & Science",
+              "order": 165
+            },
+            {
+              "id": 26165,
+              "title": "Python Regular Expressions",
+              "order": 166
+            },
+            {
+              "id": 26166,
+              "title": "Python Unit Testing",
+              "order": 167
+            },
+            {
+              "id": 26167,
+              "title": "Python Overview",
+              "order": 168
+            },
+            {
+              "id": 26168,
+              "title": "Python Built-in Functions",
+              "order": 169
+            },
+            {
+              "id": 26169,
+              "title": "Python File Methods",
+              "order": 170
+            },
+            {
+              "id": 26170,
+              "title": "Python Keywords",
+              "order": 171
+            },
+            {
+              "id": 26171,
+              "title": "Python Exceptions",
+              "order": 172
+            },
+            {
+              "id": 26172,
+              "title": "Python Glossary",
+              "order": 173
+            },
+            {
+              "id": 26173,
+              "title": "Built-in Modules",
+              "order": 174
+            },
+            {
+              "id": 26174,
+              "title": "Remove List Duplicates",
+              "order": 175
+            },
+            {
+              "id": 26175,
+              "title": "Reverse a String",
+              "order": 176
+            },
+            {
+              "id": 26176,
+              "title": "Add Two Numbers",
+              "order": 177
+            }
+          ]
         }
       ]
     }
