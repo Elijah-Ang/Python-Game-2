@@ -6,23 +6,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { InteractiveProvider, useInteractive } from '../context/InteractiveContext';
-import { VariableSlider } from '../components/interactive/VariableSlider';
-import { VisualMemoryBox } from '../components/interactive/VisualMemoryBox';
-import { DraggableValueBox, ValueChip } from '../components/interactive/DraggableValueBox';
-import { LiveCodeBlock } from '../components/interactive/LiveCodeBlock';
-import { VisualTable } from '../components/interactive/VisualTable';
-import { ParsonsPuzzle } from '../components/interactive/ParsonsPuzzle';
-import { PredictionCheck } from '../components/interactive/PredictionCheck';
-import { HintLadder } from '../components/interactive/HintLadder';
-import { StateInspector } from '../components/interactive/StateInspector';
-import { ResetStateButton } from '../components/interactive/ResetStateButton';
-import { OutputDiff } from '../components/interactive/OutputDiff';
-import { StepExecutor } from '../components/interactive/StepExecutor';
-import { InteractionPlanRenderer } from '../components/interactive/InteractionPlanRenderer';
-import { FillBlanks } from '../components/interactive/FillBlanks';
 import confetti from 'canvas-confetti';
 import { verifyCode, verifySql, verifyR } from '../utils/verifier';
-import type { LessonInteractionPlan } from '../types/interaction';
 
 interface LessonData {
     id: number;
@@ -33,14 +18,6 @@ interface LessonData {
     expected_output: string;
     chapter_id: number;
     concept_tags?: string[];
-    interaction_plan?: LessonInteractionPlan;
-    interaction_required?: boolean;
-    expected_result?: string;
-    send_to_editor_template?: string;
-    interaction_recipe_id?: string;
-    prediction_justification?: string;
-    interaction_confidence?: number;
-    manual_review?: boolean;
 }
 
 interface VerifyResult {
@@ -70,74 +47,43 @@ interface WebRInterface {
     };
 }
 
-const CONTENT_COMPONENT_MAP: Record<string, string> = {
-    VariableSlider: 'variable_slider',
-    VisualMemoryBox: 'memory_box',
-    DraggableValueBox: 'draggable_value',
-    ValueChip: 'value_chip',
-    LiveCodeBlock: 'live_code_block',
-    VisualTable: 'visual_table',
-    ParsonsPuzzle: 'parsons_puzzle',
-    PredictionCheck: 'prediction',
-    HintLadder: 'hint_ladder',
-    StateInspector: 'state_inspector',
-    ResetStateButton: 'reset_state',
-    OutputDiff: 'output_diff',
-    StepExecutor: 'step_executor',
-    FillBlanks: 'fill_blanks',
-    TokenSlotPuzzle: 'token_slot',
-    LoopSimulator: 'loop_simulator',
-    ConditionalPath: 'conditional_path',
-    DataTransformAnimator: 'data_transform',
-    JoinVisualizer: 'join_visualizer',
-    DebugQuest: 'debug_quest',
-    GraphManipulator: 'graph_manipulator',
-    MemoryMachine: 'memory_machine'
-};
+const INTERACTIVE_TAGS = [
+    'variableslider',
+    'visualmemorybox',
+    'draggablevaluebox',
+    'valuechip',
+    'livecodeblock',
+    'visualtable',
+    'parsonspuzzle',
+    'predictioncheck',
+    'hintladder',
+    'stateinspector',
+    'resetstatebutton',
+    'outputdiff',
+    'stepexecutor',
+    'fillblanks',
+    'tokenslotpuzzle',
+    'loopsimulator',
+    'conditionalpath',
+    'datatransformanimator',
+    'joinvisualizer',
+    'debugquest',
+    'graphmanipulator',
+    'memorymachine'
+];
 
-const stripTryItFirstSection = (content?: string): string => {
+const stripInteractiveContent = (content?: string): string => {
     if (!content) {
         return '';
     }
-    const stripped = content.replace(/(^|\n)##\s*Try It First[\s\S]*?(?=\n##\s|\n#\s|$)/gi, '\n');
+    let stripped = content.replace(/(^|\n)##\s*(Try It First|Try It Yourself|Experiment|Interactive Demo|Interactive Plan)[\s\S]*?(?=\n##\s|\n#\s|$)/gi, '\n');
+    INTERACTIVE_TAGS.forEach((tag) => {
+        const blockRegex = new RegExp(`<${tag}\\b[\\s\\S]*?<\\/${tag}>`, 'gi');
+        const selfClosingRegex = new RegExp(`<${tag}\\b[^/>]*\\/>`, 'gi');
+        stripped = stripped.replace(blockRegex, '');
+        stripped = stripped.replace(selfClosingRegex, '');
+    });
     return stripped.replace(/\n{3,}/g, '\n\n').trim();
-};
-
-const extractContentComponents = (content?: string): string[] => {
-    if (!content) {
-        return [];
-    }
-    const sanitized = stripTryItFirstSection(content);
-    const found = new Set<string>();
-    Object.entries(CONTENT_COMPONENT_MAP).forEach(([tag, type]) => {
-        const regex = new RegExp(`<${tag}\\b`, 'i');
-        if (regex.test(sanitized)) {
-            found.add(type);
-        }
-    });
-    return Array.from(found);
-};
-
-const extractPlanComponents = (lesson?: LessonData | null): string[] => {
-    if (!lesson) {
-        return [];
-    }
-    const found = new Set<string>();
-    (lesson.interaction_plan || []).forEach((item) => {
-        if (item && item.type) {
-            found.add(item.type);
-        }
-    });
-    if (lesson.send_to_editor_template) {
-        found.add('send_to_editor');
-    }
-    return Array.from(found);
-};
-
-const buildAuditComponents = (lesson?: LessonData | null): string[] => {
-    const planComponents = extractPlanComponents(lesson);
-    const contentComponents = extractContentComponents(lesson?.content);
-    return Array.from(new Set([...planComponents, ...contentComponents]));
 };
 
 const runWithTimeout = async <T,>(promise: Promise<T>, timeoutMs: number, timeoutMessage: string) => {
@@ -189,10 +135,9 @@ const LessonContent: React.FC = () => {
     const [webR, setWebR] = useState<WebRInterface | null>(null);
     const rightPanelRef = useRef<HTMLDivElement>(null);
     const [mobileTab, setMobileTab] = useState<'lesson' | 'code'>('lesson');
-    const { decisionCount, consequenceCount, recordEvent, recordDecision, recordConsequence } = useInteractive();
+    const { recordEvent, recordDecision, recordConsequence } = useInteractive();
     const lessonStartRef = useRef(Date.now());
     const [completionLogged, setCompletionLogged] = useState(false);
-    const warnedNoPlanRef = useRef<number | null>(null);
     const isAuditMode = useMemo(() => {
         if (typeof window === 'undefined') {
             return false;
@@ -220,7 +165,7 @@ const LessonContent: React.FC = () => {
 
     const currentExercise = Number(id) || 1;
     const sanitizedContent = useMemo(
-        () => stripTryItFirstSection(lesson?.content),
+        () => stripInteractiveContent(lesson?.content),
         [lesson?.content]
     );
 
@@ -229,29 +174,15 @@ const LessonContent: React.FC = () => {
             return;
         }
         const lessonId = lesson.id ?? currentExercise;
-        const recipeId = lesson.interaction_recipe_id || '';
-        const components = buildAuditComponents(lesson);
-        const hasPrediction = components.includes('prediction');
+        const recipeId = '';
+        const components: string[] = [];
+        const hasPrediction = false;
         window.__AUDIT_READY__ = {
             lessonId,
             recipeId,
             components,
             hasPrediction
         };
-    }, [lesson, currentExercise]);
-
-    useEffect(() => {
-        if (!lesson) {
-            return;
-        }
-        const lessonId = lesson.id ?? currentExercise;
-        if (warnedNoPlanRef.current === lessonId) {
-            return;
-        }
-        if (!lesson.interaction_plan || lesson.interaction_plan.length === 0) {
-            console.warn(`[lesson ${lessonId}] Missing interaction_plan; define one instead of relying on defaults.`);
-        }
-        warnedNoPlanRef.current = lessonId;
     }, [lesson, currentExercise]);
 
     // Load Lesson Data from static JSON
@@ -700,15 +631,6 @@ ${code}
         }
     };
 
-    const handlePrimeCode = useCallback((snippet: string) => {
-        setCode(snippet);
-        setOutput("");
-        setGraphOutput(null);
-        setVerifyResult(null);
-        setShowSolution(false);
-        setMobileTab('code');
-    }, [setCode, setGraphOutput, setMobileTab, setOutput, setShowSolution, setVerifyResult]);
-
     if (error) {
         return (
             <div className="h-screen bg-[var(--bg-color)] flex flex-col items-center justify-center p-4">
@@ -736,54 +658,42 @@ ${code}
 
     const isSqlLesson = currentExercise >= 1001 && currentExercise < 2000;
     const isRLesson = currentExercise >= 2000;
-    const totalExercises = isRLesson ? 200 : (isSqlLesson ? 161 : 113); // TODO: Update R total
     const lessonId = lesson.id ?? currentExercise;
+    const orderedIndex = orderedLessonIds.indexOf(lessonId);
+    const totalExercises = orderedLessonIds.length || (lessonOrder ?? 1);
 
     if (isAuditMode) {
-        const auditComponents = buildAuditComponents(lesson);
+        const auditComponents: string[] = [];
         return (
             <div
                 data-lesson-id={lessonId}
-                data-recipe-id={lesson.interaction_recipe_id || ''}
                 className="min-h-screen bg-[var(--bg-color)] text-[var(--text-primary)] p-6"
             >
                 <div className="text-xs uppercase tracking-wide text-[var(--text-secondary)]">Audit Mode</div>
                 <div className="text-xl font-bold mt-2">{lesson.title}</div>
                 <div className="text-sm text-[var(--text-secondary)]">Lesson ID: {lessonId}</div>
-                <div className="text-sm text-[var(--text-secondary)]">Recipe: {lesson.interaction_recipe_id || 'none'}</div>
+                <div className="text-sm text-[var(--text-secondary)]">Recipe: none</div>
                 <div className="text-sm text-[var(--text-secondary)]">Components: {auditComponents.join(', ') || 'none'}</div>
             </div>
         );
     }
 
     // Determine display order
-    let displayExercise = currentExercise;
-    if (lessonOrder !== null) {
+    let displayExercise = 1;
+    if (orderedIndex >= 0) {
+        displayExercise = orderedIndex + 1;
+    } else if (lessonOrder !== null) {
         displayExercise = lessonOrder;
-    } else {
-        if (isRLesson) displayExercise = currentExercise - 2000;
-        else if (isSqlLesson) displayExercise = currentExercise - 1000;
     }
 
     const courseSlug = isRLesson ? 'r-fundamentals' : (isSqlLesson ? 'sql-fundamentals' : 'python-basics');
     const editorLanguage = isRLesson ? 'r' : (isSqlLesson ? 'sql' : 'python');
     const scriptFilename = isRLesson ? 'script.R' : (isSqlLesson ? 'query.sql' : 'script.py');
-    const interactionRequired = lesson.interaction_required ?? true;
-    const interactionLocked = interactionRequired && (decisionCount < 1 || consequenceCount < 1);
-    const interactionPlan: LessonInteractionPlan = lesson.interaction_plan ? [...lesson.interaction_plan] : [];
-
-    if (lesson.send_to_editor_template && !interactionPlan.some(item => item.type === 'send_to_editor')) {
-        interactionPlan.push({
-            type: 'send_to_editor',
-            template: lesson.send_to_editor_template,
-            templateId: 'lesson_template'
-        });
-    }
+    const progressPercent = totalExercises > 0 ? Math.min(100, (displayExercise / totalExercises) * 100) : 0;
 
     return (
         <div
             data-lesson-id={lessonId}
-            data-recipe-id={lesson.interaction_recipe_id || ''}
             data-layout="lesson-root"
             className="h-screen flex flex-col bg-[var(--bg-color)] overflow-hidden"
         >
@@ -805,12 +715,12 @@ ${code}
                         <div className="h-2 bg-[var(--border-color)] rounded-full overflow-hidden">
                             <div
                                 className="h-full bg-[var(--accent-secondary)] transition-all"
-                                style={{ width: `${(displayExercise / totalExercises) * 100}%` }}
+                                style={{ width: `${progressPercent}%` }}
                             ></div>
                         </div>
                     </div>
                     <span className="text-xs text-[var(--text-secondary)]">
-                        {Math.round((displayExercise / totalExercises) * 100)}%
+                        {Math.round(progressPercent)}%
                     </span>
 
                     {/* Right side */}
@@ -859,34 +769,6 @@ ${code}
                                     remarkPlugins={[remarkGfm]}
                                     rehypePlugins={[rehypeRaw]}
                                     components={{
-                                        // @ts-ignore
-                                        variableslider: VariableSlider,
-                                        // @ts-ignore
-                                        visualmemorybox: VisualMemoryBox,
-                                        // @ts-ignore
-                                        draggablevaluebox: DraggableValueBox,
-                                        // @ts-ignore
-                                        valuechip: ValueChip,
-                                        // @ts-ignore
-                                        livecodeblock: LiveCodeBlock,
-                                        // @ts-ignore
-                                        visualtable: VisualTable,
-                                        // @ts-ignore
-                                        parsonspuzzle: ParsonsPuzzle,
-                                        // @ts-ignore
-                                        predictioncheck: PredictionCheck,
-                                        // @ts-ignore
-                                        hintladder: HintLadder,
-                                        // @ts-ignore
-                                        stateinspector: StateInspector,
-                                        // @ts-ignore
-                                        resetstatebutton: ResetStateButton,
-                                        // @ts-ignore
-                                        outputdiff: OutputDiff,
-                                        // @ts-ignore
-                                        stepexecutor: StepExecutor,
-                                        // @ts-ignore
-                                        fillblanks: FillBlanks,
                                         h1: ({ children }) => <h1 className="text-xl font-bold mt-6 mb-3 text-[var(--accent-primary)]">{children}</h1>,
                                         h2: ({ children }) => <h2 className="text-lg font-bold mt-5 mb-2">{children}</h2>,
                                         h3: ({ children }) => <h3 className="text-md font-bold mt-4 mb-2">{children}</h3>,
@@ -916,14 +798,6 @@ ${code}
                                     {sanitizedContent}
                                 </ReactMarkdown>
                             </div>
-
-                            {interactionPlan.length > 0 && (
-                                <InteractionPlanRenderer
-                                    plan={interactionPlan}
-                                    onSendToEditor={handlePrimeCode}
-                                    expectedOutput={lesson.expected_output}
-                                />
-                            )}
 
                             {/* Expected Output Section */}
                             {lesson.expected_output && lesson.expected_output !== "Run your code to see the output!" && (
@@ -1064,20 +938,15 @@ ${code}
                                 )}
                                 <button
                                     onClick={submitAnswer}
-                                    disabled={isRunning || isVerifying || interactionLocked}
+                                    disabled={isRunning || isVerifying}
                                     data-cta="submit"
                                     className="px-4 py-1.5 bg-[var(--accent-secondary)] text-white rounded hover:opacity-90 flex items-center gap-2 text-sm font-medium"
-                                    title={interactionLocked ? 'Complete an interactive step to unlock submission' : 'Submit your answer'}
+                                    title="Submit your answer"
                                 >
                                     <Send className="w-4 h-4" />
-                                    {interactionLocked ? "Interact to Unlock" : (isVerifying ? "Checking..." : "Submit")}
+                                    {isVerifying ? "Checking..." : "Submit"}
                                 </button>
                             </div>
-                            {interactionLocked && (
-                                <span className="text-xs text-[var(--accent-warning)]">
-                                    Complete 1 interaction to unlock
-                                </span>
-                            )}
                         </div>
 
                         {/* Resizable Divider - Supports both mouse and touch */}
