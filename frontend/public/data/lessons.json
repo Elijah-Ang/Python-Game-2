@@ -11597,5 +11597,677 @@
     "gap_ids": [
       "SQL-037"
     ]
+  },
+  "20051": {
+    "id": 20051,
+    "title": "Analogy: Color Coding",
+    "content": "# 🎨 Color as Information\n\n## What You'll Learn\nHow mapping a variable to `color` in `aes()` creates meaningful visual distinctions.\n\n## Why This Matters\nColor isn't just decoration—it carries data. Different colors = different groups. This is how you reveal patterns across categories.\n\n## Example\n\n```r\nggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species)) +\n  geom_point()\n```\n\nEach species gets its own color automatically!\n\n## 🎯 Your Task\n\n1. Identify which aesthetic maps to color\n2. Understand: color is for CATEGORICAL variables (like species)\n3. Observe how the legend appears automatically\n\n**Expected Output:**\nA scatterplot with 3 distinct colors (one per species)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ngeom_point(color = species)\n```\nColor must be in `aes()` to map data, not in geom.\n\n**Fixed:**\n```r\naes(color = species)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `ggplot()`, `aes()`, `geom_point()`, and `penguins` from prior lessons.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 1,
+    "chapter_title": "Ch 1: Data Visualization",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20052": {
+    "id": 20052,
+    "title": "Variation: Color vs Fill",
+    "content": "# 🔲 Color vs Fill\n\n## What You'll Learn\nWhen to use `color` vs `fill` for different geoms.\n\n## Why This Matters\nPoints and lines use `color`. Bars and boxes use `fill` for the inside, `color` for the border. Choosing wrong = invisible or ugly plots.\n\n## Example\n\n```r\n# For points: use color\nggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species)) +\n  geom_point()\n\n# For bars: use fill\nggplot(penguins, aes(x = species, fill = species)) +\n  geom_bar()\n```\n\n## 🎯 Your Task\n\n1. Try `color = species` with `geom_bar()` — see how it only colors the outline\n2. Switch to `fill = species` — now the bars are filled\n3. Observe the difference\n\n**Expected Output:**\nBars filled with colors (not just outlined)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ngeom_bar(aes(color = species))\n```\nOnly colors the outline.\n\n**Fixed:**\n```r\ngeom_bar(aes(fill = species))\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `geom_bar()` which is introduced in this chapter.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 1,
+    "chapter_title": "Ch 1: Data Visualization",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20053": {
+    "id": 20053,
+    "title": "Fix the Code: Aesthetic Inside Geom",
+    "content": "# 🔧 Fix: Aes Placement\n\n## What You'll Learn\nWhy aesthetic mappings belong in `aes()`, not as regular arguments.\n\n## Why This Matters\n`color = species` outside `aes()` doesn't work — R looks for a color named \"species\". Inside `aes()`, it knows to map the column.\n\n## Example\n\n```r\n# Wrong — looks for color literally called \"species\"\nggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +\n  geom_point(color = species)  # Error!\n\n# Fixed — mapping goes in aes()\nggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species)) +\n  geom_point()\n```\n\n## 🎯 Your Task\n\n1. The starter code has `color = species` outside aes()\n2. Move it inside `aes()`\n3. Run to see the colored scatterplot\n\n**Expected Output:**\nA scatterplot with points colored by species\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ngeom_point(color = species)\n```\n\n**Fixed:**\n```r\naes(..., color = species)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses aesthetic mapping from this lesson.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 1,
+    "chapter_title": "Ch 1: Data Visualization",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20054": {
+    "id": 20054,
+    "title": "Challenge: Color by Island",
+    "content": "# 🦸 Challenge: Another Variable\n\n## What You'll Learn\nApply color mapping independently to a different variable.\n\n## Why This Matters\nYou can color by any categorical variable — not just species. This tests your understanding.\n\n## Example\n\nPattern:\n```r\naes(..., color = categorical_variable)\n```\n\n## 🎯 Your Task\n\nCreate a scatterplot of `flipper_length_mm` vs `body_mass_g`, but color by `island` instead of species:\n1. Start with `ggplot(data = penguins, ...)`\n2. Map color to `island` in aes()\n3. Add `geom_point()`\n\n**Expected Output:**\nA scatterplot with 3 colors (one per island: Biscoe, Dream, Torgersen)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ncolor = \"island\"\n```\nQuotes make it a literal string, not a column reference.\n\n**Fixed:**\n```r\ncolor = island\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses concepts from this lesson with a different column.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 1,
+    "chapter_title": "Ch 1: Data Visualization",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20061": {
+    "id": 20061,
+    "title": "Analogy: The Best-Fit Line",
+    "content": "# 📈 Drawing the Trend\n\n## What You'll Learn\nHow `geom_smooth()` adds a trend line that summarizes the relationship between x and y.\n\n## Why This Matters\nIndividual points show data; the trend line shows the pattern. It's like connecting the dots to see where things are heading.\n\n## Example\n\n```r\nggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +\n  geom_point() +\n  geom_smooth()\n```\n\nThis adds a curved line with a shaded confidence interval.\n\n## 🎯 Your Task\n\n1. Add `geom_smooth()` after `geom_point()`\n2. Observe the trend line appears\n3. Notice the gray shaded area (confidence band)\n\n**Expected Output:**\nScatterplot with a curved blue line and gray shading\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nForgetting `+` between layers.\n\n**Fixed:**\n```r\ngeom_point() +\ngeom_smooth()\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `geom_smooth()` from this lesson.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 1,
+    "chapter_title": "Ch 1: Data Visualization",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20062": {
+    "id": 20062,
+    "title": "Variation: Straight Line",
+    "content": "# 📏 Linear Trend\n\n## What You'll Learn\nHow to make `geom_smooth()` draw a straight line instead of a curve.\n\n## Why This Matters\nCurved lines (loess) are default. For simple linear relationships, use `method = \"lm\"` for a straight regression line.\n\n## Example\n\n```r\nggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +\n  geom_point() +\n  geom_smooth(method = \"lm\")\n```\n\n## 🎯 Your Task\n\n1. Add `method = \"lm\"` to geom_smooth()\n2. Compare: curved vs straight line\n3. \"lm\" = linear model\n\n**Expected Output:**\nA straight trend line (not curved)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ngeom_smooth(method = lm)\n```\nMissing quotes.\n\n**Fixed:**\n```r\ngeom_smooth(method = \"lm\")\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `geom_smooth()` with an argument.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 1,
+    "chapter_title": "Ch 1: Data Visualization",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20063": {
+    "id": 20063,
+    "title": "Fix the Code: Remove Shading",
+    "content": "# 🔧 Fix: Confidence Interval\n\n## What You'll Learn\nHow to remove the shaded confidence band.\n\n## Why This Matters\nSometimes the gray band is distracting. `se = FALSE` removes it for a cleaner look.\n\n## Example\n\n```r\n# With shading (default)\ngeom_smooth()\n\n# Without shading\ngeom_smooth(se = FALSE)\n```\n\n## 🎯 Your Task\n\n1. The starter code has a noisy shaded band\n2. Add `se = FALSE` to remove it\n3. Verify the line is clean\n\n**Expected Output:**\nJust the trend line, no gray shading\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ngeom_smooth(se = \"FALSE\")\n```\nFALSE is a logical value, not a string.\n\n**Fixed:**\n```r\ngeom_smooth(se = FALSE)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `geom_smooth()` argument.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 1,
+    "chapter_title": "Ch 1: Data Visualization",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20064": {
+    "id": 20064,
+    "title": "Challenge: Trend by Group",
+    "content": "# 🦸 Challenge: Separate Trends\n\n## What You'll Learn\nApply trend lines per group by adding color.\n\n## Why This Matters\nWhen you color by a variable, `geom_smooth()` automatically creates separate trend lines for each group.\n\n## Example\n\nPattern:\n```r\naes(..., color = group_variable) +\ngeom_smooth()\n```\n\n## 🎯 Your Task\n\nCreate a scatterplot with SEPARATE trend lines for each species:\n1. Map `color = species` in aes()\n2. Add both `geom_point()` AND `geom_smooth()`\n3. You should see 3 separate trend lines\n\n**Expected Output:**\nThree different colored trend lines (one per species)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nAdding species only to geom_point(), not in main aes().\n\n**Fixed:**\nPut `color = species` in the `ggplot(aes(...))` so all layers inherit it.\n\n---\n\n✅ **No Hidden Prerequisites**: Combines color mapping with geom_smooth().\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 1,
+    "chapter_title": "Ch 1: Data Visualization",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20111": {
+    "id": 20111,
+    "title": "Analogy: Labels on Boxes",
+    "content": "# 🏷️ Naming Your Variables\n\n## What You'll Learn\nWhy good variable names make code readable.\n\n## Why This Matters\n`x` and `temp` mean nothing. `penguin_mass_kg` tells you exactly what's inside. Future-you will thank present-you.\n\n## Example\n\n```r\n# Bad\nx <- 4200\n\n# Good\navg_penguin_mass_g <- 4200\n```\n\n## 🎯 Your Task\n\n1. Compare the two variable names above\n2. Which one would you understand in 6 months?\n3. Use snake_case: words_separated_by_underscores\n\n**Expected Output:**\nUnderstanding that descriptive names help readability\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\navgPenguinMass  # CamelCase (not R convention)\n```\n\n**Fixed:**\n```r\navg_penguin_mass  # snake_case (R convention)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses basic assignment `<-`.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 2,
+    "chapter_title": "Ch 2: Workflow: Basics",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20112": {
+    "id": 20112,
+    "title": "Variation: Comments",
+    "content": "# 💬 Adding Comments\n\n## What You'll Learn\nHow to add explanatory notes that R ignores.\n\n## Why This Matters\nComments explain WHY, not what. Code shows what; comments explain the reasoning.\n\n## Example\n\n```r\n# Convert grams to kilograms\nmass_kg <- body_mass_g / 1000\n```\n\nThe `#` makes R ignore everything after it on that line.\n\n## 🎯 Your Task\n\n1. Add a comment explaining what the code does\n2. Use `#` at the start\n3. Run to verify R ignores your comment\n\n**Expected Output:**\nCode runs successfully; comment is ignored\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\n// This is a comment\n```\nR uses `#`, not `//`.\n\n**Fixed:**\n```r\n# This is a comment\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses basic R syntax.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 2,
+    "chapter_title": "Ch 2: Workflow: Basics",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20113": {
+    "id": 20113,
+    "title": "Fix the Code: Invalid Name",
+    "content": "# 🔧 Fix: Variable Names\n\n## What You'll Learn\nWhich characters are NOT allowed in variable names.\n\n## Why This Matters\nNames can't start with numbers or contain spaces/special characters. This causes errors.\n\n## Example\n\n```r\n# Invalid\n2nd_value <- 10      # Starts with number\nmy value <- 10       # Has a space\nmy-value <- 10       # Has a hyphen\n\n# Valid\nsecond_value <- 10\nmy_value <- 10\n```\n\n## 🎯 Your Task\n\n1. Fix the invalid variable name in the starter code\n2. Replace spaces or invalid chars with underscores\n3. Verify it runs\n\n**Expected Output:**\nNo error; variable is created\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\n1st_penguin <- \"Adelie\"\n```\n\n**Fixed:**\n```r\nfirst_penguin <- \"Adelie\"\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Basic R naming rules.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 2,
+    "chapter_title": "Ch 2: Workflow: Basics",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20114": {
+    "id": 20114,
+    "title": "Challenge: Rename for Clarity",
+    "content": "# 🦸 Challenge: Better Names\n\n## What You'll Learn\nApply naming best practices to improve code.\n\n## Why This Matters\nReadable code is maintainable code.\n\n## Example\n\nPattern: `what_it_contains_units`\n\n## 🎯 Your Task\n\nImprove these variable names:\n1. `x` → a descriptive name\n2. `d` → what does it represent?\n3. `temp` → be specific\n\n**Expected Output:**\nThree variables with clear, descriptive names\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nn <- 344  # What is n?\n```\n\n**Fixed:**\n```r\npenguin_count <- 344\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Naming conventions only.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 2,
+    "chapter_title": "Ch 2: Workflow: Basics",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20121": {
+    "id": 20121,
+    "title": "Analogy: Recipes",
+    "content": "# 📋 Functions Are Recipes\n\n## What You'll Learn\nHow functions take inputs and produce outputs, like following a recipe.\n\n## Why This Matters\nFunctions do work for you. Give them ingredients (arguments), get back a result. `mean(x)` gives you the average of x.\n\n## Example\n\n```r\nmean(c(1, 2, 3, 4, 5))\n# Returns: 3\n```\n\n## 🎯 Your Task\n\n1. Call `mean()` with the numbers 10, 20, 30\n2. Use `c()` to combine the numbers\n3. Observe the returned average\n\n**Expected Output:**\n`20` (the mean of 10, 20, 30)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nmean(10, 20, 30)  # Multiple arguments\n```\n\n**Fixed:**\n```r\nmean(c(10, 20, 30))  # One vector argument\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `mean()` and `c()` from this lesson.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 2,
+    "chapter_title": "Ch 2: Workflow: Basics",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20122": {
+    "id": 20122,
+    "title": "Variation: Named Arguments",
+    "content": "# 🏷️ Named Arguments\n\n## What You'll Learn\nHow to use named arguments for clarity and control.\n\n## Why This Matters\n`na.rm = TRUE` is clearer than just `TRUE`. Named arguments document your intent.\n\n## Example\n\n```r\n# With NA values\nx <- c(1, 2, NA, 4)\nmean(x)                 # Returns NA\nmean(x, na.rm = TRUE)   # Returns 2.33\n```\n\n## 🎯 Your Task\n\n1. Try `mean(c(5, 10, NA))` — you get NA\n2. Add `na.rm = TRUE` to ignore the NA\n3. Verify you get 7.5\n\n**Expected Output:**\n`7.5`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nmean(x, TRUE)  # Unclear what TRUE means\n```\n\n**Fixed:**\n```r\nmean(x, na.rm = TRUE)  # Self-documenting\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses named arguments from this lesson.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 2,
+    "chapter_title": "Ch 2: Workflow: Basics",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20123": {
+    "id": 20123,
+    "title": "Fix the Code: Missing Parentheses",
+    "content": "# 🔧 Fix: Function Call Syntax\n\n## What You'll Learn\nFunctions need parentheses, even with no arguments.\n\n## Why This Matters\nWithout `()`, R returns the function itself, not its result.\n\n## Example\n\n```r\n# Wrong — returns function object\nnrow\n\n# Fixed — actually calls the function\nnrow(penguins)\n```\n\n## 🎯 Your Task\n\n1. The code is missing parentheses\n2. Add `()` with the data frame inside\n3. Verify you get the row count\n\n**Expected Output:**\n`344` (number of rows in penguins)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nnrow\n```\n\n**Fixed:**\n```r\nnrow(penguins)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Basic function calling syntax.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 2,
+    "chapter_title": "Ch 2: Workflow: Basics",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20124": {
+    "id": 20124,
+    "title": "Challenge: Chain Functions",
+    "content": "# 🦸 Challenge: Nested Calls\n\n## What You'll Learn\nUse function outputs as inputs to other functions.\n\n## Why This Matters\nReal analysis chains functions: round the mean, get the length of unique values, etc.\n\n## Example\n\n```r\nround(mean(c(1.5, 2.5, 3.5)), digits = 1)\n```\n\n## 🎯 Your Task\n\nFind the rounded average body mass of penguins:\n1. Get `penguins$body_mass_g`\n2. Calculate `mean(..., na.rm = TRUE)`\n3. Wrap with `round(..., digits = 0)`\n\n**Expected Output:**\n`4202` (rounded mean body mass)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nForgetting `na.rm = TRUE` when there are NAs.\n\n**Fixed:**\nAlways check if your data has NA values.\n\n---\n\n✅ **No Hidden Prerequisites**: Combines `round()`, `mean()`, `$` access.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 2,
+    "chapter_title": "Ch 2: Workflow: Basics",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20241": {
+    "id": 20241,
+    "title": "Analogy: Sorting into Bins",
+    "content": "# 📊 Group, Then Summarize\n\n## What You'll Learn\nHow `group_by()` + `summarize()` calculates statistics per group.\n\n## Why This Matters\n\"What's the average mass PER species?\" requires grouping first, then calculating. This is the core of data analysis.\n\n> 💡 The `%>%` takes data and passes it to the next function.\n\n## Example\n\n```r\npenguins %>%\n  group_by(species) %>%\n  summarize(avg_mass = mean(body_mass_g, na.rm = TRUE))\n```\n\n## 🎯 Your Task\n\n1. Group penguins by species\n2. Summarize to get the mean body mass per species\n3. You should see 3 rows (one per species)\n\n**Expected Output:**\nA table with species and avg_mass columns (3 rows)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nsummarize(avg = mean(body_mass_g))  # Forgot to group!\n```\n\n**Fixed:**\n```r\ngroup_by(species) %>% summarize(...)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `group_by()` and `summarize()` from this lesson.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 3,
+    "chapter_title": "Ch 3: Data Transformation",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20242": {
+    "id": 20242,
+    "title": "Variation: Multiple Summaries",
+    "content": "# 📈 Multiple Stats at Once\n\n## What You'll Learn\nCalculate multiple summary statistics in one `summarize()` call.\n\n## Why This Matters\nOne pass through the data gives you mean, median, min, max — all at once.\n\n> 💡 The `%>%` passes grouped data to summarize.\n\n## Example\n\n```r\npenguins %>%\n  group_by(species) %>%\n  summarize(\n    avg_mass = mean(body_mass_g, na.rm = TRUE),\n    max_mass = max(body_mass_g, na.rm = TRUE),\n    count = n()\n  )\n```\n\n## 🎯 Your Task\n\n1. Group by species\n2. Calculate BOTH mean AND count\n3. Use `n()` for count (no arguments needed)\n\n**Expected Output:**\nTable with species, avg_mass, and count columns\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nsummarize(mean, max)  # Function names only\n```\n\n**Fixed:**\n```r\nsummarize(avg = mean(col), max = max(col))\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `n()` and multiple summaries.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 3,
+    "chapter_title": "Ch 3: Data Transformation",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20243": {
+    "id": 20243,
+    "title": "Fix the Code: Forgot na.rm",
+    "content": "# 🔧 Fix: NA in Summary\n\n## What You'll Learn\nWhy summaries return NA when data contains missing values.\n\n## Why This Matters\nOne NA poisons the whole calculation. Always use `na.rm = TRUE` with real data.\n\n## Example\n\n```r\n# Wrong — returns NA\nmean(c(1, 2, NA))\n\n# Fixed\nmean(c(1, 2, NA), na.rm = TRUE)\n```\n\n## 🎯 Your Task\n\n1. The summary is returning NA\n2. Add `na.rm = TRUE` to the mean/sum function\n3. Verify you get a number\n\n**Expected Output:**\nActual numeric values, not NA\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nsummarize(avg = mean(body_mass_g))\n```\n\n**Fixed:**\n```r\nsummarize(avg = mean(body_mass_g, na.rm = TRUE))\n```\n\n---\n\n✅ **No Hidden Prerequisites**: NA handling in summaries.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 3,
+    "chapter_title": "Ch 3: Data Transformation",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20244": {
+    "id": 20244,
+    "title": "Challenge: Group by Two",
+    "content": "# 🦸 Challenge: Multiple Groups\n\n## What You'll Learn\nGroup by multiple columns for finer breakdowns.\n\n## Why This Matters\n\"Average mass per species AND sex\" gives you 6 groups instead of 3.\n\n> 💡 The `%>%` chains the operations together.\n\n## Example\n\n```r\ngroup_by(col1, col2)\n```\n\n## 🎯 Your Task\n\nGet average mass grouped by BOTH species AND island:\n1. Use `group_by(species, island)`\n2. Summarize with mean body mass\n3. How many rows do you get?\n\n**Expected Output:**\n5 rows (not all species live on all islands)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ngroup_by(species) %>% group_by(island)  # Replaces!\n```\n\n**Fixed:**\n```r\ngroup_by(species, island)  # Both at once\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Multiple grouping columns.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 3,
+    "chapter_title": "Ch 3: Data Transformation",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20311": {
+    "id": 20311,
+    "title": "Analogy: Assembly Line",
+    "content": "# 🏭 The Pipe Assembly Line\n\n## What You'll Learn\nHow `%>%` chains operations for readable code.\n\n## Why This Matters\nWithout pipes: `f(g(h(x)))` — inside out, hard to read.\nWith pipes: `x %>% h() %>% g() %>% f()` — left to right, step by step.\n\n## Example\n\n```r\n# Without pipe (hard to read)\nround(mean(na.omit(penguins$body_mass_g)), 1)\n\n# With pipe (clear steps)\npenguins$body_mass_g %>%\n  na.omit() %>%\n  mean() %>%\n  round(1)\n```\n\n## 🎯 Your Task\n\n1. Read the piped version left-to-right\n2. Each `%>%` passes the result to the next function\n3. Understand: data flows through the pipe\n\n**Expected Output:**\nUnderstanding that pipes improve readability\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nx %>% mean  # Missing parentheses\n```\n\n**Fixed:**\n```r\nx %>% mean()\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Introduces `%>%` pipe concept.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 4,
+    "chapter_title": "Ch 4: Workflow: Code Style",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20312": {
+    "id": 20312,
+    "title": "Variation: Native Pipe",
+    "content": "# |> vs %>%\n\n## What You'll Learn\nR 4.1+ has a built-in pipe `|>` (native) vs tidyverse `%>%` (magrittr).\n\n## Why This Matters\nBoth work. `|>` is built-in (no package needed). `%>%` has extra features. Most code works with either.\n\n## Example\n\n```r\n# Tidyverse pipe\npenguins %>% filter(species == \"Adelie\")\n\n# Native pipe (R 4.1+)\npenguins |> filter(species == \"Adelie\")\n```\n\n## 🎯 Your Task\n\n1. Try replacing `%>%` with `|>` in existing code\n2. Both should give the same result\n3. Pick one style and be consistent\n\n**Expected Output:**\nSame result with either pipe\n\n## ⚠️ Common Mistake\n\nDon't mix `|>` and `%>%` in the same pipeline — pick one.\n\n---\n\n✅ **No Hidden Prerequisites**: Pipe variants.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 4,
+    "chapter_title": "Ch 4: Workflow: Code Style",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20313": {
+    "id": 20313,
+    "title": "Fix the Code: Pipe Placement",
+    "content": "# 🔧 Fix: Pipe Syntax\n\n## What You'll Learn\nCommon pipe syntax errors and how to fix them.\n\n## Why This Matters\nPipes at wrong positions cause errors.\n\n## Example\n\n```r\n# Wrong — pipe at start of line (after newline)\npenguins\n%>% filter(species == \"Adelie\")\n\n# Fixed — pipe at end of previous line\npenguins %>%\n  filter(species == \"Adelie\")\n```\n\n## 🎯 Your Task\n\n1. The pipe is in the wrong position\n2. Move it to the end of the previous line\n3. Verify the code runs\n\n**Expected Output:**\nFiltered data (no error)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\npenguins\n  %>% filter(...)\n```\n\n**Fixed:**\n```r\npenguins %>%\n  filter(...)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Pipe syntax rules.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 4,
+    "chapter_title": "Ch 4: Workflow: Code Style",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20314": {
+    "id": 20314,
+    "title": "Challenge: Build a Pipeline",
+    "content": "# 🦸 Challenge: Multi-Step Pipeline\n\n## What You'll Learn\nBuild a complete data analysis pipeline.\n\n## Why This Matters\nReal workflows chain many steps: filter, mutate, group, summarize.\n\n> 💡 Each `%>%` passes the result to the next step.\n\n## Example\n\n```r\ndata %>%\n  step1() %>%\n  step2() %>%\n  step3()\n```\n\n## 🎯 Your Task\n\nCreate a pipeline that:\n1. Starts with `penguins`\n2. Filters to Adelie species only\n3. Groups by island\n4. Summarizes mean body mass\n\n**Expected Output:**\nA table with island and mean mass for Adelie penguins\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nForgetting `%>%` between steps.\n\n**Fixed:**\nEvery step needs `%>%` to connect to the next.\n\n---\n\n✅ **No Hidden Prerequisites**: Combines filter, group_by, summarize.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 4,
+    "chapter_title": "Ch 4: Workflow: Code Style",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20411": {
+    "id": 20411,
+    "title": "Analogy: Unpacking a Wide Suitcase",
+    "content": "# 📦 Wide to Long\n\n## What You'll Learn\nHow `pivot_longer()` converts wide data into tidy (long) format.\n\n## Why This Matters\nWide data has values spread across columns. Long data has one row per observation. ggplot and dplyr prefer long format.\n\n> 💡 The `%>%` takes your data and passes it to `pivot_longer()`.\n\n## Example\n\n```r\ntable4a %>%\n  pivot_longer(\n    cols = c(`1999`, `2000`),\n    names_to = \"year\",\n    values_to = \"cases\"\n  )\n```\n\n## 🎯 Your Task\n\n1. Identify which columns need to become rows\n2. `names_to` = what to call the new column from headers\n3. `values_to` = what to call the column of values\n\n**Expected Output:**\nA longer table with year and cases columns\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ncols = c(1999, 2000)  # Numbers need backticks\n```\n\n**Fixed:**\n```r\ncols = c(`1999`, `2000`)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `pivot_longer()` from this lesson.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 5,
+    "chapter_title": "Ch 5: Data Tidying",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20412": {
+    "id": 20412,
+    "title": "Variation: Column Selection",
+    "content": "# 🎯 Selecting Columns to Pivot\n\n## What You'll Learn\nDifferent ways to select which columns to pivot.\n\n## Why This Matters\nYou don't have to list every column. Use helpers like `starts_with()`, `ends_with()`, or ranges.\n\n## Example\n\n```r\n# By name\ncols = c(col1, col2, col3)\n\n# By helper\ncols = starts_with(\"year_\")\n\n# By position\ncols = 2:5\n```\n\n## 🎯 Your Task\n\n1. Try `starts_with()` to select columns\n2. All matching columns will be pivoted\n3. This is cleaner than listing each one\n\n**Expected Output:**\nSame pivot result, cleaner code\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nForgetting to quote the prefix in `starts_with()`.\n\n**Fixed:**\n```r\nstarts_with(\"year_\")  # Quoted prefix\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Column selection helpers.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 5,
+    "chapter_title": "Ch 5: Data Tidying",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20413": {
+    "id": 20413,
+    "title": "Fix the Code: Missing Quotes",
+    "content": "# 🔧 Fix: names_to and values_to\n\n## What You'll Learn\nWhy `names_to` and `values_to` need quoted strings.\n\n## Why This Matters\nThese are NEW column names you're creating. They must be in quotes because they don't exist yet.\n\n## Example\n\n```r\n# Wrong\npivot_longer(cols, names_to = year, values_to = cases)\n\n# Fixed\npivot_longer(cols, names_to = \"year\", values_to = \"cases\")\n```\n\n## 🎯 Your Task\n\n1. Add quotes around the new column names\n2. These are strings, not existing variables\n3. Verify the pivot works\n\n**Expected Output:**\nA properly pivoted table\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nnames_to = year\n```\n\n**Fixed:**\n```r\nnames_to = \"year\"\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Pivot argument syntax.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 5,
+    "chapter_title": "Ch 5: Data Tidying",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20414": {
+    "id": 20414,
+    "title": "Challenge: Pivot Your Data",
+    "content": "# 🦸 Challenge: Tidy the Data\n\n## What You'll Learn\nApply pivoting to create analysis-ready data.\n\n## Why This Matters\nMost data arrives messy. Tidying is step one of every analysis.\n\n> 💡 The `%>%` takes untidy data and makes it tidy.\n\n## Example\n\nPattern:\n```r\ndata %>%\n  pivot_longer(cols = ..., names_to = \"...\", values_to = \"...\")\n```\n\n## 🎯 Your Task\n\nGiven `table4a` with columns `country`, `1999`, `2000`:\n1. Pivot the year columns into rows\n2. Name the new columns \"year\" and \"cases\"\n3. Result should have 6 rows (3 countries × 2 years)\n\n**Expected Output:**\nA table with country, year, cases columns (6 rows)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nPivoting the country column too.\n\n**Fixed:**\nOnly pivot the year columns, keep country as identifier.\n\n---\n\n✅ **No Hidden Prerequisites**: Complete pivot workflow.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 5,
+    "chapter_title": "Ch 5: Data Tidying",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20421": {
+    "id": 20421,
+    "title": "Analogy: Spreading Out",
+    "content": "# 📊 Long to Wide\n\n## What You'll Learn\nHow `pivot_wider()` spreads values across multiple columns.\n\n## Why This Matters\nSometimes you need data wide for presentation, comparison tables, or specific functions. `pivot_wider()` is the reverse of `pivot_longer()`.\n\n> 💡 The `%>%` takes long data and makes it wide.\n\n## Example\n\n```r\nfish_encounters %>%\n  pivot_wider(names_from = station, values_from = seen)\n```\n\n## 🎯 Your Task\n\n1. `names_from` = which column's values become headers\n2. `values_from` = which column provides the cell values\n3. Missing combinations become NA\n\n**Expected Output:**\nA wider table with one column per station\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nConfusing `names_from` and `values_from`.\n\n**Fixed:**\n`names_from` = headers, `values_from` = cell contents.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `pivot_wider()` from this lesson.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 5,
+    "chapter_title": "Ch 5: Data Tidying",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20422": {
+    "id": 20422,
+    "title": "Variation: Fill Missing Values",
+    "content": "# 🕳️ Handling NA in Wide Data\n\n## What You'll Learn\nUse `values_fill` to replace NAs with a default.\n\n## Why This Matters\nWhen widening, missing combinations create NAs. Sometimes 0 or another value makes more sense.\n\n## Example\n\n```r\npivot_wider(\n  names_from = station,\n  values_from = seen,\n  values_fill = 0\n)\n```\n\n## 🎯 Your Task\n\n1. Add `values_fill = 0` to replace NAs\n2. Verify missing values show 0 instead\n3. Good for counts where missing = zero\n\n**Expected Output:**\nWide table with 0s instead of NAs\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nvalues_fill = \"0\"  # String, not number\n```\n\n**Fixed:**\n```r\nvalues_fill = 0  # Numeric\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Pivot_wider argument.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 5,
+    "chapter_title": "Ch 5: Data Tidying",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20423": {
+    "id": 20423,
+    "title": "Fix the Code: Argument Order",
+    "content": "# 🔧 Fix: Pivot Arguments\n\n## What You'll Learn\nThe correct argument names for `pivot_wider()`.\n\n## Why This Matters\n`names_from` and `values_from` are required. Typos or wrong names cause errors.\n\n## Example\n\n```r\n# Wrong\npivot_wider(names = col1, values = col2)\n\n# Fixed\npivot_wider(names_from = col1, values_from = col2)\n```\n\n## 🎯 Your Task\n\n1. The argument names are incomplete\n2. Add `_from` to both arguments\n3. Verify the pivot works\n\n**Expected Output:**\nA properly widened table\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nnames_from(column)  # Wrong syntax\n```\n\n**Fixed:**\n```r\nnames_from = column\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Argument naming.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 5,
+    "chapter_title": "Ch 5: Data Tidying",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20424": {
+    "id": 20424,
+    "title": "Challenge: Comparison Table",
+    "content": "# 🦸 Challenge: Create a Comparison\n\n## What You'll Learn\nUse widening to create side-by-side comparisons.\n\n## Why This Matters\nWide format is great for comparison tables and crosstabs.\n\n> 💡 The `%>%` transforms your data shape.\n\n## Example\n\nPattern:\n```r\ndata %>%\n  pivot_wider(names_from = category, values_from = value)\n```\n\n## 🎯 Your Task\n\nCreate a table comparing penguin body mass by species and island:\n1. Start with a grouped summary\n2. Pivot to put islands as columns\n3. Species as rows, islands as columns\n\n**Expected Output:**\nA comparison table (species × island)\n\n## ⚠️ Common Mistake\n\nNeed to summarize BEFORE pivoting — can't pivot raw data directly.\n\n---\n\n✅ **No Hidden Prerequisites**: Combines grouping with pivoting.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 5,
+    "chapter_title": "Ch 5: Data Tidying",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20511": {
+    "id": 20511,
+    "title": "Analogy: Your Office Desk",
+    "content": "# 🏢 RStudio Projects\n\n## What You'll Learn\nWhy projects organize your work and simplify file paths.\n\n## Why This Matters\nProjects set a \"home base\" directory. All paths become relative. Moving the folder doesn't break your code.\n\n## Example\n\n```r\n# Without project: full path needed\nread_csv(\"/Users/me/Documents/work/data/file.csv\")\n\n# With project: relative path\nread_csv(\"data/file.csv\")\n```\n\n## 🎯 Your Task\n\n1. Create a new project in RStudio\n2. Notice the .Rproj file created\n3. All file paths are now relative to this folder\n\n**Expected Output:**\nUnderstanding why relative paths are better\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nUsing full absolute paths like `/Users/...`\n\n**Fixed:**\nUse relative paths within a project.\n\n---\n\n✅ **No Hidden Prerequisites**: Conceptual lesson about projects.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 6,
+    "chapter_title": "Ch 6: Workflow: Scripts",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20512": {
+    "id": 20512,
+    "title": "Variation: Working Directory",
+    "content": "# 📂 Check Your Location\n\n## What You'll Learn\nHow to check and understand your working directory.\n\n## Why This Matters\nIf `read_csv(\"data.csv\")` can't find the file, your working directory is wrong.\n\n## Example\n\n```r\n# Where am I?\ngetwd()\n\n# What's here?\nlist.files()\n```\n\n## 🎯 Your Task\n\n1. Run `getwd()` to see current directory\n2. Run `list.files()` to see what's there\n3. If in a project, you're in the project folder\n\n**Expected Output:**\nThe path to your current working directory\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nsetwd(\"/some/path\")  # Fragile, avoid\n```\n\n**Fixed:**\nUse projects instead of `setwd()`.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses base R functions.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 6,
+    "chapter_title": "Ch 6: Workflow: Scripts",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20513": {
+    "id": 20513,
+    "title": "Fix the Code: File Not Found",
+    "content": "# 🔧 Fix: Path Problems\n\n## What You'll Learn\nHow to debug \"file not found\" errors.\n\n## Why This Matters\nMost path errors are typos or wrong directory.\n\n## Example\n\n```r\n# Error: cannot open file 'dataa.csv'\nread_csv(\"dataa.csv\")  # Typo!\n\n# Fixed\nread_csv(\"data.csv\")\n```\n\n## 🎯 Your Task\n\n1. Check spelling of filename\n2. Use `list.files()` to see actual files\n3. Check if file is in a subfolder\n\n**Expected Output:**\nFile loads successfully\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nread_csv(\"Data.csv\")  # Case matters on some systems\n```\n\n**Fixed:**\n```r\nread_csv(\"data.csv\")  # Match exact case\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Debugging file paths.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 6,
+    "chapter_title": "Ch 6: Workflow: Scripts",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20514": {
+    "id": 20514,
+    "title": "Challenge: Organize a Project",
+    "content": "# 🦸 Challenge: Project Structure\n\n## What You'll Learn\nApply project organization best practices.\n\n## Why This Matters\nA tidy project is a reproducible project.\n\n## Example\n\nRecommended structure:\n```\nmy_project/\n├── data/          # Raw data\n├── scripts/       # R code\n├── output/        # Results\n└── my_project.Rproj\n```\n\n## 🎯 Your Task\n\n1. Create folders: data, scripts, output\n2. Put data files in data/\n3. Put analysis scripts in scripts/\n4. Save outputs to output/\n\n**Expected Output:**\nAn organized project folder\n\n## ⚠️ Common Mistake\n\nMixing raw data with processed data — keep them separate!\n\n---\n\n✅ **No Hidden Prerequisites**: Folder organization concepts.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 6,
+    "chapter_title": "Ch 6: Workflow: Scripts",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20611": {
+    "id": 20611,
+    "title": "Analogy: Cleaning Your Room",
+    "content": "# 🧹 Data Cleaning Basics\n\n## What You'll Learn\nCommon data problems and how to spot them.\n\n## Why This Matters\nReal data is messy: missing values, typos, inconsistent formats. Cleaning comes before analysis.\n\n## Example\n\nCommon issues to look for:\n- `NA`, `N/A`, `\"\"` — missing values\n- `\"Yes\"`, `\"yes\"`, `\"YES\"` — inconsistent capitalization\n- `\"2024-01-15\"` vs `\"01/15/2024\"` — date format mismatches\n\n## 🎯 Your Task\n\n1. Look for missing values in your data\n2. Check for inconsistent spelling\n3. List the cleaning steps needed\n\n**Expected Output:**\nA mental checklist of data issues to fix\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nJumping into analysis without checking data quality.\n\n**Fixed:**\nAlways run `summary()` and `glimpse()` first.\n\n---\n\n✅ **No Hidden Prerequisites**: Conceptual overview of data cleaning.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 7,
+    "chapter_title": "Ch 7: Data Import",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20612": {
+    "id": 20612,
+    "title": "Variation: Standardizing Text",
+    "content": "# 📝 Consistent Text\n\n## What You'll Learn\nHow to standardize text data for analysis.\n\n## Why This Matters  \n`\"Male\"`, `\"male\"`, `\"M\"` should all be the same. Inconsistency breaks grouping.\n\n## Example\n\n```r\nlibrary(stringr)\n\n# Standardize to lowercase\nmutate(gender = str_to_lower(gender))\n\n# Replace values\nmutate(gender = case_when(\n  gender %in% c(\"m\", \"male\") ~ \"male\",\n  gender %in% c(\"f\", \"female\") ~ \"female\"\n))\n```\n\n## 🎯 Your Task\n\n1. Use `str_to_lower()` to normalize case\n2. Use `case_when()` to map variants to standards\n3. Verify counts are now correct\n\n**Expected Output:**\nConsistent values for grouping\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nFiltering on original messy values.\n\n**Fixed:**\nClean first, then filter/group.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `str_to_lower()` and `case_when()`.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 7,
+    "chapter_title": "Ch 7: Data Import",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20613": {
+    "id": 20613,
+    "title": "Fix the Code: NA Handling",
+    "content": "# 🔧 Fix: Missing Value Strategy\n\n## What You'll Learn\nChoose the right NA handling approach.\n\n## Why This Matters\n`drop_na()` loses data. `replace_na()` makes assumptions. Pick wisely.\n\n## Example\n\n```r\n# Option 1: Remove rows with NA (loses data)\ndrop_na(column)\n\n# Option 2: Replace NA with a value\nreplace_na(column, 0)\n\n# Option 3: Ignore NA in calculations\nmean(column, na.rm = TRUE)\n```\n\n## 🎯 Your Task\n\n1. Identify how many NAs exist with `sum(is.na(x))`\n2. Decide: drop, replace, or ignore?\n3. Apply the appropriate strategy\n\n**Expected Output:**\nClean data or proper NA handling\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ndrop_na()  # Drops ALL rows with ANY NA\n```\n\n**Fixed:**\n```r\ndrop_na(column_name)  # Only drop if THIS column is NA\n```\n\n---\n\n✅ **No Hidden Prerequisites**: NA handling strategies.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 7,
+    "chapter_title": "Ch 7: Data Import",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20614": {
+    "id": 20614,
+    "title": "Challenge: Clean a Dataset",
+    "content": "# 🦸 Challenge: Full Cleaning Pipeline\n\n## What You'll Learn\nApply a complete data cleaning workflow.\n\n## Why This Matters\nThis is what real data analysis looks like.\n\n> 💡 The `%>%` chains your cleaning steps.\n\n## Example\n\nPattern:\n```r\nraw_data %>%\n  drop_na(key_column) %>%\n  mutate(text_col = str_to_lower(text_col)) %>%\n  filter(value > 0)\n```\n\n## 🎯 Your Task\n\nClean a dataset by:\n1. Removing rows with NA in important columns\n2. Standardizing text columns\n3. Filtering out invalid values\n\n**Expected Output:**\nA clean, analysis-ready dataset\n\n## ⚠️ Common Mistake\n\nDon't modify original data — save to a new variable.\n\n---\n\n✅ **No Hidden Prerequisites**: Combines cleaning techniques.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 7,
+    "chapter_title": "Ch 7: Data Import",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20701": {
+    "id": 20701,
+    "title": "Analogy: Asking the Oracle",
+    "content": "# 🔮 Searching for Help\n\n## What You'll Learn\nHow to effectively search for R help online.\n\n## Why This Matters\nEvery programmer Googles. The skill is knowing WHAT to search and WHERE to look.\n\n## Example\n\nGood search queries:\n- `r ggplot change axis labels`\n- `r dplyr filter multiple conditions`\n- `r error \"object not found\"` (include error message!)\n\n## 🎯 Your Task\n\n1. Include \"r\" or \"rstats\" in your search\n2. Include the function or package name\n3. Include the specific error message if applicable\n\n**Expected Output:**\nUnderstanding of effective search strategies\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n`why doesn't my code work`\n\n**Fixed:**\n`r ggplot error: object 'x' not found`\n\n---\n\n✅ **No Hidden Prerequisites**: Search skills, no code required.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 8,
+    "chapter_title": "Ch 8: Workflow: Getting Help",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20702": {
+    "id": 20702,
+    "title": "Variation: Stack Overflow Tips",
+    "content": "# 📚 Reading Stack Overflow\n\n## What You'll Learn\nHow to evaluate and use Stack Overflow answers.\n\n## Why This Matters\nNot all answers are equal. Look for upvotes, check the date, and read comments.\n\n## Example\n\nGood answer signs:\n- ✓ Green checkmark (accepted)\n- Many upvotes\n- Clear explanation\n- Recent (R changes over time)\n\n## 🎯 Your Task\n\n1. Check if answer is accepted (green checkmark)\n2. Read the explanation, not just the code\n3. Check comments for updates/corrections\n\n**Expected Output:**\nAbility to evaluate answer quality\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nCopying code without understanding it.\n\n**Fixed:**\nRead the explanation, understand why it works.\n\n---\n\n✅ **No Hidden Prerequisites**: Reading comprehension skills.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 8,
+    "chapter_title": "Ch 8: Workflow: Getting Help",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20703": {
+    "id": 20703,
+    "title": "Fix the Code: Adapting Answers",
+    "content": "# 🔧 Fix: Making Code Work for You\n\n## What You'll Learn\nWhy copied code often needs adaptation.\n\n## Why This Matters\nThe answer uses their variable names and data. You need to substitute yours.\n\n## Example\n\n```r\n# Stack Overflow answer uses 'df' and 'value'\ndf %>% filter(value > 10)\n\n# Your data uses 'penguins' and 'body_mass_g'\npenguins %>% filter(body_mass_g > 4000)\n```\n\n## 🎯 Your Task\n\n1. Identify placeholder names in the answer\n2. Substitute your actual column/data names\n3. Test incrementally\n\n**Expected Output:**\nWorking code adapted to your data\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nRunning answer code directly without changes.\n\n**Fixed:**\nReplace placeholder names with your actual names.\n\n---\n\n✅ **No Hidden Prerequisites**: Code adaptation skills.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 8,
+    "chapter_title": "Ch 8: Workflow: Getting Help",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20704": {
+    "id": 20704,
+    "title": "Challenge: Find and Apply",
+    "content": "# 🦸 Challenge: Solve with Search\n\n## What You'll Learn\nApply the full search-and-adapt workflow.\n\n## Why This Matters\nThis is what you'll do daily as a data scientist.\n\n## Example\n\nWorkflow:\n1. Define the problem clearly\n2. Search with good keywords\n3. Evaluate answers\n4. Adapt to your code\n5. Test\n\n## 🎯 Your Task\n\nUsing search, find how to:\n1. Rotate x-axis labels 45 degrees in ggplot\n2. Find and adapt the answer\n3. Apply it to your plot\n\n**Expected Output:**\nA plot with rotated axis labels\n\n## ⚠️ Common Mistake\n\nGiving up after the first failed search — try different keywords!\n\n---\n\n✅ **No Hidden Prerequisites**: Research skills.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 8,
+    "chapter_title": "Ch 8: Workflow: Getting Help",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20711": {
+    "id": 20711,
+    "title": "Analogy: The Minimal Bug Report",
+    "content": "# 🐛 Reproducible Examples\n\n## What You'll Learn\nWhat a reprex (minimal reproducible example) is and why it helps.\n\n## Why This Matters\nWhen asking for help, a reprex lets others run your exact problem. No reprex = no answer.\n\n## Example\n\nGood reprex components:\n1. Library calls needed\n2. Small sample data\n3. Code that shows the problem\n4. Expected vs actual result\n\n## 🎯 Your Task\n\n1. Understand: reprex = code others can run\n2. It must include everything needed\n3. It should be as SMALL as possible\n\n**Expected Output:**\nUnderstanding of reprex requirements\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\n# This doesn't work\nmy_function()\n```\nNo context, no data, no one can help.\n\n**Fixed:**\nInclude all necessary context.\n\n---\n\n✅ **No Hidden Prerequisites**: Conceptual understanding.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 8,
+    "chapter_title": "Ch 8: Workflow: Getting Help",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20712": {
+    "id": 20712,
+    "title": "Variation: Using reprex Package",
+    "content": "# 📦 The reprex Package\n\n## What You'll Learn\nHow the `reprex` package automates reprex creation.\n\n## Why This Matters\n`reprex::reprex()` formats your code and output for easy sharing.\n\n## Example\n\n```r\n# Install once\ninstall.packages(\"reprex\")\n\n# Copy your code to clipboard, then run:\nreprex::reprex()\n```\n\nThis creates formatted output ready for Stack Overflow.\n\n## 🎯 Your Task\n\n1. Install/load the reprex package\n2. Copy problematic code\n3. Run `reprex::reprex()` to format it\n\n**Expected Output:**\nFormatted reprex ready to share\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nForgetting to load required packages in the reprex.\n\n**Fixed:**\nInclude ALL library() calls at the top.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `reprex` package.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 8,
+    "chapter_title": "Ch 8: Workflow: Getting Help",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20713": {
+    "id": 20713,
+    "title": "Fix the Code: Minimal Data",
+    "content": "# 🔧 Fix: Creating Sample Data\n\n## What You'll Learn\nHow to create minimal sample data for a reprex.\n\n## Why This Matters\nDon't share your whole dataset. Create a tiny example that shows the problem.\n\n## Example\n\n```r\n# Wrong: uses your private/large data\nmy_huge_data %>% filter(...)\n\n# Fixed: create minimal example\nsample_data <- tibble(\n  x = c(1, 2, 3, NA),\n  y = c(\"a\", \"b\", \"a\", \"b\")\n)\nsample_data %>% filter(...)\n```\n\n## 🎯 Your Task\n\n1. Create a tiny tibble with 3-5 rows\n2. Include only columns relevant to the problem\n3. Include the problematic values (like NA)\n\n**Expected Output:**\nSelf-contained code anyone can run\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nread_csv(\"my_local_file.csv\")  # No one has this!\n```\n\n**Fixed:**\nCreate sample data inline.\n\n---\n\n✅ **No Hidden Prerequisites**: Data creation with `tibble()`.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 8,
+    "chapter_title": "Ch 8: Workflow: Getting Help",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
+  },
+  "20714": {
+    "id": 20714,
+    "title": "Challenge: Create a Reprex",
+    "content": "# 🦸 Challenge: Build a Reprex\n\n## What You'll Learn\nCreate a complete, shareable reprex.\n\n## Why This Matters\nA good reprex gets you help faster.\n\n## Example\n\nComplete reprex structure:\n```r\nlibrary(tidyverse)\n\n# Sample data\ndf <- tibble(x = c(1, 2, NA), y = c(\"a\", \"b\", \"c\"))\n\n# Problem: why does this return NA?\nmean(df$x)\n\n# Expected: 1.5\n# Actual: NA\n```\n\n## 🎯 Your Task\n\nCreate a reprex that demonstrates:\n1. A filtering problem with NA values\n2. Include library calls\n3. Include sample data\n4. Show expected vs actual\n\n**Expected Output:**\nA complete reprex someone could run\n\n## ⚠️ Common Mistake\n\nMissing the \"expected vs actual\" — people need to know what's wrong!\n\n---\n\n✅ **No Hidden Prerequisites**: Combines all reprex elements.\n",
+    "starter_code": "",
+    "solution_code": "",
+    "expected_output": "",
+    "chapter_id": 8,
+    "chapter_title": "Ch 8: Workflow: Getting Help",
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-3"
   }
 }
