@@ -1690,6 +1690,8 @@
     "route": "#/lesson/54",
     "interaction_recipe_id": "",
     "components_used": [
+      "data_transform",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 88,
@@ -1698,7 +1700,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Token slots: build a message with raw_name and preview the output.",
     "curriculum": "python",
     "chapter_id": null
@@ -1937,6 +1939,8 @@
     "route": "#/lesson/184",
     "interaction_recipe_id": "",
     "components_used": [
+      "conditional_path",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 101,
@@ -1945,7 +1949,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Graph manipulator: drag x and see numeric output change for \"Random Sampler\".",
     "curriculum": "python",
     "chapter_id": null
@@ -2165,6 +2169,8 @@
     "route": "#/lesson/125",
     "interaction_recipe_id": "",
     "components_used": [
+      "token_slot",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 113,
@@ -2173,7 +2179,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Loop simulator: animate iterations and show running total for \"Creating Special Arrays\".",
     "curriculum": "python",
     "chapter_id": 95
@@ -2661,6 +2667,8 @@
     "route": "#/lesson/70",
     "interaction_recipe_id": "",
     "components_used": [
+      "data_transform",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 139,
@@ -2669,7 +2677,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"Filtering Rows\".",
     "curriculum": "python",
     "chapter_id": 10
@@ -3616,7 +3624,8 @@
     "route": "#/lesson/84",
     "interaction_recipe_id": "",
     "components_used": [
-      "live_code_block"
+      "live_code_block",
+      "output_diff"
     ],
     "consecutive_recipe_count": 189,
     "prediction_present": false,
@@ -3624,7 +3633,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 1,
     "proposed_interaction": "Loop simulator: animate iterations and show running total for \"Colors and Styles\".",
     "curriculum": "python",
     "chapter_id": 11
@@ -3844,6 +3853,9 @@
     "route": "#/lesson/216",
     "interaction_recipe_id": "",
     "components_used": [
+      "step_executor",
+      "state_inspector",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 201,
@@ -3852,7 +3864,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 3,
     "proposed_interaction": "Token slots: build a message with result and preview the output.",
     "curriculum": "python",
     "chapter_id": null
@@ -4321,6 +4333,9 @@
     "route": "#/lesson/110",
     "interaction_recipe_id": "",
     "components_used": [
+      "loop_simulator",
+      "state_inspector",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 226,
@@ -4329,7 +4344,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 3,
     "proposed_interaction": "Token slots: build a message with iris and preview the output.",
     "curriculum": "python",
     "chapter_id": 14
@@ -13811,13 +13826,15 @@
     "route": "#/lesson/308",
     "interaction_recipe_id": "",
     "components_used": [
+      "memory_machine",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 1,
     "prediction_present": false,
     "prediction_justified": false,
     "issues": [],
-    "quality_score": 1,
+    "quality_score": 3,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"Encapsulation\".",
     "curriculum": "python",
     "chapter_id": 12

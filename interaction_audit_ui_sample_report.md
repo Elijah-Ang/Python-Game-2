@@ -3,26 +3,27 @@ Curriculum: all
 Sample size: 60
 Prediction UI present: 0
 Repeated fingerprint streaks (3+): 32
-Overused fingerprints (>25%): 46
+Overused fingerprints (>25%): 38
 Load failures: 0
 
 ## Top repeated fingerprints
-- ccdba50231: 24 (none | lesson-root, top-nav, lesson-panel, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
 - 1483ffe7bf: 22 (none | lesson-root, top-nav, lesson-panel, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, submit)
-- 2951d4bf57: 4 (InteractionPlanRenderer, DataTransformAnimator, VisualTable, OutputDiff | lesson-root, top-nav, lesson-panel, interaction-plan, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
+- ccdba50231: 16 (none | lesson-root, top-nav, lesson-panel, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
+- 2951d4bf57: 6 (InteractionPlanRenderer, DataTransformAnimator, VisualTable, OutputDiff | lesson-root, top-nav, lesson-panel, interaction-plan, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
 - 10b1b7f34c: 3 (LiveCodeBlock | lesson-root, top-nav, lesson-panel, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
+- 3c6c5756b7: 2 (InteractionPlanRenderer, MemoryMachine, OutputDiff | lesson-root, top-nav, lesson-panel, interaction-plan, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
 - e0a562c5b3: 2 (ParsonsPuzzle, InteractionPlanRenderer, StepExecutor, StateInspector | lesson-root, top-nav, lesson-panel, interaction-plan, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
+- 22e17f4fb7: 2 (InteractionPlanRenderer, StepExecutor, StateInspector, OutputDiff | lesson-root, top-nav, lesson-panel, interaction-plan, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
 - 7fcb04f3eb: 1 (VariableSlider, VisualMemoryBox, InteractionPlanRenderer, TokenSlotPuzzle, LiveCodeBlock, OutputDiff | lesson-root, top-nav, lesson-panel, interaction-plan, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
-- 3c6c5756b7: 1 (InteractionPlanRenderer, MemoryMachine, OutputDiff | lesson-root, top-nav, lesson-panel, interaction-plan, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
 - 3393a79077: 1 (VariableSlider | lesson-root, top-nav, lesson-panel, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
-- 22e17f4fb7: 1 (InteractionPlanRenderer, StepExecutor, StateInspector, OutputDiff | lesson-root, top-nav, lesson-panel, interaction-plan, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
-- 3bf8ab8a2c: 1 (InteractionPlanRenderer, DebugQuest | lesson-root, top-nav, lesson-panel, interaction-plan, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
+- 4bf98938cd: 1 (InteractionPlanRenderer, ConditionalPath, OutputDiff | lesson-root, top-nav, lesson-panel, interaction-plan, code-panel, editor-header, code-editor, editor-toolbar, output-panel, output-header | toggle_solution, prev_lesson, next_lesson, reset_code, run_code, submit)
 
 ## Prediction occurrences
 - none
 
 ## Repetition > 2 in a row
-- 125: ccdba50231
+- 204: 2951d4bf57
+- 140: 2951d4bf57
 - 1176: 1483ffe7bf
 - 1181: 1483ffe7bf
 - 1186: 1483ffe7bf
@@ -53,7 +54,6 @@ Load failures: 0
 - 23404: ccdba50231
 - 24201: ccdba50231
 - 25104: ccdba50231
-- 308: ccdba50231
 
 ## Representative screenshots (12)
 - ui_sample_screenshots/lesson-1009.png

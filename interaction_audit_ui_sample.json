@@ -262,11 +262,17 @@
     "lesson_id": 54,
     "title": "String Processing",
     "route": "#/lesson/54",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "DataTransformAnimator",
+      "VisualTable",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -285,22 +291,25 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"DataTransformAnimator\",\"InteractionPlanRenderer\",\"OutputDiff\",\"VisualTable\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "2951d4bf57",
     "screenshot": "ui_sample_screenshots/lesson-54.png",
-    "issues": [
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 184,
     "title": "Random Sampler",
     "route": "#/lesson/184",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "ConditionalPath",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -319,22 +328,25 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"ConditionalPath\",\"InteractionPlanRenderer\",\"OutputDiff\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "4bf98938cd",
     "screenshot": "ui_sample_screenshots/lesson-184.png",
-    "issues": [
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 125,
     "title": "Creating Special Arrays",
     "route": "#/lesson/125",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "TokenSlotPuzzle",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -353,13 +365,10 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"InteractionPlanRenderer\",\"OutputDiff\",\"TokenSlotPuzzle\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "0743597f72",
     "screenshot": "ui_sample_screenshots/lesson-125.png",
-    "issues": [
-      "fingerprint_repeated_3x",
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 194,
@@ -403,11 +412,17 @@
     "lesson_id": 70,
     "title": "Filtering Rows",
     "route": "#/lesson/70",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "DataTransformAnimator",
+      "VisualTable",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -426,12 +441,10 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"DataTransformAnimator\",\"InteractionPlanRenderer\",\"OutputDiff\",\"VisualTable\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "2951d4bf57",
     "screenshot": "ui_sample_screenshots/lesson-70.png",
-    "issues": [
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 204,
@@ -469,7 +482,9 @@
     "interaction_fingerprint": "{\"components\":[\"DataTransformAnimator\",\"InteractionPlanRenderer\",\"OutputDiff\",\"VisualTable\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
     "interaction_fingerprint_id": "2951d4bf57",
     "screenshot": "ui_sample_screenshots/lesson-204.png",
-    "issues": []
+    "issues": [
+      "fingerprint_repeated_3x"
+    ]
   },
   {
     "lesson_id": 140,
@@ -507,7 +522,9 @@
     "interaction_fingerprint": "{\"components\":[\"DataTransformAnimator\",\"InteractionPlanRenderer\",\"OutputDiff\",\"VisualTable\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
     "interaction_fingerprint_id": "2951d4bf57",
     "screenshot": "ui_sample_screenshots/lesson-140.png",
-    "issues": []
+    "issues": [
+      "fingerprint_repeated_3x"
+    ]
   },
   {
     "lesson_id": 227,
@@ -549,11 +566,16 @@
     "lesson_id": 84,
     "title": "Colors and Styles",
     "route": "#/lesson/84",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "LiveCodeBlock",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -572,22 +594,26 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"InteractionPlanRenderer\",\"LiveCodeBlock\",\"OutputDiff\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "14ab64f69a",
     "screenshot": "ui_sample_screenshots/lesson-84.png",
-    "issues": [
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 216,
     "title": "Merge Sort",
     "route": "#/lesson/216",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "StepExecutor",
+      "StateInspector",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -606,12 +632,10 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"InteractionPlanRenderer\",\"OutputDiff\",\"StateInspector\",\"StepExecutor\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "22e17f4fb7",
     "screenshot": "ui_sample_screenshots/lesson-216.png",
-    "issues": [
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 98,
@@ -655,11 +679,17 @@
     "lesson_id": 110,
     "title": "Cross Validation",
     "route": "#/lesson/110",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "LoopSimulator",
+      "StateInspector",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -678,12 +708,10 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"InteractionPlanRenderer\",\"LoopSimulator\",\"OutputDiff\",\"StateInspector\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "7f8f1221ed",
     "screenshot": "ui_sample_screenshots/lesson-110.png",
-    "issues": [
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 113,
@@ -2024,11 +2052,16 @@
     "lesson_id": 308,
     "title": "Encapsulation",
     "route": "#/lesson/308",
-    "components": [],
+    "components": [
+      "InteractionPlanRenderer",
+      "MemoryMachine",
+      "OutputDiff"
+    ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -2047,13 +2080,10 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "ccdba50231",
+    "interaction_fingerprint": "{\"components\":[\"InteractionPlanRenderer\",\"MemoryMachine\",\"OutputDiff\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "3c6c5756b7",
     "screenshot": "ui_sample_screenshots/lesson-308.png",
-    "issues": [
-      "fingerprint_repeated_3x",
-      "fingerprint_overused"
-    ]
+    "issues": []
   },
   {
     "lesson_id": 1303,
