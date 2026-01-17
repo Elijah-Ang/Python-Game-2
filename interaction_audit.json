@@ -26,7 +26,7 @@
     "route": "#/lesson/2",
     "interaction_recipe_id": "",
     "components_used": [
-      "token_slot",
+      "debug_quest",
       "live_code_block"
     ],
     "consecutive_recipe_count": 2,
@@ -63,6 +63,7 @@
     "route": "#/lesson/4",
     "interaction_recipe_id": "",
     "components_used": [
+      "memory_machine",
       "live_code_block"
     ],
     "consecutive_recipe_count": 4,
@@ -71,7 +72,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 1,
     "proposed_interaction": "Memory machine: assign product and watch state update for \"Multiple Variables\".",
     "curriculum": "python",
     "chapter_id": 1
@@ -139,7 +140,8 @@
     "route": "#/lesson/7",
     "interaction_recipe_id": "",
     "components_used": [
-      "live_code_block"
+      "live_code_block",
+      "output_diff"
     ],
     "consecutive_recipe_count": 8,
     "prediction_present": false,
@@ -147,7 +149,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 1,
     "proposed_interaction": "Token slots: build a message with item and preview the output.",
     "curriculum": "python",
     "chapter_id": 1
@@ -579,6 +581,8 @@
     "route": "#/lesson/29",
     "interaction_recipe_id": "",
     "components_used": [
+      "step_executor",
+      "state_inspector",
       "live_code_block"
     ],
     "consecutive_recipe_count": 31,
@@ -587,7 +591,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Conditional path visualizer: pick a branch and see the output.",
     "curriculum": "python",
     "chapter_id": 3
@@ -598,6 +602,7 @@
     "route": "#/lesson/30",
     "interaction_recipe_id": "",
     "components_used": [
+      "conditional_path",
       "live_code_block"
     ],
     "consecutive_recipe_count": 32,
@@ -606,7 +611,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 1,
     "proposed_interaction": "Graph manipulator: drag x and see numeric output change for \"Ternary Operator\".",
     "curriculum": "python",
     "chapter_id": 3
@@ -674,6 +679,8 @@
     "route": "#/lesson/13",
     "interaction_recipe_id": "",
     "components_used": [
+      "step_executor",
+      "state_inspector",
       "variable_slider"
     ],
     "consecutive_recipe_count": 36,
@@ -682,7 +689,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Loop simulator: animate iterations and show running total for \"For Loop Basics\".",
     "curriculum": "python",
     "chapter_id": 2
@@ -864,6 +871,8 @@
     "route": "#/lesson/19",
     "interaction_recipe_id": "",
     "components_used": [
+      "loop_simulator",
+      "state_inspector",
       "variable_slider"
     ],
     "consecutive_recipe_count": 46,
@@ -872,7 +881,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Loop simulator: animate iterations and show running total for \"While Loop Basics\".",
     "curriculum": "python",
     "chapter_id": 2
@@ -959,6 +968,8 @@
     "route": "#/lesson/31",
     "interaction_recipe_id": "",
     "components_used": [
+      "step_executor",
+      "state_inspector",
       "parsons_puzzle"
     ],
     "consecutive_recipe_count": 51,
@@ -967,7 +978,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"Defining Functions\".",
     "curriculum": "python",
     "chapter_id": 4
@@ -1187,6 +1198,8 @@
     "route": "#/lesson/39",
     "interaction_recipe_id": "",
     "components_used": [
+      "step_executor",
+      "state_inspector",
       "parsons_puzzle"
     ],
     "consecutive_recipe_count": 63,
@@ -1195,7 +1208,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Memory machine: assign value and watch state update for \"Variable Scope\".",
     "curriculum": "python",
     "chapter_id": 4
@@ -4794,6 +4807,8 @@
     "route": "#/lesson/1010",
     "interaction_recipe_id": "",
     "components_used": [
+      "data_transform",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 16,
@@ -4802,7 +4817,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"Your First SELECT\".",
     "curriculum": "sql",
     "chapter_id": 201
@@ -4927,6 +4942,8 @@
     "route": "#/lesson/1015",
     "interaction_recipe_id": "",
     "components_used": [
+      "data_transform",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 23,
@@ -4935,7 +4952,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"LIMIT Clause\".",
     "curriculum": "sql",
     "chapter_id": 201
@@ -5558,6 +5575,8 @@
     "route": "#/lesson/1034",
     "interaction_recipe_id": "",
     "components_used": [
+      "step_executor",
+      "state_inspector",
       "live_code_block"
     ],
     "consecutive_recipe_count": 56,
@@ -5566,7 +5585,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"COUNT Function\".",
     "curriculum": "sql",
     "chapter_id": 203
@@ -5995,6 +6014,7 @@
     "route": "#/lesson/1049",
     "interaction_recipe_id": "",
     "components_used": [
+      "join_visualizer",
       "live_code_block"
     ],
     "consecutive_recipe_count": 79,
@@ -6003,7 +6023,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 1,
     "proposed_interaction": "Join visualizer: animate matching keys and show the joined rows.",
     "curriculum": "sql",
     "chapter_id": 204
@@ -8218,6 +8238,9 @@
     "route": "#/lesson/1237",
     "interaction_recipe_id": "",
     "components_used": [
+      "data_transform",
+      "step_executor",
+      "state_inspector",
       "live_code_block"
     ],
     "consecutive_recipe_count": 196,
@@ -8226,7 +8249,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 3,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"Constraint Testing\".",
     "curriculum": "sql",
     "chapter_id": null
@@ -8237,6 +8260,8 @@
     "route": "#/lesson/1238",
     "interaction_recipe_id": "",
     "components_used": [
+      "step_executor",
+      "state_inspector",
       "live_code_block"
     ],
     "consecutive_recipe_count": 197,
@@ -8245,7 +8270,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"Index Creation\".",
     "curriculum": "sql",
     "chapter_id": null
@@ -8674,6 +8699,8 @@
     "route": "#/lesson/1134",
     "interaction_recipe_id": "",
     "components_used": [
+      "data_transform",
+      "output_diff",
       "live_code_block"
     ],
     "consecutive_recipe_count": 220,
@@ -8682,7 +8709,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"INSERT from SELECT\".",
     "curriculum": "sql",
     "chapter_id": 212
@@ -8940,6 +8967,8 @@
     "route": "#/lesson/1144",
     "interaction_recipe_id": "",
     "components_used": [
+      "step_executor",
+      "state_inspector",
       "live_code_block"
     ],
     "consecutive_recipe_count": 234,
@@ -8948,7 +8977,7 @@
     "issues": [
       "recipe_repeated_3x"
     ],
-    "quality_score": 0,
+    "quality_score": 2,
     "proposed_interaction": "Debug quest: fix a single-line bug tied to \"View Basics\".",
     "curriculum": "sql",
     "chapter_id": 213

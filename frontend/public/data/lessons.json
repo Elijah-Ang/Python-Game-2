@@ -65,7 +65,7 @@
   "2": {
     "id": 2,
     "title": "Naming Variables",
-    "content": "# 🏷️ How to Name Variables\n\n## Why Does Naming Matter?\n\nGood variable names make your code **readable**. Compare:\n\n```python\n# Bad - What is x? What is y?\nx = 25\ny = 75000\n\n# Good - Clear what each variable represents!\nage = 25\nsalary = 75000\n```\n\nWhen you (or someone else) read the code later, good names save time and prevent confusion.\n\n## Python's Naming Rules\n\nThese are rules you MUST follow or Python will give an error:\n\n| Rule | ✅ Valid | ❌ Invalid |\n| --- | --- | --- |\n| Can start with letter or _ | `name`, `_count` | — |\n| Cannot start with number | — | `2name` |\n| No spaces allowed | `my_name` | `my name` |\n| Only letters, numbers, _ | `user_1` | `user-name` |\n| Case sensitive | `Age` ≠ `age` | — |\n\n## Naming Conventions (Best Practices)\n\nThese aren't required, but make your code professional:\n\n```python\n# ✅ Use snake_case (lowercase with underscores)\nuser_name = \"Alice\"\ntotal_price = 99.99\n\n# ❌ Avoid starting with uppercase (reserved for classes)\nUserName = \"Alice\"  # Works but not conventional\n\n# ✅ Be descriptive\ncustomer_email = \"alice@email.com\"\n\n# ❌ Avoid single letters (except for loops)\ne = \"alice@email.com\"  # What is 'e'?\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate these two properly named variables:\n- `first_name` = `\"John\"`\n- `last_name` = `\"Doe\"`\n\nThen print both.\n\n## Quick comments\nUse `#` for single-line comments. Comments explain **why** something exists, without changing how the code runs.\n\n```python\n# Explain intent, not the obvious\nage = 25  # customer age in years\n```\n",
+    "content": "# 🏷️ How to Name Variables\n\n## Why Does Naming Matter?\n\nGood variable names make your code **readable**. Compare:\n\n```python\n# Bad - What is x? What is y?\nx = 25\ny = 75000\n\n# Good - Clear what each variable represents!\nage = 25\nsalary = 75000\n```\n\nWhen you (or someone else) read the code later, good names save time and prevent confusion.\n\n## Python's Naming Rules\n\nThese are rules you MUST follow or Python will give an error:\n\n| Rule | ✅ Valid | ❌ Invalid |\n| --- | --- | --- |\n| Can start with letter or _ | `name`, `_count` | — |\n| Cannot start with number | — | `2name` |\n| No spaces allowed | `my_name` | `my name` |\n| Only letters, numbers, _ | `user_1` | `user-name` |\n| Case sensitive | `Age` ≠ `age` | — |\n\n## Naming Conventions (Best Practices)\n\nThese aren't required, but make your code professional:\n\n```python\n# ✅ Use snake_case (lowercase with underscores)\nuser_name = \"Alice\"\ntotal_price = 99.99\n\n# ❌ Avoid starting with uppercase (reserved for classes)\nUserName = \"Alice\"  # Works but not conventional\n\n# ✅ Be descriptive\ncustomer_email = \"alice@email.com\"\n\n# ❌ Avoid single letters (except for loops)\ne = \"alice@email.com\"  # What is 'e'?\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate these two properly named variables:\n- `first_name` = `\"John\"`\n- `last_name` = `\"Doe\"`\n\nThen print both.\n\n## Quick comments\nUse `#` for single-line comments. Comments explain **why** something exists, without changing how the code runs.\n\n```python\n# Explain intent, not the obvious\nage = 25  # customer age in years\n```\n\n## Naming pitfalls\nVariable names must start with a letter or underscore. Numbers can appear later, but not first.\n",
     "starter_code": "# Create first_name variable\n\n\n# Create last_name variable\n\n\n# Print both\n",
     "solution_code": "# Create first_name variable\nfirst_name = \"John\"\n\n# Create last_name variable\nlast_name = \"Doe\"\n\n# Print both\nprint(first_name)\nprint(last_name)",
     "chapter_id": 1,
@@ -84,24 +84,32 @@
     "prediction_justification": null,
     "interaction_plan": [
       {
-        "type": "token_slot",
-        "template": "{{comment}} This line explains the variable purpose\\nage = 25",
-        "slots": [
+        "type": "debug_quest",
+        "title": "Fix the invalid variable name",
+        "snippet": "2nd_place = 4\\nscore_total = 20\\nteam = \"Lions\"",
+        "bugLine": 1,
+        "options": [
           {
-            "id": "comment",
-            "label": "comment marker",
-            "options": [
-              "#",
-              "//",
-              "--"
-            ],
-            "correct": "#"
+            "label": "Rename to second_place",
+            "fix": "second_place = 4",
+            "correct": true
+          },
+          {
+            "label": "Put the name in quotes",
+            "fix": "\"2nd_place\" = 4",
+            "correct": false
+          },
+          {
+            "label": "Use a dash: second-place",
+            "fix": "second-place = 4",
+            "correct": false
           }
         ]
       }
     ],
     "gap_ids": [
-      "PY-007"
+      "PY-007",
+      "PY-009"
     ]
   },
   "3": {
@@ -124,7 +132,7 @@
   "4": {
     "id": 4,
     "title": "Multiple Variables",
-    "content": "# 📋 Working with Multiple Variables\n\n## Assigning Multiple Variables\n\nYou can create several variables at once:\n\n```python\n# One per line (most clear)\nname = \"Alice\"\nage = 25\ncity = \"New York\"\n\n# All on one line (for related values)\nx, y, z = 10, 20, 30\n```\n\n## Swapping Variables\n\nSometimes you need to swap two values. Python makes this easy:\n\n```python\na = 5\nb = 10\n\n# Swap them!\na, b = b, a\n\nprint(a)  # 10\nprint(b)  # 5\n```\n\nIn other languages, you'd need a temporary variable. Python handles it elegantly!\n\n## Using Variables Together\n\nVariables can reference each other:\n\n```python\nprice = 20\nquantity = 3\ntotal = price * quantity  # total is now 60\n\nprint(f\"Total: ${total}\")\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate variables for a product's name, price, and quantity:\n- `product` = `\"Laptop\"`\n- `price` = `999`\n- `quantity` = `2`\n\nCalculate `total` as price × quantity, then print:\n```\nProduct: Laptop\nTotal: 1998\n```\n",
+    "content": "# 📋 Working with Multiple Variables\n\n## Assigning Multiple Variables\n\nYou can create several variables at once:\n\n```python\n# One per line (most clear)\nname = \"Alice\"\nage = 25\ncity = \"New York\"\n\n# All on one line (for related values)\nx, y, z = 10, 20, 30\n```\n\n## Swapping Variables\n\nSometimes you need to swap two values. Python makes this easy:\n\n```python\na = 5\nb = 10\n\n# Swap them!\na, b = b, a\n\nprint(a)  # 10\nprint(b)  # 5\n```\n\nIn other languages, you'd need a temporary variable. Python handles it elegantly!\n\n## Using Variables Together\n\nVariables can reference each other:\n\n```python\nprice = 20\nquantity = 3\ntotal = price * quantity  # total is now 60\n\nprint(f\"Total: ${total}\")\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate variables for a product's name, price, and quantity:\n- `product` = `\"Laptop\"`\n- `price` = `999`\n- `quantity` = `2`\n\nCalculate `total` as price × quantity, then print:\n```\nProduct: Laptop\nTotal: 1998\n```\n\n## Multiple assignment and swap\nPython can assign multiple variables at once and swap values without a temp variable.\n",
     "starter_code": "# Product information\nproduct = \"Laptop\"\nprice = 999\nquantity = 2\n\n# Calculate total\n\n\n# Print product and total\n",
     "solution_code": "# Product information\nproduct = \"Laptop\"\nprice = 999\nquantity = 2\n\n# Calculate total\ntotal = price * quantity\n\n# Print product and total\nprint(f\"Product: {product}\")\nprint(f\"Total: {total}\")",
     "chapter_id": 1,
@@ -137,7 +145,42 @@
     ],
     "interaction_confidence": 0.92,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "memory_machine",
+        "title": "Parallel assignment in action",
+        "slots": [
+          "x",
+          "y"
+        ],
+        "steps": [
+          {
+            "label": "x, y = 3, 7 → x gets 3",
+            "slot": "x",
+            "value": 3
+          },
+          {
+            "label": "x, y = 3, 7 → y gets 7",
+            "slot": "y",
+            "value": 7
+          },
+          {
+            "label": "x, y = y, x → x becomes 7",
+            "slot": "x",
+            "value": 7
+          },
+          {
+            "label": "x, y = y, x → y becomes 3",
+            "slot": "y",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "gap_ids": [
+      "PY-010"
+    ]
   },
   "5": {
     "id": 5,
@@ -183,7 +226,7 @@
   "7": {
     "id": 7,
     "title": "F-Strings (Formatted Strings)",
-    "content": "# ✨ F-Strings: The Modern Way\n\n## What are F-Strings?\n\nF-strings (formatted string literals) let you embed variables directly in text. Just add `f` before the quote and put variables in `{}`:\n\n```python\nname = \"Alice\"\nage = 25\nmessage = f\"My name is {name} and I'm {age} years old.\"\nprint(message)\n# Output: My name is Alice and I'm 25 years old.\n```\n\n## Why F-Strings are Better\n\nCompare concatenation vs f-strings:\n\n```python\n# Old way (messy)\nmessage = \"Hello, \" + name + \"! You have \" + str(score) + \" points.\"\n\n# F-string way (clean!)\nmessage = f\"Hello, {name}! You have {score} points.\"\n```\n\nF-strings are:\n- Easier to read\n- Less error-prone\n- No need to convert numbers to strings\n\n## Expressions Inside F-Strings\n\nYou can put any expression in `{}`:\n\n```python\nprice = 19.99\nquantity = 3\nprint(f\"Total: ${price * quantity}\")  # Total: $59.97\n\n# Formatting numbers\nprint(f\"Price: ${price:.2f}\")  # Price: $19.99 (2 decimal places)\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nGiven:\n- `item` = `\"Coffee\"`\n- `price` = `4.50`\n\nUse an f-string to print: `Coffee costs $4.5`\n",
+    "content": "# ✨ F-Strings: The Modern Way\n\n## What are F-Strings?\n\nF-strings (formatted string literals) let you embed variables directly in text. Just add `f` before the quote and put variables in `{}`:\n\n```python\nname = \"Alice\"\nage = 25\nmessage = f\"My name is {name} and I'm {age} years old.\"\nprint(message)\n# Output: My name is Alice and I'm 25 years old.\n```\n\n## Why F-Strings are Better\n\nCompare concatenation vs f-strings:\n\n```python\n# Old way (messy)\nmessage = \"Hello, \" + name + \"! You have \" + str(score) + \" points.\"\n\n# F-string way (clean!)\nmessage = f\"Hello, {name}! You have {score} points.\"\n```\n\nF-strings are:\n- Easier to read\n- Less error-prone\n- No need to convert numbers to strings\n\n## Expressions Inside F-Strings\n\nYou can put any expression in `{}`:\n\n```python\nprice = 19.99\nquantity = 3\nprint(f\"Total: ${price * quantity}\")  # Total: $59.97\n\n# Formatting numbers\nprint(f\"Price: ${price:.2f}\")  # Price: $19.99 (2 decimal places)\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nGiven:\n- `item` = `\"Coffee\"`\n- `price` = `4.50`\n\nUse an f-string to print: `Coffee costs $4.5`\n\n## Formatting with f-strings\nUse f-strings to embed variables directly inside text.\n",
     "starter_code": "# Given data\nitem = \"Coffee\"\nprice = 4.50\n\n# Print using f-string\n",
     "solution_code": "# Given data\nitem = \"Coffee\"\nprice = 4.50\n\n# Print using f-string\nprint(f\"{item} costs ${price}\")",
     "chapter_id": 1,
@@ -199,7 +242,25 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "live_code_block",
+        "initialCode": "name = \"Ava\"\\nscore = 92\\nprint(f\"{name} {score}\")",
+        "language": "python",
+        "highlightLine": 3,
+        "variableName": "format_output"
+      },
+      {
+        "type": "output_diff",
+        "title": "Match the formatted output",
+        "expected": "Ava scored 92 points",
+        "actualVar": "format_output"
+      }
+    ],
+    "gap_ids": [
+      "PY-100"
+    ]
   },
   "8": {
     "id": 8,
@@ -327,7 +388,7 @@
   "12": {
     "id": 12,
     "title": "Booleans and Type Conversion",
-    "content": "# ⭕ Booleans: True or False\n\n## What is a Boolean?\n\nA **Boolean** (named after mathematician George Boole) can only be one of two values:\n- `True`\n- `False`\n\n```python\nis_sunny = True\nis_raining = False\n```\n\n## Why Are Booleans Important?\n\nBooleans are the foundation of **decision making** in code:\n\n```python\nis_adult = age >= 18\nis_logged_in = True\nhas_permission = user_role == \"admin\"\n```\n\nWe'll use these extensively in the Logic chapter!\n\n## Type Conversion\n\nYou can convert between types:\n\n```python\n# To integer\nint(\"42\")       # 42\nint(3.7)        # 3 (truncates, doesn't round!)\n\n# To float\nfloat(\"3.14\")   # 3.14\nfloat(5)        # 5.0\n\n# To string\nstr(42)         # \"42\"\nstr(3.14)       # \"3.14\"\n\n# To boolean\nbool(1)         # True\nbool(0)         # False\nbool(\"\")        # False (empty string)\nbool(\"hello\")   # True (non-empty string)\n```\n\n## Common Use: User Input\n\n```python\n# input() always returns a string!\nage_text = \"25\"\nage = int(age_text)  # Convert to number for math\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nGiven: `age_text = \"25\"`\n\n1. Convert it to an integer using `int()`\n2. Add 5 to get age in 5 years\n3. Print the future age (should be 30)\n\n## Casting basics\nUse `int()`, `float()`, and `str()` to convert values safely when types do not match.\n\n```python\nage_text = \"42\"\nage = int(age_text)\nprice = float(\"3.5\")\nlabel = str(100)\n```\n",
+    "content": "# ⭕ Booleans: True or False\n\n## What is a Boolean?\n\nA **Boolean** (named after mathematician George Boole) can only be one of two values:\n- `True`\n- `False`\n\n```python\nis_sunny = True\nis_raining = False\n```\n\n## Why Are Booleans Important?\n\nBooleans are the foundation of **decision making** in code:\n\n```python\nis_adult = age >= 18\nis_logged_in = True\nhas_permission = user_role == \"admin\"\n```\n\nWe'll use these extensively in the Logic chapter!\n\n## Type Conversion\n\nYou can convert between types:\n\n```python\n# To integer\nint(\"42\")       # 42\nint(3.7)        # 3 (truncates, doesn't round!)\n\n# To float\nfloat(\"3.14\")   # 3.14\nfloat(5)        # 5.0\n\n# To string\nstr(42)         # \"42\"\nstr(3.14)       # \"3.14\"\n\n# To boolean\nbool(1)         # True\nbool(0)         # False\nbool(\"\")        # False (empty string)\nbool(\"hello\")   # True (non-empty string)\n```\n\n## Common Use: User Input\n\n```python\n# input() always returns a string!\nage_text = \"25\"\nage = int(age_text)  # Convert to number for math\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nGiven: `age_text = \"25\"`\n\n1. Convert it to an integer using `int()`\n2. Add 5 to get age in 5 years\n3. Print the future age (should be 30)\n\n## Casting basics\nUse `int()`, `float()`, and `str()` to convert values safely when types do not match.\n\n```python\nage_text = \"42\"\nage = int(age_text)\nprice = float(\"3.5\")\nlabel = str(100)\n```\n\n## Cast failures\nIf a cast fails, Python raises a `ValueError`. We handle those safely later in **Error Handling**.\n",
     "starter_code": "# Age as a string\nage_text = \"25\"\n\n# Convert to integer\n\n\n# Add 5 years\n\n\n# Print future age\n",
     "solution_code": "# Age as a string\nage_text = \"25\"\n\n# Convert to integer\nage = int(age_text)\n\n# Add 5 years\nfuture_age = age + 5\n\n# Print future age\nprint(future_age)",
     "chapter_id": 1,
@@ -380,7 +441,7 @@
   "13": {
     "id": 13,
     "title": "For Loop Basics",
-    "content": "# 🔁 For Loops: Repeat Actions\n\n## What is a Loop?\n\nA **loop** lets you repeat code multiple times without writing it over and over. It's one of the most powerful tools in programming!\n\n## Real-World Analogy\n\nImagine you need to greet 100 guests at a party. Instead of saying \"Hello\" 100 times manually, you'd use a loop: \"For each guest, say Hello.\"\n\n## The For Loop\n\nA `for` loop repeats code for each item in a sequence:\n\n```python\n# For each item in the sequence...\nfor item in sequence:\n    # Do something with item\n    print(item)\n```\n\n## Example: Looping Through a List\n\n```python\nfruits = [\"apple\", \"banana\", \"cherry\"]\nfor fruit in fruits:\n    print(fruit)\n```\n\nOutput:\n```\napple\nbanana\ncherry\n```\n\n## How It Works Step by Step\n\n1. Python takes the first item (\"apple\") and stores it in `fruit`\n2. Runs the indented code (prints \"apple\")\n3. Takes the next item (\"banana\") and stores it in `fruit`\n4. Runs the indented code (prints \"banana\")\n5. Continues until no items left\n\n---\n\n\n\n## Try It Yourself\n\nAdjust the loop bound:\n\n<variableslider name=\"loop_bound\" min=\"1\" max=\"10\" initial=\"5\" label=\"Loop iterations\"></variableslider>\n\n## 🎯 Your Task\n\nGiven this list:\n```python\ncolors = [\"red\", \"green\", \"blue\"]\n```\n\nUse a for loop to print each color on a new line.\n",
+    "content": "# 🔁 For Loops: Repeat Actions\n\n## What is a Loop?\n\nA **loop** lets you repeat code multiple times without writing it over and over. It's one of the most powerful tools in programming!\n\n## Real-World Analogy\n\nImagine you need to greet 100 guests at a party. Instead of saying \"Hello\" 100 times manually, you'd use a loop: \"For each guest, say Hello.\"\n\n## The For Loop\n\nA `for` loop repeats code for each item in a sequence:\n\n```python\n# For each item in the sequence...\nfor item in sequence:\n    # Do something with item\n    print(item)\n```\n\n## Example: Looping Through a List\n\n```python\nfruits = [\"apple\", \"banana\", \"cherry\"]\nfor fruit in fruits:\n    print(fruit)\n```\n\nOutput:\n```\napple\nbanana\ncherry\n```\n\n## How It Works Step by Step\n\n1. Python takes the first item (\"apple\") and stores it in `fruit`\n2. Runs the indented code (prints \"apple\")\n3. Takes the next item (\"banana\") and stores it in `fruit`\n4. Runs the indented code (prints \"banana\")\n5. Continues until no items left\n\n---\n\n\n\n## Try It Yourself\n\nAdjust the loop bound:\n\n<variableslider name=\"loop_bound\" min=\"1\" max=\"10\" initial=\"5\" label=\"Loop iterations\"></variableslider>\n\n## 🎯 Your Task\n\nGiven this list:\n```python\ncolors = [\"red\", \"green\", \"blue\"]\n```\n\nUse a for loop to print each color on a new line.\n\n## Trace a for-loop\nWatch how `i` and `total` change on each iteration.\n",
     "starter_code": "colors = [\"red\", \"green\", \"blue\"]\n\n# Print each color\n",
     "solution_code": "colors = [\"red\", \"green\", \"blue\"]\n\n# Print each color\nfor color in colors:\n    print(color)",
     "chapter_id": 2,
@@ -393,7 +454,76 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "step_executor",
+        "code": "total = 0\\nfor i in range(1, 4):\\n    total += i",
+        "steps": [
+          {
+            "line": 1,
+            "description": "Initialize total",
+            "stateChanges": {
+              "total": 0
+            }
+          },
+          {
+            "line": 2,
+            "description": "First loop value",
+            "stateChanges": {
+              "i": 1
+            }
+          },
+          {
+            "line": 3,
+            "description": "Add i to total",
+            "stateChanges": {
+              "total": 1
+            }
+          },
+          {
+            "line": 2,
+            "description": "Next loop value",
+            "stateChanges": {
+              "i": 2
+            }
+          },
+          {
+            "line": 3,
+            "description": "Add i to total",
+            "stateChanges": {
+              "total": 3
+            }
+          },
+          {
+            "line": 2,
+            "description": "Next loop value",
+            "stateChanges": {
+              "i": 3
+            }
+          },
+          {
+            "line": 3,
+            "description": "Add i to total",
+            "stateChanges": {
+              "total": 6
+            }
+          }
+        ]
+      },
+      {
+        "type": "state_inspector",
+        "title": "Loop variables",
+        "filter": [
+          "i",
+          "total"
+        ],
+        "showTypes": true
+      }
+    ],
+    "gap_ids": [
+      "PY-080"
+    ]
   },
   "14": {
     "id": 14,
@@ -500,7 +630,7 @@
   "19": {
     "id": 19,
     "title": "While Loop Basics",
-    "content": "# ⏳ While Loops\n\n## For vs While\n\n| Loop Type | Use Case |\n| --- | --- |\n| `for` | When you know how many times to loop |\n| `while` | When you loop until a condition changes |\n\n## While Loop Syntax\n\n```python\nwhile condition:\n    # Do something\n    # Update something (to eventually stop!)\n```\n\n## Example\n\n```python\ncount = 0\nwhile count < 5:\n    print(count)\n    count += 1\n# Output: 0, 1, 2, 3, 4\n```\n\n## ⚠️ Warning: Infinite Loops!\n\nIf the condition never becomes False, the loop runs forever!\n\n```python\n# DANGER! Never stops!\nwhile True:\n    print(\"Forever...\")\n\n# SAFE: Will eventually stop\nx = 0\nwhile x < 10:\n    print(x)\n    x += 1  # This makes x eventually reach 10\n```\n\n## When to Use While\n\n- User input validation (keep asking until valid)\n- Game loops (run until game over)\n- Processing data until a condition is met\n\n---\n\n\n\n## Try It Yourself\n\nAdjust the loop bound:\n\n<variableslider name=\"loop_bound\" min=\"1\" max=\"10\" initial=\"5\" label=\"Loop iterations\"></variableslider>\n\n## 🎯 Your Task\n\nStart with `x = 1`. \nUse a while loop to print x and double it (`x *= 2`) while x <= 16.\n",
+    "content": "# ⏳ While Loops\n\n## For vs While\n\n| Loop Type | Use Case |\n| --- | --- |\n| `for` | When you know how many times to loop |\n| `while` | When you loop until a condition changes |\n\n## While Loop Syntax\n\n```python\nwhile condition:\n    # Do something\n    # Update something (to eventually stop!)\n```\n\n## Example\n\n```python\ncount = 0\nwhile count < 5:\n    print(count)\n    count += 1\n# Output: 0, 1, 2, 3, 4\n```\n\n## ⚠️ Warning: Infinite Loops!\n\nIf the condition never becomes False, the loop runs forever!\n\n```python\n# DANGER! Never stops!\nwhile True:\n    print(\"Forever...\")\n\n# SAFE: Will eventually stop\nx = 0\nwhile x < 10:\n    print(x)\n    x += 1  # This makes x eventually reach 10\n```\n\n## When to Use While\n\n- User input validation (keep asking until valid)\n- Game loops (run until game over)\n- Processing data until a condition is met\n\n---\n\n\n\n## Try It Yourself\n\nAdjust the loop bound:\n\n<variableslider name=\"loop_bound\" min=\"1\" max=\"10\" initial=\"5\" label=\"Loop iterations\"></variableslider>\n\n## 🎯 Your Task\n\nStart with `x = 1`. \nUse a while loop to print x and double it (`x *= 2`) while x <= 16.\n\n## While loop rhythm\nEach iteration updates the loop variable until the condition becomes false.\n",
     "starter_code": "x = 1\n\n# While x <= 16, print x and double it\n",
     "solution_code": "x = 1\n\n# While x <= 16, print x and double it\nwhile x <= 16:\n    print(x)\n    x *= 2",
     "chapter_id": 2,
@@ -514,7 +644,30 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "loop_simulator",
+        "label": "Count upward with a while loop",
+        "iterations": 4,
+        "startValue": 1,
+        "stepValue": 1,
+        "valueVar": "n",
+        "stepVar": "step"
+      },
+      {
+        "type": "state_inspector",
+        "title": "Loop state",
+        "filter": [
+          "n",
+          "step"
+        ],
+        "showTypes": true
+      }
+    ],
+    "gap_ids": [
+      "PY-079"
+    ]
   },
   "20": {
     "id": 20,
@@ -692,7 +845,7 @@
   "29": {
     "id": 29,
     "title": "Nested Conditionals",
-    "content": "# 🪆 Nested If Statements\n\n## If Inside If\n\nYou can put if statements inside other if statements:\n\n```python\nif has_account:\n    if is_verified:\n        print(\"Full access\")\n    else:\n        print(\"Please verify your email\")\nelse:\n    print(\"Please create an account\")\n```\n\n## When to Nest\n\nUseful when second check only makes sense if first is True:\n\n```python\nif user_input:  # First check: did they enter anything?\n    if user_input.isdigit():  # Only check this if there's input\n        print(\"Valid number!\")\n    else:\n        print(\"Not a number\")\nelse:\n    print(\"No input provided\")\n```\n\n## Avoid Deep Nesting\n\nToo many levels becomes hard to read:\n\n```python\n# BAD - too nested!\nif a:\n    if b:\n        if c:\n            if d:\n                do_something()\n\n# BETTER - use AND\nif a and b and c and d:\n    do_something()\n```\n\n---\n\n\n\n## Experiment\n\nModify the condition value:\n\n<livecodeblock initialcode=\"{sample_code}\" language=\"python\" highlightline=\"1\"></livecodeblock>\n\n## 🎯 Your Task\n\nGiven:\n- `logged_in = True`\n- `is_admin = True`\n\nIf logged_in, check if is_admin:\n- If admin: print `\"Admin panel\"`\n- Else: print `\"User dashboard\"`\n",
+    "content": "# 🪆 Nested If Statements\n\n## If Inside If\n\nYou can put if statements inside other if statements:\n\n```python\nif has_account:\n    if is_verified:\n        print(\"Full access\")\n    else:\n        print(\"Please verify your email\")\nelse:\n    print(\"Please create an account\")\n```\n\n## When to Nest\n\nUseful when second check only makes sense if first is True:\n\n```python\nif user_input:  # First check: did they enter anything?\n    if user_input.isdigit():  # Only check this if there's input\n        print(\"Valid number!\")\n    else:\n        print(\"Not a number\")\nelse:\n    print(\"No input provided\")\n```\n\n## Avoid Deep Nesting\n\nToo many levels becomes hard to read:\n\n```python\n# BAD - too nested!\nif a:\n    if b:\n        if c:\n            if d:\n                do_something()\n\n# BETTER - use AND\nif a and b and c and d:\n    do_something()\n```\n\n---\n\n\n\n## Experiment\n\nModify the condition value:\n\n<livecodeblock initialcode=\"{sample_code}\" language=\"python\" highlightline=\"1\"></livecodeblock>\n\n## 🎯 Your Task\n\nGiven:\n- `logged_in = True`\n- `is_admin = True`\n\nIf logged_in, check if is_admin:\n- If admin: print `\"Admin panel\"`\n- Else: print `\"User dashboard\"`\n\n## Trace a nested decision\nNested checks let you apply a second rule only after the first one passes.\n",
     "starter_code": "logged_in = True\nis_admin = True\n\n# Nested check\n",
     "solution_code": "logged_in = True\nis_admin = True\n\n# Nested check\nif logged_in:\n    if is_admin:\n        print(\"Admin panel\")\n    else:\n        print(\"User dashboard\")",
     "chapter_id": 3,
@@ -706,12 +859,65 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "step_executor",
+        "code": "age = 20\\nmember = True\\nprice = 12\\n\\nif age < 18:\\n    price = 6\\nelse:\\n    if member:\\n        price = 8",
+        "steps": [
+          {
+            "line": 1,
+            "description": "Set age",
+            "stateChanges": {
+              "age": 20
+            }
+          },
+          {
+            "line": 2,
+            "description": "Set member",
+            "stateChanges": {
+              "member": true
+            }
+          },
+          {
+            "line": 3,
+            "description": "Set base price",
+            "stateChanges": {
+              "price": 12
+            }
+          },
+          {
+            "line": 5,
+            "description": "age < 18 is false → go to else"
+          },
+          {
+            "line": 8,
+            "description": "member is true → apply discount",
+            "stateChanges": {
+              "price": 8
+            }
+          }
+        ]
+      },
+      {
+        "type": "state_inspector",
+        "title": "State after each step",
+        "filter": [
+          "age",
+          "member",
+          "price"
+        ],
+        "showTypes": true
+      }
+    ],
+    "gap_ids": [
+      "PY-076"
+    ]
   },
   "30": {
     "id": 30,
     "title": "Ternary Operator",
-    "content": "# ⚡ One-Line Conditionals\n\n## The Ternary Operator\n\nPython has a shorthand for simple if-else:\n\n```python\nvalue_if_true if condition else value_if_false\n```\n\n## Example\n\n```python\nage = 20\nstatus = \"Adult\" if age >= 18 else \"Minor\"\nprint(status)  # Adult\n```\n\nThis is equivalent to:\n```python\nif age >= 18:\n    status = \"Adult\"\nelse:\n    status = \"Minor\"\n```\n\n## When to Use\n\n✅ Good for simple, short conditions:\n```python\nresult = \"Pass\" if score >= 70 else \"Fail\"\nmessage = f\"Welcome, {name}!\" if name else \"Welcome, Guest!\"\n```\n\n❌ Avoid for complex logic:\n```python\n# Too complex for ternary - use regular if-else\ngrade = \"A\" if score >= 90 else \"B\" if score >= 80 else \"C\" if score >= 70 else \"F\"\n```\n\n---\n\n\n\n## Experiment\n\nModify the condition value:\n\n<livecodeblock initialcode=\"{sample_code}\" language=\"python\" highlightline=\"1\"></livecodeblock>\n\n## 🎯 Your Task\n\nGiven `points = 150`:\nSet `level` to `\"Gold\"` if points >= 100, else `\"Silver\"`.\nPrint the level.\n",
+    "content": "# ⚡ One-Line Conditionals\n\n## The Ternary Operator\n\nPython has a shorthand for simple if-else:\n\n```python\nvalue_if_true if condition else value_if_false\n```\n\n## Example\n\n```python\nage = 20\nstatus = \"Adult\" if age >= 18 else \"Minor\"\nprint(status)  # Adult\n```\n\nThis is equivalent to:\n```python\nif age >= 18:\n    status = \"Adult\"\nelse:\n    status = \"Minor\"\n```\n\n## When to Use\n\n✅ Good for simple, short conditions:\n```python\nresult = \"Pass\" if score >= 70 else \"Fail\"\nmessage = f\"Welcome, {name}!\" if name else \"Welcome, Guest!\"\n```\n\n❌ Avoid for complex logic:\n```python\n# Too complex for ternary - use regular if-else\ngrade = \"A\" if score >= 90 else \"B\" if score >= 80 else \"C\" if score >= 70 else \"F\"\n```\n\n---\n\n\n\n## Experiment\n\nModify the condition value:\n\n<livecodeblock initialcode=\"{sample_code}\" language=\"python\" highlightline=\"1\"></livecodeblock>\n\n## 🎯 Your Task\n\nGiven `points = 150`:\nSet `level` to `\"Gold\"` if points >= 100, else `\"Silver\"`.\nPrint the level.\n\n## Shorthand if\nTernary syntax keeps simple branches compact:\n\n```python\nlabel = \"pass\" if score >= 70 else \"retry\"\n```\n",
     "starter_code": "points = 150\n\n# Set level using ternary\n\n\n# Print level\n",
     "solution_code": "points = 150\n\n# Set level using ternary\nlevel = \"Gold\" if points >= 100 else \"Silver\"\n\n# Print level\nprint(level)",
     "chapter_id": 3,
@@ -726,12 +932,34 @@
     ],
     "interaction_confidence": 0.84,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "conditional_path",
+        "prompt": "Evaluate the ternary: label = \"pass\" if score >= 70 else \"retry\"",
+        "choices": [
+          {
+            "label": "score = 72",
+            "outcome": "true"
+          },
+          {
+            "label": "score = 65",
+            "outcome": "false"
+          }
+        ],
+        "trueLabel": "label = \"pass\"",
+        "falseLabel": "label = \"retry\"",
+        "resultVar": "ternary_result"
+      }
+    ],
+    "gap_ids": [
+      "PY-075"
+    ]
   },
   "31": {
     "id": 31,
     "title": "Defining Functions",
-    "content": "# 🔧 Creating Functions\n\n## What is a Function?\n\nA **function** is a reusable block of code that performs a specific task. Instead of writing the same code over and over, you define it once and call it whenever needed.\n\n## Real-World Analogy\n\nThink of a function like a **recipe**:\n- You write the recipe once\n- Every time you want that dish, you follow the same recipe\n- You don't have to figure it out from scratch each time!\n\n## Why Use Functions?\n\n1. **Reusability**: Write once, use many times\n2. **Organization**: Break complex code into manageable pieces\n3. **Readability**: Give meaningful names to code blocks\n4. **Maintenance**: Fix bugs in one place\n\n## Defining a Function\n\n![Function Machine](/Python-Game-2/assets/python-diagrams/function_machine.png)\n\n```python\ndef function_name():\n    # Code inside the function\n    print(\"Hello from the function!\")\n```\n\n- `def` keyword starts the definition\n- `function_name` is what you call it\n- `():` parentheses and colon are required\n- Indented code is the function body\n\n## Calling a Function\n\nThe function doesn't run until you **call** it:\n\n```python\ndef greet():\n    print(\"Hello!\")\n\ngreet()  # Call the function - output: Hello!\ngreet()  # Call it again!\n```\n\n---\n\n\n\n## Arrange the Code\n\n<parsonspuzzle correctorder='[\"def say_hello():\", \"    print(\\\"Hello, World!\\\")\", \"say_hello()\"]'></parsonspuzzle>\n\n## 🎯 Your Task\n\nDefine a function called `say_hello` that prints `\"Hello, World!\"`.\nThen call it.\n",
+    "content": "# 🔧 Creating Functions\n\n## What is a Function?\n\nA **function** is a reusable block of code that performs a specific task. Instead of writing the same code over and over, you define it once and call it whenever needed.\n\n## Real-World Analogy\n\nThink of a function like a **recipe**:\n- You write the recipe once\n- Every time you want that dish, you follow the same recipe\n- You don't have to figure it out from scratch each time!\n\n## Why Use Functions?\n\n1. **Reusability**: Write once, use many times\n2. **Organization**: Break complex code into manageable pieces\n3. **Readability**: Give meaningful names to code blocks\n4. **Maintenance**: Fix bugs in one place\n\n## Defining a Function\n\n![Function Machine](/Python-Game-2/assets/python-diagrams/function_machine.png)\n\n```python\ndef function_name():\n    # Code inside the function\n    print(\"Hello from the function!\")\n```\n\n- `def` keyword starts the definition\n- `function_name` is what you call it\n- `():` parentheses and colon are required\n- Indented code is the function body\n\n## Calling a Function\n\nThe function doesn't run until you **call** it:\n\n```python\ndef greet():\n    print(\"Hello!\")\n\ngreet()  # Call the function - output: Hello!\ngreet()  # Call it again!\n```\n\n---\n\n\n\n## Arrange the Code\n\n<parsonspuzzle correctorder='[\"def say_hello():\", \"    print(\\\"Hello, World!\\\")\", \"say_hello()\"]'></parsonspuzzle>\n\n## 🎯 Your Task\n\nDefine a function called `say_hello` that prints `\"Hello, World!\"`.\nThen call it.\n\n## Built-ins vs your functions\nBuilt-in functions (like `len`) already exist. Your functions are the ones you define with `def`.\n",
     "starter_code": "# Define the function\n\n\n# Call the function\n",
     "solution_code": "# Define the function\ndef say_hello():\n    print(\"Hello, World!\")\n\n# Call the function\nsay_hello()",
     "chapter_id": 4,
@@ -746,7 +974,57 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "step_executor",
+        "code": "def square(x):\\n    return x * x\\n\\nnums = [2, 3, 4]\\nlength = len(nums)\\ncustom = square(3)",
+        "steps": [
+          {
+            "line": 1,
+            "description": "Define a custom function (no output yet)"
+          },
+          {
+            "line": 4,
+            "description": "Create a list",
+            "stateChanges": {
+              "nums": [
+                2,
+                3,
+                4
+              ]
+            }
+          },
+          {
+            "line": 5,
+            "description": "Call built-in len()",
+            "stateChanges": {
+              "length": 3
+            }
+          },
+          {
+            "line": 6,
+            "description": "Call your square() function",
+            "stateChanges": {
+              "custom": 9
+            }
+          }
+        ]
+      },
+      {
+        "type": "state_inspector",
+        "title": "Built-in vs custom results",
+        "filter": [
+          "nums",
+          "length",
+          "custom"
+        ],
+        "showTypes": true
+      }
+    ],
+    "gap_ids": [
+      "PY-192"
+    ]
   },
   "32": {
     "id": 32,
@@ -881,7 +1159,7 @@
   "39": {
     "id": 39,
     "title": "Variable Scope",
-    "content": "# 🔭 Variable Scope\n\n## What is Scope?\n\n**Scope** determines where a variable can be accessed. Variables created inside a function only exist inside that function!\n\n```python\ndef my_function():\n    x = 10  # Local variable - only exists inside function\n    print(x)\n\nmy_function()  # Output: 10\nprint(x)       # ERROR! x doesn't exist here\n```\n\n## Local vs Global\n\n| Type | Where Created | Where Accessible |\n| --- | --- | --- |\n| **Local** | Inside a function | Only that function |\n| **Global** | Outside all functions | Everywhere |\n\n```python\ny = 20  # Global variable\n\ndef show():\n    print(y)  # Can read global variable\n\nshow()  # Output: 20\n```\n\n## Shadowing\n\nA local variable can have the same name as a global (but it's a different variable!):\n\n```python\nx = 100  # Global\n\ndef test():\n    x = 5  # Local - different variable!\n    print(x)  # 5\n\ntest()\nprint(x)  # 100 (global unchanged)\n```\n\n---\n\n\n\n## Arrange the Code\n\n<parsonspuzzle correctorder='[\"def show_secret():\", \"    secret = \\\"Python rocks!\\\"\", \"    print(secret)\", \"show_secret()\"]'></parsonspuzzle>\n\n## 🎯 Your Task\n\nDefine a function `show_secret()` that:\n1. Creates a local variable `secret = \"Python rocks!\"`\n2. Prints it\n\nCall the function.\n",
+    "content": "# 🔭 Variable Scope\n\n## What is Scope?\n\n**Scope** determines where a variable can be accessed. Variables created inside a function only exist inside that function!\n\n```python\ndef my_function():\n    x = 10  # Local variable - only exists inside function\n    print(x)\n\nmy_function()  # Output: 10\nprint(x)       # ERROR! x doesn't exist here\n```\n\n## Local vs Global\n\n| Type | Where Created | Where Accessible |\n| --- | --- | --- |\n| **Local** | Inside a function | Only that function |\n| **Global** | Outside all functions | Everywhere |\n\n```python\ny = 20  # Global variable\n\ndef show():\n    print(y)  # Can read global variable\n\nshow()  # Output: 20\n```\n\n## Shadowing\n\nA local variable can have the same name as a global (but it's a different variable!):\n\n```python\nx = 100  # Global\n\ndef test():\n    x = 5  # Local - different variable!\n    print(x)  # 5\n\ntest()\nprint(x)  # 100 (global unchanged)\n```\n\n---\n\n\n\n## Arrange the Code\n\n<parsonspuzzle correctorder='[\"def show_secret():\", \"    secret = \\\"Python rocks!\\\"\", \"    print(secret)\", \"show_secret()\"]'></parsonspuzzle>\n\n## 🎯 Your Task\n\nDefine a function `show_secret()` that:\n1. Creates a local variable `secret = \"Python rocks!\"`\n2. Prints it\n\nCall the function.\n\n## Global vs local\nLocal variables live inside a function. Use `global` only when you truly intend to modify outer state.\n",
     "starter_code": "# Define show_secret\n\n\n# Call it\n",
     "solution_code": "# Define show_secret\ndef show_secret():\n    secret = \"Python rocks!\"\n    print(secret)\n\n# Call it\nshow_secret()",
     "chapter_id": 4,
@@ -896,7 +1174,50 @@
     ],
     "interaction_confidence": 0.84,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "step_executor",
+        "code": "count = 0\\n\\ndef bump_local():\\n    count = 1\\n    return count\\n\\ndef bump_global():\\n    global count\\n    count = count + 1\\n    return count\\n\\nlocal_result = bump_local()\\nglobal_result = bump_global()",
+        "steps": [
+          {
+            "line": 1,
+            "description": "Initialize global count",
+            "stateChanges": {
+              "count": 0
+            }
+          },
+          {
+            "line": 12,
+            "description": "Call bump_local (global stays the same)",
+            "stateChanges": {
+              "local_result": 1
+            }
+          },
+          {
+            "line": 13,
+            "description": "Call bump_global (global updates)",
+            "stateChanges": {
+              "count": 1,
+              "global_result": 1
+            }
+          }
+        ]
+      },
+      {
+        "type": "state_inspector",
+        "title": "Scope snapshot",
+        "filter": [
+          "count",
+          "local_result",
+          "global_result"
+        ],
+        "showTypes": true
+      }
+    ],
+    "gap_ids": [
+      "PY-012"
+    ]
   },
   "40": {
     "title": "🐍 Sand Sphinx Challenge",
@@ -3062,7 +3383,7 @@
   "149": {
     "title": "Converting Between Types",
     "chapter_title": "Type Conversion",
-    "content": "# 🔄 Type Conversion: Transform Data Types\n\n## Why Convert Types?\n\nData often arrives as strings (from files, user input, APIs) but you need numbers for calculations:\n\n```python\nprice = \"29.99\"\nquantity = \"3\"\n\n# This fails! String + String = Concatenation\ntotal = price * quantity  # \"29.9929.9929.99\" 😱\n\n# Convert first!\ntotal = float(price) * int(quantity)  # 89.97 ✅\n```\n\n## The Big Three Converters\n\n```python\nint(\"42\")      # String → Integer: 42\nfloat(\"3.14\")  # String → Float: 3.14\nstr(100)       # Number → String: \"100\"\n```\n\n## Common Conversions\n\n```python\n# String to Number\nint(\"100\")        # 100\nfloat(\"3.14\")     # 3.14\nint(\"100\", 2)     # 4 (binary to decimal!)\n\n# Number to String\nstr(42)           # \"42\"\nf\"{3.14159:.2f}\"  # \"3.14\"\n\n# Between Number Types\nint(3.7)          # 3 (truncates, doesn't round!)\nfloat(42)         # 42.0\nround(3.7)        # 4 (rounds)\n\n# To Boolean\nbool(0)           # False\nbool(1)           # True\nbool(\"\")          # False\nbool(\"text\")      # True\n```\n\n## Collection Conversions\n\n```python\nlist(\"hello\")     # ['h', 'e', 'l', 'l', 'o']\ntuple([1, 2, 3])  # (1, 2, 3)\nset([1, 2, 2])    # {1, 2}\nlist({1, 2, 3})   # [1, 2, 3]\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nPractice converting between different data types.",
+    "content": "# 🔄 Type Conversion: Transform Data Types\n\n## Why Convert Types?\n\nData often arrives as strings (from files, user input, APIs) but you need numbers for calculations:\n\n```python\nprice = \"29.99\"\nquantity = \"3\"\n\n# This fails! String + String = Concatenation\ntotal = price * quantity  # \"29.9929.9929.99\" 😱\n\n# Convert first!\ntotal = float(price) * int(quantity)  # 89.97 ✅\n```\n\n## The Big Three Converters\n\n```python\nint(\"42\")      # String → Integer: 42\nfloat(\"3.14\")  # String → Float: 3.14\nstr(100)       # Number → String: \"100\"\n```\n\n## Common Conversions\n\n```python\n# String to Number\nint(\"100\")        # 100\nfloat(\"3.14\")     # 3.14\nint(\"100\", 2)     # 4 (binary to decimal!)\n\n# Number to String\nstr(42)           # \"42\"\nf\"{3.14159:.2f}\"  # \"3.14\"\n\n# Between Number Types\nint(3.7)          # 3 (truncates, doesn't round!)\nfloat(42)         # 42.0\nround(3.7)        # 4 (rounds)\n\n# To Boolean\nbool(0)           # False\nbool(1)           # True\nbool(\"\")          # False\nbool(\"text\")      # True\n```\n\n## Collection Conversions\n\n```python\nlist(\"hello\")     # ['h', 'e', 'l', 'l', 'o']\ntuple([1, 2, 3])  # (1, 2, 3)\nset([1, 2, 2])    # {1, 2}\nlist({1, 2, 3})   # [1, 2, 3]\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nPractice converting between different data types.\n\n## Cast failures\nIf a cast fails, Python raises a `ValueError`. We handle those safely later in **Error Handling**.\n",
     "starter_code": "# Various type conversions\nprint(\"=== String to Number ===\")\nage_string = \"25\"\nprice_string = \"19.99\"\n\nage = int(age_string)\nprice = float(price_string)\nprint(f\"Age: {age} (type: {type(age).__name__})\")\nprint(f\"Price: {price} (type: {type(price).__name__})\")\n\nprint(\"\\n=== Number to String ===\")\nquantity = 5\nformatted = f\"You ordered {quantity} items at ${price} each\"\nprint(formatted)\n\nprint(\"\\n=== Float to Int ===\")\nrating = 4.7\nstars = int(rating)  # Truncates!\nrounded = round(rating)\nprint(f\"Rating {rating} → int: {stars}, rounded: {rounded}\")\n\nprint(\"\\n=== List/Set/Tuple ===\")\nnumbers = [1, 2, 2, 3, 3, 3]\nunique = set(numbers)\nback_to_list = list(unique)\nprint(f\"List: {numbers}\")\nprint(f\"Set: {unique}\")\nprint(f\"Back to list: {back_to_list}\")",
     "solution_code": "age = int(\"25\")\nprice = float(\"19.99\")\nprint(f\"Age: {age}, Price: ${price:.2f}\")\nprint(f\"Unique: {set([1,2,2,3,3])}\")",
     "concept_tags": [
@@ -5293,7 +5614,7 @@
   "1010": {
     "id": 1010,
     "title": "Your First SELECT",
-    "content": "# 📋 Your First SELECT\n\n## Mastering the Fetch\n\nNow that you have the mental model, let's start fetching data! `SELECT` is how we ask the database for specific information.\n\n## Basic Syntax\n\n```sql\nSELECT column_name FROM table_name;\n```\n\n## Conventions\nWorking with SQL is easier when you follow standard patterns:\n- **UPPERCASE** for keywords (`SELECT`, `FROM`).\n- **lowercase** for column and table names.\n- **Semicolons** `;` at the end of your query.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nRetrieve the `email` column from the `users` table.",
+    "content": "# 📋 Your First SELECT\n\n## Mastering the Fetch\n\nNow that you have the mental model, let's start fetching data! `SELECT` is how we ask the database for specific information.\n\n## Basic Syntax\n\n```sql\nSELECT column_name FROM table_name;\n```\n\n## Conventions\nWorking with SQL is easier when you follow standard patterns:\n- **UPPERCASE** for keywords (`SELECT`, `FROM`).\n- **lowercase** for column and table names.\n- **Semicolons** `;` at the end of your query.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nRetrieve the `email` column from the `users` table.\n\n## DISTINCT for unique values\nDISTINCT removes duplicate rows in the result set.\n",
     "starter_code": "-- Fetch emails from the users table\n\n",
     "solution_code": "SELECT email FROM users;",
     "chapter_id": 201,
@@ -5306,7 +5627,81 @@
     ],
     "interaction_confidence": 0.92,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "data_transform",
+        "title": "SELECT vs SELECT DISTINCT",
+        "columns": [
+          "department"
+        ],
+        "beforeRows": [
+          {
+            "department": "Sales"
+          },
+          {
+            "department": "Sales"
+          },
+          {
+            "department": "Support"
+          },
+          {
+            "department": "Engineering"
+          },
+          {
+            "department": "Support"
+          }
+        ],
+        "filters": [
+          {
+            "id": "all_rows",
+            "label": "SELECT department",
+            "rows": [
+              {
+                "department": "Sales"
+              },
+              {
+                "department": "Sales"
+              },
+              {
+                "department": "Support"
+              },
+              {
+                "department": "Engineering"
+              },
+              {
+                "department": "Support"
+              }
+            ]
+          },
+          {
+            "id": "distinct_rows",
+            "label": "SELECT DISTINCT department",
+            "rows": [
+              {
+                "department": "Sales"
+              },
+              {
+                "department": "Support"
+              },
+              {
+                "department": "Engineering"
+              }
+            ]
+          }
+        ],
+        "resultVar": "dept_rows"
+      },
+      {
+        "type": "output_diff",
+        "title": "Match the DISTINCT row count",
+        "expected": "3",
+        "actualVar": "dept_rows"
+      }
+    ],
+    "gap_ids": [
+      "SQL-004"
+    ]
   },
   "1011": {
     "id": 1011,
@@ -5384,7 +5779,7 @@
   "1015": {
     "id": 1015,
     "title": "LIMIT Clause",
-    "content": "# 🔢 LIMIT: Control Result Size\n\n## Why Limit Results?\n\n- Preview data without loading millions of rows\n- Pagination (show 10 results per page)\n- Top-N queries (top 5 customers)\n\n## Basic Syntax\n\n```sql\nSELECT * FROM products LIMIT 10;\n```\n\nReturns only the first 10 rows.\n\n## With ORDER BY\n\nLIMIT is most useful with ORDER BY:\n\n```sql\n-- Top 5 highest paid employees\nSELECT name, salary \nFROM employees \nORDER BY salary DESC \nLIMIT 5;\n```\n\n## OFFSET for Pagination\n\nSkip rows before limiting:\n\n```sql\n-- Page 1: rows 1-10\nSELECT * FROM products LIMIT 10 OFFSET 0;\n\n-- Page 2: rows 11-20\nSELECT * FROM products LIMIT 10 OFFSET 10;\n\n-- Page 3: rows 21-30\nSELECT * FROM products LIMIT 10 OFFSET 20;\n```\n\n## Database Variations\n\n| Database | Syntax |\n|----------|--------|\n| PostgreSQL, MySQL | LIMIT n |\n| SQL Server | TOP n |\n| Oracle | FETCH FIRST n ROWS |\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nGet the 10 most expensive products using LIMIT and ORDER BY.",
+    "content": "# 🔢 LIMIT: Control Result Size\n\n## Why Limit Results?\n\n- Preview data without loading millions of rows\n- Pagination (show 10 results per page)\n- Top-N queries (top 5 customers)\n\n## Basic Syntax\n\n```sql\nSELECT * FROM products LIMIT 10;\n```\n\nReturns only the first 10 rows.\n\n## With ORDER BY\n\nLIMIT is most useful with ORDER BY:\n\n```sql\n-- Top 5 highest paid employees\nSELECT name, salary \nFROM employees \nORDER BY salary DESC \nLIMIT 5;\n```\n\n## OFFSET for Pagination\n\nSkip rows before limiting:\n\n```sql\n-- Page 1: rows 1-10\nSELECT * FROM products LIMIT 10 OFFSET 0;\n\n-- Page 2: rows 11-20\nSELECT * FROM products LIMIT 10 OFFSET 10;\n\n-- Page 3: rows 21-30\nSELECT * FROM products LIMIT 10 OFFSET 20;\n```\n\n## Database Variations\n\n| Database | Syntax |\n|----------|--------|\n| PostgreSQL, MySQL | LIMIT n |\n| SQL Server | TOP n |\n| Oracle | FETCH FIRST n ROWS |\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nGet the 10 most expensive products using LIMIT and ORDER BY.\n\n## TOP vs LIMIT\nDifferent SQL dialects use `TOP` or `LIMIT` to keep only the first N rows.\n",
     "starter_code": "-- Get first 3 orders\n\n",
     "solution_code": "SELECT * FROM orders LIMIT 3;",
     "chapter_id": 201,
@@ -5398,7 +5793,95 @@
     ],
     "interaction_confidence": 0.92,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "data_transform",
+        "title": "Limit the result set",
+        "columns": [
+          "order_id",
+          "total"
+        ],
+        "beforeRows": [
+          {
+            "order_id": 101,
+            "total": 120
+          },
+          {
+            "order_id": 102,
+            "total": 90
+          },
+          {
+            "order_id": 103,
+            "total": 210
+          },
+          {
+            "order_id": 104,
+            "total": 45
+          },
+          {
+            "order_id": 105,
+            "total": 175
+          }
+        ],
+        "filters": [
+          {
+            "id": "no_limit",
+            "label": "No LIMIT",
+            "rows": [
+              {
+                "order_id": 101,
+                "total": 120
+              },
+              {
+                "order_id": 102,
+                "total": 90
+              },
+              {
+                "order_id": 103,
+                "total": 210
+              },
+              {
+                "order_id": 104,
+                "total": 45
+              },
+              {
+                "order_id": 105,
+                "total": 175
+              }
+            ]
+          },
+          {
+            "id": "limit_three",
+            "label": "LIMIT 3",
+            "rows": [
+              {
+                "order_id": 101,
+                "total": 120
+              },
+              {
+                "order_id": 102,
+                "total": 90
+              },
+              {
+                "order_id": 103,
+                "total": 210
+              }
+            ]
+          }
+        ],
+        "resultVar": "limited_rows"
+      },
+      {
+        "type": "output_diff",
+        "title": "Match the LIMIT row count",
+        "expected": "3",
+        "actualVar": "limited_rows"
+      }
+    ],
+    "gap_ids": [
+      "SQL-014"
+    ]
   },
   "1016": {
     "id": 1016,
@@ -5873,7 +6356,7 @@
   "1034": {
     "id": 1034,
     "title": "COUNT Function",
-    "content": "# 🔢 COUNT: Count Rows\n\n## Basic COUNT\n\n```sql\n-- Count all rows\nSELECT COUNT(*) FROM employees;\n\n-- Count non-NULL values in column\nSELECT COUNT(email) FROM employees;\n```\n\n## COUNT(*) vs COUNT(column)\n\n```sql\n-- COUNT(*): Counts all rows\nCOUNT(*)  -- 100 rows\n\n-- COUNT(column): Only non-NULL values\nCOUNT(email)  -- 95 (5 have NULL email)\n```\n\n## With WHERE\n\n```sql\nSELECT COUNT(*) \nFROM orders \nWHERE status = 'completed';\n```\n\n## Count Different Things\n\n```sql\nSELECT \n    COUNT(*) as total_orders,\n    COUNT(discount) as orders_with_discount,\n    COUNT(*) - COUNT(discount) as orders_without_discount\nFROM orders;\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCount the total number of orders in the `orders` table.",
+    "content": "# 🔢 COUNT: Count Rows\n\n## Basic COUNT\n\n```sql\n-- Count all rows\nSELECT COUNT(*) FROM employees;\n\n-- Count non-NULL values in column\nSELECT COUNT(email) FROM employees;\n```\n\n## COUNT(*) vs COUNT(column)\n\n```sql\n-- COUNT(*): Counts all rows\nCOUNT(*)  -- 100 rows\n\n-- COUNT(column): Only non-NULL values\nCOUNT(email)  -- 95 (5 have NULL email)\n```\n\n## With WHERE\n\n```sql\nSELECT COUNT(*) \nFROM orders \nWHERE status = 'completed';\n```\n\n## Count Different Things\n\n```sql\nSELECT \n    COUNT(*) as total_orders,\n    COUNT(discount) as orders_with_discount,\n    COUNT(*) - COUNT(discount) as orders_without_discount\nFROM orders;\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCount the total number of orders in the `orders` table.\n\n## Other aggregates\nCOUNT, SUM, AVG, MIN, and MAX summarize groups of rows into a single value.\n",
     "starter_code": "-- Count all customers\n\n",
     "solution_code": "SELECT COUNT(*) FROM orders;",
     "chapter_id": 203,
@@ -5887,7 +6370,69 @@
     ],
     "interaction_confidence": 0.84,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "step_executor",
+        "code": "-- amounts = [10, 20, 30]\\ncount = 3\\nsum = 60\\navg = 20\\nmin = 10\\nmax = 30",
+        "steps": [
+          {
+            "line": 1,
+            "description": "Start with three amounts"
+          },
+          {
+            "line": 2,
+            "description": "COUNT rows",
+            "stateChanges": {
+              "count": 3
+            }
+          },
+          {
+            "line": 3,
+            "description": "SUM values",
+            "stateChanges": {
+              "sum": 60
+            }
+          },
+          {
+            "line": 4,
+            "description": "AVG values",
+            "stateChanges": {
+              "avg": 20
+            }
+          },
+          {
+            "line": 5,
+            "description": "MIN value",
+            "stateChanges": {
+              "min": 10
+            }
+          },
+          {
+            "line": 6,
+            "description": "MAX value",
+            "stateChanges": {
+              "max": 30
+            }
+          }
+        ]
+      },
+      {
+        "type": "state_inspector",
+        "title": "Aggregate results",
+        "filter": [
+          "count",
+          "sum",
+          "avg",
+          "min",
+          "max"
+        ],
+        "showTypes": true
+      }
+    ],
+    "gap_ids": [
+      "SQL-015"
+    ]
   },
   "1035": {
     "id": 1035,
@@ -6156,7 +6701,7 @@
   "1049": {
     "id": 1049,
     "title": "FULL OUTER JOIN",
-    "content": "# ↔️ FULL OUTER JOIN: Everything from Everywhere\n\n## The \"Everything\" Join\n\nFULL JOIN returns ALL rows from BOTH tables.\n- Matches are linked.\n- Non-matches from Left are preserved (Right is NULL).\n- Non-matches from Right are preserved (Left is NULL).\n\n## Syntax\n\n```sql\nSELECT columns\nFROM TableA\nFULL OUTER JOIN TableB\nON TableA.key = TableB.key;\n```\n\n## Use Cases\n\n1. **Comparing Lists**: Compare Month 1 customers vs Month 2 customers.\n2. **Data Reconciliation**: Find records present in System A but not B, and vice versa.\n\n## Example\n\n**A:** {1, 2}\n**B:** {2, 3}\n\n**A FULL JOIN B:**\n1 - NULL (Only in A)\n2 - 2    (In Both)\nNULL - 3 (Only in B)\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nUse FULL OUTER JOIN to find discrepancies between two inventory lists.",
+    "content": "# ↔️ FULL OUTER JOIN: Everything from Everywhere\n\n## The \"Everything\" Join\n\nFULL JOIN returns ALL rows from BOTH tables.\n- Matches are linked.\n- Non-matches from Left are preserved (Right is NULL).\n- Non-matches from Right are preserved (Left is NULL).\n\n## Syntax\n\n```sql\nSELECT columns\nFROM TableA\nFULL OUTER JOIN TableB\nON TableA.key = TableB.key;\n```\n\n## Use Cases\n\n1. **Comparing Lists**: Compare Month 1 customers vs Month 2 customers.\n2. **Data Reconciliation**: Find records present in System A but not B, and vice versa.\n\n## Example\n\n**A:** {1, 2}\n**B:** {2, 3}\n\n**A FULL JOIN B:**\n1 - NULL (Only in A)\n2 - 2    (In Both)\nNULL - 3 (Only in B)\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nUse FULL OUTER JOIN to find discrepancies between two inventory lists.\n\n## Full join intuition\nFULL OUTER JOIN keeps **all** rows from both sides, matching where it can.\n",
     "starter_code": "-- Full outer join\n\n",
     "solution_code": "SELECT c.name, o.order_id FROM customers c FULL OUTER JOIN orders o ON c.id = o.customer_id;",
     "chapter_id": 204,
@@ -6170,7 +6715,49 @@
     ],
     "interaction_confidence": 0.92,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "join_visualizer",
+        "leftTitle": "Employees",
+        "rightTitle": "Badges",
+        "leftRows": [
+          {
+            "emp_id": 1,
+            "name": "Ava"
+          },
+          {
+            "emp_id": 2,
+            "name": "Kai"
+          },
+          {
+            "emp_id": 4,
+            "name": "Mina"
+          }
+        ],
+        "rightRows": [
+          {
+            "badge_id": "B1",
+            "emp_id": 1
+          },
+          {
+            "badge_id": "B2",
+            "emp_id": 3
+          }
+        ],
+        "leftKey": "emp_id",
+        "rightKey": "emp_id",
+        "joinTypes": [
+          "INNER",
+          "LEFT",
+          "FULL"
+        ],
+        "resultVar": "join_rows"
+      }
+    ],
+    "gap_ids": [
+      "SQL-029"
+    ]
   },
   "1050": {
     "id": 1050,
@@ -7699,7 +8286,7 @@
   "1134": {
     "id": 1134,
     "title": "INSERT from SELECT",
-    "content": "# 📋 INSERT INTO ... SELECT\n\n## Copying Data\n\nYou can populate a table using results from a query.\n\n**Scenario**: Archive old orders.\n\n```sql\nINSERT INTO ArchivedOrders (ID, Date, Total)\nSELECT ID, Date, Total\nFROM Orders\nWHERE Date < '2020-01-01';\n```\n\n## Creating Tables on the Fly\n\n`CREATE TABLE NewTable AS SELECT ...` (CTAS)\nThis creates the table *and* fills it.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCopy 'Out of Stock' products into a 'RestockList' table.",
+    "content": "# 📋 INSERT INTO ... SELECT\n\n## Copying Data\n\nYou can populate a table using results from a query.\n\n**Scenario**: Archive old orders.\n\n```sql\nINSERT INTO ArchivedOrders (ID, Date, Total)\nSELECT ID, Date, Total\nFROM Orders\nWHERE Date < '2020-01-01';\n```\n\n## Creating Tables on the Fly\n\n`CREATE TABLE NewTable AS SELECT ...` (CTAS)\nThis creates the table *and* fills it.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCopy 'Out of Stock' products into a 'RestockList' table.\n\n## SELECT INTO / CTAS\nThese patterns create a **new table** from a query result. This changes schema, not just rows.\n",
     "starter_code": "-- Copy high-value orders\n\n",
     "solution_code": "INSERT INTO vip_orders\nSELECT * FROM orders WHERE amount > 1000;",
     "chapter_id": 212,
@@ -7712,7 +8299,57 @@
     ],
     "interaction_confidence": 0.95,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "data_transform",
+        "title": "Schema before and after table creation",
+        "columns": [
+          "table",
+          "rows"
+        ],
+        "beforeRows": [
+          {
+            "table": "customers",
+            "rows": 200
+          },
+          {
+            "table": "orders",
+            "rows": 500
+          }
+        ],
+        "filters": [
+          {
+            "id": "select_into",
+            "label": "After SELECT INTO vip_customers",
+            "rows": [
+              {
+                "table": "customers",
+                "rows": 200
+              },
+              {
+                "table": "orders",
+                "rows": 500
+              },
+              {
+                "table": "vip_customers",
+                "rows": 20
+              }
+            ]
+          }
+        ],
+        "resultVar": "table_count"
+      },
+      {
+        "type": "output_diff",
+        "title": "How many tables now exist?",
+        "expected": "3",
+        "actualVar": "table_count"
+      }
+    ],
+    "gap_ids": [
+      "SQL-037"
+    ]
   },
   "1135": {
     "id": 1135,
@@ -7876,7 +8513,7 @@
   "1144": {
     "id": 1144,
     "title": "View Basics",
-    "content": "# 🖼️ Views: The Virtual Table\n\n## What is a View?\n\nA saved query that looks like a table.\nIt doesn't store data (usually), it stores the **definition**.\n\n## Creating a View\n\n```sql\nCREATE VIEW ActiveUsers AS\nSELECT * FROM Users WHERE Status = 'Active';\n```\n\n## Using a View\n\n```sql\nSELECT * FROM ActiveUsers;\n```\n\n## Why use them?\n\n1. **Simplicity**: Hide complex Joins from users.\n2. **Security**: Give users access to the View, but not the underlying Table (e.g., hide Salary column).\n3. **Consistency**: Ensure everyone defines \"Active User\" the same way.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate a view that simplifies a complex 3-table join.",
+    "content": "# 🖼️ Views: The Virtual Table\n\n## What is a View?\n\nA saved query that looks like a table.\nIt doesn't store data (usually), it stores the **definition**.\n\n## Creating a View\n\n```sql\nCREATE VIEW ActiveUsers AS\nSELECT * FROM Users WHERE Status = 'Active';\n```\n\n## Using a View\n\n```sql\nSELECT * FROM ActiveUsers;\n```\n\n## Why use them?\n\n1. **Simplicity**: Hide complex Joins from users.\n2. **Security**: Give users access to the View, but not the underlying Table (e.g., hide Salary column).\n3. **Consistency**: Ensure everyone defines \"Active User\" the same way.\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"python\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate a view that simplifies a complex 3-table join.\n\n## Replace a view safely\nCREATE OR REPLACE VIEW updates a view definition without dropping it first.\n",
     "starter_code": "-- Query active orders\n\n",
     "solution_code": "SELECT * FROM orders WHERE status = 'active';",
     "chapter_id": 213,
@@ -7889,7 +8526,44 @@
     ],
     "interaction_confidence": 0.76,
     "manual_review": true,
-    "prediction_justification": null
+    "prediction_justification": null,
+    "interaction_plan": [
+      {
+        "type": "step_executor",
+        "code": "CREATE VIEW active_customers AS ...\\nCREATE OR REPLACE VIEW active_customers AS ...",
+        "steps": [
+          {
+            "line": 1,
+            "description": "Create the view",
+            "stateChanges": {
+              "views": [
+                "active_customers:v1"
+              ]
+            }
+          },
+          {
+            "line": 2,
+            "description": "Replace the view definition",
+            "stateChanges": {
+              "views": [
+                "active_customers:v2"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "type": "state_inspector",
+        "title": "Views",
+        "filter": [
+          "views"
+        ],
+        "showTypes": true
+      }
+    ],
+    "gap_ids": [
+      "SQL-077"
+    ]
   },
   "1145": {
     "id": 1145,
@@ -9595,7 +10269,7 @@
   "1237": {
     "title": "Constraint Testing",
     "chapter_title": "Database Design",
-    "content": "# 🔒 Testing Constraints: Verify Data Integrity\n\n## Why Test Constraints?\n\nConstraints prevent bad data... but are they working? Test them!\n\n## Types of Constraints\n\n| Constraint | Purpose |\n|------------|---------|\n| PRIMARY KEY | Unique identifier |\n| UNIQUE | No duplicates |\n| NOT NULL | Required values |\n| FOREIGN KEY | Valid references |\n| CHECK | Custom validation |\n\n## Testing Primary Key\n\n```sql\n-- Should return 0 rows if PK works\nSELECT id, COUNT(*) \nFROM table \nGROUP BY id \nHAVING COUNT(*) > 1;\n```\n\n## Testing Foreign Key\n\n```sql\n-- Find orphan records (should be 0 if FK enforced)\nSELECT child.id\nFROM child_table child\nLEFT JOIN parent_table parent ON child.parent_id = parent.id\nWHERE parent.id IS NULL;\n```\n\n## Testing NOT NULL\n\n```sql\n-- Check for nulls in required columns\nSELECT COUNT(*) as null_count\nFROM customers\nWHERE email IS NULL;\n```\n\n## Testing CHECK Constraints\n\n```sql\n-- Verify CHECK (age >= 0)\nSELECT * FROM users WHERE age < 0;  -- Should be empty\n```\n\n## Constraint Validation Report\n\n```sql\nSELECT 'Duplicate PKs' as check, COUNT(*) FROM (\n    SELECT id FROM orders GROUP BY id HAVING COUNT(*) > 1\n) dupes\nUNION ALL\nSELECT 'Orphan FKs', COUNT(*) FROM orders o \nLEFT JOIN customers c ON o.customer_id = c.id WHERE c.id IS NULL\nUNION ALL\nSELECT 'Null Required', COUNT(*) FROM orders WHERE amount IS NULL;\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"sql\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate tests to verify database constraints are enforced.",
+    "content": "# 🔒 Testing Constraints: Verify Data Integrity\n\n## Why Test Constraints?\n\nConstraints prevent bad data... but are they working? Test them!\n\n## Types of Constraints\n\n| Constraint | Purpose |\n|------------|---------|\n| PRIMARY KEY | Unique identifier |\n| UNIQUE | No duplicates |\n| NOT NULL | Required values |\n| FOREIGN KEY | Valid references |\n| CHECK | Custom validation |\n\n## Testing Primary Key\n\n```sql\n-- Should return 0 rows if PK works\nSELECT id, COUNT(*) \nFROM table \nGROUP BY id \nHAVING COUNT(*) > 1;\n```\n\n## Testing Foreign Key\n\n```sql\n-- Find orphan records (should be 0 if FK enforced)\nSELECT child.id\nFROM child_table child\nLEFT JOIN parent_table parent ON child.parent_id = parent.id\nWHERE parent.id IS NULL;\n```\n\n## Testing NOT NULL\n\n```sql\n-- Check for nulls in required columns\nSELECT COUNT(*) as null_count\nFROM customers\nWHERE email IS NULL;\n```\n\n## Testing CHECK Constraints\n\n```sql\n-- Verify CHECK (age >= 0)\nSELECT * FROM users WHERE age < 0;  -- Should be empty\n```\n\n## Constraint Validation Report\n\n```sql\nSELECT 'Duplicate PKs' as check, COUNT(*) FROM (\n    SELECT id FROM orders GROUP BY id HAVING COUNT(*) > 1\n) dupes\nUNION ALL\nSELECT 'Orphan FKs', COUNT(*) FROM orders o \nLEFT JOIN customers c ON o.customer_id = c.id WHERE c.id IS NULL\nUNION ALL\nSELECT 'Null Required', COUNT(*) FROM orders WHERE amount IS NULL;\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"sql\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate tests to verify database constraints are enforced.\n\n## Add a constraint\nConstraints reject rows that violate rules (like missing required values).\n\n## Drop a constraint\nDropping a constraint removes the rule, which can allow previously invalid rows.\n",
     "starter_code": "-- Constraint validation tests\nSELECT \n    'Duplicate Order IDs' as constraint_test,\n    CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END as result,\n    COUNT(*) as violations\nFROM (\n    SELECT order_id FROM orders GROUP BY order_id HAVING COUNT(*) > 1\n) dupes\nUNION ALL\nSELECT \n    'Orphan Customer References',\n    CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END,\n    COUNT(*)\nFROM orders o\nLEFT JOIN customers c ON o.customer_id = c.customer_id\nWHERE c.customer_id IS NULL\nUNION ALL\nSELECT \n    'Null Order Amounts',\n    CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END,\n    COUNT(*)\nFROM orders WHERE amount IS NULL;",
     "solution_code": "SELECT 'Orphan FKs' as test, COUNT(*) FROM orders o LEFT JOIN customers c ON o.customer_id = c.id WHERE c.id IS NULL;",
     "concept_tags": [
@@ -9608,12 +10282,98 @@
     "interaction_confidence": 0.95,
     "manual_review": true,
     "prediction_justification": null,
-    "id": 1237
+    "id": 1237,
+    "interaction_plan": [
+      {
+        "type": "data_transform",
+        "title": "NOT NULL constraint on email",
+        "columns": [
+          "user_id",
+          "email"
+        ],
+        "beforeRows": [
+          {
+            "user_id": 1,
+            "email": "ava@example.com"
+          },
+          {
+            "user_id": 2,
+            "email": null
+          },
+          {
+            "user_id": 3,
+            "email": "kai@example.com"
+          }
+        ],
+        "filters": [
+          {
+            "id": "no_constraint",
+            "label": "No constraint",
+            "rows": [
+              {
+                "user_id": 1,
+                "email": "ava@example.com"
+              },
+              {
+                "user_id": 2,
+                "email": null
+              },
+              {
+                "user_id": 3,
+                "email": "kai@example.com"
+              }
+            ]
+          },
+          {
+            "id": "not_null",
+            "label": "ADD CONSTRAINT email NOT NULL",
+            "rows": [
+              {
+                "user_id": 1,
+                "email": "ava@example.com"
+              },
+              {
+                "user_id": 3,
+                "email": "kai@example.com"
+              }
+            ]
+          }
+        ],
+        "resultVar": "valid_rows"
+      },
+      {
+        "type": "step_executor",
+        "code": "ALTER TABLE users DROP CONSTRAINT users_email_key;",
+        "steps": [
+          {
+            "line": 1,
+            "description": "Drop the email constraint",
+            "stateChanges": {
+              "constraints": [
+                "users_pkey"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "type": "state_inspector",
+        "title": "Constraints on users",
+        "filter": [
+          "constraints"
+        ],
+        "showTypes": true
+      }
+    ],
+    "gap_ids": [
+      "SQL-064",
+      "SQL-086"
+    ]
   },
   "1238": {
     "title": "Index Creation",
     "chapter_title": "Database Design",
-    "content": "# 🚀 Index Creation: Speed Up Queries\n\n## What is an Index?\n\nAn index is like a book's index—lets you find data without scanning every page (row).\n\n## Create Basic Index\n\n```sql\nCREATE INDEX idx_customer_id ON orders(customer_id);\n```\n\n## Index Types\n\n### B-tree (Default)\nBest for: equality, range queries, ORDER BY\n```sql\nCREATE INDEX idx_date ON orders(order_date);\n```\n\n### Composite Index\nMultiple columns:\n```sql\nCREATE INDEX idx_cust_date ON orders(customer_id, order_date);\n```\n\n### Unique Index\nEnforces uniqueness:\n```sql\nCREATE UNIQUE INDEX idx_email ON users(email);\n```\n\n### Partial Index\nOnly index relevant rows:\n```sql\nCREATE INDEX idx_active ON users(email) WHERE status = 'active';\n```\n\n## When to Create Indexes\n\n| Create Index On | Why |\n|-----------------|-----|\n| WHERE columns | Filter speed |\n| JOIN columns | Join speed |\n| ORDER BY columns | Sort speed |\n| Foreign keys | Join + constraint speed |\n\n## When NOT to Index\n\n- Very small tables\n- Columns with few unique values\n- Tables with heavy INSERT/UPDATE\n\n## Managing Indexes\n\n```sql\n-- List indexes\nSELECT * FROM pg_indexes WHERE tablename = 'orders';\n\n-- Drop index\nDROP INDEX idx_customer_id;\n\n-- Rename\nALTER INDEX old_name RENAME TO new_name;\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"sql\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate appropriate indexes to optimize query performance.",
+    "content": "# 🚀 Index Creation: Speed Up Queries\n\n## What is an Index?\n\nAn index is like a book's index—lets you find data without scanning every page (row).\n\n## Create Basic Index\n\n```sql\nCREATE INDEX idx_customer_id ON orders(customer_id);\n```\n\n## Index Types\n\n### B-tree (Default)\nBest for: equality, range queries, ORDER BY\n```sql\nCREATE INDEX idx_date ON orders(order_date);\n```\n\n### Composite Index\nMultiple columns:\n```sql\nCREATE INDEX idx_cust_date ON orders(customer_id, order_date);\n```\n\n### Unique Index\nEnforces uniqueness:\n```sql\nCREATE UNIQUE INDEX idx_email ON users(email);\n```\n\n### Partial Index\nOnly index relevant rows:\n```sql\nCREATE INDEX idx_active ON users(email) WHERE status = 'active';\n```\n\n## When to Create Indexes\n\n| Create Index On | Why |\n|-----------------|-----|\n| WHERE columns | Filter speed |\n| JOIN columns | Join speed |\n| ORDER BY columns | Sort speed |\n| Foreign keys | Join + constraint speed |\n\n## When NOT to Index\n\n- Very small tables\n- Columns with few unique values\n- Tables with heavy INSERT/UPDATE\n\n## Managing Indexes\n\n```sql\n-- List indexes\nSELECT * FROM pg_indexes WHERE tablename = 'orders';\n\n-- Drop index\nDROP INDEX idx_customer_id;\n\n-- Rename\nALTER INDEX old_name RENAME TO new_name;\n```\n\n---\n\n\n## Try It First\n\nRun this example to see how it works:\n\n<livecodeblock initialcode=\"# Modify this code\" language=\"sql\"></livecodeblock>\n\n## 🎯 Your Task\n\nCreate appropriate indexes to optimize query performance.\n\n## Create, unique, and drop indexes\nIndexes speed reads. Unique indexes also enforce uniqueness.\n",
     "starter_code": "-- Create indexes for common query patterns\n\n-- Index for customer lookups\nCREATE INDEX idx_orders_customer ON orders(customer_id);\n\n-- Composite index for date range + customer queries  \nCREATE INDEX idx_orders_customer_date ON orders(customer_id, order_date);\n\n-- Index for status filtering\nCREATE INDEX idx_orders_status ON orders(status) WHERE status != 'cancelled';\n\n-- Verify indexes\nSELECT indexname, indexdef \nFROM pg_indexes \nWHERE tablename = 'orders';",
     "solution_code": "CREATE INDEX idx_customer ON orders(customer_id);",
     "concept_tags": [
@@ -9629,7 +10389,56 @@
     "interaction_confidence": 0.95,
     "manual_review": true,
     "prediction_justification": null,
-    "id": 1238
+    "id": 1238,
+    "interaction_plan": [
+      {
+        "type": "step_executor",
+        "code": "CREATE INDEX idx_orders_date ON orders(order_date);\\nCREATE UNIQUE INDEX idx_orders_code ON orders(order_code);\\nDROP INDEX idx_orders_date;",
+        "steps": [
+          {
+            "line": 1,
+            "description": "Create a regular index",
+            "stateChanges": {
+              "indexes": [
+                "idx_orders_date"
+              ]
+            }
+          },
+          {
+            "line": 2,
+            "description": "Create a unique index",
+            "stateChanges": {
+              "indexes": [
+                "idx_orders_date",
+                "idx_orders_code"
+              ]
+            }
+          },
+          {
+            "line": 3,
+            "description": "Drop the first index",
+            "stateChanges": {
+              "indexes": [
+                "idx_orders_code"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "type": "state_inspector",
+        "title": "Indexes on orders",
+        "filter": [
+          "indexes"
+        ],
+        "showTypes": true
+      }
+    ],
+    "gap_ids": [
+      "SQL-076",
+      "SQL-079",
+      "SQL-089"
+    ]
   },
   "1239": {
     "title": "Table Design",

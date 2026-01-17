@@ -146,12 +146,16 @@
     "title": "Defining Functions",
     "route": "#/lesson/31",
     "components": [
-      "ParsonsPuzzle"
+      "ParsonsPuzzle",
+      "InteractionPlanRenderer",
+      "StepExecutor",
+      "StateInspector"
     ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -170,8 +174,8 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[\"ParsonsPuzzle\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "7ca5febc61",
+    "interaction_fingerprint": "{\"components\":[\"InteractionPlanRenderer\",\"ParsonsPuzzle\",\"StateInspector\",\"StepExecutor\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "e0a562c5b3",
     "screenshot": "ui_sample_screenshots/lesson-31.png",
     "issues": []
   },
@@ -180,12 +184,16 @@
     "title": "Variable Scope",
     "route": "#/lesson/39",
     "components": [
-      "ParsonsPuzzle"
+      "ParsonsPuzzle",
+      "InteractionPlanRenderer",
+      "StepExecutor",
+      "StateInspector"
     ],
     "layout_sections": [
       "lesson-root",
       "top-nav",
       "lesson-panel",
+      "interaction-plan",
       "code-panel",
       "editor-header",
       "code-editor",
@@ -204,8 +212,8 @@
     "prediction_present": false,
     "prediction_text_match": false,
     "prediction_selector_match": false,
-    "interaction_fingerprint": "{\"components\":[\"ParsonsPuzzle\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
-    "interaction_fingerprint_id": "7ca5febc61",
+    "interaction_fingerprint": "{\"components\":[\"InteractionPlanRenderer\",\"ParsonsPuzzle\",\"StateInspector\",\"StepExecutor\"],\"layout\":[\"code-editor\",\"code-panel\",\"editor-header\",\"editor-toolbar\",\"interaction-plan\",\"lesson-panel\",\"lesson-root\",\"output-header\",\"output-panel\",\"top-nav\"],\"ctas\":[\"next_lesson\",\"prev_lesson\",\"reset_code\",\"run_code\",\"submit\",\"toggle_solution\"]}",
+    "interaction_fingerprint_id": "e0a562c5b3",
     "screenshot": "ui_sample_screenshots/lesson-39.png",
     "issues": []
   },
