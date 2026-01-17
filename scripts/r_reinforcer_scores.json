@@ -1,0 +1,4351 @@
+{
+  "summary": {
+    "total_sets": 40,
+    "total_reinforcers": 160,
+    "avg_score_overall": 7.9875,
+    "worst_20_ids": [
+      2030,
+      2050,
+      2201,
+      2500,
+      2003,
+      2250,
+      2310,
+      2320,
+      2330,
+      2023,
+      2121,
+      2002,
+      2010,
+      2040,
+      2230,
+      2400,
+      2410,
+      2021,
+      2420,
+      2001
+    ]
+  },
+  "all_sets": [
+    {
+      "concept_id": 2030,
+      "concept_title": "Names & Spaces",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 4: Workflow: Code Style",
+      "reinforcers": [
+        {
+          "id": 20301,
+          "title": "Analogy: Grammar",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 5,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20302,
+          "title": "Variation: Pipes",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 5,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20303,
+          "title": "Fix the Code: Spacing",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 5,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20304,
+          "title": "Challenge: Naming",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 3,
+          "explanation_quality": 0,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "Missing why/how explanation",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 22,
+      "avg_score": 5.5
+    },
+    {
+      "concept_id": 2050,
+      "concept_title": "Scripts vs Console",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 6: Workflow: Scripts",
+      "reinforcers": [
+        {
+          "id": 20501,
+          "title": "Analogy: The Recipe Card",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20502,
+          "title": "Variation: Saving Plots",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20503,
+          "title": "Fix the Code: Typos",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20504,
+          "title": "Challenge: Comments",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 1,
+          "total": 4,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code",
+            "Missing expected output"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 24,
+      "avg_score": 6.0
+    },
+    {
+      "concept_id": 2201,
+      "concept_title": "Conditional Logic",
+      "chapter": "Part 3: Transform",
+      "concept_name": "Ch 12: Logical Vectors",
+      "reinforcers": [
+        {
+          "id": 22011,
+          "title": "Analogy: Decisions",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22012,
+          "title": "Variation: Or",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22013,
+          "title": "Fix the Code: Not Python",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22014,
+          "title": "Challenge: Negation",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 5,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 25,
+      "avg_score": 6.25
+    },
+    {
+      "concept_id": 2500,
+      "concept_title": "Quarto Basics",
+      "chapter": "Part 6: Communicate",
+      "concept_name": "Quarto",
+      "reinforcers": [
+        {
+          "id": 25001,
+          "title": "Analogy: Notebook",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 25002,
+          "title": "Variation: Code Chunk",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 3,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 25003,
+          "title": "Fix the Code: Backticks",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 25004,
+          "title": "Challenge: YAML",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 5,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 25,
+      "avg_score": 6.25
+    },
+    {
+      "concept_id": 2003,
+      "concept_title": "Mapping Data to Axes",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 1: Data Visualization",
+      "reinforcers": [
+        {
+          "id": 20031,
+          "title": "Analogy: The Sticker Album",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20032,
+          "title": "Variation: How Big?",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20033,
+          "title": "Fix the Code: Typo",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20034,
+          "title": "Challenge: Another Dataset",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 2,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 27,
+      "avg_score": 6.75
+    },
+    {
+      "concept_id": 2250,
+      "concept_title": "Dates & Times",
+      "chapter": "Part 3: Transform",
+      "concept_name": "Ch 17: Dates and Times",
+      "reinforcers": [
+        {
+          "id": 22501,
+          "title": "Analogy: ISO Standard",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22502,
+          "title": "Variation: MDY",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22503,
+          "title": "Fix the Code: Quote",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22504,
+          "title": "Challenge: Get Year",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 27,
+      "avg_score": 6.75
+    },
+    {
+      "concept_id": 2310,
+      "concept_title": "Databases & dbplyr",
+      "chapter": "Part 4: Import",
+      "concept_name": "Data Sources",
+      "reinforcers": [
+        {
+          "id": 23101,
+          "title": "Analogy: Remote Control",
+          "type": "analogy",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23102,
+          "title": "Variation: SQL Translation",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23103,
+          "title": "Fix the Code: Collect",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23104,
+          "title": "Challenge: Filter DB",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 6,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 28,
+      "avg_score": 7.0
+    },
+    {
+      "concept_id": 2320,
+      "concept_title": "Arrow & Parquet",
+      "chapter": "Part 4: Import",
+      "concept_name": "Data Sources",
+      "reinforcers": [
+        {
+          "id": 23201,
+          "title": "Analogy: Fast Lane",
+          "type": "analogy",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23202,
+          "title": "Variation: Write",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23203,
+          "title": "Fix the Code: Function",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23204,
+          "title": "Challenge: Filter",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 6,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 28,
+      "avg_score": 7.0
+    },
+    {
+      "concept_id": 2330,
+      "concept_title": "Lists & Rectangling",
+      "chapter": "Part 4: Import",
+      "concept_name": "Data Sources",
+      "reinforcers": [
+        {
+          "id": 23301,
+          "title": "Analogy: Unpacking Suitcase",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 1,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "\u26a0\ufe0f Uses advanced function: nest(",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23302,
+          "title": "Variation: Wider",
+          "type": "variation",
+          "relevance": 2,
+          "difficulty_jump": 1,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Uses advanced function: unnest_wider",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23303,
+          "title": "Fix the Code: Plural",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 1,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Uses advanced function: nest(",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23304,
+          "title": "Challenge: Rectangling",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 1,
+          "explanation_quality": 2,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Uses advanced function: nest(",
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 28,
+      "avg_score": 7.0
+    },
+    {
+      "concept_id": 2023,
+      "concept_title": "Add Columns (Mutate)",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 3: Data Transformation",
+      "reinforcers": [
+        {
+          "id": 20231,
+          "title": "Analogy: The Mutation Ray",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 3,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "Missing why/how explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20232,
+          "title": "Variation: Math",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20233,
+          "title": "Fix the Code: Name It",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20234,
+          "title": "Challenge: Double Up",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 2,
+          "total": 5,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation",
+            "No clear task marker"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 29,
+      "avg_score": 7.25
+    },
+    {
+      "concept_id": 2121,
+      "concept_title": "Themes & Scales",
+      "chapter": "Part 2: Visualize",
+      "concept_name": "Ch 11: Communication",
+      "reinforcers": [
+        {
+          "id": 21211,
+          "title": "Analogy: Changing Outfits",
+          "type": "analogy",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21212,
+          "title": "Variation: Classic",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21213,
+          "title": "Fix the Code: Parentheses",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21214,
+          "title": "Challenge: Dark Mode",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 6,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 29,
+      "avg_score": 7.25
+    },
+    {
+      "concept_id": 2002,
+      "concept_title": "The Empty Canvas",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 1: Data Visualization",
+      "reinforcers": [
+        {
+          "id": 20021,
+          "title": "Analogy: Secret Notes",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20022,
+          "title": "Variation: Silencing Code",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20023,
+          "title": "Fix the Code: Missing #",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20024,
+          "title": "Challenge: Annotate",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 3,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 30,
+      "avg_score": 7.5
+    },
+    {
+      "concept_id": 2010,
+      "concept_title": "Coding Basics",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 2: Workflow: Basics",
+      "reinforcers": [
+        {
+          "id": 20101,
+          "title": "Analogy: Calling for Pizza",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20102,
+          "title": "Variation: Variables in Functions",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 3,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "Missing why/how explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20103,
+          "title": "Fix the Code: Typos",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20104,
+          "title": "Challenge: Math",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 30,
+      "avg_score": 7.5
+    },
+    {
+      "concept_id": 2040,
+      "concept_title": "Tidy Data",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 5: Data Tidying",
+      "reinforcers": [
+        {
+          "id": 20401,
+          "title": "Analogy: Stacking Pancakes",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20402,
+          "title": "Variation: Naming Columns",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20403,
+          "title": "Fix the Code: Missing Quote",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20404,
+          "title": "Challenge: Pivot It",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 30,
+      "avg_score": 7.5
+    },
+    {
+      "concept_id": 2230,
+      "concept_title": "Regex Basics",
+      "chapter": "Part 3: Transform",
+      "concept_name": "Ch 15: Regex",
+      "reinforcers": [
+        {
+          "id": 22301,
+          "title": "Analogy: Ctrl+F",
+          "type": "analogy",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22302,
+          "title": "Variation: Start Anchor",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22303,
+          "title": "Fix the Code: Characters",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22304,
+          "title": "Challenge: Digits",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 30,
+      "avg_score": 7.5
+    },
+    {
+      "concept_id": 2400,
+      "concept_title": "Functions & Tidy Eval",
+      "chapter": "Part 5: Program",
+      "concept_name": "Programming",
+      "reinforcers": [
+        {
+          "id": 24001,
+          "title": "Analogy: Teaching Tricks",
+          "type": "analogy",
+          "relevance": 1,
+          "difficulty_jump": 3,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 10,
+          "notes": [],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24002,
+          "title": "Variation: Arguments",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24003,
+          "title": "Fix the Code: Braces",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24004,
+          "title": "Challenge: Return",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 6,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 30,
+      "avg_score": 7.5
+    },
+    {
+      "concept_id": 2410,
+      "concept_title": "Iteration: across & map",
+      "chapter": "Part 5: Program",
+      "concept_name": "Programming",
+      "reinforcers": [
+        {
+          "id": 24101,
+          "title": "Analogy: Assembly Line",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 1,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "\u26a0\ufe0f Uses advanced function: map(",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24102,
+          "title": "Variation: Double",
+          "type": "variation",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24103,
+          "title": "Fix the Code: Argument",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 1,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Uses advanced function: map(",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24104,
+          "title": "Challenge: Walk",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 30,
+      "avg_score": 7.5
+    },
+    {
+      "concept_id": 2021,
+      "concept_title": "Arrange Rows",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 3: Data Transformation",
+      "reinforcers": [
+        {
+          "id": 20211,
+          "title": "Analogy: Sorting Cards",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20212,
+          "title": "Variation: Two Levels",
+          "type": "variation",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20213,
+          "title": "Fix the Code: Missing Parenthesis",
+          "type": "fix_the_code",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20214,
+          "title": "Challenge: Backwards",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 31,
+      "avg_score": 7.75
+    },
+    {
+      "concept_id": 2420,
+      "concept_title": "A Field Guide to Base R",
+      "chapter": "Part 5: Program",
+      "concept_name": "Programming",
+      "reinforcers": [
+        {
+          "id": 24201,
+          "title": "Analogy: Pepper Shaker",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24202,
+          "title": "Variation: Brackets",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 3,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24203,
+          "title": "Fix the Code: Comma",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 3,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24204,
+          "title": "Challenge: Loop",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 31,
+      "avg_score": 7.75
+    },
+    {
+      "concept_id": 2001,
+      "concept_title": "Meet the Penguins",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 1: Data Visualization",
+      "reinforcers": [
+        {
+          "id": 20011,
+          "title": "Analogy: Variables are Boxes",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 3,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20012,
+          "title": "Variation: Changing Values",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 3,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20013,
+          "title": "Fix the Code: Broken Arrow",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20014,
+          "title": "Challenge: Your Own Vars",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 32,
+      "avg_score": 8.0
+    },
+    {
+      "concept_id": 2022,
+      "concept_title": "Select Columns",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 3: Data Transformation",
+      "reinforcers": [
+        {
+          "id": 20221,
+          "title": "Analogy: Chopping Ingredients",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20222,
+          "title": "Variation: Excluding",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20223,
+          "title": "Fix the Code: Comma",
+          "type": "fix_the_code",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20224,
+          "title": "Challenge: Range",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 32,
+      "avg_score": 8.0
+    },
+    {
+      "concept_id": 2270,
+      "concept_title": "Mutating Joins",
+      "chapter": "Part 3: Transform",
+      "concept_name": "Ch 19: Joins",
+      "reinforcers": [
+        {
+          "id": 22701,
+          "title": "Analogy: Identification Card",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22702,
+          "title": "Variation: Right Join",
+          "type": "variation",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22703,
+          "title": "Fix the Code: By Argument",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22704,
+          "title": "Challenge: Inner Join",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 5,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 32,
+      "avg_score": 8.0
+    },
+    {
+      "concept_id": 2300,
+      "concept_title": "Reading Excel",
+      "chapter": "Part 4: Import",
+      "concept_name": "Data Sources",
+      "reinforcers": [
+        {
+          "id": 23001,
+          "title": "Analogy: Reading Spreadsheets",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23002,
+          "title": "Variation: Specifying Sheet",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23003,
+          "title": "Fix the Code: Extension",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23004,
+          "title": "Challenge: Range",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 32,
+      "avg_score": 8.0
+    },
+    {
+      "concept_id": 2020,
+      "concept_title": "Filter Rows",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 3: Data Transformation",
+      "reinforcers": [
+        {
+          "id": 20201,
+          "title": "Analogy: Collecting Red M&Ms",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20202,
+          "title": "Variation: Different Month",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20203,
+          "title": "Fix the Code: Equals Sign",
+          "type": "fix_the_code",
+          "relevance": 3,
+          "difficulty_jump": 3,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20204,
+          "title": "Challenge: Delays",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation",
+            "No clear task marker"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 33,
+      "avg_score": 8.25
+    },
+    {
+      "concept_id": 2210,
+      "concept_title": "Counts & Summaries",
+      "chapter": "Part 3: Transform",
+      "concept_name": "Ch 13: Numbers",
+      "reinforcers": [
+        {
+          "id": 22101,
+          "title": "Analogy: Counting Heads",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22102,
+          "title": "Variation: Summarize",
+          "type": "variation",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22103,
+          "title": "Fix the Code: Parentheses",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22104,
+          "title": "Challenge: Max",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 33,
+      "avg_score": 8.25
+    },
+    {
+      "concept_id": 2510,
+      "concept_title": "Quarto Formats",
+      "chapter": "Part 6: Communicate",
+      "concept_name": "Quarto",
+      "reinforcers": [
+        {
+          "id": 25101,
+          "title": "Analogy: Transformer",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 25102,
+          "title": "Variation: PDF",
+          "type": "variation",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 25103,
+          "title": "Fix the Code: Indent",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 25104,
+          "title": "Challenge: Presentation",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 33,
+      "avg_score": 8.25
+    },
+    {
+      "concept_id": 2004,
+      "concept_title": "Adding Dots with geom_point()",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 1: Data Visualization",
+      "reinforcers": [
+        {
+          "id": 20041,
+          "title": "Analogy: Connect the Dots",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20042,
+          "title": "Variation: City Driving",
+          "type": "variation",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20043,
+          "title": "Fix the Code: The Plus Sign",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20044,
+          "title": "Challenge: Cylinders",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "No clear task marker"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 34,
+      "avg_score": 8.5
+    },
+    {
+      "concept_id": 2340,
+      "concept_title": "Web Scraping with rvest",
+      "chapter": "Part 4: Import",
+      "concept_name": "Data Sources",
+      "reinforcers": [
+        {
+          "id": 23401,
+          "title": "Analogy: Mining",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23402,
+          "title": "Variation: Selectors",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23403,
+          "title": "Fix the Code: Text",
+          "type": "fix_the_code",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23404,
+          "title": "Challenge: Table",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 34,
+      "avg_score": 8.5
+    },
+    {
+      "concept_id": 2220,
+      "concept_title": "String Basics",
+      "chapter": "Part 3: Transform",
+      "concept_name": "Ch 14: Strings",
+      "reinforcers": [
+        {
+          "id": 22201,
+          "title": "Analogy: Glue Stick",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 3,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 12,
+          "notes": [],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22202,
+          "title": "Variation: Combining",
+          "type": "variation",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22203,
+          "title": "Fix the Code: Spelling",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22204,
+          "title": "Challenge: Substring",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 35,
+      "avg_score": 8.75
+    },
+    {
+      "concept_id": 2200,
+      "concept_title": "Comparisons & Boolean",
+      "chapter": "Part 3: Transform",
+      "concept_name": "Ch 12: Logical Vectors",
+      "reinforcers": [
+        {
+          "id": 22001,
+          "title": "Analogy: The Light Switch",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 3,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 12,
+          "notes": [],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22002,
+          "title": "Variation: Comparisons",
+          "type": "variation",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22003,
+          "title": "Fix the Code: Case Sensitive",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22004,
+          "title": "Challenge: Not Equal",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 6,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 36,
+      "avg_score": 9.0
+    },
+    {
+      "concept_id": 2260,
+      "concept_title": "Missing Values",
+      "chapter": "Part 3: Transform",
+      "concept_name": "Ch 18: Missing Values",
+      "reinforcers": [
+        {
+          "id": 22601,
+          "title": "Analogy: Empty Seat",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22602,
+          "title": "Variation: Replacing",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22603,
+          "title": "Fix the Code: Comparison",
+          "type": "fix_the_code",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22604,
+          "title": "Challenge: Drop",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 36,
+      "avg_score": 9.0
+    },
+    {
+      "concept_id": 2110,
+      "concept_title": "Variation",
+      "chapter": "Part 2: Visualize",
+      "concept_name": "Ch 10: EDA",
+      "reinforcers": [
+        {
+          "id": 21101,
+          "title": "Analogy: Sorting Buckets",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21102,
+          "title": "Variation: Binwidth",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21103,
+          "title": "Fix the Code: Y Axis",
+          "type": "fix_the_code",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21104,
+          "title": "Challenge: Bar Chart",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 2,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 37,
+      "avg_score": 9.25
+    },
+    {
+      "concept_id": 2240,
+      "concept_title": "Factor Basics",
+      "chapter": "Part 3: Transform",
+      "concept_name": "Ch 16: Factors",
+      "reinforcers": [
+        {
+          "id": 22401,
+          "title": "Analogy: Sorting Shirts",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22402,
+          "title": "Variation: Reordering",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22403,
+          "title": "Fix the Code: Levels",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22404,
+          "title": "Challenge: Count",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 37,
+      "avg_score": 9.25
+    },
+    {
+      "concept_id": 2271,
+      "concept_title": "Filtering Joins",
+      "chapter": "Part 3: Transform",
+      "concept_name": "Ch 19: Joins",
+      "reinforcers": [
+        {
+          "id": 22711,
+          "title": "Analogy: The Bouncer",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22712,
+          "title": "Variation: Anti Join",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22713,
+          "title": "Fix the Code: Columns",
+          "type": "fix_the_code",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22714,
+          "title": "Challenge: Filter",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 37,
+      "avg_score": 9.25
+    },
+    {
+      "concept_id": 2101,
+      "concept_title": "Geoms & Layers",
+      "chapter": "Part 2: Visualize",
+      "concept_name": "Ch 9: Layers",
+      "reinforcers": [
+        {
+          "id": 21011,
+          "title": "Analogy: Different Brushes",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21012,
+          "title": "Variation: Two Layers",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21013,
+          "title": "Fix the Code: Typos",
+          "type": "fix_the_code",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21014,
+          "title": "Challenge: Boxplot",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 2,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 38,
+      "avg_score": 9.5
+    },
+    {
+      "concept_id": 2102,
+      "concept_title": "Facets",
+      "chapter": "Part 2: Visualize",
+      "concept_name": "Ch 9: Layers",
+      "reinforcers": [
+        {
+          "id": 21021,
+          "title": "Analogy: Small Multiples",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21022,
+          "title": "Variation: Row Count",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21023,
+          "title": "Fix the Code: Tilde",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21024,
+          "title": "Challenge: Grid",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 2,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 38,
+      "avg_score": 9.5
+    },
+    {
+      "concept_id": 2111,
+      "concept_title": "Covariation",
+      "chapter": "Part 2: Visualize",
+      "concept_name": "Ch 10: EDA",
+      "reinforcers": [
+        {
+          "id": 21111,
+          "title": "Analogy: Box and Whiskers",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21112,
+          "title": "Variation: Reorder",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21113,
+          "title": "Fix the Code: Flip",
+          "type": "fix_the_code",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21114,
+          "title": "Challenge: Heatmap",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 2,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 38,
+      "avg_score": 9.5
+    },
+    {
+      "concept_id": 2120,
+      "concept_title": "Labels & Titles",
+      "chapter": "Part 2: Visualize",
+      "concept_name": "Ch 11: Communication",
+      "reinforcers": [
+        {
+          "id": 21201,
+          "title": "Analogy: Name Tags",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21202,
+          "title": "Variation: Axis Labels",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21203,
+          "title": "Fix the Code: Quotes",
+          "type": "fix_the_code",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21204,
+          "title": "Challenge: Caption",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 2,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 38,
+      "avg_score": 9.5
+    },
+    {
+      "concept_id": 2060,
+      "concept_title": "Reading CSV Files",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 7: Data Import",
+      "reinforcers": [
+        {
+          "id": 20601,
+          "title": "Analogy: Opening Packages",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 11,
+          "notes": [
+            "No step-by-step guidance"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20602,
+          "title": "Variation: Inspecting",
+          "type": "variation",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20603,
+          "title": "Fix the Code: Function Name",
+          "type": "fix_the_code",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20604,
+          "title": "Challenge: Assigning",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 2,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 39,
+      "avg_score": 9.75
+    },
+    {
+      "concept_id": 2100,
+      "concept_title": "Aesthetic Mappings",
+      "chapter": "Part 2: Visualize",
+      "concept_name": "Ch 9: Layers",
+      "reinforcers": [
+        {
+          "id": 21001,
+          "title": "Analogy: Coloring Book",
+          "type": "analogy",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21002,
+          "title": "Variation: Size",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21003,
+          "title": "Fix the Code: Inside or Out?",
+          "type": "fix_the_code",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21004,
+          "title": "Challenge: Shape",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 10,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 40,
+      "avg_score": 10.0
+    }
+  ],
+  "worst_20": [
+    {
+      "concept_id": 2030,
+      "concept_title": "Names & Spaces",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 4: Workflow: Code Style",
+      "reinforcers": [
+        {
+          "id": 20301,
+          "title": "Analogy: Grammar",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 5,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20302,
+          "title": "Variation: Pipes",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 5,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20303,
+          "title": "Fix the Code: Spacing",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 5,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20304,
+          "title": "Challenge: Naming",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 3,
+          "explanation_quality": 0,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "Missing why/how explanation",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 22,
+      "avg_score": 5.5
+    },
+    {
+      "concept_id": 2050,
+      "concept_title": "Scripts vs Console",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 6: Workflow: Scripts",
+      "reinforcers": [
+        {
+          "id": 20501,
+          "title": "Analogy: The Recipe Card",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20502,
+          "title": "Variation: Saving Plots",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20503,
+          "title": "Fix the Code: Typos",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20504,
+          "title": "Challenge: Comments",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 1,
+          "total": 4,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code",
+            "Missing expected output"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 24,
+      "avg_score": 6.0
+    },
+    {
+      "concept_id": 2201,
+      "concept_title": "Conditional Logic",
+      "chapter": "Part 3: Transform",
+      "concept_name": "Ch 12: Logical Vectors",
+      "reinforcers": [
+        {
+          "id": 22011,
+          "title": "Analogy: Decisions",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22012,
+          "title": "Variation: Or",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22013,
+          "title": "Fix the Code: Not Python",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22014,
+          "title": "Challenge: Negation",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 5,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 25,
+      "avg_score": 6.25
+    },
+    {
+      "concept_id": 2500,
+      "concept_title": "Quarto Basics",
+      "chapter": "Part 6: Communicate",
+      "concept_name": "Quarto",
+      "reinforcers": [
+        {
+          "id": 25001,
+          "title": "Analogy: Notebook",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 25002,
+          "title": "Variation: Code Chunk",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 3,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 25003,
+          "title": "Fix the Code: Backticks",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 25004,
+          "title": "Challenge: YAML",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 5,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 25,
+      "avg_score": 6.25
+    },
+    {
+      "concept_id": 2003,
+      "concept_title": "Mapping Data to Axes",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 1: Data Visualization",
+      "reinforcers": [
+        {
+          "id": 20031,
+          "title": "Analogy: The Sticker Album",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20032,
+          "title": "Variation: How Big?",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20033,
+          "title": "Fix the Code: Typo",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20034,
+          "title": "Challenge: Another Dataset",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 2,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 27,
+      "avg_score": 6.75
+    },
+    {
+      "concept_id": 2250,
+      "concept_title": "Dates & Times",
+      "chapter": "Part 3: Transform",
+      "concept_name": "Ch 17: Dates and Times",
+      "reinforcers": [
+        {
+          "id": 22501,
+          "title": "Analogy: ISO Standard",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22502,
+          "title": "Variation: MDY",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22503,
+          "title": "Fix the Code: Quote",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22504,
+          "title": "Challenge: Get Year",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 27,
+      "avg_score": 6.75
+    },
+    {
+      "concept_id": 2310,
+      "concept_title": "Databases & dbplyr",
+      "chapter": "Part 4: Import",
+      "concept_name": "Data Sources",
+      "reinforcers": [
+        {
+          "id": 23101,
+          "title": "Analogy: Remote Control",
+          "type": "analogy",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23102,
+          "title": "Variation: SQL Translation",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23103,
+          "title": "Fix the Code: Collect",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23104,
+          "title": "Challenge: Filter DB",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 6,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 28,
+      "avg_score": 7.0
+    },
+    {
+      "concept_id": 2320,
+      "concept_title": "Arrow & Parquet",
+      "chapter": "Part 4: Import",
+      "concept_name": "Data Sources",
+      "reinforcers": [
+        {
+          "id": 23201,
+          "title": "Analogy: Fast Lane",
+          "type": "analogy",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23202,
+          "title": "Variation: Write",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23203,
+          "title": "Fix the Code: Function",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23204,
+          "title": "Challenge: Filter",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 6,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 28,
+      "avg_score": 7.0
+    },
+    {
+      "concept_id": 2330,
+      "concept_title": "Lists & Rectangling",
+      "chapter": "Part 4: Import",
+      "concept_name": "Data Sources",
+      "reinforcers": [
+        {
+          "id": 23301,
+          "title": "Analogy: Unpacking Suitcase",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 1,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "\u26a0\ufe0f Uses advanced function: nest(",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23302,
+          "title": "Variation: Wider",
+          "type": "variation",
+          "relevance": 2,
+          "difficulty_jump": 1,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Uses advanced function: unnest_wider",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23303,
+          "title": "Fix the Code: Plural",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 1,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "\u26a0\ufe0f Uses advanced function: nest(",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 23304,
+          "title": "Challenge: Rectangling",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 1,
+          "explanation_quality": 2,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Uses advanced function: nest(",
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 28,
+      "avg_score": 7.0
+    },
+    {
+      "concept_id": 2023,
+      "concept_title": "Add Columns (Mutate)",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 3: Data Transformation",
+      "reinforcers": [
+        {
+          "id": 20231,
+          "title": "Analogy: The Mutation Ray",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 3,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "Missing why/how explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20232,
+          "title": "Variation: Math",
+          "type": "variation",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20233,
+          "title": "Fix the Code: Name It",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20234,
+          "title": "Challenge: Double Up",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 2,
+          "total": 5,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation",
+            "No clear task marker"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 29,
+      "avg_score": 7.25
+    },
+    {
+      "concept_id": 2121,
+      "concept_title": "Themes & Scales",
+      "chapter": "Part 2: Visualize",
+      "concept_name": "Ch 11: Communication",
+      "reinforcers": [
+        {
+          "id": 21211,
+          "title": "Analogy: Changing Outfits",
+          "type": "analogy",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21212,
+          "title": "Variation: Classic",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21213,
+          "title": "Fix the Code: Parentheses",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 21214,
+          "title": "Challenge: Dark Mode",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 6,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 29,
+      "avg_score": 7.25
+    },
+    {
+      "concept_id": 2002,
+      "concept_title": "The Empty Canvas",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 1: Data Visualization",
+      "reinforcers": [
+        {
+          "id": 20021,
+          "title": "Analogy: Secret Notes",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20022,
+          "title": "Variation: Silencing Code",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20023,
+          "title": "Fix the Code: Missing #",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20024,
+          "title": "Challenge: Annotate",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 3,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 30,
+      "avg_score": 7.5
+    },
+    {
+      "concept_id": 2010,
+      "concept_title": "Coding Basics",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 2: Workflow: Basics",
+      "reinforcers": [
+        {
+          "id": 20101,
+          "title": "Analogy: Calling for Pizza",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20102,
+          "title": "Variation: Variables in Functions",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 3,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "Missing why/how explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20103,
+          "title": "Fix the Code: Typos",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20104,
+          "title": "Challenge: Math",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 6,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 30,
+      "avg_score": 7.5
+    },
+    {
+      "concept_id": 2040,
+      "concept_title": "Tidy Data",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 5: Data Tidying",
+      "reinforcers": [
+        {
+          "id": 20401,
+          "title": "Analogy: Stacking Pancakes",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20402,
+          "title": "Variation: Naming Columns",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20403,
+          "title": "Fix the Code: Missing Quote",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20404,
+          "title": "Challenge: Pivot It",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 30,
+      "avg_score": 7.5
+    },
+    {
+      "concept_id": 2230,
+      "concept_title": "Regex Basics",
+      "chapter": "Part 3: Transform",
+      "concept_name": "Ch 15: Regex",
+      "reinforcers": [
+        {
+          "id": 22301,
+          "title": "Analogy: Ctrl+F",
+          "type": "analogy",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22302,
+          "title": "Variation: Start Anchor",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22303,
+          "title": "Fix the Code: Characters",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 22304,
+          "title": "Challenge: Digits",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 30,
+      "avg_score": 7.5
+    },
+    {
+      "concept_id": 2400,
+      "concept_title": "Functions & Tidy Eval",
+      "chapter": "Part 5: Program",
+      "concept_name": "Programming",
+      "reinforcers": [
+        {
+          "id": 24001,
+          "title": "Analogy: Teaching Tricks",
+          "type": "analogy",
+          "relevance": 1,
+          "difficulty_jump": 3,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 10,
+          "notes": [],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24002,
+          "title": "Variation: Arguments",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24003,
+          "title": "Fix the Code: Braces",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24004,
+          "title": "Challenge: Return",
+          "type": "challenge",
+          "relevance": 1,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 6,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 30,
+      "avg_score": 7.5
+    },
+    {
+      "concept_id": 2410,
+      "concept_title": "Iteration: across & map",
+      "chapter": "Part 5: Program",
+      "concept_name": "Programming",
+      "reinforcers": [
+        {
+          "id": 24101,
+          "title": "Analogy: Assembly Line",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 1,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "\u26a0\ufe0f Uses advanced function: map(",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24102,
+          "title": "Variation: Double",
+          "type": "variation",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24103,
+          "title": "Fix the Code: Argument",
+          "type": "fix_the_code",
+          "relevance": 2,
+          "difficulty_jump": 1,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Uses advanced function: map(",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24104,
+          "title": "Challenge: Walk",
+          "type": "challenge",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 30,
+      "avg_score": 7.5
+    },
+    {
+      "concept_id": 2021,
+      "concept_title": "Arrange Rows",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 3: Data Transformation",
+      "reinforcers": [
+        {
+          "id": 20211,
+          "title": "Analogy: Sorting Cards",
+          "type": "analogy",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20212,
+          "title": "Variation: Two Levels",
+          "type": "variation",
+          "relevance": 2,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20213,
+          "title": "Fix the Code: Missing Parenthesis",
+          "type": "fix_the_code",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20214,
+          "title": "Challenge: Backwards",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 0,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "Missing why/how explanation",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 31,
+      "avg_score": 7.75
+    },
+    {
+      "concept_id": 2420,
+      "concept_title": "A Field Guide to Base R",
+      "chapter": "Part 5: Program",
+      "concept_name": "Programming",
+      "reinforcers": [
+        {
+          "id": 24201,
+          "title": "Analogy: Pepper Shaker",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24202,
+          "title": "Variation: Brackets",
+          "type": "variation",
+          "relevance": 1,
+          "difficulty_jump": 3,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24203,
+          "title": "Fix the Code: Comma",
+          "type": "fix_the_code",
+          "relevance": 1,
+          "difficulty_jump": 3,
+          "explanation_quality": 1,
+          "robustness": 3,
+          "total": 8,
+          "notes": [
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 24204,
+          "title": "Challenge: Loop",
+          "type": "challenge",
+          "relevance": 3,
+          "difficulty_jump": 2,
+          "explanation_quality": 1,
+          "robustness": 2,
+          "total": 8,
+          "notes": [
+            "No step-by-step guidance",
+            "No code examples in explanation",
+            "Missing starter code"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 31,
+      "avg_score": 7.75
+    },
+    {
+      "concept_id": 2001,
+      "concept_title": "Meet the Penguins",
+      "chapter": "Part 1: Whole Game",
+      "concept_name": "Ch 1: Data Visualization",
+      "reinforcers": [
+        {
+          "id": 20011,
+          "title": "Analogy: Variables are Boxes",
+          "type": "analogy",
+          "relevance": 0,
+          "difficulty_jump": 3,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20012,
+          "title": "Variation: Changing Values",
+          "type": "variation",
+          "relevance": 0,
+          "difficulty_jump": 3,
+          "explanation_quality": 3,
+          "robustness": 3,
+          "total": 9,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20013,
+          "title": "Fix the Code: Broken Arrow",
+          "type": "fix_the_code",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        },
+        {
+          "id": 20014,
+          "title": "Challenge: Your Own Vars",
+          "type": "challenge",
+          "relevance": 0,
+          "difficulty_jump": 2,
+          "explanation_quality": 2,
+          "robustness": 3,
+          "total": 7,
+          "notes": [
+            "\u26a0\ufe0f Low keyword overlap with concept",
+            "No step-by-step guidance",
+            "No code examples in explanation"
+          ],
+          "hidden_prereqs": []
+        }
+      ],
+      "total_score": 32,
+      "avg_score": 8.0
+    }
+  ]
+}

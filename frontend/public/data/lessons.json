@@ -9371,10 +9371,18 @@
     ]
   },
   "20011": {
+<<<<<<< HEAD
     "title": "Analogy: Variables are Boxes",
     "content": "# Plot questions from penguins\n\n## What you'll learn\nChoose x and y variables that match a visual question.\n\n## Why this matters\nA plot only answers the question you encode on its axes.\n\n## Step-by-step task\n1. Review the available columns.\n2. Set x_var and y_var to answer: Do penguins with longer flippers tend to be heavier?\n\n## Expected output or check condition\n- x_var should be \"flipper_length_mm\".\n- y_var should be \"body_mass_g\".\n\n## One common mistake to avoid\n- Using a category like species on a scatterplot axis.\n\n## Confirm no hidden prerequisites\n- Uses only column names listed in the starter code and simple assignment.",
     "starter_code": "# Column options you can plot\ncols <- c(\"bill_length_mm\", \"bill_depth_mm\", \"flipper_length_mm\", \"body_mass_g\", \"species\", \"island\", \"sex\")\n\n# Choose axes for: Do penguins with longer flippers tend to be heavier?\nx_var <- ...\ny_var <- ...",
     "solution_code": "x_var <- \"flipper_length_mm\"\ny_var <- \"body_mass_g\"",
+=======
+    "title": "Analogy: A Picture is Worth 344 Rows",
+    "content": "# 📊 A Picture is Worth 344 Rows\n\n## What You'll Learn\nWhy visualization is faster and more insightful than reading tables of numbers.\n\n## Why This Matters\nImagine reading 344 rows of penguin measurements. Boring! Confusing! But a scatterplot shows the pattern instantly: longer flippers = heavier penguins. That's the power of visualization.\n\n## Example\n\n```r\n# Just looking at the data shows rows and columns\npenguins\n```\n\nYou see 344 rows × 8 columns. But what does it *mean*? A graph shows the story.\n\n## 🎯 Your Task\n\n1. Type `penguins` and press Run\n2. Notice: 344 rows of numbers—hard to see patterns!\n3. Look for the columns `flipper_length_mm` and `body_mass_g`—we'll graph these next\n\n**Expected Output:**\nA tibble showing 344 rows and 8 columns of penguin data\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nPenguins  # Capital P doesn't exist\n```\n\n**Fixed:**\n```r\npenguins  # All lowercase\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only the `penguins` dataset introduced in this lesson.\n",
+    "starter_code": "# View the penguins dataset\n",
+    "solution_code": "penguins",
+    "expected_output": "# A tibble: 344 × 8",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20011,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
@@ -9386,10 +9394,18 @@
     ]
   },
   "20012": {
+<<<<<<< HEAD
     "title": "Variation: Changing Values",
     "content": "# Grouped visual question\n\n## What you'll learn\nAdd a grouping variable to compare categories in a plot.\n\n## Why this matters\nGrouping changes the story a plot tells.\n\n## Step-by-step task\n1. Keep x_var and y_var as a size comparison.\n2. Choose a category to compare (for example island or species).\n3. Set group_var and update the question.\n\n## Expected output or check condition\n- identical(group_var, \"island\") should return TRUE.\n- identical(question, \"Do penguins on different islands have different body_mass_g?\") should return TRUE.\n## One common mistake to avoid\n- Using a numeric column for a grouping variable.\n\n## Confirm no hidden prerequisites\n- Uses only column names listed in the starter code and simple assignment.",
     "starter_code": "cols <- c(\"bill_length_mm\", \"bill_depth_mm\", \"flipper_length_mm\", \"body_mass_g\", \"species\", \"island\", \"sex\")\nx_var <- \"body_mass_g\"\ny_var <- \"bill_length_mm\"\n\n# Add a grouping variable to compare categories\ngroup_var <- ...\nquestion <- ...\n\nidentical(group_var, \"island\")\nidentical(question, \"Do penguins on different islands have different body_mass_g?\")",
     "solution_code": "x_var <- \"body_mass_g\"\ny_var <- \"bill_length_mm\"\ngroup_var <- \"island\"\nquestion <- \"Do penguins on different islands have different body_mass_g?\"\n\nidentical(group_var, \"island\")\nidentical(question, \"Do penguins on different islands have different body_mass_g?\")",
+=======
+    "title": "Variation: Explore the Columns",
+    "content": "# 🔍 Explore the Columns\n\n## What You'll Learn\nHow to find out what columns are in a dataset using `names()`.\n\n## Why This Matters\nBefore you can graph data, you need to know what columns exist. `names(penguins)` shows you all 8 column names—so you know what's available to map to x and y.\n\n## Example\n\n```r\nnames(penguins)\n```\n\nReturns: `\"species\"`, `\"island\"`, `\"bill_length_mm\"`, etc.\n\n## 🎯 Your Task\n\n1. Type `names(penguins)` and run it\n2. Find the column for flipper length (hint: contains \"flipper\")\n3. Find the column for body mass (hint: contains \"mass\")\n\n**Expected Output:**\nA character vector of 8 column names\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ncolumns(penguins)  # There's no 'columns' function\n```\n\n**Fixed:**\n```r\nnames(penguins)  # Use 'names' to see column names\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only `names()` (base R) and `penguins`.\n",
+    "starter_code": "# Get the column names of the penguins dataset\n",
+    "solution_code": "names(penguins)",
+    "expected_output": "[1] \"species\" \"island\" \"bill_length_mm\" \"bill_depth_mm\" \"flipper_length_mm\" \"body_mass_g\" \"sex\" \"year\"",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20012,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
@@ -9401,10 +9417,18 @@
     ]
   },
   "20013": {
+<<<<<<< HEAD
     "title": "Fix the Code: Broken Arrow",
     "content": "# Fix the axis choice\n\n## What you'll learn\nChoose numeric axes for a scatterplot question.\n\n## Why this matters\nScatterplots need numeric values on both axes to show a relationship.\n\n## Step-by-step task\n1. Review the numeric columns.\n2. Replace x_var and y_var so both are numeric.\n\n## Expected output or check condition\n- x_var %in% numeric_cols should return TRUE.\n- y_var %in% numeric_cols should return TRUE.\n## One common mistake to avoid\n- Keeping both axes as categories like species and island.\n\n## Confirm no hidden prerequisites\n- Uses only column names listed in the starter code and simple assignment.",
     "starter_code": "numeric_cols <- c(\"bill_length_mm\", \"bill_depth_mm\", \"flipper_length_mm\", \"body_mass_g\")\n\n# Wrong: both are categories for a scatterplot\nx_var <- \"species\"\ny_var <- \"island\"\n\n# Fix x_var and y_var to use two numeric columns\nx_var %in% numeric_cols\ny_var %in% numeric_cols",
     "solution_code": "numeric_cols <- c(\"bill_length_mm\", \"bill_depth_mm\", \"flipper_length_mm\", \"body_mass_g\")\nx_var <- \"bill_length_mm\"\ny_var <- \"body_mass_g\"\n\nx_var %in% numeric_cols\ny_var %in% numeric_cols",
+=======
+    "title": "Fix the Code: Dataset Name",
+    "content": "# 🔧 Fix the Code\n\n## What You'll Learn\nR is case-sensitive—`penguins` works, but `Penguins` or `PENGUINS` don't.\n\n## Why This Matters\nThis is the #1 beginner error in R! Getting comfortable with exact spelling and case now will save you hours of debugging later.\n\n## Example\n\n```r\n# This causes an error\nPenguins\n# Error: object 'Penguins' not found\n```\n\n## 🎯 Your Task\n\n1. Look at the starter code—it has a capitalization error\n2. Fix the case to all lowercase\n3. Run and verify you see the dataset\n\n**Expected Output:**\nThe penguins data (344 rows × 8 columns)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nPENGUINS\npenGUins\n```\nAny wrong capitalization fails.\n\n**Fixed:**\n```r\npenguins\n```\nExactly as defined.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only the `penguins` dataset.\n",
+    "starter_code": "# Fix the capitalization error\nPenguins",
+    "solution_code": "penguins",
+    "expected_output": "# A tibble: 344 × 8",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20013,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
@@ -9416,10 +9440,18 @@
     ]
   },
   "20014": {
+<<<<<<< HEAD
     "title": "Challenge: Your Own Vars",
     "content": "# Mini task: choose axes for a question\n\n## What you'll learn\nTranslate a visual question into x and y axes.\n\n## Why this matters\nGood plots start with clear questions.\n\n## Step-by-step task\n1. Use the provided question.\n2. Set x_var and y_var to match it.\n\n## Expected output or check condition\n- identical(question, \"Do heavier penguins have longer bills?\") should return TRUE.\n- identical(x_var, \"body_mass_g\") should return TRUE.\n- identical(y_var, \"bill_length_mm\") should return TRUE.\n## One common mistake to avoid\n- Swapping axes so the question no longer matches the plot.\n\n## Confirm no hidden prerequisites\n- Uses only column names listed in the starter code and simple assignment.",
     "starter_code": "question <- ...\nx_var <- ...\ny_var <- ...\n\nidentical(question, \"Do heavier penguins have longer bills?\")\nidentical(x_var, \"body_mass_g\")\nidentical(y_var, \"bill_length_mm\")",
     "solution_code": "question <- \"Do heavier penguins have longer bills?\"\nx_var <- \"body_mass_g\"\ny_var <- \"bill_length_mm\"\n\nidentical(question, \"Do heavier penguins have longer bills?\")\nidentical(x_var, \"body_mass_g\")\nidentical(y_var, \"bill_length_mm\")",
+=======
+    "title": "Challenge: Find the Range",
+    "content": "# 🦸 Challenge: Find the Range\n\n## What You'll Learn\nUse `range()` to find the min and max of a column.\n\n## Why This Matters\nBefore graphing, it helps to know the range of your data. Knowing the smallest and largest values helps you understand what to expect on your axes.\n\n## Example\n\nHere's the pattern:\n\n```r\nrange(dataset$column, na.rm = TRUE)\n```\n\nThe `$` accesses a column. `na.rm = TRUE` ignores missing values.\n\n## 🎯 Your Task\n\n1. Find the range of `body_mass_g` in the penguins dataset\n2. Use: `range(penguins$body_mass_g, na.rm = TRUE)`\n3. What are the lightest and heaviest penguins?\n\n**Expected Output:**\nTwo numbers: minimum and maximum body mass (around 2700 and 6300)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nrange(body_mass_g)\n```\nDidn't specify the dataset.\n\n**Fixed:**\n```r\nrange(penguins$body_mass_g, na.rm = TRUE)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `range()` (base R), `$` (base R), and `penguins`.\n",
+    "starter_code": "# Find the range of body_mass_g in penguins\n# Hint: range(dataset$column, na.rm = TRUE)\n",
+    "solution_code": "range(penguins$body_mass_g, na.rm = TRUE)",
+    "expected_output": "[1] 2700 6300",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20014,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
@@ -9431,10 +9463,18 @@
     ]
   },
   "20021": {
+<<<<<<< HEAD
     "title": "Analogy: Secret Notes",
     "content": "# Build a blank canvas\n\n## What you'll learn\nCreate a ggplot canvas with data and axis mappings.\n\n## Why this matters\nA blank canvas defines the coordinate system for your data.\n## Step-by-step task\n1. Use the penguins dataset.\n2. Map bill_length_mm to x and body_mass_g to y.\n\n## Expected output or check condition\n- identical(p$labels$x, \"bill_length_mm\") should return TRUE.\n- identical(p$labels$y, \"body_mass_g\") should return TRUE.\n## One common mistake to avoid\n- Leaving data or aes empty.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
     "starter_code": "# Build a blank canvas for bill length vs body mass\np <- ggplot(data = ..., mapping = aes(x = ..., y = ...))\np\n\nidentical(p$labels$x, \"bill_length_mm\")\nidentical(p$labels$y, \"body_mass_g\")",
     "solution_code": "p <- ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = body_mass_g))\np\n\nidentical(p$labels$x, \"bill_length_mm\")\nidentical(p$labels$y, \"body_mass_g\")",
+=======
+    "title": "Analogy: The Artist's Canvas",
+    "content": "# 🎨 The Artist's Canvas\n\n## What You'll Learn\nHow `ggplot()` creates a blank canvas, just like an artist starts with an empty page.\n\n## Why This Matters\nEvery great painting starts with a blank canvas. In ggplot2, `ggplot(data = ...)` is that blank canvas. Until you add \"paint\" (geoms), nothing appears—just like a painter who has set up their easel but hasn't made the first brushstroke.\n\n## Example\n\n```r\n# This creates a blank gray canvas\nggplot(data = penguins)\n```\n\nThe result is a gray rectangle. That's not a bug—it's waiting for you to add layers!\n\n## 🎯 Your Task\n\n1. Type `ggplot(data = penguins)` to create your canvas\n2. Run the code\n3. Observe: You get a gray box (empty canvas ready for painting)\n\n**Expected Output:**\nA gray rectangle (the blank canvas)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nggplot(penguins)  # Missing data = \n```\n\n**Fixed:**\n```r\nggplot(data = penguins)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only `ggplot()` and `penguins` from this lesson.\n",
+    "starter_code": "# Create an empty canvas using the penguins dataset\n",
+    "solution_code": "ggplot(data = penguins)",
+    "expected_output": "[Graph: Empty gray canvas]",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20021,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
@@ -9446,10 +9486,18 @@
     ]
   },
   "20022": {
+<<<<<<< HEAD
     "title": "Variation: Silencing Code",
     "content": "# Swap axes on the canvas\n\n## What you'll learn\nSwap x and y to change the view of the same variables.\n\n## Why this matters\nAxis choices affect how patterns are read.\n\n## Step-by-step task\n1. Swap x and y so mass is on x and bill length is on y.\n2. Run the plot.\n\n## Expected output or check condition\n- The x axis should be body_mass_g and the y axis should be bill_length_mm.\n\n## One common mistake to avoid\n- Changing labels in text but not swapping the variables.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
     "starter_code": "p <- ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = body_mass_g))\n# Swap axes so mass is on x and bill length on y\np",
     "solution_code": "p <- ggplot(data = penguins, mapping = aes(x = body_mass_g, y = bill_length_mm))\np",
+=======
+    "title": "Variation: Different Dataset",
+    "content": "# 🔄 Different Dataset, Same Canvas\n\n## What You'll Learn\nThe canvas pattern works with ANY dataset, not just penguins.\n\n## Why This Matters\nThe `ggplot(data = ...)` pattern is universal. Once you learn it for penguins, you can instantly apply it to any dataset: cars, diamonds, your own data.\n\n## Example\n\n```r\n# Canvas with penguins\nggplot(data = penguins)\n\n# Canvas with mpg (cars data)\nggplot(data = mpg)\n```\n\nBoth create the same blank canvas—just connected to different data.\n\n## 🎯 Your Task\n\n1. Type `ggplot(data = mpg)` to create a canvas with car data\n2. Run the code\n3. Confirm you see the same gray canvas\n\n**Expected Output:**\nA gray rectangle (the blank canvas)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nggplot(data = \"mpg\")  # Don't put quotes around dataset names\n```\n\n**Fixed:**\n```r\nggplot(data = mpg)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only `ggplot()` from this lesson; `mpg` is a built-in dataset.\n",
+    "starter_code": "# Create a canvas using the mpg (cars) dataset\n",
+    "solution_code": "ggplot(data = mpg)",
+    "expected_output": "[Graph: Empty gray canvas]",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20022,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
@@ -9461,10 +9509,18 @@
     ]
   },
   "20023": {
+<<<<<<< HEAD
     "title": "Fix the Code: Missing #",
     "content": "# Fix missing aes\n\n## What you'll learn\nPlace x and y mappings inside aes().\n\n## Why this matters\nggplot() only recognizes mappings inside aes().\n\n## Step-by-step task\n1. Fix the ggplot call so x and y are inside aes().\n2. Run the plot.\n\n## Expected output or check condition\n- identical(p$labels$x, \"bill_length_mm\") should return TRUE.\n- identical(p$labels$y, \"body_mass_g\") should return TRUE.\n## One common mistake to avoid\n- Passing x and y directly to ggplot().\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
     "starter_code": "# This fails because x and y are not inside aes()\np <- ggplot(data = penguins, x = bill_length_mm, y = body_mass_g)\np\n\nidentical(p$labels$x, \"bill_length_mm\")\nidentical(p$labels$y, \"body_mass_g\")",
     "solution_code": "p <- ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = body_mass_g))\np\n\nidentical(p$labels$x, \"bill_length_mm\")\nidentical(p$labels$y, \"body_mass_g\")",
+=======
+    "title": "Fix the Code: Missing Data",
+    "content": "# 🔧 Fix the Code\n\n## What You'll Learn\nHow to spot and fix the most common `ggplot()` error: forgetting `data =`.\n\n## Why This Matters\nR is picky about syntax. Writing `ggplot(penguins)` might work, but `ggplot(data = penguins)` is clearer and matches the documentation. Getting comfortable with these patterns now saves confusion later.\n\n## Example\n\nThe code below has an issue. Can you fix it?\n\n```r\n# This could be clearer\nggplot(penguins)\n```\n\nWhile this works, the explicit `data =` is best practice.\n\n## 🎯 Your Task\n\n1. Look at the starter code below\n2. Add `data = ` before `penguins`\n3. Run to confirm you see the blank canvas\n\n**Expected Output:**\nA gray rectangle (the blank canvas)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nggplot(Penguins)  # Case matters! 'Penguins' ≠ 'penguins'\n```\n\n**Fixed:**\n```r\nggplot(data = penguins)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only `ggplot()` and `penguins` from this lesson.\n",
+    "starter_code": "# Fix this code by adding 'data = '\nggplot(penguins)",
+    "solution_code": "ggplot(data = penguins)",
+    "expected_output": "[Graph: Empty gray canvas]",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20023,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
@@ -9476,10 +9532,18 @@
     ]
   },
   "20024": {
+<<<<<<< HEAD
     "title": "Challenge: Annotate",
     "content": "# Mini task: new canvas\n\n## What you'll learn\nCreate a blank canvas for a new pair of variables.\n\n## Why this matters\nYou need a clear axis mapping for the canvas.\n## Step-by-step task\n1. Use the penguins dataset.\n2. Map flipper_length_mm to x and bill_depth_mm to y.\n\n## Expected output or check condition\n- identical(p$labels$x, \"flipper_length_mm\") should return TRUE.\n- identical(p$labels$y, \"bill_depth_mm\") should return TRUE.\n## One common mistake to avoid\n- Mixing up x and y variables.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
     "starter_code": "p <- ggplot(data = ..., mapping = aes(x = ..., y = ...))\np\n\nidentical(p$labels$x, \"flipper_length_mm\")\nidentical(p$labels$y, \"bill_depth_mm\")",
     "solution_code": "p <- ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = bill_depth_mm))\np\n\nidentical(p$labels$x, \"flipper_length_mm\")\nidentical(p$labels$y, \"bill_depth_mm\")",
+=======
+    "title": "Challenge: Your Own Canvas",
+    "content": "# 🦸 Challenge: Your Own Canvas\n\n## What You'll Learn\nCreate a ggplot canvas from memory, without hints.\n\n## Why This Matters\nTyping the pattern yourself builds muscle memory. You'll write `ggplot(data = ...)` thousands of times in your R career—start practicing now!\n\n## Example\n\nHere's the pattern you've been using:\n\n```r\nggplot(data = dataset_name)\n```\n\n## 🎯 Your Task\n\nWithout looking at previous examples:\n1. Create an empty canvas using the `diamonds` dataset\n2. Use the full pattern: `ggplot(data = ...)`\n3. Run and verify you see the blank canvas\n\n**Expected Output:**\nA gray rectangle (the blank canvas)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nggplot(data = diamond)\n```\nTypo: 'diamond' not 'diamonds'.\n\n**Fixed:**\n```r\nggplot(data = diamonds)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `ggplot()` from this lesson; `diamonds` is a built-in dataset.\n",
+    "starter_code": "# Create a blank canvas using the diamonds dataset\n# Hint: ggplot(data = ...)\n",
+    "solution_code": "ggplot(data = diamonds)",
+    "expected_output": "[Graph: Empty gray canvas]",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20024,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
@@ -9491,10 +9555,18 @@
     ]
   },
   "20031": {
+<<<<<<< HEAD
     "title": "Analogy: The Sticker Album",
     "content": "# Map axes for a question\n\n## What you'll learn\nMatch a plot question to x and y variables.\n\n## Why this matters\nThe axes control the story your plot tells.\n\n## Step-by-step task\n1. Use the mpg dataset.\n2. Map x and y to answer: Does engine size relate to highway mpg?\n\n## Expected output or check condition\n- x should be displ and y should be hwy.\n\n## One common mistake to avoid\n- Swapping x and y and changing the question.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
     "starter_code": "p <- ggplot(data = mpg, mapping = aes(x = ..., y = ...))\np",
     "solution_code": "p <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy))\np",
+=======
+    "title": "Analogy: The Coordinate System",
+    "content": "# 📍 The Coordinate System\n\n## What You'll Learn\nHow `aes(x = ..., y = ...)` maps data columns to the x and y axes—like plotting points on a map.\n\n## Why This Matters\nThink of a graph like a treasure map. The x-axis is \"how far east\" and y-axis is \"how far north.\" When you write `aes(x = flipper_length_mm, y = body_mass_g)`, you're telling R: \"Put flipper length on the x-axis and body mass on the y-axis.\"\n\n## Example\n\n```r\nggplot(\n  data = penguins,\n  mapping = aes(x = flipper_length_mm, y = body_mass_g)\n)\n```\n\nThis creates labeled axes—but no dots yet! The `penguins` dataset provides the data.\n\n## 🎯 Your Task\n\n1. Use `ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))`\n2. Run the code\n3. Observe: axes are labeled but canvas is empty (no geom yet)\n\n**Expected Output:**\nGray canvas with labeled x and y axes\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\naes(x = \"flipper_length_mm\")\n```\nDon't use quotes around column names!\n\n**Fixed:**\n```r\naes(x = flipper_length_mm)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only `ggplot()`, `aes()`, and `penguins` from this lesson.\n",
+    "starter_code": "# Map flipper_length_mm to x and body_mass_g to y\n",
+    "solution_code": "ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))",
+    "expected_output": "[Graph: Canvas with labeled axes]",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20031,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
@@ -9507,10 +9579,18 @@
     ]
   },
   "20032": {
+<<<<<<< HEAD
     "title": "Variation: How Big?",
     "content": "# Swap axes\n\n## What you'll learn\nSwap x and y to change how a relationship is read.\n\n## Why this matters\nAxis choices affect which variable feels like the input or output.\n\n## Step-by-step task\n1. Swap x and y so highway mpg is on x and engine size is on y.\n2. Run the plot.\n\n## Expected output or check condition\n- The x axis should be hwy and the y axis should be displ.\n\n## One common mistake to avoid\n- Changing the labels without swapping the variables.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
     "starter_code": "p <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy))\n# Swap axes\np",
     "solution_code": "p <- ggplot(data = mpg, mapping = aes(x = hwy, y = displ))\np",
+=======
+    "title": "Variation: Different Columns",
+    "content": "# 🔄 Different Columns\n\n## What You'll Learn\nYou can map ANY numeric columns to x and y—not just flipper_length_mm and body_mass_g.\n\n## Why This Matters\nThe power of `aes()` is flexibility. The penguins dataset has many columns (bill_length_mm, bill_depth_mm, etc.). By changing what goes in `aes()`, you can explore different relationships.\n\n## Example\n\n```r\n# Original: flipper vs body mass\naes(x = flipper_length_mm, y = body_mass_g)\n\n# New: bill length vs bill depth\naes(x = bill_length_mm, y = bill_depth_mm)\n```\n\n## 🎯 Your Task\n\n1. Create a ggplot with `penguins` data\n2. Map `x = bill_length_mm` and `y = bill_depth_mm`\n3. Run and verify axes show bill measurements\n\n**Expected Output:**\nCanvas with \"bill_length_mm\" on x-axis and \"bill_depth_mm\" on y-axis\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\naes(x = bill_length, y = bill_depth)  # Missing _mm suffix\n```\n\n**Fixed:**\n```r\naes(x = bill_length_mm, y = bill_depth_mm)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only `ggplot()`, `aes()`, and `penguins` columns.\n",
+    "starter_code": "# Map bill_length_mm to x and bill_depth_mm to y\nggplot(data = penguins, mapping = aes(x = ___, y = ___))",
+    "solution_code": "ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = bill_depth_mm))",
+    "expected_output": "[Graph: Canvas with bill measurement axes]",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20032,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
@@ -9522,10 +9602,18 @@
     ]
   },
   "20033": {
+<<<<<<< HEAD
     "title": "Fix the Code: Typo",
     "content": "# Fix mapping placement\n\n## What you'll learn\nPlace x and y mappings inside aes().\n\n## Why this matters\nMappings outside aes() are ignored by ggplot().\n\n## Step-by-step task\n1. Move x and y into aes().\n2. Run the plot.\n\n## Expected output or check condition\n- identical(p$labels$x, \"displ\") should return TRUE.\n- identical(p$labels$y, \"hwy\") should return TRUE.\n## One common mistake to avoid\n- Passing x and y directly to ggplot().\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
     "starter_code": "p <- ggplot(data = mpg, x = displ, y = hwy)\np\n\nidentical(p$labels$x, \"displ\")\nidentical(p$labels$y, \"hwy\")",
     "solution_code": "p <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy))\np\n\nidentical(p$labels$x, \"displ\")\nidentical(p$labels$y, \"hwy\")",
+=======
+    "title": "Fix the Code: Mapping Typo",
+    "content": "# 🔧 Fix the Code\n\n## What You'll Learn\nHow to spot common typos in `aes()` mappings.\n\n## Why This Matters\nR is case-sensitive and picky about spelling. A typo like `body_Mass_g` instead of `body_mass_g` will break your code with a confusing error.\n\n## Example\n\nSpot the error below:\n\n```r\nggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = Body_mass_g))\n```\n\nR is looking for `body_mass_g` (lowercase), not `Body_mass_g`.\n\n## 🎯 Your Task\n\n1. Look at the starter code\n2. Find and fix the capitalization error in the y mapping\n3. Run to confirm axes appear correctly\n\n**Expected Output:**\nCanvas with properly labeled axes\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ny = body_mass_G  # Wrong case on 'g'\n```\n\n**Fixed:**\n```r\ny = body_mass_g  # All lowercase except after underscores\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only `ggplot()`, `aes()`, and `penguins`.\n",
+    "starter_code": "# Fix the capitalization error\nggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = Body_mass_g))",
+    "solution_code": "ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))",
+    "expected_output": "[Graph: Canvas with labeled axes]",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20033,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
@@ -9537,10 +9625,18 @@
     ]
   },
   "20034": {
+<<<<<<< HEAD
     "title": "Challenge: Another Dataset",
     "content": "# Mini task: new dataset\n\n## What you'll learn\nMap axes in a different dataset.\n\n## Why this matters\nThe same mapping logic applies across datasets.\n\n## Step-by-step task\n1. Use the mtcars dataset.\n2. Map weight (wt) to x and mpg to y.\n\n## Expected output or check condition\n- The x axis should be wt and the y axis should be mpg.\n\n## One common mistake to avoid\n- Using columns that are not in mtcars.\n\n## Confirm no hidden prerequisites\n- Uses only ggplot() and aes() introduced above.",
     "starter_code": "p <- ggplot(data = mtcars, mapping = aes(x = ..., y = ...))\np",
     "solution_code": "p <- ggplot(data = mtcars, mapping = aes(x = wt, y = mpg))\np",
+=======
+    "title": "Challenge: Map Your Own Axes",
+    "content": "# 🦸 Challenge: Map Your Own Axes\n\n## What You'll Learn\nWrite a complete ggplot call with axis mappings from memory.\n\n## Why This Matters\nBuilding muscle memory for the `ggplot(data = ..., mapping = aes(...))` pattern is essential. You'll use this hundreds of times!\n\n## Example\n\nHere's the pattern:\n\n```r\nggplot(data = dataset, mapping = aes(x = column1, y = column2))\n```\n\n## 🎯 Your Task\n\nUsing the `mpg` dataset (about cars):\n1. Map `displ` (engine displacement) to the x-axis\n2. Map `hwy` (highway miles per gallon) to the y-axis\n3. Write the full ggplot call\n\n**Expected Output:**\nCanvas with \"displ\" on x-axis and \"hwy\" on y-axis\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nggplot(mpg, aes(displ, hwy))\n```\nToo abbreviated.\n\n**Fixed:**\n```r\nggplot(data = mpg, mapping = aes(x = displ, y = hwy))\n```\nExplicit is clearer.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `ggplot()` and `aes()` from this lesson; `mpg` is a built-in dataset.\n",
+    "starter_code": "# Create a ggplot with mpg data, mapping displ to x and hwy to y\n",
+    "solution_code": "ggplot(data = mpg, mapping = aes(x = displ, y = hwy))",
+    "expected_output": "[Graph: Canvas with displ and hwy axes]",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20034,
     "chapter_title": "Ch 1: Data Visualization",
     "chapter_id": 1,
@@ -9617,10 +9713,18 @@
     ]
   },
   "20101": {
+<<<<<<< HEAD
     "title": "Analogy: Calling for Pizza",
     "content": "# Identify function and arguments\n\n## What you'll learn\nIdentify a function name and its arguments in a call.\n\n## Why this matters\nR evaluates the function name and then uses the arguments to produce output.\n\n## Step-by-step task\n1. Look at the call to seq().\n2. Set fn to the function name and args to the argument vector.\n\n## Expected output or check condition\n- identical(fn, \"seq\") should return TRUE.\n- identical(args, c(1, 5)) should return TRUE.\n\n## One common mistake to avoid\n- Confusing the function name with its arguments.\n\n## Confirm no hidden prerequisites\n- Uses only seq() and basic assignment from the concept.",
     "starter_code": "result <- seq(1, 5)\nfn <- ...\nargs <- ...\nidentical(fn, \"seq\")\nidentical(args, c(1, 5))",
     "solution_code": "result <- seq(1, 5)\nfn <- \"seq\"\nargs <- c(1, 5)\nidentical(fn, \"seq\")\nidentical(args, c(1, 5))",
+=======
+    "title": "Analogy: The Calculator",
+    "content": "# 🧮 R is a Fancy Calculator\n\n## What You'll Learn\nAt its core, R is just a calculator that follows math rules.\n\n## Why This Matters\nBefore fancy statistics, R does basic math. Understanding PEMDAS (order of operations) helps you avoid bugs when calculations get complex.\n\n## Example\n\n```r\n1 + 2 * 3        # → 7 (not 9! multiplication first)\n(1 + 2) * 3      # → 9 (parentheses change order)\n5 / 2            # → 2.5\n5 %/% 2          # → 2 (integer division)\n5 %% 2           # → 1 (remainder/modulo)\n```\n\n## 🎯 Your Task\n\n1. Calculate `2 + 3 * 4` (what order does R use?)\n2. Then calculate `(2 + 3) * 4` (force addition first)\n3. Compare the results\n\n**Expected Output:**\nFirst: `14`, Second: `20`\n\n## ⚠️ Common Mistake\n\nAssuming left-to-right order. R follows PEMDAS!\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only arithmetic operators.\n",
+    "starter_code": "# Compare these two calculations\n2 + 3 * 4\n(2 + 3) * 4",
+    "solution_code": "2 + 3 * 4\n(2 + 3) * 4",
+    "expected_output": "[1] 14\n[1] 20",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20101,
     "chapter_title": "Ch 2: Workflow: Basics",
     "chapter_id": 2,
@@ -9634,10 +9738,18 @@
     ]
   },
   "20102": {
+<<<<<<< HEAD
     "title": "Variation: Variables in Functions",
     "content": "# Modify a function argument\n\n## What you'll learn\nChange a function argument and verify the new output.\n\n## Why this matters\nSmall argument changes can change the entire result.\n\n## Step-by-step task\n1. Set y to 20.\n2. Run seq(10, y).\n\n## Expected output or check condition\n- identical(result, 10:20) should return TRUE.\n\n## One common mistake to avoid\n- Leaving y as the placeholder.\n\n## Confirm no hidden prerequisites\n- Uses only seq() and basic assignment from the concept.",
     "starter_code": "y <- ...\nresult <- seq(10, y)\nidentical(result, 10:20)",
     "solution_code": "y <- 20\nresult <- seq(10, y)\nidentical(result, 10:20)",
+=======
+    "title": "Variation: Saving Results",
+    "content": "# 💾 Saving Results\n\n## What You'll Learn\nUse `<-` to save a calculation for later use.\n\n## Why This Matters\nWithout saving results, you'd have to recalculate everything repeatedly. Variables store values so you can use them later—like writing down an answer.\n\n## Example\n\n```r\n# Calculate and save\ntotal <- 10 + 20\n\n# Use the saved value\ntotal * 2        # → 60\ntotal + 5        # → 35\n```\n\n## 🎯 Your Task\n\n1. Create a variable `my_sum` that stores `50 + 50`\n2. Then calculate `my_sum * 2`\n3. Run both lines\n\n**Expected Output:**\n`[1] 200`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nmy_sum = 100\nmy_sum <- 100  # Both work but <- is preferred\n```\n\nUse `<-` for assignment in R (not `=`).\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only assignment and arithmetic.\n",
+    "starter_code": "# Save a calculation, then use it\nmy_sum <- 50 + 50\nmy_sum * 2",
+    "solution_code": "my_sum <- 50 + 50\nmy_sum * 2",
+    "expected_output": "[1] 200",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20102,
     "chapter_title": "Ch 2: Workflow: Basics",
     "chapter_id": 2,
@@ -9651,10 +9763,18 @@
     ]
   },
   "20103": {
+<<<<<<< HEAD
     "title": "Fix the Code: Typos",
     "content": "# Fix the function name\n\n## What you'll learn\nFix a typo in a function call.\n\n## Why this matters\nR will not guess the function you meant.\n\n## Step-by-step task\n1. Fix the function name.\n2. Run the code.\n\n## Expected output or check condition\n- identical(result, c(1, 2, 3)) should return TRUE.\n\n## One common mistake to avoid\n- Keeping the misspelled function name.\n\n## Confirm no hidden prerequisites\n- Uses only seq() and basic vectors from the concept.",
     "starter_code": "result <- seqq(1, 3)\nidentical(result, c(1, 2, 3))",
     "solution_code": "result <- seq(1, 3)\nidentical(result, c(1, 2, 3))",
+=======
+    "title": "Fix the Code: Broken Assignment",
+    "content": "# 🔧 Fix the Assignment\n\n## What You'll Learn\nThe assignment arrow `<-` must be typed correctly, with no spaces inside.\n\n## Why This Matters\n`x < - 5` (less than negative five) is NOT the same as `x <- 5` (assign five to x). This subtle error causes confusing bugs.\n\n## Example\n\n```r\n# ❌ This compares x to -5 (wrong!)\nx < - 5\n\n# ✅ This assigns 5 to x\nx <- 5\n```\n\n## 🎯 Your Task\n\n1. Look at the starter code—there's a space breaking the arrow\n2. Remove the space between `<` and `-`\n3. Run to verify x equals 10\n\n**Expected Output:**\n`[1] 10`\n\n## ⚠️ Common Mistake\n\nTyping `<-` too quickly and getting `< -` (comparison to negative).\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only assignment.\n",
+    "starter_code": "# Fix the broken assignment arrow\nx < - 10\nprint(x)",
+    "solution_code": "x <- 10\nprint(x)",
+    "expected_output": "[1] 10",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20103,
     "chapter_title": "Ch 2: Workflow: Basics",
     "chapter_id": 2,
@@ -9668,10 +9788,18 @@
     ]
   },
   "20104": {
+<<<<<<< HEAD
     "title": "Challenge: Math",
     "content": "# Mini task: arithmetic\n\n## What you'll learn\nEvaluate a multi-step arithmetic expression.\n\n## Why this matters\nR follows order of operations exactly.\n\n## Step-by-step task\n1. Compute (5 + 5) * 2.\n2. Store it in result.\n\n## Expected output or check condition\n- identical(result, 20) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting the parentheses.\n\n## Confirm no hidden prerequisites\n- Uses only arithmetic and assignment from the concept.",
     "starter_code": "result <- ...\nidentical(result, 20)",
     "solution_code": "result <- (5 + 5) * 2\nidentical(result, 20)",
+=======
+    "title": "Challenge: Vector Math",
+    "content": "# 🦸 Challenge: Vector Math\n\n## What You'll Learn\nVectors store multiple values; math applies to ALL elements.\n\n## Why This Matters\nData science = working with many values at once. Instead of adding 100 separately, vectors let you add all 100 with one operation.\n\n## Example\n\n```r\nnums <- c(1, 2, 3)\nnums * 10          # → 10, 20, 30 (all multiplied)\nnums + 5           # → 6, 7, 8 (all added)\n```\n\n## 🎯 Your Task\n\n1. Create a vector `prices <- c(10, 20, 30)`\n2. Apply a 20% discount: `prices * 0.8`\n3. Run to see the discounted prices\n\n**Expected Output:**\n`[1]  8 16 24`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nprices <- 10, 20, 30  # Missing c()\n```\n\n**Fixed:**\n```r\nprices <- c(10, 20, 30)  # Use c() to create vectors\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only `c()` and arithmetic.\n",
+    "starter_code": "# Create prices and apply 20% discount\nprices <- c(10, 20, 30)\nprices * 0.8",
+    "solution_code": "prices <- c(10, 20, 30)\nprices * 0.8",
+    "expected_output": "[1]  8 16 24",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20104,
     "chapter_title": "Ch 2: Workflow: Basics",
     "chapter_id": 2,
@@ -9752,9 +9880,16 @@
   },
   "20211": {
     "title": "Analogy: Sorting Cards",
+<<<<<<< HEAD
     "content": "# \ud83c\udccf Sorting Cards\n\n`arrange()` puts rows in order, like sorting playing cards from Ace to King.\n\n```r\narrange(cards, rank)\n```\n\n## \ud83c\udfaf Your Task\nSort `flights` by `year`.",
     "starter_code": "arrange(flights, year)",
     "solution_code": "arrange(flights, year)",
+=======
+    "content": "# 🃏 Sorting Cards\n\n## What You'll Learn\n`arrange()` sorts rows—like sorting a deck of cards by number.\n\n## Why This Matters\nSorted data reveals patterns. Want the heaviest penguins? The smallest bills? `arrange()` puts them in order so you can see.\n\n> 💡 The `%>%` (pipe) takes `penguins` and passes it to `arrange()`. Think of it as \"take this data, then sort it.\"\n\n## Example\n\n```r\n# Sort ascending (smallest first)\npenguins %>% arrange(body_mass_g)\n\n# Sort descending (largest first)\npenguins %>% arrange(desc(body_mass_g))\n```\n\n## 🎯 Your Task\n\n1. Sort penguins by `flipper_length_mm` (smallest first)\n2. Look at the first few rows\n\n**Expected Output:**\nPenguins sorted with smallest flippers at top\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\narrange(penguins, flipper_length_mm)\n```\nWorks, but piping is cleaner.\n\n**Fixed:**\n```r\npenguins %>% arrange(flipper_length_mm)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `arrange()` from this lesson. Uses `%>%` and `penguins`.\n",
+    "starter_code": "# Sort by flipper length (ascending)\npenguins %>% arrange(flipper_length_mm)",
+    "solution_code": "penguins %>% arrange(flipper_length_mm)",
+    "expected_output": "# A tibble sorted by flipper_length_mm",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20211,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
@@ -9765,9 +9900,16 @@
   },
   "20212": {
     "title": "Variation: Two Levels",
+<<<<<<< HEAD
     "content": "# \ud83e\udd48 Two Levels\n\nSort by `month`, then by `day`.\n\n## \ud83c\udfaf Your Task\nArrange `flights` by `month` and `day`.",
     "starter_code": "arrange(flights, ..., ...)",
     "solution_code": "arrange(flights, month, day)",
+=======
+    "content": "# 📊 Sorting by Multiple Columns\n\n## What You'll Learn\nSort by multiple columns: first by one, then ties broken by another.\n\n## Why This Matters\nOften one column has ties. \"Sort by species THEN by mass\" shows patterns within each species.\n\n> 💡 The `%>%` (pipe) takes `penguins` and passes it to `arrange()`. Think of it as \"take this data, then sort it.\"\n\n## Example\n\n```r\n# First by species, then by body mass\npenguins %>% arrange(species, body_mass_g)\n\n# First by species (alpha), then by mass (descending)\npenguins %>% arrange(species, desc(body_mass_g))\n```\n\n## 🎯 Your Task\n\n1. Sort penguins by `island` first\n2. Then by `body_mass_g` within each island\n\n**Expected Output:**\nPenguins grouped by island, then sorted by mass\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\narrange(island, body_mass_g)\n```\nForgot the data source.\n\n**Fixed:**\n```r\npenguins %>% arrange(island, body_mass_g)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `arrange()` from this lesson.\n",
+    "starter_code": "# Sort by island, then by body_mass_g\npenguins %>% arrange(island, body_mass_g)",
+    "solution_code": "penguins %>% arrange(island, body_mass_g)",
+    "expected_output": "# A tibble sorted by island then body_mass_g",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20212,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
@@ -9777,10 +9919,18 @@
     ]
   },
   "20213": {
+<<<<<<< HEAD
     "title": "Fix the Code: Missing Parenthesis",
     "content": "# \ud83d\udd27 Fix the Code\n\nDon't forget to close the parenthesis!\n\n## \ud83c\udfaf Your Task\nFix the code.",
     "starter_code": "arrange(flights, dep_delay",
     "solution_code": "arrange(flights, dep_delay)",
+=======
+    "title": "Fix the Code: Missing desc()",
+    "content": "# 🔧 Descending Order\n\n## What You'll Learn\nUse `desc()` to sort largest-first (descending).\n\n## Why This Matters\nBy default, `arrange()` sorts smallest-first. For \"top 10 heaviest\" you need `desc()`.\n\n> 💡 The `%>%` (pipe) takes `penguins` and passes it to `arrange()`. Think of it as \"take this data, then sort it.\"\n\n## Example\n\n```r\n# Smallest first (default)\npenguins %>% arrange(body_mass_g)\n\n# Largest first\npenguins %>% arrange(desc(body_mass_g))\n```\n\n## 🎯 Your Task\n\n1. The starter code sorts smallest-first\n2. Add `desc()` to get largest-first\n3. Verify the heaviest penguin is first\n\n**Expected Output:**\nPenguins with 6300g at top\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\narrange(-body_mass_g)\n```\nMinus sign works but `desc()` is clearer.\n\n**Fixed:**\n```r\narrange(desc(body_mass_g))\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `arrange()` and `desc()` from this lesson.\n",
+    "starter_code": "# Fix this to show HEAVIEST penguins first\npenguins %>% arrange(body_mass_g)",
+    "solution_code": "penguins %>% arrange(desc(body_mass_g))",
+    "expected_output": "# A tibble with heaviest first",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20213,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
@@ -9791,9 +9941,16 @@
   },
   "20214": {
     "title": "Challenge: Backwards",
+<<<<<<< HEAD
     "content": "# \ufffd\ufffd Your Turn\n\nUse `desc()` inside `arrange()` to sort backwards (biggest numbers first).\n\n## \ud83c\udfaf Your Task\nSort by `arr_delay` in descending order.",
     "starter_code": "arrange(flights, ...)",
     "solution_code": "arrange(flights, desc(arr_delay))",
+=======
+    "content": "# 🦸 Challenge: Reverse Sort\n\n## What You'll Learn\nApply `desc()` to multiple columns for complex sorting.\n\n## Why This Matters\nSometimes you want \"alphabetical species, but heaviest first within each\". This requires mixing ascending and descending.\n\n> 💡 The `%>%` (pipe) takes `penguins` and passes it to `arrange()`. Think of it as \"take this data, then sort it.\"\n\n## Example\n\nHere's the pattern:\n\n```r\ndata %>% arrange(col1, desc(col2))\n```\n\nFirst column ascending, second descending.\n\n## 🎯 Your Task\n\nSort penguins so that:\n1. Species is alphabetical (A → Z, ascending)\n2. Within each species, mass is largest-first (descending)\n\n**Expected Output:**\nAdelie penguins (heaviest first), then Chinstrap, then Gentoo\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\narrange(desc(species), desc(body_mass_g))\n```\nThis sorts species backwards too.\n\n**Fixed:**\n```r\narrange(species, desc(body_mass_g))\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `arrange()`, `desc()`, and `penguins`.\n",
+    "starter_code": "# Alphabetical species, but heaviest first within each\npenguins %>% arrange(species, desc(body_mass_g))",
+    "solution_code": "penguins %>% arrange(species, desc(body_mass_g))",
+    "expected_output": "# A tibble: Adelie heaviest first, then Chinstrap, then Gentoo",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20214,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
@@ -9858,10 +10015,18 @@
     ]
   },
   "20231": {
+<<<<<<< HEAD
     "title": "Analogy: The Mutation Ray",
     "content": "# Create a gain column\n\n## What you'll learn\nUse mutate() to create a new column from existing columns.\n\n## Why this matters\nNew columns help you compute features without changing the raw data.\n\n## Step-by-step task\n1. Create gain as dep_delay - arr_delay.\n2. Use the check line to verify.\n\n## Expected output or check condition\n- all(flights_gain$gain == flights_gain$dep_delay - flights_gain$arr_delay, na.rm = TRUE) should return TRUE.\n\n## One common mistake to avoid\n- Reversing the subtraction order.\n\n## Confirm no hidden prerequisites\n- Uses mutate() and basic arithmetic introduced above. all() is a base R check shown in the starter code.",
     "starter_code": "flights_gain <- mutate(flights, gain = ...)\nall(flights_gain$gain == flights_gain$dep_delay - flights_gain$arr_delay, na.rm = TRUE)",
     "solution_code": "flights_gain <- mutate(flights, gain = dep_delay - arr_delay)\nall(flights_gain$gain == flights_gain$dep_delay - flights_gain$arr_delay, na.rm = TRUE)",
+=======
+    "title": "Analogy: The Transformation Ray",
+    "content": "# 🔮 The Transformation Ray\n\n## What You'll Learn\n`mutate()` adds new columns or transforms existing ones—like a sci-fi transformation ray.\n\n## Why This Matters\nRaw data is rarely ready for analysis. You need to compute new values: convert units, calculate ratios, create categories. `mutate()` is how you do it.\n\n> 💡 The `%>%` (pipe) takes `penguins` and passes it to `mutate()`. Think of it as \"take this data, then do this to it.\"\n\n## Example\n\n```r\npenguins %>% mutate(\n  mass_kg = body_mass_g / 1000\n)\n```\n\nThis adds `mass_kg` while keeping all original columns.\n\n## 🎯 Your Task\n\n1. Use mutate to add a column `double_mass` = `body_mass_g * 2`\n2. Apply it to penguins\n\n**Expected Output:**\nPenguins data with a new `double_mass` column\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nmutate(double_mass = body_mass_g * 2)\n```\nForgot to pipe in the data.\n\n**Fixed:**\n```r\npenguins %>% mutate(double_mass = body_mass_g * 2)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `mutate()` from this lesson. Uses pipe `%>%` and `penguins`.\n",
+    "starter_code": "# Create a new column: double_mass\npenguins %>% mutate(\n  double_mass = body_mass_g * 2\n)",
+    "solution_code": "penguins %>% mutate(double_mass = body_mass_g * 2)",
+    "expected_output": "# A tibble with double_mass column",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20231,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
@@ -9874,10 +10039,18 @@
     ]
   },
   "20232": {
+<<<<<<< HEAD
     "title": "Variation: Math",
     "content": "# Compute speed\n\n## What you'll learn\nCreate a new column using a formula.\n\n## Why this matters\nFormulas turn raw columns into meaningful measures.\n\n## Step-by-step task\n1. Create speed = distance / air_time * 60.\n2. Use the check line to verify.\n\n## Expected output or check condition\n- all(flights_speed$speed == flights_speed$distance / flights_speed$air_time * 60, na.rm = TRUE) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting to multiply by 60 to convert minutes to hours.\n\n## Confirm no hidden prerequisites\n- Uses mutate() and basic arithmetic introduced above. all() is a base R check shown in the starter code.",
     "starter_code": "flights_speed <- mutate(flights, speed = ...)\nall(flights_speed$speed == flights_speed$distance / flights_speed$air_time * 60, na.rm = TRUE)",
     "solution_code": "flights_speed <- mutate(flights, speed = distance / air_time * 60)\nall(flights_speed$speed == flights_speed$distance / flights_speed$air_time * 60, na.rm = TRUE)",
+=======
+    "title": "Variation: Math with Columns",
+    "content": "# ➗ Math with Columns\n\n## What You'll Learn\nYou can use any math operation, and combine multiple columns.\n\n## Why This Matters\nAnalysis often requires ratios or calculations. Body mass in kg = mass_g / 1000. Bill ratio = length / depth. `mutate()` handles all of it.\n\n> 💡 The `%>%` (pipe) takes `penguins` and passes it to `mutate()`. Think of it as \"take this data, then do this to it.\"\n\n## Example\n\n```r\npenguins %>% mutate(\n  bill_ratio = bill_length_mm / bill_depth_mm\n)\n```\n\n## 🎯 Your Task\n\n1. Create a column `mass_kg` that converts grams to kilograms\n2. Formula: `body_mass_g / 1000`\n\n**Expected Output:**\nPenguins with `mass_kg` column (values like 3.75, 5.0, etc.)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nmutate(mass_kg = body_mass_g / 1000)\n```\nForgot the data and pipe.\n\n**Fixed:**\n```r\npenguins %>% mutate(mass_kg = body_mass_g / 1000)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `mutate()` and `%>%` from prior lessons.\n",
+    "starter_code": "# Convert body mass to kilograms\npenguins %>% mutate(\n  mass_kg = ____\n)",
+    "solution_code": "penguins %>% mutate(mass_kg = body_mass_g / 1000)",
+    "expected_output": "# A tibble with mass_kg column",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20232,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
@@ -9891,9 +10064,16 @@
   },
   "20233": {
     "title": "Fix the Code: Name It",
+<<<<<<< HEAD
     "content": "# Name the new column\n\n## What you'll learn\nName the output of an expression inside mutate().\n\n## Why this matters\nUnnamed expressions are hard to use later.\n\n## Step-by-step task\n1. Give the new column the name gain.\n2. Confirm the name exists.\n\n## Expected output or check condition\n- \"gain\" %in% names(flights_gain) should return TRUE.\n## One common mistake to avoid\n- Writing an expression without a column name.\n\n## Confirm no hidden prerequisites\n- Uses mutate() and names() from base R shown in the starter code.",
     "starter_code": "flights_gain <- mutate(flights, dep_delay - arr_delay)\n\"gain\" %in% names(flights_gain)",
     "solution_code": "flights_gain <- mutate(flights, gain = dep_delay - arr_delay)\n\"gain\" %in% names(flights_gain)",
+=======
+    "content": "# 🔧 Name the New Column\n\n## What You'll Learn\nNew columns in `mutate()` need a name on the left side of `=`.\n\n## Why This Matters\nWithout a name, R doesn't know what to call your new column. The error is confusing but the fix is simple.\n\n> 💡 The `%>%` (pipe) takes `penguins` and passes it to `mutate()`. Think of it as \"take this data, then do this to it.\"\n\n## Example\n\n```r\n# Bad: unnamed calculation\npenguins %>% mutate(body_mass_g * 2)\n\n# Good: give it a name\npenguins %>% mutate(double_mass = body_mass_g * 2)\n```\n\n## 🎯 Your Task\n\n1. The starter code is missing a column name\n2. Add `new_col = ` before the calculation\n3. Run to verify\n\n**Expected Output:**\nPenguins data with the new named column\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nmutate(body_mass_g + 100)\n```\nNo name for the new column.\n\n**Fixed:**\n```r\nmutate(new_col = body_mass_g + 100)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `mutate()` and `%>%`.\n",
+    "starter_code": "# Add a column name before the calculation\npenguins %>% mutate(\n  body_mass_g + 100\n)",
+    "solution_code": "penguins %>% mutate(new_col = body_mass_g + 100)",
+    "expected_output": "# A tibble with new_col column",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20233,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
@@ -9907,9 +10087,16 @@
   },
   "20234": {
     "title": "Challenge: Double Up",
+<<<<<<< HEAD
     "content": "# Mini task: double delay\n\n## What you'll learn\nCreate a simple derived column.\n\n## Why this matters\nDerived columns make comparisons easier.\n\n## Step-by-step task\n1. Create double_delay = dep_delay * 2.\n2. Use the check line to verify.\n\n## Expected output or check condition\n- all(flights_double$double_delay == flights_double$dep_delay * 2, na.rm = TRUE) should return TRUE.\n\n## One common mistake to avoid\n- Multiplying the wrong column.\n\n## Confirm no hidden prerequisites\n- Uses mutate() and basic arithmetic introduced above. all() is a base R check shown in the starter code.",
     "starter_code": "flights_double <- mutate(flights, double_delay = ...)\nall(flights_double$double_delay == flights_double$dep_delay * 2, na.rm = TRUE)",
     "solution_code": "flights_double <- mutate(flights, double_delay = dep_delay * 2)\nall(flights_double$double_delay == flights_double$dep_delay * 2, na.rm = TRUE)",
+=======
+    "content": "# 🦸 Challenge: Multiple New Columns\n\n## What You'll Learn\nCreate multiple columns in a single `mutate()` call.\n\n## Why This Matters\nReal analysis often needs several calculations at once. One `mutate()` call is cleaner than many.\n\n> 💡 The `%>%` (pipe) takes `penguins` and passes it to `mutate()`. Think of it as \"take this data, then do this to it.\"\n\n## Example\n\nHere's the pattern:\n\n```r\ndata %>% mutate(\n  col1 = calculation1,\n  col2 = calculation2\n)\n```\n\n## 🎯 Your Task\n\nAdd TWO new columns to penguins:\n1. `bill_sum` = `bill_length_mm + bill_depth_mm`\n2. `flipper_m` = `flipper_length_mm / 1000` (convert to meters)\n\n**Expected Output:**\nPenguins with both new columns\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nmutate(bill_sum = bill_length_mm + bill_depth_mm)\nmutate(flipper_m = flipper_length_mm / 1000)\n```\nTwo separate calls is inefficient.\n\n**Fixed:**\n```r\npenguins %>% mutate(\n  bill_sum = bill_length_mm + bill_depth_mm,\n  flipper_m = flipper_length_mm / 1000\n)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `mutate()` with multiple columns.\n",
+    "starter_code": "# Add two columns in one mutate\npenguins %>% mutate(\n  bill_sum = ____,\n  flipper_m = ____\n)",
+    "solution_code": "penguins %>% mutate(bill_sum = bill_length_mm + bill_depth_mm, flipper_m = flipper_length_mm / 1000)",
+    "expected_output": "# A tibble with bill_sum and flipper_m",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20234,
     "chapter_title": "Ch 3: Data Transformation",
     "chapter_id": 3,
@@ -9922,10 +10109,18 @@
     ]
   },
   "20301": {
+<<<<<<< HEAD
     "title": "Analogy: Grammar",
     "content": "# \ud83d\udcd6 Grammar Matters\n\nCode is for humans to read. Put spaces around math operators.\n\n**Bad**: `1+1`\n**Good**: `1 + 1`\n\n## Arrange the Code\n\n## \ud83c\udfaf Your Task\nRewrite `x<-10` with proper spacing.",
     "starter_code": "x<-10",
     "solution_code": "x <- 10",
+=======
+    "title": "Analogy: Grammar for Code",
+    "content": "# 📖 Grammar for Code\n\n## What You'll Learn\nCode style is like grammar—helps others (and future you) read your work.\n\n## Why This Matters\nJust as \"you can manage withoutpunctuationbutitsurehappenseasiertoread\", code without spaces is hard to read. Good style = fewer bugs + happier collaborators.\n\n## Example\n\n```r\n# ❌ Hard to read\nx<-10+y*2\n\n# ✅ Easy to read\nx <- 10 + y * 2\n```\n\nSpaces around `<-`, `+`, `*` make the code breathe.\n\n## 🎯 Your Task\n\n1. Look at the starter code below\n2. Add spaces around `<-` and `+`\n3. Run to verify it works\n\n**Expected Output:**\n`20`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nx< -10  # Space inside the arrow breaks it!\n```\n\n**Fixed:**\n```r\nx <- 10  # Space on both sides of arrow\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only basic assignment from earlier lessons.\n",
+    "starter_code": "# Add spaces around operators\nx<-10+10\nprint(x)",
+    "solution_code": "x <- 10 + 10\nprint(x)",
+    "expected_output": "[1] 20",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20301,
     "chapter_title": "Ch 4: Workflow: Code Style",
     "chapter_id": 4,
@@ -9934,10 +10129,18 @@
     ]
   },
   "20302": {
+<<<<<<< HEAD
     "title": "Variation: Pipes",
     "content": "# \ud83e\ude88 The Pipe\n\nUsing `|>` is like saying \"and then\".\n\n`x |> f()`\n\nPut the pipe at the end of the line.\n\n## Arrange the Code\n\n## \ud83c\udfaf Your Task\nFix the pipe structure.",
     "starter_code": "flights \n|> filter(year == 2013)",
     "solution_code": "flights |> \n  filter(year == 2013)",
+=======
+    "title": "Variation: snake_case Naming",
+    "content": "# 🐍 snake_case Naming\n\n## What You'll Learn\nR uses `snake_case` (lowercase with underscores) for variable names.\n\n## Why This Matters\nConsistent naming helps everyone read code. When you see `penguin_data`, you know it's a variable. When you see `PenguinData`, that's confusing in R!\n\n## Example\n\n```r\n# Good (snake_case)\nsmall_penguins <- penguins\n\n# Bad (camelCase, PascalCase)\nsmallPenguins <- penguins\nSmallPenguins <- penguins\n```\n\n## 🎯 Your Task\n\n1. Rename the variable from `MyData` to `my_data`\n2. Keep the rest of the code the same\n3. Run to verify it works\n\n**Expected Output:**\nA tibble of penguin data\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nmy_Data  # Mixed case\nmy-data  # Hyphens not allowed\n```\n\n**Fixed:**\n```r\nmy_data  # All lowercase, underscores only\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only variable assignment. Uses `penguins` dataset.\n",
+    "starter_code": "# Rename using snake_case\nMyData <- penguins\nMyData",
+    "solution_code": "my_data <- penguins\nmy_data",
+    "expected_output": "# A tibble: 344 × 8",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20302,
     "chapter_title": "Ch 4: Workflow: Code Style",
     "chapter_id": 4,
@@ -9946,10 +10149,18 @@
     ]
   },
   "20303": {
+<<<<<<< HEAD
     "title": "Fix the Code: Spacing",
     "content": "# \ud83d\udd27 Fix the Code\n\nThis code looks squashed.\n\n## Arrange the Code\n\n## \ud83c\udfaf Your Task\nAdd spaces around `==` and `+`.",
     "starter_code": "filter(flights,month==1+1)",
     "solution_code": "filter(flights, month == 1 + 1)",
+=======
+    "title": "Fix the Code: Spacing Issues",
+    "content": "# 🔧 Fix the Spacing\n\n## What You'll Learn\nSpot and fix common spacing mistakes in R code.\n\n## Why This Matters\nBad spacing makes code hard to read and maintain. Most R style guides require spaces around operators.\n\n## Example\n\nThe code below has multiple spacing issues:\n\n```r\n# Bad\nmean(x,na.rm=TRUE)\n\n# Good\nmean(x, na.rm = TRUE)\n```\n\nNote: space AFTER comma, space around `=`.\n\n## 🎯 Your Task\n\n1. Look at the starter code—all the spaces are missing\n2. Add a space after each comma\n3. Add spaces around `=`\n4. Run to verify it works\n\n**Expected Output:**\nMean body mass value (around 4200)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nmean( x )  # Don't put space inside parentheses\n```\n\n**Fixed:**\n```r\nmean(x)  # No space inside, space after commas\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `mean()` and basic R syntax.\n",
+    "starter_code": "# Fix the spacing\nmean(penguins$body_mass_g,na.rm=TRUE)",
+    "solution_code": "mean(penguins$body_mass_g, na.rm = TRUE)",
+    "expected_output": "[1] 4201.754",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20303,
     "chapter_title": "Ch 4: Workflow: Code Style",
     "chapter_id": 4,
@@ -9958,10 +10169,18 @@
     ]
   },
   "20304": {
+<<<<<<< HEAD
     "title": "Challenge: Naming",
     "content": "# \ud83e\uddb8 Your Turn\n\nUse snake_case for names. No `Caps` or `dots.`.\n\n## Arrange the Code\n\n## \ud83c\udfaf Your Task\nCreate a variable `my_cool_variable` sets to 1.",
     "starter_code": "",
     "solution_code": "my_cool_variable <- 1",
+=======
+    "title": "Challenge: Clean Up This Code",
+    "content": "# 🦸 Challenge: Clean Up This Code\n\n## What You'll Learn\nApply all style rules: snake_case names + proper spacing.\n\n## Why This Matters\nIn real projects, you'll often need to clean up messy code. This is practice for that.\n\n## Example\n\nHere's the pattern for good style:\n\n```r\n# Bad\nMyResult<-10+15\n\n# Good\nmy_result <- 10 + 15\n```\n\n## 🎯 Your Task\n\nFix this code block by:\n1. Renaming `MyResult` to `my_result` (snake_case)\n2. Adding spaces around `<-` and `+`\n3. Adding a space after the comma\n\n**Expected Output:**\n`[1] 25`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nmy_result<- 10+15\n```\nMissing spaces.\n\n**Fixed:**\n```r\nmy_result <- 10 + 15\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only variable assignment.\n",
+    "starter_code": "# Clean up this messy code\nMyResult<-10+15\nprint(MyResult)",
+    "solution_code": "my_result <- 10 + 15\nprint(my_result)",
+    "expected_output": "[1] 25",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20304,
     "chapter_title": "Ch 4: Workflow: Code Style",
     "chapter_id": 4,
@@ -9971,9 +10190,16 @@
   },
   "20401": {
     "title": "Analogy: Stacking Pancakes",
+<<<<<<< HEAD
     "content": "# Tidy a wide table\n\n## What you'll learn\nUse pivot_longer() to turn wide columns into key-value pairs.\n\n## Why this matters\nTidy data keeps variables in columns and observations in rows.\n\n## Step-by-step task\n1. Fill in names_to and values_to.\n2. Check the resulting column names.\n\n## Expected output or check condition\n- names(tidy) should be c(\"store\", \"year\", \"sales\").\n\n## One common mistake to avoid\n- Swapping the meanings of names_to and values_to.\n\n## Confirm no hidden prerequisites\n- Introduces pivot_longer() here and shows its arguments explicitly.",
     "starter_code": "library(tidyr)\n\nsales <- data.frame(\n  store = c(\"A\", \"B\"),\n  year_2022 = c(5, 6),\n  year_2023 = c(7, 8)\n)\n\ntidy <- pivot_longer(\n  sales,\n  cols = c(year_2022, year_2023),\n  names_to = ... ,\n  values_to = ...\n)\n\nnames(tidy)",
     "solution_code": "library(tidyr)\n\nsales <- data.frame(\n  store = c(\"A\", \"B\"),\n  year_2022 = c(5, 6),\n  year_2023 = c(7, 8)\n)\n\ntidy <- pivot_longer(\n  sales,\n  cols = c(year_2022, year_2023),\n  names_to = \"year\",\n  values_to = \"sales\"\n)\n\nnames(tidy)",
+=======
+    "content": "# 🥞 Stacking Pancakes\n\n## What You'll Learn\nTidy data means: one row per observation, one column per variable.\n\n## Why This Matters\nImagine pancakes stacked wide (side by side) vs tall (stacked up). Wide data looks neat but is hard to work with. Tall/tidy data is easier for R to digest. Most ggplot and dplyr functions expect tidy data.\n\n## Example\n\n```\nWIDE (hard to work with)         TIDY (easy to work with)\n-----------------------         -----------------------\ncountry  1999   2000            country  year   cases\nBrazil   100    200             Brazil   1999   100\n                                Brazil   2000   200\n```\n\nEach year becomes a ROW instead of a column.\n\n## 🎯 Your Task\n\nLook at the \"wide\" table above. Count:\n1. How many columns has the wide table? Type `3`\n2. How many rows has the tidy version? Type `2`\n\n**Expected Output:**\n`[1] 3` then `[1] 2`\n\n## ⚠️ Common Mistake\n\nConfusing rows and columns. Remember:\n- Rows = observations (individual penguins, years, etc.)\n- Columns = variables (species, mass, year, etc.)\n\n---\n\n✅ **No Hidden Prerequisites**: Conceptual exercise.\n",
+    "starter_code": "# How many columns in wide table?\n3\n# How many rows in tidy version?\n2",
+    "solution_code": "3\n2",
+    "expected_output": "[1] 3\n[1] 2",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20401,
     "chapter_title": "Ch 5: Data Tidying",
     "chapter_id": 5,
@@ -9986,10 +10212,18 @@
     ]
   },
   "20402": {
+<<<<<<< HEAD
     "title": "Variation: Naming Columns",
     "content": "# Keep the id column\n\n## What you'll learn\nPivot only the value columns and keep the identifier.\n\n## Why this matters\nIdentifiers must stay with each observation.\n\n## Step-by-step task\n1. Set cols to math, english, and science.\n2. Check the row count.\n\n## Expected output or check condition\n- identical(nrow(tidy), 6) should return TRUE.\n## One common mistake to avoid\n- Pivoting the id column (student) into the long form.\n\n## Confirm no hidden prerequisites\n- Uses pivot_longer() introduced above with explicit column names.",
     "starter_code": "library(tidyr)\n\nscores <- data.frame(\n  student = c(\"A\", \"B\"),\n  math = c(90, 85),\n  english = c(88, 92),\n  science = c(91, 87)\n)\n\ntidy <- pivot_longer(\n  scores,\n  cols = ... ,\n  names_to = \"subject\",\n  values_to = \"score\"\n)\n\nidentical(nrow(tidy), 6)",
     "solution_code": "library(tidyr)\n\nscores <- data.frame(\n  student = c(\"A\", \"B\"),\n  math = c(90, 85),\n  english = c(88, 92),\n  science = c(91, 87)\n)\n\ntidy <- pivot_longer(\n  scores,\n  cols = c(math, english, science),\n  names_to = \"subject\",\n  values_to = \"score\"\n)\n\nidentical(nrow(tidy), 6)",
+=======
+    "title": "Variation: Naming New Columns",
+    "content": "# 📋 Naming New Columns\n\n## What You'll Learn\n`pivot_longer()` lets you name the new columns with `names_to` and `values_to`.\n\n## Why This Matters\nWhen you convert wide to long, you get two new columns: one for the old column names, one for the values. Naming them clearly makes your data understandable.\n\n> 💡 The `%>%` (pipe) takes `table4a` and passes it to `pivot_longer()`. Think of it as \"take this data, then reshape it.\"\n\n## Example\n\n```r\ntable4a %>%\n  pivot_longer(\n    cols = c(`1999`, `2000`),\n    names_to = \"year\",\n    values_to = \"cases\"\n  )\n```\n\n## 🎯 Your Task\n\nIf you pivot columns `jan`, `feb`, `mar`:\n1. What might you call `names_to`? → `\"month\"`\n2. What might you call `values_to`? → `\"sales\"`\n\nType the answers as strings.\n\n**Expected Output:**\n`\"month\"` and `\"sales\"`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nnames_to = year\n```\nForgot quotes.\n\n**Fixed:**\n```r\nnames_to = \"year\"\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Conceptual + string practice.\n",
+    "starter_code": "# What would you name these new columns?\n\"month\"\n\"sales\"",
+    "solution_code": "\"month\"\n\"sales\"",
+    "expected_output": "[1] \"month\"\n[1] \"sales\"",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20402,
     "chapter_title": "Ch 5: Data Tidying",
     "chapter_id": 5,
@@ -10002,9 +10236,16 @@
   },
   "20403": {
     "title": "Fix the Code: Missing Quote",
+<<<<<<< HEAD
     "content": "# Fix the column list\n\n## What you'll learn\nAvoid pivoting identifier columns into long format.\n\n## Why this matters\nIdentifiers should stay attached to each observation.\n\n## Step-by-step task\n1. Remove student from the cols list.\n2. Verify that student stays intact.\n\n## Expected output or check condition\n- all(tidy$student %in% c(\"A\", \"B\")) should return TRUE.\n\n## One common mistake to avoid\n- Including the id column in cols.\n\n## Confirm no hidden prerequisites\n- Uses pivot_longer() introduced above with explicit column names.",
     "starter_code": "library(tidyr)\n\nscores <- data.frame(\n  student = c(\"A\", \"B\"),\n  math = c(90, 85),\n  english = c(88, 92)\n)\n\ntidy <- pivot_longer(\n  scores,\n  cols = c(student, math, english),\n  names_to = \"subject\",\n  values_to = \"score\"\n)\n\nall(tidy$student %in% c(\"A\", \"B\"))",
     "solution_code": "library(tidyr)\n\nscores <- data.frame(\n  student = c(\"A\", \"B\"),\n  math = c(90, 85),\n  english = c(88, 92)\n)\n\ntidy <- pivot_longer(\n  scores,\n  cols = c(math, english),\n  names_to = \"subject\",\n  values_to = \"score\"\n)\n\nall(tidy$student %in% c(\"A\", \"B\"))",
+=======
+    "content": "# 🔧 Fix the Quote\n\n## What You'll Learn\nColumn names in `names_to` and `values_to` must be strings (in quotes).\n\n## Why This Matters\nWithout quotes, R thinks `year` is a variable, not a new column name. This causes confusing \"object not found\" errors.\n\n## Example\n\n```r\n# Wrong: object 'year' not found\npivot_longer(..., names_to = year)\n\n# Fixed: put it in quotes\npivot_longer(..., names_to = \"year\")\n```\n\n## 🎯 Your Task\n\n1. Look at the broken code pattern above\n2. Remember: new column names need quotes\n\nType the fixed version: `'names_to = \"year\"'`\n\n**Expected Output:**\n`'names_to = \"year\"'`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nvalues_to = cases\n```\n\n**Fixed:**\n```r\nvalues_to = \"cases\"\n```\n\n---\n\n✅ **No Hidden Prerequisites**: String quoting practice.\n",
+    "starter_code": "# Fix by adding quotes\n'names_to = \"year\", values_to = \"value\"'",
+    "solution_code": "'names_to = \"year\", values_to = \"value\"'",
+    "expected_output": "[1] \"names_to = \\\"year\\\", values_to = \\\"value\\\"\"",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20403,
     "chapter_title": "Ch 5: Data Tidying",
     "chapter_id": 5,
@@ -10017,9 +10258,16 @@
   },
   "20404": {
     "title": "Challenge: Pivot It",
+<<<<<<< HEAD
     "content": "# Mini task: pivot three columns\n\n## What you'll learn\nApply pivot_longer() to a new dataset.\n\n## Why this matters\nYou should be able to tidy any wide table by stacking value columns.\n\n## Step-by-step task\n1. Pivot x, y, and z into key and value.\n2. Check the row count.\n\n## Expected output or check condition\n- identical(nrow(tidy), 6) should return TRUE.\n## One common mistake to avoid\n- Forgetting one of the columns in cols.\n\n## Confirm no hidden prerequisites\n- Uses pivot_longer() introduced above with explicit column names.",
     "starter_code": "library(tidyr)\n\ndf <- data.frame(\n  id = c(\"r1\", \"r2\"),\n  x = c(1, 2),\n  y = c(3, 4),\n  z = c(5, 6)\n)\n\ntidy <- pivot_longer(\n  df,\n  cols = c(x, y, z),\n  names_to = ... ,\n  values_to = ...\n)\n\nidentical(nrow(tidy), 6)",
     "solution_code": "library(tidyr)\n\ndf <- data.frame(\n  id = c(\"r1\", \"r2\"),\n  x = c(1, 2),\n  y = c(3, 4),\n  z = c(5, 6)\n)\n\ntidy <- pivot_longer(\n  df,\n  cols = c(x, y, z),\n  names_to = \"key\",\n  values_to = \"value\"\n)\n\nidentical(nrow(tidy), 6)",
+=======
+    "content": "# 🦸 Challenge: Pivot It\n\n## What You'll Learn\nApply `pivot_longer()` to convert wide data to tidy format.\n\n## Why This Matters\nReal datasets often come in wide format. Pivoting is a core skill you'll use constantly.\n\n> 💡 The `%>%` (pipe) takes `table4a` and passes it to `pivot_longer()`. Think of it as \"take this data, then reshape it.\"\n\n## Example\n\nHere's the pattern:\n\n```r\ndata %>%\n  pivot_longer(\n    cols = c(col1, col2),\n    names_to = \"name_column\",\n    values_to = \"value_column\"\n  )\n```\n\n## 🎯 Your Task\n\nGiven `table4a` with columns for years:\n1. Pivot columns `1999` and `2000` (use backticks: `` `1999` ``)\n2. Name the new columns `\"year\"` and `\"cases\"`\n\n**Expected Output:**\nA tidy table with country, year, and cases columns\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ncols = c(1999, 2000)\n```\nNumbers need backticks.\n\n**Fixed:**\n```r\ncols = c(`1999`, `2000`)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `pivot_longer()` from this lesson. Uses `table4a` dataset.\n",
+    "starter_code": "# Pivot table4a from wide to long\n# table4a %>% pivot_longer(...)",
+    "solution_code": "table4a %>% pivot_longer(cols = c(`1999`, `2000`), names_to = \"year\", values_to = \"cases\")",
+    "expected_output": "# A tibble: 6 × 3",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20404,
     "chapter_title": "Ch 5: Data Tidying",
     "chapter_id": 5,
@@ -10033,9 +10281,16 @@
   },
   "20501": {
     "title": "Analogy: The Recipe Card",
+<<<<<<< HEAD
     "content": "# Script or console?\n\n## What you'll learn\nDecide when code belongs in a script.\n\n## Why this matters\nScripts keep your work saved and reproducible.\n\n## Step-by-step task\n1. You want to save your analysis for later.\n2. Set location to the correct place.\n\n## Expected output or check condition\n- identical(location, \"script\") should return TRUE.\n\n## One common mistake to avoid\n- Choosing \"console\" for work you need to save.\n\n## Confirm no hidden prerequisites\n- Uses only strings and assignment from the concept.",
     "starter_code": "location <- ...\nidentical(location, \"script\")",
     "solution_code": "location <- \"script\"\nidentical(location, \"script\")",
+=======
+    "content": "# 📜 The Recipe Card\n\n## What You'll Learn\nScripts are like recipe cards—saved, reproducible, shareable.\n\n## Why This Matters\nThe console is like cooking from memory: quick but forgettable. A script (`.R` file) is like a recipe card: you can use it tomorrow, next year, or share it with a friend.\n\n## Example\n\n```\nCONSOLE (ephemeral)       SCRIPT (.R file)\n─────────────────         ─────────────────\n❌ Lost on restart        ✅ Saved to disk\n❌ Can't share            ✅ Share via email/git\n❌ No history             ✅ Edit and rerun\n```\n\n## 🎯 Your Task\n\nImagine you're writing a script. Type these two lines:\n1. `# My first script` (a comment describing your script)\n2. `1 + 1` (some R code)\n\nIn a real script, this would be saved forever!\n\n**Expected Output:**\n`[1] 2`\n\n## ⚠️ Common Mistake\n\nForgetting to save your script! Use `Cmd/Ctrl + S` frequently.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only basic R and comments.\n",
+    "starter_code": "# Write a simple script with a comment and calculation\n",
+    "solution_code": "# My first script\n1 + 1",
+    "expected_output": "[1] 2",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20501,
     "chapter_title": "Ch 6: Workflow: Scripts",
     "chapter_id": 6,
@@ -10048,10 +10303,18 @@
     ]
   },
   "20502": {
+<<<<<<< HEAD
     "title": "Variation: Saving Plots",
     "content": "# Build a small script header\n\n## What you'll learn\nCreate a minimal script header with a comment and a setup line.\n\n## Why this matters\nA clear header makes scripts easier to understand and rerun.\n\n## Step-by-step task\n1. Set the header comment.\n2. Add the setup line to load tidyverse.\n\n## Expected output or check condition\n- identical(script_lines, c(\"# Analysis of Cars\", \"library(tidyverse)\")) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting the leading # in the comment.\n\n## Confirm no hidden prerequisites\n- Uses only character vectors and assignment.",
     "starter_code": "script_lines <- c(..., ...)\nidentical(script_lines, c(\"# Analysis of Cars\", \"library(tidyverse)\"))",
     "solution_code": "script_lines <- c(\"# Analysis of Cars\", \"library(tidyverse)\")\nidentical(script_lines, c(\"# Analysis of Cars\", \"library(tidyverse)\"))",
+=======
+    "title": "Variation: Running Line by Line",
+    "content": "# ▶️ Running Line by Line\n\n## What You'll Learn\nYou can run scripts line by line or all at once.\n\n## Why This Matters\nRunning line by line helps you debug. Running all at once executes your full analysis. Both are essential skills.\n\n## Example\n\n```r\n# Line 1: Create data\nx <- 10\n\n# Line 2: Calculate\nx * 2\n\n# Line 3: Print result\nprint(\"Done!\")\n```\n\n- `Cmd/Ctrl + Enter`: Run current line\n- `Cmd/Ctrl + Shift + S`: Run entire script\n\n## 🎯 Your Task\n\n1. Run the starter code line by line (each line does something different)\n2. See how each step builds on the previous\n\n**Expected Output:**\nAfter running all lines: `[1] \"Done!\"`\n\n## ⚠️ Common Mistake\n\nTrying to use a variable before creating it. Run lines in order!\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only basic R operations.\n",
+    "starter_code": "# Run these lines one at a time\nx <- 5\ny <- x * 2\nprint(y)\nprint(\"Done!\")",
+    "solution_code": "x <- 5\ny <- x * 2\nprint(y)\nprint(\"Done!\")",
+    "expected_output": "[1] 10\n[1] \"Done!\"",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20502,
     "chapter_title": "Ch 6: Workflow: Scripts",
     "chapter_id": 6,
@@ -10064,10 +10327,18 @@
     ]
   },
   "20503": {
+<<<<<<< HEAD
     "title": "Fix the Code: Typos",
     "content": "# Fix the library call\n\n## What you'll learn\nCorrect a common typo when loading a package.\n\n## Why this matters\nA single misspelling prevents your script from running.\n\n## Step-by-step task\n1. Fix the word libary.\n2. Store the corrected line in fixed_line.\n\n## Expected output or check condition\n- identical(fixed_line, \"library(tidyverse)\") should return TRUE.\n\n## One common mistake to avoid\n- Forgetting the parentheses after library.\n\n## Confirm no hidden prerequisites\n- Uses only strings and assignment.",
     "starter_code": "fixed_line <- ...\nidentical(fixed_line, \"library(tidyverse)\")",
     "solution_code": "fixed_line <- \"library(tidyverse)\"\nidentical(fixed_line, \"library(tidyverse)\")",
+=======
+    "title": "Fix the Code: Typo in Function",
+    "content": "# 🔧 Fix the Typo\n\n## What You'll Learn\nFunction names must be spelled exactly right—`library` not `libary`.\n\n## Why This Matters\nTypos in function names cause \"could not find function\" errors. Learning to spot these now saves debugging time later.\n\n## Example\n\n```r\n# ❌ Error: could not find function \"libary\"\nlibary(tidyverse)\n\n# ✅ Works\nlibrary(tidyverse)\n```\n\n## 🎯 Your Task\n\n1. Find the typo in the starter code\n2. Fix `libary` → `library`\n3. (Note: running this may not work in the browser, but fixing the typo is the goal)\n\n**Expected Output:**\nNo error (or library loading message)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nLibrary(tidyverse)  # Capital L doesn't work\n```\n\n**Fixed:**\n```r\nlibrary(tidyverse)  # All lowercase\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only `library()` function.\n",
+    "starter_code": "# Fix the typo in the function name\nlibary(tidyverse)",
+    "solution_code": "library(tidyverse)",
+    "expected_output": "# Loading tidyverse",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20503,
     "chapter_title": "Ch 6: Workflow: Scripts",
     "chapter_id": 6,
@@ -10080,10 +10351,18 @@
     ]
   },
   "20504": {
+<<<<<<< HEAD
     "title": "Challenge: Comments",
     "content": "# Mini task: save a script note\n\n## What you'll learn\nWrite a clear header comment for a script.\n\n## Why this matters\nHeaders help you and others understand the script quickly.\n\n## Step-by-step task\n1. Write the header comment exactly.\n2. Store it in header.\n\n## Expected output or check condition\n- identical(header, \"# Analysis of Cars\") should return TRUE.\n\n## One common mistake to avoid\n- Missing the # at the start of the comment.\n\n## Confirm no hidden prerequisites\n- Uses only strings and assignment.",
     "starter_code": "header <- ...\nidentical(header, \"# Analysis of Cars\")",
     "solution_code": "header <- \"# Analysis of Cars\"\nidentical(header, \"# Analysis of Cars\")",
+=======
+    "title": "Challenge: Script Header",
+    "content": "# 🦸 Challenge: Script Header\n\n## What You'll Learn\nBest practice: Start scripts with a header comment describing what they do.\n\n## Why This Matters\nWhen you open a script 6 months from now, you'll forget what it does. A header comment saves you time.\n\n## Example\n\nHere's the pattern for a script header:\n\n```r\n# Title: My Analysis\n# Author: Your Name\n# Date: 2024-01-18\n\n# Your code starts here\n```\n\n## 🎯 Your Task\n\nWrite a proper script header with:\n1. A title comment: `# Penguin Analysis`\n2. An author comment: `# Author: [Your Name]`\n3. A date comment: `# Date: 2024-01-18`\n4. Then run `penguins` to view the data\n\n**Expected Output:**\nThe penguins data displayed\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nPenguin Analysis\n```\nForgot the `#` symbol.\n\n**Fixed:**\n```r\n# Penguin Analysis\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only comments and `penguins`.\n",
+    "starter_code": "# Write your script header below\n# Title:\n# Author:\n# Date:\n\n# Then view the data\n",
+    "solution_code": "# Penguin Analysis\n# Author: Me\n# Date: 2024-01-18\n\npenguins",
+    "expected_output": "# A tibble: 344 × 8",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 20504,
     "chapter_title": "Ch 6: Workflow: Scripts",
     "chapter_id": 6,
@@ -10515,9 +10794,16 @@
   },
   "21211": {
     "title": "Analogy: Changing Outfits",
+<<<<<<< HEAD
     "content": "# \ud83d\udc54 Changing Outfits\n\nThemes change the look of the non-data parts (background, grid lines). `theme_minimal()` is a clean, modern look.\n\n## \ud83c\udfaf Your Task\nAdd `theme_minimal()`.",
     "starter_code": "ggplot(mpg, aes(displ, hwy)) + geom_point() + ...",
     "solution_code": "ggplot(mpg, aes(displ, hwy)) + geom_point() + theme_minimal()",
+=======
+    "content": "# 👔 Changing Outfits\n\n## What You'll Learn\nThemes change the visual \"outfit\" of your plot—fonts, colors, backgrounds.\n\n## Why This Matters\nDefault ggplot looks good, but professional reports need a polished look. `theme_minimal()`, `theme_bw()`, `theme_classic()` give you instant professional style.\n\n## Example\n\n```r\n# Default gray background\nggplot(penguins, aes(x = body_mass_g)) + geom_histogram()\n\n# Clean white background\nggplot(penguins, aes(x = body_mass_g)) + geom_histogram() + theme_minimal()\n```\n\n## 🎯 Your Task\n\n1. Create a histogram of `body_mass_g`\n2. Add `theme_bw()` for a black-and-white theme\n\n**Expected Output:**\nA histogram with clean black-and-white styling\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\n+ theme_bw\n```\nForgot parentheses.\n\n**Fixed:**\n```r\n+ theme_bw()\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `ggplot()`, `geom_histogram()`, `theme_bw()`.\n",
+    "starter_code": "# Add a black-and-white theme\nggplot(penguins, aes(x = body_mass_g)) + \n  geom_histogram() +\n  theme_bw()",
+    "solution_code": "ggplot(penguins, aes(x = body_mass_g)) + geom_histogram() + theme_bw()",
+    "expected_output": "[Graph: Histogram with theme_bw]",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 21211,
     "chapter_title": "Ch 11: Communication",
     "chapter_id": 11,
@@ -10526,10 +10812,18 @@
     ]
   },
   "21212": {
+<<<<<<< HEAD
     "title": "Variation: Classic",
     "content": "# \ud83c\udfdb\ufe0f Classic Look\n\n`theme_classic()` looks like a traditional scientific plot (no grid).\n\n## \ud83c\udfaf Your Task\nUse `theme_classic()`.",
     "starter_code": "ggplot(mpg, aes(displ, hwy)) + geom_point() + ...",
     "solution_code": "ggplot(mpg, aes(displ, hwy)) + geom_point() + theme_classic()",
+=======
+    "title": "Variation: Classic Theme",
+    "content": "# 📜 Classic Theme\n\n## What You'll Learn\n`theme_classic()` creates a publication-ready look with no gridlines.\n\n## Why This Matters\nScientific journals often prefer minimal styling. `theme_classic()` is clean and formal—perfect for papers.\n\n## Example\n\n```r\n# Compare themes\np <- ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) + geom_point()\n\np + theme_bw()       # With gridlines\np + theme_classic()  # No gridlines\n```\n\n## 🎯 Your Task\n\n1. Create a scatterplot of flipper vs mass\n2. Apply `theme_classic()`\n\n**Expected Output:**\nA scatterplot with no gridlines, clean axes\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ntheme_Classic()\n```\nWrong capitalization.\n\n**Fixed:**\n```r\ntheme_classic()\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `ggplot()`, `geom_point()`, `theme_classic()`.\n",
+    "starter_code": "# Use theme_classic for a clean look\nggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) + \n  geom_point() +\n  theme_classic()",
+    "solution_code": "ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) + geom_point() + theme_classic()",
+    "expected_output": "[Graph: Scatterplot with theme_classic]",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 21212,
     "chapter_title": "Ch 11: Communication",
     "chapter_id": 11,
@@ -10541,9 +10835,16 @@
   },
   "21213": {
     "title": "Fix the Code: Parentheses",
+<<<<<<< HEAD
     "content": "# \ud83d\udd27 Fix the Code\n\nThemes are functions, they need `()`.\n\n## \ud83c\udfaf Your Task\nFix `theme_bw`.",
     "starter_code": "ggplot(mpg, aes(displ, hwy)) + geom_point() + theme_bw",
     "solution_code": "ggplot(mpg, aes(displ, hwy)) + geom_point() + theme_bw()",
+=======
+    "content": "# 🔧 Don't Forget Parentheses\n\n## What You'll Learn\nTheme functions need `()` even with no arguments.\n\n## Why This Matters\n`theme_minimal` (no parentheses) refers to the function object. `theme_minimal()` (with parentheses) CALLS the function. Without `()`, nothing happens.\n\n## Example\n\n```r\n# Doesn't apply the theme\nggplot(...) + theme_minimal\n\n# Applies the theme\nggplot(...) + theme_minimal()\n```\n\n## 🎯 Your Task\n\n1. Find the missing `()` in the starter code\n2. Add them to make the theme work\n\n**Expected Output:**\nA histogram with minimal theme applied\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\n+ theme_minimal\n```\nMissing parentheses.\n\n**Fixed:**\n```r\n+ theme_minimal()\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `ggplot()`, `geom_histogram()`, `theme_minimal()`.\n",
+    "starter_code": "# Fix the missing parentheses\nggplot(penguins, aes(x = body_mass_g)) + \n  geom_histogram() +\n  theme_minimal",
+    "solution_code": "ggplot(penguins, aes(x = body_mass_g)) + geom_histogram() + theme_minimal()",
+    "expected_output": "[Graph: Histogram with theme_minimal]",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 21213,
     "chapter_title": "Ch 11: Communication",
     "chapter_id": 11,
@@ -10554,9 +10855,16 @@
   },
   "21214": {
     "title": "Challenge: Dark Mode",
+<<<<<<< HEAD
     "content": "# \ud83e\uddb8 Your Turn\n\nUse `theme_dark()` for a dark background.\n\n## \ud83c\udfaf Your Task\nApply the dark theme.",
     "starter_code": "",
     "solution_code": "ggplot(mpg, aes(displ, hwy)) + geom_point() + theme_dark()",
+=======
+    "content": "# 🦸 Challenge: Dark Mode\n\n## What You'll Learn\nUse `theme_dark()` for a dark background plot.\n\n## Why This Matters\nDark themes are trendy and reduce eye strain. They're also great for presentations in dim rooms.\n\n## Example\n\nHere's the pattern:\n\n```r\nggplot(data, aes(...)) + geom_*() + theme_dark()\n```\n\n## 🎯 Your Task\n\nCreate a \"dark mode\" scatterplot:\n1. Plot `bill_length_mm` vs `bill_depth_mm`\n2. Color by `species`\n3. Apply `theme_dark()`\n\n**Expected Output:**\nA scatterplot with dark background\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\n+ theme_Dark()\n```\nWrong capitalization.\n\n**Fixed:**\n```r\n+ theme_dark()\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `ggplot()`, `aes()`, `geom_point()`, `theme_dark()`.\n",
+    "starter_code": "# Create a dark-mode scatterplot\nggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) + \n  geom_point() +\n  theme_dark()",
+    "solution_code": "ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) + geom_point() + theme_dark()",
+    "expected_output": "[Graph: Scatterplot with dark theme]",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 21214,
     "chapter_title": "Ch 11: Communication",
     "chapter_id": 11,
@@ -10618,10 +10926,18 @@
     ]
   },
   "22011": {
+<<<<<<< HEAD
     "title": "Analogy: Decisions",
     "content": "# Vectorized comparison\n\n## What you'll learn\nCreate a logical vector with a comparison.\n\n## Why this matters\nLogical vectors are the foundation for filtering and if_else().\n\n## Step-by-step task\n1. Replace the placeholder with >.\n2. Check the logical result.\n\n## Expected output or check condition\n- identical(result, c(FALSE, FALSE, TRUE, TRUE)) should return TRUE.\n\n## One common mistake to avoid\n- Using >= when the prompt says strictly greater.\n\n## Confirm no hidden prerequisites\n- Uses basic comparisons introduced above.",
     "starter_code": "x <- c(1, 3, 5, 7)\nresult <- x ... 3\nidentical(result, c(FALSE, FALSE, TRUE, TRUE))",
     "solution_code": "x <- c(1, 3, 5, 7)\nresult <- x > 3\nidentical(result, c(FALSE, FALSE, TRUE, TRUE))",
+=======
+    "title": "Analogy: The Sorting Hat",
+    "content": "# 🎩 The Sorting Hat\n\n## What You'll Learn\nHow `if_else()` assigns one of two values based on a condition—like the Sorting Hat choosing between houses.\n\n## Why This Matters\nData often needs labels. Is a penguin \"Heavy\" or \"Light\"? `if_else()` looks at each row and assigns the right label—just like the Sorting Hat reads each student and assigns a house.\n\n> 💡 The `%>%` (pipe) takes `penguins` and passes it to `mutate()`. Think of it as \"take this data, then do this to it.\"\n\n## Example\n\n```r\npenguins %>% mutate(\n  size = if_else(body_mass_g > 4000, \"Heavy\", \"Light\")\n)\n```\n\nIf mass > 4000 → \"Heavy\". Otherwise → \"Light\".\n\n## 🎯 Your Task\n\n1. Look at the pattern: `if_else(condition, true_result, false_result)`\n2. Create a column `size` that labels penguins as \"Heavy\" if `body_mass_g > 4000`, else \"Light\"\n3. Use: `penguins %>% mutate(size = if_else(body_mass_g > 4000, \"Heavy\", \"Light\"))`\n\n**Expected Output:**\nPenguins data with a new `size` column containing \"Heavy\" or \"Light\"\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nif_else(body_mass_g > 4000, Heavy, Light)\n```\nMissing quotes around text values.\n\n**Fixed:**\n```r\nif_else(body_mass_g > 4000, \"Heavy\", \"Light\")\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `mutate()` (Ch 3) and `if_else()` from this lesson. Uses `penguins` dataset.\n",
+    "starter_code": "# Label penguins as \"Heavy\" (> 4000g) or \"Light\"\npenguins %>% mutate(\n  size = if_else(____)\n)",
+    "solution_code": "penguins %>% mutate(size = if_else(body_mass_g > 4000, \"Heavy\", \"Light\"))",
+    "expected_output": "# A tibble with new 'size' column",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 22011,
     "chapter_title": "Ch 12: Logical Vectors",
     "chapter_id": 12,
@@ -10634,10 +10950,18 @@
     ]
   },
   "22012": {
+<<<<<<< HEAD
     "title": "Variation: Or",
     "content": "# Combine conditions with OR\n\n## What you'll learn\nUse | to combine two conditions.\n\n## Why this matters\nOR logic lets you keep values that meet either rule.\n\n## Step-by-step task\n1. Replace the placeholder with |.\n2. Check the logical result.\n\n## Expected output or check condition\n- identical(result, c(TRUE, FALSE, FALSE, TRUE)) should return TRUE.\n\n## One common mistake to avoid\n- Using & when you mean |.\n\n## Confirm no hidden prerequisites\n- Uses basic comparisons introduced above.",
     "starter_code": "x <- c(1, 3, 5, 7)\nresult <- x < 2 ... x > 6\nidentical(result, c(TRUE, FALSE, FALSE, TRUE))",
     "solution_code": "x <- c(1, 3, 5, 7)\nresult <- x < 2 | x > 6\nidentical(result, c(TRUE, FALSE, FALSE, TRUE))",
+=======
+    "title": "Variation: Three or More Categories",
+    "content": "# 🎯 Three or More Categories\n\n## What You'll Learn\n`case_when()` handles 3+ outcomes—when `if_else()` isn't enough.\n\n## Why This Matters\nSometimes you need more than two categories. Penguins can be \"Small\", \"Medium\", or \"Large\". `case_when()` checks conditions in order and assigns the first match.\n\n> 💡 The `%>%` (pipe) takes `penguins` and passes it to `mutate()`. Think of it as \"take this data, then do this to it.\"\n\n## Example\n\n```r\npenguins %>% mutate(\n  size = case_when(\n    body_mass_g < 3500  ~ \"Small\",\n    body_mass_g <= 4500 ~ \"Medium\",\n    .default = \"Large\"\n  )\n)\n```\n\nThe `~` separates condition from result. `.default` catches everything else.\n\n## 🎯 Your Task\n\n1. Create categories for penguin size: \"Small\" (< 3500g), \"Medium\" (3500-4500g), \"Large\" (> 4500g)\n2. Use `case_when()` inside `mutate()`\n\n**Expected Output:**\nPenguins data with a `size_category` column\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ncase_when(\n  x < 10 = \"small\"\n)\n```\nUsing `=` instead of `~`.\n\n**Fixed:**\n```r\ncase_when(\n  x < 10 ~ \"small\"\n)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `mutate()` (Ch 3) and `case_when()` from this lesson. The `~` is part of `case_when()` syntax.\n",
+    "starter_code": "# Create size categories: Small, Medium, Large\npenguins %>% mutate(\n  size_category = case_when(\n    body_mass_g < 3500 ~ \"Small\",\n    body_mass_g <= 4500 ~ \"Medium\",\n    .default = \"Large\"\n  )\n)",
+    "solution_code": "penguins %>% mutate(size_category = case_when(body_mass_g < 3500 ~ \"Small\", body_mass_g <= 4500 ~ \"Medium\", .default = \"Large\"))",
+    "expected_output": "# A tibble with 'size_category' column",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 22012,
     "chapter_title": "Ch 12: Logical Vectors",
     "chapter_id": 12,
@@ -10650,10 +10974,18 @@
     ]
   },
   "22013": {
+<<<<<<< HEAD
     "title": "Fix the Code: R Logical Operators",
     "content": "# Fix the logical operator\n\n## What you'll learn\nUse & inside if_else() for vectorized logic.\n\n## Why this matters\nR uses & and | for element-wise logical operations.\n\n## Step-by-step task\n1. Replace and with &.\n2. Check the result.\n\n## Expected output or check condition\n- identical(status, c(\"ok\", \"ok\", \"hot\", \"hot\")) should return TRUE.\n\n## One common mistake to avoid\n- Writing and instead of &.\n\n## Confirm no hidden prerequisites\n- Uses if_else() and vectorized comparisons introduced above.",
     "starter_code": "temps <- c(50, 72, 85, 90)\nstatus <- if_else(temps > 80 and temps < 95, \"hot\", \"ok\")\nidentical(status, c(\"ok\", \"ok\", \"hot\", \"hot\"))",
     "solution_code": "temps <- c(50, 72, 85, 90)\nstatus <- if_else(temps > 80 & temps < 95, \"hot\", \"ok\")\nidentical(status, c(\"ok\", \"ok\", \"hot\", \"hot\"))",
+=======
+    "title": "Fix the Code: Syntax Errors",
+    "content": "# 🔧 Fix the Code\n\n## What You'll Learn\nSpot common syntax errors in `if_else()` and `case_when()`.\n\n## Why This Matters\nThe argument order in `if_else()` trips up beginners. Learning to read error messages now builds debugging skills.\n\n> 💡 The `%>%` (pipe) takes `penguins` and passes it to `mutate()`. Think of it as \"take this data, then do this to it.\"\n\n## Example\n\nThe code below has an error. Can you find it?\n\n```r\npenguins %>% mutate(\n  heavy = if_else(body_mass_g > 4000, \"Heavy\")\n)\n```\n\n`if_else()` REQUIRES three arguments: condition, true, false.\n\n## 🎯 Your Task\n\n1. Look at the starter code\n2. The `if_else()` is missing its third argument\n3. Add \"Light\" as the false value\n\n**Expected Output:**\nPenguins data with `heavy` column\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nif_else(x > 0, \"yes\")\n```\nMissing the FALSE value.\n\n**Fixed:**\n```r\nif_else(x > 0, \"yes\", \"no\")\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `mutate()` and `if_else()`. Uses `penguins` dataset.\n",
+    "starter_code": "# Fix the missing argument\npenguins %>% mutate(\n  heavy = if_else(body_mass_g > 4000, \"Heavy\")\n)",
+    "solution_code": "penguins %>% mutate(heavy = if_else(body_mass_g > 4000, \"Heavy\", \"Light\"))",
+    "expected_output": "# A tibble with 'heavy' column",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 22013,
     "chapter_title": "Ch 12: Logical Vectors",
     "chapter_id": 12,
@@ -10666,10 +10998,18 @@
     ]
   },
   "22014": {
+<<<<<<< HEAD
     "title": "Challenge: Negation",
     "content": "# Mini task: label delays\n\n## What you'll learn\nUse if_else() to label values based on a condition.\n\n## Why this matters\nLabeling makes raw numbers easier to interpret.\n\n## Step-by-step task\n1. Create a status label using if_else().\n2. Check two positions and a count.\n\n## Expected output or check condition\n- status[1] should be \"on_time\".\n- status[4] should be \"late\".\n- sum(status == \"late\") should return 2.\n\n## One common mistake to avoid\n- Reversing the true and false labels.\n\n## Confirm no hidden prerequisites\n- Uses if_else() and basic comparisons introduced above.",
     "starter_code": "delays <- c(-5, 0, 10, 30, 120)\nstatus <- if_else(delays > 15, \"late\", \"on_time\")\nstatus[1]\nstatus[4]\nsum(status == \"late\")",
     "solution_code": "delays <- c(-5, 0, 10, 30, 120)\nstatus <- if_else(delays > 15, \"late\", \"on_time\")\nstatus[1]\nstatus[4]\nsum(status == \"late\")",
+=======
+    "title": "Challenge: Classify Flipper Length",
+    "content": "# 🦸 Challenge: Classify Flipper Length\n\n## What You'll Learn\nApply conditional logic independently to create meaningful categories.\n\n## Why This Matters\nReal data analysis constantly requires creating categories. This challenge tests your ability to use `if_else()` without hand-holding.\n\n> 💡 The `%>%` (pipe) takes `penguins` and passes it to `mutate()`. Think of it as \"take this data, then do this to it.\"\n\n## Example\n\nHere's the pattern you'll use:\n\n```r\ndata %>% mutate(\n  new_column = if_else(condition, \"yes_value\", \"no_value\")\n)\n```\n\n## 🎯 Your Task\n\nCreate a new column `flipper_size` in penguins:\n1. If `flipper_length_mm >= 200`, label as \"Long\"\n2. Otherwise, label as \"Short\"\n3. Start with `penguins %>% mutate(...)`\n\n**Expected Output:**\nPenguins data with a new `flipper_size` column containing \"Long\" or \"Short\"\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nif_else(flipper_length_mm >= 200, Long, Short)\n```\nMissing quotes around text.\n\n**Fixed:**\n```r\nif_else(flipper_length_mm >= 200, \"Long\", \"Short\")\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `mutate()`, `if_else()`, and `penguins`.\n",
+    "starter_code": "# Create flipper_size column (\"Long\" if >= 200mm, else \"Short\")\npenguins %>% mutate(\n  flipper_size = ____\n)",
+    "solution_code": "penguins %>% mutate(flipper_size = if_else(flipper_length_mm >= 200, \"Long\", \"Short\"))",
+    "expected_output": "# A tibble with 'flipper_size' column",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 22014,
     "chapter_title": "Ch 12: Logical Vectors",
     "chapter_id": 12,
@@ -10806,6 +11146,7 @@
     ]
   },
   "22301": {
+<<<<<<< HEAD
     "title": "Analogy: Ctrl+F",
     "content": "# Detect a pattern\n\n## What you'll learn\nUse str_detect() to find a pattern.\n\n## Why this matters\nRegex lets you search text quickly and consistently.\n\n## Step-by-step task\n1. Run str_detect() on the vector.\n2. Check the logical result.\n\n## Expected output or check condition\n- identical(result, c(TRUE, FALSE, TRUE)) should return TRUE.\n\n## One common mistake to avoid\n- Forgetting to load stringr.\n\n## Confirm no hidden prerequisites\n- Uses str_detect() introduced in the concept.",
     "starter_code": "library(stringr)\nresult <- str_detect(c(\"banana\", \"apple\", \"anvil\"), \"an\")\nidentical(result, c(TRUE, FALSE, TRUE))",
@@ -10864,6 +11205,66 @@
     "gap_ids": [
       "R-REINF"
     ]
+=======
+    "title": "Analogy: Find & Replace",
+    "content": "# 🔍 Find & Replace on Steroids\n\n## What You'll Learn\nHow regex patterns let you search for text in flexible, powerful ways.\n\n## Why This Matters\nImagine you need to find all phone numbers in a document, but they're written in different formats: \"555-1234\", \"(555) 1234\", \"555.1234\". A simple search won't work. Regex patterns describe *what you're looking for* rather than the exact text.\n\n## Example\n\n```r\nlibrary(stringr)\n\n# Find digits\nstr_detect(\"Call 555-1234\", \"\\\\d+\")\n```\n\n`\\d+` means \"one or more digits\". It matches \"555\" and \"1234\".\n\n## 🎯 Your Task\n\n1. Look at the pattern `\\d+` — it means \"one or more digits\"\n2. Use `str_detect(\"My zip is 90210\", \"\\\\d+\")` to check if there are digits\n3. Observe: returns TRUE because \"90210\" contains digits\n\n**Expected Output:**\n`TRUE`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nstr_detect(\"hello\", \"\\d+\")\n```\nReturns FALSE — no digits in \"hello\".\n\n**Fixed:**\n```r\nstr_detect(\"hello123\", \"\\\\d+\")\n```\nReturns TRUE.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `str_detect()` from stringr (loaded with tidyverse).\n",
+    "starter_code": "str_detect(\"banana\", ...)",
+    "solution_code": "str_detect(\"banana\", \"ana\")",
+    "expected_output": "[1] TRUE",
+    "id": 22301,
+    "chapter_title": "Ch 15: Regex",
+    "chapter_id": 15,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22302": {
+    "title": "Variation: Anchors",
+    "content": "# ⚓ Anchors: Start & End\n\n## What You'll Learn\nHow `^` and `$` anchor patterns to the start or end of text.\n\n## Why This Matters\nSometimes you only want matches at specific positions. \"Find files that START with 'data_'\" or \"Find emails that END with '.edu'\". Anchors give you this control.\n\n## Example\n\n```r\n# Starts with \"data\"\nstr_detect(\"data_file.csv\", \"^data\")\n\n# Ends with \".csv\"\nstr_detect(\"data_file.csv\", \"\\\\.csv$\")\n```\n\n`^` = start of string, `$` = end of string.\n\n## 🎯 Your Task\n\n1. Check if \"report_2024.xlsx\" ENDS with \".xlsx\"\n2. Use: `str_detect(\"report_2024.xlsx\", \"\\\\.xlsx$\")`\n3. The `\\.` escapes the dot (since `.` means \"any character\")\n\n**Expected Output:**\n`TRUE`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nstr_detect(\"data.csv\", \".csv$\")\n```\nThis matches \"acsv\" too because `.` means any character!\n\n**Fixed:**\n```r\nstr_detect(\"data.csv\", \"\\\\.csv$\")\n```\nEscape the dot with `\\.`.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `str_detect()` and basic regex from this chapter.\n",
+    "starter_code": "str_detect(\"apple\", \"^a\")",
+    "solution_code": "str_detect(\"apple\", \"^a\")",
+    "expected_output": "[1] TRUE",
+    "id": 22302,
+    "chapter_title": "Ch 15: Regex",
+    "chapter_id": 15,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22303": {
+    "title": "Fix the Code: Character Classes",
+    "content": "# 🔧 Fix: Character Classes\n\n## What You'll Learn\nHow to fix common character class mistakes in regex.\n\n## Why This Matters\nCharacter classes like `[aeiou]` match any one character from the set. Common errors include forgetting brackets or misusing special characters inside them.\n\n## Example\n\n```r\n# Match vowels\nstr_extract(\"hello\", \"[aeiou]\")\n```\n\nReturns \"e\" — the first vowel found.\n\n## 🎯 Your Task\n\n1. The code below tries to find vowels but has an error\n2. Fix it by adding brackets around the letters\n3. Run to verify it extracts \"e\"\n\n**Broken:**\n```r\nstr_extract(\"hello\", \"aeiou\")\n```\n\n**Expected Output:**\n`\"e\"` (the first vowel)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nstr_extract(\"hello\", \"aeiou\")\n```\nThis looks for the literal string \"aeiou\".\n\n**Fixed:**\n```r\nstr_extract(\"hello\", \"[aeiou]\")\n```\nNow it's a character class matching any vowel.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `str_extract()` from stringr.\n",
+    "starter_code": "str_detect(\"abc\", a)",
+    "solution_code": "str_detect(\"abc\", \"a\")",
+    "expected_output": "[1] TRUE",
+    "id": 22303,
+    "chapter_title": "Ch 15: Regex",
+    "chapter_id": 15,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22304": {
+    "title": "Challenge: Extract Digits",
+    "content": "# 🦸 Challenge: Extract All Digits\n\n## What You'll Learn\nApply regex to extract matching patterns from text.\n\n## Why This Matters\nExtracting specific parts of text (dates, IDs, prices) is a core data cleaning skill.\n\n## Example\n\nPattern for extracting digits:\n```r\nstr_extract_all(text, \"\\\\d+\")\n```\n\nThis returns ALL matches as a list.\n\n## 🎯 Your Task\n\nFrom the string \"Order #12345 shipped on 2024-01-15\":\n1. Extract all digit sequences\n2. Use `str_extract_all()` with pattern `\\d+`\n3. You should get: \"12345\", \"2024\", \"01\", \"15\"\n\n**Expected Output:**\nA list containing `c(\"12345\", \"2024\", \"01\", \"15\")`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nstr_extract()\n```\nThis only gets the FIRST match (\"12345\").\n\n**Fixed:**\n```r\nstr_extract_all()\n```\nGets ALL matches.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `str_extract_all()` from stringr.\n",
+    "starter_code": "",
+    "solution_code": "str_detect(\"R2D2\", \"\\\\d\")",
+    "expected_output": "[1] TRUE",
+    "id": 22304,
+    "chapter_title": "Ch 15: Regex",
+    "chapter_id": 15,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
   },
   "22401": {
     "title": "Analogy: Sorting Shirts",
@@ -10915,6 +11316,7 @@
     ]
   },
   "22501": {
+<<<<<<< HEAD
     "title": "Analogy: ISO Standard",
     "content": "# Parse an ISO date\n\n## What you'll learn\nUse the correct parser for YYYY-MM-DD.\n\n## Why this matters\nParsed dates become real Date objects you can compute with.\n\n## Step-by-step task\n1. Replace the placeholder with ymd.\n2. Run the code.\n\n## Expected output or check condition\n- as.character(d) should be \"2023-01-31\".\n\n## One common mistake to avoid\n- Using the wrong parser for the format.\n\n## Confirm no hidden prerequisites\n- Uses lubridate and ymd() introduced above.",
     "starter_code": "library(lubridate)\nd <- ...(\"2023-01-31\")\nas.character(d)",
@@ -10977,11 +11379,76 @@
   "22601": {
     "title": "Analogy: Empty Seat",
     "content": "# \ud83e\ude91 Empty Seat\n\n`NA` means \"Not Available\". It's like an empty seat at a dinner party. Someone was supposed to be there, but isn't.\n\n## \ud83c\udfaf Your Task\nCheck for NAs with `is.na()`.",
+=======
+    "title": "Analogy: Universal Translator",
+    "content": "# 🌍 The Universal Date Translator\n\n## What You'll Learn\nHow lubridate converts date strings into proper date objects R can work with.\n\n## Why This Matters\nDates come in many formats: \"2024-01-15\", \"January 15, 2024\", \"15/01/2024\". R needs to understand these are all the same date. lubridate's parser functions (`ymd`, `mdy`, `dmy`) handle this translation.\n\n## Example\n\n```r\nlibrary(lubridate)\n\nymd(\"2024-01-15\")\nmdy(\"January 15, 2024\")\ndmy(\"15-01-2024\")\n```\n\nAll three produce the same date object!\n\n## 🎯 Your Task\n\n1. Use `ymd()` to parse \"2024-03-20\"\n2. Use `mdy()` to parse \"March 20, 2024\"\n3. Both should give you the same date\n\n**Expected Output:**\n`\"2024-03-20\"` (as a Date object)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nymd(\"03-20-2024\")\n```\nWrong order! ymd expects year-month-day.\n\n**Fixed:**\n```r\nmdy(\"03-20-2024\")\n```\nUse mdy for month-day-year.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses lubridate (loaded with tidyverse).\n",
+    "starter_code": "ymd(\"...\")",
+    "solution_code": "ymd(\"2023-01-01\")",
+    "expected_output": "[Date]",
+    "id": 22501,
+    "chapter_title": "Ch 17: Dates and Times",
+    "chapter_id": 17,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22502": {
+    "title": "Variation: Month-Day-Year",
+    "content": "# 📅 Different Date Formats\n\n## What You'll Learn\nHow to parse dates in any format by choosing the right function.\n\n## Why This Matters\nUS dates often use month-day-year (\"01/15/2024\"), while European dates use day-month-year (\"15/01/2024\"). Using the wrong parser gives wrong dates!\n\n## Example\n\n```r\n# US format\nmdy(\"01-15-2024\")  # January 15\n\n# European format\ndmy(\"15-01-2024\")  # Also January 15\n```\n\n## 🎯 Your Task\n\n1. Parse \"12/25/2024\" using US format (month first)\n2. Use `mdy()` not `dmy()`\n3. Verify you get December 25, not the 12th day of month 25\n\n**Expected Output:**\n`\"2024-12-25\"` (Christmas Day)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ndmy(\"12/25/2024\")\n```\nTries to read as day=12, month=25 — error!\n\n**Fixed:**\n```r\nmdy(\"12/25/2024\")\n```\nCorrectly reads month=12, day=25.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `mdy()` from lubridate.\n",
+    "starter_code": "mdy(\"...\")",
+    "solution_code": "mdy(\"01-31-2023\")",
+    "expected_output": "[Date]",
+    "id": 22502,
+    "chapter_title": "Ch 17: Dates and Times",
+    "chapter_id": 17,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22503": {
+    "title": "Fix the Code: Date Parsing",
+    "content": "# 🔧 Fix: Wrong Date Parser\n\n## What You'll Learn\nHow to identify and fix date parsing errors.\n\n## Why This Matters\nSilent date errors are dangerous. Parsing \"10/11/2024\" wrong could mean October 11 vs November 10 — a 1-month difference that breaks analysis!\n\n## Example\n\n```r\n# Check your date is correct\nparsed <- mdy(\"10/11/2024\")\nmonth(parsed)  # Should be 10 for October\nday(parsed)    # Should be 11\n```\n\n## 🎯 Your Task\n\n1. The date \"31/12/2024\" fails with `mdy()` (no month 31)\n2. Fix it by using `dmy()` instead\n3. Verify you get December 31\n\n**Broken:**\n```r\nmdy(\"31/12/2024\")  # Error!\n```\n\n**Expected Output:**\n`\"2024-12-31\"` (New Year's Eve)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nmdy(\"31/12/2024\")\n```\nFails because there's no month 31.\n\n**Fixed:**\n```r\ndmy(\"31/12/2024\")\n```\nCorrectly interprets day=31, month=12.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `dmy()` from lubridate.\n",
+    "starter_code": "ymd(2023-01-01)",
+    "solution_code": "ymd(\"2023-01-01\")",
+    "expected_output": "[Date]",
+    "id": 22503,
+    "chapter_title": "Ch 17: Dates and Times",
+    "chapter_id": 17,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22504": {
+    "title": "Challenge: Extract Year",
+    "content": "# 🦸 Challenge: Get the Year\n\n## What You'll Learn\nApply date extraction functions to get components.\n\n## Why This Matters\nOnce you have a date object, you can extract year, month, day, weekday, etc. This is essential for time-based analysis.\n\n## Example\n\n```r\nmy_date <- ymd(\"2024-03-15\")\nyear(my_date)   # 2024\nmonth(my_date)  # 3\nday(my_date)    # 15\n```\n\n## 🎯 Your Task\n\nGiven the date \"2024-07-04\" (US Independence Day):\n1. Parse it with `ymd()`\n2. Extract just the year using `year()`\n3. Verify you get 2024\n\n**Expected Output:**\n`2024`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nyear(\"2024-07-04\")\n```\nThis fails! You must parse the string first.\n\n**Fixed:**\n```r\nyear(ymd(\"2024-07-04\"))\n```\nParse, then extract.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `ymd()` and `year()` from lubridate.\n",
+    "starter_code": "",
+    "solution_code": "year(today())",
+    "expected_output": "[Year]",
+    "id": 22504,
+    "chapter_title": "Ch 17: Dates and Times",
+    "chapter_id": 17,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22601": {
+    "title": "Analogy: Empty Seat",
+    "content": "# 💺 The Empty Seat\n\n## What You'll Learn\nHow `NA` represents missing data, and why it \"poisons\" calculations.\n\n## Why This Matters\nIn R, `NA` means \"I don't know the value.\" When you add \"I don't know\" to a number, the result is \"I don't know\" — that's why `NA` propagates through calculations.\n\n## Example\n\n```r\nx <- c(1, 2, NA, 4)\nsum(x)        # Returns NA\nsum(x, na.rm = TRUE)  # Returns 7\n```\n\nThe `na.rm = TRUE` argument tells R to ignore the empty seats.\n\n## 🎯 Your Task\n\n1. Create a vector `c(10, 20, NA, 40)`\n2. Try `mean()` on it — you'll get NA\n3. Add `na.rm = TRUE` to get the proper average\n\n**Expected Output:**\nWithout na.rm: `NA`\nWith na.rm: `23.33...` (mean of 10, 20, 40)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nmean(c(10, 20, NA, 40))\n```\nReturns NA.\n\n**Fixed:**\n```r\nmean(c(10, 20, NA, 40), na.rm = TRUE)\n```\nReturns 23.33.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses base R `mean()` and `c()`.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "is.na(NA)",
     "solution_code": "is.na(NA)",
     "id": 22601,
     "chapter_title": "Ch 18: Missing Values",
     "chapter_id": 18,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
@@ -10989,11 +11456,23 @@
   "22602": {
     "title": "Variation: Replacing",
     "content": "# \ud83e\ude79 Replacing\n\n`replace_na()` fills the empty seats.\n\n## \ud83c\udfaf Your Task\nReplace NA with 0.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22602": {
+    "title": "Variation: Replacing NAs",
+    "content": "# 🔄 Replacing Missing Values\n\n## What You'll Learn\nHow to replace NA values with a default using `replace_na()` or `coalesce()`.\n\n## Why This Matters\nSometimes you want to fill gaps: replace missing ages with the median, missing countries with \"Unknown\", etc. `replace_na()` from tidyr makes this easy.\n\n> 💡 The `%>%` takes your data and passes it to `mutate()` — think \"take this, then modify it.\"\n\n## Example\n\n```r\nlibrary(tidyr)\n\ndf %>% mutate(\n  column = replace_na(column, default_value)\n)\n```\n\n## 🎯 Your Task\n\n1. Given a vector `c(1, NA, 3, NA, 5)`\n2. Use `replace_na()` to fill NAs with 0\n3. Result should be `c(1, 0, 3, 0, 5)`\n\n**Expected Output:**\n`1 0 3 0 5`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nreplace_na(x, \"0\")\n```\nType mismatch if x is numeric — use `0` not `\"0\"`.\n\n**Fixed:**\n```r\nreplace_na(x, 0)\n```\nCorrect numeric replacement.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `replace_na()` from tidyr.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "replace_na(c(1, NA), ...)",
     "solution_code": "replace_na(c(1, NA), 0)",
     "id": 22602,
     "chapter_title": "Ch 18: Missing Values",
     "chapter_id": 18,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
@@ -11001,11 +11480,23 @@
   "22603": {
     "title": "Fix the Code: Comparison",
     "content": "# \ud83d\udd27 Fix the Code\n\nYou cannot do `x == NA`. Use `is.na(x)`.\n\n## \ud83c\udfaf Your Task\nFix the comparison.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22603": {
+    "title": "Fix the Code: NA Comparison",
+    "content": "# 🔧 Fix: Comparing to NA\n\n## What You'll Learn\nWhy `x == NA` doesn't work and what to use instead.\n\n## Why This Matters\nThis is THE most common NA mistake. `NA == NA` returns NA, not TRUE! You must use `is.na()` to check for missing values.\n\n## Example\n\n```r\nx <- c(1, NA, 3)\n\n# Wrong approach\nx == NA  # Returns NA NA NA\n\n# Correct approach\nis.na(x)  # Returns FALSE TRUE FALSE\n```\n\n## 🎯 Your Task\n\n1. Look at the broken filter below\n2. Fix it by replacing `== NA` with `is.na()`\n3. Result should correctly filter missing values\n\n**Broken:**\n```r\npenguins %>% filter(bill_length_mm == NA)\n```\nReturns 0 rows!\n\n**Expected Output:**\nRows where bill_length_mm is missing\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nfilter(x == NA)\n```\nNever works!\n\n**Fixed:**\n```r\nfilter(is.na(x))\n```\nUse `is.na()` function.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `filter()`, `is.na()`, and `penguins`.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "x == NA",
     "solution_code": "is.na(x)",
     "id": 22603,
     "chapter_title": "Ch 18: Missing Values",
     "chapter_id": 18,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
@@ -11013,11 +11504,23 @@
   "22604": {
     "title": "Challenge: Drop",
     "content": "# \ud83e\uddb8 Your Turn\n\n`drop_na()` removes rows with missing values.\n\n## \ud83c\udfaf Your Task\nDrop NAs from `df`.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22604": {
+    "title": "Challenge: Drop Missing Rows",
+    "content": "# 🦸 Challenge: Clean Data\n\n## What You'll Learn\nApply `drop_na()` to remove rows with missing values.\n\n## Why This Matters\nBefore analysis, you often need complete cases only. `drop_na()` from tidyr removes any row containing NA.\n\n> 💡 The `%>%` takes `penguins` and passes it to `drop_na()` — think \"take this data, then clean it.\"\n\n## Example\n\n```r\n# Drop all rows with any NA\ndf %>% drop_na()\n\n# Drop rows with NA in specific column\ndf %>% drop_na(column_name)\n```\n\n## 🎯 Your Task\n\n1. Take the penguins dataset\n2. Drop all rows that have NA in `body_mass_g`\n3. Count how many rows remain\n\n**Expected Output:**\n342 rows (2 rows had missing body mass)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\npenguins %>% drop_na\n```\nForgot parentheses! `drop_na` is a function, not a column.\n\n**Fixed:**\n```r\npenguins %>% drop_na()\n```\nWith parentheses.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `drop_na()` from tidyr and `penguins`.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "",
     "solution_code": "drop_na(df)",
     "id": 22604,
     "chapter_title": "Ch 18: Missing Values",
     "chapter_id": 18,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
@@ -11025,11 +11528,23 @@
   "22701": {
     "title": "Analogy: Identification Card",
     "content": "# \ud83c\udd94 Identification Card\n\nTo join tables, you need a key (ID). It's like checking an ID card to match a person to a record.\n\n## \ud83c\udfaf Your Task\nJoin `flights` and `airlines` by `carrier`.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22701": {
+    "title": "Analogy: ID Badge",
+    "content": "# 🪪 The ID Badge Match\n\n## What You'll Learn\nHow joins connect two tables by matching a common column.\n\n## Why This Matters\nData often lives in multiple tables. Customers in one, orders in another. Joins let you combine them: \"For each order, find the customer info.\" The \"ID badge\" (key column) links matching rows.\n\n> 💡 The `%>%` takes `orders` and passes it to `left_join()` — think \"take orders, then add customer info.\"\n\n## Example\n\n```r\norders %>% left_join(customers, by = \"customer_id\")\n```\n\nThis adds customer columns to each order row.\n\n## 🎯 Your Task\n\n1. Understand: `left_join(A, B, by = \"key\")` keeps all rows from A\n2. Matching rows from B are added as new columns\n3. Non-matches get NA in the B columns\n\n**Expected Output:**\nA combined table with columns from both datasets\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nleft_join(orders, customers)\n```\nNo `by` argument — R guesses (risky!).\n\n**Fixed:**\n```r\nleft_join(orders, customers, by = \"customer_id\")\n```\nAlways specify the key explicitly.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `left_join()` from dplyr.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "left_join(flights, airlines, by = \"...\")",
     "solution_code": "left_join(flights, airlines, by = \"carrier\")",
     "id": 22701,
     "chapter_title": "Ch 19: Joins",
     "chapter_id": 19,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
@@ -11037,11 +11552,23 @@
   "22702": {
     "title": "Variation: Right Join",
     "content": "# \u27a1\ufe0f Right Join\n\n`right_join` keeps everything from the second table.\n\n## \ud83c\udfaf Your Task\nRight join airlines to flights.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22702": {
+    "title": "Variation: Right & Inner",
+    "content": "# 🔄 Different Join Types\n\n## What You'll Learn\nHow `right_join()` and `inner_join()` differ from `left_join()`.\n\n## Why This Matters\n- `left_join`: keep all LEFT rows\n- `right_join`: keep all RIGHT rows\n- `inner_join`: keep only MATCHES\n\nChoose based on what you need to preserve.\n\n> 💡 The `%>%` takes your data and passes it to the join function.\n\n## Example\n\n```r\n# Keep only matching rows\nband_members %>% inner_join(band_instruments, by = \"name\")\n```\n\n## 🎯 Your Task\n\n1. `left_join()` keeps all left rows\n2. `inner_join()` keeps only rows that match in BOTH tables\n3. Try `inner_join()` to see fewer rows returned\n\n**Expected Output:**\nOnly rows where the key exists in both tables\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nUsing `left_join` when you only want complete matches.\n\n**Fixed:**\nUse `inner_join` to drop non-matching rows.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `inner_join()` from dplyr.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "right_join(flights, airlines)",
     "solution_code": "right_join(flights, airlines)",
     "id": 22702,
     "chapter_title": "Ch 19: Joins",
     "chapter_id": 19,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
@@ -11049,11 +11576,23 @@
   "22703": {
     "title": "Fix the Code: By Argument",
     "content": "# \ud83d\udd27 Fix the Code\n\n`by` expects a string.\n\n## \ud83c\udfaf Your Task\nAdd quotes to `origin`.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22703": {
+    "title": "Fix the Code: by Argument",
+    "content": "# 🔧 Fix: Join Key\n\n## What You'll Learn\nHow to fix common join key errors.\n\n## Why This Matters\nJoins fail silently if the key column doesn't match. Typos, case differences, or wrong column names cause empty results or wrong matches.\n\n## Example\n\n```r\n# Tables have different key names\n# Table A has \"id\", Table B has \"ID\"\n\nleft_join(A, B, by = c(\"id\" = \"ID\"))\n```\n\n## 🎯 Your Task\n\n1. The code below fails because column names don't match\n2. Table X has `student_id`, Table Y has `StudentID`\n3. Fix using `by = c(\"student_id\" = \"StudentID\")`\n\n**Broken:**\n```r\nleft_join(X, Y, by = \"student_id\")\n```\n\n**Expected Output:**\nA properly joined table\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nby = \"student_id\"\n```\nOnly works if BOTH tables have that exact name.\n\n**Fixed:**\n```r\nby = c(\"student_id\" = \"StudentID\")\n```\nMap names explicitly.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `left_join()` with named vectors.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "left_join(flights, airports, by = origin)",
     "solution_code": "left_join(flights, airports, by = \"origin\")",
     "id": 22703,
     "chapter_title": "Ch 19: Joins",
     "chapter_id": 19,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
@@ -11061,14 +11600,33 @@
   "22704": {
     "title": "Challenge: Inner Join",
     "content": "# \ud83e\uddb8 Your Turn\n\n`inner_join` keeps only matches.\n\n## \ud83c\udfaf Your Task\nInner join matches.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "22704": {
+    "title": "Challenge: Match Tables",
+    "content": "# 🦸 Challenge: Join Two Tables\n\n## What You'll Learn\nApply joins to combine related datasets.\n\n## Why This Matters\nAlmost every real analysis requires combining data. This is your core join skill test.\n\n> 💡 The `%>%` takes your primary table and passes it to the join function.\n\n## Example\n\n```r\nprimary_table %>%\n  left_join(lookup_table, by = \"key_column\")\n```\n\n## 🎯 Your Task\n\nUsing the built-in `band_members` and `band_instruments` tables:\n1. Join them by the `name` column\n2. Use `inner_join()` to keep only musicians with instruments\n3. How many rows remain?\n\n**Expected Output:**\nA table with only the matched musicians\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ninner_join(band_members, band_instruments)\n```\nOmitting `by` works here but is fragile.\n\n**Fixed:**\n```r\ninner_join(band_members, band_instruments, by = \"name\")\n```\nAlways specify the key.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `inner_join()` and built-in datasets.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "",
     "solution_code": "inner_join(x, y)",
     "id": 22704,
     "chapter_title": "Ch 19: Joins",
     "chapter_id": 19,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
   },
   "22711": {
     "title": "Analogy: The Bouncer",
@@ -11171,12 +11729,17 @@
   },
   "23101": {
     "title": "Analogy: Remote Control",
+<<<<<<< HEAD
     "content": "# \ud83c\udfae Remote Control\n\n`dbplyr` lets you control a database (SQL) using R commands. It's like a remote control for a TV.\n\n## \ud83c\udfaf Your Task\nConnect to table \"flights\".",
+=======
+    "content": "# 🎮 The Remote Control\n\n## What You'll Learn\nHow dbplyr lets you write dplyr code that runs on a database.\n\n## Why This Matters\nToo much data to fit in memory? Leave it in the database. dbplyr translates your R code to SQL and runs it there. You write R, the database does the work.\n\n## Example\n\n```r\nlibrary(DBI)\nlibrary(dbplyr)\n\ncon <- DBI::dbConnect(RSQLite::SQLite(), \":memory:\")\ndbWriteTable(con, \"mtcars\", mtcars)\n\ntbl(con, \"mtcars\") %>% filter(mpg > 20)\n```\n\nThis runs on the database, not in R!\n\n## 🎯 Your Task\n\n1. Understand: `tbl(connection, \"table_name\")` creates a database reference\n2. You can use `filter()`, `select()`, `mutate()` — same syntax\n3. The database executes the query\n\n**Expected Output:**\nA query result from the database\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nTrying to use R-only functions (like `str_sub()`) in database queries.\n\n**Fixed:**\nStick to functions that have SQL equivalents.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses DBI and dbplyr packages.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "tbl(con, \"...\")",
     "solution_code": "tbl(con, \"flights\")",
     "id": 23101,
     "chapter_title": "Ch 21: Databases",
     "chapter_id": 21,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
@@ -11184,11 +11747,23 @@
   "23102": {
     "title": "Variation: SQL Translation",
     "content": "# \ud83d\udde3\ufe0f Translator\n\nUse `show_query()` to see the SQL R generates.\n\n## \ud83c\udfaf Your Task\nShow query.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "23102": {
+    "title": "Variation: See the SQL",
+    "content": "# 👀 Peek at the SQL\n\n## What You'll Learn\nHow to see what SQL query dbplyr generates.\n\n## Why This Matters\nUnderstanding the SQL helps debug slow queries and learn SQL syntax. `show_query()` reveals what's happening behind the scenes.\n\n## Example\n\n```r\ntbl(con, \"mtcars\") %>%\n  filter(mpg > 20) %>%\n  show_query()\n```\n\nShows:\n```sql\nSELECT * FROM mtcars WHERE mpg > 20\n```\n\n## 🎯 Your Task\n\n1. Create a query with `tbl()` and `filter()`\n2. Add `show_query()` at the end\n3. Read the generated SQL\n\n**Expected Output:**\nA SQL SELECT statement\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nAssuming R code runs in R — with dbplyr, it becomes SQL!\n\n**Fixed:**\nUse `show_query()` to verify what's happening.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `show_query()` from dbplyr.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "flights_db |> show_query()",
     "solution_code": "flights_db |> show_query()",
     "id": 23102,
     "chapter_title": "Ch 21: Databases",
     "chapter_id": 21,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
@@ -11196,11 +11771,23 @@
   "23103": {
     "title": "Fix the Code: Collect",
     "content": "# \ud83d\udd27 Fix the Code\n\nData stays on the server until you `collect()` it.\n\n## \ud83c\udfaf Your Task\nCollect data.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "23103": {
+    "title": "Fix the Code: collect()",
+    "content": "# 🔧 Fix: Bring Data to R\n\n## What You'll Learn\nWhy you need `collect()` to actually download database results.\n\n## Why This Matters\nBy default, dbplyr is \"lazy\" — it doesn't run until needed. `collect()` triggers execution and brings results into R memory.\n\n## Example\n\n```r\n# This is just a query plan\nquery <- tbl(con, \"mtcars\") %>% filter(mpg > 20)\n\n# This actually runs it\nresult <- query %>% collect()\n```\n\n## 🎯 Your Task\n\n1. The code builds a query but never runs it\n2. Add `collect()` to bring results into R\n3. Now you can use R functions on the result\n\n**Broken:**\n```r\ntbl(con, \"mtcars\") %>% filter(mpg > 20)\n```\n(Query not executed!)\n\n**Expected Output:**\nAn actual R data frame\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nForgetting `collect()` then wondering why calculations fail.\n\n**Fixed:**\n```r\ntbl(con, \"mtcars\") %>% filter(mpg > 20) %>% collect()\n```\nNow it's in R memory.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `collect()` from dbplyr.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "flights_db \n# Data is remote",
     "solution_code": "flights_db |> collect()",
     "id": 23103,
     "chapter_title": "Ch 21: Databases",
     "chapter_id": 21,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
@@ -11208,11 +11795,23 @@
   "23104": {
     "title": "Challenge: Filter DB",
     "content": "# \ud83e\uddb8 Your Turn\n\nFilter `year == 2013` on the database.\n\n## \ud83c\udfaf Your Task\nFilter remote.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "23104": {
+    "title": "Challenge: Query Database",
+    "content": "# 🦸 Challenge: Database Query\n\n## What You'll Learn\nBuild a complete database query workflow.\n\n## Why This Matters\nReal-world data lives in databases. This exercise practices the full workflow.\n\n## Example\n\n```r\ncon <- DBI::dbConnect(...)\nresult <- tbl(con, \"table\") %>%\n  filter(condition) %>%\n  select(columns) %>%\n  collect()\n```\n\n## 🎯 Your Task\n\n1. Connect to a database\n2. Reference a table with `tbl()`\n3. Filter and select some columns\n4. Use `collect()` to get results\n\n**Expected Output:**\nA filtered subset of the database table\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ntbl(con, \"table\") %>% filter(x > 10)\n```\nForgot to `collect()`!\n\n**Fixed:**\n```r\ntbl(con, \"table\") %>% filter(x > 10) %>% collect()\n```\nAlways `collect()` when done.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses DBI, dbplyr, and `collect()`.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "",
     "solution_code": "flights_db |> filter(year == 2013)",
     "id": 23104,
     "chapter_title": "Ch 21: Databases",
     "chapter_id": 21,
+<<<<<<< HEAD
     "concept_tags": [
       "dplyr_filter",
       "control"
@@ -11339,6 +11938,133 @@
     "gap_ids": [
       "R-REINF"
     ]
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "23201": {
+    "title": "Analogy: Express Lane",
+    "content": "# 🚀 The Express Lane\n\n## What You'll Learn\nHow Arrow and Parquet files handle big data faster than CSV.\n\n## Why This Matters\nCSV files are slow: they're text, require parsing, and don't store types. Parquet is a binary format that's 10-100x faster. Arrow lets R work with Parquet seamlessly.\n\n## Example\n\n```r\nlibrary(arrow)\n\n# Read parquet (much faster than CSV)\ndata <- read_parquet(\"data.parquet\")\n\n# Write parquet\nwrite_parquet(penguins, \"penguins.parquet\")\n```\n\n## 🎯 Your Task\n\n1. Understand: Parquet stores data in a compressed, typed binary format\n2. Arrow is the R package that reads/writes Parquet\n3. The syntax mirrors `read_csv()` / `write_csv()`\n\n**Expected Output:**\nA tibble from the parquet file\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nUsing `read.csv()` on huge files (slow!).\n\n**Fixed:**\nSave as parquet once, then use `read_parquet()` forever.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `arrow` package.\n",
+    "starter_code": "open_dataset(\"data.parquet\")",
+    "solution_code": "open_dataset(\"data.parquet\")",
+    "expected_output": "[Dataset]",
+    "id": 23201,
+    "chapter_title": "Ch 22: Arrow",
+    "chapter_id": 22,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "23202": {
+    "title": "Variation: Write Parquet",
+    "content": "# 💾 Save as Parquet\n\n## What You'll Learn\nHow to convert your data to Parquet for faster future reads.\n\n## Why This Matters\nIf you work with the same data repeatedly, saving it as Parquet once saves time every future read. Parquet also compresses the file!\n\n## Example\n\n```r\nlibrary(arrow)\n\n# Convert CSV to Parquet\ndata <- read_csv(\"big_data.csv\")\nwrite_parquet(data, \"big_data.parquet\")\n\n# Future reads are instant!\ndata2 <- read_parquet(\"big_data.parquet\")\n```\n\n## 🎯 Your Task\n\n1. Use `write_parquet()` to save the penguins dataset\n2. Then use `read_parquet()` to load it back\n3. Compare: same data, faster format\n\n**Expected Output:**\nA .parquet file on disk\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nwrite.parquet(data, \"file.parquet\")\n```\nWrong function name! It's `write_parquet`.\n\n**Fixed:**\n```r\nwrite_parquet(data, \"file.parquet\")\n```\nArrow functions use underscores.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `write_parquet()` from arrow.\n",
+    "starter_code": "write_dataset(df, \"folder\")",
+    "solution_code": "write_dataset(df, \"folder\")",
+    "expected_output": "[Files Written]",
+    "id": 23202,
+    "chapter_title": "Ch 22: Arrow",
+    "chapter_id": 22,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "23203": {
+    "title": "Fix the Code: Package",
+    "content": "# 🔧 Fix: Load Arrow\n\n## What You'll Learn\nThe most common Arrow error: forgetting to load the package.\n\n## Why This Matters\n`read_parquet()` doesn't exist until you load `library(arrow)`. This is true for all non-base packages!\n\n## Example\n\n```r\n# This fails\nread_parquet(\"data.parquet\")\n# Error: could not find function \"read_parquet\"\n\n# Fix: load the package first\nlibrary(arrow)\nread_parquet(\"data.parquet\")\n```\n\n## 🎯 Your Task\n\n1. The error says \"could not find function\"\n2. This always means: package not loaded\n3. Add `library(arrow)` before the function call\n\n**Broken:**\n```r\nread_parquet(\"data.parquet\")\n```\n\n**Expected Output:**\nThe data loads successfully\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nForgetting `library(arrow)`.\n\n**Fixed:**\n```r\nlibrary(arrow)\nread_parquet(\"data.parquet\")\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `library()` and arrow package.\n",
+    "starter_code": "open_dataset(\"file\")",
+    "solution_code": "open_dataset(\"file\")",
+    "expected_output": "[Dataset]",
+    "id": 23203,
+    "chapter_title": "Ch 22: Arrow",
+    "chapter_id": 22,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "23204": {
+    "title": "Challenge: Convert File",
+    "content": "# 🦸 Challenge: CSV to Parquet\n\n## What You'll Learn\nApply the full workflow to convert a file.\n\n## Why This Matters\nThis is a real-world task: take slow CSV, convert to fast Parquet.\n\n## Example\n\n```r\nlibrary(arrow)\ndata <- read_csv(\"input.csv\")\nwrite_parquet(data, \"output.parquet\")\n```\n\n## 🎯 Your Task\n\n1. Load the arrow package\n2. Read any CSV file with `read_csv()`\n3. Save it as Parquet with `write_parquet()`\n4. Verify by reading it back with `read_parquet()`\n\n**Expected Output:**\nData loaded from the new Parquet file\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nwrite_parquet(data, \"output.csv\")\n```\nWrong extension — use `.parquet`!\n\n**Fixed:**\n```r\nwrite_parquet(data, \"output.parquet\")\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses arrow, read_csv, write_parquet.\n",
+    "starter_code": "",
+    "solution_code": "ds |> filter(x > 0) |> collect()",
+    "expected_output": "[Tibble]",
+    "id": 23204,
+    "chapter_title": "Ch 22: Arrow",
+    "chapter_id": 22,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "23301": {
+    "title": "Analogy: Unpacking Boxes",
+    "content": "# 📦 Unpacking Nested Boxes\n\n## What You'll Learn\nHow to extract data from nested lists into tidy data frames.\n\n## Why This Matters\nAPI responses and JSON data come as deeply nested lists. \"Rectangling\" flattens these into the rows-and-columns format you need for analysis.\n\n## Example\n\n```r\nlibrary(tidyr)\n\n# A nested list\ndata <- list(\n  list(name = \"Alice\", score = 90),\n  list(name = \"Bob\", score = 85)\n)\n\n# Flatten to data frame\ntibble(data = data) %>% unnest_wider(data)\n```\n\n## 🎯 Your Task\n\n1. Understand: `unnest_wider()` turns each list element into columns\n2. This is called \"rectangling\" — making messy data rectangular\n3. The inverse is `unnest_longer()` — turns elements into rows\n\n**Expected Output:**\nA tibble with `name` and `score` columns\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ndata[[1]]$name\n```\nManual extraction doesn't scale.\n\n**Fixed:**\n```r\ntibble(data) %>% unnest_wider(data)\n```\nWorks on the whole list at once.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `unnest_wider()` from tidyr.\n",
+    "starter_code": "unnest(df, cols = ...)",
+    "solution_code": "unnest(df, cols = data)",
+    "expected_output": "[Expanded Tibble]",
+    "id": 23301,
+    "chapter_title": "Ch 23: Hierarchical Data",
+    "chapter_id": 23,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "23302": {
+    "title": "Variation: Going Longer",
+    "content": "# ↕️ Unnest Longer\n\n## What You'll Learn\nHow `unnest_longer()` turns list elements into rows rather than columns.\n\n## Why This Matters\nWhen each list element is a single value (not named), `unnest_longer()` creates one row per element. Choose wider vs longer based on your data structure.\n\n## Example\n\n```r\n# Each person has multiple scores\ndata <- tibble(\n  name = c(\"Alice\", \"Bob\"),\n  scores = list(c(90, 85, 88), c(77, 80))\n)\n\ndata %>% unnest_longer(scores)\n```\n\n## 🎯 Your Task\n\n1. `unnest_wider()` = list → columns (like unpacking key-value pairs)\n2. `unnest_longer()` = list → rows (like stacking multiple values)\n3. Try `unnest_longer()` on a list column with multiple values\n\n**Expected Output:**\nMultiple rows per original row\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nUsing `unnest_wider()` on simple vectors — creates weird columns.\n\n**Fixed:**\nUse `unnest_longer()` for vectors, `unnest_wider()` for named lists.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `unnest_longer()` from tidyr.\n",
+    "starter_code": "unnest_wider(df, metadata)",
+    "solution_code": "unnest_wider(df, metadata)",
+    "expected_output": "[Wide Tibble]",
+    "id": 23302,
+    "chapter_title": "Ch 23: Hierarchical Data",
+    "chapter_id": 23,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "23303": {
+    "title": "Fix the Code: Plural",
+    "content": "# 🔧 Fix: Column Name\n\n## What You'll Learn\nCommon errors when working with list columns.\n\n## Why This Matters\nThe column name in `unnest_*()` must match exactly. Typos cause \"column not found\" errors.\n\n## Example\n\n```r\ndf <- tibble(items = list(1, 2, 3))\n\n# Wrong column name\ndf %>% unnest_longer(item)  # Error!\n\n# Correct\ndf %>% unnest_longer(items)\n```\n\n## 🎯 Your Task\n\n1. The code has a typo in the column name\n2. Fix `unnest_longer(score)` to `unnest_longer(scores)`\n3. Column names are case-sensitive too!\n\n**Broken:**\n```r\ndf %>% unnest_longer(score)\n```\n\n**Expected Output:**\nThe unnested data frame\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nunnest_longer(Score)\n```\nCase matters!\n\n**Fixed:**\n```r\nunnest_longer(scores)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `unnest_longer()` from tidyr.\n",
+    "starter_code": "unnest(df, col = data)",
+    "solution_code": "unnest(df, cols = data)",
+    "expected_output": "[Tibble]",
+    "id": 23303,
+    "chapter_title": "Ch 23: Hierarchical Data",
+    "chapter_id": 23,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "23304": {
+    "title": "Challenge: Rectangle JSON",
+    "content": "# 🦸 Challenge: Flatten Data\n\n## What You'll Learn\nApply rectangling to convert nested data to a tibble.\n\n## Why This Matters\nThis is the core skill for working with API data.\n\n## Example\n\n```r\n# Typical pattern\ntibble(data = nested_list) %>%\n  unnest_wider(data)\n```\n\n## 🎯 Your Task\n\nGiven this structure:\n```r\npeople <- list(\n  list(name = \"Alice\", age = 30),\n  list(name = \"Bob\", age = 25)\n)\n```\n\n1. Wrap it in a tibble: `tibble(data = people)`\n2. Unnest with `unnest_wider(data)`\n3. Result should have `name` and `age` columns\n\n**Expected Output:**\nA 2-row tibble with name and age columns\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nas.data.frame(people)\n```\nDoesn't handle nested lists well.\n\n**Fixed:**\n```r\ntibble(data = people) %>% unnest_wider(data)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `tibble()`, `unnest_wider()`.\n",
+    "starter_code": "",
+    "solution_code": "unnest(df, cols = c(x))",
+    "expected_output": "[Tibble]",
+    "id": 23304,
+    "chapter_title": "Ch 23: Hierarchical Data",
+    "chapter_id": 23,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
   },
   "23401": {
     "title": "Analogy: Mining",
@@ -11403,6 +12129,7 @@
     ]
   },
   "24001": {
+<<<<<<< HEAD
     "title": "Analogy: Teaching Tricks",
     "content": "# Interpret a vector function\n\n## What you'll learn\nCheck the output of a vector function.\n\n## Why this matters\nFunction output must be verified to trust your results.\n\n## Step-by-step task\n1. Run rescale01() on a small vector.\n2. Verify the result with all.equal().\n\n## Expected output or check condition\n- isTRUE(all.equal(result, c(0, 0.5, 1))) should return TRUE.\n\n## One common mistake to avoid\n- Checking floats with identical().\n\n## Confirm no hidden prerequisites\n- Uses a vector function from the concept.",
     "starter_code": "rescale01 <- function(x) {\n  (x - min(x)) / (max(x) - min(x))\n}\n\nresult <- rescale01(c(2, 4, 6))\nisTRUE(all.equal(result, c(0, 0.5, 1)))",
@@ -11469,11 +12196,76 @@
   "24101": {
     "title": "Analogy: Assembly Line",
     "content": "# \ud83c\udfed Assembly Line\n\n`map()` applies a function to every item in a list, like a robot on an assembly line painting every car.\n\n## \ud83c\udfaf Your Task\nMap `mean` to list.",
+=======
+    "title": "Analogy: Recipe Card",
+    "content": "# 📝 Writing Recipe Cards\n\n## What You'll Learn\nHow to create your own functions to avoid repeating code.\n\n## Why This Matters\nIf you copy-paste code more than twice, make it a function. Functions encapsulate logic so you can reuse it with different inputs.\n\n## Example\n\n```r\n# A simple function\nadd_ten <- function(x) {\n  x + 10\n}\n\nadd_ten(5)   # Returns 15\nadd_ten(100) # Returns 110\n```\n\n## 🎯 Your Task\n\n1. Functions have: `name <- function(arguments) { body }`\n2. The last expression is automatically returned\n3. Try creating a function that doubles a number\n\n**Expected Output:**\nA reusable function\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nadd_ten <- function x { x + 10 }\n```\nMissing parentheses around argument!\n\n**Fixed:**\n```r\nadd_ten <- function(x) { x + 10 }\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Base R function syntax.\n",
+    "starter_code": "say_hi <- function() { print(\"Hi\") }",
+    "solution_code": "say_hi <- function() { print(\"Hi\") }",
+    "expected_output": "\"Hi\"",
+    "id": 24001,
+    "chapter_title": "Ch 25: Functions",
+    "chapter_id": 25,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "24002": {
+    "title": "Variation: Multiple Args",
+    "content": "# 🔢 Multiple Arguments\n\n## What You'll Learn\nHow to create functions with multiple parameters.\n\n## Why This Matters\nReal functions often need more than one input: `convert_temp(value, from, to)`, `filter_data(df, column, threshold)`.\n\n## Example\n\n```r\ngreet <- function(name, greeting = \"Hello\") {\n  paste(greeting, name)\n}\n\ngreet(\"Alice\")           # \"Hello Alice\"\ngreet(\"Bob\", \"Hi\")       # \"Hi Bob\"\n```\n\nThe `= \"Hello\"` sets a default value.\n\n## 🎯 Your Task\n\n1. Create a function `power(x, n)` that returns `x^n`\n2. Add a default: `n = 2` for squaring\n3. Test: `power(3)` should return 9\n\n**Expected Output:**\n9 (3 squared)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nfunction(x, n = 2, )  # Trailing comma\n```\nNo trailing commas allowed.\n\n**Fixed:**\n```r\nfunction(x, n = 2)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Base R function arguments.\n",
+    "starter_code": "greet <- function(name) { ... }",
+    "solution_code": "greet <- function(name) { paste(\"Hi\", name) }",
+    "expected_output": "\"Hi Name\"",
+    "id": 24002,
+    "chapter_title": "Ch 25: Functions",
+    "chapter_id": 25,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "24003": {
+    "title": "Fix the Code: Braces",
+    "content": "# 🔧 Fix: Function Syntax\n\n## What You'll Learn\nCommon syntax errors in function definitions.\n\n## Why This Matters\nMissing braces or mismatched parentheses cause cryptic errors.\n\n## Example\n\n```r\n# Wrong - missing opening brace\nsquare <- function(x)\n  x * x\n}\n\n# Fixed\nsquare <- function(x) {\n  x * x\n}\n```\n\n## 🎯 Your Task\n\n1. The function below is missing a brace\n2. Add the opening `{` after the argument list\n3. Ensure `}` closes it properly\n\n**Broken:**\n```r\ndouble <- function(x)\n  x * 2\n}\n```\n\n**Expected Output:**\nA working function\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nMismatched braces or parentheses.\n\n**Fixed:**\nEvery `{` needs a `}`, every `(` needs a `)`.\n\n---\n\n✅ **No Hidden Prerequisites**: Base R syntax.\n",
+    "starter_code": "f <- function() print(\"hi\")",
+    "solution_code": "f <- function() { print(\"hi\") }",
+    "expected_output": "\"hi\"",
+    "id": 24003,
+    "chapter_title": "Ch 25: Functions",
+    "chapter_id": 25,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "24004": {
+    "title": "Challenge: Write Function",
+    "content": "# 🦸 Challenge: Your Own Function\n\n## What You'll Learn\nApply function syntax to create a useful helper.\n\n## Why This Matters\nCreating custom functions is how you build reusable analysis tools.\n\n## Example\n\n```r\nmy_function <- function(arg1, arg2) {\n  # do something\n  result\n}\n```\n\n## 🎯 Your Task\n\nCreate a function `summarize_column(df, col)` that:\n1. Takes a data frame and column name\n2. Returns the mean of that column (handle NAs)\n3. Test on penguins$body_mass_g\n\n**Expected Output:**\nThe mean value (around 4200 for body_mass_g)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nfunction(df, col) mean(df$col)\n```\n`$col` looks for a column literally named \"col\"!\n\n**Fixed:**\n```r\nfunction(df, col) mean(df[[col]], na.rm = TRUE)\n```\nUse `[[]]` for programmatic column access.\n\n---\n\n✅ **No Hidden Prerequisites**: Base R functions and `[[]]` subsetting.\n",
+    "starter_code": "",
+    "solution_code": "add_one <- function(x) { x + 1 }",
+    "expected_output": "2",
+    "id": 24004,
+    "chapter_title": "Ch 25: Functions",
+    "chapter_id": 25,
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "24101": {
+    "title": "Analogy: Assembly Line",
+    "content": "# 🏭 The Assembly Line\n\n## What You'll Learn\nHow `across()` applies operations to multiple columns at once.\n\n## Why This Matters\nInstead of `mutate(a = round(a), b = round(b), c = round(c))`, you write one line. `across()` is like an assembly line processing many items identically.\n\n> 💡 The `%>%` takes your data and passes it to `mutate()`.\n\n## Example\n\n```r\npenguins %>% mutate(\n  across(where(is.numeric), round)\n)\n```\n\nRounds ALL numeric columns at once.\n\n## 🎯 Your Task\n\n1. `across()` goes inside `mutate()` or `summarize()`\n2. First arg: which columns (use `where()`, `starts_with()`, etc.)\n3. Second arg: what function to apply\n\n**Expected Output:**\nAll numeric columns rounded\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nacross(round, where(is.numeric))\n```\nArguments in wrong order!\n\n**Fixed:**\n```r\nacross(where(is.numeric), round)\n```\nColumns first, function second.\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `across()` from dplyr.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "map(list(a=1:10, b=10:20), mean)",
     "solution_code": "map(list(a=1:10, b=10:20), mean)",
     "id": 24101,
     "chapter_title": "Ch 26: Iteration",
     "chapter_id": 26,
+<<<<<<< HEAD
     "concept_tags": [
       "functions",
       "control"
@@ -11482,11 +12274,23 @@
   "24102": {
     "title": "Variation: Double",
     "content": "# 2\ufe0f\u20e3 Double\n\n`map_dbl` returns a number vector instead of a list.\n\n## \ufffd\ufffd Your Task\nUse `map_dbl`.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "24102": {
+    "title": "Variation: map()",
+    "content": "# 🗺️ Map: Apply to Each\n\n## What You'll Learn\nHow `map()` applies a function to each element of a list.\n\n## Why This Matters\n`map()` is for lists what `across()` is for columns. It iterates and applies a function to each element, returning a list of results.\n\n## Example\n\n```r\nlibrary(purrr)\n\nnumbers <- list(1, 2, 3)\nmap(numbers, ~ .x * 2)\n```\n\nReturns: list(2, 4, 6)\n\n## 🎯 Your Task\n\n1. `map(list, function)` applies to each element\n2. `.x` in the formula represents each element\n3. Try `map(1:3, ~ .x^2)` to square each\n\n**Expected Output:**\nlist(1, 4, 9)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nmap(1:3, .x^2)\n```\nMissing the `~` for formula notation.\n\n**Fixed:**\n```r\nmap(1:3, ~ .x^2)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `map()` from purrr.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "map_dbl(x, mean)",
     "solution_code": "map_dbl(x, mean)",
     "id": 24102,
     "chapter_title": "Ch 26: Iteration",
     "chapter_id": 26,
+<<<<<<< HEAD
     "concept_tags": [
       "vectors",
       "functions",
@@ -11496,11 +12300,23 @@
   "24103": {
     "title": "Fix the Code: Argument",
     "content": "# \ud83d\udd27 Fix the Code\n\nPass the function, don't call it `()`.\n\n## \ud83c\udfaf Your Task\nRemove `()`.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "24103": {
+    "title": "Fix the Code: across()",
+    "content": "# 🔧 Fix: across() Syntax\n\n## What You'll Learn\nCommon errors when using `across()`.\n\n## Why This Matters\nThe `across()` syntax is particular. Missing the column selector or using wrong function format causes errors.\n\n## Example\n\n```r\n# Wrong - forgot column selector\nmutate(across(mean))\n\n# Fixed - specify which columns\nmutate(across(where(is.numeric), mean))\n```\n\n## 🎯 Your Task\n\n1. The code is missing the column selector\n2. Add `everything()` or `where(is.numeric)`\n3. Now across knows which columns to process\n\n**Broken:**\n```r\npenguins %>% mutate(across(round))\n```\n\n**Expected Output:**\nRounded numeric columns\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nacross(round)\n```\nacross() needs to know WHICH columns!\n\n**Fixed:**\n```r\nacross(where(is.numeric), round)\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `across()` and `where()`.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "map(x, mean())",
     "solution_code": "map(x, mean)",
     "id": 24103,
     "chapter_title": "Ch 26: Iteration",
     "chapter_id": 26,
+<<<<<<< HEAD
     "concept_tags": [
       "functions",
       "control"
@@ -11509,11 +12325,23 @@
   "24104": {
     "title": "Challenge: Walk",
     "content": "# \ud83e\uddb8 Your Turn\n\n`walk()` is for side effects (like saving files).\n\n## \ud83c\udfaf Your Task\nWalk print.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "24104": {
+    "title": "Challenge: Summarize All",
+    "content": "# 🦸 Challenge: Summary Stats\n\n## What You'll Learn\nApply iteration to compute summaries across columns.\n\n## Why This Matters\nGetting mean of every numeric column is a one-liner with `across()`.\n\n> 💡 The `%>%` takes `penguins` and passes it to `summarize()`.\n\n## Example\n\n```r\ndf %>% summarize(\n  across(where(is.numeric), mean, na.rm = TRUE)\n)\n```\n\n## 🎯 Your Task\n\nUse penguins to:\n1. Select all numeric columns with `where(is.numeric)`\n2. Calculate the mean of each\n3. Remember `na.rm = TRUE` for missing values\n\n**Expected Output:**\nOne row with mean for each numeric column\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\nsummarize(across(mean))\n```\nMissing column selector AND na.rm.\n\n**Fixed:**\n```r\nsummarize(across(where(is.numeric), mean, na.rm = TRUE))\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses `summarize()`, `across()`, `where()`.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "",
     "solution_code": "walk(x, print)",
     "id": 24104,
     "chapter_title": "Ch 26: Iteration",
     "chapter_id": 26,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
@@ -11521,11 +12349,23 @@
   "24201": {
     "title": "Analogy: Pepper Shaker",
     "content": "# \ud83e\uddc2 Pepper Shaker\n\nBase R subsetting `$` is like shaking the pepper out. `[[ ]]` acts similarly.\n\n## \ud83c\udfaf Your Task\nGet `mpg` column from `mtcars` using `$`.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "24201": {
+    "title": "Analogy: The Original Tools",
+    "content": "# 🔧 The Original Toolbox\n\n## What You'll Learn\nWhen and why to use base R instead of tidyverse.\n\n## Why This Matters\nBase R was here first. Many packages, error messages, and legacy code use base R syntax. Knowing both makes you a more capable R programmer.\n\n## Example\n\n```r\n# Tidyverse way\npenguins %>% filter(species == \"Adelie\")\n\n# Base R way\npenguins[penguins$species == \"Adelie\", ]\n```\n\nBoth get the same result!\n\n## 🎯 Your Task\n\n1. Base R uses `$` for columns and `[ , ]` for subsetting\n2. `df[rows, columns]` — rows on left, columns on right\n3. Try: `penguins[1:5, c(\"species\", \"island\")]`\n\n**Expected Output:**\nFirst 5 rows, 2 columns\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\npenguins[species == \"Adelie\"]\n```\nMissing the comma and data frame reference!\n\n**Fixed:**\n```r\npenguins[penguins$species == \"Adelie\", ]\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses base R `[ ]` and `$` syntax.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "mtcars$...",
     "solution_code": "mtcars$mpg",
     "id": 24201,
     "chapter_title": "Ch 27: Base R",
     "chapter_id": 27,
+<<<<<<< HEAD
     "concept_tags": [
       "dplyr_filter",
       "control"
@@ -11534,11 +12374,23 @@
   "24202": {
     "title": "Variation: Brackets",
     "content": "# \ud83d\udce6 Brackets\n\n`[ row, col ]` subsets like coordinates.\n\n## \ud83c\udfaf Your Task\nGet row 1, column 1.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "24202": {
+    "title": "Variation: Brackets",
+    "content": "# 🔲 Single vs Double Brackets\n\n## What You'll Learn\nThe difference between `[` and `[[` in R.\n\n## Why This Matters\n`[` returns a subset (same type), `[[` extracts a single element. For data frames, `df[\"col\"]` returns a data frame, `df[[\"col\"]]` returns a vector.\n\n## Example\n\n```r\n# Returns a data frame with one column\npenguins[\"species\"]\n\n# Returns the species vector itself\npenguins[[\"species\"]]\n\n# Same as [[ for columns\npenguins$species\n```\n\n## 🎯 Your Task\n\n1. Use `[[\"column_name\"]]` when you want the raw vector\n2. Use `[\"column_name\"]` when you want a mini data frame\n3. Compare outputs of both on `penguins`\n\n**Expected Output:**\nSingle brackets → tibble; double brackets → vector\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nUsing `[` when you need a vector for a function.\n\n**Fixed:**\nUse `[[` or `$` to extract vectors.\n\n---\n\n✅ **No Hidden Prerequisites**: Base R subsetting.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "mtcars[1, 1]",
     "solution_code": "mtcars[1, 1]",
     "id": 24202,
     "chapter_title": "Ch 27: Base R",
     "chapter_id": 27,
+<<<<<<< HEAD
     "concept_tags": [
       "dplyr_filter",
       "control"
@@ -11547,11 +12399,23 @@
   "24203": {
     "title": "Fix the Code: Comma",
     "content": "# \ud83d\udd27 Fix the Code\n\n`[1, ]` gets row 1, all columns.\n\n## \ud83c\udfaf Your Task\nGet row 1.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "24203": {
+    "title": "Fix the Code: Comma",
+    "content": "# 🔧 Fix: Row-Column Comma\n\n## What You'll Learn\nThe most common base R subsetting error: forgetting the comma.\n\n## Why This Matters\n`df[rows, cols]` must have a comma! `df[rows]` means columns (lists), which is confusing. For data frames, always use both positions.\n\n## Example\n\n```r\n# Wrong: selects columns\npenguins[1:5]\n\n# Right: selects rows 1-5, all columns\npenguins[1:5, ]\n```\n\nThe trailing comma says \"all columns\".\n\n## 🎯 Your Task\n\n1. The code is missing a comma\n2. Add `, ]` to say \"all columns\"\n3. Now it correctly selects rows\n\n**Broken:**\n```r\npenguins[1:10]\n```\n\n**Expected Output:**\nFirst 10 rows of penguins\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\ndf[1:10]\n```\nSelects columns, not rows!\n\n**Fixed:**\n```r\ndf[1:10, ]\n```\nComma makes it rows.\n\n---\n\n✅ **No Hidden Prerequisites**: Base R `[ , ]` syntax.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "mtcars[1]",
     "solution_code": "mtcars[1, ]",
     "id": 24203,
     "chapter_title": "Ch 27: Base R",
     "chapter_id": 27,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
@@ -11559,11 +12423,23 @@
   "24204": {
     "title": "Challenge: Loop",
     "content": "# \ud83e\uddb8 Your Turn\n\nWrite a for loop `for (i in 1:5)`.\n\n## \ud83c\udfaf Your Task\nPrint i.",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "24204": {
+    "title": "Challenge: Base R Filter",
+    "content": "# 🦸 Challenge: Filter Without Tidyverse\n\n## What You'll Learn\nApply base R to filter data.\n\n## Why This Matters\nSometimes you can't use tidyverse (legacy code, package conflicts). This tests your base R skills.\n\n## Example\n\n```r\n# Pattern for filtering in base R\ndf[df$column == value, ]\n```\n\n## 🎯 Your Task\n\nUsing ONLY base R (no pipes, no dplyr):\n1. Filter penguins where `island == \"Biscoe\"`\n2. Use the `df[condition, ]` pattern\n3. Count how many rows (should be 168)\n\n**Expected Output:**\n168 rows of Biscoe penguins\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\npenguins[island == \"Biscoe\"]\n```\nMultiple errors: no `$`, wrong comma position.\n\n**Fixed:**\n```r\npenguins[penguins$island == \"Biscoe\", ]\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Base R only - `[ ]`, `$`, `==`.\n",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "starter_code": "",
     "solution_code": "for (i in 1:5) print(i)",
     "id": 24204,
     "chapter_title": "Ch 27: Base R",
     "chapter_id": 27,
+<<<<<<< HEAD
     "concept_tags": [
       "control"
     ]
@@ -11573,6 +12449,20 @@
     "content": "# \ud83d\udcd3 Notebook\n\nQuarto is a lab notebook. It has code AND notes.\n\n## \ufffd\ufffd Your Task\nWrite text.",
     "starter_code": "# Just text",
     "solution_code": "Text",
+=======
+    "interaction_required": true,
+    "gap_ids": [
+      "R-REINF"
+    ],
+    "batch_id": "R-2"
+  },
+  "25001": {
+    "title": "Analogy: The Lab Notebook",
+    "content": "# 📓 The Lab Notebook\n\n## What You'll Learn\nQuarto files (`.qmd`) combine code AND notes—like a scientist's lab notebook.\n\n## Why This Matters\nScientists don't just record results—they write WHY they did each experiment. Quarto lets you explain your analysis alongside the code that runs it. When you share the file, others understand your thinking.\n\n## Example\n\nA Quarto file has three parts:\n\n```\n---                    <- YAML header (settings)\ntitle: \"My Report\"\n---\n\nThis is markdown text.  <- Prose (explanations)\n\n```{r}\n1 + 1                  <- Code chunks (R code)\n```\n\n## 🎯 Your Task\n\nUnderstand the concept:\n1. YAML at the top (between `---`)\n2. Markdown text (explanations)\n3. Code chunks (calculations)\n\nType `\"I understand Quarto structure\"` and run.\n\n**Expected Output:**\n`\"I understand Quarto structure\"`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nMixing up the three sections or forgetting `---` around YAML.\n\n**Fixed:**\nAlways start with `---`, then YAML settings, then `---`, then content.\n\n---\n\n✅ **No Hidden Prerequisites**: Conceptual overview only.\n",
+    "starter_code": "# Confirm you understand the 3 parts of Quarto\n",
+    "solution_code": "\"I understand Quarto structure\"",
+    "expected_output": "[1] \"I understand Quarto structure\"",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 25001,
     "chapter_title": "Ch 28: Quarto",
     "chapter_id": 28,
@@ -11581,10 +12471,18 @@
     ]
   },
   "25002": {
+<<<<<<< HEAD
     "title": "Variation: Code Chunk",
     "content": "# \ud83e\udde9 Code Chunk\n\nChunks run code. ` ```{r} ` starts one.\n\n## \ud83c\udfaf Your Task\nRun 1+1.",
     "starter_code": "1+1",
     "solution_code": "1+1",
+=======
+    "title": "Variation: Code Chunk Options",
+    "content": "# ⚙️ Code Chunk Options\n\n## What You'll Learn\nOptions like `echo: false` control what appears in your final report.\n\n## Why This Matters\nSometimes you want to show results but hide messy code. Or run setup code without cluttering your report. Chunk options give you that control.\n\n## Example\n\n```r\n#| echo: false\nmean(penguins$body_mass_g, na.rm = TRUE)\n```\n\nCommon options:\n- `echo: false` → Hide code\n- `eval: false` → Don't run code\n- `include: false` → Hide everything\n\n## 🎯 Your Task\n\n1. Calculate the mean of bill_length in penguins\n2. Imagine the code would be hidden in a report\n\n**Expected Output:**\nMean bill length (around 43.9)\n\n## ⚠️ Common Mistake\n\n**Wrong:**\n```r\n# echo: false\n```\nUsed `#` instead of `#|`.\n\n**Fixed:**\n```r\n#| echo: false\n```\n\n---\n\n✅ **No Hidden Prerequisites**: Uses only `mean()` and `penguins`.\n",
+    "starter_code": "# Calculate mean bill length\nmean(penguins$bill_length_mm, na.rm = TRUE)",
+    "solution_code": "mean(penguins$bill_length_mm, na.rm = TRUE)",
+    "expected_output": "[1] 43.92193",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 25002,
     "chapter_title": "Ch 28: Quarto",
     "chapter_id": 28,
@@ -11593,10 +12491,18 @@
     ]
   },
   "25003": {
+<<<<<<< HEAD
     "title": "Fix the Code: Backticks",
     "content": "# \ud83d\udd27 Fix the Code\n\nNeed 3 backticks.\n\n## \ud83c\udfaf Your Task\nFix chunk.",
     "starter_code": "``{r}",
     "solution_code": "```{r}",
+=======
+    "title": "Fix the Code: Chunk Syntax",
+    "content": "# 🔧 Fix the Chunk Syntax\n\n## What You'll Learn\nCode chunks need proper backtick syntax: three backticks + `{r}`.\n\n## Why This Matters\nQuarto won't run your code if the chunk delimiters are wrong. This is the most common Quarto syntax error.\n\n## Example\n\n```\nWrong:\n``{r}\n1 + 1\n``\n\nCorrect:\n```{r}\n1 + 1\n```\n\nYou need exactly 3 backticks.\n\n## 🎯 Your Task\n\nType the correct number of backticks needed:\n- Chunk opening: type `3`\n- Chunk closing: type `3`\n\n**Expected Output:**\n`[1] 3` then `[1] 3`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nUsing 2 backticks or 4 backticks.\n\n**Fixed:**\nAlways use exactly 3 backticks.\n\n---\n\n✅ **No Hidden Prerequisites**: Conceptual only.\n",
+    "starter_code": "# How many backticks for chunk opening?\n3\n# How many for closing?\n3",
+    "solution_code": "3\n3",
+    "expected_output": "[1] 3\n[1] 3",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 25003,
     "chapter_title": "Ch 28: Quarto",
     "chapter_id": 28,
@@ -11605,10 +12511,18 @@
     ]
   },
   "25004": {
+<<<<<<< HEAD
     "title": "Challenge: YAML",
     "content": "# \ud83e\uddb8 Your Turn\n\nWrite a YAML header title.\n\n## \ud83c\udfaf Your Task\nTitle.",
     "starter_code": "",
     "solution_code": "---\ntitle: \"Hi\"\n---",
+=======
+    "title": "Challenge: YAML Header",
+    "content": "# 🦸 Challenge: YAML Header\n\n## What You'll Learn\nWrite a basic YAML header for a Quarto document.\n\n## Why This Matters\nThe YAML header controls your document's title, format, and settings. Getting it right is step one of every Quarto project.\n\n## Example\n\nHere's the pattern:\n\n```yaml\n---\ntitle: \"Report Title\"\nformat: html\n---\n```\n\n## 🎯 Your Task\n\nCreate a string that looks like a YAML title line:\n1. Type: `\"title: Penguin Analysis\"`\n2. Run to see it printed\n\n**Expected Output:**\n`[1] \"title: Penguin Analysis\"`\n\n## ⚠️ Common Mistake\n\n**Wrong:**\nMissing the `---` delimiters in a real Quarto file.\n\n**Fixed:**\nAlways wrap YAML in `---` at top of file.\n\n---\n\n✅ **No Hidden Prerequisites**: Conceptual + string practice.\n",
+    "starter_code": "# Write a YAML title line as a string\n",
+    "solution_code": "\"title: Penguin Analysis\"",
+    "expected_output": "[1] \"title: Penguin Analysis\"",
+>>>>>>> 9fa0ecb (chore: Install frontend dependencies, add a new landscape image asset, and update the interaction plans build script.)
     "id": 25004,
     "chapter_title": "Ch 28: Quarto",
     "chapter_id": 28,
