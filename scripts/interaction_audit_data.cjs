@@ -1,6 +1,28 @@
 const fs = require("fs");
 const path = require("path");
 
+const args = process.argv.slice(2);
+
+const readArg = (name) => {
+  const prefix = `--${name}=`;
+  const direct = args.find((arg) => arg.startsWith(prefix));
+  if (direct) {
+    return direct.slice(prefix.length);
+  }
+  const index = args.indexOf(`--${name}`);
+  if (index !== -1 && args[index + 1]) {
+    return args[index + 1];
+  }
+  return null;
+};
+
+const curriculumRaw = readArg("curriculum") || "all";
+const curriculum = curriculumRaw.toLowerCase();
+const allowedCurricula = ["all", "python", "sql", "r"];
+if (!allowedCurricula.includes(curriculum)) {
+  throw new Error(`Invalid curriculum "${curriculumRaw}". Use one of: ${allowedCurricula.join(", ")}`);
+}
+
 const lessonsPath = path.resolve(__dirname, "../frontend/public/data/lessons.json");
 const coursePaths = {
   python: path.resolve(__dirname, "../frontend/public/data/course-python-basics.json"),
@@ -250,12 +272,15 @@ const main = () => {
     sql: loadCourseOrder(coursePaths.sql),
     r: loadCourseOrder(coursePaths.r)
   };
+  const selectedOrder = curriculum === "all"
+    ? courseOrder
+    : { [curriculum]: courseOrder[curriculum] };
 
   const records = [];
   const seen = new Set();
   const streaks = [];
 
-  Object.entries(courseOrder).forEach(([curriculum, orderIds]) => {
+  Object.entries(selectedOrder).forEach(([curriculumKey, orderIds]) => {
     let lastRecipe = null;
     let consecutiveCount = 0;
     orderIds.forEach((lessonId) => {
@@ -273,12 +298,13 @@ const main = () => {
       records.push(buildRecord(lessonId, lesson, consecutiveCount));
       seen.add(lessonId);
     });
-    streaks.push(...computeStreaks(orderIds, lessons, curriculum));
+    streaks.push(...computeStreaks(orderIds, lessons, curriculumKey));
   });
 
   const remainingIds = Object.keys(lessons)
     .map((id) => Number(id))
     .filter((id) => !seen.has(id))
+    .filter((id) => (curriculum === "all" ? true : getCurriculum(id) === curriculum))
     .sort((a, b) => a - b);
   remainingIds.forEach((lessonId) => {
     const lesson = lessons[String(lessonId)];
@@ -330,6 +356,7 @@ const main = () => {
 
   const report = [
     "# Interaction Audit Summary",
+    `Curriculum: ${curriculum}`,
     `Total lessons: ${records.length}`,
     `Flagged lessons: ${records.filter((r) => r.issues.length > 0).length}`,
     `Prediction present: ${predictionTotals.overall.prediction}`,

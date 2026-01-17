@@ -18,6 +18,8 @@ const readArg = (name) => {
 
 const sampleRaw = readArg("sample");
 const sampleSize = sampleRaw ? Number(sampleRaw) : 60;
+const curriculumRaw = readArg("curriculum") || "all";
+const curriculum = curriculumRaw.toLowerCase();
 
 const rawBaseUrl = process.env.BASE_URL || "http://127.0.0.1:5173/Python-Game-2/";
 const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
@@ -114,16 +116,39 @@ const hashFingerprint = (payload) => {
 
 const detectPredictionText = (text) => /predict|prediction|guess the output/i.test(text || "");
 
+const getCurriculum = (lessonId) => {
+  if (lessonId >= 2000) {
+    return "r";
+  }
+  if (lessonId >= 1001) {
+    return "sql";
+  }
+  return "python";
+};
+
+const assertCurriculum = () => {
+  const allowed = ["all", "python", "sql", "r"];
+  if (!allowed.includes(curriculum)) {
+    throw new Error(`Invalid curriculum "${curriculumRaw}". Use one of: ${allowed.join(", ")}`);
+  }
+};
+
 const run = async () => {
+  assertCurriculum();
   const lessons = JSON.parse(fs.readFileSync(lessonsPath, "utf-8"));
-  const courseOrder = [
-    ...loadCourseOrder(coursePaths.python),
-    ...loadCourseOrder(coursePaths.sql),
-    ...loadCourseOrder(coursePaths.r)
-  ];
+  const courseOrder = curriculum === "all"
+    ? [
+      ...loadCourseOrder(coursePaths.python),
+      ...loadCourseOrder(coursePaths.sql),
+      ...loadCourseOrder(coursePaths.r)
+    ]
+    : loadCourseOrder(coursePaths[curriculum]);
   const seen = new Set();
   const orderedIds = courseOrder.filter((id) => {
     if (seen.has(id)) {
+      return false;
+    }
+    if (curriculum !== "all" && getCurriculum(id) !== curriculum) {
       return false;
     }
     seen.add(id);
@@ -132,6 +157,7 @@ const run = async () => {
   const remainingIds = Object.keys(lessons)
     .map((id) => Number(id))
     .filter((id) => !seen.has(id))
+    .filter((id) => (curriculum === "all" ? true : getCurriculum(id) === curriculum))
     .sort((a, b) => a - b);
   const allIds = orderedIds.concat(remainingIds);
   const sampleIds = buildSampleIds(allIds, sampleSize);
@@ -306,6 +332,7 @@ const run = async () => {
 
   const report = [
     "# UI Sample Audit Summary",
+    `Curriculum: ${curriculum}`,
     `Sample size: ${records.length}`,
     `Prediction UI present: ${predictionHits.length}`,
     `Repeated fingerprint streaks (3+): ${repetitionHits.length}`,
